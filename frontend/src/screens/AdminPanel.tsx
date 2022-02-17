@@ -24,9 +24,7 @@ const AdminPanel: React.FC<AdminPanelProps> = () => {
         <SendButton variant='primary' large fontLarge>
           <Link to='/admin/userlist'>User List</Link>
         </SendButton>
-        <SendButton variant='secondary' large fontLarge>
-          <Link to='/admin/blog/manage'>Article List</Link>
-        </SendButton>
+
         <SendButton variant='danger' large fontLarge>
           <Link to='/profile'>Edit Admin Account</Link>
         </SendButton>
