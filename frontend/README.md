@@ -59,5 +59,5 @@ You will also see any lint errors in the console.
 "proxy": "http://127.0.0.1:5000",
 proxy in frontend "proxy": "http://127.0.0.1:5000" in package.json, for making a request on 5000 port instead 3000 frontend is running on
 
-
-
+###
+problem - menu items after logging in

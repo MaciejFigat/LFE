@@ -71,22 +71,22 @@ export const TransitionWrapperMain = styled.div`
     @media (max-width: 1020px) {
       background: var(--background3-main);
       li {
-        color: var(--background5-main);
+        color: var(--background3-main);
       }
     }
     .burger {
-      background: var(--background5-main);
+      background: var(--background3-main);
     }
   }
   .hidden {
     transition: border-bottom 600ms ease-in;
     /* border-bottom: 1px solid rgba(255, 255, 255, 0.125); */
     .burger {
-      background: var(--background5-main);
+      background: var(--background3-main);
     }
     /* this is for the username of logged user */
     h1 {
-      color: var(--background5-main);
+      color: var(--background3-main);
     }
     /* li is for login/logout icons in navbar */
     li {

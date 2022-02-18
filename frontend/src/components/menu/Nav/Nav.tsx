@@ -128,7 +128,6 @@ const Nav: React.FC<NavProps> = () => {
             </HeaderLoginWrapper>
           )}
         </MobileViewContainer>
-
         <NavContainer className={open} onClick={handleCloseMenu}>
           <NavListDesktop />
           <NavListMobile open={open} />
