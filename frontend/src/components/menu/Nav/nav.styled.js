@@ -51,7 +51,7 @@ export const TransitionWrapperMain = styled.div`
   }
   .active.open {
     .burger {
-      background: var(--background3-main);
+      background: var(--background4-main);
     }
     /* li is for login/logout icons in navbar */
     li {
@@ -75,7 +75,7 @@ export const TransitionWrapperMain = styled.div`
       }
     }
     .burger {
-      background: var(--background3-main);
+      background: var(--background4-main);
     }
   }
   .hidden {
