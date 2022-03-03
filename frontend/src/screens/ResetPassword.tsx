@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useAppDispatch } from '../app/reduxHooks'
-import { testResetPassword } from '../features/users/userSlice'
+import { resetPassword } from '../features/users/userSlice'
 import { Wrapper, Form, Input, Button, LoginContainer } from '../styles/login'
 import useRedirectLoggedListener from '../hooks/useRedirectListenerLogged'
 
@@ -11,10 +11,10 @@ const ResetPassword: React.FC<ResetPasswordProps> = () => {
 
   useRedirectLoggedListener()
   const [token, setToken] = useState<string | number | any>('')
-  // e4cce7334f1776b91b330bb6731f2e3bfee33ccb
+
   const submitHandler = (e: any) => {
     e.preventDefault()
-    dispatch(testResetPassword(token))
+    dispatch(resetPassword(token))
   }
 
   return (
