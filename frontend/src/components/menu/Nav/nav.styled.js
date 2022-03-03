@@ -115,14 +115,17 @@ export const NavContainer = styled.nav`
   position: sticky;
   top: 0;
   min-height: fit-content;
-  overflow: hidden;
 
+  @media (min-width: 2220px) {
+    max-width: 2000px;
+  }
   @media (max-width: 1020px) {
     flex-direction: column;
     justify-content: center;
     width: 100%;
     max-width: 100%;
     box-shadow: none;
+    overflow: hidden;
   }
 `
 // the following list is used for desktop navigation
@@ -132,6 +135,10 @@ export const NavList = styled.ul`
   justify-content: space-around;
   padding: 0;
   min-width: 50vw;
+  @media (min-width: 1820px) {
+    justify-content: space-evenly;
+    min-width: 30vw;
+  }
   @media (max-width: 1020px) {
     width: 100%;
     position: sticky;
