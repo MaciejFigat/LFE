@@ -50,17 +50,20 @@ const Login: React.FC<LoginProps> = () => {
             type='email'
             name='email'
             placeholder='Enter your email'
+            autoComplete='email'
             value={email}
             onChange={(e: any) => setEmail(e.target.value)}
           />
+
           <Input
             type='password'
-            name='password'
-            autocomplete='on'
+            // name='password'
+            autoComplete='current-password'
             placeholder='Enter your password'
             value={password}
             onChange={(e: any) => setPassword(e.target.value)}
           />
+
           <Button>Login</Button>
           <Title>
             Please feel free to{' '}
