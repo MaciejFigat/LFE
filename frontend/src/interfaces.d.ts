@@ -4,6 +4,7 @@ interface UserInfo {
     email?: string
     password?: string
     isAdmin?: boolean
+    status?: 'Active' | 'Pending'
 }
 
 interface ArticleById {

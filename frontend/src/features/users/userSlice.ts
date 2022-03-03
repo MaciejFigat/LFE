@@ -337,11 +337,9 @@ const userSlice = createSlice({
         success: false
     },
     reducers: {
-
         logout: (state) => {
             state.userInfo = {}
             state.error = {}
-
         },
         userSuccessReset(state) {
             state.success = false

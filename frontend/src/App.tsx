@@ -10,6 +10,7 @@ import UserListAdmin from './screens/UserListAdmin'
 import UserProfile from './screens/UserProfile'
 import AdminPanel from './screens/AdminPanel'
 import ResetPassword from './screens/ResetPassword'
+import ConfirmAccount from './screens/ConfirmAccount'
 
 function App() {
   const location = useLocation()
@@ -23,6 +24,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/resetpassword' element={<ResetPassword />} />
+        <Route path='/confirmaccount' element={<ConfirmAccount />} />
         <Route path='/admin' element={<AdminPanel />} />
         <Route path='/admin/userlist' element={<UserListAdmin />} />
         <Route path='/admin/user/:id/edit' element={<UserAdminEdit />} />
