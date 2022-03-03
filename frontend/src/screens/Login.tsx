@@ -56,6 +56,7 @@ const Login: React.FC<LoginProps> = () => {
           <Input
             type='password'
             name='password'
+            autocomplete='on'
             placeholder='Enter your password'
             value={password}
             onChange={(e: any) => setPassword(e.target.value)}
