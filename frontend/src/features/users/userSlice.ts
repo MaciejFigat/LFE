@@ -107,6 +107,30 @@ export const testResetPassword = createAsyncThunk(
         }
     }
 )
+// sending the confirmationCode sets status to Active
+// 
+interface ActivationToken {
+    confirmationCode: string | any
+}
+export const activateUser = createAsyncThunk(
+    'user/activateUser',
+
+    async (userToken: ActivationToken) => {
+
+        const { confirmationCode } = userToken
+        try {
+            const { data } = await axios.post(
+
+                '/api/users/userconfirmation',
+                { confirmationCode }
+            )
+            return data
+
+        } catch (error: any) {
+            return error
+        }
+    }
+)
 
 // 
 interface NewUserInfo {
@@ -352,6 +376,20 @@ const userSlice = createSlice({
 
         })
         builder.addCase(testResetPassword.rejected, (state, action) => {
+            state.loading = false
+
+        })
+        builder.addCase(activateUser.pending, (state, action) => {
+            state.loading = true
+
+        })
+        builder.addCase(activateUser.fulfilled, (state, action) => {
+            state.loading = false
+            state.error = action.payload.message
+
+
+        })
+        builder.addCase(activateUser.rejected, (state, action) => {
             state.loading = false
 
         })
