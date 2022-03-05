@@ -93,4 +93,21 @@ You will also see any lint errors in the console.
 "proxy": "http://127.0.0.1:5000",
 proxy in frontend "proxy": "http://127.0.0.1:5000" in package.json, for making a request on 5000 port instead 3000 frontend is running on
 
-###
+### text highlight medium like 
+
+npm install react-highlight-pop - not for now/tested dont like it
+
+### copy text to clipboard
+
+navigator.clipboard.writeText 
+writeText() - Writes text to the system clipboard, returning a Promise which is resolved once the text is fully copied into the clipboard.
+
+<div class="tokenValue">Token Value to copy</div>
+<button>Click</button>
+const text =  document.getElementsByClassName(tokenValue)
+
+button.addEventListener('click', event => {
+ (async () => {
+  await navigator.clipboard.writeText(text)
+})()
+})
