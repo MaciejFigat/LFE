@@ -40,6 +40,9 @@ const UserListAdmin: React.FC<UserListAdminProps> = () => {
   return (
     <AdminWrapper>
       <AdminContainer>
+        <SendButton variant='primary' large fontLarge>
+          <Link to='/admin'>Back to admin panel</Link>
+        </SendButton>
         <TableWrapper>
           <Table>
             <thead>
