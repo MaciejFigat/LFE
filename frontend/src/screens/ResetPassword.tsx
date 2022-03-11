@@ -12,6 +12,14 @@ const ResetPassword: React.FC<ResetPasswordProps> = () => {
   useRedirectLoggedListener()
   const [token, setToken] = useState<string | number | any>('')
 
+  // const userToken = {
+  //   resetPasswordToken: token,
+  // }
+
+  // const submitHandler = (e: any) => {
+  //   e.preventDefault()
+  //   dispatch(resetPassword(userToken))
+  // }
   const userToken = {
     resetPasswordToken: token,
   }

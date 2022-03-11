@@ -89,7 +89,7 @@ interface UserToken {
     resetPasswordToken: string | any
 }
 export const resetPassword = createAsyncThunk(
-    'user/test',
+    'user/resetPassword',
 
     async (userToken: UserToken) => {
 
@@ -97,7 +97,7 @@ export const resetPassword = createAsyncThunk(
         try {
             const { data } = await axios.post(
 
-                '/api/users/test',
+                '/api/users/reset',
                 { resetPasswordToken }
             )
             return data
