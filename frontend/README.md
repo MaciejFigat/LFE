@@ -111,3 +111,9 @@ button.addEventListener('click', event => {
   await navigator.clipboard.writeText(text)
 })()
 })
+
+### mvp highlight addon menu
+1. npm install react-highlight-pop
+2. import HighlightPop from 'react-highlight-pop'
+    ├── I'll either need to write this one from the ground up or type it myself, for now its ts-ignored 
+3. 

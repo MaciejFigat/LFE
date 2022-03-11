@@ -11,13 +11,13 @@ export const EditFormContainer = styled.div`
 export const EditForm = styled.form`
   width: 100%;
   margin-top: 2rem;
+  /* min-width: fit-content; */
+  min-width: 300px;
   @media (min-width: 640px) and (max-width: 798px) {
     margin-top: 40px;
-    min-width: fit-content;
   }
   @media (max-width: 639px) {
     margin-top: 20px;
-    min-width: fit-content;
   }
 `
 export const ContactField = styled.div`

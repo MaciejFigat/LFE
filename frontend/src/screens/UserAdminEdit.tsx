@@ -132,7 +132,7 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
                 fontWeight: 700,
               }}
             >
-              {user.name}'s status is is Active
+              {user.name}'s status is Active
             </p>
             <SendButton onClick={activateHandler} variant='success'>
               set as inactive
