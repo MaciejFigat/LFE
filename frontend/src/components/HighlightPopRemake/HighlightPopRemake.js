@@ -93,9 +93,9 @@ class HighlightPop extends Component {
             role='presentation'
             onMouseDown={(e) => e.preventDefault()}
           >
-            <HPopoverItem role='button'>First option</HPopoverItem>
-            <HPopoverItem role='button'>Copy</HPopoverItem>
-            <HPopoverItem role='button'>Highlight maybe</HPopoverItem>
+            <HPopoverItem role='button'>Слава Україні!</HPopoverItem>
+            <HPopoverItem role='button'>Героям слава!</HPopoverItem>
+            <HPopoverItem role='button'>Hague is waiting</HPopoverItem>
           </HPopover>
         )}
         {children}

@@ -20,24 +20,13 @@ const Home: React.FC = () => {
       <Toast option='registerUser' />
 
       <HighlightPop>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo libero
-          placeat, iste maiores adipisci quis. Ducimus fugit suscipit labore
-          repellendus.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-          quae illum quaerat iste unde cum. Dolores ratione ipsa perferendis rem
-          ut, quisquam dolorem modi sequi, commodi debitis repellat quis
-          eveniet!
-        </p>
+        <InfoSection paddingTop='small' data={homeData}></InfoSection>
+        <InfoSection
+          paddingTop='small'
+          variant='transparent'
+          data={homeData}
+        ></InfoSection>
       </HighlightPop>
-      <InfoSection paddingTop='small' data={homeData}></InfoSection>
-      <InfoSection
-        paddingTop='small'
-        variant='transparent'
-        data={homeData}
-      ></InfoSection>
     </>
   )
 }
