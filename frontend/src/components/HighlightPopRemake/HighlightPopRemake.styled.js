@@ -22,7 +22,7 @@ export const HPopover = styled.div`
     height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 6px solid #333;
+    border-top: 6px solid yellow;
   }
 `
 
