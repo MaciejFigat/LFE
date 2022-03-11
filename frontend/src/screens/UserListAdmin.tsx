@@ -21,7 +21,9 @@ const UserListAdmin: React.FC<UserListAdminProps> = () => {
   const userSuccess = useAppSelector((state) => state.user.success)
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const deleteUserHandler = (id: string) => {
-    dispatch(deleteUser(id))
+    if (window.confirm('Are you sure?')) {
+      dispatch(deleteUser(id))
+    }
   }
 
   // getUsers I have to pass an argument (anything really) because my thunk in the slice needs an argument to also receive thunkAPI, when thunkAPI is alone it's not working
