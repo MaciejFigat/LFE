@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { getUserById, updateUser } from '../features/users/userSlice'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { UserInfo } from '../interfaces'
+import { Link } from 'react-router-dom'
 import Toast from '../components/Toast/Toast'
 import {
   EditFormContainer,
@@ -97,6 +98,9 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
     <AdminWrapper>
       <Toast option='editUser' />
       <AdminContainer>
+        <SendButton variant='info' large fontLarge>
+          <Link to='/admin/userlist'>Back to user list</Link>
+        </SendButton>
         <h1>EDIT USER: {nameState}</h1>{' '}
         {isAdmin === true ? (
           <p
