@@ -13,6 +13,10 @@ class HighlightPop extends Component {
 
     this.highlight = createRef()
   }
+  // I will need state for showPopover: boolean
+  // x: number
+  // y: number
+  // selectedText: string
 
   componentDidMount() {
     window.addEventListener('mouseup', this.onMouseUp)

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const HPopover = styled.div`
   padding: 6px 10px;
-  background: #333;
+  background: linear-gradient(to bottom, blue, yellow);
   border-radius: 3px;
   position: absolute;
   top: 0;
