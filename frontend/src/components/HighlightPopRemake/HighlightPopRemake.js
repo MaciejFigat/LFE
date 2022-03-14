@@ -76,6 +76,12 @@ class HighlightPop extends Component {
       selectedText,
       showPopover: true,
     })
+    // HERE
+    // setXPosition(x + width / 2),
+    // setYPosition(y + window.scrollY - 10),
+    // setSelectedText(selectedText),
+    //   showPopover: true,
+    // })
 
     const { onHighlightPop = () => {} } = this.props
     onHighlightPop(selectedText)

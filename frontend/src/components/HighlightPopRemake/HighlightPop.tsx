@@ -13,6 +13,11 @@ const HighlightPop: React.FC<HighlightPopProps> = ({ children }) => {
 
   const highlight = useRef(null)
 
+  const hidePopover = () => {
+    setShowPopover(false)
+  }
+  useEffect(() => {}, [])
+
   return (
     <div ref={highlight}>
       {showPopover && (
