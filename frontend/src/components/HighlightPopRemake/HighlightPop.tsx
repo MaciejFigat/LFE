@@ -16,7 +16,71 @@ const HighlightPop: React.FC<HighlightPopProps> = ({ children }) => {
   const hidePopover = () => {
     setShowPopover(false)
   }
-  useEffect(() => {}, [])
+  // HERE
+  const onMouseUp = () => {
+    const selection: Selection | null = window.getSelection()
+
+    const selectedText = selection !== null ? selection.toString().trim() : null
+
+    if (!selectedText) {
+      hidePopover()
+      return
+    }
+
+    const selectionRange = selection !== null ? selection.getRangeAt(0) : null
+
+    const startNode =
+      selectionRange !== null ? selectionRange.startContainer.parentNode : null
+    const endNode =
+      selectionRange !== null ? selectionRange.endContainer.parentNode : null
+
+    const highlightable = highlight.current
+    const highlightableRegion =
+      highlightable !== null ? highlightable.querySelector('.h-popable') : null
+
+    if (highlightableRegion) {
+      if (
+        !highlightableRegion.contains(startNode) ||
+        !highlightableRegion.contains(endNode)
+      ) {
+        hidePopover()
+        return
+      }
+    } else if (
+      !highlightable.contains(startNode) ||
+      !highlightable.contains(endNode)
+    ) {
+      hidePopover()
+      return
+    }
+
+    if (!startNode.isSameNode(endNode)) {
+      hidePopover()
+      return
+    }
+
+    const { x, y, width } = selectionRange.getBoundingClientRect()
+    if (!width) {
+      hidePopover()
+      return
+    }
+
+    
+    // HERE
+    setXPosition(x + width / 2),
+    setYPosition(y + window.scrollY - 10),
+    setSelectedText(selectedText),
+      showPopover: true
+    })
+
+    // const { onHighlightPop = () => {} } = this.props
+    // onHighlightPop(selectedText)
+  }
+  // to HERE
+  useEffect(() => {
+    // onMouseUp on mount
+    // remove event listener onMouseUp
+  }, [])
 
   return (
     <div ref={highlight}>
