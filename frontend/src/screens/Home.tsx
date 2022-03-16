@@ -4,6 +4,7 @@ import Toast from '../components/Toast/Toast'
 // @ts-ignore
 // import HighlightPop from 'react-highlight-pop'
 import HighlightPop from '../components/HighlightPopRemake/HighlightPopRemake'
+import HighlightPopMenu from '../components/HighlightPopRemake/HighlightPopMenu'
 export const homeData = {
   topline: 'Lorem ipsum dolor sit.',
   headline:
@@ -21,12 +22,14 @@ const Home: React.FC = () => {
 
       <HighlightPop>
         <InfoSection paddingTop='small' data={homeData}></InfoSection>
+      </HighlightPop>
+      <HighlightPopMenu>
         <InfoSection
           paddingTop='small'
           variant='transparent'
           data={homeData}
         ></InfoSection>
-      </HighlightPop>
+      </HighlightPopMenu>
     </>
   )
 }

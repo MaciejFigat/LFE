@@ -1,11 +1,17 @@
-import React, { ReactNode, useState, useRef, useEffect } from 'react'
+import React, {
+  ReactNode,
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+} from 'react'
 import { HPopover, HPopoverItem } from './HighlightPopRemake.styled'
 
 interface HighlightPopProps {
   children: ReactNode
 }
 
-const HighlightPop: React.FC<HighlightPopProps> = ({ children }) => {
+const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
   const [xPosition, setXPosition] = useState<number | null>(null)
   const [yPosition, setYPosition] = useState<number | null>(null)
   const [selectedText, setSelectedText] = useState<string>('')
@@ -17,7 +23,7 @@ const HighlightPop: React.FC<HighlightPopProps> = ({ children }) => {
     setShowPopover(false)
   }
   // HERE
-  const onMouseUp = () => {
+  const onMouseUp = useCallback(() => {
     const selection: Selection | null = window.getSelection()
 
     const selectedText = selection !== null ? selection.toString().trim() : null
@@ -80,15 +86,21 @@ const HighlightPop: React.FC<HighlightPopProps> = ({ children }) => {
     setYPosition(y + window.scrollY - 10)
     setSelectedText(selectedText)
     setShowPopover(true)
-
+    console.log(selectedText)
     // const { onHighlightPop = () => {} } = this.props
     // onHighlightPop(selectedText)
-  }
+  }, [])
   // to HERE
   useEffect(() => {
-    // onMouseUp on mount
+    window.addEventListener('mouseup', onMouseUp)
+  }, [selectedText, onMouseUp])
+
+  useEffect(() => {
     // remove event listener onMouseUp
-  }, [])
+    if (selectedText === '' && selectedText) {
+      window.removeEventListener('mouseup', onMouseUp)
+    }
+  }, [selectedText, onMouseUp])
 
   return (
     <div ref={highlight}>
@@ -98,13 +110,13 @@ const HighlightPop: React.FC<HighlightPopProps> = ({ children }) => {
           role='presentation'
           onMouseDown={(e: any) => e.preventDefault()}
         >
-          <HPopoverItem role='button'>Слава Україні!</HPopoverItem>
+          <HPopoverItem role='button'>Hello</HPopoverItem>
           <HPopoverItem role='button'>Героям слава!</HPopoverItem>
-          <HPopoverItem role='button'>Hague is waiting</HPopoverItem>
+          <HPopoverItem role='button'>Hello is waiting</HPopoverItem>
         </HPopover>
       )}
       {children}
     </div>
   )
 }
-export default HighlightPop
+export default HighlightPopMenu
