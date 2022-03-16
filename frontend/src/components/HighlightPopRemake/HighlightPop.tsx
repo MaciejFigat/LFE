@@ -34,9 +34,16 @@ const HighlightPop: React.FC<HighlightPopProps> = ({ children }) => {
     const endNode =
       selectionRange !== null ? selectionRange.endContainer.parentNode : null
 
-    const highlightable = highlight.current
-    const highlightableRegion =
-      highlightable !== null ? highlightable.querySelector('.h-popable') : null
+    const highlightable = highlight !== null ? highlight.current : null
+    // const highlightable: null | Selection = highlight !== null ? highlight.current : null
+    // Nullish Coalescing
+    //  let x = foo ?? bar() return foo if it's not null or undefined otherwise calculate bar
+    // “Non-null assertion operator“, basically it means that when you add the exclamation mark after a property/value, you are telling TypeScript that you are certain that value is not null or undefined.
+    // @ts-ignore
+    const highlightableRegion = highlightable!.querySelector('.h-popable')
+
+    // const highlightableRegion =
+    //   highlightable !== null ? highlightable.querySelector('.h-popable') : null
 
     if (highlightableRegion) {
       if (
@@ -47,31 +54,32 @@ const HighlightPop: React.FC<HighlightPopProps> = ({ children }) => {
         return
       }
     } else if (
-      !highlightable.contains(startNode) ||
-      !highlightable.contains(endNode)
+      highlightable &&
+      // @ts-ignore
+      (!highlightable.contains(startNode) ||
+        // @ts-ignore
+        !highlightable.contains(endNode))
     ) {
       hidePopover()
       return
     }
 
-    if (!startNode.isSameNode(endNode)) {
+    if (startNode && !startNode.isSameNode(endNode)) {
       hidePopover()
       return
     }
 
-    const { x, y, width } = selectionRange.getBoundingClientRect()
+    const { x, y, width } = selectionRange!.getBoundingClientRect()
     if (!width) {
       hidePopover()
       return
     }
 
-    
     // HERE
-    setXPosition(x + width / 2),
-    setYPosition(y + window.scrollY - 10),
-    setSelectedText(selectedText),
-      showPopover: true
-    })
+    setXPosition(x + width / 2)
+    setYPosition(y + window.scrollY - 10)
+    setSelectedText(selectedText)
+    setShowPopover(true)
 
     // const { onHighlightPop = () => {} } = this.props
     // onHighlightPop(selectedText)
