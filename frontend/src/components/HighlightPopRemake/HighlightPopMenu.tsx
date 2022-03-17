@@ -45,6 +45,7 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
     // Nullish Coalescing
     //  let x = foo ?? bar() return foo if it's not null or undefined otherwise calculate bar
     // “Non-null assertion operator“, basically it means that when you add the exclamation mark after a property/value, you are telling TypeScript that you are certain that value is not null or undefined.
+
     // @ts-ignore
     const highlightableRegion = highlightable!.querySelector('.h-popable')
 
@@ -90,17 +91,20 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
     // const { onHighlightPop = () => {} } = this.props
     // onHighlightPop(selectedText)
   }, [])
-  // to HERE
-  useEffect(() => {
-    window.addEventListener('mouseup', onMouseUp)
-  }, [selectedText, onMouseUp])
 
   useEffect(() => {
-    // remove event listener onMouseUp
-    if (selectedText === '' && selectedText) {
+    window.addEventListener('mouseup', onMouseUp)
+    return () => {
       window.removeEventListener('mouseup', onMouseUp)
     }
   }, [selectedText, onMouseUp])
+
+  // useEffect(() => {
+  // remove event listener onMouseUp
+  //   if (selectedText === '' && selectedText) {
+  //     window.removeEventListener('mouseup', onMouseUp)
+  //   }
+  // }, [onMouseUp, selectedText])
 
   return (
     <div ref={highlight}>
