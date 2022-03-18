@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useCallback,
 } from 'react'
+import CopyText from './CopyText/CopyText'
 import { HPopover, HPopoverItem } from './HighlightPopRemake.styled'
 
 interface HighlightPopProps {
@@ -88,9 +89,11 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
           role='presentation'
           onMouseDown={(e: any) => e.preventDefault()}
         >
-          <HPopoverItem role='button'>Hello</HPopoverItem>
-          <HPopoverItem role='button'>Героям слава!</HPopoverItem>
-          <HPopoverItem role='button'>Hello is waiting</HPopoverItem>
+          <HPopoverItem role='button'>
+            <CopyText />
+          </HPopoverItem>
+          <HPopoverItem role='button'>Save</HPopoverItem>
+          <HPopoverItem role='button'>Storage</HPopoverItem>
         </HPopover>
       )}
       {children}

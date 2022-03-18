@@ -7,7 +7,7 @@ interface UserInfo {
     status?: 'Active' | 'Pending'
 }
 
-interface ArticleById {
+interface FragmentCreated {
     _id: string
     topline: string
     headline: string
@@ -16,16 +16,9 @@ interface ArticleById {
     imgLink: string
     createdAt: string
 }
-interface ArticleCreated {
-    topline: string
-    headline: string
-    subtitle: string
-    author: string
-    imgLink: string
-}
+
 
 export {
     UserInfo,
-    ArticleById,
-    ArticleCreated
+    FragmentCreated
 }

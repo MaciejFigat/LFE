@@ -1,9 +1,7 @@
 import React from 'react'
 import InfoSection from '../components/InfoSection/InfoSection'
 import Toast from '../components/Toast/Toast'
-// @ts-ignore
-// import HighlightPop from 'react-highlight-pop'
-import HighlightPop from '../components/HighlightPopRemake/HighlightPopRemake'
+
 import HighlightPopMenu from '../components/HighlightPopRemake/HighlightPopMenu'
 export const homeData = {
   topline: 'Lorem ipsum dolor sit.',
@@ -19,11 +17,9 @@ const Home: React.FC = () => {
   return (
     <>
       <Toast option='registerUser' />
-
-      <HighlightPop>
-        <InfoSection paddingTop='small' data={homeData}></InfoSection>
-      </HighlightPop>
       <HighlightPopMenu>
+        <InfoSection paddingTop='small' data={homeData}></InfoSection>
+
         <InfoSection
           paddingTop='small'
           variant='transparent'

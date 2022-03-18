@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const HPopover = styled.div`
   padding: 6px 10px;
-  background: linear-gradient(to bottom, blue, yellow);
+  background: var(--background1-main);
   border-radius: 3px;
   position: absolute;
   top: 0;
@@ -22,12 +22,12 @@ export const HPopover = styled.div`
     height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 6px solid yellow;
+    border-top: 6px solid var(--background1-main);
   }
 `
 
 export const HPopoverItem = styled.span`
-  color: #fff;
+  color: var(--background5-main);
   cursor: pointer;
   padding: 0;
   display: flex;
