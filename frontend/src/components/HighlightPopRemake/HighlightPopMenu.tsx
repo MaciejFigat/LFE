@@ -90,7 +90,7 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
           onMouseDown={(e: any) => e.preventDefault()}
         >
           <HPopoverItem role='button'>
-            <CopyText />
+            <CopyText highlightedText={selectedText} />
           </HPopoverItem>
           <HPopoverItem role='button'>Save</HPopoverItem>
           <HPopoverItem role='button'>Storage</HPopoverItem>

@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { CopyHeading } from './CopyText.styled'
 
-interface CopyTextProps {}
+interface CopyTextProps {
+  highlightedText: string
+}
 
-const CopyText: React.FC<CopyTextProps> = () => {
+const CopyText: React.FC<CopyTextProps> = ({ highlightedText }) => {
   const [copySuccess, setCopySuccess] = useState('')
-
-  const copyHandler = (id: string) => {
-    const copyText = document.getElementById(id)?.innerText
-    if (copyText) {
-      const dummy = document.createElement('textarea')
-      document.body.appendChild(dummy)
-      dummy.value = copyText
-      dummy.select()
-      document.execCommand('copy')
-      document.body.removeChild(dummy)
+  // const text = highlightedText
+  const copyHandler = (highlightedText: string) => {
+    navigator.clipboard.writeText(highlightedText)
+    if (highlightedText) {
+      navigator.clipboard.writeText(highlightedText)
       setCopySuccess('Copied!')
       console.log(copySuccess)
     }
@@ -37,8 +34,7 @@ const CopyText: React.FC<CopyTextProps> = () => {
       {' '}
       <CopyHeading
         contentAfter={copySuccess}
-        id='copyText'
-        onClick={() => copyHandler('copyText')}
+        onClick={() => copyHandler(highlightedText)}
         onMouseEnter={() => hoverHelper()}
         onMouseLeave={() => leaveHelper()}
       >
