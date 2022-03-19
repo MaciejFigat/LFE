@@ -12,6 +12,8 @@ export const HPopover = styled.div`
   transition: 0.2s all;
   display: flex;
   align-items: center;
+  min-width: fit-content;
+
   &:after {
     content: '';
     position: absolute;
@@ -31,6 +33,8 @@ export const HPopoverItem = styled.span`
   cursor: pointer;
   padding: 0;
   display: flex;
+  min-width: fit-content;
+  max-width: 50px;
   & + & {
     margin-left: 10px;
   }

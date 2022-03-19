@@ -5,6 +5,7 @@ export const CopyHeading = styled.h1`
   font-size: 1rem;
   line-height: 1.1;
   transition: all 0.3s ease-in;
+  max-width: 39px;
   &:hover {
     color: var(--background-tertiary4);
   }
@@ -23,7 +24,7 @@ export const CopyHeading = styled.h1`
     position: relative;
     bottom: 0px;
     left: 0;
-    width: 100%;
+    width: 350%;
     height: 5px;
   }
 `
