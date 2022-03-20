@@ -33,8 +33,8 @@ export const HPopoverItem = styled.span`
   cursor: pointer;
   padding: 0;
   display: flex;
-  min-width: fit-content;
-  max-width: 50px;
+  /* min-width: fit-content; */
+  /* max-width: 50px; */
   & + & {
     margin-left: 10px;
   }
