@@ -5,7 +5,7 @@ export const CopyHeading = styled.h1`
   font-size: 1rem;
   line-height: 1.1;
   transition: all 0.3s ease-in;
-  max-width: 38.6px;
+  max-width: 38.8px;
   &:hover {
     color: var(--background-tertiary4);
   }

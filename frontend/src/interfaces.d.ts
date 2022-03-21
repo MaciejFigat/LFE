@@ -7,18 +7,14 @@ interface UserInfo {
     status?: 'Active' | 'Pending'
 }
 
-interface FragmentCreated {
+interface CitationCreated {
     _id: string
-    topline: string
-    headline: string
-    subtitle: string
-    author: string
-    imgLink: string
+
     createdAt: string
 }
 
 
 export {
     UserInfo,
-    FragmentCreated
+    CitationCreated
 }
