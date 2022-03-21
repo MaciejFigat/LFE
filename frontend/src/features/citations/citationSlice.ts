@@ -1,6 +1,7 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { CitationCreated } from '../../interfaces'
-import axios from 'axios'
+import { createSlice } from "@reduxjs/toolkit"
+// import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
+// import { CitationCreated } from '../../interfaces'
+// import axios from 'axios'
 
 // interface NewCitationInfo {
 //     _id?: string
@@ -10,10 +11,17 @@ const citationSlice = createSlice({
     name: 'citation',
     initialState: {
         citations: [
-            // userId: '',
-            // fragments: [
-
-            // ],
+            {
+                id: '',
+                userId: '',
+                fragments: [
+                    {
+                        source: '',
+                        excerpt: '',
+                        coordinates: ''
+                    }
+                ],
+            }
         ],
         loading: false,
         error: {},
