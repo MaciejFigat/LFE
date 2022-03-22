@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import userReducer from '../features/users/userSlice'
-import citationReducer from '../features/citations/citationSlice'
+import fragmentReducer from '../features/fragments/fragmentSlice'
 
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
-    citation: citationReducer,
+    fragment: fragmentReducer,
 
   },
   middleware: (getDefaultMiddleware) => {
