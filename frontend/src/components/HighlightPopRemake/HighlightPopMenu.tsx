@@ -7,12 +7,20 @@ import React, {
 } from 'react'
 import CopyText from './CopyText/CopyText'
 import { HPopover, HPopoverItem } from './HighlightPopRemake.styled'
-
+import { UserInfo } from '../../interfaces'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+import { fragmentAdded } from '../../features/fragments/fragmentSlice'
+import AddFragment from './CopyText/AddFragment'
 interface HighlightPopProps {
   children: ReactNode
 }
 
 const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
+  const dispatch: any = useAppDispatch()
+  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  // const loggedUserId: UserInfo = useAppSelector((state) => state.user.userInfo._id)
+  const loggedUserId = userInfo._id
+
   const [xPosition, setXPosition] = useState<number | null>(null)
   const [yPosition, setYPosition] = useState<number | null>(null)
   const [selectedText, setSelectedText] = useState<string>('')
@@ -73,7 +81,23 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
     setShowPopover(true)
     console.log(selectedText)
   }, [])
-
+  // const loggedUserIdFake = '123sdsdsd'
+  // const newFragment = {
+  //   id: '',
+  //   userId: loggedUserIdFake,
+  //   // userId: loggedUserId,
+  //   citations: [
+  //     {
+  //       source: '',
+  //       excerpt: selectedText,
+  //       coordinates: '',
+  //     },
+  //   ],
+  // }
+  // const addFragmentHandler = (e: any) => {
+  //   e.preventDefault()
+  //   dispatch(fragmentAdded(newFragment))
+  // }
   useEffect(() => {
     window.addEventListener('mouseup', onMouseUp)
     return () => {
@@ -92,7 +116,12 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
           <HPopoverItem role='button'>
             <CopyText highlightedText={selectedText} />
           </HPopoverItem>
-          <HPopoverItem role='button'>Save</HPopoverItem>
+          <HPopoverItem role='button'>
+            <AddFragment highlightedText={selectedText} />
+          </HPopoverItem>
+          {/* <HPopoverItem role='button' onClick={addFragmentHandler}>
+            Add fragment
+          </HPopoverItem> */}
           <HPopoverItem role='button'>Storage</HPopoverItem>
         </HPopover>
       )}

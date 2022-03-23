@@ -60,6 +60,6 @@ const fragmentSlice = createSlice({
 
 
 // export const { } = fragmentSlice.actions
-export const { saveFragment, deleteFragment, deleteAllFragments } = fragmentSlice.actions
+export const { fragmentAdded, saveFragment, deleteFragment, deleteAllFragments } = fragmentSlice.actions
 
 export default fragmentSlice.reducer
