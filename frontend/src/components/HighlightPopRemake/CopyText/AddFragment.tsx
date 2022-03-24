@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { CopyHeading } from './CopyText.styled'
+import { SaveHeading } from './CopyText.styled'
 import { UserInfo } from '../../../interfaces'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { fragmentAdded } from '../../../features/fragments/fragmentSlice'
@@ -13,14 +13,7 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   const loggedUserId = userInfo._id
 
   const [copySuccess, setCopySuccess] = useState('')
-  //   const copyHandler = (highlightedText: string) => {
-  //     navigator.clipboard.writeText(highlightedText)
-  //     if (highlightedText) {
-  //       navigator.clipboard.writeText(highlightedText)
-  //       setCopySuccess('Copied!')
-  //       console.log(copySuccess)
-  //     }
-  //   }
+
   const hoverHelper = () => {
     setCopySuccess('Zapisz fragment?')
   }
@@ -55,14 +48,14 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   return (
     <>
       {' '}
-      <CopyHeading
+      <SaveHeading
         contentAfter={copySuccess}
         onClick={addFragmentHandler}
         onMouseEnter={() => hoverHelper()}
         onMouseLeave={() => leaveHelper()}
       >
         Zapisz
-      </CopyHeading>{' '}
+      </SaveHeading>{' '}
     </>
   )
 }

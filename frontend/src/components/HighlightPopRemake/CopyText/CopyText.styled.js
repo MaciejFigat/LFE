@@ -10,7 +10,7 @@ export const CopyHeading = styled.h1`
     color: var(--background-tertiary4);
   }
   @media screen and (max-width: 760px) {
-    font-size: 26px;
+    font-size: 0.8rem;
   }
 
   &:after {
@@ -27,4 +27,7 @@ export const CopyHeading = styled.h1`
     width: 350%;
     height: 5px;
   }
+`
+export const SaveHeading = styled(CopyHeading)`
+  max-width: 48.18px;
 `
