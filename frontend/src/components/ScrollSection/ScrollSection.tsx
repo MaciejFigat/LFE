@@ -23,10 +23,8 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
 }) => {
   return (
     <ScrollSec>
-      <ScrollSectionRow>
-        <SectionColumn transparent={transparent} width={widthSmall}>
-          {narrowSection}
-        </SectionColumn>
+      <ScrollSectionRow imgStart>
+        <SectionColumn width={widthSmall}>{narrowSection}</SectionColumn>
         <SectionColumnScroll width={widthBig}>
           {wideSection}
         </SectionColumnScroll>

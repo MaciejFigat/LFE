@@ -1,8 +1,9 @@
 import React from 'react'
 import InfoSection from '../components/InfoSection/InfoSection'
 import Toast from '../components/Toast/Toast'
-
+import ScrollSection from '../components/ScrollSection/ScrollSection'
 import HighlightPopMenu from '../components/HighlightPopRemake/HighlightPopMenu'
+import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
 export const homeData = {
   topline: 'Lorem ipsum dolor sit.',
   headline:
@@ -17,15 +18,23 @@ const Home: React.FC = () => {
   return (
     <>
       <Toast option='registerUser' />
-      <HighlightPopMenu>
-        <InfoSection paddingTop='small' data={homeData}></InfoSection>
+      <ScrollSection
+        widthBig='60%'
+        widthSmall='40%'
+        transparent
+        narrowSection={<FragmentsColumn />}
+        wideSection={
+          <HighlightPopMenu>
+            <InfoSection paddingTop='small' data={homeData}></InfoSection>
 
-        <InfoSection
-          paddingTop='small'
-          variant='transparent'
-          data={homeData}
-        ></InfoSection>
-      </HighlightPopMenu>
+            <InfoSection
+              paddingTop='small'
+              variant='transparent'
+              data={homeData}
+            ></InfoSection>
+          </HighlightPopMenu>
+        }
+      />
     </>
   )
 }

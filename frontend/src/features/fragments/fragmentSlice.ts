@@ -8,9 +8,19 @@ import { createSlice } from "@reduxjs/toolkit"
 // }
 
 const fragmentSlice = createSlice({
-    name: 'fragment',
+    name: 'fragments',
     initialState: {
-        fragments: [
+
+        citations: [
+            {
+                id: '123sdsd',
+                source: '',
+                excerpt: '',
+                coordinates: ''
+            }
+        ],
+
+        userFragments: [
             {
                 id: '',
                 userId: '',
@@ -29,7 +39,14 @@ const fragmentSlice = createSlice({
     },
     reducers: {
         fragmentAdded(state, action) {
-            state.fragments.push(action.payload)
+            state.userFragments.push(action.payload)
+        },
+        citationAdded(state, action) {
+            state.citations.push(action.payload)
+        },
+        citationRemoved(state, action) {
+
+            state.citations = state.citations.filter((citation) => citation.id !== action.payload)
         },
         fragmentUpdated(state, action) {
             // const { id, title, content } = action.payload
@@ -41,13 +58,13 @@ const fragmentSlice = createSlice({
         },
         // saveFragment(state, action: PayloadAction<FragmentCreated>) {
         saveFragment(state, action) {
-            state.fragments = action.payload
+            state.userFragments = action.payload
         },
         deleteFragment(state, action) {
             // state.fragments = []
         },
         deleteAllFragments(state, action) {
-            state.fragments = []
+            state.userFragments = []
         },
 
 
@@ -59,7 +76,7 @@ const fragmentSlice = createSlice({
 })
 
 
-// export const { } = fragmentSlice.actions
-export const { fragmentAdded, saveFragment, deleteFragment, deleteAllFragments } = fragmentSlice.actions
+
+export const { citationAdded, citationRemoved, fragmentAdded, saveFragment, deleteFragment, deleteAllFragments } = fragmentSlice.actions
 
 export default fragmentSlice.reducer

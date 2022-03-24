@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { SaveHeading } from './CopyText.styled'
-import { UserInfo } from '../../../interfaces'
+// import { UserInfo } from '../../../interfaces'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
-import { fragmentAdded } from '../../../features/fragments/fragmentSlice'
+import { nanoid } from '@reduxjs/toolkit'
+import { citationAdded } from '../../../features/fragments/fragmentSlice'
 interface AddFragmentProps {
   highlightedText: string
 }
 
 const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   const dispatch: any = useAppDispatch()
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
-  const loggedUserId = userInfo._id
+  // const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  // const loggedUserId = userInfo._id
 
   const [copySuccess, setCopySuccess] = useState('')
 
@@ -21,22 +22,29 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     setCopySuccess('')
   }
   // fake user id to work without firing the backend up
-  const loggedUserIdFake = '123sdsdsd'
-  const newFragment = {
-    id: '',
-    userId: loggedUserIdFake,
-    // userId: loggedUserId,
-    citations: [
-      {
-        source: '',
-        excerpt: highlightedText,
-        coordinates: '',
-      },
-    ],
+  // const loggedUserIdFake = '123sdsdsd'
+
+  // const newFragment = {
+  //   id: '',
+  //   userId: loggedUserIdFake,
+  // userId: loggedUserId,
+  //   citations: [
+  //     {
+  //       source: '',
+  //       excerpt: highlightedText,
+  //       coordinates: '',
+  //     },
+  //   ],
+  // }
+  const newCitation = {
+    id: nanoid(),
+    source: '',
+    excerpt: highlightedText,
+    coordinates: '',
   }
-  const addFragmentHandler = (e: any) => {
+  const addCitationHandler = (e: any) => {
     e.preventDefault()
-    dispatch(fragmentAdded(newFragment))
+    dispatch(citationAdded(newCitation))
     setCopySuccess('Zapisano!')
   }
   useEffect(() => {
@@ -50,7 +58,7 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
       {' '}
       <SaveHeading
         contentAfter={copySuccess}
-        onClick={addFragmentHandler}
+        onClick={addCitationHandler}
         onMouseEnter={() => hoverHelper()}
         onMouseLeave={() => leaveHelper()}
       >
