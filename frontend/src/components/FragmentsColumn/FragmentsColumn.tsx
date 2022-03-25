@@ -21,6 +21,7 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
               {citation.excerpt !== '' && (
                 <>
                   <p>{citation.title}</p>
+                  <p>{citation.date}</p>
                   <p>{citation.excerpt}</p>
                   <p>{citation.source}</p>
                   <SendButton variant='primaryEmpty' onClick={() => {}}>

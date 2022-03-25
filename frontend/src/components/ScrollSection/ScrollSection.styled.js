@@ -25,6 +25,8 @@ export const SectionColumn = styled.div`
   max-height: 100vh;
   min-height: fit-content;
   flex-basis: ${({ width }) => (width ? `${width}` : '15%')};
+  /* max-width: 10vw; I'm thinking about it. Need another workaround.*/
+  overflow: scroll;
   @media (max-width: 440px) {
     flex-basis: 0%;
     margin: 0;

@@ -39,6 +39,8 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   // }
   const newCitation = {
     id: nanoid(),
+    title: 'Best title',
+    date: '22-Mar-2100',
     source: '',
     excerpt: highlightedText,
     coordinates: '',
