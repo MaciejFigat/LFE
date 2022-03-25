@@ -18,13 +18,14 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
       {citations.length > 0 &&
         citations
           .map((citation) => (
-            <>
+            <div key={citation.id}>
               {/* <button onClick={removeCitationHandler(citation.id)}> */}
               <button onClick={() => removeCitationHandler(citation.id)}>
                 remove
               </button>
-              <p key={citation.id}>{citation.excerpt}</p>
-            </>
+              <p>{citation.excerpt}</p>
+              <p>{citation.excerpt}</p>
+            </div>
           ))
           .reverse()}
     </div>

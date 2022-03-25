@@ -11,6 +11,7 @@ export const CopyHeading = styled.h1`
   }
   @media screen and (max-width: 760px) {
     font-size: 0.8rem;
+    max-width: 31.14px;
   }
 
   &:after {
@@ -30,4 +31,8 @@ export const CopyHeading = styled.h1`
 `
 export const SaveHeading = styled(CopyHeading)`
   max-width: 48.18px;
+  @media screen and (max-width: 760px) {
+    font-size: 0.8rem;
+    max-width: 38.8px;
+  }
 `

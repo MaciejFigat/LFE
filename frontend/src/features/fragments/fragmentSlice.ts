@@ -44,6 +44,9 @@ const fragmentSlice = createSlice({
         citationAdded(state, action) {
             state.citations.push(action.payload)
         },
+        citationTitleEdit(state, action) {
+            state.citations.push(action.payload)
+        },
         citationRemoved(state, action) {
 
             state.citations = state.citations.filter((citation) => citation.id !== action.payload)

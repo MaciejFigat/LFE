@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { SaveHeading } from './CopyText.styled'
 // import { UserInfo } from '../../../interfaces'
-import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
+// import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
+import { useAppDispatch } from '../../../app/reduxHooks'
 import { nanoid } from '@reduxjs/toolkit'
 import { citationAdded } from '../../../features/fragments/fragmentSlice'
 interface AddFragmentProps {
