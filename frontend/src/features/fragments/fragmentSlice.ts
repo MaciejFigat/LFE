@@ -44,10 +44,14 @@ const fragmentSlice = createSlice({
             state.userFragments.push(action.payload)
         },
         citationAdded(state, action) {
-            state.citations.push(action.payload)
+            const { excerpt } = action.payload
+
+            const existingCitation = state.citations.find(citation => citation.excerpt === excerpt)
+            // (state.citations.find((citation) => citation.id !== action.payload)) && (state.citations.find((citation) => citation.excerpt !== action.payload)) && 
+            if (!existingCitation) { state.citations.push(action.payload) }
+
         },
         citationTitleEdit(state, action) {
-            state.citations.push(action.payload)
 
             const { id, excerpt, source, title } = action.payload
             const existingCitation = state.citations.find(citation => citation.id === id)
@@ -59,7 +63,6 @@ const fragmentSlice = createSlice({
 
         },
         citationRemoved(state, action) {
-
             state.citations.length > 0 && (state.citations = state.citations.filter((citation) => citation.id !== action.payload))
         },
         fragmentUpdated(state, action) {

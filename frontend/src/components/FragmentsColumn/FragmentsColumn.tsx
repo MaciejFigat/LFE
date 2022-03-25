@@ -19,6 +19,7 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
             <div key={citation.id}>
               {citation.excerpt !== '' && (
                 <>
+                  <p>{citation.title}</p>
                   <p>{citation.excerpt}</p>
                   <p>{citation.source}</p>
                   <button onClick={() => removeCitationHandler(citation.id)}>
