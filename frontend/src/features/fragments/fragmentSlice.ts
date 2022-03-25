@@ -47,7 +47,6 @@ const fragmentSlice = createSlice({
             const { excerpt } = action.payload
 
             const existingCitation = state.citations.find(citation => citation.excerpt === excerpt)
-            // (state.citations.find((citation) => citation.id !== action.payload)) && (state.citations.find((citation) => citation.excerpt !== action.payload)) && 
             if (!existingCitation) { state.citations.push(action.payload) }
 
         },
