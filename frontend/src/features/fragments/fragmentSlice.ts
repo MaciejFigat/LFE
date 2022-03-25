@@ -13,10 +13,11 @@ const fragmentSlice = createSlice({
 
         citations: [
             {
-                id: '123sdsd',
+                id: '1',
                 source: '',
                 excerpt: '',
-                coordinates: ''
+                coordinates: '',
+                title: ''
             }
         ],
 
@@ -28,7 +29,8 @@ const fragmentSlice = createSlice({
                     {
                         source: '',
                         excerpt: '',
-                        coordinates: ''
+                        coordinates: '',
+                        title: ''
                     }
                 ],
             }
@@ -46,10 +48,19 @@ const fragmentSlice = createSlice({
         },
         citationTitleEdit(state, action) {
             state.citations.push(action.payload)
+
+            const { id, excerpt, source, title } = action.payload
+            const existingCitation = state.citations.find(citation => citation.id === id)
+            if (existingCitation) {
+                existingCitation.excerpt = excerpt
+                existingCitation.source = source
+                existingCitation.title = title
+            }
+
         },
         citationRemoved(state, action) {
 
-            state.citations = state.citations.filter((citation) => citation.id !== action.payload)
+            state.citations.length > 0 && (state.citations = state.citations.filter((citation) => citation.id !== action.payload))
         },
         fragmentUpdated(state, action) {
             // const { id, title, content } = action.payload

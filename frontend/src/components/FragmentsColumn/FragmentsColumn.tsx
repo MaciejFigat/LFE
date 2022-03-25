@@ -5,10 +5,8 @@ interface FragmentsColumnProps {}
 
 const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
   const dispatch: any = useAppDispatch()
-  const citations = useAppSelector((state) => state.fragment.citations)
-  //   const userFragments = useAppSelector((state) => state.fragment.fragments)
+  const citations: any[] = useAppSelector((state) => state.fragment.citations)
 
-  //   const fragmentsShown = []
   const removeCitationHandler = (id: string) => {
     dispatch(citationRemoved(id))
   }
@@ -19,12 +17,16 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
         citations
           .map((citation) => (
             <div key={citation.id}>
-              {/* <button onClick={removeCitationHandler(citation.id)}> */}
-              <button onClick={() => removeCitationHandler(citation.id)}>
-                remove
-              </button>
-              <p>{citation.excerpt}</p>
-              <p>{citation.excerpt}</p>
+              {citation.excerpt !== '' && (
+                <>
+                  <p>{citation.excerpt}</p>
+                  <p>{citation.source}</p>
+                  <button onClick={() => removeCitationHandler(citation.id)}>
+                    remove
+                  </button>
+                  <button onClick={() => {}}>Edit title</button>
+                </>
+              )}
             </div>
           ))
           .reverse()}
