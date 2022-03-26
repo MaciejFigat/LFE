@@ -2,6 +2,7 @@ import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { citationRemoved } from '../../features/fragments/fragmentSlice'
 import { SendButton } from '../Buttons/Buttons.styled'
+import { FragmentsP, FragmentContainer } from './FragmentsColumn.styled'
 interface FragmentsColumnProps {}
 
 const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
@@ -19,11 +20,11 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
           .map((citation) => (
             <div key={citation.id}>
               {citation.excerpt !== '' && (
-                <>
-                  <p>{citation.title}</p>
-                  <p>{citation.date}</p>
-                  <p>{citation.excerpt}</p>
-                  <p>{citation.source}</p>
+                <FragmentContainer>
+                  <FragmentsP>{citation.title}</FragmentsP>
+                  <FragmentsP>{citation.date}</FragmentsP>
+                  <FragmentsP>{citation.excerpt}</FragmentsP>
+                  <FragmentsP>{citation.source}</FragmentsP>
                   <SendButton variant='primaryEmpty' onClick={() => {}}>
                     Edit title
                   </SendButton>
@@ -33,7 +34,7 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
                   >
                     remove
                   </SendButton>
-                </>
+                </FragmentContainer>
               )}
             </div>
           ))
