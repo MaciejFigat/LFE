@@ -4,11 +4,12 @@ import { motion } from 'framer-motion'
 export const ListWrapper = styled(motion.ul)`
   display: flex;
   flex-direction: column;
-  background: var(--background2-main);
-  padding: 20px;
+  /* background: var(--background2-main); */
+  /* padding: 20px; */
   color: var(--text-main);
   width: 400px;
   max-width: 35vw;
+  /* max-width: 100%; */
   border-radius: 25px;
   height: fit-content;
   @media (max-width: 1140px) {
@@ -20,7 +21,7 @@ export const ListWrapper = styled(motion.ul)`
 
 export const ListItem = styled(motion.li)`
   padding: 15px;
-  // ! border radius passed as proprerty of ListItem in order to animate properly
+  // ! border radius passed as proprerty of ListItem in order to animate propre
   /* border-radius: 20px; */
   overflow: hidden;
   color: var(--text-main);
@@ -36,7 +37,6 @@ export const ListItem = styled(motion.li)`
 export const ListTitleContainer = styled(motion.div)`
   display: grid;
   grid-template: auto 1fr / auto 2fr;
-
   @media (max-width: 740px) {
     max-height: 2.5rem;
   }
