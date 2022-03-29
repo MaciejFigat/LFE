@@ -4,8 +4,7 @@ import { motion } from 'framer-motion'
 export const ListWrapper = styled(motion.ul)`
   display: flex;
   flex-direction: column;
-  background: linear-gradient(145deg, #3f77f0, #3564ca);
-  box-shadow: 5px 5px 4px #1d366e, -5px -5px 4px #59a8ff;
+  background: var(--background2-main);
   padding: 20px;
   color: var(--text-main);
   width: 400px;
@@ -21,11 +20,11 @@ export const ListWrapper = styled(motion.ul)`
 
 export const ListItem = styled(motion.li)`
   padding: 15px;
-  border-radius: 10px;
+  // ! border radius passed as proprerty of ListItem in order to animate properly
+  /* border-radius: 20px; */
   overflow: hidden;
   color: var(--text-main);
-  background: var(--background-tertiary1);
-  box-shadow: inset 5px 5px 10px #0c1523, inset -5px -5px 10px #2e558b;
+  background: var(--background1-main);
   cursor: pointer;
   &:last-child {
     margin-bottom: 0px;
@@ -59,12 +58,11 @@ export const ListRow = styled(motion.div)`
   width: 93%;
   padding: 1rem;
   line-height: 1.1;
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 400;
   min-height: fit-content;
-  color: var(--background-tertiary1);
-  background: var(--background-tertiary5);
-  box-shadow: inset 6px 6px 12px #6a1a20, inset -6px -6px 12px #ff586c;
+  color: var(--background4-main);
+  background: var(--background2-main);
   border-radius: 10px;
   margin-top: 12px;
   @media (max-width: 740px) {
