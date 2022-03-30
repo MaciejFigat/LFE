@@ -29,7 +29,8 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
         initial={{ borderRadius: 3, opacity: 0, scale: 0.8 }}
         transition={{ duration: 0.4 }}
         animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.8 }}
+        // exit={{ opacity: 0, scale: 0.8 }}
+        exit={{ opacity: 0 }}
       >
         <ListTitleContainer as={motion.div} layout>
           <ListTitle as={motion.h2} layout>

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 export const ListWrapper = styled(motion.ul)`
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 16px;
   /* background: var(--background2-main); */
   /* padding: 5px; */
   /* color: var(--text-main); */
@@ -13,6 +13,7 @@ export const ListWrapper = styled(motion.ul)`
   /* max-width: 100%; */
   /* border-radius: 25px; */
   height: fit-content;
+  padding: 0;
   @media (max-width: 1140px) {
     /* padding: 10px; */
     margin-top: 20px;
@@ -49,17 +50,17 @@ export const ListTitle = styled(motion.h2)`
   margin-left: 0.5rem;
   font-size: 1.1rem;
   @media (max-width: 740px) {
-    font-size: 1.05rem;
+    font-size: 1rem;
     margin-left: 0rem;
   }
 `
 
 export const ListRow = styled(motion.div)`
   text-align: left;
-  width: 93%;
-  padding: 1rem;
+  /* width: 93%; */
+  padding: 0.75rem;
   /* line-height: 1.1; */
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 400;
   /* min-height: fit-content; */
   color: var(--background4-main);
@@ -67,8 +68,8 @@ export const ListRow = styled(motion.div)`
   border-radius: 3px;
   margin-top: 9px;
   @media (max-width: 740px) {
-    padding: 0.75rem;
-    font-size: 0.75rem;
+    padding: 0.55rem;
+    font-size: 0.65rem;
   }
 `
 export const ItemWrapper = styled(motion.div)`
