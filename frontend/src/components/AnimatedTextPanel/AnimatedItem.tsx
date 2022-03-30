@@ -26,9 +26,12 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
         as={motion.li}
         layout
         onClick={toggleOpen}
-        initial={{ borderRadius: 10 }}
+        initial={{ borderRadius: 3, opacity: 0, scale: 0.8 }}
+        transition={{ duration: 0.4 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.8 }}
       >
-        <ListTitleContainer as={motion.div}>
+        <ListTitleContainer as={motion.div} layout>
           <ListTitle as={motion.h2} layout>
             {title}
           </ListTitle>

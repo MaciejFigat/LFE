@@ -26,38 +26,38 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
           .map((citation) => (
             <ListWrapper
               as={motion.ul}
+              key={citation.id}
               layout
-              initial={{ borderRadius: 25, opacity: 0 }}
+              // initial={{ borderRadius: 5, opacity: 0 }}
+              initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <div key={citation.id}>
-                {citation.excerpt !== '' && (
-                  <FragmentContainer>
-                    <ItemWrapper key={citation.title}>
-                      {' '}
-                      <AnimatedItem
-                        title={citation.title}
-                        description={citation.description}
+              {citation.excerpt !== '' && (
+                <FragmentContainer key={citation.title}>
+                  <ItemWrapper>
+                    {' '}
+                    <AnimatedItem
+                      title={citation.title}
+                      description={citation.description}
+                    >
+                      <FragmentsP>{citation.title}</FragmentsP>
+                      <FragmentsP>{citation.date}</FragmentsP>
+                      <FragmentsP>{citation.excerpt}</FragmentsP>
+                      <FragmentsP>{citation.source}</FragmentsP>
+                      <SendButton variant='primaryEmpty' onClick={() => {}}>
+                        Edit title
+                      </SendButton>
+                      <SendButton
+                        variant='secondaryEmpty'
+                        onClick={() => removeCitationHandler(citation.id)}
                       >
-                        <FragmentsP>{citation.title}</FragmentsP>
-                        <FragmentsP>{citation.date}</FragmentsP>
-                        <FragmentsP>{citation.excerpt}</FragmentsP>
-                        <FragmentsP>{citation.source}</FragmentsP>
-                        <SendButton variant='primaryEmpty' onClick={() => {}}>
-                          Edit title
-                        </SendButton>
-                        <SendButton
-                          variant='secondaryEmpty'
-                          onClick={() => removeCitationHandler(citation.id)}
-                        >
-                          remove
-                        </SendButton>
-                      </AnimatedItem>
-                    </ItemWrapper>
-                  </FragmentContainer>
-                )}
-              </div>
+                        remove
+                      </SendButton>
+                    </AnimatedItem>
+                  </ItemWrapper>
+                </FragmentContainer>
+              )}
             </ListWrapper>
           ))
           .reverse()}{' '}

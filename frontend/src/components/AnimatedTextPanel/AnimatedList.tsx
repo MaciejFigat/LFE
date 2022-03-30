@@ -9,6 +9,20 @@ interface AnimatedListProps {
     description: string
   }[]
 }
+// const data = [
+//   {
+//     title: '1',
+//     description: 'testing 1',
+//   },
+//   {
+//     title: '2',
+//     description: 'testing 2',
+//   },
+//   {
+//     title: '3',
+//     description: 'testing 3',
+//   },
+// ]
 
 const AnimatedList: React.FC<AnimatedListProps> = ({ data }) => {
   return (
@@ -16,7 +30,7 @@ const AnimatedList: React.FC<AnimatedListProps> = ({ data }) => {
       <ListWrapper
         as={motion.ul}
         layout
-        initial={{ borderRadius: 25, opacity: 0 }}
+        initial={{ borderRadius: 5, opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
