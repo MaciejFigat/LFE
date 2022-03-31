@@ -20,7 +20,7 @@ export const SectionColumn = styled.div`
   position: sticky;
   top: 0;
   margin-bottom: 15px;
-  margin-right: 15px;
+  /* margin-right: 15px; */
   padding-left: 15px;
   max-height: 100vh;
   min-height: fit-content;

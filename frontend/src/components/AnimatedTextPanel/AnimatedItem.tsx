@@ -35,8 +35,21 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
         // exit={{ opacity: 0, scale: 0.8 }}
         exit={{ opacity: 0 }}
       >
-        <ListTitleContainer as={motion.div} layout>
-          <ListTitle as={motion.h2} layout onClick={toggleOpen}>
+        <ListTitleContainer
+          // initial={{ opacity: 0 }}
+          // transition={{ duration: 0.8 }}
+          // animate={{ opacity: 1 }}
+          as={motion.div}
+          layout
+        >
+          <ListTitle
+            // initial={{ opacity: 0 }}
+            // transition={{ duration: 1.4 }}
+            // animate={{ opacity: 1 }}
+            as={motion.h2}
+            layout
+            onClick={toggleOpen}
+          >
             <AnimatedTitleField
               title={title}
               isOpen={isOpen}

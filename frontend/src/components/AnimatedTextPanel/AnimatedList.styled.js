@@ -61,6 +61,12 @@ export const TitleAnimated = styled(motion.div)`
     color: var(--background-secondary4);
   }
 `
+export const TitleInput = styled(motion.input)`
+  /* padding: 11px 13px; */
+  background: var(--background4-main);
+  outline: 0;
+  font-size: 1rem;
+`
 // export const TitleButton = styled(motion.button)``
 export const ListRow = styled(motion.div)`
   text-align: left;

@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { TitleAnimated } from './AnimatedList.styled'
+import { TitleAnimated, TitleInput } from './AnimatedList.styled'
 interface AnimatedTitleFieldProps {
   title: string
   isOpen: boolean
@@ -12,13 +12,22 @@ const AnimatedTitleField: React.FC<AnimatedTitleFieldProps> = ({
   isOpen,
   titleEditing,
 }) => {
-  return titleEditing === false ? (
+  const [titleValue, setTitleValue] = useState(title)
+
+  return !titleEditing ? (
     <TitleAnimated as={motion.div} isOpen={isOpen} layout>
       {title}
     </TitleAnimated>
   ) : (
     <TitleAnimated as={motion.div} isOpen={isOpen} layout>
-      best Title
+      <TitleInput
+        type='title'
+        name='title'
+        layout
+        placeholder='new title'
+        value={titleValue}
+        onChange={(e: any) => setTitleValue(e.target.value)}
+      />
     </TitleAnimated>
   )
 }
