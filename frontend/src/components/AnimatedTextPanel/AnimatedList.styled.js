@@ -51,6 +51,11 @@ export const ListButtonContainer = styled(motion.div)`
 `
 
 export const TitleAnimated = styled(motion.div)`
+  display: flex;
+  height: 1.65rem;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
   color: ${({ isOpen }) =>
     isOpen ? 'var(--background-secondary2);' : 'var(--background4-main);'};
   transition: all 0.3s ease-out;
@@ -61,21 +66,24 @@ export const TitleAnimated = styled(motion.div)`
     color: var(--background-secondary4);
   }
 `
+// export const TitleContainer = styled(motion.div)``
 export const TitleInput = styled(motion.input)`
-  /* padding: 11px 13px; */
-  background: var(--background4-main);
+  padding: 2px 3px;
+
+  max-width: fit-content;
+  padding: 0;
+  margin: 0;
+
+  background: transparent;
   outline: 0;
   font-size: 1rem;
 `
 // export const TitleButton = styled(motion.button)``
 export const ListRow = styled(motion.div)`
   text-align: left;
-  /* width: 93%; */
   padding: 0.75rem;
-  /* line-height: 1.1; */
   font-size: 0.9rem;
   font-weight: 400;
-  /* min-height: fit-content; */
   color: var(--background4-main);
   background: var(--background2-main);
   border-radius: 3px;

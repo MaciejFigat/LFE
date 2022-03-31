@@ -30,42 +30,19 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
         as={motion.li}
         layout
         initial={{ borderRadius: 3, opacity: 0, scale: 0.8 }}
-        transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+        transition={{ duration: 0.4 }}
+        // transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.94] }}
         animate={{ opacity: 1, scale: 1 }}
         // exit={{ opacity: 0, scale: 0.8 }}
         exit={{ opacity: 0 }}
       >
-        <ListTitleContainer
-          // initial={{ opacity: 0 }}
-          // transition={{ duration: 0.8 }}
-          // animate={{ opacity: 1 }}
-          as={motion.div}
-          layout
-        >
-          <ListTitle
-            // initial={{ opacity: 0 }}
-            // transition={{ duration: 1.4 }}
-            // animate={{ opacity: 1 }}
-            as={motion.h2}
-            layout
-            onClick={toggleOpen}
-          >
+        <ListTitleContainer as={motion.div} layout>
+          <ListTitle as={motion.h2} layout onClick={toggleOpen}>
             <AnimatedTitleField
               title={title}
               isOpen={isOpen}
               titleEditing={titleEditing}
             />
-
-            {/* {!titleEditing && (
-              <AnimatedTitleField title={title} isOpen={isOpen} titleEditing={titleEditing}/>
-            )}
-            {titleEditing && (
-              <AnimatedTitleField
-                title={title}
-                isOpen={isOpen}
-                titleEditing={titleEditing}
-              />
-            )} */}
           </ListTitle>
           <ListButtonContainer>
             <button onClick={toggleEditing}>edit title</button>
@@ -80,7 +57,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <ListRow as={motion.div}>{description}</ListRow>
+              {/* <ListRow as={motion.div}>{description}</ListRow> */}
               {children && <ListRow as={motion.div}>{children}</ListRow>}
             </motion.div>
           )}

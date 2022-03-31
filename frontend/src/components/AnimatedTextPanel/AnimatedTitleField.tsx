@@ -15,11 +15,25 @@ const AnimatedTitleField: React.FC<AnimatedTitleFieldProps> = ({
   const [titleValue, setTitleValue] = useState(title)
 
   return !titleEditing ? (
-    <TitleAnimated as={motion.div} isOpen={isOpen} layout>
+    <TitleAnimated
+      initial={{ opacity: 0 }}
+      transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+      animate={{ opacity: 1 }}
+      as={motion.div}
+      isOpen={isOpen}
+      layout
+    >
       {title}
     </TitleAnimated>
   ) : (
-    <TitleAnimated as={motion.div} isOpen={isOpen} layout>
+    <TitleAnimated
+      as={motion.div}
+      initial={{ opacity: 0 }}
+      transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+      animate={{ opacity: 1 }}
+      isOpen={isOpen}
+      layout
+    >
       <TitleInput
         type='title'
         name='title'
