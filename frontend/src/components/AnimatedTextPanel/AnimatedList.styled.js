@@ -56,6 +56,7 @@ export const TitleAnimated = styled(motion.div)`
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;
+  min-width: 150px;
   color: ${({ isOpen }) =>
     isOpen ? 'var(--background-secondary2);' : 'var(--background4-main);'};
   transition: all 0.3s ease-out;
@@ -68,15 +69,24 @@ export const TitleAnimated = styled(motion.div)`
 `
 // export const TitleContainer = styled(motion.div)``
 export const TitleInput = styled(motion.input)`
-  padding: 2px 3px;
-
+  /* padding: 2px 3px; */
+  color: var(--background-tertiary3);
   max-width: fit-content;
   padding: 0;
   margin: 0;
-
+  /* pointer-events: none; */
+  line-height: normal;
   background: transparent;
-  outline: 0;
-  font-size: 1rem;
+  outline: 0
+  background-color: transparent;
+   
+    border: none; 
+    &:focus{
+      border: none; 
+      outline: 0;
+    }
+
+  font-size: 1.1rem;
 `
 // export const TitleButton = styled(motion.button)``
 export const ListRow = styled(motion.div)`
