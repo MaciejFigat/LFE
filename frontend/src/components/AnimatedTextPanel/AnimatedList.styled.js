@@ -5,35 +5,25 @@ export const ListWrapper = styled(motion.ul)`
   display: flex;
   flex-direction: column;
   margin-top: 16px;
-  /* background: var(--background2-main); */
-  /* padding: 5px; */
-  /* color: var(--text-main); */
-  /* width: 400px; */
-  /* max-width: 35vw; */
-  /* max-width: 100%; */
-  /* border-radius: 25px; */
   height: fit-content;
   padding: 0;
   @media (max-width: 1140px) {
-    /* padding: 10px; */
     margin-top: 20px;
-    /* max-width: 90vw; */
   }
 `
 
 export const ListItem = styled(motion.li)`
-  padding-bottom: 10px;
+  padding-bottom: 12px;
   // ! border radius passed as proprerty of ListItem in order to animate propre
   /* border-radius: 20px; */
   overflow: hidden;
-  color: var(--text-main);
   background: var(--background1-main);
   cursor: pointer;
   &:last-child {
     margin-bottom: 0px;
   }
   @media (max-width: 740px) {
-    padding: 10px;
+    padding: 12px;
   }
 `
 export const ListTitleContainer = styled(motion.div)`
@@ -54,7 +44,24 @@ export const ListTitle = styled(motion.h2)`
     margin-left: 0rem;
   }
 `
+export const ListButtonContainer = styled(motion.div)`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+`
 
+export const TitleAnimated = styled(motion.div)`
+  color: ${({ isOpen }) =>
+    isOpen ? 'var(--background-secondary2);' : 'var(--background4-main);'};
+  transition: all 0.3s ease-out;
+  &:hover {
+    color: var(--background-secondary2);
+  }
+  &:active {
+    color: var(--background-secondary4);
+  }
+`
+// export const TitleButton = styled(motion.button)``
 export const ListRow = styled(motion.div)`
   text-align: left;
   /* width: 93%; */
