@@ -53,10 +53,11 @@ export const ListButtonContainer = styled(motion.div)`
 export const TitleAnimated = styled(motion.div)`
   display: flex;
   height: 1.65rem;
-  flex-direction: row;
+  /* flex-direction: row; */
+  /* align-items: center; */
   justify-content: flex-start;
   width: 100%;
-  min-width: 150px;
+  min-width: 250px;
   color: ${({ isOpen }) =>
     isOpen ? 'var(--background-secondary2);' : 'var(--background4-main);'};
   transition: all 0.3s ease-out;
@@ -71,7 +72,8 @@ export const TitleAnimated = styled(motion.div)`
 export const TitleInput = styled(motion.input)`
   /* padding: 2px 3px; */
   color: var(--background-tertiary3);
-  max-width: fit-content;
+  /* max-width: fit-content; */
+  max-width: 75%;
   padding: 0;
   margin: 0;
   /* pointer-events: none; */

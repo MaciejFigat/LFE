@@ -12,12 +12,14 @@ interface AnimatedItemProps {
   title: string
   description: string
   children?: ReactNode
+  id: string
 }
 
 const AnimatedItem: React.FC<AnimatedItemProps> = ({
   title,
   description,
   children,
+  id,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [titleEditing, setTitleEditing] = useState(false)
@@ -39,6 +41,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
         <ListTitleContainer as={motion.div} layout>
           <ListTitle as={motion.h2} layout onClick={toggleOpen}>
             <AnimatedTitleField
+              id={id}
               title={title}
               isOpen={isOpen}
               titleEditing={titleEditing}

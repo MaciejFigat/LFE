@@ -1,19 +1,31 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useAppDispatch } from '../../app/reduxHooks'
+import { citationTitleEdit } from '../../features/fragments/fragmentSlice'
 import { TitleAnimated, TitleInput } from './AnimatedList.styled'
 interface AnimatedTitleFieldProps {
   title: string
   isOpen: boolean
   titleEditing: boolean
+  id: string
 }
 
 const AnimatedTitleField: React.FC<AnimatedTitleFieldProps> = ({
   title,
   isOpen,
   titleEditing,
+  id,
 }) => {
-  const [titleValue, setTitleValue] = useState(title)
+  const dispatch: any = useAppDispatch()
 
+  const saveTitleHandler = () => {
+    dispatch(citationTitleEdit(newTitle))
+  }
+  const [titleValue, setTitleValue] = useState(title)
+  const newTitle = {
+    id: id,
+    title: titleValue,
+  }
   return !titleEditing ? (
     <TitleAnimated
       initial={{ opacity: 0 }}
@@ -42,6 +54,7 @@ const AnimatedTitleField: React.FC<AnimatedTitleFieldProps> = ({
         value={titleValue}
         onChange={(e: any) => setTitleValue(e.target.value)}
       />
+      <button onClick={saveTitleHandler}>save</button>
     </TitleAnimated>
   )
 }

@@ -6,6 +6,7 @@ import AnimatedItem from './AnimatedItem'
 interface AnimatedListProps {
   data: {
     title: string
+    id: string
     description: string
   }[]
 }
@@ -37,7 +38,11 @@ const AnimatedList: React.FC<AnimatedListProps> = ({ data }) => {
         {data.map((item) => (
           <ItemWrapper key={item.title}>
             {' '}
-            <AnimatedItem title={item.title} description={item.description} />
+            <AnimatedItem
+              id={item.id}
+              title={item.title}
+              description={item.description}
+            />
           </ItemWrapper>
         ))}
       </ListWrapper>{' '}

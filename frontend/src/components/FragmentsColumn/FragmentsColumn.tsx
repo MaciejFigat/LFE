@@ -38,6 +38,7 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
                   <ItemWrapper>
                     {' '}
                     <AnimatedItem
+                      id={citation.id}
                       title={citation.title}
                       description={citation.description}
                     >
