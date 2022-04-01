@@ -17,7 +17,8 @@ const fragmentSlice = createSlice({
                 source: '',
                 excerpt: '',
                 coordinates: '',
-                title: ''
+                title: '',
+                description: ''
             }
         ],
 
@@ -61,6 +62,14 @@ const fragmentSlice = createSlice({
             }
 
         },
+        citationDescriptionEdit(state, action) {
+            const { id, description } = action.payload
+            const existingCitation = state.citations.find(citation => citation.id === id)
+            if (existingCitation) {
+                existingCitation.description = description
+            }
+
+        },
         citationRemoved(state, action) {
             state.citations.length > 0 && (state.citations = state.citations.filter((citation) => citation.id !== action.payload))
         },
@@ -93,6 +102,6 @@ const fragmentSlice = createSlice({
 
 
 
-export const { citationAdded, citationRemoved, citationTitleEdit, fragmentAdded, saveFragment, deleteFragment, deleteAllFragments } = fragmentSlice.actions
+export const { citationAdded, citationRemoved, citationTitleEdit, citationDescriptionEdit, fragmentAdded, saveFragment, deleteFragment, deleteAllFragments } = fragmentSlice.actions
 
 export default fragmentSlice.reducer

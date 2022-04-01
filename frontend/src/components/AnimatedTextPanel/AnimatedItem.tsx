@@ -8,15 +8,17 @@ import {
   ListButtonContainer,
   TitleAnimated,
   TitleInput,
+  DescriptionAnimated,
+  DescriptionInput,
 } from './AnimatedList.styled'
 import { useAppDispatch } from '../../app/reduxHooks'
 import {
   citationRemoved,
   citationTitleEdit,
+  citationDescriptionEdit,
 } from '../../features/fragments/fragmentSlice'
 import { SendButton } from '../Buttons/Buttons.styled'
-import AnimatedTitleField from './AnimatedTitleField'
-import AnimatedDescriptionField from './AnimatedDescriptionField'
+
 interface AnimatedItemProps {
   title: string
   description: string
@@ -40,6 +42,8 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
 
   const [titleValue, setTitleValue] = useState(title)
 
+  const [descriptionValue, setDescriptionValue] = useState(description)
+
   const toggleOpen = () => setIsOpen(!isOpen)
 
   const toggleEditing = () => setTitleEditing(!titleEditing)
@@ -50,14 +54,22 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   const removeCitationHandler = (id: string) => {
     dispatch(citationRemoved(id))
   }
-
+  const newTitle = {
+    id: id,
+    title: titleValue,
+  }
   const saveTitleHandler = () => {
     dispatch(citationTitleEdit(newTitle))
     setTitleEditing(!titleEditing)
   }
-  const newTitle = {
+  const newDescription = {
     id: id,
-    title: titleValue,
+    description: descriptionValue,
+  }
+  const saveDescriptionHandler = () => {
+    // TODO
+    dispatch(citationDescriptionEdit(newDescription))
+    setDescriptionEditing(!descriptionEditing)
   }
 
   return (
@@ -139,18 +151,71 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
               )}
               <ListRow as={motion.div} layout>
                 <ListTitleContainer>
-                  <AnimatedDescriptionField
+                  {/* <AnimatedDescriptionField
                     id={id}
                     description={description}
                     descriptionEditing={descriptionEditing}
-                  />
-                  <ListButtonContainer>
-                    <SendButton
-                      variant='primaryEmpty'
-                      onClick={toggleEditingDescription}
+                  /> */}
+                  {!descriptionEditing ? (
+                    <DescriptionAnimated
+                      initial={{ opacity: 0 }}
+                      transition={{
+                        duration: 0.4,
+                        ease: [0.04, 0.62, 0.23, 0.98],
+                      }}
+                      animate={{ opacity: 1 }}
+                      as={motion.div}
+                      layout
                     >
-                      edit description
-                    </SendButton>
+                      {description}
+                    </DescriptionAnimated>
+                  ) : (
+                    <DescriptionAnimated
+                      as={motion.div}
+                      initial={{ opacity: 0 }}
+                      transition={{
+                        duration: 0.4,
+                        ease: [0.04, 0.62, 0.23, 0.98],
+                      }}
+                      animate={{ opacity: 1 }}
+                      layout
+                    >
+                      <DescriptionInput
+                        type='description'
+                        name='description'
+                        row='14'
+                        layout
+                        placeholder='new description'
+                        value={descriptionValue}
+                        onChange={(e: any) =>
+                          setDescriptionValue(e.target.value)
+                        }
+                      />
+
+                      {/* <SendButton
+                        variant='primaryEmpty'
+                        onClick={saveDescriptionHandler}
+                      >
+                        save
+                      </SendButton> */}
+                    </DescriptionAnimated>
+                  )}
+                  <ListButtonContainer>
+                    {!descriptionEditing ? (
+                      <SendButton
+                        variant='primaryEmpty'
+                        onClick={toggleEditingDescription}
+                      >
+                        edit description
+                      </SendButton>
+                    ) : (
+                      <SendButton
+                        variant='primaryEmpty'
+                        onClick={saveDescriptionHandler}
+                      >
+                        save
+                      </SendButton>
+                    )}
                   </ListButtonContainer>
                 </ListTitleContainer>
               </ListRow>
