@@ -2,7 +2,12 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { citationTitleEdit } from '../../features/fragments/fragmentSlice'
-import { TitleAnimated, TitleInput } from './AnimatedList.styled'
+import {
+  ListButtonContainerLeft,
+  TitleAnimated,
+  TitleInput,
+} from './AnimatedList.styled'
+import { SendButton } from '../Buttons/Buttons.styled'
 interface AnimatedTitleFieldProps {
   title: string
   isOpen: boolean
@@ -54,7 +59,11 @@ const AnimatedTitleField: React.FC<AnimatedTitleFieldProps> = ({
         value={titleValue}
         onChange={(e: any) => setTitleValue(e.target.value)}
       />
-      <button onClick={saveTitleHandler}>save</button>
+      <ListButtonContainerLeft>
+        <SendButton variant='primaryEmpty' onClick={saveTitleHandler}>
+          save
+        </SendButton>
+      </ListButtonContainerLeft>
     </TitleAnimated>
   )
 }

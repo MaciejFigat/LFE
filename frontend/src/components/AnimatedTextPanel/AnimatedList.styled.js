@@ -49,6 +49,9 @@ export const ListButtonContainer = styled(motion.div)`
   flex-direction: row;
   justify-content: flex-end;
 `
+export const ListButtonContainerLeft = styled(ListButtonContainer)`
+  justify-content: flex-start;
+`
 
 export const TitleAnimated = styled(motion.div)`
   display: flex;
@@ -90,7 +93,43 @@ export const TitleInput = styled(motion.input)`
 
   font-size: 1.1rem;
 `
-// export const TitleButton = styled(motion.button)``
+export const DescriptionAnimated = styled(motion.div)`
+  display: flex;
+  /* height: 1.65rem; */
+  align-items: baseline;
+  /* justify-content: flex-start; */
+  /* width: 100%; */
+  /* min-width: 250px; */
+  color: 'var(--background4-main);';
+  transition: all 0.3s ease-out;
+`
+export const DescriptionInput = styled(motion.textarea)`
+  outline: none;
+  border: none;
+  color: var(--background-tertiary4);
+  transition: all 0.3s ease-out;
+  background: none;
+  line-height: 1.2;
+  cursor: text;
+  /* min-height: 25vh; */
+  resize: none;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  /* padding: 0.8rem 1.2rem; */
+  /* margin-bottom: 20px; */
+  transition: 1.9s;
+  /* font-weight: 600; */
+  &::placeholder {
+    color: var(--background-tertiary3);
+    font-weight: 400;
+  }
+  @media (max-width: 798px) {
+    font-size: 15px;
+    font-weight: 500;
+  }
+`
+
 export const ListRow = styled(motion.div)`
   text-align: left;
   padding: 0.75rem;

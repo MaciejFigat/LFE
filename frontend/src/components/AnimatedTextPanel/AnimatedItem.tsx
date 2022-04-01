@@ -6,11 +6,17 @@ import {
   ListTitleContainer,
   ListRow,
   ListButtonContainer,
+  TitleAnimated,
+  TitleInput,
 } from './AnimatedList.styled'
 import { useAppDispatch } from '../../app/reduxHooks'
-import { citationRemoved } from '../../features/fragments/fragmentSlice'
+import {
+  citationRemoved,
+  citationTitleEdit,
+} from '../../features/fragments/fragmentSlice'
 import { SendButton } from '../Buttons/Buttons.styled'
 import AnimatedTitleField from './AnimatedTitleField'
+import AnimatedDescriptionField from './AnimatedDescriptionField'
 interface AnimatedItemProps {
   title: string
   description: string
@@ -27,12 +33,31 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   const dispatch: any = useAppDispatch()
 
   const [isOpen, setIsOpen] = useState(false)
+
   const [titleEditing, setTitleEditing] = useState(false)
+
+  const [descriptionEditing, setDescriptionEditing] = useState(false)
+
+  const [titleValue, setTitleValue] = useState(title)
+
   const toggleOpen = () => setIsOpen(!isOpen)
+
   const toggleEditing = () => setTitleEditing(!titleEditing)
+
+  const toggleEditingDescription = () =>
+    setDescriptionEditing(!descriptionEditing)
 
   const removeCitationHandler = (id: string) => {
     dispatch(citationRemoved(id))
+  }
+
+  const saveTitleHandler = () => {
+    dispatch(citationTitleEdit(newTitle))
+    setTitleEditing(!titleEditing)
+  }
+  const newTitle = {
+    id: id,
+    title: titleValue,
   }
 
   return (
@@ -42,24 +67,55 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
         layout
         initial={{ borderRadius: 3, opacity: 0, scale: 0.8 }}
         transition={{ duration: 0.4 }}
-        // transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.94] }}
         animate={{ opacity: 1, scale: 1 }}
-        // exit={{ opacity: 0, scale: 0.8 }}
         exit={{ opacity: 0 }}
       >
         <ListTitleContainer as={motion.div} layout>
-          <ListTitle as={motion.h2} layout onClick={toggleOpen}>
-            <AnimatedTitleField
-              id={id}
-              title={title}
-              isOpen={isOpen}
-              titleEditing={titleEditing}
-            />
-          </ListTitle>
+          {!titleEditing ? (
+            <ListTitle as={motion.h2} layout onClick={toggleOpen}>
+              <TitleAnimated
+                initial={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                animate={{ opacity: 1 }}
+                as={motion.div}
+                isOpen={isOpen}
+                layout
+              >
+                {title}
+              </TitleAnimated>
+            </ListTitle>
+          ) : (
+            <ListTitle>
+              <TitleAnimated
+                as={motion.div}
+                initial={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                animate={{ opacity: 1 }}
+                isOpen={isOpen}
+                layout
+              >
+                <TitleInput
+                  type='title'
+                  name='title'
+                  layout
+                  placeholder='new title'
+                  value={titleValue}
+                  onChange={(e: any) => setTitleValue(e.target.value)}
+                />
+              </TitleAnimated>
+            </ListTitle>
+          )}
+
           <ListButtonContainer>
-            <SendButton variant='primaryEmpty' onClick={toggleEditing}>
-              Edit title
-            </SendButton>
+            {!titleEditing ? (
+              <SendButton variant='primaryEmpty' onClick={toggleEditing}>
+                edit title
+              </SendButton>
+            ) : (
+              <SendButton variant='primaryEmpty' onClick={saveTitleHandler}>
+                save
+              </SendButton>
+            )}
             <SendButton
               variant='secondaryEmpty'
               onClick={() => removeCitationHandler(id)}
@@ -76,8 +132,28 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              {children && <ListRow as={motion.div}>{children}</ListRow>}
-              <ListRow as={motion.div}>{description}</ListRow>
+              {children && (
+                <ListRow as={motion.div} layout>
+                  {children}
+                </ListRow>
+              )}
+              <ListRow as={motion.div} layout>
+                <ListTitleContainer>
+                  <AnimatedDescriptionField
+                    id={id}
+                    description={description}
+                    descriptionEditing={descriptionEditing}
+                  />
+                  <ListButtonContainer>
+                    <SendButton
+                      variant='primaryEmpty'
+                      onClick={toggleEditingDescription}
+                    >
+                      edit description
+                    </SendButton>
+                  </ListButtonContainer>
+                </ListTitleContainer>
+              </ListRow>
             </motion.div>
           )}
         </AnimatePresence>
