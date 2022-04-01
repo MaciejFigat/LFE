@@ -17,7 +17,7 @@ import {
   citationTitleEdit,
   citationDescriptionEdit,
 } from '../../features/fragments/fragmentSlice'
-import { SendButton } from '../Buttons/Buttons.styled'
+import { SendButtonSmall } from '../Buttons/Buttons.styled'
 
 interface AnimatedItemProps {
   title: string
@@ -67,7 +67,6 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
     description: descriptionValue,
   }
   const saveDescriptionHandler = () => {
-    // TODO
     dispatch(citationDescriptionEdit(newDescription))
     setDescriptionEditing(!descriptionEditing)
   }
@@ -120,20 +119,23 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
 
           <ListButtonContainer>
             {!titleEditing ? (
-              <SendButton variant='primaryEmpty' onClick={toggleEditing}>
+              <SendButtonSmall variant='primaryEmpty' onClick={toggleEditing}>
                 edit title
-              </SendButton>
+              </SendButtonSmall>
             ) : (
-              <SendButton variant='primaryEmpty' onClick={saveTitleHandler}>
+              <SendButtonSmall
+                variant='successEmpty'
+                onClick={saveTitleHandler}
+              >
                 save
-              </SendButton>
+              </SendButtonSmall>
             )}
-            <SendButton
+            <SendButtonSmall
               variant='secondaryEmpty'
               onClick={() => removeCitationHandler(id)}
             >
               remove
-            </SendButton>
+            </SendButtonSmall>
           </ListButtonContainer>
         </ListTitleContainer>
         <AnimatePresence>
@@ -151,11 +153,6 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
               )}
               <ListRow as={motion.div} layout>
                 <ListTitleContainer>
-                  {/* <AnimatedDescriptionField
-                    id={id}
-                    description={description}
-                    descriptionEditing={descriptionEditing}
-                  /> */}
                   {!descriptionEditing ? (
                     <DescriptionAnimated
                       initial={{ opacity: 0 }}
@@ -191,30 +188,23 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                           setDescriptionValue(e.target.value)
                         }
                       />
-
-                      {/* <SendButton
-                        variant='primaryEmpty'
-                        onClick={saveDescriptionHandler}
-                      >
-                        save
-                      </SendButton> */}
                     </DescriptionAnimated>
                   )}
                   <ListButtonContainer>
                     {!descriptionEditing ? (
-                      <SendButton
+                      <SendButtonSmall
                         variant='primaryEmpty'
                         onClick={toggleEditingDescription}
                       >
                         edit description
-                      </SendButton>
+                      </SendButtonSmall>
                     ) : (
-                      <SendButton
-                        variant='primaryEmpty'
+                      <SendButtonSmall
+                        variant='successEmpty'
                         onClick={saveDescriptionHandler}
                       >
                         save
-                      </SendButton>
+                      </SendButtonSmall>
                     )}
                   </ListButtonContainer>
                 </ListTitleContainer>

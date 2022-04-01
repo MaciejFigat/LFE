@@ -80,8 +80,10 @@ body {
   --orange2: #ee9b00;
   --orange3: #fca311;
 
-    --success1: #008000;
-    --success2: #38b000;
+    --success1: #A1F8B4;
+    // --success1: #008000;
+    --success2: #C8FB91;
+    // --success2: #38b000;
     --success3: #70e000;
 
     --background-blue1: #ADD7F6;

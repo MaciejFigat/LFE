@@ -7,7 +7,7 @@ import {
   DescriptionInput,
   ListButtonContainerLeft,
 } from './AnimatedList.styled'
-import { SendButton } from '../Buttons/Buttons.styled'
+import { SendButtonSmall } from '../Buttons/Buttons.styled'
 interface AnimatedDescriptionFieldProps {
   descriptionEditing: boolean
   description: string
@@ -56,9 +56,12 @@ const AnimatedDescriptionField: React.FC<AnimatedDescriptionFieldProps> = ({
         onChange={(e: any) => setDescriptionValue(e.target.value)}
       />
       <ListButtonContainerLeft>
-        <SendButton variant='primaryEmpty' onClick={saveDescriptionHandler}>
+        <SendButtonSmall
+          variant='primaryEmpty'
+          onClick={saveDescriptionHandler}
+        >
           save
-        </SendButton>
+        </SendButtonSmall>
       </ListButtonContainerLeft>
     </DescriptionAnimated>
   )

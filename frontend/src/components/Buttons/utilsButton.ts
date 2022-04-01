@@ -52,6 +52,17 @@ const secondaryEmptyStyle: StyleVariant = {
     buttonBorderActive: 'var(--secondary4);'
 
 }
+const successEmptyStyle: StyleVariant = {
+    buttonColor: 'var(--success1);',
+    buttonBackground: 'transparent;',
+    buttonBorder: '2px solid var(--success1);',
+    buttonBorderHover: '2px solid var(--success2);',
+    buttonBackgroundHover: 'transparent;',
+    buttonColorHover: 'var(--success2);',
+    buttonColorActive: 'var(--success3);',
+    buttonBorderActive: 'var(--success3);'
+
+}
 
 const successStyle: StyleVariant = {
     buttonColor: 'var(--background-tertiary4);',
@@ -98,6 +109,9 @@ export const handleButtonColor: (props: any) => {} = (props: any) => {
 
         case 'success':
             style = successStyle
+            break;
+        case 'successEmpty':
+            style = successEmptyStyle
             break;
 
         case 'info':
