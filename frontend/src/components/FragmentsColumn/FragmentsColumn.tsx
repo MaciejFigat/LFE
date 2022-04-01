@@ -1,8 +1,10 @@
 import React from 'react'
-import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
-import { citationRemoved } from '../../features/fragments/fragmentSlice'
-import { SendButton } from '../Buttons/Buttons.styled'
-import { FragmentsP, FragmentContainer } from './FragmentsColumn.styled'
+import { useAppSelector } from '../../app/reduxHooks'
+import {
+  FragmentsP,
+  FragmentContainer,
+  FragmentsPExcerpt,
+} from './FragmentsColumn.styled'
 import { motion, AnimateSharedLayout } from 'framer-motion'
 import {
   ListWrapper,
@@ -12,12 +14,7 @@ import AnimatedItem from '../AnimatedTextPanel/AnimatedItem'
 interface FragmentsColumnProps {}
 
 const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
-  const dispatch: any = useAppDispatch()
   const citations: any[] = useAppSelector((state) => state.fragment.citations)
-
-  const removeCitationHandler = (id: string) => {
-    dispatch(citationRemoved(id))
-  }
 
   return (
     <AnimateSharedLayout>
@@ -42,19 +39,9 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
                       title={citation.title}
                       description={citation.description}
                     >
-                      <FragmentsP>{citation.title}</FragmentsP>
-                      <FragmentsP>{citation.date}</FragmentsP>
-                      <FragmentsP>{citation.excerpt}</FragmentsP>
-                      <FragmentsP>{citation.source}</FragmentsP>
-                      <SendButton variant='primaryEmpty' onClick={() => {}}>
-                        Edit title
-                      </SendButton>
-                      <SendButton
-                        variant='secondaryEmpty'
-                        onClick={() => removeCitationHandler(citation.id)}
-                      >
-                        remove
-                      </SendButton>
+                      <FragmentsP>created at: {citation.date}</FragmentsP>
+                      <FragmentsPExcerpt>{citation.excerpt}</FragmentsPExcerpt>
+                      <FragmentsP>source: {citation.source}</FragmentsP>
                     </AnimatedItem>
                   </ItemWrapper>
                 </FragmentContainer>

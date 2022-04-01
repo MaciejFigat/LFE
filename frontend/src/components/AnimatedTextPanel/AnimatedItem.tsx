@@ -7,6 +7,9 @@ import {
   ListRow,
   ListButtonContainer,
 } from './AnimatedList.styled'
+import { useAppDispatch } from '../../app/reduxHooks'
+import { citationRemoved } from '../../features/fragments/fragmentSlice'
+import { SendButton } from '../Buttons/Buttons.styled'
 import AnimatedTitleField from './AnimatedTitleField'
 interface AnimatedItemProps {
   title: string
@@ -21,10 +24,16 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   children,
   id,
 }) => {
+  const dispatch: any = useAppDispatch()
+
   const [isOpen, setIsOpen] = useState(false)
   const [titleEditing, setTitleEditing] = useState(false)
   const toggleOpen = () => setIsOpen(!isOpen)
   const toggleEditing = () => setTitleEditing(!titleEditing)
+
+  const removeCitationHandler = (id: string) => {
+    dispatch(citationRemoved(id))
+  }
 
   return (
     <>
@@ -48,8 +57,15 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
             />
           </ListTitle>
           <ListButtonContainer>
-            <button onClick={toggleEditing}>edit title</button>
-            <button>remove</button>
+            <SendButton variant='primaryEmpty' onClick={toggleEditing}>
+              Edit title
+            </SendButton>
+            <SendButton
+              variant='secondaryEmpty'
+              onClick={() => removeCitationHandler(id)}
+            >
+              remove
+            </SendButton>
           </ListButtonContainer>
         </ListTitleContainer>
         <AnimatePresence>
@@ -60,8 +76,8 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              {/* <ListRow as={motion.div}>{description}</ListRow> */}
               {children && <ListRow as={motion.div}>{children}</ListRow>}
+              <ListRow as={motion.div}>{description}</ListRow>
             </motion.div>
           )}
         </AnimatePresence>
