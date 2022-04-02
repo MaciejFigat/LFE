@@ -19,7 +19,6 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
   narrowSection,
   widthSmall,
   widthBig,
-  transparent,
 }) => {
   return (
     <ScrollSec>

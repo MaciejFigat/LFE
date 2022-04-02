@@ -28,6 +28,7 @@ export const ListItem = styled(motion.li)`
 `
 export const ListTitleContainer = styled(motion.div)`
   display: grid;
+  /* padding-right: 0.75rem; */
   grid-template: auto 1fr / auto 2fr;
   @media (max-width: 740px) {
     max-height: 2.5rem;
@@ -57,10 +58,13 @@ export const TitleAnimated = styled(motion.div)`
   display: flex;
   height: 1.65rem;
   /* flex-direction: row; */
-  /* align-items: center; */
+  align-items: center;
   justify-content: flex-start;
   width: 100%;
   min-width: 250px;
+  @media (max-width: 1020px) {
+    min-width: 100px;
+  }
   color: ${({ isOpen }) =>
     isOpen ? 'var(--background-secondary2);' : 'var(--background4-main);'};
   transition: all 0.3s ease-out;
@@ -76,7 +80,7 @@ export const TitleInput = styled(motion.input)`
   /* padding: 2px 3px; */
   color: var(--background-tertiary3);
   /* max-width: fit-content; */
-  max-width: 75%;
+  max-width: 100%;
   padding: 0;
   margin: 0;
   /* pointer-events: none; */
@@ -91,7 +95,7 @@ export const TitleInput = styled(motion.input)`
       outline: 0;
     }
 
-  font-size: 1.1rem;
+  font-size: 1rem;
 `
 export const DescriptionAnimated = styled(motion.div)`
   display: flex;

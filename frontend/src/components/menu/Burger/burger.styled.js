@@ -11,7 +11,6 @@ export const BurgerWrapper = styled.div`
 
 export const BurgerContainer = styled.div`
   display: none;
-
   align-items: center;
   justify-content: center;
   @media (max-width: 1020px) {

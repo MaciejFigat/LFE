@@ -11,6 +11,7 @@ import UserProfile from './screens/UserProfile'
 import AdminPanel from './screens/AdminPanel'
 import ResetPassword from './screens/ResetPassword'
 import ConfirmAccount from './screens/ConfirmAccount'
+import Contact from './screens/Contact'
 
 function App() {
   const location = useLocation()
@@ -23,6 +24,7 @@ function App() {
       <Routes location={location} key={location.key}>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/contact' element={<Contact />} />
         <Route path='/resetpassword' element={<ResetPassword />} />
         <Route path='/confirmaccount' element={<ConfirmAccount />} />
         <Route path='/admin' element={<AdminPanel />} />

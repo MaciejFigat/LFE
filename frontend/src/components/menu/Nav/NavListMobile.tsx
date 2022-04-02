@@ -36,7 +36,7 @@ const sideVariants = {
 
 const links = [
   { name: 'Home', to: '/', id: '1' },
-  { name: 'Kontakt', to: '/contact', id: '2' },
+  { name: 'Contact', to: '/contact', id: '2' },
 ]
 
 const NavListMobile: React.FC<NavListMobileProps> = ({ open }) => {

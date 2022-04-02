@@ -27,8 +27,13 @@ export const SectionColumn = styled.div`
   flex-basis: ${({ width }) => (width ? `${width}` : '15%')};
   /* max-width: 10vw; I'm thinking about it. Need another workaround.*/
   overflow: scroll;
+  @media (max-width: 1020px) {
+    flex-basis: 65%;
+    /* margin: 0; */
+    /* padding-left: 0px; */
+  }
   @media (max-width: 440px) {
-    flex-basis: 0%;
+    flex-basis: 80%;
     margin: 0;
     padding-left: 0px;
   }
@@ -46,6 +51,11 @@ export const SectionColumnScroll = styled.div`
   margin-bottom: 15px;
   padding-left: 15px;
   flex-basis: ${({ width }) => (width ? `${width}` : '80%')};
+  @media (max-width: 1020px) {
+    flex-basis: 35%;
+    /* margin: 0; */
+    /* padding-left: 0px; */
+  }
   @media (max-width: 440px) {
     flex-basis: 100%;
     padding-left: 0px;
