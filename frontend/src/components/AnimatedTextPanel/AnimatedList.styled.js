@@ -113,9 +113,10 @@ export const DescriptionInput = styled(motion.textarea)`
   color: var(--background-tertiary4);
   transition: all 0.3s ease-out;
   background: none;
-  line-height: 1.2;
+  line-height: 1.1;
+
   cursor: text;
-  /* min-height: 25vh; */
+  min-height: 100px;
   resize: none;
   overflow-y: auto;
   font-size: 0.9rem;
@@ -133,6 +134,11 @@ export const DescriptionInput = styled(motion.textarea)`
     font-weight: 500;
   }
 `
+export const DescriptionDiv = styled(motion.div)`
+  max-width: 90%;
+  /* overflow-wrap: break-word; */
+  word-break: break-all;
+`
 
 export const ListRow = styled(motion.div)`
   text-align: left;
@@ -143,6 +149,7 @@ export const ListRow = styled(motion.div)`
   background: var(--background2-main);
   border-radius: 3px;
   margin-top: 9px;
+  min-height: 125px;
   @media (max-width: 740px) {
     padding: 0.55rem;
     font-size: 0.65rem;

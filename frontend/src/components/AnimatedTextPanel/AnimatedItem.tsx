@@ -10,6 +10,7 @@ import {
   TitleInput,
   DescriptionAnimated,
   DescriptionInput,
+  DescriptionDiv,
 } from './AnimatedList.styled'
 import { useAppDispatch } from '../../app/reduxHooks'
 import {
@@ -155,32 +156,32 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                 <ListTitleContainer>
                   {!descriptionEditing ? (
                     <DescriptionAnimated
-                      initial={{ opacity: 0 }}
+                      initial={{ opacity: 0, scale: 1 }}
+                      animate={{ opacity: 1, scale: 1 }}
                       transition={{
                         duration: 0.4,
                         ease: [0.04, 0.62, 0.23, 0.98],
                       }}
-                      animate={{ opacity: 1 }}
                       as={motion.div}
                       layout
                     >
-                      {description}
+                      <DescriptionDiv>{description}</DescriptionDiv>
                     </DescriptionAnimated>
                   ) : (
                     <DescriptionAnimated
                       as={motion.div}
-                      initial={{ opacity: 0 }}
+                      initial={{ opacity: 0, scale: 1 }}
+                      animate={{ opacity: 1, scale: 1 }}
                       transition={{
                         duration: 0.4,
                         ease: [0.04, 0.62, 0.23, 0.98],
                       }}
-                      animate={{ opacity: 1 }}
                       layout
                     >
                       <DescriptionInput
                         type='description'
                         name='description'
-                        row='14'
+                        // row='14'
                         layout
                         placeholder='new description'
                         value={descriptionValue}
