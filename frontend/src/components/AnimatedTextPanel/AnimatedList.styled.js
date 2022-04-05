@@ -103,7 +103,7 @@ export const DescriptionAnimated = styled(motion.div)`
   align-items: baseline;
   /* justify-content: flex-start; */
   /* width: 100%; */
-  /* min-width: 250px; */
+  /* min-width: 340px; */
   color: 'var(--background4-main);';
   transition: all 0.3s ease-out;
 `
@@ -114,9 +114,12 @@ export const DescriptionInput = styled(motion.textarea)`
   transition: all 0.3s ease-out;
   background: none;
   line-height: 1.1;
-
+  padding: 0.8rem 1.2rem;
+  min-width: 100%;
+  /* max-width: 100%; */
   cursor: text;
   min-height: 100px;
+  /* min-width: 300px; */
   resize: none;
   overflow-y: auto;
   font-size: 0.9rem;
@@ -150,6 +153,8 @@ export const ListRow = styled(motion.div)`
   border-radius: 3px;
   margin-top: 9px;
   min-height: 125px;
+  min-width: 90%;
+  max-width: 100%;
   @media (max-width: 740px) {
     padding: 0.55rem;
     font-size: 0.65rem;

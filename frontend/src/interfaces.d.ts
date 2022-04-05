@@ -13,19 +13,18 @@ interface CitationCreated {
     createdAt: string
 }
 interface FragmentCreated {
-    id: string
-    userId: string
-    citations: [
-        {
-            source: string
-            excerpt: string
-            coordinates: string
-        }
-    ]
+    // id: string
+    _id?: string
+    userId?: string
+    source: string
+    excerpt: string
+    coordinates: string
+    title: string
+    description: string
 }
 
 
 export {
     UserInfo,
-    CitationCreated
+    FragmentCreated
 }

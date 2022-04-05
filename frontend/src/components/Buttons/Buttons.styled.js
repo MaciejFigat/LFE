@@ -66,7 +66,7 @@ export const SendButtonSmall = styled(SendButton)`
   font-size: ${({ fontLarge }) => (fontLarge ? '18px' : '14px')};
   margin: 0px 0px 0px 10px;
   height: 30px;
-  min-height: fit-content;
+  min-width: max-content;
   @media (max-width: 798px) {
     height: 30px;
     padding: ${({ large }) => (large ? '12px 25px 33px' : '5px 5px 5px')};
