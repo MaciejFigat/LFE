@@ -106,6 +106,31 @@ export const deleteSavedFragment = createAsyncThunk(
     }
 )
 
+export const getUserFragments = createAsyncThunk(
+    'article/getFragments',
+    // x- below is nothing, just a temporary solution so thunkAPI is recognized as a parameter
+    async (x: any, thunkAPI) => {
+
+        const state: any = thunkAPI.getState()
+        const userInfo = state.user.userInfo
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        try {
+            const { data } = await axios.get(
+                `/api/fragments/myfragments`, config
+            )
+            return data
+
+        } catch (error: any) {
+            return error
+        }
+    }
+)
 
 const fragmentSlice = createSlice({
     name: 'fragments',
@@ -123,18 +148,18 @@ const fragmentSlice = createSlice({
         ],
 
         userFragments: [
-            {
-                id: '',
-                userId: '',
-                citations: [
-                    {
-                        source: '',
-                        excerpt: '',
-                        coordinates: '',
-                        title: ''
-                    }
-                ],
-            }
+            // {
+            //     id: '',
+            //     userId: '',
+            //     citations: [
+            //         {
+            //             source: '',
+            //             excerpt: '',
+            //             coordinates: '',
+            //             title: ''
+            //         }
+            //     ],
+            // }
         ],
         fragmentSaved: {},
         loading: false,
@@ -193,7 +218,6 @@ const fragmentSlice = createSlice({
         builder.addCase(createFragment.pending, (state, action) => {
             state.loading = true
             state.success = false
-
         })
         builder.addCase(createFragment.fulfilled, (state, action) => {
             state.loading = false
@@ -203,7 +227,18 @@ const fragmentSlice = createSlice({
         })
         builder.addCase(createFragment.rejected, (state, action) => {
             state.loading = false
+        })
 
+        builder.addCase(getUserFragments.pending, (state, action) => {
+            state.loading = true
+        })
+        builder.addCase(getUserFragments.fulfilled, (state, action) => {
+            state.loading = false
+            state.userFragments = action.payload
+            state.error = action.payload.message
+        })
+        builder.addCase(getUserFragments.rejected, (state, action) => {
+            state.loading = false
         })
     },
 
