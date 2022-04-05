@@ -8,6 +8,9 @@ interface AnimatedListProps {
     title: string
     id: string
     description: string
+    source: string
+    excerpt: string
+    coordinates: string
   }[]
 }
 // const data = [
@@ -42,6 +45,9 @@ const AnimatedList: React.FC<AnimatedListProps> = ({ data }) => {
               id={item.id}
               title={item.title}
               description={item.description}
+              source={item.source}
+              excerpt={item.excerpt}
+              coordinates={item.coordinates}
             />
           </ItemWrapper>
         ))}

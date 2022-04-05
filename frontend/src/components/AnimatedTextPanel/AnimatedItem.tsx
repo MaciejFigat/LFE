@@ -12,19 +12,24 @@ import {
   DescriptionInput,
   DescriptionDiv,
 } from './AnimatedList.styled'
-import { useAppDispatch } from '../../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import {
   citationRemoved,
   citationTitleEdit,
   citationDescriptionEdit,
+  createFragment,
 } from '../../features/fragments/fragmentSlice'
 import { SendButtonSmall } from '../Buttons/Buttons.styled'
+import { UserInfo } from '../../interfaces'
 
 interface AnimatedItemProps {
   title: string
   description: string
   children?: ReactNode
   id: string
+  source: string
+  excerpt: string
+  coordinates: string
 }
 
 const AnimatedItem: React.FC<AnimatedItemProps> = ({
@@ -32,8 +37,12 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   description,
   children,
   id,
+  source,
+  excerpt,
+  coordinates,
 }) => {
   const dispatch: any = useAppDispatch()
+  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -71,7 +80,23 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
     dispatch(citationDescriptionEdit(newDescription))
     setDescriptionEditing(!descriptionEditing)
   }
-
+  const newFragment = {
+    source: source,
+    excerpt: excerpt,
+    coordinates: coordinates,
+    title: title,
+    description: description,
+  }
+  // const newFragment = {
+  //   source: 'testing',
+  //   excerpt: 'testing',
+  //   coordinates: 'testing',
+  //   title: 'testing',
+  //   description: 'testing',
+  // }
+  const saveFragmentHandler = () => {
+    dispatch(createFragment(newFragment))
+  }
   return (
     <>
       <ListItem
@@ -137,6 +162,14 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
             >
               remove
             </SendButtonSmall>
+            {Object.keys(userInfo).length > 0 && (
+              <SendButtonSmall
+                variant='successEmpty'
+                onClick={saveFragmentHandler}
+              >
+                save fragment
+              </SendButtonSmall>
+            )}
           </ListButtonContainer>
         </ListTitleContainer>
         <AnimatePresence>

@@ -38,6 +38,9 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
                       id={citation.id}
                       title={citation.title}
                       description={citation.description}
+                      source={citation.source}
+                      excerpt={citation.excerpt}
+                      coordinates={citation.coordinates}
                     >
                       <FragmentsP>created at: {citation.date}</FragmentsP>
                       <FragmentsPExcerpt>{citation.excerpt}</FragmentsPExcerpt>
