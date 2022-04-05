@@ -87,13 +87,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
     title: title,
     description: description,
   }
-  // const newFragment = {
-  //   source: 'testing',
-  //   excerpt: 'testing',
-  //   coordinates: 'testing',
-  //   title: 'testing',
-  //   description: 'testing',
-  // }
+
   const saveFragmentHandler = () => {
     dispatch(createFragment(newFragment))
   }

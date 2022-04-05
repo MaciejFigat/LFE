@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { SaveHeading } from './CopyText.styled'
-// import { UserInfo } from '../../../interfaces'
-// import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { useAppDispatch } from '../../../app/reduxHooks'
 import { nanoid } from '@reduxjs/toolkit'
 import { citationAdded } from '../../../features/fragments/fragmentSlice'
@@ -11,8 +9,6 @@ interface AddFragmentProps {
 
 const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   const dispatch: any = useAppDispatch()
-  // const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
-  // const loggedUserId = userInfo._id
 
   const [copySuccess, setCopySuccess] = useState('')
 
@@ -41,9 +37,10 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     id: nanoid(),
     title: 'Best title',
     date: '22-Mar-2100',
-    source: '',
+    source: 'source',
     excerpt: highlightedText,
-    coordinates: '',
+    coordinates: 'coordinates',
+    description: 'description',
   }
   const addCitationHandler = (e: any) => {
     e.preventDefault()

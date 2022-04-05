@@ -22,8 +22,6 @@ const Contact: React.FC<ContactProps> = () => {
   // todo TESTING
   const dispatch: any = useAppDispatch()
   const newFragment = {
-    // id: id,
-    // userId?: ''
     source: 'testing',
     excerpt: 'testing',
     coordinates: 'testing',
