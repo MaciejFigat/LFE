@@ -28,12 +28,7 @@ export const ListItem = styled(motion.li)`
 `
 export const ListTitleContainer = styled(motion.div)`
   display: grid;
-  /* min-height: fit-content; */
-  /* min-width: fit-content; */
-  /* width: fit-content; */
-  /* height: fit-content; */
-  /* padding-right: 0.75rem; */
-  /* min-height: max-content; */
+
   min-height: min-content;
   grid-template: auto 1fr / auto 2fr;
   @media (max-width: 740px) {
@@ -65,15 +60,14 @@ export const ListButtonContainerLeft = styled(ListButtonContainer)`
 
 export const TitleAnimated = styled(motion.div)`
   display: flex;
-  /* height: 1.65rem; */
   min-height: max-content;
-  /* min-height: min-content; */
   flex-direction: row;
   align-items: center;
   word-break: break-all;
   justify-content: flex-start;
   width: 100%;
   min-width: 250px;
+  /* font-weight: 400; */
   @media (max-width: 1020px) {
     min-width: 100px;
   }
@@ -88,38 +82,28 @@ export const TitleAnimated = styled(motion.div)`
   }
 `
 // export const TitleContainer = styled(motion.div)``
+/* export const TitleInput = styled(motion.textarea)` */
 export const TitleInput = styled(motion.input)`
-  /* padding: 2px 3px; */
   color: var(--background-tertiary3);
-  /* min-width: min-content; */
-  /* min-width: max-content; */
-  /* min-width:300px; */
-/* min-height: 200px; */
-  /* max-width: 100%; */
-  /* min-height: min-content; */
+  width: 100%;
+  min-width: 250px;
   padding: 0;
   margin: 0;
-  /* pointer-events: none; */
   line-height: normal;
   background: transparent;
-  /* word-break: break-all; */
-  outline: 0
+  outline: 0;
   background-color: transparent;
-  border: none; 
-    &:focus{
-      border: none; 
-      outline: 0;
-    }
-
-  font-size: 1rem;
+  border: none;
+  &:focus {
+    border: none;
+    outline: 0;
+  }
+  font-size: inherit;
+  font-family: inherit;
 `
 export const DescriptionAnimated = styled(motion.div)`
   display: flex;
-  /* height: 1.65rem; */
   align-items: baseline;
-  /* justify-content: flex-start; */
-  /* width: 100%; */
-  /* min-width: 340px; */
   color: 'var(--background4-main);';
   transition: all 0.3s ease-out;
 `
@@ -130,20 +114,15 @@ export const DescriptionInput = styled(motion.textarea)`
   transition: all 0.3s ease-out;
   background: none;
   line-height: 1.1;
-  padding: 0.8rem 1.2rem;
+
   min-width: 100%;
-  /* max-width: 100%; */
   cursor: text;
   min-height: 100px;
-  /* min-width: 300px; */
-  /* resize: none; */
   overflow-y: auto;
-  font-size: 0.9rem;
   line-height: 1.2;
-  /* padding: 0.8rem 1.2rem; */
-  /* margin-bottom: 20px; */
   transition: 1.9s;
-  /* font-weight: 600; */
+  font-size: inherit;
+  font-family: inherit;
   &::placeholder {
     color: var(--background-tertiary3);
     font-weight: 400;
@@ -154,9 +133,10 @@ export const DescriptionInput = styled(motion.textarea)`
   }
 `
 export const DescriptionDiv = styled(motion.div)`
-  max-width: 90%;
+  /* max-width: 90%; */
+  min-width: 90%;
   /* overflow-wrap: break-word; */
-  word-break: break-all;
+  /* word-break: break-all; */
 `
 
 export const ListRow = styled(motion.div)`

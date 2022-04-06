@@ -102,33 +102,22 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
         exit={{ opacity: 0 }}
       >
         {' '}
-        {/* <AnimatePresence> */}
         <ListTitleContainer as={motion.div} layout='size'>
           {!titleEditing ? (
             <ListTitle as={motion.h2} layout onClick={toggleOpen}>
-              <TitleAnimated
-                initial={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
-                animate={{ opacity: 1 }}
-                as={motion.div}
-                isOpen={isOpen}
-                // layout='position'
-                layout
-              >
-                {title}
+              <TitleAnimated as={motion.div} isOpen={isOpen} layout>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  {title}
+                </motion.div>
               </TitleAnimated>
             </ListTitle>
           ) : (
             <ListTitle>
-              <TitleAnimated
-                as={motion.div}
-                initial={{ opacity: 0 }}
-                // transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
-                transition={{ duration: 0.4 }}
-                animate={{ opacity: 1 }}
-                isOpen={isOpen}
-                // layout
-              >
+              <TitleAnimated as={motion.div} isOpen={isOpen}>
                 <TitleInput
                   type='title'
                   name='title'
@@ -136,6 +125,9 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                   placeholder='new title'
                   value={titleValue}
                   onChange={(e: any) => setTitleValue(e.target.value)}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                 />
               </TitleAnimated>
             </ListTitle>
@@ -145,8 +137,6 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
             as={motion.div}
             layout='position'
             initial={{ opacity: 0 }}
-            // transition={{ duration: 0.4, delayChildren: 0.5 }}
-            // transition={{ duration: 1.1, ease: [0.04, 0.62, 0.79, 0.98] }}
             animate={{ opacity: 1 }}
           >
             <AnimatePresence>
@@ -155,18 +145,12 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, ease: [0.04, 0.22, 0.49, 0.98] }}
                 exit={{ opacity: 0 }}
-                // layout='position'
-                // layout
               >
                 {!titleEditing ? (
                   <SendButtonSmall
                     variant='primaryEmpty'
                     onClick={toggleEditing}
                     as={motion.button}
-                    // layout='position'
-                    // layoutId='saveOrEdit'
-                    // layout
-                    // layout='size'
                   >
                     edit title
                   </SendButtonSmall>
@@ -174,8 +158,6 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                   <SendButtonSmall
                     variant='successEmpty'
                     onClick={saveTitleHandler}
-                    // layout='size'
-                    // layoutId='saveOrEdit'
                   >
                     save title
                   </SendButtonSmall>
@@ -183,8 +165,6 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                 <SendButtonSmall
                   variant='secondaryEmpty'
                   onClick={() => removeCitationHandler(id)}
-                  // layout='position'
-                  // layout
                 >
                   remove
                 </SendButtonSmall>
@@ -192,9 +172,6 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                   <SendButtonSmall
                     variant='successEmpty'
                     onClick={saveFragmentHandler}
-                    // layout='position'
-                    // layout='size'
-                    // layout
                   >
                     save fragment
                   </SendButtonSmall>
@@ -203,7 +180,6 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
             </AnimatePresence>
           </ListButtonContainer>
         </ListTitleContainer>{' '}
-        {/* </AnimatePresence> */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -225,12 +201,22 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{
                         duration: 0.4,
-                        ease: [0.04, 0.62, 0.23, 0.98],
+                        ease: [0.04, 0.52, 0.73, 0.98],
                       }}
                       as={motion.div}
                       layout='position'
                     >
-                      <DescriptionDiv>{description}</DescriptionDiv>
+                      {/* {description} */}
+                      <DescriptionDiv>
+                        {' '}
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                        >
+                          {description}
+                        </motion.div>
+                      </DescriptionDiv>
                     </DescriptionAnimated>
                   ) : (
                     <DescriptionAnimated
@@ -243,17 +229,23 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                       }}
                       layout='position'
                     >
-                      <DescriptionInput
-                        type='description'
-                        name='description'
-                        // row='14'
-                        layout
-                        placeholder='new description'
-                        value={descriptionValue}
-                        onChange={(e: any) =>
-                          setDescriptionValue(e.target.value)
-                        }
-                      />
+                      {' '}
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                      >
+                        <DescriptionInput
+                          type='description'
+                          name='description'
+                          layout
+                          placeholder='new description'
+                          value={descriptionValue}
+                          onChange={(e: any) =>
+                            setDescriptionValue(e.target.value)
+                          }
+                        />
+                      </motion.div>
                     </DescriptionAnimated>
                   )}
                   <ListButtonContainer>
