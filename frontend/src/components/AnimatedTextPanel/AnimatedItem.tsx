@@ -143,7 +143,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
 
           <ListButtonContainer
             as={motion.div}
-            // layout='size'
+            layout='position'
             initial={{ opacity: 0 }}
             // transition={{ duration: 0.4, delayChildren: 0.5 }}
             // transition={{ duration: 1.1, ease: [0.04, 0.62, 0.79, 0.98] }}

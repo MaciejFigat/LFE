@@ -67,7 +67,7 @@ export const TitleAnimated = styled(motion.div)`
   display: flex;
   /* height: 1.65rem; */
   min-height: max-content;
-  min-height: min-content;
+  /* min-height: min-content; */
   flex-direction: row;
   align-items: center;
   word-break: break-all;
@@ -91,8 +91,11 @@ export const TitleAnimated = styled(motion.div)`
 export const TitleInput = styled(motion.input)`
   /* padding: 2px 3px; */
   color: var(--background-tertiary3);
-  /* max-width: fit-content; */
-  max-width: 100%;
+  /* min-width: min-content; */
+  /* min-width: max-content; */
+  /* min-width:300px; */
+/* min-height: 200px; */
+  /* max-width: 100%; */
   /* min-height: min-content; */
   padding: 0;
   margin: 0;
