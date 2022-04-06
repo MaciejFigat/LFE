@@ -93,7 +93,7 @@ export const deleteSavedFragment = createAsyncThunk(
             }
 
             const { data } = await axios.delete(
-                `/api/articles/${id}`,
+                `/api/fragments/${id}`,
                 config
             )
 
@@ -175,7 +175,6 @@ const fragmentSlice = createSlice({
 
         },
         citationTitleEdit(state, action) {
-
             const { id, title } = action.payload
             const existingCitation = state.citations.find(citation => citation.id === id)
             if (existingCitation) {
@@ -239,6 +238,20 @@ const fragmentSlice = createSlice({
         })
         builder.addCase(getUserFragments.rejected, (state, action) => {
             state.loading = false
+        })
+        builder.addCase(deleteSavedFragment.pending, (state, action) => {
+            state.loading = true
+            state.success = false
+
+        })
+        builder.addCase(deleteSavedFragment.fulfilled, (state, action) => {
+            state.loading = false
+            state.error = action.payload.message
+            state.success = true
+        })
+        builder.addCase(deleteSavedFragment.rejected, (state, action) => {
+            state.loading = false
+
         })
     },
 

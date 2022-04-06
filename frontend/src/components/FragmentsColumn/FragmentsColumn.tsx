@@ -25,7 +25,6 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
               as={motion.ul}
               key={citation.id}
               layout
-              // initial={{ borderRadius: 5, opacity: 0 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
