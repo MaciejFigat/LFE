@@ -8,6 +8,7 @@ interface NavListMobileProps {}
 const links = [
   { name: 'Home', to: '/', id: '1' },
   { name: 'Contact', to: '/contact', id: '2' },
+  { name: 'Storage', to: '/storage', id: '3' },
 ]
 const itemVariants = {
   closed: {

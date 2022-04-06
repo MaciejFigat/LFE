@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 import { handleButtonColor } from './utilsButton'
 
-export const SendButton = styled.button`
+export const SendButton = styled(motion.button)`
   /* buttonBackground */
   ${(props) => handleButtonColor(props).buttonBackground}
   ${(props) => handleButtonColor(props).buttonColor}

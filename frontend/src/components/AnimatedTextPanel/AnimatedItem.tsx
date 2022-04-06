@@ -101,15 +101,18 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0 }}
       >
-        <ListTitleContainer as={motion.div} layout>
+        {' '}
+        {/* <AnimatePresence> */}
+        <ListTitleContainer as={motion.div} layout='size'>
           {!titleEditing ? (
             <ListTitle as={motion.h2} layout onClick={toggleOpen}>
               <TitleAnimated
                 initial={{ opacity: 0 }}
-                transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                transition={{ duration: 0.4 }}
                 animate={{ opacity: 1 }}
                 as={motion.div}
                 isOpen={isOpen}
+                // layout='position'
                 layout
               >
                 {title}
@@ -120,10 +123,11 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
               <TitleAnimated
                 as={motion.div}
                 initial={{ opacity: 0 }}
-                transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                // transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                transition={{ duration: 0.4 }}
                 animate={{ opacity: 1 }}
                 isOpen={isOpen}
-                layout
+                // layout
               >
                 <TitleInput
                   type='title'
@@ -137,35 +141,69 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
             </ListTitle>
           )}
 
-          <ListButtonContainer>
-            {!titleEditing ? (
-              <SendButtonSmall variant='primaryEmpty' onClick={toggleEditing}>
-                edit title
-              </SendButtonSmall>
-            ) : (
-              <SendButtonSmall
-                variant='successEmpty'
-                onClick={saveTitleHandler}
+          <ListButtonContainer
+            as={motion.div}
+            // layout='size'
+            initial={{ opacity: 0 }}
+            // transition={{ duration: 0.4, delayChildren: 0.5 }}
+            // transition={{ duration: 1.1, ease: [0.04, 0.62, 0.79, 0.98] }}
+            animate={{ opacity: 1 }}
+          >
+            <AnimatePresence>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, ease: [0.04, 0.22, 0.49, 0.98] }}
+                exit={{ opacity: 0 }}
+                // layout='position'
+                // layout
               >
-                save
-              </SendButtonSmall>
-            )}
-            <SendButtonSmall
-              variant='secondaryEmpty'
-              onClick={() => removeCitationHandler(id)}
-            >
-              remove
-            </SendButtonSmall>
-            {Object.keys(userInfo).length > 0 && (
-              <SendButtonSmall
-                variant='successEmpty'
-                onClick={saveFragmentHandler}
-              >
-                save fragment
-              </SendButtonSmall>
-            )}
+                {!titleEditing ? (
+                  <SendButtonSmall
+                    variant='primaryEmpty'
+                    onClick={toggleEditing}
+                    as={motion.button}
+                    // layout='position'
+                    // layoutId='saveOrEdit'
+                    // layout
+                    // layout='size'
+                  >
+                    edit title
+                  </SendButtonSmall>
+                ) : (
+                  <SendButtonSmall
+                    variant='successEmpty'
+                    onClick={saveTitleHandler}
+                    // layout='size'
+                    // layoutId='saveOrEdit'
+                  >
+                    save title
+                  </SendButtonSmall>
+                )}
+                <SendButtonSmall
+                  variant='secondaryEmpty'
+                  onClick={() => removeCitationHandler(id)}
+                  // layout='position'
+                  // layout
+                >
+                  remove
+                </SendButtonSmall>
+                {Object.keys(userInfo).length > 0 && (
+                  <SendButtonSmall
+                    variant='successEmpty'
+                    onClick={saveFragmentHandler}
+                    // layout='position'
+                    // layout='size'
+                    // layout
+                  >
+                    save fragment
+                  </SendButtonSmall>
+                )}{' '}
+              </motion.div>{' '}
+            </AnimatePresence>
           </ListButtonContainer>
-        </ListTitleContainer>
+        </ListTitleContainer>{' '}
+        {/* </AnimatePresence> */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -190,7 +228,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                         ease: [0.04, 0.62, 0.23, 0.98],
                       }}
                       as={motion.div}
-                      layout
+                      layout='position'
                     >
                       <DescriptionDiv>{description}</DescriptionDiv>
                     </DescriptionAnimated>
@@ -203,7 +241,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                         duration: 0.4,
                         ease: [0.04, 0.62, 0.23, 0.98],
                       }}
-                      layout
+                      layout='position'
                     >
                       <DescriptionInput
                         type='description'

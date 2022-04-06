@@ -28,16 +28,25 @@ export const ListItem = styled(motion.li)`
 `
 export const ListTitleContainer = styled(motion.div)`
   display: grid;
+  /* min-height: fit-content; */
+  /* min-width: fit-content; */
+  /* width: fit-content; */
+  /* height: fit-content; */
   /* padding-right: 0.75rem; */
+  /* min-height: max-content; */
+  min-height: min-content;
   grid-template: auto 1fr / auto 2fr;
   @media (max-width: 740px) {
-    max-height: 2.5rem;
+    /* max-height: 5.5rem; */
+    /* min-height: fit-content; */
+    /* height: fit-content; */
   }
 `
 export const ListTitle = styled(motion.h2)`
   display: grid;
   place-items: center;
   margin: 0;
+  word-break: break-all;
   margin-left: 0.5rem;
   font-size: 1.1rem;
   @media (max-width: 740px) {
@@ -56,9 +65,12 @@ export const ListButtonContainerLeft = styled(ListButtonContainer)`
 
 export const TitleAnimated = styled(motion.div)`
   display: flex;
-  height: 1.65rem;
-  /* flex-direction: row; */
+  /* height: 1.65rem; */
+  min-height: max-content;
+  min-height: min-content;
+  flex-direction: row;
   align-items: center;
+  word-break: break-all;
   justify-content: flex-start;
   width: 100%;
   min-width: 250px;
@@ -81,15 +93,16 @@ export const TitleInput = styled(motion.input)`
   color: var(--background-tertiary3);
   /* max-width: fit-content; */
   max-width: 100%;
+  /* min-height: min-content; */
   padding: 0;
   margin: 0;
   /* pointer-events: none; */
   line-height: normal;
   background: transparent;
+  /* word-break: break-all; */
   outline: 0
   background-color: transparent;
-   
-    border: none; 
+  border: none; 
     &:focus{
       border: none; 
       outline: 0;
@@ -120,7 +133,7 @@ export const DescriptionInput = styled(motion.textarea)`
   cursor: text;
   min-height: 100px;
   /* min-width: 300px; */
-  resize: none;
+  /* resize: none; */
   overflow-y: auto;
   font-size: 0.9rem;
   line-height: 1.2;

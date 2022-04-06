@@ -12,6 +12,7 @@ import AdminPanel from './screens/AdminPanel'
 import ResetPassword from './screens/ResetPassword'
 import ConfirmAccount from './screens/ConfirmAccount'
 import Contact from './screens/Contact'
+import StoredFragments from './screens/StoredFragments'
 
 function App() {
   const location = useLocation()
@@ -25,6 +26,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/storage' element={<StoredFragments />} />
         <Route path='/resetpassword' element={<ResetPassword />} />
         <Route path='/confirmaccount' element={<ConfirmAccount />} />
         <Route path='/admin' element={<AdminPanel />} />
