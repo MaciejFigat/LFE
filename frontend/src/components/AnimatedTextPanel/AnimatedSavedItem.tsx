@@ -14,10 +14,8 @@ import {
 } from './AnimatedList.styled'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import {
-  citationRemoved,
   citationTitleEdit,
   citationDescriptionEdit,
-  createFragment,
 } from '../../features/fragments/fragmentSlice'
 import { deleteSavedFragment } from '../../features/fragments/fragmentSlice'
 import { SendButtonSmall } from '../Buttons/Buttons.styled'
@@ -51,20 +49,33 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
 
   const [descriptionEditing, setDescriptionEditing] = useState(false)
 
+  const [excerptEditing, setExcerptEditing] = useState(false)
+
+  const [sourceEditing, setSourceEditing] = useState(false)
+
   const [titleValue, setTitleValue] = useState(title)
 
   const [descriptionValue, setDescriptionValue] = useState(description)
+
+  const [excerptValue, setExcerptValue] = useState(excerpt)
+
+  const [sourceValue, setSourceValue] = useState(source)
 
   const toggleOpen = () => setIsOpen(!isOpen)
 
   const toggleEditing = () => setTitleEditing(!titleEditing)
 
-  const toggleEditingDescription = () =>
+  const toggleDescriptionEditing = () =>
     setDescriptionEditing(!descriptionEditing)
+
+  const toggleExcerptEditing = () => setExcerptEditing(!excerptEditing)
+
+  const toggleSourceEditing = () => setSourceEditing(!sourceEditing)
 
   const removeFragmentHandler = (id: string) => {
     dispatch(deleteSavedFragment(id))
   }
+  // Todo title editing
   const newTitle = {
     id: id,
     title: titleValue,
@@ -73,6 +84,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     dispatch(citationTitleEdit(newTitle))
     setTitleEditing(!titleEditing)
   }
+  // Todo description editing
   const newDescription = {
     id: id,
     description: descriptionValue,
@@ -80,6 +92,24 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   const saveDescriptionHandler = () => {
     dispatch(citationDescriptionEdit(newDescription))
     setDescriptionEditing(!descriptionEditing)
+  }
+  // Todo excerpt editing
+  const newExcerpt = {
+    id: id,
+    description: excerptValue,
+  }
+  const saveExcerptHandler = () => {
+    // dispatch(citationDescriptionEdit(newExcerpt))
+    setExcerptEditing(!excerptEditing)
+  }
+  // TODO source editing
+  const newSource = {
+    id: id,
+    description: descriptionValue,
+  }
+  const saveSourceHandler = () => {
+    // dispatch(citationDescriptionEdit(newDescription))
+    setSourceEditing(!sourceEditing)
   }
   const newFragment = {
     source: source,
@@ -90,7 +120,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   }
 
   const saveFragmentHandler = () => {
-    dispatch(createFragment(newFragment))
+    // dispatch(createFragment(newFragment))
   }
   return (
     <>
@@ -194,6 +224,79 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                   {children}
                 </ListRow>
               )}
+              {/* //todo excerpt editing/display below */}
+              <ListRow as={motion.div} layout>
+                <ListTitleContainer>
+                  {!excerptEditing ? (
+                    <DescriptionAnimated
+                      initial={{ opacity: 0, scale: 1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        duration: 0.4,
+                        ease: [0.04, 0.52, 0.73, 0.98],
+                      }}
+                      as={motion.div}
+                      layout='position'
+                    >
+                      <DescriptionDiv>
+                        {' '}
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                        >
+                          {excerpt}
+                        </motion.div>
+                      </DescriptionDiv>
+                    </DescriptionAnimated>
+                  ) : (
+                    <DescriptionAnimated
+                      as={motion.div}
+                      initial={{ opacity: 0, scale: 1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        duration: 0.4,
+                        ease: [0.04, 0.62, 0.23, 0.98],
+                      }}
+                      layout='position'
+                    >
+                      {' '}
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                      >
+                        <DescriptionInput
+                          type='excerpt'
+                          name='excerpt'
+                          layout
+                          placeholder='new excerpt'
+                          value={excerptValue}
+                          onChange={(e: any) => setExcerptValue(e.target.value)}
+                        />
+                      </motion.div>
+                    </DescriptionAnimated>
+                  )}
+                  <ListButtonContainer>
+                    {!excerptEditing ? (
+                      <SendButtonSmall
+                        variant='primaryEmpty'
+                        onClick={toggleExcerptEditing}
+                      >
+                        edit excerpt
+                      </SendButtonSmall>
+                    ) : (
+                      <SendButtonSmall
+                        variant='successEmpty'
+                        onClick={saveExcerptHandler}
+                      >
+                        save
+                      </SendButtonSmall>
+                    )}
+                  </ListButtonContainer>
+                </ListTitleContainer>
+              </ListRow>
+              {/* //todo description editing/display below */}
               <ListRow as={motion.div} layout>
                 <ListTitleContainer>
                   {!descriptionEditing ? (
@@ -207,7 +310,6 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                       as={motion.div}
                       layout='position'
                     >
-                      {/* {description} */}
                       <DescriptionDiv>
                         {' '}
                         <motion.div
@@ -253,7 +355,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                     {!descriptionEditing ? (
                       <SendButtonSmall
                         variant='primaryEmpty'
-                        onClick={toggleEditingDescription}
+                        onClick={toggleDescriptionEditing}
                       >
                         edit description
                       </SendButtonSmall>
@@ -261,6 +363,78 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                       <SendButtonSmall
                         variant='successEmpty'
                         onClick={saveDescriptionHandler}
+                      >
+                        save
+                      </SendButtonSmall>
+                    )}
+                  </ListButtonContainer>
+                </ListTitleContainer>
+              </ListRow>
+              {/* //todo from here source display/editing */}
+              <ListRow as={motion.div} layout>
+                <ListTitleContainer>
+                  {!sourceEditing ? (
+                    <DescriptionAnimated
+                      initial={{ opacity: 0, scale: 1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        duration: 0.4,
+                        ease: [0.04, 0.52, 0.73, 0.98],
+                      }}
+                      as={motion.div}
+                      layout='position'
+                    >
+                      <DescriptionDiv>
+                        {' '}
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                        >
+                          {source}
+                        </motion.div>
+                      </DescriptionDiv>
+                    </DescriptionAnimated>
+                  ) : (
+                    <DescriptionAnimated
+                      as={motion.div}
+                      initial={{ opacity: 0, scale: 1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        duration: 0.4,
+                        ease: [0.04, 0.62, 0.23, 0.98],
+                      }}
+                      layout='position'
+                    >
+                      {' '}
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                      >
+                        <DescriptionInput
+                          type='source'
+                          name='source'
+                          layout
+                          placeholder='new source'
+                          value={sourceValue}
+                          onChange={(e: any) => setSourceValue(e.target.value)}
+                        />
+                      </motion.div>
+                    </DescriptionAnimated>
+                  )}
+                  <ListButtonContainer>
+                    {!sourceEditing ? (
+                      <SendButtonSmall
+                        variant='primaryEmpty'
+                        onClick={toggleSourceEditing}
+                      >
+                        edit source
+                      </SendButtonSmall>
+                    ) : (
+                      <SendButtonSmall
+                        variant='successEmpty'
+                        onClick={saveSourceHandler}
                       >
                         save
                       </SendButtonSmall>

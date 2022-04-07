@@ -48,8 +48,8 @@ export const createFragment = createAsyncThunk(
     }
 )
 
-export const editFragment = createAsyncThunk(
-    'fragment/editFragment',
+export const editSavedFragment = createAsyncThunk(
+    'fragment/editSavedFragment',
 
     async (fragment: FragmentCreated, thunkAPI) => {
 
@@ -148,18 +148,7 @@ const fragmentSlice = createSlice({
         ],
 
         userFragments: [
-            // {
-            //     id: '',
-            //     userId: '',
-            //     citations: [
-            //         {
-            //             source: '',
-            //             excerpt: '',
-            //             coordinates: '',
-            //             title: ''
-            //         }
-            //     ],
-            // }
+
         ],
         fragmentSaved: {},
         loading: false,
@@ -193,22 +182,6 @@ const fragmentSlice = createSlice({
         citationRemoved(state, action) {
             state.citations.length > 0 && (state.citations = state.citations.filter((citation) => citation.id !== action.payload))
         },
-        // fragmentUpdated(state, action) {
-        // const { id, title, content } = action.payload
-        // const existingFragment = state.find(post => post.id === id)
-        // if (existingFragment) {
-        //     existingFragment.title = title
-        //     existingFragment.content = content
-        // }
-        // },
-        // saveFragment(state, action: PayloadAction<FragmentCreated>) {
-        // saveFragment(state, action) {
-        //     state.userFragments = action.payload
-        // },
-
-        // deleteAllFragments(state, action) {
-        //     state.userFragments = []
-        // },
 
 
     },
@@ -250,6 +223,19 @@ const fragmentSlice = createSlice({
             state.success = true
         })
         builder.addCase(deleteSavedFragment.rejected, (state, action) => {
+            state.loading = false
+
+        })
+        builder.addCase(editSavedFragment.pending, (state, action) => {
+            state.loading = true
+            state.success = false
+        })
+        builder.addCase(editSavedFragment.fulfilled, (state, action) => {
+            state.loading = false
+            state.error = action.payload.message
+            state.success = true
+        })
+        builder.addCase(editSavedFragment.rejected, (state, action) => {
             state.loading = false
 
         })

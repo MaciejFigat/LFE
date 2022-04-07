@@ -57,9 +57,9 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
                       excerpt={fragment.excerpt}
                       coordinates={fragment.coordinates}
                     >
-                      <FragmentsP>created at: {fragment.date}</FragmentsP>
-                      <FragmentsPExcerpt>{fragment.excerpt}</FragmentsPExcerpt>
-                      <FragmentsP>source: {fragment.source}</FragmentsP>
+                      {/* <FragmentsP>created at: {fragment.date}</FragmentsP> */}
+                      {/* <FragmentsPExcerpt>{fragment.excerpt}</FragmentsPExcerpt> */}
+                      {/* <FragmentsP>source: {fragment.source}</FragmentsP> */}
                     </AnimatedSavedItem>
                   </ItemWrapper>
                 </FragmentContainer>
