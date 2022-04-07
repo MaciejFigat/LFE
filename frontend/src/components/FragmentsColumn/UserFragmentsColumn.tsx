@@ -1,10 +1,6 @@
 import React, { useEffect } from 'react'
 import { useAppSelector } from '../../app/reduxHooks'
-import {
-  FragmentsP,
-  FragmentContainer,
-  FragmentsPExcerpt,
-} from './FragmentsColumn.styled'
+import { FragmentContainer } from './FragmentsColumn.styled'
 import { motion, AnimateSharedLayout } from 'framer-motion'
 import {
   ListWrapper,
@@ -56,11 +52,8 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
                       source={fragment.source}
                       excerpt={fragment.excerpt}
                       coordinates={fragment.coordinates}
-                    >
-                      {/* <FragmentsP>created at: {fragment.date}</FragmentsP> */}
-                      {/* <FragmentsPExcerpt>{fragment.excerpt}</FragmentsPExcerpt> */}
-                      {/* <FragmentsP>source: {fragment.source}</FragmentsP> */}
-                    </AnimatedSavedItem>
+                      updatedAt={fragment.updatedAt}
+                    ></AnimatedSavedItem>
                   </ItemWrapper>
                 </FragmentContainer>
               )}

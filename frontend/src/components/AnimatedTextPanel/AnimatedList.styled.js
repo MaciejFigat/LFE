@@ -37,6 +37,10 @@ export const ListTitleContainer = styled(motion.div)`
     /* height: fit-content; */
   }
 `
+export const DatePar = styled(motion.p)`
+  font-size: 0.5rem;
+  color: var(--background-secondary2);
+`
 export const ListTitle = styled(motion.h2)`
   display: grid;
   place-items: center;

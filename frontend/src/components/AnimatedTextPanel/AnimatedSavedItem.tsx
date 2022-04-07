@@ -11,6 +11,7 @@ import {
   DescriptionAnimated,
   DescriptionInput,
   DescriptionDiv,
+  DatePar,
 } from './AnimatedList.styled'
 import { useAppDispatch } from '../../app/reduxHooks'
 
@@ -28,6 +29,7 @@ interface AnimatedSavedItemProps {
   source: string
   excerpt: string
   coordinates: string
+  updatedAt: string
 }
 
 const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
@@ -38,6 +40,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   source,
   excerpt,
   coordinates,
+  updatedAt,
 }) => {
   const dispatch: any = useAppDispatch()
 
@@ -125,17 +128,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     dispatch(editSavedFragment(newSource))
     setSourceEditing(!sourceEditing)
   }
-  // const newFragment = {
-  //   source: source,
-  //   excerpt: excerpt,
-  //   coordinates: coordinates,
-  //   title: title,
-  //   description: description,
-  // }
 
-  // const saveFragmentHandler = () => {
-  // dispatch(createFragment(newFragment))
-  // }
   return (
     <>
       <ListItem
@@ -156,7 +149,11 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  {title}
+                  {title} <DatePar>{excerpt.substring(0, 10)}</DatePar>
+                  <DatePar>
+                    {updatedAt.substring(0, 10)} at{' '}
+                    {updatedAt.substring(12, 16)}
+                  </DatePar>
                 </motion.div>
               </TitleAnimated>
             </ListTitle>
@@ -213,14 +210,6 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                 >
                   delete permanently
                 </SendButtonSmall>
-                {/* {Object.keys(userInfo).length > 0 && (
-                  <SendButtonSmall
-                    variant='successEmpty'
-                    onClick={saveFragmentHandler}
-                  >
-                    save fragment
-                  </SendButtonSmall>
-                )} */}
               </motion.div>{' '}
             </AnimatePresence>
           </ListButtonContainer>
