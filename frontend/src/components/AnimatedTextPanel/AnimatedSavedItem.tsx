@@ -12,14 +12,13 @@ import {
   DescriptionInput,
   DescriptionDiv,
 } from './AnimatedList.styled'
-import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+import { useAppDispatch } from '../../app/reduxHooks'
+
 import {
-  citationTitleEdit,
-  citationDescriptionEdit,
+  deleteSavedFragment,
+  editSavedFragment,
 } from '../../features/fragments/fragmentSlice'
-import { deleteSavedFragment } from '../../features/fragments/fragmentSlice'
 import { SendButtonSmall } from '../Buttons/Buttons.styled'
-import { UserInfo } from '../../interfaces'
 
 interface AnimatedSavedItemProps {
   title: string
@@ -41,7 +40,6 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   coordinates,
 }) => {
   const dispatch: any = useAppDispatch()
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -77,51 +75,67 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   }
   // Todo title editing
   const newTitle = {
-    id: id,
+    _id: id,
+    source: source,
+    excerpt: excerpt,
+    coordinates: coordinates,
     title: titleValue,
+    description: description,
   }
   const saveTitleHandler = () => {
-    dispatch(citationTitleEdit(newTitle))
+    dispatch(editSavedFragment(newTitle))
     setTitleEditing(!titleEditing)
   }
   // Todo description editing
   const newDescription = {
-    id: id,
+    _id: id,
+    source: source,
+    excerpt: excerpt,
+    coordinates: coordinates,
+    title: title,
     description: descriptionValue,
   }
   const saveDescriptionHandler = () => {
-    dispatch(citationDescriptionEdit(newDescription))
+    dispatch(editSavedFragment(newDescription))
     setDescriptionEditing(!descriptionEditing)
   }
   // Todo excerpt editing
   const newExcerpt = {
-    id: id,
-    description: excerptValue,
+    _id: id,
+    source: source,
+    excerpt: excerptValue,
+    coordinates: coordinates,
+    title: title,
+    description: description,
   }
   const saveExcerptHandler = () => {
-    // dispatch(citationDescriptionEdit(newExcerpt))
+    dispatch(editSavedFragment(newExcerpt))
     setExcerptEditing(!excerptEditing)
   }
   // TODO source editing
   const newSource = {
-    id: id,
-    description: descriptionValue,
-  }
-  const saveSourceHandler = () => {
-    // dispatch(citationDescriptionEdit(newDescription))
-    setSourceEditing(!sourceEditing)
-  }
-  const newFragment = {
-    source: source,
+    _id: id,
+    source: sourceValue,
     excerpt: excerpt,
     coordinates: coordinates,
     title: title,
     description: description,
   }
-
-  const saveFragmentHandler = () => {
-    // dispatch(createFragment(newFragment))
+  const saveSourceHandler = () => {
+    dispatch(editSavedFragment(newSource))
+    setSourceEditing(!sourceEditing)
   }
+  // const newFragment = {
+  //   source: source,
+  //   excerpt: excerpt,
+  //   coordinates: coordinates,
+  //   title: title,
+  //   description: description,
+  // }
+
+  // const saveFragmentHandler = () => {
+  // dispatch(createFragment(newFragment))
+  // }
   return (
     <>
       <ListItem
@@ -199,14 +213,14 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                 >
                   delete permanently
                 </SendButtonSmall>
-                {Object.keys(userInfo).length > 0 && (
+                {/* {Object.keys(userInfo).length > 0 && (
                   <SendButtonSmall
                     variant='successEmpty'
                     onClick={saveFragmentHandler}
                   >
                     save fragment
                   </SendButtonSmall>
-                )}{' '}
+                )} */}
               </motion.div>{' '}
             </AnimatePresence>
           </ListButtonContainer>
