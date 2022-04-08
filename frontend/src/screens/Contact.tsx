@@ -16,36 +16,34 @@ interface ContactProps {}
 const Contact: React.FC<ContactProps> = () => {
   return (
     <>
-      {' '}
-      <SideMenu
-        mainData={
-          <HighlightPopMenu>
-            <InfoSection
-              variant='tertiary'
-              paddingTop='small'
-              data={homeData}
-            ></InfoSection>
-            <InfoSection
-              variant='primary'
-              paddingTop='small'
-              data={homeData}
-            ></InfoSection>
-            <InfoSection
-              variant='secondary'
-              paddingTop='small'
-              data={homeData}
-            ></InfoSection>
-            <InfoSection
-              paddingTop='small'
-              variant='transparent'
-              data={homeData}
-            ></InfoSection>{' '}
-          </HighlightPopMenu>
-        }
-      >
+      {/* <SideMenu mainData={<></>}> */}
+      <SideMenu>
         <FragmentsColumn />
       </SideMenu>
+      <HighlightPopMenu>
+        <InfoSection
+          variant='tertiary'
+          paddingTop='small'
+          data={homeData}
+        ></InfoSection>
+        <InfoSection
+          variant='primary'
+          paddingTop='small'
+          data={homeData}
+        ></InfoSection>
+        <InfoSection
+          variant='secondary'
+          paddingTop='small'
+          data={homeData}
+        ></InfoSection>
+        <InfoSection
+          paddingTop='small'
+          variant='transparent'
+          data={homeData}
+        ></InfoSection>
+      </HighlightPopMenu>
     </>
   )
 }
 export default Contact
+// mainData={

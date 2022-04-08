@@ -6,7 +6,7 @@ export const ListWrapper = styled(motion.ul)`
   flex-direction: column;
   margin-top: 16px;
   height: fit-content;
-  padding: 0;
+  padding: 0.5rem;
   @media (max-width: 1140px) {
     margin-top: 20px;
   }
@@ -20,7 +20,7 @@ export const ListItem = styled(motion.li)`
   background: var(--background1-main);
   cursor: pointer;
   &:last-child {
-    margin-bottom: 0px;
+    /* margin-bottom: 0px; */
   }
   @media (max-width: 740px) {
     padding: 12px;
@@ -118,7 +118,6 @@ export const DescriptionInput = styled(motion.textarea)`
   transition: all 0.3s ease-out;
   background: none;
   line-height: 1.1;
-
   min-width: 100%;
   cursor: text;
   min-height: 100px;
@@ -151,7 +150,7 @@ export const ListRow = styled(motion.div)`
   color: var(--background4-main);
   background: var(--background2-main);
   border-radius: 3px;
-  margin-top: 9px;
+  /* margin-top: 9px; */
   min-height: 125px;
   min-width: 90%;
   max-width: 100%;
