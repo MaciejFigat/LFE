@@ -12,7 +12,8 @@ export const SideMenuDataColumn = styled(motion.div)`
 
 export const SideMenuWrapper = styled(motion.div)`
   position: sticky;
-  top: 50px;
+  top: 0;
+  /* top: 50px; */
   /* right: 0; */
   left: 100%;
   z-index: 2;
@@ -44,8 +45,8 @@ export const SideMenuButtonDiv = styled(motion.div)`
   position: relative;
   /* top: 50vh; */
   margin-bottom: 2.5rem;
-  top: 22px;
-  right: -87%;
+  top: 35px;
+  right: -83%;
   z-index: 10;
 `
 export const SideMenuDiv = styled(motion.div)`

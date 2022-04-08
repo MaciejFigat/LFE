@@ -15,7 +15,7 @@ interface SideMenuProps {
 }
 const sidebar = {
   open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at 92% 50px)`,
+    clipPath: `circle(${height * 2 + 200}px at 88% 60px)`,
     transition: {
       type: 'spring',
       stiffness: 20,
@@ -23,7 +23,7 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: 'circle(50px at 92% 50px)',
+    clipPath: 'circle(50px at 88% 60px)',
     transition: {
       delay: 0.2,
       type: 'spring',

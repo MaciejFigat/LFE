@@ -16,8 +16,8 @@ interface ContactProps {}
 const Contact: React.FC<ContactProps> = () => {
   return (
     <>
-      {/* <SideMenu mainData={<></>}> */}
-      <SideMenu>
+      {/* <SideMenu> */}
+      <SideMenu mainData={<p>Hello</p>}>
         <FragmentsColumn />
       </SideMenu>
       <HighlightPopMenu>
