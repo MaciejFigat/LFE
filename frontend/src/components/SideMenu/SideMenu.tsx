@@ -1,18 +1,99 @@
 import React, { ReactNode } from 'react'
+// import { AnimatePresence, motion } from 'framer-motion'
 import { useCycle } from 'framer-motion'
-
+import {
+  // SideMenuDiv,
+  BackgroundDiv,
+  SideMenuButtonDiv,
+  SideMenuWrapper,
+  SideMenuDataColumn,
+} from './SideMenu.styled'
+import { SendButton } from '../Buttons/Buttons.styled'
 interface SideMenuProps {
   children: ReactNode
+  mainData: ReactNode
+}
+const sidebar = {
+  open: (height = 1000) => ({
+    clipPath: `circle(${height * 2 + 200}px at 92% 50px)`,
+    transition: {
+      type: 'spring',
+      stiffness: 20,
+      restDelta: 2,
+    },
+  }),
+  closed: {
+    clipPath: 'circle(50px at 92% 50px)',
+    transition: {
+      delay: 0.5,
+      type: 'spring',
+      stiffness: 400,
+      damping: 40,
+    },
+  },
 }
 
-const SideMenu: React.FC<SideMenuProps> = ({ children }) => {
+const SideMenu: React.FC<SideMenuProps> = ({ children, mainData }) => {
   const [open, cycleOpen] = useCycle(false, true)
   const handleClickMenu = () => {
     cycleOpen()
   }
   return (
     <>
-      <button onClick={handleClickMenu}>click to enlarge</button> {children}
+      <SideMenuDataColumn>{mainData}</SideMenuDataColumn>
+      <SideMenuWrapper initial={false} animate={open ? 'open' : 'closed'}>
+        <BackgroundDiv variants={sidebar}>
+          <SideMenuButtonDiv open={open}>
+            <SendButton variant='primary' onClick={handleClickMenu}>
+              {open ? 'Close' : 'Open'}
+            </SendButton>
+          </SideMenuButtonDiv>{' '}
+          {children}
+        </BackgroundDiv>
+      </SideMenuWrapper>
+      {/* <SideMenuDiv
+        initial={{ width: 0 }}
+        animate={{
+          width: '100vw',
+          transition: { duration: 0.7 },
+        }}
+        exit={{
+          width: 0,
+          transition: { duration: 0.9 },
+        }}
+      >
+        <motion.div
+          initial='closed'
+          animate='open'
+          exit='closed'
+          variants={sideVariants}
+        >
+          {children}
+        </motion.div>
+      </SideMenuDiv> */}
+
+      {/* {open && (
+        <SideMenuDiv
+          initial={{ width: 0 }}
+          animate={{
+            width: '100vw',
+            transition: { duration: 0.7 },
+          }}
+          exit={{
+            width: 0,
+            transition: { duration: 0.9 },
+          }}
+        >
+          <motion.div
+            initial='closed'
+            animate='open'
+            exit='closed'
+            variants={sideVariants}
+          >
+            {children}
+          </motion.div>
+        </SideMenuDiv>
+      )} */}
     </>
   )
 }

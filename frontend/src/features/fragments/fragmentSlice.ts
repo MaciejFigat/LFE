@@ -1,18 +1,18 @@
 // import { createSlice } from "@reduxjs/toolkit"
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { FragmentCreated } from '../../interfaces'
 import axios from 'axios'
 
-interface NewFragmentInfo {
-    _id?: string
-    userId?: string
-    source: string
-    excerpt: string
-    coordinates: string
-    title: string
-    description: string
+// interface NewFragmentInfo {
+//     _id?: string
+//     userId?: string
+//     source: string
+//     excerpt: string
+//     coordinates: string
+//     title: string
+//     description: string
 
-}
+// }
 
 export const createFragment = createAsyncThunk(
     'fragment/createFragment',

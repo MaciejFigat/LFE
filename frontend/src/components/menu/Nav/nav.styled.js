@@ -115,7 +115,6 @@ export const NavContainer = styled.nav`
   position: sticky;
   top: 0;
   min-height: fit-content;
-
   @media (min-width: 2220px) {
     max-width: 2000px;
   }

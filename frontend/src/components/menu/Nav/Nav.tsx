@@ -128,7 +128,8 @@ const Nav: React.FC<NavProps> = () => {
             </HeaderLoginWrapper>
           )}
         </MobileViewContainer>
-        <NavContainer className={open} onClick={handleCloseMenu}>
+        {/* <NavContainer className={open} onClick={handleCloseMenu}> */}
+        <NavContainer onClick={handleCloseMenu}>
           <NavListDesktop />
           <NavListMobile open={open} />
           <HeaderTitleDesktop className={scrollTop === true ? 'hide' : 'show'}>
