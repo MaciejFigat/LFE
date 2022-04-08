@@ -35,6 +35,7 @@ export const BackgroundDiv = styled(motion.div)`
   min-width: 100%;
   /* padding: 0.5rem; */
   padding-right: 1rem;
+
   margin-right: 1.5rem;
   /* padding-top: 1.5rem; */
   background: var(--background1-main);
@@ -42,6 +43,7 @@ export const BackgroundDiv = styled(motion.div)`
 export const SideMenuButtonDiv = styled(motion.div)`
   position: relative;
   /* top: 50vh; */
+  margin-bottom: 2.5rem;
   top: 22px;
   right: -87%;
   z-index: 10;
