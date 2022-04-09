@@ -3,6 +3,7 @@ import InfoSection from '../components/InfoSection/InfoSection'
 import SideMenu from '../components/SideMenu/SideMenu'
 import HighlightPopMenu from '../components/HighlightPopRemake/HighlightPopMenu'
 import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
+import ResizableDiv from '../components/ResizableDiv/ResizableDiv'
 
 export const homeData = {
   topline: 'Lorem ipsum dolor sit.',
@@ -49,6 +50,7 @@ const Contact: React.FC<ContactProps> = () => {
                 unde neque fugiat placeat quae, repellendus ratione
                 voluptatibus?
               </p>
+              <ResizableDiv />
               <h2>Lorem ipsum dolor sit.</h2>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
