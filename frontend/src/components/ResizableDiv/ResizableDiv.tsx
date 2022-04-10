@@ -21,7 +21,9 @@ const ResizableDiv: React.FC<ResizableDivProps> = () => {
     let resizable = document.getElementById('Resizable')
     if (resizable !== null) {
       resizable.style.width = `${
-        parseInt(initialSize) + parseInt(e.clientX - initialPos)
+        // @ts-ignore
+        // parseInt(initialSize) + parseInt(e.clientX - initialPos)
+        parseInt(initialSize) + Math.floor(e.clientX - initialPos)
       }px`
     }
   }
