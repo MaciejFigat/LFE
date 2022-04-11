@@ -3,10 +3,23 @@ import styled from 'styled-components'
 
 export const ResizableDivWrapper = styled.div`
   z-index: 100;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
   #Resizable {
     border: 1px solid black;
     height: 200px;
     width: 200px;
+    min-width: 200px;
+    width: 60%;
+  }
+  #ResizableSecondary {
+    border: 1px solid black;
+    height: 200px;
+    /* width: 100%; */
+    min-width: 200px;
+    /* flex-basis: auto; */
+    flex-grow: 1;
   }
   #Draggable {
     background: rgba(1, 1, 1, 0.2);

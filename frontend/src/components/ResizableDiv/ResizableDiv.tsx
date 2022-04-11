@@ -5,13 +5,13 @@ interface ResizableDivProps {}
 
 const ResizableDiv: React.FC<ResizableDivProps> = () => {
   const [initialPos, setInitialPos] = useState<any>(null)
-  //   const [initialSize, setInitialSize] = useState<number | null | string>(null)
   const [initialSize, setInitialSize] = useState<any>(null)
 
   const initial = (e: any) => {
     let resizable = document.getElementById('Resizable')
 
     setInitialPos(e.clientX)
+
     if (resizable !== null) {
       setInitialSize(resizable.offsetWidth)
     }
@@ -19,10 +19,10 @@ const ResizableDiv: React.FC<ResizableDivProps> = () => {
 
   const resize = (e: any) => {
     let resizable = document.getElementById('Resizable')
-    if (resizable !== null) {
+    let resizableSecondary = document.getElementById('ResizableSecondary')
+
+    if (resizable !== null && resizableSecondary !== null) {
       resizable.style.width = `${
-        // @ts-ignore
-        // parseInt(initialSize) + parseInt(e.clientX - initialPos)
         parseInt(initialSize) + Math.floor(e.clientX - initialPos)
       }px`
     }
@@ -30,15 +30,15 @@ const ResizableDiv: React.FC<ResizableDivProps> = () => {
 
   return (
     <ResizableDivWrapper>
-      <div className='Block'>
-        <div id='Resizable' />
-
+      <div className='Block' id='ResizableWrapper'>
+        <div id='Resizable' />{' '}
         <div
           id='Draggable'
           draggable='true'
           onDragStart={initial}
           onDrag={resize}
         />
+        <div id='ResizableSecondary' />
       </div>
     </ResizableDivWrapper>
   )
