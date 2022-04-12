@@ -44,6 +44,7 @@ export const SectionColumn = styled.div`
     max-width: 100%;
   }
 `
+
 export const SectionColumnScroll = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,8 +55,6 @@ export const SectionColumnScroll = styled.div`
   flex-basis: ${({ width }) => (width ? `${width}` : '80%')};
   @media (max-width: 1020px) {
     flex-basis: 35%;
-    /* margin: 0; */
-    /* padding-left: 0px; */
   }
   @media (max-width: 440px) {
     flex-basis: 100%;
@@ -74,4 +73,48 @@ export const Container = styled.div`
     padding-right: 20px;
     padding-left: 20px;
   }
+`
+// todo draggable parts
+
+export const DragDiv = styled.div`
+  position: sticky;
+  top: 0;
+  background: none;
+  border-left: 1.5px solid;
+  border-right: 1.5px solid;
+  border-color: var(--background1-main);
+  transition: 0.2s;
+  &:active {
+    border-color: var(--background2-main);
+  }
+  &:hover {
+    border-color: var(--background-secondary1);
+  }
+
+  cursor: col-resize;
+  height: 100vh;
+  width: 5px;
+  align-self: flex-start;
+`
+export const SectionColumnScrollResize = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  width: 50%;
+`
+
+export const SectionColumnResize = styled.div`
+  background: none;
+  position: sticky;
+  top: 0;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  max-height: 100vh;
+  min-height: fit-content;
+  width: 30%;
+  overflow: scroll;
+  flex-grow: 1;
 `

@@ -11,14 +11,13 @@ export const ResizableDivWrapper = styled.div`
     height: 200px;
     width: 200px;
     min-width: 200px;
-    width: 60%;
+    width: 40%;
   }
   #ResizableSecondary {
     border: 1px solid black;
     height: 200px;
-    /* width: 100%; */
     min-width: 200px;
-    /* flex-basis: auto; */
+
     flex-grow: 1;
   }
   #Draggable {

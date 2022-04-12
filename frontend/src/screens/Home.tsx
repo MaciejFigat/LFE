@@ -5,6 +5,7 @@ import ScrollSection from '../components/ScrollSection/ScrollSection'
 import HighlightPopMenu from '../components/HighlightPopRemake/HighlightPopMenu'
 import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
 import ResizableDiv from '../components/ResizableDiv/ResizableDiv'
+import ResizableScrollSection from '../components/ScrollSection/ResizableScrollSection'
 
 export const homeData = {
   topline: 'Lorem ipsum dolor sit.',
@@ -20,8 +21,8 @@ const Home: React.FC = () => {
   return (
     <>
       <Toast option='registerUser' />
-      <ResizableDiv />
-      <ScrollSection
+      {/* <ResizableDiv /> */}
+      <ResizableScrollSection
         widthBig='60%'
         widthSmall='40%'
         transparent

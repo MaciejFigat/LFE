@@ -19,9 +19,11 @@ const ResizableDiv: React.FC<ResizableDivProps> = () => {
 
   const resize = (e: any) => {
     let resizable = document.getElementById('Resizable')
-    let resizableSecondary = document.getElementById('ResizableSecondary')
+    // let resizable2 = document.getElementsByClassName('Resizable')
+    // let resizableSecondary = document.getElementById('ResizableSecondary')
 
-    if (resizable !== null && resizableSecondary !== null) {
+    // if (resizable !== null && resizableSecondary !== null) {
+    if (resizable !== null) {
       resizable.style.width = `${
         parseInt(initialSize) + Math.floor(e.clientX - initialPos)
       }px`
