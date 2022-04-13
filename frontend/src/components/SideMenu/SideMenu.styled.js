@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import SideMenu from './SideMenu'
 
 export const SideMenuDataColumn = styled(motion.div)`
   width: 100%;
@@ -13,32 +14,34 @@ export const SideMenuDataColumn = styled(motion.div)`
 export const SideMenuWrapper = styled(motion.div)`
   position: sticky;
   top: 0;
+  /* z-index: ${({ open }) => (open ? 2 : -1)}; */
+  z-index: 2;
+  /* width: ${({ open }) => (open ? '700px' : '600px')}; */
   /* top: 50px; */
   /* right: 0; */
   left: 100%;
-  z-index: 2;
+
   max-width: fit-content;
   min-width: 700px;
-
+  display: flex;
+  flex-direction: row;
   /* margin-right: 1.5rem; */
 `
 export const BackgroundDiv = styled(motion.div)`
-  /* position: absolute; */
-  /* position: relative; */
+  overflow: hidden;
+  display: flex;
+  /* place-self: right; */
   z-index: 2;
   top: 0;
   right: 0;
   bottom: 0;
   max-height: fit-content;
   min-height: 100vh;
-  width: 300px;
-  /* min-width: fit-content; */
+  /* width: 300px; */
   min-width: 100%;
-  /* padding: 0.5rem; */
+  /* max-width: 100%; */
   padding-right: 1rem;
-
   margin-right: 1.5rem;
-  /* padding-top: 1.5rem; */
   background: var(--background1-main);
 `
 export const SideMenuButtonDiv = styled(motion.div)`
@@ -60,11 +63,38 @@ export const SideMenuDiv = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   min-width: fit-content;
-  /* padding-bottom: 3rem; */
-  /* gap: 1.75rem; */
   background: var(--background1-main);
   max-height: 100vh;
   min-height: fit-content;
   /* flex-basis: ${({ width }) => (width ? `${width}` : '15%')}; */
   overflow: scroll;
+`
+export const SideMenuDivResize = styled(SideMenu)``
+// todo draggable components
+
+export const DragDivSideMenu = styled(motion.div)`
+  position: sticky;
+  top: 0;
+  /* display: ${({ open }) => (open ? `flex` : 'none')}; */
+  /* ${({ open }) => (open ? `display: flex;` : 'display: none;')} */
+  background: none;
+  /* background: red; */
+  /* border-left: 1.5px solid; */
+  border-right: 12.5px solid;
+  /* border-color: var(--background1-main); */
+  border-color: transparent;
+  /* border-color: var(--background5-main); */
+  transition: 0.2s;
+  &:active {
+    border-color: var(--background2-main);
+  }
+  &:hover {
+    border-color: var(--background-secondary1);
+  }
+  cursor: col-resize;
+  height: 100vh;
+  min-width: 5px;
+  width: 5px;
+  /* min-width: 50px; */
+  /* align-self: flex-start; */
 `

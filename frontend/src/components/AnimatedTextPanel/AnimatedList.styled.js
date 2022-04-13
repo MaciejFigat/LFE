@@ -136,10 +136,7 @@ export const DescriptionInput = styled(motion.textarea)`
   }
 `
 export const DescriptionDiv = styled(motion.div)`
-  /* max-width: 90%; */
   min-width: 90%;
-  /* overflow-wrap: break-word; */
-  /* word-break: break-all; */
 `
 
 export const ListRow = styled(motion.div)`
@@ -150,7 +147,6 @@ export const ListRow = styled(motion.div)`
   color: var(--background4-main);
   background: var(--background2-main);
   border-radius: 3px;
-  /* margin-top: 9px; */
   min-height: 125px;
   min-width: 90%;
   max-width: 100%;

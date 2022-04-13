@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-// import { motion } from 'framer-motion'
 
 export const ResizableDivWrapper = styled.div`
   z-index: 100;

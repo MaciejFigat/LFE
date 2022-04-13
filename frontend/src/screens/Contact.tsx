@@ -1,9 +1,9 @@
 import React from 'react'
 import InfoSection from '../components/InfoSection/InfoSection'
-import SideMenu from '../components/SideMenu/SideMenu'
 import HighlightPopMenu from '../components/HighlightPopRemake/HighlightPopMenu'
 import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
 import ResizableDiv from '../components/ResizableDiv/ResizableDiv'
+import SideMenuResizable from '../components/SideMenu/SideMenuResizable'
 
 export const homeData = {
   topline: 'Lorem ipsum dolor sit.',
@@ -17,8 +17,7 @@ interface ContactProps {}
 const Contact: React.FC<ContactProps> = () => {
   return (
     <>
-      {/* <SideMenu> */}
-      <SideMenu
+      <SideMenuResizable
         mainData={
           <>
             <HighlightPopMenu>
@@ -112,7 +111,7 @@ const Contact: React.FC<ContactProps> = () => {
         }
       >
         <FragmentsColumn />
-      </SideMenu>
+      </SideMenuResizable>
       <HighlightPopMenu>
         <InfoSection
           variant='tertiary'
@@ -139,4 +138,3 @@ const Contact: React.FC<ContactProps> = () => {
   )
 }
 export default Contact
-// mainData={

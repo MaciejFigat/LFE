@@ -1,10 +1,10 @@
 import React from 'react'
 import InfoSection from '../components/InfoSection/InfoSection'
 import Toast from '../components/Toast/Toast'
-import ScrollSection from '../components/ScrollSection/ScrollSection'
+
 import HighlightPopMenu from '../components/HighlightPopRemake/HighlightPopMenu'
 import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
-import ResizableDiv from '../components/ResizableDiv/ResizableDiv'
+
 import ResizableScrollSection from '../components/ScrollSection/ResizableScrollSection'
 
 export const homeData = {
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Toast option='registerUser' />
-      {/* <ResizableDiv /> */}
+
       <ResizableScrollSection
         widthBig='60%'
         widthSmall='40%'

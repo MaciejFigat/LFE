@@ -20,17 +20,14 @@ export const SectionColumn = styled.div`
   position: sticky;
   top: 0;
   margin-bottom: 15px;
-  /* margin-right: 15px; */
   padding-left: 15px;
   max-height: 100vh;
   min-height: fit-content;
   flex-basis: ${({ width }) => (width ? `${width}` : '15%')};
-  /* max-width: 10vw; I'm thinking about it. Need another workaround.*/
+
   overflow: scroll;
   @media (max-width: 1020px) {
     flex-basis: 65%;
-    /* margin: 0; */
-    /* padding-left: 0px; */
   }
   @media (max-width: 440px) {
     flex-basis: 80%;
