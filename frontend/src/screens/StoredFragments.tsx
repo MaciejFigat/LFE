@@ -1,8 +1,8 @@
 import React from 'react'
-import ScrollSection from '../components/ScrollSection/ScrollSection'
 import { useAppSelector } from '../app/reduxHooks'
 import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
 import { UserInfo } from '../interfaces'
+import ResizableScrollSection from '../components/ScrollSection/ResizableScrollSection'
 interface StoredFragmentsProps {}
 
 const StoredFragments: React.FC<StoredFragmentsProps> = () => {
@@ -10,14 +10,18 @@ const StoredFragments: React.FC<StoredFragmentsProps> = () => {
   return (
     <div>
       {Object.keys(userInfo).length > 0 ? (
-        <ScrollSection
+        <ResizableScrollSection
           widthBig='50%'
           widthSmall='30%'
           transparent
           wideSection={<UserFragmentsColumn />}
-          // narrowSection={<FragmentsColumn />}
-          narrowSection={<h2>Sorting features</h2>}
-          // wideSection={<h2>Sorting features</h2>}
+          narrowSection={
+            <>
+              <h2>Sorting features </h2>
+              <p>make sure it has z-index {'>'} 1</p>
+              <p>when the sorting component will be ready</p>
+            </>
+          }
         />
       ) : (
         <h1>Log in to view stored fragments</h1>

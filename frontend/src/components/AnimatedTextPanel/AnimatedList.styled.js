@@ -142,6 +142,8 @@ export const DescriptionDiv = styled(motion.div)`
 export const ListRow = styled(motion.div)`
   text-align: left;
   padding: 0.75rem;
+  padding-top: 0.25rem;
+  margin-top: 0.5rem;
   font-size: 0.9rem;
   font-weight: 400;
   color: var(--background4-main);

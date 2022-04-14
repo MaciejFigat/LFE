@@ -5,7 +5,6 @@ import SideMenu from './SideMenu'
 export const SideMenuDataColumn = styled(motion.div)`
   width: 90%;
   position: absolute;
-  /* margin-right: 3rem; */
   top: 0;
   z-index: ${({ open }) => (open ? 0 : 2)};
 `

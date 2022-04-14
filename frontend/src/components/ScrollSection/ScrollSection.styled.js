@@ -97,10 +97,12 @@ export const SectionColumnScrollResize = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 15px;
   padding-left: 15px;
   width: 50%;
+  min-width: 400px;
+  max-width: 70vw;
 `
 
 export const SectionColumnResize = styled.div`
@@ -114,4 +116,6 @@ export const SectionColumnResize = styled.div`
   width: 30%;
   overflow: scroll;
   flex-grow: 1;
+  min-width: 300px;
+  max-width: 70vw;
 `
