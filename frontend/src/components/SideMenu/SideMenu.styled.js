@@ -3,33 +3,39 @@ import { motion } from 'framer-motion'
 import SideMenu from './SideMenu'
 
 export const SideMenuDataColumn = styled(motion.div)`
-  width: 100%;
+  width: 90%;
   position: absolute;
+  /* margin-right: 3rem; */
   top: 0;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  z-index: ${({ open }) => (open ? 0 : 2)};
 `
 
+export const SideMenuButtonDiv = styled(motion.div)`
+  position: relative;
+  /* top: 50vh; */
+  margin-bottom: 3.5rem;
+  top: 35px;
+  right: -83%;
+  z-index: 2;
+`
 export const SideMenuWrapper = styled(motion.div)`
   position: sticky;
   top: 0;
-  /* z-index: ${({ open }) => (open ? 2 : -1)}; */
-  z-index: 2;
-  /* width: ${({ open }) => (open ? '700px' : '600px')}; */
-  /* top: 50px; */
-  /* right: 0; */
   left: 100%;
-
-  max-width: fit-content;
+  max-width: min-content;
   min-width: 700px;
   display: flex;
   flex-direction: row;
   /* margin-right: 1.5rem; */
+  /* transition: 0.3s; */
+
+  /* ${SideMenuButtonDiv}:hover & {
+    z-index: 10;
+  } */
 `
 export const BackgroundDiv = styled(motion.div)`
   overflow: hidden;
-  display: flex;
+  /* display: flex; */
   /* place-self: right; */
   z-index: 2;
   top: 0;
@@ -43,14 +49,6 @@ export const BackgroundDiv = styled(motion.div)`
   padding-right: 1rem;
   margin-right: 1.5rem;
   background: var(--background1-main);
-`
-export const SideMenuButtonDiv = styled(motion.div)`
-  position: relative;
-  /* top: 50vh; */
-  margin-bottom: 3.5rem;
-  top: 35px;
-  right: -83%;
-  z-index: 10;
 `
 export const SideMenuDiv = styled(motion.div)`
   /* width: 100%; */
@@ -97,4 +95,8 @@ export const DragDivSideMenu = styled(motion.div)`
   width: 5px;
   /* min-width: 50px; */
   /* align-self: flex-start; */
+`
+
+export const ChildrenWrapper = styled(motion.div)`
+  padding-right: 2rem;
 `

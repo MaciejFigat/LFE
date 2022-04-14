@@ -78,34 +78,6 @@ const Contact: React.FC<ContactProps> = () => {
                 illo odit fugit cumque maxime dolore esse omnis excepturi
                 assumenda distinctio, saepe nemo soluta! Quibusdam, enim.
               </p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Recusandae labore aspernatur quibusdam veritatis debitis
-                eligendi totam aliquam molestiae soluta vero? Dolorem, sequi
-                ipsum sed incidunt eaque atque animi veritatis, dolor commodi
-                maiores ex. Architecto, repudiandae. Doloremque, quas corrupti
-                nobis consequuntur rerum, dolore repudiandae placeat architecto
-                numquam, a fugiat quis suscipit laborum cupiditate alias
-                veritatis esse sit soluta? Consequatur, at tenetur. Vel nisi
-                iure sint ab a laborum non molestias est cumque labore
-                laboriosam minus, iste veritatis fugit provident asperiores eum
-                dolore quaerat officia nemo corporis natus necessitatibus
-                aspernatur beatae. Quam, dolor! Neque quisquam, qui vero
-                repellat sapiente totam iure laboriosam consectetur non
-                delectus! Magnam voluptas iusto, laboriosam ipsum nam quas
-                voluptatibus labore id amet mollitia, tempora ipsa debitis
-                dolore modi expedita consectetur repellendus deserunt
-                temporibus! Rerum nulla repellendus quidem nihil eos maiores,
-                officia facere atque laudantium vel. Consequuntur,
-                exercitationem, cupiditate sunt nostrum optio aut magni laborum
-                quisquam debitis hic quas nisi omnis molestias? Amet dicta nobis
-                sapiente. Quasi, autem tempore rem facilis vel cupiditate hic
-                nemo harum corrupti expedita accusamus, itaque ratione commodi.
-                Et repellendus corporis ipsum. Quas sit id nihil facilis earum
-                quam veritatis. Provident molestiae nostrum possimus cupiditate,
-                officia at dolorum pariatur quasi praesentium. Maiores id
-                corporis necessitatibus.
-              </p>
             </HighlightPopMenu>
           </>
         }

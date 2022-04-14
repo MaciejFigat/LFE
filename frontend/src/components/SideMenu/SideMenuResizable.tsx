@@ -7,6 +7,7 @@ import {
   SideMenuWrapper,
   SideMenuDataColumn,
   DragDivSideMenu,
+  ChildrenWrapper,
 } from './SideMenu.styled'
 import { SendButton } from '../Buttons/Buttons.styled'
 
@@ -68,12 +69,11 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
 
   return (
     <>
-      <SideMenuDataColumn>{mainData}</SideMenuDataColumn>
+      <SideMenuDataColumn open={open}>{mainData}</SideMenuDataColumn>
       <SideMenuWrapper
         id='SideMenuResizable'
         initial={false}
         animate={open ? 'open' : 'closed'}
-        open={open}
       >
         <DragDivSideMenu
           open={open}
@@ -91,7 +91,7 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
               {open ? 'Close' : 'Open'}
             </SendButton>
           </SideMenuButtonDiv>{' '}
-          {children}
+          <ChildrenWrapper>{children}</ChildrenWrapper>
         </BackgroundDiv>{' '}
       </SideMenuWrapper>
     </>
