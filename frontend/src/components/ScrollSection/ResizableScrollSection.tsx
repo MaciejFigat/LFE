@@ -1,11 +1,9 @@
 import React, { ReactNode, useState } from 'react'
 
 import {
-  //   SectionColumn,
   SectionColumnResize,
   ScrollSectionRow,
   ScrollSec,
-  //   SectionColumnScroll,
   DragDiv,
   SectionColumnScrollResize,
 } from './ScrollSection.styled'

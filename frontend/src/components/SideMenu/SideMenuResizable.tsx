@@ -49,7 +49,7 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
 
   const initial = (e: any) => {
     let resizable = document.getElementById('SideMenuResizable')
-
+    console.log(e.clientX)
     setInitialPos(e.clientX)
 
     if (resizable !== null) {
@@ -59,7 +59,7 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
 
   const resize = (e: any) => {
     let resizable = document.getElementById('SideMenuResizable')
-
+    console.log(e.clientX)
     if (resizable !== null) {
       resizable.style.width = `${
         parseInt(initialSize) + Math.floor(e.clientX - initialPos)
