@@ -1,4 +1,6 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useState, useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+import { preferredWidthSaved } from '../../features/preferences/preferenceSlice'
 
 import {
   SectionColumnResize,
@@ -22,8 +24,14 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
   widthSmall,
   widthBig,
 }) => {
+  const dispatch: any = useAppDispatch()
+  const width = useAppSelector((state) => state.preference.width)
+
   const [initialPos, setInitialPos] = useState<any>(null)
   const [initialSize, setInitialSize] = useState<any>(null)
+
+  // let resizable = document.getElementById('SectionWide')
+  //  Todo test which function needs it again so as to remain without bugs
 
   const initial = (e: any) => {
     let resizable = document.getElementById('SectionWide')
@@ -44,11 +52,24 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
       }px`
     }
   }
+  const saveWidthHandler = () => {
+    let resizable = document.getElementById('SectionWide')
+    if (resizable !== null) {
+      dispatch(preferredWidthSaved(resizable.style.width))
+    }
+  }
+  useEffect(() => {
+    let resizable = document.getElementById('SectionWide')
+    if (width !== '' && resizable !== null) {
+      resizable.style.width = width
+    }
+  }, [dispatch, width])
 
   return (
     <ScrollSec>
       <ScrollSectionRow imgStart>
         <SectionColumnResize width={widthSmall}>
+          <button onClick={saveWidthHandler}>Save Width</button>
           {narrowSection}
         </SectionColumnResize>
         <DragDiv
