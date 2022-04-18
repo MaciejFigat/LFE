@@ -73,18 +73,41 @@ export const Container = styled.div`
 `
 // todo draggable parts
 
+export const DragButton = styled.div`
+  /* position: sticky; */
+  position: relative;
+  top: 50vh;
+  left: -1px;
+  height: 30px;
+  width: 13px;
+  z-index: 4;
+
+  // todo border
+  transition: 0.2s;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border: 1.5px solid var(--background-secondary1);
+  &:hover {
+    border-color: var(--background-secondary2);
+    /* background: var(--success2); */
+    background: var(--background-tertiary3);
+  }
+  border-left: none;
+  /* background: var(--background-secondary1); */
+`
 export const DragDiv = styled.div`
   position: sticky;
   top: 0;
   background: none;
   border-left: 1.5px solid;
-  border-right: 1.5px solid;
+  /* border-right: 1.5px solid; */
   border-color: var(--background1-main);
   transition: 0.2s;
   &:active {
     border-color: var(--background2-main);
   }
   &:hover {
+    /* opacity: 0.8; */
     border-color: var(--background-secondary1);
   }
 

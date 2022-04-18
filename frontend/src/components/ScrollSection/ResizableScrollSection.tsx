@@ -8,6 +8,7 @@ import {
   ScrollSec,
   DragDiv,
   SectionColumnScrollResize,
+  DragButton,
 } from './ScrollSection.styled'
 
 interface ResizableScrollSectionProps {
@@ -69,15 +70,18 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
     <ScrollSec>
       <ScrollSectionRow imgStart>
         <SectionColumnResize width={widthSmall}>
-          <button onClick={saveWidthHandler}>Save Width</button>
           {narrowSection}
         </SectionColumnResize>
+
         <DragDiv
           id='Draggable'
           draggable='true'
           onDragStart={initial}
           onDrag={resize}
-        />
+        >
+          {' '}
+          <DragButton draggable='true' onDragEnd={saveWidthHandler} />
+        </DragDiv>
         <SectionColumnScrollResize width={widthBig} id='SectionWide'>
           {wideSection}{' '}
         </SectionColumnScrollResize>
