@@ -11,18 +11,33 @@ export const SideMenuDataColumn = styled(motion.div)`
 
 export const SideMenuButtonDiv = styled(motion.div)`
   position: relative;
+  /* position: sticky; */
   /* top: 50vh; */
   margin-bottom: 3.5rem;
+  /* padding-right: 5rem; */
   top: 35px;
   right: -83%;
+
   z-index: 2;
 `
-export const SideMenuWrapper = styled(motion.div)`
+export const SideMenuResizeWrapperUltimateWeapon = styled.div`
   position: sticky;
   top: 0;
   left: 100%;
-  max-width: min-content;
-  min-width: 700px;
+  /* max-width: min-content; */
+  /* max-width: fit-content; */
+  max-width: 70%;
+  background: red;
+`
+
+export const SideMenuWrapper = styled(motion.div)`
+  position: sticky;
+  /* position: absolute; */
+  top: 0;
+  /* left: 100%; */
+  left: 80%;
+  /* max-width: min-content; */
+  min-width: 300px;
   display: flex;
   flex-direction: row;
   /* margin-right: 1.5rem; */
@@ -69,7 +84,8 @@ export const SideMenuDiv = styled(motion.div)`
 export const SideMenuDivResize = styled(SideMenu)``
 // todo draggable components
 
-export const DragDivSideMenu = styled(motion.div)`
+// export const DragDivSideMenu = styled(motion.div)`
+export const DragDivSideMenu = styled.div`
   position: sticky;
   top: 0;
   /* display: ${({ open }) => (open ? `flex` : 'none')}; */

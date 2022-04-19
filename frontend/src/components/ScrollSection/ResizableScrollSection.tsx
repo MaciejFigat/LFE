@@ -74,7 +74,7 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
         </SectionColumnResize>
 
         <DragDiv
-          id='Draggable'
+          // id='Draggable'
           draggable='true'
           onDragStart={initial}
           onDrag={resize}

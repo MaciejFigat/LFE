@@ -8,6 +8,7 @@ import {
   SideMenuDataColumn,
   DragDivSideMenu,
   ChildrenWrapper,
+  SideMenuResizeWrapperUltimateWeapon,
 } from './SideMenu.styled'
 import { SendButton } from '../Buttons/Buttons.styled'
 
@@ -49,7 +50,7 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
 
   const initial = (e: any) => {
     let resizable = document.getElementById('SideMenuResizable')
-    console.log(e.clientX)
+
     setInitialPos(e.clientX)
 
     if (resizable !== null) {
@@ -59,10 +60,9 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
 
   const resize = (e: any) => {
     let resizable = document.getElementById('SideMenuResizable')
-    console.log(e.clientX)
     if (resizable !== null) {
       resizable.style.width = `${
-        parseInt(initialSize) + Math.floor(e.clientX - initialPos)
+        parseInt(initialSize) - Math.floor(e.clientX - initialPos)
       }px`
     }
   }
@@ -70,30 +70,33 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
   return (
     <>
       <SideMenuDataColumn open={open}>{mainData}</SideMenuDataColumn>
-      <SideMenuWrapper
-        id='SideMenuResizable'
-        initial={false}
-        animate={open ? 'open' : 'closed'}
-      >
-        <DragDivSideMenu
-          open={open}
-          initial={{ opacity: 0 }}
-          transition={{ duration: 0.1 }}
-          animate={open ? { opacity: 1 } : { opacity: 0 }}
-          exit={{ opacity: 0 }}
-          onDragStart={initial}
-          onDrag={resize}
-        />
-        <BackgroundDiv variants={sidebar}>
-          {' '}
-          <SideMenuButtonDiv open={open}>
-            <SendButton variant='primary' onClick={handleClickMenu}>
-              {open ? 'Close' : 'Open'}
-            </SendButton>
-          </SideMenuButtonDiv>{' '}
-          <ChildrenWrapper>{children}</ChildrenWrapper>
-        </BackgroundDiv>{' '}
-      </SideMenuWrapper>
+      <SideMenuResizeWrapperUltimateWeapon id='SideMenuResizable'>
+        <SideMenuWrapper
+          initial={false}
+          animate={open ? 'open' : 'closed'}
+          // draggable='true'
+        >
+          <DragDivSideMenu
+            open={open}
+            initial={{ opacity: 0 }}
+            transition={{ duration: 0.1 }}
+            animate={open ? { opacity: 1 } : { opacity: 0 }}
+            exit={{ opacity: 0 }}
+            onDragStart={initial}
+            onDrag={resize}
+            draggable='true'
+          />
+          <BackgroundDiv variants={sidebar}>
+            {' '}
+            <SideMenuButtonDiv open={open}>
+              <SendButton variant='primary' onClick={handleClickMenu}>
+                {open ? 'Close' : 'Open'}
+              </SendButton>
+            </SideMenuButtonDiv>{' '}
+            <ChildrenWrapper>{children}</ChildrenWrapper>
+          </BackgroundDiv>{' '}
+        </SideMenuWrapper>
+      </SideMenuResizeWrapperUltimateWeapon>
     </>
   )
 }
