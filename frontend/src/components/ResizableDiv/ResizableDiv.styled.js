@@ -33,7 +33,3 @@ export const ResizableDivWrapper = styled.div`
     align-items: center;
   }
 `
-export const ResizableBlock = styled.div`
-  display: flex;
-  align-items: center;
-`

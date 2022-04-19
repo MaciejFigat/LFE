@@ -22,6 +22,7 @@ const ResizableDiv: React.FC<ResizableDivProps> = () => {
 
     if (resizable !== null) {
       resizable.style.width = `${
+        // parseInt(initialSize) + Math.floor(e.clientX - initialPos)
         parseInt(initialSize) + Math.floor(e.clientX - initialPos)
       }px`
     }
@@ -37,7 +38,7 @@ const ResizableDiv: React.FC<ResizableDivProps> = () => {
           onDragStart={initial}
           onDrag={resize}
         />
-        <div />
+        <div id='ResizableSecondary' />
       </div>
     </ResizableDivWrapper>
   )
