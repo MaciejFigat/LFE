@@ -46,7 +46,6 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
 
   const [initialPos, setInitialPos] = useState<any>(null)
   const [initialSize, setInitialSize] = useState<any>(null)
-  // const [width, setWidth] = useState<any>(null)
 
   const initial = (e: any) => {
     let resizable = document.getElementById('SideMenuResizable')
@@ -64,12 +63,6 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
       resizable.style.width = `${
         parseInt(initialSize) - Math.floor(e.clientX - initialPos)
       }px`
-      // console.log(`e.clientX: ${e.clientX}`)
-      // console.log(`initial: ${initialPos}`)
-      // console.log(`width: ${resizable.style.width}`)
-      // setWidth(
-      //   `${parseInt(initialSize) - Math.floor(e.clientX - initialPos)}px`
-      // )
     }
   }
 
@@ -77,7 +70,6 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
     <>
       <SideMenuDataColumn open={open}>{mainData}</SideMenuDataColumn>
       <SideMenuResizeWrapperUltimateWeapon id='SideMenuResizable'>
-        {/* <SideMenuResizeWrapperUltimateWeapon id='SideMenuResizable' width={width}> */}
         <SideMenuWrapper
           initial={false}
           animate={open ? 'open' : 'closed'}
@@ -85,12 +77,7 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
         >
           <DragDivSideMenu
             open={open}
-            // initial={{ opacity: 0 }}
-            // transition={{ duration: 0.1 }}
-            // animate={open ? { opacity: 1 } : { opacity: 0 }}
-            // exit={{ opacity: 0 }}
             onDragStart={initial}
-            // onDrag={resize}
             onDragEnd={resize}
             draggable='true'
           />
