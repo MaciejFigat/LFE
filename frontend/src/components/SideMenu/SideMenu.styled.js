@@ -23,14 +23,8 @@ export const SideMenuResizeWrapperUltimateWeapon = styled.div`
   position: sticky;
   top: 0;
   left: 100%;
-  /* display: flex;
-  align-items: center; */
-  /* max-width: min-content; */
-  /* max-width: fit-content; */
-  /* width: ${({ width }) => (width ? width : '450px')}; */
-  min-width: 200px;
 
-  /* max-width: 90%; */
+  min-width: 200px;
 
   width: 40%;
   /* background: red; */
@@ -38,15 +32,12 @@ export const SideMenuResizeWrapperUltimateWeapon = styled.div`
 
 export const SideMenuWrapper = styled(motion.div)`
   position: sticky;
-  /* position: absolute; */
   top: 0;
-  /* left: 100%; */
   left: 80%;
-  /* max-width: min-content; */
   min-width: 200px;
   display: flex;
   flex-direction: row;
-  /* margin-right: 1.5rem; */
+
   /* transition: 0.3s; */
 
   /* ${SideMenuButtonDiv}:hover & {
@@ -55,25 +46,19 @@ export const SideMenuWrapper = styled(motion.div)`
 `
 export const BackgroundDiv = styled(motion.div)`
   overflow: hidden;
-  /* display: flex; */
-  /* place-self: right; */
+
   z-index: 2;
   top: 0;
   right: 0;
   bottom: 0;
   max-height: fit-content;
   min-height: 100vh;
-  /* width: 300px; */
   min-width: 100%;
-  /* min-width: max-content; */
-  /* max-width: 100%; */
   padding-right: 1rem;
   margin-right: 1.5rem;
   background: var(--background1-main);
 `
 export const SideMenuDiv = styled(motion.div)`
-  /* width: 100%; */
-  /* position: sticky; */
   top: 50px;
   right: 0;
   z-index: 2;
@@ -85,7 +70,6 @@ export const SideMenuDiv = styled(motion.div)`
   background: var(--background1-main);
   max-height: 100vh;
   min-height: fit-content;
-  /* flex-basis: ${({ width }) => (width ? `${width}` : '15%')}; */
   overflow: scroll;
 `
 export const SideMenuDivResize = styled(SideMenu)``
@@ -115,8 +99,6 @@ export const DragDivSideMenu = styled.div`
   height: 100vh;
   min-width: 5px;
   width: 5px;
-  /* min-width: 50px; */
-  /* align-self: flex-start; */
 `
 
 export const ChildrenWrapper = styled(motion.div)`
