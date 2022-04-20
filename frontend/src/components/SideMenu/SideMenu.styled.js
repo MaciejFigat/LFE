@@ -17,6 +17,7 @@ export const SideMenuButtonDiv = styled(motion.div)`
   /* padding-right: 5rem; */
   top: 35px;
   right: -83%;
+  /* left: 200px; */
   z-index: 2;
 `
 export const SideMenuResizeWrapperUltimateWeapon = styled.div`

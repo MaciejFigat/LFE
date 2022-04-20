@@ -18,24 +18,10 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   const leaveHelper = () => {
     setCopySuccess('')
   }
-  // fake user id to work without firing the backend up
-  // const loggedUserIdFake = '123sdsdsd'
 
-  // const newFragment = {
-  //   id: '',
-  //   userId: loggedUserIdFake,
-  // userId: loggedUserId,
-  //   citations: [
-  //     {
-  //       source: '',
-  //       excerpt: highlightedText,
-  //       coordinates: '',
-  //     },
-  //   ],
-  // }
   const newCitation = {
     id: nanoid(),
-    title: 'Best title',
+    title: highlightedText.substring(0, 12),
     date: '22-Mar-2100',
     source: 'source',
     excerpt: highlightedText,

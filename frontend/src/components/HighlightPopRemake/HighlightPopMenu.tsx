@@ -71,7 +71,6 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
     setYPosition(y + window.scrollY - 10)
     setSelectedText(selectedText)
     setShowPopover(true)
-    console.log(selectedText)
   }, [])
 
   useEffect(() => {
