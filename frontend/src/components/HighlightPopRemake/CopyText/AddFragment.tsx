@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { SaveHeading } from './CopyText.styled'
-import { useAppDispatch } from '../../../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
+import { UserInfo } from '../../../interfaces'
 import { nanoid } from '@reduxjs/toolkit'
-import { citationAdded } from '../../../features/fragments/fragmentSlice'
+import {
+  citationAdded,
+  createFragment,
+} from '../../../features/fragments/fragmentSlice'
 interface AddFragmentProps {
   highlightedText: string
 }
 
 const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   const dispatch: any = useAppDispatch()
-
+  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const [copySuccess, setCopySuccess] = useState('')
 
   const hoverHelper = () => {
@@ -28,10 +32,24 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     coordinates: 'coordinates',
     description: 'description',
   }
+  const newFragment = {
+    title: highlightedText.substring(0, 12),
+    source: 'source',
+    excerpt: highlightedText,
+    coordinates: 'coordinates',
+    description: 'description',
+  }
+  // todo saving into the DB
+  // const saveFragmentHandler = () => {
+  //   dispatch(createFragment(newFragment))
+  // }
   const addCitationHandler = (e: any) => {
     e.preventDefault()
     dispatch(citationAdded(newCitation))
     setCopySuccess('Zapisano!')
+    if (Object.keys(userInfo).length > 0) {
+      dispatch(createFragment(newFragment))
+    }
   }
   useEffect(() => {
     const timer = setTimeout(() => {
