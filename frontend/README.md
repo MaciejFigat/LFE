@@ -95,7 +95,6 @@ proxy in frontend "proxy": "http://127.0.0.1:5000" in package.json, for making a
 
 ### text highlight medium like 
 
-npm install react-highlight-pop - not for now/tested dont like it
 
 ### copy text to clipboard
 

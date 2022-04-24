@@ -63,6 +63,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
 
   const removeCitationHandler = (id: string) => {
     dispatch(citationRemoved(id))
+    // todo remove from db if it exists
   }
   const newTitle = {
     id: id,
@@ -71,6 +72,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   const saveTitleHandler = () => {
     dispatch(citationTitleEdit(newTitle))
     setTitleEditing(!titleEditing)
+    // todo save to db when edited
   }
   const newDescription = {
     id: id,
@@ -79,6 +81,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   const saveDescriptionHandler = () => {
     dispatch(citationDescriptionEdit(newDescription))
     setDescriptionEditing(!descriptionEditing)
+    // todo save to db when edited
   }
   const newFragment = {
     source: source,
@@ -206,7 +209,6 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                       as={motion.div}
                       layout='position'
                     >
-                      {/* {description} */}
                       <DescriptionDiv>
                         {' '}
                         <motion.div
