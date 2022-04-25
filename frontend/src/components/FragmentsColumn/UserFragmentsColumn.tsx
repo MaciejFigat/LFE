@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useAppSelector } from '../../app/reduxHooks'
+import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { FragmentContainer } from './FragmentsColumn.styled'
 import { motion, AnimateSharedLayout } from 'framer-motion'
 import {
@@ -8,7 +8,8 @@ import {
 } from '../AnimatedTextPanel/AnimatedList.styled'
 import AnimatedSavedItem from '../AnimatedTextPanel/AnimatedSavedItem'
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
-import { useAppDispatch } from '../../app/reduxHooks'
+
+import DateCompare from './DateCompare'
 interface UserFragmentsColumnProps {}
 
 const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
@@ -30,8 +31,16 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
 
   return (
     <AnimateSharedLayout>
+      <DateCompare />
       {fragments.length > 0 &&
+        // fragments
+        //   .map((fragment) => (
         fragments
+          .filter(
+            (fragmentsSorted) =>
+              // todo here is filtering function comparing the date
+              fragmentsSorted.updatedAt.substring(0, 10) === '2022-04-25'
+          )
           .map((fragment) => (
             <ListWrapper
               as={motion.ul}

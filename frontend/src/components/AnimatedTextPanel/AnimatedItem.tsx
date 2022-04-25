@@ -12,15 +12,13 @@ import {
   DescriptionInput,
   DescriptionDiv,
 } from './AnimatedList.styled'
-import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+import { useAppDispatch } from '../../app/reduxHooks'
 import {
   citationRemoved,
   citationTitleEdit,
   citationDescriptionEdit,
-  createFragment,
 } from '../../features/fragments/fragmentSlice'
 import { SendButtonSmall } from '../Buttons/Buttons.styled'
-import { UserInfo } from '../../interfaces'
 
 interface AnimatedItemProps {
   title: string
@@ -42,7 +40,6 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   coordinates,
 }) => {
   const dispatch: any = useAppDispatch()
-  // const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -80,17 +77,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
     dispatch(citationDescriptionEdit(newDescription))
     setDescriptionEditing(!descriptionEditing)
   }
-  // const newFragment = {
-  //   source: source,
-  //   excerpt: excerpt,
-  //   coordinates: coordinates,
-  //   title: title,
-  //   description: description,
-  // }
 
-  // const saveFragmentHandler = () => {
-  //   dispatch(createFragment(newFragment))
-  // }
   return (
     <>
       <ListItem
@@ -168,14 +155,6 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                 >
                   remove
                 </SendButtonSmall>
-                {/* {Object.keys(userInfo).length > 0 && (
-                  <SendButtonSmall
-                    variant='successEmpty'
-                    onClick={saveFragmentHandler}
-                  >
-                    save fragment
-                  </SendButtonSmall>
-                )}{' '} */}
               </motion.div>{' '}
             </AnimatePresence>
           </ListButtonContainer>
