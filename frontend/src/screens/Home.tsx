@@ -1,12 +1,12 @@
 import React from 'react'
 import InfoSection from '../components/InfoSection/InfoSection'
 import Toast from '../components/Toast/Toast'
-
 import HighlightPopMenu from '../components/HighlightPopRemake/HighlightPopMenu'
 import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
-
 import ResizableScrollSection from '../components/ScrollSection/ResizableScrollSection'
-
+import { useAppSelector } from '../app/reduxHooks'
+import { UserInfo } from '../interfaces'
+import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
 export const homeData = {
   topline: 'Lorem ipsum dolor sit.',
   headline:
@@ -18,6 +18,8 @@ export const homeData = {
 }
 
 const Home: React.FC = () => {
+  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+
   return (
     <>
       <Toast option='registerUser' />
@@ -26,7 +28,15 @@ const Home: React.FC = () => {
         widthBig='60%'
         widthSmall='40%'
         transparent
-        narrowSection={<FragmentsColumn />}
+        // narrowSection={<FragmentsColumn />}
+        narrowSection={
+          Object.keys(userInfo).length > 0 ? (
+            <UserFragmentsColumn />
+          ) : (
+            <FragmentsColumn />
+          )
+        }
+        // UserFragmentsColumn
         wideSection={
           <HighlightPopMenu>
             <InfoSection paddingTop='small' data={homeData}></InfoSection>

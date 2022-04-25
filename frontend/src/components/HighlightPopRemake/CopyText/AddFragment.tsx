@@ -40,9 +40,7 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     description: 'description',
   }
   // todo saving into the DB
-  // const saveFragmentHandler = () => {
-  //   dispatch(createFragment(newFragment))
-  // }
+
   const addCitationHandler = (e: any) => {
     e.preventDefault()
     dispatch(citationAdded(newCitation))

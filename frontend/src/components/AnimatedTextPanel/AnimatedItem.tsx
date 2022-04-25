@@ -42,7 +42,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   coordinates,
 }) => {
   const dispatch: any = useAppDispatch()
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  // const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -63,7 +63,6 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
 
   const removeCitationHandler = (id: string) => {
     dispatch(citationRemoved(id))
-    // todo remove from db if it exists
   }
   const newTitle = {
     id: id,
@@ -72,7 +71,6 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   const saveTitleHandler = () => {
     dispatch(citationTitleEdit(newTitle))
     setTitleEditing(!titleEditing)
-    // todo save to db when edited
   }
   const newDescription = {
     id: id,
@@ -81,19 +79,18 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   const saveDescriptionHandler = () => {
     dispatch(citationDescriptionEdit(newDescription))
     setDescriptionEditing(!descriptionEditing)
-    // todo save to db when edited
   }
-  const newFragment = {
-    source: source,
-    excerpt: excerpt,
-    coordinates: coordinates,
-    title: title,
-    description: description,
-  }
+  // const newFragment = {
+  //   source: source,
+  //   excerpt: excerpt,
+  //   coordinates: coordinates,
+  //   title: title,
+  //   description: description,
+  // }
 
-  const saveFragmentHandler = () => {
-    dispatch(createFragment(newFragment))
-  }
+  // const saveFragmentHandler = () => {
+  //   dispatch(createFragment(newFragment))
+  // }
   return (
     <>
       <ListItem
@@ -171,14 +168,14 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                 >
                   remove
                 </SendButtonSmall>
-                {Object.keys(userInfo).length > 0 && (
+                {/* {Object.keys(userInfo).length > 0 && (
                   <SendButtonSmall
                     variant='successEmpty'
                     onClick={saveFragmentHandler}
                   >
                     save fragment
                   </SendButtonSmall>
-                )}{' '}
+                )}{' '} */}
               </motion.div>{' '}
             </AnimatePresence>
           </ListButtonContainer>
