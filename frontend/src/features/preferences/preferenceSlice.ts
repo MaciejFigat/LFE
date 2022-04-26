@@ -11,6 +11,7 @@ const preferenceSlice = createSlice({
     initialState: {
 
         width: '',
+        sortingDate: '',
 
     },
     reducers: {
@@ -19,6 +20,11 @@ const preferenceSlice = createSlice({
             // const { width } = action.payload
             // state.width = width
             state.width = action.payload
+        },
+        sortingDateEdit(state, action) {
+            // const { width } = action.payload
+            // state.width = width
+            state.sortingDate = action.payload
         },
 
 
@@ -31,6 +37,6 @@ const preferenceSlice = createSlice({
 
 
 
-export const { preferredWidthSaved } = preferenceSlice.actions
+export const { preferredWidthSaved, sortingDateEdit } = preferenceSlice.actions
 
 export default preferenceSlice.reducer

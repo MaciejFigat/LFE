@@ -18,9 +18,26 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
   )
+  const sortingDate = useAppSelector((state) => state.preference.sortingDate)
   const fragmentSuccess: boolean = useAppSelector(
     (state) => state.fragment.success
   )
+
+  //todo part for date and hour
+  // const today = new Date()
+  // const month = today.getMonth() + 1
+  // const day = today.getDate()
+  // const year = today.getFullYear()
+
+  // const hour = today.getHours()
+
+  // const date = `${year}-${month < 10 ? `0${month}` : `${month}`}-${
+  //   day < 10 ? `0${day}` : `${day}`
+  // }`
+  // const hourDigits = `${hour < 10 ? `0${hour}` : `${hour}`}`
+  // todo
+
+  // const [sortingDate, setSortingDate] = useState<string>(date)
 
   useEffect(() => {
     dispatch(getUserFragments(1))
@@ -39,7 +56,7 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
           .filter(
             (fragmentsSorted) =>
               // todo here is filtering function comparing the date
-              fragmentsSorted.updatedAt.substring(0, 10) === '2022-04-25'
+              fragmentsSorted.updatedAt.substring(0, 10) === sortingDate
           )
           .map((fragment) => (
             <ListWrapper
