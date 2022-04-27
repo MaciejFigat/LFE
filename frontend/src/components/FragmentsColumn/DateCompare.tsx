@@ -1,4 +1,3 @@
-// import React from 'react'
 import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { sortingDateEdit } from '../../features/preferences/preferenceSlice'
@@ -6,9 +5,7 @@ interface DateCompareProps {}
 
 const DateCompare: React.FC<DateCompareProps> = () => {
   const dispatch: any = useAppDispatch()
-  // const fragments: any[] = useAppSelector(
-  //   (state) => state.fragment.userFragments
-  // )
+
   const sortingDate = useAppSelector((state) => state.preference.sortingDate)
   const today = new Date()
   const month = today.getMonth() + 1
@@ -24,7 +21,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
 
   useEffect(() => {
     dispatch(sortingDateEdit(date))
-  }, [dispatch])
+  }, [dispatch, date])
 
   const sortingDateDecreaseHandler = () => {
     dispatch(
@@ -59,6 +56,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
       <button onClick={sortingDateIncreaseHandler}>
         next day makes no sense
       </button>
+      {/* //todo  */}
     </div>
   )
 }
