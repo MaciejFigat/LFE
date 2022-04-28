@@ -10,11 +10,6 @@ interface StyleVariant {
 }
 
 
-// --background - secondary1:
-// --background - success1:
-// --background - quaternary1:
-// --background - info1:
-// --background - info7:
 
 const primaryStyle: StyleVariant = {
     buttonColor: 'var(--background5-main);',

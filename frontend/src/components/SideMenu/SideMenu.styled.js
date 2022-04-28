@@ -11,24 +11,17 @@ export const SideMenuDataColumn = styled(motion.div)`
 
 export const SideMenuButtonDiv = styled(motion.div)`
   position: relative;
-  /* position: sticky; */
-  /* top: 50vh; */
   margin-bottom: 3.5rem;
-  /* padding-right: 5rem; */
   top: 35px;
   right: -83%;
-  /* left: 200px; */
   z-index: 2;
 `
 export const SideMenuResizeWrapperUltimateWeapon = styled.div`
   position: sticky;
   top: 0;
   left: 100%;
-
   min-width: 200px;
-
   width: 40%;
-  /* background: red; */
 `
 
 export const SideMenuWrapper = styled(motion.div)`
@@ -38,12 +31,6 @@ export const SideMenuWrapper = styled(motion.div)`
   min-width: 200px;
   display: flex;
   flex-direction: row;
-
-  /* transition: 0.3s; */
-
-  /* ${SideMenuButtonDiv}:hover & {
-    z-index: 10;
-  } */
 `
 export const BackgroundDiv = styled(motion.div)`
   overflow: hidden;
@@ -76,19 +63,12 @@ export const SideMenuDiv = styled(motion.div)`
 export const SideMenuDivResize = styled(SideMenu)``
 // todo draggable components
 
-// export const DragDivSideMenu = styled(motion.div)`
 export const DragDivSideMenu = styled.div`
   position: sticky;
   top: 0;
-  /* display: ${({ open }) => (open ? `flex` : 'none')}; */
-  /* ${({ open }) => (open ? `display: flex;` : 'display: none;')} */
   background: none;
-  /* background: red; */
-  /* border-left: 1.5px solid; */
   border-right: 12.5px solid;
-  /* border-color: var(--background1-main); */
   border-color: transparent;
-  /* border-color: var(--background5-main); */
   transition: 0.2s;
   &:active {
     border-color: var(--background2-main);

@@ -9,7 +9,7 @@ import useRedirectListener from '../hooks/useRedirectListener'
 interface AdminPanelProps {}
 
 const AdminPanel: React.FC<AdminPanelProps> = () => {
-  // hook used to redirect to /login when not logged in
+  //todo hook used to redirect to /login when not logged in
   useRedirectListener()
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const { name } = userInfo

@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react'
-// import { AnimatePresence, motion } from 'framer-motion'
 import { useCycle } from 'framer-motion'
 import {
-  // SideMenuDiv,
   BackgroundDiv,
   SideMenuButtonDiv,
   SideMenuWrapper,
@@ -51,8 +49,6 @@ const SideMenu: React.FC<SideMenuProps> = ({ children, mainData }) => {
           {children}
         </BackgroundDiv>
       </SideMenuWrapper>
-
-      {/* <SideMenuDataColumn>{mainData}</SideMenuDataColumn> */}
     </>
   )
 }
