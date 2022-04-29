@@ -104,6 +104,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
       sortingMonth + 1,
       0
     ).getDate()
+
     const dateRedux = {
       sortingYear: sortingYear,
       sortingMonth: sortingMonth + 1,
@@ -121,13 +122,40 @@ const DateCompare: React.FC<DateCompareProps> = () => {
       dispatch(sortingDateEdit(dateReduxNextYear))
     }
   }
-
+  const handleIncreaseSortYear = () => {
+    const dateReduxNextYear = {
+      sortingYear: sortingYear + 1,
+      sortingMonth: sortingMonth,
+      sortingDay: sortingDay,
+    }
+    if (sortingYear < new Date().getFullYear()) {
+      dispatch(sortingDateEdit(dateReduxNextYear))
+    }
+  }
+  const handleDecreaseSortYear = () => {
+    const datePreviousYear = {
+      sortingYear: sortingYear - 1,
+      sortingMonth: sortingMonth,
+      sortingDay: sortingDay,
+    }
+    if (sortingYear > 1970) {
+      dispatch(sortingDateEdit(datePreviousYear))
+    }
+  }
   return (
     <div>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus,
         suscipit.
       </p>
+
+      <SendButton variant='primary' onClick={handleDecreaseSortDay}>
+        -1 day
+      </SendButton>
+      <b>{sortingDay}</b>
+      <SendButton variant='primary' onClick={handleIncreaseSortDay}>
+        +1 day
+      </SendButton>
       <SendButton variant='primary' onClick={handleDecreaseSortMonth}>
         -1 month
       </SendButton>
@@ -135,12 +163,12 @@ const DateCompare: React.FC<DateCompareProps> = () => {
       <SendButton variant='primary' onClick={handleIncreaseSortMonth}>
         +1 month
       </SendButton>
-      <SendButton variant='primary' onClick={handleDecreaseSortDay}>
-        -1 day
+      <SendButton variant='primary' onClick={handleDecreaseSortYear}>
+        -1 year
       </SendButton>
-      <b>{sortingDay}</b>
-      <SendButton variant='primary' onClick={handleIncreaseSortDay}>
-        +1 day
+      <b>{sortingYear}</b>
+      <SendButton variant='primary' onClick={handleIncreaseSortYear}>
+        +1 year
       </SendButton>
     </div>
   )
