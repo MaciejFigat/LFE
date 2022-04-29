@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { sortingDateEdit } from '../../features/preferences/preferenceSlice'
-import { SendButton } from '../Buttons/Buttons.styled'
+import { SendButtonSmall } from '../Buttons/Buttons.styled'
 interface DateCompareProps {}
 
 const DateCompare: React.FC<DateCompareProps> = () => {
@@ -144,32 +144,31 @@ const DateCompare: React.FC<DateCompareProps> = () => {
   }
   return (
     <div>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus,
-        suscipit.
-      </p>
+      <p>Sorting by date -/+ for now</p>
 
-      <SendButton variant='primary' onClick={handleDecreaseSortDay}>
-        -1 day
-      </SendButton>
+      <SendButtonSmall variant='primary' onClick={handleDecreaseSortDay}>
+        -
+      </SendButtonSmall>
       <b>{sortingDay}</b>
-      <SendButton variant='primary' onClick={handleIncreaseSortDay}>
-        +1 day
-      </SendButton>
-      <SendButton variant='primary' onClick={handleDecreaseSortMonth}>
-        -1 month
-      </SendButton>
+      <SendButtonSmall variant='primary' onClick={handleIncreaseSortDay}>
+        +
+      </SendButtonSmall>
+      <SendButtonSmall variant='primary' onClick={handleDecreaseSortMonth}>
+        -
+      </SendButtonSmall>
       <b>{sortingMonth}</b>
-      <SendButton variant='primary' onClick={handleIncreaseSortMonth}>
-        +1 month
-      </SendButton>
-      <SendButton variant='primary' onClick={handleDecreaseSortYear}>
-        -1 year
-      </SendButton>
+      <SendButtonSmall variant='primary' onClick={handleIncreaseSortMonth}>
+        +
+      </SendButtonSmall>
+      <SendButtonSmall variant='primary' onClick={handleDecreaseSortYear}>
+        -
+      </SendButtonSmall>
       <b>{sortingYear}</b>
-      <SendButton variant='primary' onClick={handleIncreaseSortYear}>
-        +1 year
-      </SendButton>
+      {sortingYear < new Date().getFullYear() && (
+        <SendButtonSmall variant='primary' onClick={handleIncreaseSortYear}>
+          +
+        </SendButtonSmall>
+      )}
     </div>
   )
 }
