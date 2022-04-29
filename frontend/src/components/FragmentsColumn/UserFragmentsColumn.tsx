@@ -19,25 +19,15 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
     (state) => state.fragment.userFragments
   )
   const sortingDate = useAppSelector((state) => state.preference.sortingDate)
+  const { sortingYear, sortingMonth, sortingDay } = sortingDate
+
   const fragmentSuccess: boolean = useAppSelector(
     (state) => state.fragment.success
   )
 
-  //todo part for date and hour
-  // const today = new Date()
-  // const month = today.getMonth() + 1
-  // const day = today.getDate()
-  // const year = today.getFullYear()
-
-  // const hour = today.getHours()
-
-  // const date = `${year}-${month < 10 ? `0${month}` : `${month}`}-${
-  //   day < 10 ? `0${day}` : `${day}`
-  // }`
-  // const hourDigits = `${hour < 10 ? `0${hour}` : `${hour}`}`
-  // todo
-
-  // const [sortingDate, setSortingDate] = useState<string>(date)
+  const sortingDateString = `${sortingYear}-${
+    sortingMonth < 10 ? `0${sortingMonth}` : `${sortingMonth}`
+  }-${sortingDay < 10 ? `0${sortingDay}` : `${sortingDay}`}`
 
   useEffect(() => {
     dispatch(getUserFragments(1))
@@ -50,13 +40,11 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
     <AnimateSharedLayout>
       <DateCompare />
       {fragments.length > 0 &&
-        // fragments
-        //   .map((fragment) => (
         fragments
           .filter(
             (fragmentsSorted) =>
               // todo here is filtering function comparing the date
-              fragmentsSorted.updatedAt.substring(0, 10) === sortingDate
+              fragmentsSorted.updatedAt.substring(0, 10) === sortingDateString
           )
           .map((fragment) => (
             <ListWrapper
