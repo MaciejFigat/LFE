@@ -3,21 +3,12 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { FragmentCreated } from '../../interfaces'
 import axios from 'axios'
 
-// interface NewFragmentInfo {
-//     _id?: string
-//     userId?: string
-//     source: string
-//     excerpt: string
-//     coordinates: string
-//     title: string
-//     description: string
 
-// }
 
 export const createFragment = createAsyncThunk(
     'fragment/createFragment',
     async (newFragmentInfo: FragmentCreated, thunkAPI) => {
-        const { source, excerpt, coordinates, title, description, } = newFragmentInfo
+        const { source, excerpt, coordinates, title, description, keywords } = newFragmentInfo
 
         try {
             const state: any = thunkAPI.getState()
@@ -37,6 +28,7 @@ export const createFragment = createAsyncThunk(
                     coordinates,
                     title,
                     description,
+                    keywords
                 },
                 config
             )

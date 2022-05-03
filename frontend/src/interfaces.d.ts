@@ -21,6 +21,7 @@ interface FragmentCreated {
     coordinates: string
     title: string
     description: string
+    keywords: string[]
 }
 
 

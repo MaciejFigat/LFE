@@ -38,6 +38,7 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     excerpt: highlightedText,
     coordinates: 'coordinates',
     description: 'description',
+    keywords: ['test', 'testAgain'],
   }
   // todo saving into the DB
 

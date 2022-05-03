@@ -20,6 +20,7 @@ import {
   editSavedFragment,
 } from '../../features/fragments/fragmentSlice'
 import { SendButtonSmall } from '../Buttons/Buttons.styled'
+import KeywordEditing from './KeywordEditing'
 
 interface AnimatedSavedItemProps {
   title: string
@@ -30,6 +31,7 @@ interface AnimatedSavedItemProps {
   excerpt: string
   coordinates: string
   updatedAt: string
+  keywords: string[]
 }
 
 const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
@@ -41,6 +43,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   excerpt,
   coordinates,
   updatedAt,
+  keywords,
 }) => {
   const dispatch: any = useAppDispatch()
 
@@ -84,6 +87,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     coordinates: coordinates,
     title: titleValue,
     description: description,
+    keywords: keywords,
   }
   const saveTitleHandler = () => {
     dispatch(editSavedFragment(newTitle))
@@ -97,6 +101,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     coordinates: coordinates,
     title: title,
     description: descriptionValue,
+    keywords: keywords,
   }
   const saveDescriptionHandler = () => {
     dispatch(editSavedFragment(newDescription))
@@ -110,6 +115,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     coordinates: coordinates,
     title: title,
     description: description,
+    keywords: keywords,
   }
   const saveExcerptHandler = () => {
     dispatch(editSavedFragment(newExcerpt))
@@ -123,6 +129,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     coordinates: coordinates,
     title: title,
     description: description,
+    keywords: keywords,
   }
   const saveSourceHandler = () => {
     dispatch(editSavedFragment(newSource))
@@ -151,7 +158,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                 >
                   {title} <DatePar>{excerpt.substring(0, 10)}</DatePar>
                   <DatePar>
-                    {updatedAt.substring(0, 10)} at{' '}
+                    updated: {updatedAt.substring(0, 10)} at{' '}
                     {updatedAt.substring(12, 16)}
                   </DatePar>
                 </motion.div>
@@ -214,6 +221,8 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
             </AnimatePresence>
           </ListButtonContainer>
         </ListTitleContainer>{' '}
+        {/* //? testing another keyword presentation */}
+        <KeywordEditing keywords={keywords} />
         <AnimatePresence>
           {isOpen && (
             <motion.div
