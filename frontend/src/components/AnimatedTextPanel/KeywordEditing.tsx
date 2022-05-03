@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   KeywordPar,
   ListButtonContainer,
@@ -7,17 +7,46 @@ import {
   TitleAnimated,
   TitleInput,
 } from './AnimatedList.styled'
+import { useAppDispatch } from '../../app/reduxHooks'
+import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SendButtonSmall } from '../Buttons/Buttons.styled'
 interface KeywordEditingProps {
   keywords: string[]
+  id: string
+  title: string
+  description: string
+  source: string
+  excerpt: string
+  coordinates: string
 }
 
-const KeywordEditing: React.FC<KeywordEditingProps> = ({ keywords }) => {
+const KeywordEditing: React.FC<KeywordEditingProps> = ({
+  keywords,
+  id,
+  title,
+  description,
+  source,
+  excerpt,
+  coordinates,
+}) => {
+  const dispatch: any = useAppDispatch()
+
   const [keywordEditing, setKeywordEditing] = useState(false)
   const [keywordValue, setKeywordValue] = useState<string>('')
   const [prevKeywordValue, setPrevKeywordValue] = useState<string>('')
   const [keywordArr, setKeywordArr] = useState<string[]>(keywords)
+  const [sameContents, setSameContents] = useState<boolean>()
+
+  const newKeywordList = {
+    _id: id,
+    source: source,
+    excerpt: excerpt,
+    coordinates: coordinates,
+    title: title,
+    description: description,
+    keywords: keywordArr,
+  }
 
   const editKeywordHandler = (keyword: string, index: number) => {
     setKeywordEditing(!keywordEditing)
@@ -26,8 +55,6 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({ keywords }) => {
   }
   const addKeywordHandler = () => {
     setKeywordEditing(!keywordEditing)
-
-    console.log(prevKeywordValue)
   }
 
   const saveKeywordHandler = () => {
@@ -45,20 +72,38 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({ keywords }) => {
         setKeywordArr((keywordArr) => [...keywordArr, keywordValue])
       }
     }
-
     setKeywordEditing(!keywordEditing)
+    // dispatch(editSavedFragment(newKeywordList))
     setKeywordValue('')
     setPrevKeywordValue('')
   }
 
-  const deleteKeywordHandler = (index: number) => {
-    const indexKeyword = keywordArr.indexOf(keywordValue)
-    if (index > -1) {
-      keywordArr.splice(indexKeyword, 1) //? 2nd parameter means remove one item only
-    }
-    if (keywordArr.includes(keywordValue)) {
-      setKeywordArr([...keywordArr, keywordValue])
-    }
+  const deleteKeywordHandler = () => {
+    let filteredArr = keywordArr.filter((keyword) => keyword !== keywordValue)
+    setKeywordArr(() => filteredArr)
+    setKeywordEditing(!keywordEditing)
+  }
+  const saveKeywordArrHandler = () => {
+    dispatch(editSavedFragment(newKeywordList))
+
+    console.log(keywordArr)
+    console.log(keywords)
+  }
+  // useEffect(() => {
+  //   if (keywordArr !== keywords) {
+  //     dispatch(editSavedFragment(newKeywordList))
+  //   } else return
+  // }, [keywordArr, keywords, dispatch, newKeywordList])
+  useEffect(() => {
+    setSameContents(haveSameContents(keywordArr, keywords))
+  }, [keywordArr, keywords])
+
+  //? helper function to compare 2 arrays pertaining elements regardless of the order
+  const haveSameContents = (a: any[], b: any[]) => {
+    for (const v of Array.from(new Set([...a, ...b])))
+      if (a.filter((e) => e === v).length !== b.filter((e) => e === v).length)
+        return false
+    return true
   }
 
   return (
@@ -72,17 +117,6 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({ keywords }) => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                {/* <KeywordPar>
-                  {' '}
-                  {keywords.map((keyword, index) => (
-                    <div
-                      key={index}
-                      onClick={() => editKeywordHandler(keyword)}
-                    >
-                      {keyword}
-                    </div>
-                  ))}
-                </KeywordPar> */}
                 <KeywordPar>
                   {' '}
                   {keywordArr.map((keyword, index) => (
@@ -104,8 +138,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({ keywords }) => {
                 type='keyword'
                 name='keyword'
                 layout
-                // placeholder='new keyword'
-                placeholder={keywordValue}
+                placeholder='new keyword'
                 value={keywordValue}
                 onChange={(e: any) => setKeywordValue(e.target.value)}
                 initial={{ opacity: 0 }}
@@ -133,20 +166,40 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({ keywords }) => {
               exit={{ opacity: 0 }}
             >
               {!keywordEditing ? (
-                <SendButtonSmall
-                  variant='primaryEmpty'
-                  onClick={addKeywordHandler}
-                  as={motion.button}
-                >
-                  +
-                </SendButtonSmall>
+                <>
+                  {' '}
+                  {!sameContents ? (
+                    <SendButtonSmall
+                      variant='successEmpty'
+                      onClick={saveKeywordArrHandler}
+                    >
+                      Test save Arr
+                    </SendButtonSmall>
+                  ) : (
+                    <SendButtonSmall
+                      variant='primaryEmpty'
+                      onClick={addKeywordHandler}
+                      as={motion.button}
+                    >
+                      +
+                    </SendButtonSmall>
+                  )}
+                </>
               ) : (
-                <SendButtonSmall
-                  variant='successEmpty'
-                  onClick={saveKeywordHandler}
-                >
-                  s
-                </SendButtonSmall>
+                <>
+                  <SendButtonSmall
+                    variant='successEmpty'
+                    onClick={saveKeywordHandler}
+                  >
+                    s
+                  </SendButtonSmall>
+                  <SendButtonSmall
+                    variant='secondaryEmpty'
+                    onClick={deleteKeywordHandler}
+                  >
+                    x
+                  </SendButtonSmall>
+                </>
               )}
             </motion.div>{' '}
           </AnimatePresence>

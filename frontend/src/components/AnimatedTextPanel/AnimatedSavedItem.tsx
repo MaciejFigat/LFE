@@ -222,7 +222,15 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
           </ListButtonContainer>
         </ListTitleContainer>{' '}
         {/* //? testing another keyword presentation */}
-        <KeywordEditing keywords={keywords} />
+        <KeywordEditing
+          keywords={keywords}
+          id={id}
+          title={title}
+          description={description}
+          source={source}
+          excerpt={excerpt}
+          coordinates={coordinates}
+        />
         <AnimatePresence>
           {isOpen && (
             <motion.div

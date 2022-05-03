@@ -16,12 +16,12 @@ interface FragmentCreated {
     // id: string
     _id?: string
     userId?: string
-    source: string
-    excerpt: string
-    coordinates: string
-    title: string
-    description: string
-    keywords: string[]
+    source?: string
+    excerpt?: string
+    coordinates?: string
+    title?: string
+    description?: string
+    keywords?: string[]
 }
 
 
