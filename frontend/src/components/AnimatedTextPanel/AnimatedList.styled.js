@@ -40,7 +40,12 @@ export const DatePar = styled(motion.p)`
   font-size: 0.5rem;
   color: var(--background-secondary2);
 `
+export const KeywordDiv = styled(motion.div)`
+  min-width: fit-content;
+`
 export const KeywordPar = styled(motion.p)`
+  display: flex;
+  flex-wrap: wrap;
   font-size: 0.9rem;
   color: var(--background-secondary2);
 `

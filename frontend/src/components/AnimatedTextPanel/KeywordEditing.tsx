@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {
   KeywordPar,
+  KeywordDiv,
   ListButtonContainer,
   ListTitle,
   ListTitleContainer,
@@ -120,12 +121,13 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                 <KeywordPar>
                   {' '}
                   {keywordArr.map((keyword, index) => (
-                    <div
+                    <KeywordDiv
                       key={index}
                       onClick={() => editKeywordHandler(keyword, index)}
                     >
-                      {keyword}
-                    </div>
+                      {keywordArr.length > 1 ? `${keyword} \u00A0` : keyword}
+                      {/* {keyword} */}
+                    </KeywordDiv>
                   ))}
                 </KeywordPar>
               </motion.div>
