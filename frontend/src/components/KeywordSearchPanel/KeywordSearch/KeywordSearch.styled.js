@@ -11,6 +11,7 @@ export const KeywordColumnContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  min-height: 100vh;
-  margin-top: 2rem;
+  /* min-height: 100vh; */
+  /* margin-top: 2rem; */
+  padding-top: 4rem;
 `
