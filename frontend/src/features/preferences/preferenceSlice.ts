@@ -12,7 +12,10 @@ const preferenceSlice = createSlice({
 
         width: '',
         sortingDate: { sortingYear: today.getFullYear(), sortingMonth: today.getMonth() + 1, sortingDay: today.getDate() },
-
+        sortingKeywords: {
+            keywordOne: '',
+            keywordTwo: ''
+        }
 
 
     },
@@ -24,9 +27,12 @@ const preferenceSlice = createSlice({
             state.width = action.payload
         },
         sortingDateEdit(state, action) {
-            // const { width } = action.payload
-            // state.width = width
+
             state.sortingDate = action.payload
+        },
+        sortingKeywordsEdit(state, action) {
+
+            state.sortingKeywords = action.payload
         },
 
 
@@ -39,6 +45,6 @@ const preferenceSlice = createSlice({
 
 
 
-export const { preferredWidthSaved, sortingDateEdit } = preferenceSlice.actions
+export const { preferredWidthSaved, sortingDateEdit, sortingKeywordsEdit } = preferenceSlice.actions
 
 export default preferenceSlice.reducer

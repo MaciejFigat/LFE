@@ -43,7 +43,7 @@ export const DatePar = styled(motion.p)`
 export const KeywordDiv = styled(motion.div)`
   min-width: fit-content;
 `
-export const KeywordPar = styled(motion.p)`
+export const KeywordPar = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   font-size: 0.9rem;
