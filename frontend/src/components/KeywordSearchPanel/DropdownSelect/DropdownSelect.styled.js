@@ -16,8 +16,18 @@ export const DropDownHeader = styled.div`
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
   font-size: 1.1rem;
-  color: var(--background1-main);
-  background: var(--background4-main);
+  color: var(--background4-main);
+  background: var(--background1-main);
+  transition: all 0.3s ease-out;
+  text-align: center;
+  &:hover {
+    color: var(--background1-main);
+
+    background: var(--background4-main);
+  }
+  /* &:active {
+    color: var(--background-secondary4);
+  } */
 `
 export const DropDownListContainer = styled.div`
   position: absolute;

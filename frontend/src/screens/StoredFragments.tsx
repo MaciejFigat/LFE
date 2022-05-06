@@ -1,10 +1,11 @@
 import React from 'react'
 import { useAppSelector } from '../app/reduxHooks'
-import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
+// import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
 import { UserInfo } from '../interfaces'
 import ResizableScrollSection from '../components/ScrollSection/ResizableScrollSection'
 import KeywordSearch from '../components/KeywordSearchPanel/KeywordSearch/KeywordSearch'
 import { KeywordColumnContainer } from '../components/KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
+import UserFragColSimple from '../components/FragmentsColumn/UserFragColSimple'
 
 interface StoredFragmentsProps {}
 
@@ -18,7 +19,8 @@ const StoredFragments: React.FC<StoredFragmentsProps> = () => {
           widthBig='50%'
           widthSmall='30%'
           transparent
-          wideSection={<UserFragmentsColumn />}
+          // wideSection={<UserFragmentsColumn />}
+          wideSection={<UserFragColSimple />}
           narrowSection={
             <KeywordColumnContainer>
               <KeywordSearch keywordOptionOne />

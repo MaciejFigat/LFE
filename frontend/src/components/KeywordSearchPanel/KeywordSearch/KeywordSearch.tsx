@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
 import DropdownSelect from '../DropdownSelect/DropdownSelect'
-import { KeywordSearchContainer } from './KeywordSearch.styled'
+import {
+  FragmentB,
+  FragmentDivSmall,
+  FragmentParSmall,
+  KeywordSearchContainer,
+} from './KeywordSearch.styled'
 interface KeywordSearchProps {
   keywordOptionOne?: boolean
 }
@@ -34,13 +39,14 @@ const KeywordSearch: React.FC<KeywordSearchProps> = ({ keywordOptionOne }) => {
 
   return (
     <KeywordSearchContainer>
+      <h2>User keywords</h2>
       <DropdownSelect
         keywordOptionOne={keywordOptionOne}
         uniqueKeywords={uniqueChars}
       />
 
-      <h2>Fragments </h2>
-      <h3>search key:{searchKeyword}</h3>
+      <h2>Fragments matching</h2>
+
       {searchKeyword !== '' &&
         fragments.length > 0 &&
         fragments
@@ -49,10 +55,18 @@ const KeywordSearch: React.FC<KeywordSearchProps> = ({ keywordOptionOne }) => {
               // todo here is filtering function comparing the selected searchKeyword and keywords within the arr
               fragmentsSorted.keywords.indexOf(searchKeyword) >= 0
           )
-          .map((fragment, index) => (
-            <p key={index}>
-              {fragment.title} keywords arr: {fragment.keywords}
-            </p>
+          .map((fragment) => (
+            <FragmentDivSmall key={Math.random()}>
+              <FragmentParSmall>
+                <FragmentB>T:</FragmentB> {fragment.title}
+              </FragmentParSmall>
+              <FragmentParSmall>
+                <FragmentB>E:</FragmentB> {fragment.excerpt}
+              </FragmentParSmall>
+              <FragmentParSmall>
+                <FragmentB>D:</FragmentB> {fragment.description}
+              </FragmentParSmall>
+            </FragmentDivSmall>
           ))}
     </KeywordSearchContainer>
   )
