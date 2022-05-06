@@ -132,9 +132,9 @@ const Nav: React.FC<NavProps> = () => {
         <NavContainer onClick={handleCloseMenu}>
           <NavListDesktop />
           <NavListMobile open={open} />
-          <HeaderTitleDesktop className={scrollTop === true ? 'hide' : 'show'}>
+          {/* <HeaderTitleDesktop className={scrollTop === true ? 'hide' : 'show'}>
             {name && `${name}`}
-          </HeaderTitleDesktop>
+          </HeaderTitleDesktop> */}
 
           <FadeInAnimationWrapper>
             <IconsWrapper>

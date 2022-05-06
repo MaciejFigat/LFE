@@ -11,7 +11,7 @@ import UserProfile from './screens/UserProfile'
 import AdminPanel from './screens/AdminPanel'
 import ResetPassword from './screens/ResetPassword'
 import ConfirmAccount from './screens/ConfirmAccount'
-import Contact from './screens/Contact'
+// import Contact from './screens/Contact'
 import StoredFragments from './screens/StoredFragments'
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
       <Routes location={location} key={location.key}>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/contact' element={<Contact />} />
+        {/* <Route path='/contact' element={<Contact />} /> */}
         <Route path='/storage' element={<StoredFragments />} />
         <Route path='/resetpassword' element={<ResetPassword />} />
         <Route path='/confirmaccount' element={<ConfirmAccount />} />

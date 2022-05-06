@@ -9,31 +9,38 @@ export const TransitionWrapperMain = styled.div`
   transition: color 1200ms ease-out;
   .nav_link {
     transition: color 600ms ease-out;
+    // todo color: var(--background-main5);
     color: var(--background-main5);
   }
   .top {
     /* this is for the username of logged user */
     h1 {
-      color: var(--background1-main);
+      //todo color: var(--background1-main);
+      color: var(--background5-main);
     }
     /* li is for login/logout icons in navbar */
     li {
       transition: color 300ms ease-out;
-      color: var(--background3-main);
+      //todo color: var(--background3-main);
+      color: var(--background5-main);
       &:hover {
+        // todo color: var(--background2-main);
         color: var(--background2-main);
       }
     }
     /* additional className for burger so it changes color with scroll */
     .burger {
-      background: var(--background1-main);
+      // todo background: var(--background1-main);
+      background: var(--background5-main);
     }
     transition: all 1000ms ease-in;
     transition: color 1200ms ease-out;
     transition: background 1200ms ease-out;
-    background: transparent;
+    // todo background: transparent;
+    background: var(--background1-main);
     .nav_link {
-      color: var(--background1-main);
+      //todo color: var(--background1-main);
+      color: var(--background5-main);
     }
   }
   .active {

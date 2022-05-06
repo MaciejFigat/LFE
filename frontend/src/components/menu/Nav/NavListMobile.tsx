@@ -35,8 +35,8 @@ const sideVariants = {
 }
 
 const links = [
-  { name: 'Home', to: '/', id: '1' },
-  { name: 'Contact', to: '/contact', id: '2' },
+  { name: 'T-Lex', to: '/', id: '1' },
+  // { name: 'Contact', to: '/contact', id: '2' },
   { name: 'Storage', to: '/storage', id: '3' },
 ]
 

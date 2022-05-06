@@ -122,8 +122,10 @@ body {
       @media (max-width: 1020px) {
         background: -webkit-linear-gradient(
           180deg,
-          var(--background1-main),
-          var(--background1-main)
+          // ? var(--background1-main),
+          // ? var(--background1-main)
+          var(--background5-main),
+           var(--background5-main)
         );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -132,7 +134,7 @@ body {
     }
     .nav_link.activated {
           
-      color: var(--background3-main);
+      color: var(--background4-main);
       
      
       
