@@ -6,7 +6,7 @@ import {
   NavContainer,
   MobileViewContainer,
   HeaderTitleMobile,
-  HeaderTitleDesktop,
+  // HeaderTitleDesktop,
   ListLoginWrapper,
   HeaderLoginWrapper,
 } from './nav.styled'
@@ -47,7 +47,7 @@ const Nav: React.FC<NavProps> = () => {
   const [scrollDirection, setScrollDirection] = useState<
     'up' | 'down' | 'top' | undefined | null
   >()
-  const [scrollTop, setScrollTop] = useState<boolean>(true)
+  // const [scrollTop, setScrollTop] = useState<boolean>(true)
   const scroll = useScrollListener()
 
   // on scroll I update scrollDirection
@@ -59,10 +59,11 @@ const Nav: React.FC<NavProps> = () => {
     } else if (scroll.y > 700 && scroll.y - scroll.lastY < 0) {
       setScrollDirection('up')
     }
-    if (scroll.y <= 300) setScrollTop(true)
-    else {
-      setScrollTop(false)
-    }
+    //todo if (scroll.y <= 300)
+    // setScrollTop(true)
+    // else {
+    //   setScrollTop(false)
+    // }
   }, [scroll.y, scroll.lastY])
 
   return (

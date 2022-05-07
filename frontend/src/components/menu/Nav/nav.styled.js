@@ -5,7 +5,8 @@ export const TransitionWrapperMain = styled.div`
   position: sticky;
   z-index: 20;
   top: -2px;
-  background: transparent;
+  //todo
+  /* background: transparent; */
   transition: color 1200ms ease-out;
   .nav_link {
     transition: color 600ms ease-out;
@@ -53,29 +54,35 @@ export const TransitionWrapperMain = styled.div`
     }
     transition: all 600ms ease-in;
     /* background for the scrolling div with navlist in it */
-
-    background: rgba(164, 219, 228, 0.9);
+    //todo
+    /* background: rgba(164, 219, 228, 0.9); */
+    background: var(--background1-main);
   }
   .active.open {
     .burger {
-      background: var(--background4-main);
+      //todo
+      background: var(--background5-main);
     }
     /* li is for login/logout icons in navbar */
     li {
-      color: var(--background3-main);
+      color: var(--background5-main);
     }
     transition: all 600ms ease-in;
+    //todo
+    /* background: var(--background3-main); */
 
-    background: var(--background3-main);
     border-bottom: none;
   }
 
   .open.top {
     transition: all 300ms ease-in;
     /* background for the scrolling div with navlist in it */
-    background: transparent;
+    //todo
+    /* background: transparent; */
+
     /* background for testing resolutions */
     @media (max-width: 1020px) {
+      //todo
       background: var(--background3-main);
       li {
         color: var(--background3-main);
@@ -86,7 +93,8 @@ export const TransitionWrapperMain = styled.div`
     }
   }
   .hidden {
-    transition: border-bottom 600ms ease-in;
+    //todo
+    /* transition: border-bottom 600ms ease-in; */
     /* border-bottom: 1px solid rgba(255, 255, 255, 0.125); */
     .burger {
       background: var(--background3-main);
@@ -101,7 +109,9 @@ export const TransitionWrapperMain = styled.div`
     }
     transition: all 200ms ease-in;
     transform: translateY(-130%);
-    color: var(--background3-main);
+    //todo
+    /* color: var(--background3-main); */
+    /* background: var(--background1-main); */
     /* background: rgba(0, 0, 0, 0.015); */
   }
 `
@@ -259,6 +269,7 @@ export const HeaderTitleDesktop = styled.h1`
   }
 `
 export const AnimatedWrapperMobile = styled(motion.div)`
+  //todo
   background: var(--background3-main);
   width: 18.75rem;
   height: calc(100vh + 50px);

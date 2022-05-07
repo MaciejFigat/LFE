@@ -17,7 +17,7 @@ body {
     max-width: 100vw;
     height: 100%;
     overflow-wrap: break-word;
-      background-image: var(--background1-main);
+    background: var(--background1-main);
       // font-family: 'Playfair Display', serif;
       // font-family: 'Atkinson Hyperlegible', sans-serif;
     
