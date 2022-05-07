@@ -116,7 +116,8 @@ const DateCompare: React.FC<DateCompareProps> = () => {
       sortingMonth: 1,
       sortingDay: sortingDay,
     }
-    if (sortingMonth < 12) {
+    //todo
+    if (sortingMonth < 12 && sortingMonth - 1 < new Date().getMonth()) {
       dispatch(sortingDateEdit(dateRedux))
     } else if (sortingMonth === 12) {
       dispatch(sortingDateEdit(dateReduxNextYear))
@@ -142,6 +143,15 @@ const DateCompare: React.FC<DateCompareProps> = () => {
       dispatch(sortingDateEdit(datePreviousYear))
     }
   }
+  const handleSetToday = () => {
+    const date = {
+      sortingYear: new Date().getFullYear(),
+      sortingMonth: new Date().getMonth() + 1,
+      sortingDay: new Date().getDate(),
+    }
+
+    dispatch(sortingDateEdit(date))
+  }
   return (
     <div>
       <p>Sorting by date -/+ for now</p>
@@ -157,9 +167,11 @@ const DateCompare: React.FC<DateCompareProps> = () => {
         -
       </SendButtonSmall>
       <b>{sortingMonth}</b>
-      <SendButtonSmall variant='primary' onClick={handleIncreaseSortMonth}>
-        +
-      </SendButtonSmall>
+      {sortingMonth - 1 < new Date().getMonth() && (
+        <SendButtonSmall variant='primary' onClick={handleIncreaseSortMonth}>
+          +
+        </SendButtonSmall>
+      )}
       <SendButtonSmall variant='primary' onClick={handleDecreaseSortYear}>
         -
       </SendButtonSmall>
@@ -167,6 +179,13 @@ const DateCompare: React.FC<DateCompareProps> = () => {
       {sortingYear < new Date().getFullYear() && (
         <SendButtonSmall variant='primary' onClick={handleIncreaseSortYear}>
           +
+        </SendButtonSmall>
+      )}
+      {(sortingYear !== new Date().getFullYear() ||
+        sortingMonth !== new Date().getMonth() + 1 ||
+        sortingDay !== new Date().getDate()) && (
+        <SendButtonSmall variant='primaryEmpty' onClick={handleSetToday}>
+          Today
         </SendButtonSmall>
       )}
     </div>
