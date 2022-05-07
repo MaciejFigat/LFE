@@ -72,10 +72,22 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   const toggleDescriptionEditing = () =>
     setDescriptionEditing(!descriptionEditing)
 
+  const toggleDescriptionReset = () => {
+    setDescriptionEditing(!descriptionEditing)
+    setDescriptionValue(description)
+  }
+
   const toggleExcerptEditing = () => setExcerptEditing(!excerptEditing)
+  const toggleExcerptReset = () => {
+    setExcerptEditing(!excerptEditing)
+    setExcerptValue(excerpt)
+  }
 
   const toggleSourceEditing = () => setSourceEditing(!sourceEditing)
-
+  const toggleSourceReset = () => {
+    setSourceEditing(!sourceEditing)
+    setSourceValue(source)
+  }
   const removeFragmentHandler = (id: string) => {
     dispatch(deleteSavedFragment(id))
   }
@@ -258,7 +270,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                       as={motion.div}
                       layout='position'
                     >
-                      <DescriptionDiv>
+                      <DescriptionDiv onClick={toggleExcerptEditing}>
                         {' '}
                         <motion.div
                           initial={{ opacity: 0 }}
@@ -298,19 +310,28 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                     </DescriptionAnimated>
                   )}
                   <ListButtonContainer>
-                    {!excerptEditing ? (
+                    {excerptEditing && excerptValue !== excerpt && (
+                      <>
+                        <SendButtonSmall
+                          variant='primaryEmpty'
+                          onClick={toggleExcerptReset}
+                        >
+                          reset
+                        </SendButtonSmall>
+                        <SendButtonSmall
+                          variant='successEmpty'
+                          onClick={saveExcerptHandler}
+                        >
+                          save
+                        </SendButtonSmall>
+                      </>
+                    )}
+                    {excerptEditing && excerptValue === excerpt && (
                       <SendButtonSmall
                         variant='primaryEmpty'
                         onClick={toggleExcerptEditing}
                       >
-                        edit excerpt
-                      </SendButtonSmall>
-                    ) : (
-                      <SendButtonSmall
-                        variant='successEmpty'
-                        onClick={saveExcerptHandler}
-                      >
-                        save
+                        back
                       </SendButtonSmall>
                     )}
                   </ListButtonContainer>
@@ -330,7 +351,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                       as={motion.div}
                       layout='position'
                     >
-                      <DescriptionDiv>
+                      <DescriptionDiv onClick={toggleDescriptionEditing}>
                         {' '}
                         <motion.div
                           initial={{ opacity: 0 }}
@@ -372,19 +393,28 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                     </DescriptionAnimated>
                   )}
                   <ListButtonContainer>
-                    {!descriptionEditing ? (
+                    {descriptionEditing && descriptionValue !== description && (
+                      <>
+                        <SendButtonSmall
+                          variant='primaryEmpty'
+                          onClick={toggleDescriptionReset}
+                        >
+                          reset
+                        </SendButtonSmall>
+                        <SendButtonSmall
+                          variant='successEmpty'
+                          onClick={saveDescriptionHandler}
+                        >
+                          save
+                        </SendButtonSmall>
+                      </>
+                    )}
+                    {descriptionEditing && descriptionValue === description && (
                       <SendButtonSmall
                         variant='primaryEmpty'
                         onClick={toggleDescriptionEditing}
                       >
-                        edit description
-                      </SendButtonSmall>
-                    ) : (
-                      <SendButtonSmall
-                        variant='successEmpty'
-                        onClick={saveDescriptionHandler}
-                      >
-                        save
+                        back
                       </SendButtonSmall>
                     )}
                   </ListButtonContainer>
@@ -404,7 +434,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                       as={motion.div}
                       layout='position'
                     >
-                      <DescriptionDiv>
+                      <DescriptionDiv onClick={toggleSourceEditing}>
                         {' '}
                         <motion.div
                           initial={{ opacity: 0 }}
@@ -444,19 +474,28 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                     </DescriptionAnimated>
                   )}
                   <ListButtonContainer>
-                    {!sourceEditing ? (
+                    {sourceEditing && sourceValue !== source && (
+                      <>
+                        <SendButtonSmall
+                          variant='primaryEmpty'
+                          onClick={toggleSourceReset}
+                        >
+                          reset
+                        </SendButtonSmall>
+                        <SendButtonSmall
+                          variant='successEmpty'
+                          onClick={saveSourceHandler}
+                        >
+                          save
+                        </SendButtonSmall>
+                      </>
+                    )}
+                    {sourceEditing && sourceValue === source && (
                       <SendButtonSmall
                         variant='primaryEmpty'
                         onClick={toggleSourceEditing}
                       >
-                        edit source
-                      </SendButtonSmall>
-                    ) : (
-                      <SendButtonSmall
-                        variant='successEmpty'
-                        onClick={saveSourceHandler}
-                      >
-                        save
+                        back
                       </SendButtonSmall>
                     )}
                   </ListButtonContainer>
