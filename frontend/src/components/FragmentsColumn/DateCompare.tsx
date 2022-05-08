@@ -10,6 +10,10 @@ const DateCompare: React.FC<DateCompareProps> = () => {
   const sortingDate = useAppSelector((state) => state.preference.sortingDate)
   const { sortingYear, sortingMonth, sortingDay } = sortingDate
 
+  const fragments: any[] = useAppSelector(
+    (state) => state.fragment.userFragments
+  )
+
   // todo sorting day +/- handlers
   const handleDecreaseSortDay = () => {
     //? Day 0 is the last day in the previous month, month constructor is 0-based, sortingMonth - 1 = today.getMonth(), which we need for getting the correct amount of days
@@ -153,13 +157,33 @@ const DateCompare: React.FC<DateCompareProps> = () => {
 
     dispatch(sortingDateEdit(date))
   }
-
+  //? 👇️ This works because each Date object stores a timestamp (the number of milliseconds since the Unix Epoch) under the hood.
+  //?  console.log(new Date().getTime()) -> 1643013648670
   const handleSetLastSession = () => {
+    const maxDate = new Date(
+      Math.max(
+        // @ts-ignore //todo
+        ...fragments.map((fragment) => {
+          return new Date(fragment.updatedAt)
+        })
+      )
+    )
+    //? If you try to compare two Date objects, they get converted to timestamps before the comparison takes place
+
+    const lastSession = maxDate.toISOString().substring(0, 10)
+
+    // const date = {
+    //   sortingYear: lastSession.substring(0, 4),
+    //   sortingMonth: lastSession.substring(5, 7),
+    //   sortingDay: lastSession.substring(8, 10),
+    // }
     const date = {
-      sortingYear: new Date().getFullYear(),
-      sortingMonth: new Date().getMonth() + 1,
-      sortingDay: new Date().getDate(),
+      sortingYear: maxDate.getFullYear(),
+      sortingMonth: maxDate.getMonth() + 1,
+      sortingDay: maxDate.getDate(),
     }
+
+    console.log(date)
     dispatch(sortingDateEdit(date))
   }
   return (

@@ -8,8 +8,8 @@ import {
 } from '../AnimatedTextPanel/AnimatedList.styled'
 import AnimatedSavedItem from '../AnimatedTextPanel/AnimatedSavedItem'
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
-
 import DateCompare from './DateCompare'
+
 interface UserFragmentsColumnProps {}
 
 const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
