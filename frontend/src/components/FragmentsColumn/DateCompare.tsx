@@ -143,6 +143,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
       dispatch(sortingDateEdit(datePreviousYear))
     }
   }
+
   const handleSetToday = () => {
     const date = {
       sortingYear: new Date().getFullYear(),
@@ -150,6 +151,15 @@ const DateCompare: React.FC<DateCompareProps> = () => {
       sortingDay: new Date().getDate(),
     }
 
+    dispatch(sortingDateEdit(date))
+  }
+
+  const handleSetLastSession = () => {
+    const date = {
+      sortingYear: new Date().getFullYear(),
+      sortingMonth: new Date().getMonth() + 1,
+      sortingDay: new Date().getDate(),
+    }
     dispatch(sortingDateEdit(date))
   }
   return (
@@ -188,6 +198,9 @@ const DateCompare: React.FC<DateCompareProps> = () => {
           Today
         </SendButtonSmall>
       )}
+      <SendButtonSmall variant='primaryEmpty' onClick={handleSetLastSession}>
+        Last session
+      </SendButtonSmall>
     </div>
   )
 }
