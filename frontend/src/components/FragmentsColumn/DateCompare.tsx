@@ -170,13 +170,6 @@ const DateCompare: React.FC<DateCompareProps> = () => {
     )
     //? If you try to compare two Date objects, they get converted to timestamps before the comparison takes place
 
-    const lastSession = maxDate.toISOString().substring(0, 10)
-
-    // const date = {
-    //   sortingYear: lastSession.substring(0, 4),
-    //   sortingMonth: lastSession.substring(5, 7),
-    //   sortingDay: lastSession.substring(8, 10),
-    // }
     const date = {
       sortingYear: maxDate.getFullYear(),
       sortingMonth: maxDate.getMonth() + 1,
