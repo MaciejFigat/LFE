@@ -72,12 +72,16 @@ const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({
       <SendButtonSmall variant='primaryEmpty' onClick={viewHandler}>
         edit
       </SendButtonSmall>
-      <SendButtonSmall variant='primaryEmpty' onClick={addOneHandler}>
-        add to {keywordOne}
-      </SendButtonSmall>
-      <SendButtonSmall variant='primaryEmpty' onClick={addTwoHandler}>
-        add to {keywordTwo}
-      </SendButtonSmall>
+      {keywordOne !== '' && (
+        <SendButtonSmall variant='primaryEmpty' onClick={addOneHandler}>
+          {keywordOne} -&gt;
+        </SendButtonSmall>
+      )}
+      {keywordTwo !== '' && (
+        <SendButtonSmall variant='primaryEmpty' onClick={addTwoHandler}>
+          {keywordTwo} -&gt;
+        </SendButtonSmall>
+      )}
       {simpleView ? (
         <AnimatedSavedItemSimple
           title={title}
