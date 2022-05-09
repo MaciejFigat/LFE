@@ -41,17 +41,15 @@ const KeywordSearch: React.FC<KeywordSearchProps> = ({ keywordOptionOne }) => {
 
   return (
     <KeywordSearchContainer>
-      <h2>User keywords</h2>
+      {/* <h2>User keywords</h2> */}
       <DropdownSelect
         keywordOptionOne={keywordOptionOne}
         uniqueKeywords={uniqueChars}
       />
 
-      <h2>Fragments matching</h2>
+      {/* <h2>Fragments matching</h2> */}
 
       {searchKeyword !== '' &&
-        // fragments &&
-        // typeof fragments !== 'undefined' &&
         fragments.length > 0 &&
         fragments
           ?.filter(

@@ -25,10 +25,10 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
   )
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOptionOne, setSelectedOptionOne] = useState<string | null>(
-    null
+    sortingKeywords.keywordOne
   )
   const [selectedOptionTwo, setSelectedOptionTwo] = useState<string | null>(
-    null
+    sortingKeywords.keywordTwo
   )
 
   const toggling = () => setIsOpen(!isOpen)
@@ -36,10 +36,8 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
   const onOptionClicked = (value: string | null) => () => {
     if (keywordOptionOne) {
       setSelectedOptionOne(value)
-      // dispatch(sortingKeywordsEdit(sortingKeywordsObject))
     } else {
       setSelectedOptionTwo(value)
-      // dispatch(sortingKeywordsEdit(sortingKeywordsObjectTwo))
     }
     setIsOpen(false)
   }
@@ -49,22 +47,40 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
       keywordOne: selectedOptionOne,
       keywordTwo: sortingKeywords.keywordTwo,
     }
-    const sortingKeywordsObjectTwo = {
-      keywordOne: sortingKeywords.keywordOne,
-      keywordTwo: selectedOptionTwo,
-    }
-    if (keywordOptionOne && selectedOptionOne !== sortingKeywords.keywordOne) {
-      dispatch(sortingKeywordsEdit(sortingKeywordsObject))
-    } else if (
-      selectedOptionTwo !== null &&
-      selectedOptionTwo !== sortingKeywords.keywordTwo
+
+    if (
+      keywordOptionOne &&
+      selectedOptionOne !== sortingKeywords.keywordOne &&
+      selectedOptionOne !== null
     ) {
-      dispatch(sortingKeywordsEdit(sortingKeywordsObjectTwo))
+      dispatch(sortingKeywordsEdit(sortingKeywordsObject))
     }
   }, [
     dispatch,
     keywordOptionOne,
     selectedOptionOne,
+
+    sortingKeywords.keywordTwo,
+    sortingKeywords.keywordOne,
+  ])
+  useEffect(() => {
+    const sortingKeywordsObjectTwo = {
+      keywordOne: sortingKeywords.keywordOne,
+      keywordTwo: selectedOptionTwo,
+    }
+    if (
+      !keywordOptionOne &&
+      selectedOptionTwo !== null &&
+      selectedOptionTwo !== sortingKeywords.keywordTwo
+    ) {
+      dispatch(sortingKeywordsEdit(sortingKeywordsObjectTwo))
+      console.log(
+        `testing option 2 ${selectedOptionTwo}, keyword 2 ${sortingKeywords.keywordTwo}`
+      )
+    }
+  }, [
+    dispatch,
+    keywordOptionOne,
     selectedOptionTwo,
     sortingKeywords.keywordTwo,
     sortingKeywords.keywordOne,
