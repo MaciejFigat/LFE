@@ -25,7 +25,7 @@ const KeywordSearch: React.FC<KeywordSearchProps> = ({ keywordOptionOne }) => {
   const keywordsAll =
     // fragments &&
     fragments
-      ?.map((fragment) => fragment.keywords.map((keyword: string) => keyword))
+      ?.map((fragment) => fragment.keywords?.map((keyword: string) => keyword))
       .flat()
   //todo .flat() flattens the arr ie. [a, b, [c, d]].flat()=>[a, b, c, d]
 
