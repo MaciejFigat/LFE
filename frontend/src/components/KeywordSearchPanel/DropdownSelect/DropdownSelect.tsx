@@ -82,7 +82,7 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
           {isOpen && (
             <DropDownListContainer>
               <DropDownList>
-                {uniqueKeywords.map((keyword) => (
+                {uniqueKeywords?.map((keyword) => (
                   <ListItem
                     onClick={onOptionClicked(keyword)}
                     key={Math.random()}
