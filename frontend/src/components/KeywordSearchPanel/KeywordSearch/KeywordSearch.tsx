@@ -50,6 +50,7 @@ const KeywordSearch: React.FC<KeywordSearchProps> = ({ keywordOptionOne }) => {
       <h2>Fragments matching</h2>
 
       {searchKeyword !== '' &&
+        fragments &&
         fragments.length > 0 &&
         fragments
           .filter(
