@@ -57,7 +57,7 @@ const KeywordSearch: React.FC<KeywordSearchProps> = ({ keywordOptionOne }) => {
           ?.filter(
             (fragmentsSorted) =>
               // todo here is filtering function comparing the selected searchKeyword and keywords within the arr
-              fragmentsSorted.keywords.indexOf(searchKeyword) >= 0
+              fragmentsSorted.keywords?.indexOf(searchKeyword) >= 0
           )
           ?.map((fragment) => (
             <FragmentDivSmall key={Math.random()}>
