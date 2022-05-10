@@ -9,6 +9,7 @@ import {
 import AnimatedSavedItem from '../AnimatedTextPanel/AnimatedSavedItem'
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import DateCompare from './DateCompare'
+import FilterWrapper from './FilterWrapper/FilterWrapper'
 
 interface UserFragmentsColumnProps {}
 
@@ -38,7 +39,8 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
 
   return (
     <AnimateSharedLayout>
-      <DateCompare />
+      <FilterWrapper />
+      {/* <DateCompare /> */}
       {fragments.length > 0 &&
         fragments
           .filter(

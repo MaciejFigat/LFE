@@ -9,10 +9,11 @@ import {
   ListWrapper,
   ItemWrapper,
 } from '../AnimatedTextPanel/AnimatedList.styled'
+import FilterWrapper from './FilterWrapper/FilterWrapper'
 
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
 
-import DateCompare from './DateCompare'
+// import DateCompare from './DateCompare'
 
 import AnimatedSavedItemWrapper from '../AnimatedTextPanel/AnimatedSavedItemWrapper'
 interface UserFragColSimpleProps {}
@@ -44,7 +45,8 @@ const UserFragColSimple: React.FC<UserFragColSimpleProps> = () => {
   return (
     <AnimateSharedLayout>
       <FragmentsContainerSimple>
-        <DateCompare />{' '}
+        <FilterWrapper />
+        {/* <DateCompare />{' '} */}
         {fragments.length > 0 &&
           fragments
             .filter(
