@@ -8,8 +8,8 @@ import {
 } from '../AnimatedTextPanel/AnimatedList.styled'
 import AnimatedSavedItem from '../AnimatedTextPanel/AnimatedSavedItem'
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
-import DateCompare from './DateCompare'
 import FilterWrapper from './FilterWrapper/FilterWrapper'
+// import DateCompare from './DateCompare'
 
 interface UserFragmentsColumnProps {}
 
@@ -46,7 +46,8 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
           .filter(
             (fragmentsSorted) =>
               // todo here is filtering function comparing the date
-              fragmentsSorted.updatedAt.substring(0, 10) === sortingDateString
+              // fragmentsSorted.updatedAt.substring(0, 10) === sortingDateString
+              fragmentsSorted.createdAt.substring(0, 10) === sortingDateString
           )
           .map((fragment) => (
             <ListWrapper

@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
+import React from 'react'
 import DateCompare from '../DateCompare'
-import DropdownFilter from './DropdownFilter/DropdownFilter'
+// import DropdownFilter from './DropdownFilter/DropdownFilter'
 
 interface FilterWrapperProps {}
-const optionsTest = ['date', 'keyword', 'else']
+// const optionsTest = ['date', 'keyword', 'else']
 const FilterWrapper: React.FC<FilterWrapperProps> = () => {
   return (
     <div>
-      <DropdownFilter options={optionsTest} />
+      {/* <DropdownFilter options={optionsTest} /> */}
       <DateCompare />
     </div>
   )

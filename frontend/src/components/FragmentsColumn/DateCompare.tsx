@@ -164,7 +164,8 @@ const DateCompare: React.FC<DateCompareProps> = () => {
       Math.max(
         // @ts-ignore //todo
         ...fragments.map((fragment) => {
-          return new Date(fragment.updatedAt)
+          return new Date(fragment.createdAt)
+          // return new Date(fragment.updatedAt)
         })
       )
     )
