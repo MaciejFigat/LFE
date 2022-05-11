@@ -15,7 +15,8 @@ const preferenceSlice = createSlice({
         sortingKeywords: {
             keywordOne: '',
             keywordTwo: ''
-        }
+        },
+        sortingOption: 'date'
 
 
     },
@@ -34,6 +35,10 @@ const preferenceSlice = createSlice({
 
             state.sortingKeywords = action.payload
         },
+        sortingOptionEdit(state, action) {
+
+            state.sortingOption = action.payload
+        },
 
 
 
@@ -45,6 +50,6 @@ const preferenceSlice = createSlice({
 
 
 
-export const { preferredWidthSaved, sortingDateEdit, sortingKeywordsEdit } = preferenceSlice.actions
+export const { preferredWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingOptionEdit } = preferenceSlice.actions
 
 export default preferenceSlice.reducer

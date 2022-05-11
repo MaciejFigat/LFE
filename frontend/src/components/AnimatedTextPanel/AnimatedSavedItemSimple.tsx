@@ -7,7 +7,7 @@ import {
   KeywordDivSimple,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { ListItem } from './AnimatedList.styled'
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 interface AnimatedSavedItemSimpleProps {
   title: string
   description: string
@@ -29,9 +29,10 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
   return (
     <>
       <ListItem
-        as={motion.li}
-        layout
-        initial={{ borderRadius: 3, opacity: 0, scale: 0.8 }}
+        // as={motion.li}
+        // layout
+        // initial={{ borderRadius: 3, opacity: 0, scale: 0.8 }}
+        initial={{ opacity: 0, scale: 0.8 }}
         transition={{ duration: 0.4 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0 }}

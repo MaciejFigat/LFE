@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../../app/reduxHooks'
+import { sortingOptionEdit } from '../../../../features/preferences/preferenceSlice'
 import {
   DropDownContainer,
   DropDownHeader,
@@ -11,34 +12,33 @@ import {
 
 interface DropdownFilterProps {
   options: string[]
-  // keywordOptionOne?: boolean
 }
 
 const DropdownFilter: React.FC<DropdownFilterProps> = ({ options }) => {
-  // const dispatch: any = useAppDispatch()
-  // const sortingKeywords = useAppSelector(
-  //   (state) => state.preference.sortingKeywords
-  // )
+  const dispatch: any = useAppDispatch()
+  const sortingOption: string = useAppSelector(
+    (state) => state.preference.sortingOption
+  )
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState<string | null>(
-    'select please'
+    sortingOption
   )
 
   const toggling = () => setIsOpen(!isOpen)
 
   const onOptionClicked = (value: string | null) => () => {
     setSelectedOption(value)
-
     setIsOpen(false)
   }
+  useEffect(() => {
+    dispatch(sortingOptionEdit(selectedOption))
+  }, [dispatch, selectedOption])
 
   return (
     <>
       <Main>
         <DropDownContainer>
-          <DropDownHeader onClick={toggling}>
-            {selectedOption || 'Select an option'}
-          </DropDownHeader>
+          <DropDownHeader onClick={toggling}>{selectedOption}</DropDownHeader>
           {isOpen && (
             <DropDownListContainer>
               <DropDownList>

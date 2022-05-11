@@ -4,7 +4,7 @@ import AnimatedSavedItem from './AnimatedSavedItem'
 import AnimatedSavedItemSimple from './AnimatedSavedItemSimple'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { editSavedFragment } from '../../features/fragments/fragmentSlice'
-import { motion, AnimateSharedLayout } from 'framer-motion'
+import { AnimateSharedLayout } from 'framer-motion'
 interface AnimatedSavedItemWrapperProps {
   title: string
   description: string
