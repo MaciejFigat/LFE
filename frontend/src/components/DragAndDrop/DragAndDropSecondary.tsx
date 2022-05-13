@@ -4,73 +4,73 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { MainWrapper, ColOne } from './DragAndDrop.styled'
 import produce from 'immer'
 
-export const data = [
-  {
-    id: '5f832341cc119a50d1adb972',
-    picture: 'http://placehold.it/32x32',
-    name: {
-      first: 'Goff',
-      last: 'Robbins',
-    },
-  },
-  {
-    id: '5f832341e1d0f20fc283177a',
-    picture: 'http://placehold.it/32x32',
-    name: {
-      first: 'Pickett',
-      last: 'Burks',
-    },
-  },
-  {
-    id: '5f832341daae2cc0af8610a4',
-    picture: 'http://placehold.it/32x32',
-    name: {
-      first: 'Taylor',
-      last: 'Campos',
-    },
-  },
-  {
-    id: '5f832341ef54dda7b80930da',
-    picture: 'http://placehold.it/32x32',
-    name: {
-      first: 'Nolan',
-      last: 'Bright',
-    },
-  },
-  {
-    id: '5f8323410a6b9155385bd47d',
-    picture: 'http://placehold.it/32x32',
-    name: {
-      first: 'Fran',
-      last: 'Buchanan',
-    },
-  },
-  {
-    id: '5f8323416ecbb23bb925363a',
-    picture: 'http://placehold.it/32x32',
-    name: {
-      first: 'Vonda',
-      last: 'Nieves',
-    },
-  },
-  {
-    id: '5f832341eee9783dfccbfa6d',
-    picture: 'http://placehold.it/32x32',
-    name: {
-      first: 'Sheree',
-      last: 'Reynolds',
-    },
-  },
-  {
-    id: '5f832341c0b0131eeade1b00',
-    picture: 'http://placehold.it/32x32',
-    name: {
-      first: 'Lilian',
-      last: 'Russell',
-    },
-  },
-]
-interface DragAndDropProps {}
+// export const data = [
+//   {
+//     id: '5f832341cc119a50d1adb972',
+//     picture: 'http://placehold.it/32x32',
+//     name: {
+//       first: 'Goff',
+//       last: 'Robbins',
+//     },
+//   },
+//   {
+//     id: '5f832341e1d0f20fc283177a',
+//     picture: 'http://placehold.it/32x32',
+//     name: {
+//       first: 'Pickett',
+//       last: 'Burks',
+//     },
+//   },
+//   {
+//     id: '5f832341daae2cc0af8610a4',
+//     picture: 'http://placehold.it/32x32',
+//     name: {
+//       first: 'Taylor',
+//       last: 'Campos',
+//     },
+//   },
+//   {
+//     id: '5f832341ef54dda7b80930da',
+//     picture: 'http://placehold.it/32x32',
+//     name: {
+//       first: 'Nolan',
+//       last: 'Bright',
+//     },
+//   },
+//   {
+//     id: '5f8323410a6b9155385bd47d',
+//     picture: 'http://placehold.it/32x32',
+//     name: {
+//       first: 'Fran',
+//       last: 'Buchanan',
+//     },
+//   },
+//   {
+//     id: '5f8323416ecbb23bb925363a',
+//     picture: 'http://placehold.it/32x32',
+//     name: {
+//       first: 'Vonda',
+//       last: 'Nieves',
+//     },
+//   },
+//   {
+//     id: '5f832341eee9783dfccbfa6d',
+//     picture: 'http://placehold.it/32x32',
+//     name: {
+//       first: 'Sheree',
+//       last: 'Reynolds',
+//     },
+//   },
+//   {
+//     id: '5f832341c0b0131eeade1b00',
+//     picture: 'http://placehold.it/32x32',
+//     name: {
+//       first: 'Lilian',
+//       last: 'Russell',
+//     },
+//   },
+// ]
+interface DragAndDropSecondaryProps {}
 
 //? DragDropContext is the contex provider
 //? Droppable is the drop zone
@@ -85,7 +85,11 @@ const dragReducer = produce((draft, action) => {
     }
   }
 })
-const DragAndDrop: React.FC<DragAndDropProps> = () => {
+const DragAndDropSecondary: React.FC<DragAndDropSecondaryProps> = () => {
+  // const dispatchRedux: any = useAppDispatch()
+
+  const data: any[] = useAppSelector((state) => state.fragment.userFragments)
+
   const [state, dispatch] = useReducer(dragReducer, {
     items: data,
   })
@@ -112,11 +116,11 @@ const DragAndDrop: React.FC<DragAndDropProps> = () => {
           {(provided, snapshot) => {
             return (
               <ColOne ref={provided.innerRef} {...provided.droppableProps}>
-                {state.items?.map((person: any, index: any) => {
+                {state.items?.map((fragment: any, index: any) => {
                   return (
                     <Draggable
-                      key={person.id}
-                      draggableId={person.id}
+                      key={fragment._id}
+                      draggableId={fragment._id}
                       index={index}
                     >
                       {(provided, snapshot) => {
@@ -128,8 +132,12 @@ const DragAndDrop: React.FC<DragAndDropProps> = () => {
                           >
                             <div>
                               <span>
-                                {person.name.first} {person.name.last}
+                                {fragment.title} {fragment.excerpt}
                               </span>
+                              <button onClick={() => console.log(fragment._id)}>
+                                {' '}
+                                test
+                              </button>
                             </div>
                           </div>
                         )
@@ -146,11 +154,11 @@ const DragAndDrop: React.FC<DragAndDropProps> = () => {
           {(provided, snapshot) => {
             return (
               <ColOne ref={provided.innerRef} {...provided.droppableProps}>
-                {state.items2?.map((person: any, index: any) => {
+                {state.items2?.map((fragment: any, index: any) => {
                   return (
                     <Draggable
-                      key={person.id}
-                      draggableId={person.id}
+                      key={fragment._id}
+                      draggableId={fragment._id}
                       index={index}
                     >
                       {(provided, snapshot) => {
@@ -161,9 +169,7 @@ const DragAndDrop: React.FC<DragAndDropProps> = () => {
                             {...provided.dragHandleProps}
                           >
                             <div>
-                              <span>
-                                {person.name.first} {person.name.last}
-                              </span>
+                              <span>{fragment.title}</span>
                             </div>
                           </div>
                         )
@@ -180,11 +186,11 @@ const DragAndDrop: React.FC<DragAndDropProps> = () => {
           {(provided, snapshot) => {
             return (
               <ColOne ref={provided.innerRef} {...provided.droppableProps}>
-                {state.items3?.map((person: any, index: any) => {
+                {state.items3?.map((fragment: any, index: any) => {
                   return (
                     <Draggable
-                      key={person.id}
-                      draggableId={person.id}
+                      key={fragment._id}
+                      draggableId={fragment._id}
                       index={index}
                     >
                       {(provided, snapshot) => {
@@ -195,9 +201,7 @@ const DragAndDrop: React.FC<DragAndDropProps> = () => {
                             {...provided.dragHandleProps}
                           >
                             <div>
-                              <span>
-                                {person.name.first} {person.name.last}
-                              </span>
+                              <span>{fragment.title}</span>
                             </div>
                           </div>
                         )
@@ -214,4 +218,4 @@ const DragAndDrop: React.FC<DragAndDropProps> = () => {
     </MainWrapper>
   )
 }
-export default DragAndDrop
+export default DragAndDropSecondary
