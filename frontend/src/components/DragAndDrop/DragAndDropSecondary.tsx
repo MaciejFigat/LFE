@@ -1,75 +1,14 @@
 import React, { useCallback, useReducer, useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
+// import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { MainWrapper, ColOne } from './DragAndDrop.styled'
 import produce from 'immer'
+import AnimatedSavedItemSimple from '../AnimatedTextPanel/AnimatedSavedItemSimple'
+// import FilterWrapper from '../FragmentsColumn/FilterWrapper/FilterWrapper'
+// import KeywordSearchSecondary from '../KeywordSearchPanel/KeywordSearch/KeywordSearchSecondary'
+// import KeywordSearch from '../KeywordSearchPanel/KeywordSearch/KeywordSearch'
 
-// export const data = [
-//   {
-//     id: '5f832341cc119a50d1adb972',
-//     picture: 'http://placehold.it/32x32',
-//     name: {
-//       first: 'Goff',
-//       last: 'Robbins',
-//     },
-//   },
-//   {
-//     id: '5f832341e1d0f20fc283177a',
-//     picture: 'http://placehold.it/32x32',
-//     name: {
-//       first: 'Pickett',
-//       last: 'Burks',
-//     },
-//   },
-//   {
-//     id: '5f832341daae2cc0af8610a4',
-//     picture: 'http://placehold.it/32x32',
-//     name: {
-//       first: 'Taylor',
-//       last: 'Campos',
-//     },
-//   },
-//   {
-//     id: '5f832341ef54dda7b80930da',
-//     picture: 'http://placehold.it/32x32',
-//     name: {
-//       first: 'Nolan',
-//       last: 'Bright',
-//     },
-//   },
-//   {
-//     id: '5f8323410a6b9155385bd47d',
-//     picture: 'http://placehold.it/32x32',
-//     name: {
-//       first: 'Fran',
-//       last: 'Buchanan',
-//     },
-//   },
-//   {
-//     id: '5f8323416ecbb23bb925363a',
-//     picture: 'http://placehold.it/32x32',
-//     name: {
-//       first: 'Vonda',
-//       last: 'Nieves',
-//     },
-//   },
-//   {
-//     id: '5f832341eee9783dfccbfa6d',
-//     picture: 'http://placehold.it/32x32',
-//     name: {
-//       first: 'Sheree',
-//       last: 'Reynolds',
-//     },
-//   },
-//   {
-//     id: '5f832341c0b0131eeade1b00',
-//     picture: 'http://placehold.it/32x32',
-//     name: {
-//       first: 'Lilian',
-//       last: 'Russell',
-//     },
-//   },
-// ]
 interface DragAndDropSecondaryProps {}
 
 //? DragDropContext is the contex provider
@@ -78,8 +17,18 @@ interface DragAndDropSecondaryProps {}
 const dragReducer = produce((draft, action) => {
   switch (action.type) {
     case 'MOVE': {
-      draft[action.from] = draft[action.from] || []
-      draft[action.to] = draft[action.to] || []
+      draft[action.from] =
+        draft[action.from] ||
+        [
+          // { title: 'Hello', _id: 'sdsd1d23312345' },
+          // { title: 'Hello', _id: 'sdsd1d23312345' },
+        ]
+      draft[action.to] =
+        draft[action.to] ||
+        [
+          // { title: 'Hello', _id: 'sdsd1d2ass3312345' },
+          // { title: 'Hello', _id: 'sdsddf1d2aa3312345' },
+        ]
       const [removed] = draft[action.from].splice(action.fromIndex, 1)
       draft[action.to].splice(action.toIndex, 0, removed)
     }
@@ -87,13 +36,42 @@ const dragReducer = produce((draft, action) => {
 })
 const DragAndDropSecondary: React.FC<DragAndDropSecondaryProps> = () => {
   // const dispatchRedux: any = useAppDispatch()
+  const sortingKeywords = useAppSelector(
+    (state) => state.preference.sortingKeywords
+  )
+  // const sortingDate = useAppSelector((state) => state.preference.sortingDate)
+  // const { sortingYear, sortingMonth, sortingDay } = sortingDate
 
-  const data: any[] = useAppSelector((state) => state.fragment.userFragments)
+  // const sortingDateString = `${sortingYear}-${
+  //   sortingMonth < 10 ? `0${sortingMonth}` : `${sortingMonth}`
+  // }-${sortingDay < 10 ? `0${sortingDay}` : `${sortingDay}`}`
+  const fragments: any[] = useAppSelector(
+    (state) => state.fragment.userFragments
+  )
+  const data = [...fragments]
+  //   const data = fragments.filter(
+  //     (fragmentsSorted) =>
+  //       // todo here is filtering function comparing the date
+  //       // fragmentsSorted.updatedAt.substring(0, 10) === sortingDateString
+  //       fragmentsSorted.createdAt.substring(0, 10) === sortingDateString
+  //   )
+  const data2 = fragments?.filter(
+    // const data3 = [...fragments]?.filter(
+    (fragmentsSorted) =>
+      fragmentsSorted.keywords?.indexOf(sortingKeywords.keywordOne) >= 0
+  )
+  const data3 = fragments?.filter(
+    (fragmentsSorted) =>
+      fragmentsSorted.keywords?.indexOf(sortingKeywords.keywordTwo) >= 0
+  )
 
   const [state, dispatch] = useReducer(dragReducer, {
     items: data,
+    items2: data2,
+    items3: data3,
   })
-
+  //   const [testFragments, setTestFragments] = useState([])
+  //   const [testFragmentsTwo, setTestFragmentsTwo] = useState([])
   const onDragEnd = useCallback((result) => {
     if (result.reason === 'DROP') {
       if (!result.destination) {
@@ -111,11 +89,13 @@ const DragAndDropSecondary: React.FC<DragAndDropSecondaryProps> = () => {
   return (
     <MainWrapper>
       <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId='items' type='PERSON'>
+        <Droppable droppableId='items' type='FRAGMENT'>
           {/* //todo snapshot will be used for styling during the dragging process */}
           {(provided, snapshot) => {
             return (
               <ColOne ref={provided.innerRef} {...provided.droppableProps}>
+                {/* <FilterWrapper /> */}
+
                 {state.items?.map((fragment: any, index: any) => {
                   return (
                     <Draggable
@@ -130,15 +110,18 @@ const DragAndDropSecondary: React.FC<DragAndDropSecondaryProps> = () => {
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                           >
-                            <div>
-                              <span>
-                                {fragment.title} {fragment.excerpt}
-                              </span>
-                              <button onClick={() => console.log(fragment._id)}>
-                                {' '}
-                                test
-                              </button>
-                            </div>
+                            {/* <div>
+                              <span>{fragment.title}</span>
+                            </div> */}
+                            <AnimatedSavedItemSimple
+                              title={fragment.title}
+                              description={fragment.description}
+                              source={fragment.source}
+                              excerpt={fragment.excerpt}
+                              coordinates={fragment.coordinates}
+                              updatedAt={fragment.updatedAt}
+                              keywords={fragment.keywords}
+                            />
                           </div>
                         )
                       }}
@@ -150,10 +133,12 @@ const DragAndDropSecondary: React.FC<DragAndDropSecondaryProps> = () => {
             )
           }}
         </Droppable>
-        <Droppable droppableId='items2' type='PERSON'>
+        <Droppable droppableId='items2' type='FRAGMENT'>
           {(provided, snapshot) => {
             return (
               <ColOne ref={provided.innerRef} {...provided.droppableProps}>
+                {/* <KeywordSearchSecondary keywordOptionOne /> */}
+                {/* <KeywordSearchSecondary keywordOptionOne /> */}
                 {state.items2?.map((fragment: any, index: any) => {
                   return (
                     <Draggable
@@ -168,9 +153,15 @@ const DragAndDropSecondary: React.FC<DragAndDropSecondaryProps> = () => {
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                           >
-                            <div>
-                              <span>{fragment.title}</span>
-                            </div>
+                            <AnimatedSavedItemSimple
+                              title={fragment.title}
+                              description={fragment.description}
+                              source={fragment.source}
+                              excerpt={fragment.excerpt}
+                              coordinates={fragment.coordinates}
+                              updatedAt={fragment.updatedAt}
+                              keywords={fragment.keywords}
+                            />
                           </div>
                         )
                       }}
@@ -182,10 +173,12 @@ const DragAndDropSecondary: React.FC<DragAndDropSecondaryProps> = () => {
             )
           }}
         </Droppable>
-        <Droppable droppableId='items3' type='PERSON'>
+        <Droppable droppableId='items3' type='FRAGMENT'>
           {(provided, snapshot) => {
             return (
               <ColOne ref={provided.innerRef} {...provided.droppableProps}>
+                {/* <KeywordSearchSecondary /> */}
+
                 {state.items3?.map((fragment: any, index: any) => {
                   return (
                     <Draggable
@@ -200,15 +193,22 @@ const DragAndDropSecondary: React.FC<DragAndDropSecondaryProps> = () => {
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                           >
-                            <div>
-                              <span>{fragment.title}</span>
-                            </div>
+                            <AnimatedSavedItemSimple
+                              title={fragment.title}
+                              description={fragment.description}
+                              source={fragment.source}
+                              excerpt={fragment.excerpt}
+                              coordinates={fragment.coordinates}
+                              updatedAt={fragment.updatedAt}
+                              keywords={fragment.keywords}
+                            />
                           </div>
                         )
                       }}
                     </Draggable>
                   )
                 })}
+
                 {provided.placeholder}
               </ColOne>
             )

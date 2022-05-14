@@ -74,9 +74,6 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
       selectedOptionTwo !== sortingKeywords.keywordTwo
     ) {
       dispatch(sortingKeywordsEdit(sortingKeywordsObjectTwo))
-      console.log(
-        `testing option 2 ${selectedOptionTwo}, keyword 2 ${sortingKeywords.keywordTwo}`
-      )
     }
   }, [
     dispatch,
