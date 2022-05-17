@@ -4,6 +4,7 @@ import {
   updateUserFragmentsKeywordOne,
   updateUserFragmentsKeywordTwo,
 } from '../../../features/fragments/fragmentSlice'
+import { nanoid } from '@reduxjs/toolkit'
 import DropdownSelect from '../DropdownSelect/DropdownSelect'
 import {
   FragmentB,
@@ -46,13 +47,19 @@ const KeywordSearch: React.FC<KeywordSearchProps> = ({ keywordOptionOne }) => {
   }, [keywordOptionOne, keywordOne, keywordTwo])
 
   useEffect(() => {
-    const fragmentsMatching = fragments?.filter(
-      (fragmentsSorted) => fragmentsSorted.keywords?.indexOf(searchKeyword) >= 0
-    )
+    const fragmentsMatching = fragments
+      ?.filter(
+        (fragmentsSorted) =>
+          fragmentsSorted.keywords?.indexOf(searchKeyword) >= 0
+      )
+      .map((el) => ({ ...el, nanoId: nanoid() }))
+
     if (keywordOptionOne) {
       dispatch(updateUserFragmentsKeywordOne(fragmentsMatching))
+      // todo id: nanoid(),
     } else {
       dispatch(updateUserFragmentsKeywordTwo(fragmentsMatching))
+      // todo id: nanoid(),
     }
   }, [keywordOptionOne, fragments, searchKeyword, dispatch])
 

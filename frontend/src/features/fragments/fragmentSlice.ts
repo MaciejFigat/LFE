@@ -1,6 +1,7 @@
 // import { createSlice } from "@reduxjs/toolkit"
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { FragmentCreated } from '../../interfaces'
+import { nanoid } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 
@@ -210,7 +211,9 @@ const fragmentSlice = createSlice({
         })
         builder.addCase(getUserFragments.fulfilled, (state, action) => {
             state.loading = false
-            state.userFragments = action.payload
+            // state.userFragments = action.payload
+            state.userFragments = action.payload.map((el: any) => ({ ...el, nanoId: nanoid() }))
+
             state.error = action.payload.message
         })
         builder.addCase(getUserFragments.rejected, (state, action) => {

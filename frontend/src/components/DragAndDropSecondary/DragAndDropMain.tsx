@@ -2,13 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useAppSelector } from '../../app/reduxHooks'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-// fake data generator
-// const getItems = (count: any, offset = 0) =>
-//   Array.from({ length: count }, (v, k) => k).map((k) => ({
-//     _id: `item-${k + offset}-${new Date().getTime()}`,
-//     title: `item 2dsds`,
-//   }))
-
 const reorder = (list: any, startIndex: any, endIndex: any) => {
   const result = Array.from(list)
   const [removed] = result.splice(startIndex, 1)
@@ -74,7 +67,7 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   const fragmentsKeywordTwo: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordTwo
   )
-  // const [state, setState] = useState([getItems(10), getItems(5, 10)])
+
   const [state, setState] = useState([
     fragments,
     fragmentsKeywordOne,
@@ -88,19 +81,34 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
     if (!destination) {
       return
     }
-    const sInd = +source.droppableId
-    const dInd = +destination.droppableId
-
-    if (sInd === dInd) {
-      const items = reorder(state[sInd], source.index, destination.index)
+    // * The unary plus operator (+) precedes its operand and evaluates to its operand but attempts to convert it into a number, if it isn't already.
+    const sourceIndex = +source.droppableId
+    const destinationIndex = +destination.droppableId
+    // * reordering within the same array
+    if (sourceIndex === destinationIndex) {
+    }
+    if (sourceIndex === destinationIndex) {
+      const items = reorder(state[sourceIndex], source.index, destination.index)
       const newState: any[] = [...state]
-      newState[sInd] = items
+      newState[sourceIndex] = items
       setState(newState)
     } else {
-      const result = move(state[sInd], state[dInd], source, destination)
+      if (destinationIndex === 0) {
+        console.log('Do not touch me! I am in the first column')
+        return
+      }
+      const result = move(
+        state[sourceIndex],
+        state[destinationIndex],
+        source,
+        destination
+      )
+      // console.log(`sourceIndex${state[sourceIndex]}`)
+      console.log(`destinationIndex${destinationIndex}`)
+      // console.log(`state[destinationIndex]${state[destinationIndex]}`)
       const newState = [...state]
-      newState[sInd] = result[sInd]
-      newState[dInd] = result[dInd]
+      newState[sourceIndex] = result[sourceIndex]
+      newState[destinationIndex] = result[destinationIndex]
 
       setState(newState.filter((group) => group.length))
     }
@@ -108,7 +116,7 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
 
   return (
     <div>
-      <h1>GGGGGGGG</h1>
+      {/* <h1>GGGGGGGG</h1> */}
 
       {/* <button
         type='button'
@@ -141,8 +149,11 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
                   {ind === 2 && <h2>{keywordTwo}</h2>}
                   {el.map((item, index) => (
                     <Draggable
-                      key={item._id}
-                      draggableId={item._id}
+                      //todo
+                      // key={item._id}
+                      key={item.nanoId}
+                      // draggableId={item._id}
+                      draggableId={item.nanoId}
                       index={index}
                     >
                       {(provided, snapshot) => (
