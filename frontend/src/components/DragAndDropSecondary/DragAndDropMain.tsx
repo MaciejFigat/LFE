@@ -3,11 +3,11 @@ import { useAppSelector } from '../../app/reduxHooks'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 // fake data generator
-const getItems = (count: any, offset = 0) =>
-  Array.from({ length: count }, (v, k) => k).map((k) => ({
-    _id: `item-${k + offset}-${new Date().getTime()}`,
-    title: `item 2dsds`,
-  }))
+// const getItems = (count: any, offset = 0) =>
+//   Array.from({ length: count }, (v, k) => k).map((k) => ({
+//     _id: `item-${k + offset}-${new Date().getTime()}`,
+//     title: `item 2dsds`,
+//   }))
 
 const reorder = (list: any, startIndex: any, endIndex: any) => {
   const result = Array.from(list)
@@ -64,11 +64,22 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   const sortingKeywords = useAppSelector(
     (state) => state.preference.sortingKeywords
   )
+  const { keywordOne, keywordTwo } = sortingKeywords
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
   )
+  const fragmentsKeywordOne: any[] = useAppSelector(
+    (state) => state.fragment.fragmentsKeywordOne
+  )
+  const fragmentsKeywordTwo: any[] = useAppSelector(
+    (state) => state.fragment.fragmentsKeywordTwo
+  )
   // const [state, setState] = useState([getItems(10), getItems(5, 10)])
-  const [state, setState] = useState([getItems(10), getItems(5, 10), fragments])
+  const [state, setState] = useState([
+    fragments,
+    fragmentsKeywordOne,
+    fragmentsKeywordTwo,
+  ])
 
   function onDragEnd(result: any) {
     const { source, destination } = result
@@ -99,14 +110,14 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
     <div>
       <h1>GGGGGGGG</h1>
 
-      <button
+      {/* <button
         type='button'
         onClick={() => {
           setState([...state, []])
         }}
       >
         Add new group
-      </button>
+      </button> */}
       {/* <button
         type='button'
         onClick={() => {
@@ -125,9 +136,11 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
                   style={getListStyle(snapshot.isDraggingOver)}
                   {...provided.droppableProps}
                 >
+                  {ind === 0 && <h2>All fragments</h2>}
+                  {ind === 1 && <h2>{keywordOne}</h2>}
+                  {ind === 2 && <h2>{keywordTwo}</h2>}
                   {el.map((item, index) => (
                     <Draggable
-                      // todo _id
                       key={item._id}
                       draggableId={item._id}
                       index={index}

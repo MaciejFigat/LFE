@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useAppSelector } from '../../../app/reduxHooks'
+import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
+import {
+  updateUserFragmentsKeywordOne,
+  updateUserFragmentsKeywordTwo,
+} from '../../../features/fragments/fragmentSlice'
 import DropdownSelect from '../DropdownSelect/DropdownSelect'
 import {
   FragmentB,
@@ -12,6 +16,8 @@ interface KeywordSearchProps {
 }
 
 const KeywordSearch: React.FC<KeywordSearchProps> = ({ keywordOptionOne }) => {
+  const dispatch: any = useAppDispatch()
+
   const sortingKeywords = useAppSelector(
     (state) => state.preference.sortingKeywords
   )
@@ -38,6 +44,17 @@ const KeywordSearch: React.FC<KeywordSearchProps> = ({ keywordOptionOne }) => {
       setSearchKeyword(keywordTwo)
     }
   }, [keywordOptionOne, keywordOne, keywordTwo])
+
+  useEffect(() => {
+    const fragmentsMatching = fragments?.filter(
+      (fragmentsSorted) => fragmentsSorted.keywords?.indexOf(searchKeyword) >= 0
+    )
+    if (keywordOptionOne) {
+      dispatch(updateUserFragmentsKeywordOne(fragmentsMatching))
+    } else {
+      dispatch(updateUserFragmentsKeywordTwo(fragmentsMatching))
+    }
+  }, [keywordOptionOne, fragments, searchKeyword, dispatch])
 
   return (
     <KeywordSearchContainer>

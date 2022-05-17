@@ -142,6 +142,12 @@ const fragmentSlice = createSlice({
         userFragments: [
 
         ],
+        fragmentsKeywordOne: [
+
+        ],
+        fragmentsKeywordTwo: [
+
+        ],
         fragmentSaved: {},
         loading: false,
         error: {},
@@ -173,6 +179,12 @@ const fragmentSlice = createSlice({
         },
         citationRemoved(state, action) {
             state.citations.length > 0 && (state.citations = state.citations.filter((citation) => citation.id !== action.payload))
+        },
+        updateUserFragmentsKeywordOne(state, action) {
+            state.fragmentsKeywordOne = action.payload
+        },
+        updateUserFragmentsKeywordTwo(state, action) {
+            state.fragmentsKeywordTwo = action.payload
         },
 
 
@@ -237,6 +249,6 @@ const fragmentSlice = createSlice({
 
 
 
-export const { citationAdded, citationRemoved, citationTitleEdit, citationDescriptionEdit } = fragmentSlice.actions
+export const { citationAdded, citationRemoved, citationTitleEdit, citationDescriptionEdit, updateUserFragmentsKeywordOne, updateUserFragmentsKeywordTwo } = fragmentSlice.actions
 
 export default fragmentSlice.reducer
