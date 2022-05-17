@@ -58,13 +58,12 @@ const KeywordSearchSecondary: React.FC<KeywordSearchSecondaryProps> = ({
               fragmentsSorted.keywords?.indexOf(searchKeyword) >= 0
           )
           ?.map((fragment: any, index: any) => (
-            // @ts-ignore
             <Draggable
-              key={fragment._id}
+              key={Math.random()}
+              // key={fragment?._id || Math.random()}
               draggableId={fragment._id}
               index={index}
             >
-              {' '}
               {(provided, snapshot) => {
                 return (
                   <div
@@ -74,13 +73,13 @@ const KeywordSearchSecondary: React.FC<KeywordSearchSecondaryProps> = ({
                   >
                     <FragmentDivSmall key={Math.random()}>
                       <FragmentParSmall>
-                        <FragmentB>T:</FragmentB> {fragment.title}
+                        <FragmentB>T:</FragmentB> {fragment?.title}
                       </FragmentParSmall>
                       <FragmentParSmall>
-                        <FragmentB>E:</FragmentB> {fragment.excerpt}
+                        <FragmentB>E:</FragmentB> {fragment?.excerpt}
                       </FragmentParSmall>
                       <FragmentParSmall>
-                        <FragmentB>D:</FragmentB> {fragment.description}
+                        <FragmentB>D:</FragmentB> {fragment?.description}
                       </FragmentParSmall>
                     </FragmentDivSmall>
                   </div>

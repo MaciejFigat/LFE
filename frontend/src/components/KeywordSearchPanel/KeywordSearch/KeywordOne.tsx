@@ -19,15 +19,14 @@ const KeywordOne: React.FC<KeywordOneProps> = ({ keywordOptionOne }) => {
 
   const { keywordOne } = sortingKeywords
   const [searchKeyword, setSearchKeyword] = useState<string>('')
+  const [matchingFragments, setMatchingFragments] = useState<any[]>([])
 
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
   )
-  const keywordsAll =
-    // fragments &&
-    fragments
-      ?.map((fragment) => fragment.keywords?.map((keyword: string) => keyword))
-      .flat()
+  const keywordsAll = fragments
+    ?.map((fragment) => fragment.keywords?.map((keyword: string) => keyword))
+    .flat()
   //todo .flat() flattens the arr ie. [a, b, [c, d]].flat()=>[a, b, c, d]
 
   let uniqueChars = [...Array.from(new Set(keywordsAll))]
@@ -35,6 +34,15 @@ const KeywordOne: React.FC<KeywordOneProps> = ({ keywordOptionOne }) => {
   useEffect(() => {
     setSearchKeyword(keywordOne)
   }, [keywordOne])
+
+  useEffect(() => {
+    setMatchingFragments(
+      fragments.filter(
+        (fragmentsSorted) =>
+          fragmentsSorted.keywords?.indexOf(searchKeyword) >= 0
+      )
+    )
+  }, [fragments, searchKeyword])
 
   return (
     <KeywordSearchContainer>
@@ -48,17 +56,14 @@ const KeywordOne: React.FC<KeywordOneProps> = ({ keywordOptionOne }) => {
         fragments
           ?.filter(
             (fragmentsSorted) =>
-              // todo here is filtering function comparing the selected searchKeyword and keywords within the arr
               fragmentsSorted.keywords?.indexOf(searchKeyword) >= 0
           )
           ?.map((fragment: any, index: any) => (
-            // @ts-ignore
             <Draggable
               key={fragment._id}
               draggableId={fragment._id}
               index={index}
             >
-              {' '}
               {(provided, snapshot) => {
                 return (
                   <div
@@ -66,7 +71,8 @@ const KeywordOne: React.FC<KeywordOneProps> = ({ keywordOptionOne }) => {
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                   >
-                    <FragmentDivSmall key={Math.random()}>
+                    {/* <FragmentDivSmall key={fragment._id}> */}
+                    <FragmentDivSmall>
                       <FragmentParSmall>
                         <FragmentB>T:</FragmentB> {fragment.title}
                       </FragmentParSmall>
