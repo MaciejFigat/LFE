@@ -24,12 +24,6 @@ const KeywordOne: React.FC<KeywordOneProps> = ({ keywordOptionOne }) => {
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
   )
-  const keywordsAll = fragments
-    ?.map((fragment) => fragment.keywords?.map((keyword: string) => keyword))
-    .flat()
-  //todo .flat() flattens the arr ie. [a, b, [c, d]].flat()=>[a, b, c, d]
-
-  let uniqueChars = [...Array.from(new Set(keywordsAll))]
 
   useEffect(() => {
     setSearchKeyword(keywordOne)
@@ -48,7 +42,7 @@ const KeywordOne: React.FC<KeywordOneProps> = ({ keywordOptionOne }) => {
     <KeywordSearchContainer>
       <DropdownSelect
         keywordOptionOne={keywordOptionOne}
-        uniqueKeywords={uniqueChars}
+        // uniqueKeywords={uniqueChars}
       />
 
       {searchKeyword !== '' &&

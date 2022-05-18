@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useAppSelector } from '../../app/reduxHooks'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import DropdownSelect from '../KeywordSearchPanel/DropdownSelect/DropdownSelect'
 
 const reorder = (list: any, startIndex: any, endIndex: any) => {
   const result = Array.from(list)
@@ -116,8 +117,6 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
 
   return (
     <div>
-      {/* <h1>GGGGGGGG</h1> */}
-
       {/* <button
         type='button'
         onClick={() => {
@@ -145,8 +144,21 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
                   {...provided.droppableProps}
                 >
                   {ind === 0 && <h2>All fragments</h2>}
-                  {ind === 1 && <h2>{keywordOne}</h2>}
-                  {ind === 2 && <h2>{keywordTwo}</h2>}
+                  {/* {ind === 1 && <h2>{keywordOne}</h2>} */}
+                  {ind === 1 && (
+                    <DropdownSelect
+                      keywordOptionOne
+                      // uniqueKeywords={uniqueChars}
+                    />
+                  )}
+                  {/* {ind === 2 && <h2>{keywordTwo}</h2>} */}
+                  {ind === 2 && (
+                    <h2>
+                      <DropdownSelect
+                      // uniqueKeywords={uniqueChars}
+                      />
+                    </h2>
+                  )}
                   {el.map((item, index) => (
                     <Draggable
                       //todo

@@ -9,26 +9,42 @@ import {
   Main,
 } from './DropdownSelect.styled'
 import { sortingKeywordsEdit } from '../../../features/preferences/preferenceSlice'
+import {
+  updateUserFragmentsKeywordOne,
+  updateUserFragmentsKeywordTwo,
+} from '../../../features/fragments/fragmentSlice'
+import { nanoid } from '@reduxjs/toolkit'
 
 interface DropdownSelectProps {
-  uniqueKeywords: string[]
+  // uniqueKeywords: string[]
   keywordOptionOne?: boolean
 }
 
 const DropdownSelect: React.FC<DropdownSelectProps> = ({
-  uniqueKeywords,
   keywordOptionOne,
 }) => {
   const dispatch: any = useAppDispatch()
   const sortingKeywords = useAppSelector(
     (state) => state.preference.sortingKeywords
   )
+  const { keywordOne, keywordTwo } = sortingKeywords
+
+  const fragments: any[] = useAppSelector(
+    (state) => state.fragment.userFragments
+  )
+  const keywordsAll = fragments
+    ?.map((fragment) => fragment.keywords?.map((keyword: string) => keyword))
+    .flat()
+  //todo .flat() flattens the arr ie. [a, b, [c, d]].flat()=>[a, b, c, d]
+
+  let uniqueKeywords = [...Array.from(new Set(keywordsAll))]
+
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOptionOne, setSelectedOptionOne] = useState<string | null>(
-    sortingKeywords.keywordOne
+    keywordOne
   )
   const [selectedOptionTwo, setSelectedOptionTwo] = useState<string | null>(
-    sortingKeywords.keywordTwo
+    keywordTwo
   )
 
   const toggling = () => setIsOpen(!isOpen)
@@ -45,42 +61,55 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
   useEffect(() => {
     const sortingKeywordsObject = {
       keywordOne: selectedOptionOne,
-      keywordTwo: sortingKeywords.keywordTwo,
+      keywordTwo: keywordTwo,
     }
-
     if (
       keywordOptionOne &&
-      selectedOptionOne !== sortingKeywords.keywordOne &&
+      selectedOptionOne !== keywordOne &&
       selectedOptionOne !== null
     ) {
       dispatch(sortingKeywordsEdit(sortingKeywordsObject))
     }
-  }, [
-    dispatch,
-    keywordOptionOne,
-    selectedOptionOne,
-
-    sortingKeywords.keywordTwo,
-    sortingKeywords.keywordOne,
-  ])
+  }, [dispatch, keywordOptionOne, selectedOptionOne, keywordTwo, keywordOne])
   useEffect(() => {
     const sortingKeywordsObjectTwo = {
-      keywordOne: sortingKeywords.keywordOne,
+      keywordOne: keywordOne,
       keywordTwo: selectedOptionTwo,
     }
     if (
       !keywordOptionOne &&
       selectedOptionTwo !== null &&
-      selectedOptionTwo !== sortingKeywords.keywordTwo
+      selectedOptionTwo !== keywordTwo
     ) {
       dispatch(sortingKeywordsEdit(sortingKeywordsObjectTwo))
     }
+  }, [dispatch, keywordOptionOne, selectedOptionTwo, keywordTwo, keywordOne])
+
+  useEffect(() => {
+    const fragmentsMatchingOne = fragments
+      ?.filter(
+        (fragmentsSorted) =>
+          fragmentsSorted.keywords?.indexOf(selectedOptionOne) >= 0
+      )
+      .map((el) => ({ ...el, nanoId: nanoid() }))
+    const fragmentsMatchingTwo = fragments
+      ?.filter(
+        (fragmentsSorted) =>
+          fragmentsSorted.keywords?.indexOf(selectedOptionTwo) >= 0
+      )
+      .map((el) => ({ ...el, nanoId: nanoid() }))
+
+    if (keywordOptionOne) {
+      dispatch(updateUserFragmentsKeywordOne(fragmentsMatchingOne))
+    } else {
+      dispatch(updateUserFragmentsKeywordTwo(fragmentsMatchingTwo))
+    }
   }, [
-    dispatch,
     keywordOptionOne,
+    fragments,
+    dispatch,
     selectedOptionTwo,
-    sortingKeywords.keywordTwo,
-    sortingKeywords.keywordOne,
+    selectedOptionOne,
   ])
 
   return (
