@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useAppSelector } from '../../app/reduxHooks'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import DropdownSelect from '../KeywordSearchPanel/DropdownSelect/DropdownSelect'
+import {
+  FragmentB,
+  FragmentDivSmall,
+  FragmentParSmall,
+  KeywordSearchContainer,
+} from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 
 const reorder = (list: any, startIndex: any, endIndex: any) => {
   const result = Array.from(list)
@@ -55,10 +61,6 @@ const getListStyle = (isDraggingOver: any) => ({
 interface DragAndDropMainProps {}
 
 const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
-  const sortingKeywords = useAppSelector(
-    (state) => state.preference.sortingKeywords
-  )
-  const { keywordOne, keywordTwo } = sortingKeywords
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
   )
@@ -95,7 +97,7 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
       setState(newState)
     } else {
       if (destinationIndex === 0) {
-        console.log('Do not touch me! I am in the first column')
+        // console.log('Do not touch me! I am in the first column')
         return
       }
       const result = move(
@@ -104,9 +106,7 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
         source,
         destination
       )
-      // console.log(`sourceIndex${state[sourceIndex]}`)
-      console.log(`destinationIndex${destinationIndex}`)
-      // console.log(`state[destinationIndex]${state[destinationIndex]}`)
+
       const newState = [...state]
       newState[sourceIndex] = result[sourceIndex]
       newState[destinationIndex] = result[destinationIndex]
@@ -115,61 +115,37 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
     }
   }
 
+  // * for rerendering after Redux state side fragmentsKeywordOne and Two are changed
+  useEffect(() => {
+    setState([fragments, fragmentsKeywordOne, fragmentsKeywordTwo])
+    // console.log(`fragmentsKeyword changed`)
+  }, [fragmentsKeywordTwo, fragmentsKeywordOne, fragments])
+
   return (
     <div>
-      {/* <button
-        type='button'
-        onClick={() => {
-          setState([...state, []])
-        }}
-      >
-        Add new group
-      </button> */}
-      {/* <button
-        type='button'
-        onClick={() => {
-          setState([...state, getItems(1)])
-        }}
-      >
-        Add new item
-      </button> */}
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start' }}>
         <DragDropContext onDragEnd={onDragEnd}>
           {state.map((el, ind) => (
             <Droppable key={ind} droppableId={`${ind}`}>
               {(provided, snapshot) => (
-                <div
+                <KeywordSearchContainer
                   ref={provided.innerRef}
                   style={getListStyle(snapshot.isDraggingOver)}
                   {...provided.droppableProps}
                 >
                   {ind === 0 && <h2>All fragments</h2>}
-                  {/* {ind === 1 && <h2>{keywordOne}</h2>} */}
-                  {ind === 1 && (
-                    <DropdownSelect
-                      keywordOptionOne
-                      // uniqueKeywords={uniqueChars}
-                    />
-                  )}
-                  {/* {ind === 2 && <h2>{keywordTwo}</h2>} */}
-                  {ind === 2 && (
-                    <h2>
-                      <DropdownSelect
-                      // uniqueKeywords={uniqueChars}
-                      />
-                    </h2>
-                  )}
-                  {el.map((item, index) => (
+
+                  {ind === 1 && <DropdownSelect keywordOptionOne />}
+
+                  {ind === 2 && <DropdownSelect />}
+                  {el.map((fragment, index) => (
                     <Draggable
-                      //todo
-                      // key={item._id}
-                      key={item.nanoId}
-                      // draggableId={item._id}
-                      draggableId={item.nanoId}
+                      key={fragment.nanoId}
+                      draggableId={fragment.nanoId}
                       index={index}
                     >
                       {(provided, snapshot) => (
-                        <div
+                        <FragmentDivSmall
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
@@ -178,14 +154,17 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
                             provided.draggableProps.style
                           )}
                         >
-                          <div
-                            style={{
-                              display: 'flex',
-                              justifyContent: 'space-around',
-                            }}
-                          >
-                            {item.title}
-                            {/* <button
+                          <FragmentParSmall>
+                            <FragmentB>T:</FragmentB> {fragment.title}
+                          </FragmentParSmall>
+                          <FragmentParSmall>
+                            <FragmentB>E:</FragmentB> {fragment.excerpt}
+                          </FragmentParSmall>
+                          <FragmentParSmall>
+                            <FragmentB>D:</FragmentB> {fragment.description}
+                          </FragmentParSmall>
+
+                          {/* <button
                               type='button'
                               onClick={() => {
                                 const newState = [...state]
@@ -197,13 +176,12 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
                             >
                               delete
                             </button> */}
-                          </div>
-                        </div>
+                        </FragmentDivSmall>
                       )}
                     </Draggable>
                   ))}
                   {provided.placeholder}
-                </div>
+                </KeywordSearchContainer>
               )}
             </Droppable>
           ))}

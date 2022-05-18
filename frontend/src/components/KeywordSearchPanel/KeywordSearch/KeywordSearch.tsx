@@ -36,7 +36,7 @@ const KeywordSearch: React.FC<KeywordSearchProps> = ({ keywordOptionOne }) => {
 
       {matchingFragments.length > 0 &&
         matchingFragments.map((fragment: any) => (
-          <FragmentDivSmall key={Math.random()}>
+          <FragmentDivSmall key={fragment.nanoId}>
             <FragmentParSmall>
               <FragmentB>T:</FragmentB> {fragment.title}
             </FragmentParSmall>
