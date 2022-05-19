@@ -9,6 +9,8 @@ import {
   KeywordSearchContainer,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 
+//? reordering the items within a list
+
 const reorder = (list: any, startIndex: any, endIndex: any) => {
   const result = Array.from(list)
   const [removed] = result.splice(startIndex, 1)
@@ -18,7 +20,7 @@ const reorder = (list: any, startIndex: any, endIndex: any) => {
 }
 
 /**
- * Moves an item from one list to another list.
+ * //* Moves an item from one list to another list.
  */
 const move = (
   source: any,
@@ -28,13 +30,18 @@ const move = (
 ) => {
   const sourceClone = Array.from(source)
   const destClone = Array.from(destination)
+
+  //* removed array that is a sourceClone without droppableSource.index
   const [removed] = sourceClone.splice(droppableSource.index, 1)
 
+  //* adding removed array
   destClone.splice(droppableDestination.index, 0, removed)
 
   const result: any = {}
   result[droppableSource.droppableId] = sourceClone
   result[droppableDestination.droppableId] = destClone
+  //* so I'll have result
+  //* {droppableSource.droppableId: sourceClone, droppableDestination.droppableId: destClone}
 
   return result
 }
@@ -70,11 +77,26 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   const fragmentsKeywordTwo: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordTwo
   )
-
+  // * dummy object for col 1 and col 2
+  // const dummyFragment = {
+  //   nanoId: 'fwjifwijjifw111122',
+  //   _id: 'dummy text',
+  //   userId: 'dummy text',
+  //   source: 'dummy text',
+  //   excerpt: 'dummy text',
+  //   coordinates: 'dummy text',
+  //   title: 'dummy text',
+  //   description: 'dummy text',
+  //   keywords: ['dummy text'],
+  // }
   const [state, setState] = useState([
     fragments,
     fragmentsKeywordOne,
     fragmentsKeywordTwo,
+    // fragmentsKeywordOne.splice(1, 0, dummyFragment),
+    // [dummyFragment, ...fragmentsKeywordOne],
+    // fragmentsKeywordTwo.splice(1, 0, dummyFragment),
+    // [dummyFragment, ...fragmentsKeywordTwo],
   ])
 
   function onDragEnd(result: any) {
@@ -88,8 +110,8 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
     const sourceIndex = +source.droppableId
     const destinationIndex = +destination.droppableId
     // * reordering within the same array
-    if (sourceIndex === destinationIndex) {
-    }
+    // if (sourceIndex === destinationIndex) {
+    // }
     if (sourceIndex === destinationIndex) {
       const items = reorder(state[sourceIndex], source.index, destination.index)
       const newState: any[] = [...state]
@@ -97,7 +119,7 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
       setState(newState)
     } else {
       if (destinationIndex === 0) {
-        // console.log('Do not touch me! I am in the first column')
+        //* I don't want to move anything to the 1st column
         return
       }
       const result = move(
@@ -108,18 +130,48 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
       )
 
       const newState = [...state]
+      //todo targetting the list of this index
       newState[sourceIndex] = result[sourceIndex]
       newState[destinationIndex] = result[destinationIndex]
 
-      setState(newState.filter((group) => group.length))
+      //* below setState will remove the empty group [] from the state
+      // setState(newState.filter((group) => group.length))
+      //* this will not remove empty one
+      setState(newState)
+
+      // setState(newState.filter((group) => group.length > 0))
     }
   }
 
   // * for rerendering after Redux state side fragmentsKeywordOne and Two are changed
   useEffect(() => {
     setState([fragments, fragmentsKeywordOne, fragmentsKeywordTwo])
-    // console.log(`fragmentsKeyword changed`)
   }, [fragmentsKeywordTwo, fragmentsKeywordOne, fragments])
+  // useEffect(() => {
+  //   if (state.length === 3) {
+  //     setState([fragments, fragmentsKeywordOne, fragmentsKeywordTwo])
+  //   }
+  //   if (state.length < 3) {
+  //     const dummyFragment = {
+  //       nanoId: 'fwjifwijjifw111122',
+  //       _id: 'dummy text',
+  //       userId: 'dummy text',
+  //       source: 'dummy text',
+  //       excerpt: 'dummy text',
+  //       coordinates: 'dummy text',
+  //       title: 'dummy text',
+  //       description: 'dummy text',
+  //       keywords: ['dummy text'],
+  //     }
+  //     const fragmentsOne = [dummyFragment, ...fragmentsKeywordOne]
+  //     const fragmentsTwo = [dummyFragment, ...fragmentsKeywordTwo]
+  //     setState([fragments, fragmentsOne, fragmentsTwo])
+  //   }
+  // }, [fragmentsKeywordTwo, fragmentsKeywordOne, fragments, state.length])
+
+  // useEffect(() => {
+  //   setState([fragments, fragmentsOne, fragmentsTwo])
+  // }, [fragmentsKeywordTwo, fragmentsKeywordOne, fragments, dummyFragment, fragmentsOne, fragmentsTwo])
 
   return (
     <div>
@@ -180,11 +232,13 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
                   style={getListStyle(snapshot.isDraggingOver)}
                   {...provided.droppableProps}
                 >
-                  {/* {ind === 0 && <h2>All fragments</h2>} */}
-
+                  <h3>FILLER FILLER</h3>
                   {ind === 0 && <DropdownSelect keywordOptionOne />}
-
                   {ind === 1 && <DropdownSelect />}
+                  {el.length === 1 && (
+                    <h2>If You move me this category will dissapear!</h2>
+                  )}
+                  {/* {el.slice(-1).map((fragment, index) => ( */}
                   {el.map((fragment, index) => (
                     <Draggable
                       key={fragment.nanoId}
