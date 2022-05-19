@@ -38,13 +38,13 @@ const move = (
 
   return result
 }
-const grid = 8
+// const grid = 8
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   // some basic styles to make the items look a bit nicer
   userSelect: 'none',
-  padding: grid * 2,
-  margin: `0 0 ${grid}px 0`,
+  // padding: grid * 2,
+  // margin: `0 0 ${grid}px 0`,
 
   // change background colour if dragging
   background: isDragging ? 'lightgreen' : 'grey',
@@ -54,7 +54,7 @@ const getItemStyle = (isDragging: any, draggableStyle: any) => ({
 })
 const getListStyle = (isDraggingOver: any) => ({
   background: isDraggingOver ? 'lightblue' : 'lightgrey',
-  padding: grid,
+  // padding: grid,
   width: 250,
 })
 
@@ -125,19 +125,66 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
     <div>
       <div style={{ display: 'flex', alignItems: 'flex-start' }}>
         <DragDropContext onDragEnd={onDragEnd}>
-          {state.map((el, ind) => (
-            <Droppable key={ind} droppableId={`${ind}`}>
+          {/* //*1st column I will rework it to contain filtering by date, keywords etc. */}
+          {/* {state.slice(1).map((el, ind) => ( */}
+          <Droppable key={'0'} droppableId={`0`}>
+            {(provided, snapshot) => (
+              <KeywordSearchContainer
+                ref={provided.innerRef}
+                style={getListStyle(snapshot.isDraggingOver)}
+                {...provided.droppableProps}
+              >
+                <h2>All fragments</h2>
+
+                {state[0].map((fragment, index) => (
+                  <Draggable
+                    key={fragment.nanoId}
+                    draggableId={fragment.nanoId}
+                    index={index}
+                  >
+                    {(provided, snapshot) => (
+                      <FragmentDivSmall
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        style={getItemStyle(
+                          snapshot.isDragging,
+                          provided.draggableProps.style
+                        )}
+                      >
+                        <FragmentParSmall>
+                          <FragmentB>T:</FragmentB> {fragment.title}
+                        </FragmentParSmall>
+                        <FragmentParSmall>
+                          <FragmentB>E:</FragmentB> {fragment.excerpt}
+                        </FragmentParSmall>
+                        <FragmentParSmall>
+                          <FragmentB>D:</FragmentB> {fragment.description}
+                        </FragmentParSmall>
+                      </FragmentDivSmall>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </KeywordSearchContainer>
+            )}
+          </Droppable>
+          ){/* //todo End Of 1st column*/}
+          {/* //*I am only mapping 2nd and 3rd column */}
+          {state.slice(1).map((el, ind) => (
+            // ? here indexes have '+1' because I separated 1st column and since I used its indexes aswell as those here, +1 is to avoid the conflict in logic of Droppable
+            <Droppable key={ind + 1} droppableId={`${ind + 1}`}>
               {(provided, snapshot) => (
                 <KeywordSearchContainer
                   ref={provided.innerRef}
                   style={getListStyle(snapshot.isDraggingOver)}
                   {...provided.droppableProps}
                 >
-                  {ind === 0 && <h2>All fragments</h2>}
+                  {/* {ind === 0 && <h2>All fragments</h2>} */}
 
-                  {ind === 1 && <DropdownSelect keywordOptionOne />}
+                  {ind === 0 && <DropdownSelect keywordOptionOne />}
 
-                  {ind === 2 && <DropdownSelect />}
+                  {ind === 1 && <DropdownSelect />}
                   {el.map((fragment, index) => (
                     <Draggable
                       key={fragment.nanoId}
