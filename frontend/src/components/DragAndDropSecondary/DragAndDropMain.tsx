@@ -46,23 +46,25 @@ const move = (
 
   return result
 }
-// const grid = 8
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
-  // some basic styles to make the items look a bit nicer
   userSelect: 'none',
-  // padding: grid * 2,
-  // margin: `0 0 ${grid}px 0`,
 
   // change background colour if dragging
-  background: isDragging ? 'lightgreen' : 'grey',
-
+  background: isDragging
+    ? 'var(--background2-main)'
+    : 'var(--background1-main)',
+  color: isDragging
+    ? 'var(--background-secondary4)'
+    : 'var(--background4-main)',
   // styles we need to apply on draggables
   ...draggableStyle,
 })
 const getListStyle = (isDraggingOver: any) => ({
-  background: isDraggingOver ? 'lightblue' : 'lightgrey',
-  // padding: grid,
+  background: isDraggingOver
+    ? 'var(--background-tertiary1)'
+    : 'var(--background1-main)',
+
   width: 250,
 })
 
@@ -91,6 +93,8 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
     fragmentsKeywordOne,
     fragmentsKeywordTwo,
   ])
+
+  //? Behold the monster, onDragEnd with no end
 
   function onDragEnd(result: any) {
     const { source, destination } = result
@@ -230,50 +234,6 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
           keywords.filter((keyword: string) => keyword !== keywordTwo)
         )
       }
-      // } else {
-      //   console.log('1 to 2 ')
-      //   console.log(
-      //     sourceIndex === 1 &&
-      //       destinationIndex === 2 &&
-      //       !keywords.includes(keywordOne)
-      //   )
-      //   console.log(
-      //     sourceIndex === 2 &&
-      //       destinationIndex === 1 &&
-      //       !keywords.includes(keywordTwo)
-      //   )
-
-      // console.log(`sourceIndex: ${sourceIndex}`)
-      // console.log(`destinationIndex: ${destinationIndex}`)
-      // console.log(`doesnt include k1: ${!keywords.includes(keywordOne)}`)
-      // } else if (sourceIndex === 1 && destinationIndex === 2) {
-      //   console.log(`doesnt have k2: ${!keywords.includes(keywordTwo)}`)
-      //   console.log(`doesnt have k1: ${!keywords.includes(keywordOne)}`)
-      // } else if (sourceIndex === 2 && destinationIndex === 1) {
-      //   console.log(`doesnt have k2: ${!keywords.includes(keywordTwo)}`)
-      //   console.log(`doesnt have k1: ${!keywords.includes(keywordOne)}`)
-      // }
-      // if (
-      //   sourceIndex === 2 &&
-      //   destinationIndex === 1 &&
-      //   !keywords.includes(keywordTwo)
-      // ) {
-      //   // dispatch(editSavedFragment(newKeywordListWithoutTwo))
-      //   console.log(keywords)
-      //   console.log(
-      //     keywords.filter((keyword: string) => keyword !== keywordTwo)
-      //   )
-      // } else {
-      //   console.log('2 to 1 ')
-      //   console.log(
-      //     sourceIndex === 2 &&
-      //       destinationIndex === 1 &&
-      //       !keywords.includes(keywordTwo)
-      //   )
-      //   // console.log(`sourceIndex${sourceIndex}`)
-      //   // console.log(`destinationIndex${destinationIndex}`)
-      //   // console.log(`doesnt include k2${!keywords.includes(keywordTwo)}`)
-      // }
 
       //* END of removing keywords
 
