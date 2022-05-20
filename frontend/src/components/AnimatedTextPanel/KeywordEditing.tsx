@@ -74,7 +74,6 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
       }
     }
     setKeywordEditing(!keywordEditing)
-    // dispatch(editSavedFragment(newKeywordList))
     setKeywordValue('')
     setPrevKeywordValue('')
   }

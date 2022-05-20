@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useAppSelector } from '../../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import DropdownSelect from '../KeywordSearchPanel/DropdownSelect/DropdownSelect'
 import {
@@ -68,35 +69,27 @@ const getListStyle = (isDraggingOver: any) => ({
 interface DragAndDropMainProps {}
 
 const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
+  const dispatch: any = useAppDispatch()
+
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
   )
+  const sortingKeywords = useAppSelector(
+    (state) => state.preference.sortingKeywords
+  )
+  const { keywordOne, keywordTwo } = sortingKeywords
   const fragmentsKeywordOne: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordOne
   )
   const fragmentsKeywordTwo: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordTwo
   )
-  // * dummy object for col 1 and col 2
-  // const dummyFragment = {
-  //   nanoId: 'fwjifwijjifw111122',
-  //   _id: 'dummy text',
-  //   userId: 'dummy text',
-  //   source: 'dummy text',
-  //   excerpt: 'dummy text',
-  //   coordinates: 'dummy text',
-  //   title: 'dummy text',
-  //   description: 'dummy text',
-  //   keywords: ['dummy text'],
-  // }
+  //todo for onDragStart fn that checks if fragment of this _id has the keyword of the col it is beeing dragged to
+
   const [state, setState] = useState([
     fragments,
     fragmentsKeywordOne,
     fragmentsKeywordTwo,
-    // fragmentsKeywordOne.splice(1, 0, dummyFragment),
-    // [dummyFragment, ...fragmentsKeywordOne],
-    // fragmentsKeywordTwo.splice(1, 0, dummyFragment),
-    // [dummyFragment, ...fragmentsKeywordTwo],
   ])
 
   function onDragEnd(result: any) {
@@ -110,8 +103,7 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
     const sourceIndex = +source.droppableId
     const destinationIndex = +destination.droppableId
     // * reordering within the same array
-    // if (sourceIndex === destinationIndex) {
-    // }
+
     if (sourceIndex === destinationIndex) {
       const items = reorder(state[sourceIndex], source.index, destination.index)
       const newState: any[] = [...state]
@@ -122,6 +114,169 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
         //* I don't want to move anything to the 1st column
         return
       }
+
+      //* HERE Begins section of adding keyword to fragment dragged
+      // ? if destination index is 1 then I want to compare keywords[] of the fragment I'm moving keywords.includes(keywordOne) if it does I return, if it doesn't I add the keywordOne to keywords[] of dragged fragment
+      //* this is how I access the fragment I just dropped
+      const droppedFragment: any = state[source.droppableId][source.index]
+      // const droppableId = destination.droppableId
+      const {
+        _id,
+        source: fragmentSource,
+        excerpt,
+        coordinates,
+        title,
+        description,
+        keywords,
+      } = droppedFragment
+
+      const newKeywordListOne = {
+        _id: _id,
+        source: fragmentSource,
+        excerpt: excerpt,
+        coordinates: coordinates,
+        title: title,
+        description: description,
+        keywords: [...keywords, keywordOne],
+      }
+      const newKeywordListTwo = {
+        _id: _id,
+        source: fragmentSource,
+        excerpt: excerpt,
+        coordinates: coordinates,
+        title: title,
+        description: description,
+        keywords: [...keywords, keywordTwo],
+      }
+
+      // // //todo move to 1 include k1
+      // if (destinationIndex === 1 && keywords.includes(keywordOne)) {
+      //   console.log('move to 1 and include k1')
+      // }
+      // // //todo move to 2 include k2
+      // if (destinationIndex === 2 && keywords.includes(keywordTwo)) {
+      //   console.log('move to 2 and include k2')
+      // }
+      // //todo move to 1 from 0 and does not include k1
+      if (
+        sourceIndex === 0 &&
+        destinationIndex === 1 &&
+        !keywords.includes(keywordOne)
+      ) {
+        console.log('move to 1 and does not include k1')
+        dispatch(editSavedFragment(newKeywordListOne))
+      }
+      // //todo move to 2 from 0 and does not include k2'
+      if (
+        sourceIndex === 0 &&
+        destinationIndex === 2 &&
+        !keywords.includes(keywordTwo)
+      ) {
+        console.log('move to 2 and does not include k2')
+        dispatch(editSavedFragment(newKeywordListTwo))
+      }
+
+      //* HERE Begins section responsible for moving/removing keywords between column[1] column[2]
+      // console.log(sourceIndex)
+      //? if (sourceIndex ===1 || sourceIndex ===2 ) { remove }
+      const newKeywordListWithoutOne = {
+        _id: _id,
+        source: fragmentSource,
+        excerpt: excerpt,
+        coordinates: coordinates,
+        title: title,
+        description: description,
+        keywords: [
+          ...keywords.filter((keyword: string) => keyword !== keywordOne),
+          keywordTwo,
+        ],
+      }
+      const newKeywordListWithoutTwo = {
+        _id: _id,
+        source: fragmentSource,
+        excerpt: excerpt,
+        coordinates: coordinates,
+        title: title,
+        description: description,
+        keywords: [
+          ...keywords.filter((keyword: string) => keyword !== keywordTwo),
+          keywordOne,
+        ],
+      }
+
+      if (
+        sourceIndex === 1 &&
+        destinationIndex === 2 &&
+        // * keywordOne is in
+        !keywords.includes(keywordTwo)
+      ) {
+        //* from 1 to 2 and there is no keyword2 in 1
+        dispatch(editSavedFragment(newKeywordListWithoutOne))
+        console.log('1 to 2 ')
+        console.log(keywords)
+        console.log(
+          keywords.filter((keyword: string) => keyword !== keywordOne)
+        )
+      } else if (
+        sourceIndex === 2 &&
+        destinationIndex === 1 &&
+        !keywords.includes(keywordOne)
+      ) {
+        //* from 2 to 1 and there is no keyword1 in 2
+        console.log('2 to 1 ')
+        dispatch(editSavedFragment(newKeywordListWithoutTwo))
+        console.log(keywords)
+        console.log(
+          keywords.filter((keyword: string) => keyword !== keywordTwo)
+        )
+      }
+      // } else {
+      //   console.log('1 to 2 ')
+      //   console.log(
+      //     sourceIndex === 1 &&
+      //       destinationIndex === 2 &&
+      //       !keywords.includes(keywordOne)
+      //   )
+      //   console.log(
+      //     sourceIndex === 2 &&
+      //       destinationIndex === 1 &&
+      //       !keywords.includes(keywordTwo)
+      //   )
+
+      // console.log(`sourceIndex: ${sourceIndex}`)
+      // console.log(`destinationIndex: ${destinationIndex}`)
+      // console.log(`doesnt include k1: ${!keywords.includes(keywordOne)}`)
+      // } else if (sourceIndex === 1 && destinationIndex === 2) {
+      //   console.log(`doesnt have k2: ${!keywords.includes(keywordTwo)}`)
+      //   console.log(`doesnt have k1: ${!keywords.includes(keywordOne)}`)
+      // } else if (sourceIndex === 2 && destinationIndex === 1) {
+      //   console.log(`doesnt have k2: ${!keywords.includes(keywordTwo)}`)
+      //   console.log(`doesnt have k1: ${!keywords.includes(keywordOne)}`)
+      // }
+      // if (
+      //   sourceIndex === 2 &&
+      //   destinationIndex === 1 &&
+      //   !keywords.includes(keywordTwo)
+      // ) {
+      //   // dispatch(editSavedFragment(newKeywordListWithoutTwo))
+      //   console.log(keywords)
+      //   console.log(
+      //     keywords.filter((keyword: string) => keyword !== keywordTwo)
+      //   )
+      // } else {
+      //   console.log('2 to 1 ')
+      //   console.log(
+      //     sourceIndex === 2 &&
+      //       destinationIndex === 1 &&
+      //       !keywords.includes(keywordTwo)
+      //   )
+      //   // console.log(`sourceIndex${sourceIndex}`)
+      //   // console.log(`destinationIndex${destinationIndex}`)
+      //   // console.log(`doesnt include k2${!keywords.includes(keywordTwo)}`)
+      // }
+
+      //* END of removing keywords
+
       const result = move(
         state[sourceIndex],
         state[destinationIndex],
@@ -140,6 +295,9 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
       setState(newState)
 
       // setState(newState.filter((group) => group.length > 0))
+      //todo adding keyword with onDrag event
+
+      //todo
     }
   }
 
@@ -147,38 +305,12 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   useEffect(() => {
     setState([fragments, fragmentsKeywordOne, fragmentsKeywordTwo])
   }, [fragmentsKeywordTwo, fragmentsKeywordOne, fragments])
-  // useEffect(() => {
-  //   if (state.length === 3) {
-  //     setState([fragments, fragmentsKeywordOne, fragmentsKeywordTwo])
-  //   }
-  //   if (state.length < 3) {
-  //     const dummyFragment = {
-  //       nanoId: 'fwjifwijjifw111122',
-  //       _id: 'dummy text',
-  //       userId: 'dummy text',
-  //       source: 'dummy text',
-  //       excerpt: 'dummy text',
-  //       coordinates: 'dummy text',
-  //       title: 'dummy text',
-  //       description: 'dummy text',
-  //       keywords: ['dummy text'],
-  //     }
-  //     const fragmentsOne = [dummyFragment, ...fragmentsKeywordOne]
-  //     const fragmentsTwo = [dummyFragment, ...fragmentsKeywordTwo]
-  //     setState([fragments, fragmentsOne, fragmentsTwo])
-  //   }
-  // }, [fragmentsKeywordTwo, fragmentsKeywordOne, fragments, state.length])
-
-  // useEffect(() => {
-  //   setState([fragments, fragmentsOne, fragmentsTwo])
-  // }, [fragmentsKeywordTwo, fragmentsKeywordOne, fragments, dummyFragment, fragmentsOne, fragmentsTwo])
 
   return (
     <div>
       <div style={{ display: 'flex', alignItems: 'flex-start' }}>
         <DragDropContext onDragEnd={onDragEnd}>
-          {/* //*1st column I will rework it to contain filtering by date, keywords etc. */}
-          {/* {state.slice(1).map((el, ind) => ( */}
+          {/* //?1st column I will rework it to contain filtering by date, keywords etc. */}
           <Droppable key={'0'} droppableId={`0`}>
             {(provided, snapshot) => (
               <KeywordSearchContainer
@@ -238,7 +370,7 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
                   {el.length === 1 && (
                     <h2>If You move me this category will dissapear!</h2>
                   )}
-                  {/* {el.slice(-1).map((fragment, index) => ( */}
+
                   {el.map((fragment, index) => (
                     <Draggable
                       key={fragment.nanoId}
@@ -272,11 +404,11 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
                                 newState[ind].splice(index, 1)
                                 setState(
                                   newState.filter((group) => group.length)
-                                )
-                              }}
-                            >
-                              delete
-                            </button> */}
+                                  )
+                                }}
+                                >
+                                delete
+                              </button> */}
                         </FragmentDivSmall>
                       )}
                     </Draggable>
