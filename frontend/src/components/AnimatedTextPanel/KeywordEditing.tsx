@@ -119,15 +119,16 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
               >
                 <KeywordPar>
                   {' '}
-                  {keywordArr.map((keyword, index) => (
-                    <KeywordDiv
-                      key={index}
-                      onClick={() => editKeywordHandler(keyword, index)}
-                    >
-                      {keywordArr.length > 1 ? `${keyword} \u00A0` : keyword}
-                      {/* {keyword} */}
-                    </KeywordDiv>
-                  ))}
+                  {keywordArr &&
+                    keywordArr.map((keyword, index) => (
+                      <KeywordDiv
+                        key={index}
+                        onClick={() => editKeywordHandler(keyword, index)}
+                      >
+                        {keywordArr.length > 1 ? `${keyword} \u00A0` : keyword}
+                        {/* {keyword} */}
+                      </KeywordDiv>
+                    ))}
                 </KeywordPar>
               </motion.div>
             </TitleAnimated>
