@@ -69,7 +69,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
           (keyword) => keyword !== prevKeywordValue
         )
         setKeywordArr(() => [...filteredArr, keywordValue])
-      } else if (prevKeywordValue === '') {
+      } else if (prevKeywordValue === '' && keywordArr) {
         setKeywordArr((keywordArr) => [...keywordArr, keywordValue])
       }
     }
@@ -95,7 +95,9 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
   //   } else return
   // }, [keywordArr, keywords, dispatch, newKeywordList])
   useEffect(() => {
-    setSameContents(haveSameContents(keywordArr, keywords))
+    if (keywordArr?.length > 0 && keywords?.length > 0) {
+      setSameContents(haveSameContents(keywordArr, keywords))
+    }
   }, [keywordArr, keywords])
 
   //? helper function to compare 2 arrays pertaining elements regardless of the order
