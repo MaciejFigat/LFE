@@ -16,7 +16,6 @@ import {
 import { nanoid } from '@reduxjs/toolkit'
 
 interface DropdownSelectProps {
-  // uniqueKeywords: string[]
   keywordOptionOne?: boolean
 }
 

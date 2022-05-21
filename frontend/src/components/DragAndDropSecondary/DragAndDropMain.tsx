@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
-import { editSavedFragment } from '../../features/fragments/fragmentSlice'
+import {
+  editSavedFragment,
+  updateUserFragmentsKeywordOne,
+  updateUserFragmentsKeywordTwo,
+} from '../../features/fragments/fragmentSlice'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import DropdownSelect from '../KeywordSearchPanel/DropdownSelect/DropdownSelect'
 import {
   FragmentB,
   FragmentDivSmall,
   FragmentParSmall,
+  KeywordB,
+  KeywordDivSimple,
   KeywordSearchContainer,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
-
+import { nanoid } from '@reduxjs/toolkit'
 //? reordering the items within a list
 
 const reorder = (list: any, startIndex: any, endIndex: any) => {
@@ -265,7 +271,23 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   useEffect(() => {
     setState([fragments, fragmentsKeywordOne, fragmentsKeywordTwo])
   }, [fragmentsKeywordTwo, fragmentsKeywordOne, fragments])
+  // * Copied and changed a bit from DropdownSelect to update
+  // useEffect(() => {
+  //   const fragmentsMatchingOne = fragments
+  //     ?.filter(
+  //       (fragmentsSorted) => fragmentsSorted.keywords?.indexOf(keywordOne) >= 0
+  //     )
+  //     .map((el) => ({ ...el, nanoId: nanoid() }))
+  //   const fragmentsMatchingTwo = fragments
+  //     ?.filter(
+  //       (fragmentsSorted) => fragmentsSorted.keywords?.indexOf(keywordTwo) >= 0
+  //     )
+  //     .map((el) => ({ ...el, nanoId: nanoid() }))
 
+  //   dispatch(updateUserFragmentsKeywordOne(fragmentsMatchingOne))
+
+  //   dispatch(updateUserFragmentsKeywordTwo(fragmentsMatchingTwo))
+  // }, [fragments, dispatch, keywordOne, keywordTwo])
   return (
     <div>
       <div style={{ display: 'flex', alignItems: 'flex-start' }}>
@@ -305,6 +327,15 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
                         <FragmentParSmall>
                           <FragmentB>D:</FragmentB> {fragment.description}
                         </FragmentParSmall>
+
+                        <KeywordDivSimple>
+                          <FragmentB>Keywords:&nbsp;</FragmentB>
+                          {fragment.keywords.map((keyword: string) => (
+                            <KeywordB key={Math.random()}>
+                              {keyword} &nbsp;
+                            </KeywordB>
+                          ))}
+                        </KeywordDivSimple>
                       </FragmentDivSmall>
                     )}
                   </Draggable>
@@ -356,7 +387,14 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
                           <FragmentParSmall>
                             <FragmentB>D:</FragmentB> {fragment.description}
                           </FragmentParSmall>
-
+                          <KeywordDivSimple>
+                            <FragmentB>Keywords:&nbsp;</FragmentB>
+                            {fragment.keywords.map((keyword: string) => (
+                              <KeywordB key={Math.random()}>
+                                {keyword} &nbsp;
+                              </KeywordB>
+                            ))}
+                          </KeywordDivSimple>
                           {/* <button
                               type='button'
                               onClick={() => {

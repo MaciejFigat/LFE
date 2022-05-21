@@ -7,7 +7,7 @@ import {
   KeywordDivSimple,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { ListItem } from './AnimatedList.styled'
-// import { motion } from 'framer-motion'
+
 interface AnimatedSavedItemSimpleProps {
   title: string
   description: string

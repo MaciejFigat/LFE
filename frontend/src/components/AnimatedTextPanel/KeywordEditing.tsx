@@ -128,7 +128,6 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                         onClick={() => editKeywordHandler(keyword, index)}
                       >
                         {keywordArr.length > 1 ? `${keyword} \u00A0` : keyword}
-                        {/* {keyword} */}
                       </KeywordDiv>
                     ))}
                 </KeywordPar>
