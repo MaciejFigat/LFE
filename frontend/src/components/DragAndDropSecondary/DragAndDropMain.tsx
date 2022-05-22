@@ -4,6 +4,7 @@ import {
   editSavedFragment,
   updateUserFragmentsKeywordOne,
   updateUserFragmentsKeywordTwo,
+  getUserFragments,
 } from '../../features/fragments/fragmentSlice'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import DropdownSelect from '../KeywordSearchPanel/DropdownSelect/DropdownSelect'
@@ -15,7 +16,7 @@ import {
   KeywordDivSimple,
   KeywordSearchContainer,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
-import { nanoid } from '@reduxjs/toolkit'
+
 //? reordering the items within a list
 
 const reorder = (list: any, startIndex: any, endIndex: any) => {
@@ -82,6 +83,9 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
   )
+  const fragment = useAppSelector((state) => state.fragment)
+  const { loading, success } = fragment
+  const { loadingUpdate, successUpdate } = fragment
   const sortingKeywords = useAppSelector(
     (state) => state.preference.sortingKeywords
   )
@@ -271,23 +275,29 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   useEffect(() => {
     setState([fragments, fragmentsKeywordOne, fragmentsKeywordTwo])
   }, [fragmentsKeywordTwo, fragmentsKeywordOne, fragments])
-  // * Copied and changed a bit from DropdownSelect to update
-  // useEffect(() => {
-  //   const fragmentsMatchingOne = fragments
-  //     ?.filter(
-  //       (fragmentsSorted) => fragmentsSorted.keywords?.indexOf(keywordOne) >= 0
-  //     )
-  //     .map((el) => ({ ...el, nanoId: nanoid() }))
-  //   const fragmentsMatchingTwo = fragments
-  //     ?.filter(
-  //       (fragmentsSorted) => fragmentsSorted.keywords?.indexOf(keywordTwo) >= 0
-  //     )
-  //     .map((el) => ({ ...el, nanoId: nanoid() }))
 
-  //   dispatch(updateUserFragmentsKeywordOne(fragmentsMatchingOne))
+  //* updates user fragments after successful update of a fragment
+  useEffect(() => {
+    if (successUpdate === true && loadingUpdate === false) {
+      dispatch(getUserFragments(1))
+    }
+  }, [dispatch, successUpdate, loadingUpdate])
+  // * updates matching keyword lists one and two after successful dispatch that updates a fragment
+  useEffect(() => {
+    const fragmentsMatchingOne = fragments?.filter(
+      (fragmentsSorted) => fragmentsSorted.keywords?.indexOf(keywordOne) >= 0
+    )
+    const fragmentsMatchingTwo = fragments?.filter(
+      (fragmentsSorted) => fragmentsSorted.keywords?.indexOf(keywordTwo) >= 0
+    )
 
-  //   dispatch(updateUserFragmentsKeywordTwo(fragmentsMatchingTwo))
-  // }, [fragments, dispatch, keywordOne, keywordTwo])
+    if (success === true && loading === false) {
+      dispatch(updateUserFragmentsKeywordOne(fragmentsMatchingOne))
+      dispatch(updateUserFragmentsKeywordTwo(fragmentsMatchingTwo))
+      console.log(fragmentsMatchingOne)
+      console.log(fragmentsMatchingTwo)
+    }
+  }, [fragments, dispatch, keywordOne, keywordTwo, loading, success])
   return (
     <div>
       <div style={{ display: 'flex', alignItems: 'flex-start' }}>

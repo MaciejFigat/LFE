@@ -151,8 +151,10 @@ const fragmentSlice = createSlice({
         ],
         fragmentSaved: {},
         loading: false,
+        loadingUpdate: false,
         error: {},
         success: false,
+        successUpdate: false,
     },
     reducers: {
 
@@ -220,30 +222,30 @@ const fragmentSlice = createSlice({
             state.loading = false
         })
         builder.addCase(deleteSavedFragment.pending, (state, action) => {
-            state.loading = true
-            state.success = false
+            state.loadingUpdate = true
+            state.successUpdate = false
 
         })
         builder.addCase(deleteSavedFragment.fulfilled, (state, action) => {
-            state.loading = false
+            state.loadingUpdate = false
             state.error = action.payload.message
-            state.success = true
+            state.successUpdate = true
         })
         builder.addCase(deleteSavedFragment.rejected, (state, action) => {
             state.loading = false
 
         })
         builder.addCase(editSavedFragment.pending, (state, action) => {
-            state.loading = true
-            state.success = false
+            state.loadingUpdate = true
+            state.successUpdate = false
         })
         builder.addCase(editSavedFragment.fulfilled, (state, action) => {
-            state.loading = false
+            state.loadingUpdate = false
             state.error = action.payload.message
-            state.success = true
+            state.successUpdate = true
         })
         builder.addCase(editSavedFragment.rejected, (state, action) => {
-            state.loading = false
+            state.loadingUpdate = false
 
         })
     },
