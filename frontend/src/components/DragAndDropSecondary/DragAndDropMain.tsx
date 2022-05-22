@@ -276,12 +276,12 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
     setState([fragments, fragmentsKeywordOne, fragmentsKeywordTwo])
   }, [fragmentsKeywordTwo, fragmentsKeywordOne, fragments])
 
-  //* updates user fragments after successful update of a fragment
-  useEffect(() => {
-    if (successUpdate === true && loadingUpdate === false) {
-      dispatch(getUserFragments(1))
-    }
-  }, [dispatch, successUpdate, loadingUpdate])
+  //! * updates user fragments after successful update of a fragment - Causes animations jump
+  // useEffect(() => {
+  //   if (successUpdate === true && loadingUpdate === false) {
+  //     dispatch(getUserFragments(1))
+  //   }
+  // }, [dispatch, successUpdate, loadingUpdate])
   // * updates matching keyword lists one and two after successful dispatch that updates a fragment
   useEffect(() => {
     const fragmentsMatchingOne = fragments?.filter(
@@ -294,8 +294,8 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
     if (success === true && loading === false) {
       dispatch(updateUserFragmentsKeywordOne(fragmentsMatchingOne))
       dispatch(updateUserFragmentsKeywordTwo(fragmentsMatchingTwo))
-      console.log(fragmentsMatchingOne)
-      console.log(fragmentsMatchingTwo)
+      // console.log(fragmentsMatchingOne)
+      // console.log(fragmentsMatchingTwo)
     }
   }, [fragments, dispatch, keywordOne, keywordTwo, loading, success])
   return (
