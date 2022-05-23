@@ -14,9 +14,8 @@ const Contact: React.FC<ContactProps> = () => {
     <>
       <DragAndDropMain />
 
-      {/* <DnD /> */}
       {/* <SideMenuResizable mainData={<>sdsds</>}>
-        <FragmentsColumn />
+        <DnD />
       </SideMenuResizable> */}
     </>
   )
