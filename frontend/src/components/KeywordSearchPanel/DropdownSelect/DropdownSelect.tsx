@@ -98,9 +98,9 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
       )
       .map((el) => ({ ...el, nanoId: nanoid() }))
 
-    if (keywordOptionOne) {
+    if (keywordOptionOne && selectedOptionOne !== '') {
       dispatch(updateUserFragmentsKeywordOne(fragmentsMatchingOne))
-    } else {
+    } else if (selectedOptionTwo !== '') {
       dispatch(updateUserFragmentsKeywordTwo(fragmentsMatchingTwo))
     }
   }, [

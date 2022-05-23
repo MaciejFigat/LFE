@@ -4,7 +4,7 @@ import {
   editSavedFragment,
   updateUserFragmentsKeywordOne,
   updateUserFragmentsKeywordTwo,
-  getUserFragments,
+  // getUserFragments,
 } from '../../features/fragments/fragmentSlice'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import DropdownSelect from '../KeywordSearchPanel/DropdownSelect/DropdownSelect'
@@ -13,9 +13,11 @@ import {
   FragmentDivSmall,
   FragmentParSmall,
   KeywordB,
+  KeywordColumnContainer,
   KeywordDivSimple,
   KeywordSearchContainer,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
+import ResizableScrollSection from '../ScrollSection/ResizableScrollSection'
 
 //? reordering the items within a list
 
@@ -85,7 +87,7 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   )
   const fragment = useAppSelector((state) => state.fragment)
   const { loading, success } = fragment
-  const { loadingUpdate, successUpdate } = fragment
+  // const { loadingUpdate, successUpdate } = fragment
   const sortingKeywords = useAppSelector(
     (state) => state.preference.sortingKeywords
   )
@@ -300,132 +302,151 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   }, [fragments, dispatch, keywordOne, keywordTwo, loading, success])
   return (
     <div>
-      <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+      {/* <div style={{ display: 'flex', alignItems: 'flex-start' }}> */}
+      <div>
         <DragDropContext onDragEnd={onDragEnd}>
           {/* //?1st column I will rework it to contain filtering by date, keywords etc. */}
-          <Droppable key={'0'} droppableId={`0`}>
-            {(provided, snapshot) => (
-              <KeywordSearchContainer
-                ref={provided.innerRef}
-                style={getListStyle(snapshot.isDraggingOver)}
-                {...provided.droppableProps}
-              >
-                <h2>All fragments</h2>
-
-                {state[0].map((fragment, index) => (
-                  <Draggable
-                    key={fragment.nanoId}
-                    draggableId={fragment.nanoId}
-                    index={index}
+          <ResizableScrollSection
+            widthBig='50%'
+            widthSmall='30%'
+            transparent
+            wideSection={
+              <Droppable key={'0'} droppableId={`0`}>
+                {(provided, snapshot) => (
+                  <KeywordSearchContainer
+                    ref={provided.innerRef}
+                    style={getListStyle(snapshot.isDraggingOver)}
+                    {...provided.droppableProps}
                   >
-                    {(provided, snapshot) => (
-                      <FragmentDivSmall
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        style={getItemStyle(
-                          snapshot.isDragging,
-                          provided.draggableProps.style
-                        )}
+                    <h2>All fragments</h2>
+
+                    {state[0].map((fragment, index) => (
+                      <Draggable
+                        key={fragment.nanoId}
+                        draggableId={fragment.nanoId}
+                        index={index}
                       >
-                        <FragmentParSmall>
-                          <FragmentB>T:</FragmentB> {fragment.title}
-                        </FragmentParSmall>
-                        <FragmentParSmall>
-                          <FragmentB>E:</FragmentB> {fragment.excerpt}
-                        </FragmentParSmall>
-                        <FragmentParSmall>
-                          <FragmentB>D:</FragmentB> {fragment.description}
-                        </FragmentParSmall>
+                        {(provided, snapshot) => (
+                          <FragmentDivSmall
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            style={getItemStyle(
+                              snapshot.isDragging,
+                              provided.draggableProps.style
+                            )}
+                          >
+                            <FragmentParSmall>
+                              <FragmentB>T:</FragmentB> {fragment.title}
+                            </FragmentParSmall>
+                            <FragmentParSmall>
+                              <FragmentB>E:</FragmentB> {fragment.excerpt}
+                            </FragmentParSmall>
+                            <FragmentParSmall>
+                              <FragmentB>D:</FragmentB> {fragment.description}
+                            </FragmentParSmall>
 
-                        <KeywordDivSimple>
-                          <FragmentB>Keywords:&nbsp;</FragmentB>
-                          {fragment.keywords.map((keyword: string) => (
-                            <KeywordB key={Math.random()}>
-                              {keyword} &nbsp;
-                            </KeywordB>
-                          ))}
-                        </KeywordDivSimple>
-                      </FragmentDivSmall>
+                            <KeywordDivSimple>
+                              <FragmentB>Keywords:&nbsp;</FragmentB>
+                              {fragment.keywords.map((keyword: string) => (
+                                <KeywordB key={Math.random()}>
+                                  {keyword} &nbsp;
+                                </KeywordB>
+                              ))}
+                            </KeywordDivSimple>
+                          </FragmentDivSmall>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </KeywordSearchContainer>
+                )}
+              </Droppable>
+            }
+            // ! 2nd 3rd columns
+            narrowSection={
+              <KeywordColumnContainer>
+                {state.slice(1).map((el, ind) => (
+                  // ? here indexes have '+1' because I separated 1st column and since I used its indexes aswell as those here, +1 is to avoid the conflict in logic of Droppable
+                  <Droppable key={ind + 1} droppableId={`${ind + 1}`}>
+                    {(provided, snapshot) => (
+                      <KeywordSearchContainer
+                        ref={provided.innerRef}
+                        style={getListStyle(snapshot.isDraggingOver)}
+                        {...provided.droppableProps}
+                      >
+                        {ind === 0 && <DropdownSelect keywordOptionOne />}
+                        {ind === 1 && <DropdownSelect />}
+                        {el.length === 1 && (
+                          <FragmentDivSmall>
+                            <FragmentParSmall>
+                              <KeywordB>Warning: </KeywordB>
+                              <FragmentB>
+                                If You remove last fragment this category will
+                                dissapear!
+                              </FragmentB>
+                            </FragmentParSmall>
+                          </FragmentDivSmall>
+                        )}
+
+                        {el.map((fragment, index) => (
+                          <Draggable
+                            key={fragment.nanoId}
+                            draggableId={fragment.nanoId}
+                            index={index}
+                          >
+                            {(provided, snapshot) => (
+                              <FragmentDivSmall
+                                ref={provided.innerRef}
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                                style={getItemStyle(
+                                  snapshot.isDragging,
+                                  provided.draggableProps.style
+                                )}
+                              >
+                                <FragmentParSmall>
+                                  <FragmentB>T:</FragmentB> {fragment.title}
+                                </FragmentParSmall>
+                                <FragmentParSmall>
+                                  <FragmentB>E:</FragmentB> {fragment.excerpt}
+                                </FragmentParSmall>
+                                <FragmentParSmall>
+                                  <FragmentB>D:</FragmentB>{' '}
+                                  {fragment.description}
+                                </FragmentParSmall>
+                                <KeywordDivSimple>
+                                  <FragmentB>Keywords:&nbsp;</FragmentB>
+                                  {fragment.keywords.map((keyword: string) => (
+                                    <KeywordB key={Math.random()}>
+                                      {keyword} &nbsp;
+                                    </KeywordB>
+                                  ))}
+                                </KeywordDivSimple>
+                                {/* <button
+                                type='button'
+                                onClick={() => {
+                                  const newState = [...state]
+                                  newState[ind].splice(index, 1)
+                                  setState(
+                                    newState.filter((group) => group.length)
+                                    )
+                                  }}
+                                  >
+                                  delete
+                                </button> */}
+                              </FragmentDivSmall>
+                            )}
+                          </Draggable>
+                        ))}
+                        {provided.placeholder}
+                      </KeywordSearchContainer>
                     )}
-                  </Draggable>
+                  </Droppable>
                 ))}
-                {provided.placeholder}
-              </KeywordSearchContainer>
-            )}
-          </Droppable>
-          ){/* //todo End Of 1st column*/}
-          {/* //*I am only mapping 2nd and 3rd column */}
-          {state.slice(1).map((el, ind) => (
-            // ? here indexes have '+1' because I separated 1st column and since I used its indexes aswell as those here, +1 is to avoid the conflict in logic of Droppable
-            <Droppable key={ind + 1} droppableId={`${ind + 1}`}>
-              {(provided, snapshot) => (
-                <KeywordSearchContainer
-                  ref={provided.innerRef}
-                  style={getListStyle(snapshot.isDraggingOver)}
-                  {...provided.droppableProps}
-                >
-                  <h3>FILLER FILLER</h3>
-                  {ind === 0 && <DropdownSelect keywordOptionOne />}
-                  {ind === 1 && <DropdownSelect />}
-                  {el.length === 1 && (
-                    <h2>If You move me this category will dissapear!</h2>
-                  )}
-
-                  {el.map((fragment, index) => (
-                    <Draggable
-                      key={fragment.nanoId}
-                      draggableId={fragment.nanoId}
-                      index={index}
-                    >
-                      {(provided, snapshot) => (
-                        <FragmentDivSmall
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          style={getItemStyle(
-                            snapshot.isDragging,
-                            provided.draggableProps.style
-                          )}
-                        >
-                          <FragmentParSmall>
-                            <FragmentB>T:</FragmentB> {fragment.title}
-                          </FragmentParSmall>
-                          <FragmentParSmall>
-                            <FragmentB>E:</FragmentB> {fragment.excerpt}
-                          </FragmentParSmall>
-                          <FragmentParSmall>
-                            <FragmentB>D:</FragmentB> {fragment.description}
-                          </FragmentParSmall>
-                          <KeywordDivSimple>
-                            <FragmentB>Keywords:&nbsp;</FragmentB>
-                            {fragment.keywords.map((keyword: string) => (
-                              <KeywordB key={Math.random()}>
-                                {keyword} &nbsp;
-                              </KeywordB>
-                            ))}
-                          </KeywordDivSimple>
-                          {/* <button
-                              type='button'
-                              onClick={() => {
-                                const newState = [...state]
-                                newState[ind].splice(index, 1)
-                                setState(
-                                  newState.filter((group) => group.length)
-                                  )
-                                }}
-                                >
-                                delete
-                              </button> */}
-                        </FragmentDivSmall>
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </KeywordSearchContainer>
-              )}
-            </Droppable>
-          ))}
+              </KeywordColumnContainer>
+            }
+          />
         </DragDropContext>
       </div>
     </div>

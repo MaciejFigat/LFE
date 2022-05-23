@@ -45,7 +45,6 @@ const UserFragColSimple: React.FC<UserFragColSimpleProps> = () => {
     <AnimateSharedLayout>
       <FragmentsContainerSimple>
         <FilterWrapper />
-        {/* <DateCompare />{' '} */}
         {fragments.length > 0 &&
           fragments
             .filter(
