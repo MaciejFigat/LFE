@@ -9,6 +9,7 @@ import {
   KeywordSearchContainer,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
+import FilterWrapper from '../FragmentsColumn/FilterWrapper/FilterWrapper'
 interface FirstColumnProps {
   state: any[]
 }
@@ -31,6 +32,7 @@ const getListStyle = (isDraggingOver: any) => ({
     : 'var(--background1-main)',
 
   width: 250,
+  minWidth: '100%',
 })
 const FirstColumn: React.FC<FirstColumnProps> = ({ state }) => {
   return (
@@ -42,8 +44,7 @@ const FirstColumn: React.FC<FirstColumnProps> = ({ state }) => {
             style={getListStyle(snapshot.isDraggingOver)}
             {...provided.droppableProps}
           >
-            <h2>All fragments</h2>
-
+            <FilterWrapper />
             {state[0].map((fragment: any, index: number) => (
               <Draggable
                 key={fragment.nanoId}

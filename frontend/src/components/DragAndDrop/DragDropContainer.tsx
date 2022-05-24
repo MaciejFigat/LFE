@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useAppSelector } from '../../app/reduxHooks'
+// import { useAppSelector } from '../../app/reduxHooks'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { LayoutDroppableWrapper } from './DragAndDrop.styled'
 // import DroppableList from './DroppableList'
@@ -36,12 +36,12 @@ const DATA = [
   },
 ]
 const DragDropContainer: React.FC<DragDropContainerProps> = () => {
-  const sortingKeywords = useAppSelector(
-    (state) => state.preference.sortingKeywords
-  )
-  const fragments: any[] = useAppSelector(
-    (state) => state.fragment.userFragments
-  )
+  // const sortingKeywords = useAppSelector(
+  //   (state) => state.preference.sortingKeywords
+  // )
+  // const fragments: any[] = useAppSelector(
+  //   (state) => state.fragment.userFragments
+  // )
 
   const [items, setItems] = useState<any>([])
   const [groups, setGroups] = useState<any>({})

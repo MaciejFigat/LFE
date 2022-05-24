@@ -87,6 +87,8 @@ body {
     // --success2: #38b000;
     --success3: #70e000;
 
+    --warning1: rgb(200, 50, 70);
+    
     --background-blue1: #ADD7F6;
     --background-blue2: #87BFFF;
     --background-blue3: #3F8EFC;

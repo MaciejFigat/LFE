@@ -12,6 +12,8 @@ const jump = keyframes`
 export const LoginContainer = styled.div`
   display: grid;
   place-items: center;
+  background: var(--background2-main);
+  color: var(--background4-main);
   @media screen and (max-width: 760px) {
     /* max-width: 90%; */
   }
@@ -38,6 +40,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   position: relative;
+
   @media screen and (max-width: 760px) {
     max-width: 90%;
   }
@@ -64,7 +67,7 @@ export const Input = styled.input`
 export const Button = styled.button`
   max-width: 100%;
   padding: 11px 13px;
-  color: rgb(253, 249, 243);
+  color: var(--background4-main);
   font-weight: 600;
   text-transform: uppercase;
   background: var(--background1-main);
@@ -77,14 +80,14 @@ export const Button = styled.button`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-out;
   :hover {
-    background: rgb(200, 50, 70);
-    animation: ${jump} 0.2s ease-out forwards;
+    background: var(--warning1);
+    /* animation: ${jump} 0.2s ease-out forwards; */
   }
 `
 
 export const Title = styled.div`
   font-weight: normal;
-  color: var(--background1-main);
+  color: var(--background4-main);
   /* text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1); */
   text-align: center;
   display: flex;
@@ -94,11 +97,20 @@ export const Title = styled.div`
   margin-top: 1rem;
 `
 export const LoginLink = styled.div`
-  color: var(--background1-main);
+  color: var(--background-secondary2);
   max-width: fit-content;
+  transition: 0.3s;
   font-weight: 600;
   :hover {
-    color: rgb(200, 50, 70);
-    animation: 0.2s ease-out forwards;
+    color: var(--warning1);
   }
+`
+
+export const LoginTextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: fit-content;
+  width: 100%;
+  margin-bottom: 2rem;
 `

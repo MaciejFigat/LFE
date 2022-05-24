@@ -4,19 +4,9 @@ import {
   editSavedFragment,
   updateUserFragmentsKeywordOne,
   updateUserFragmentsKeywordTwo,
-  // getUserFragments,
 } from '../../features/fragments/fragmentSlice'
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import DropdownSelect from '../KeywordSearchPanel/DropdownSelect/DropdownSelect'
-import {
-  FragmentB,
-  FragmentDivSmall,
-  FragmentParSmall,
-  KeywordB,
-  KeywordColumnContainer,
-  KeywordDivSimple,
-  KeywordSearchContainer,
-} from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
+import { DragDropContext } from 'react-beautiful-dnd'
+
 import ResizableScrollSection from '../ScrollSection/ResizableScrollSection'
 import FirstColumn from './FirstColumn'
 import SecondAndThirdCol from './SecondAndThirdCol'
@@ -58,27 +48,6 @@ const move = (
   return result
 }
 
-const getItemStyle = (isDragging: any, draggableStyle: any) => ({
-  userSelect: 'none',
-
-  // change background colour if dragging
-  background: isDragging
-    ? 'var(--background2-main)'
-    : 'var(--background1-main)',
-  color: isDragging
-    ? 'var(--background-secondary4)'
-    : 'var(--background4-main)',
-  // styles we need to apply on draggables
-  ...draggableStyle,
-})
-const getListStyle = (isDraggingOver: any) => ({
-  background: isDraggingOver
-    ? 'var(--background-tertiary1)'
-    : 'var(--background1-main)',
-
-  width: 250,
-})
-
 interface DragAndDropMainProps {}
 
 const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
@@ -89,7 +58,7 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   )
   const fragment = useAppSelector((state) => state.fragment)
   const { loading, success } = fragment
-  // const { loadingUpdate, successUpdate } = fragment
+
   const sortingKeywords = useAppSelector(
     (state) => state.preference.sortingKeywords
   )
@@ -100,10 +69,18 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   const fragmentsKeywordTwo: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordTwo
   )
-  //todo for onDragStart fn that checks if fragment of this _id has the keyword of the col it is beeing dragged to
+  const sortingDate = useAppSelector((state) => state.preference.sortingDate)
+  const { sortingYear, sortingMonth, sortingDay } = sortingDate
+
+  const sortingDateString = `${sortingYear}-${
+    sortingMonth < 10 ? `0${sortingMonth}` : `${sortingMonth}`
+  }-${sortingDay < 10 ? `0${sortingDay}` : `${sortingDay}`}`
 
   const [state, setState] = useState([
-    fragments,
+    fragments.filter(
+      (fragmentsSorted) =>
+        fragmentsSorted.createdAt.substring(0, 10) === sortingDateString
+    ),
     fragmentsKeywordOne,
     fragmentsKeywordTwo,
   ])
@@ -181,7 +158,7 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
         destinationIndex === 1 &&
         !keywords.includes(keywordOne)
       ) {
-        console.log('move to 1 and does not include k1')
+        // console.log('move to 1 and does not include k1')
         dispatch(editSavedFragment(newKeywordListOne))
       }
       // //todo move to 2 from 0 and does not include k2'
@@ -190,12 +167,12 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
         destinationIndex === 2 &&
         !keywords.includes(keywordTwo)
       ) {
-        console.log('move to 2 and does not include k2')
+        // console.log('move to 2 and does not include k2')
         dispatch(editSavedFragment(newKeywordListTwo))
       }
 
       //* HERE Begins section responsible for moving/removing keywords between column[1] column[2]
-      // console.log(sourceIndex)
+
       //? if (sourceIndex ===1 || sourceIndex ===2 ) { remove }
       const newKeywordListWithoutOne = {
         _id: _id,
@@ -230,23 +207,23 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
       ) {
         //* from 1 to 2 and there is no keyword2 in 1
         dispatch(editSavedFragment(newKeywordListWithoutOne))
-        console.log('1 to 2 ')
-        console.log(keywords)
-        console.log(
-          keywords.filter((keyword: string) => keyword !== keywordOne)
-        )
+        // console.log('1 to 2 ')
+        // console.log(keywords)
+        // console.log(
+        //   keywords.filter((keyword: string) => keyword !== keywordOne)
+        // )
       } else if (
         sourceIndex === 2 &&
         destinationIndex === 1 &&
         !keywords.includes(keywordOne)
       ) {
         //* from 2 to 1 and there is no keyword1 in 2
-        console.log('2 to 1 ')
+        // console.log('2 to 1 ')
         dispatch(editSavedFragment(newKeywordListWithoutTwo))
-        console.log(keywords)
-        console.log(
-          keywords.filter((keyword: string) => keyword !== keywordTwo)
-        )
+        // console.log(keywords)
+        // console.log(
+        //   keywords.filter((keyword: string) => keyword !== keywordTwo)
+        // )
       }
 
       //* END of removing keywords
@@ -280,12 +257,6 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
     setState([fragments, fragmentsKeywordOne, fragmentsKeywordTwo])
   }, [fragmentsKeywordTwo, fragmentsKeywordOne, fragments])
 
-  //! * updates user fragments after successful update of a fragment - Causes animations jump
-  // useEffect(() => {
-  //   if (successUpdate === true && loadingUpdate === false) {
-  //     dispatch(getUserFragments(1))
-  //   }
-  // }, [dispatch, successUpdate, loadingUpdate])
   // * updates matching keyword lists one and two after successful dispatch that updates a fragment
   useEffect(() => {
     const fragmentsMatchingOne = fragments?.filter(
@@ -301,22 +272,16 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
     }
   }, [fragments, dispatch, keywordOne, keywordTwo, loading, success])
   return (
-    <div>
-      {/* <div style={{ display: 'flex', alignItems: 'flex-start' }}> */}
-      <div>
-        <DragDropContext onDragEnd={onDragEnd}>
-          {/* //?1st column I will rework it to contain filtering by date, keywords etc. */}
-          <ResizableScrollSection
-            widthBig='30%'
-            widthSmall='60%'
-            transparent
-            wideSection={<FirstColumn state={state} />}
-            // ! 2nd 3rd columns
-            narrowSection={<SecondAndThirdCol state={state} />}
-          />
-        </DragDropContext>
-      </div>
-    </div>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <ResizableScrollSection
+        widthBig='30%'
+        widthSmall='60%'
+        transparent
+        wideSection={<FirstColumn state={state} />}
+        // ! 2nd 3rd columns
+        narrowSection={<SecondAndThirdCol state={state} />}
+      />
+    </DragDropContext>
   )
 }
 export default DragAndDropMain

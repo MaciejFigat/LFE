@@ -10,6 +10,7 @@ import {
   Title,
   LoginLink,
   LoginContainer,
+  LoginTextWrapper,
 } from '../styles/login'
 import useRedirectLoggedListener from '../hooks/useRedirectListenerLogged'
 import { sendEmailToResetPassword } from '../features/users/userSlice'
@@ -65,22 +66,24 @@ const Login: React.FC<LoginProps> = () => {
           />
 
           <Button>Login</Button>
-          <Title>
-            Please feel free to{' '}
-            <Link to='/register'>
-              <LoginLink>&nbsp;register.</LoginLink>
-            </Link>
-          </Title>
-          <Title>
-            Forgot the password - please type the email and click
-            <LoginLink onClick={resetPasswordHandler}>
-              reset password.
-            </LoginLink>
-          </Title>
         </Form>
 
         <Button onClick={logoutHandler}>Logout</Button>
       </Wrapper>
+      <LoginTextWrapper>
+        <Title>
+          Please feel free to{' '}
+          <Link to='/register'>
+            <LoginLink>&nbsp;register.</LoginLink>
+          </Link>
+        </Title>
+        <Title>
+          Forgot the password - please type the email and click
+          <LoginLink onClick={resetPasswordHandler}>
+            &nbsp;reset password.
+          </LoginLink>
+        </Title>
+      </LoginTextWrapper>
     </LoginContainer>
   )
 }
