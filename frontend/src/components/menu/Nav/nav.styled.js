@@ -248,6 +248,14 @@ export const HeaderTitleMobile = styled.h1`
     font-size: 1.25rem;
   }
 `
+export const WrapperDesktopOnly = styled.div`
+  display: flex;
+  /* max-width: fit-content; */
+  @media (max-width: 1020px) {
+    display: none;
+    font-size: 1.25rem;
+  }
+`
 export const HeaderTitleDesktop = styled.h1`
   font-size: 1.25rem;
   font-weight: 200;

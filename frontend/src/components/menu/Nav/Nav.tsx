@@ -6,9 +6,9 @@ import {
   NavContainer,
   MobileViewContainer,
   HeaderTitleMobile,
-  // HeaderTitleDesktop,
   ListLoginWrapper,
   HeaderLoginWrapper,
+  WrapperDesktopOnly,
 } from './nav.styled'
 import { NavLink } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
@@ -21,6 +21,7 @@ import { UserInfo } from '../../../interfaces'
 import { useCycle } from 'framer-motion'
 import FadeInAnimationWrapper from '../../AnimationWrappers/FadeInAnimationWrapper'
 import { IconsWrapper } from '../../SvgIcon/iconsSvg.styled'
+import SearchBar from '../../SearchBar/SearchBar'
 interface NavProps {}
 
 const Nav: React.FC<NavProps> = () => {
@@ -47,7 +48,7 @@ const Nav: React.FC<NavProps> = () => {
   const [scrollDirection, setScrollDirection] = useState<
     'up' | 'down' | 'top' | undefined | null
   >()
-  // const [scrollTop, setScrollTop] = useState<boolean>(true)
+
   const scroll = useScrollListener()
 
   // on scroll I update scrollDirection
@@ -60,10 +61,6 @@ const Nav: React.FC<NavProps> = () => {
       setScrollDirection('up')
     }
     //todo if (scroll.y <= 300)
-    // setScrollTop(true)
-    // else {
-    //   setScrollTop(false)
-    // }
   }, [scroll.y, scroll.lastY])
 
   return (
@@ -75,11 +72,16 @@ const Nav: React.FC<NavProps> = () => {
           scrollDirection === 'top' ? 'top' : ''
         } ${open === true ? 'open' : ''}`}
       >
+        <WrapperDesktopOnly>
+          <SearchBar />
+        </WrapperDesktopOnly>
         <MobileViewContainer>
           <div onClick={handleClickMenu}>
             <Burger menuOpen={open} />
-          </div>{' '}
-          <HeaderTitleMobile>{name && `${name}`}</HeaderTitleMobile>
+          </div>
+          <HeaderTitleMobile>
+            <SearchBar />
+          </HeaderTitleMobile>
           {Object.keys(userInfo).length > 0 ? (
             <HeaderLoginWrapper>
               {isAdmin && (
@@ -129,13 +131,10 @@ const Nav: React.FC<NavProps> = () => {
             </HeaderLoginWrapper>
           )}
         </MobileViewContainer>
-        {/* <NavContainer className={open} onClick={handleCloseMenu}> */}
         <NavContainer onClick={handleCloseMenu}>
+          {/* //!<SearchBar /> */}
           <NavListDesktop />
           <NavListMobile open={open} />
-          {/* <HeaderTitleDesktop className={scrollTop === true ? 'hide' : 'show'}>
-            {name && `${name}`}
-          </HeaderTitleDesktop> */}
 
           <FadeInAnimationWrapper>
             <IconsWrapper>
