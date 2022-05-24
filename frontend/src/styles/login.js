@@ -80,7 +80,8 @@ export const Button = styled.button`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-out;
   :hover {
-    background: var(--warning1);
+    color: var(--background1-main);
+    background: var(--background-secondary2);
     /* animation: ${jump} 0.2s ease-out forwards; */
   }
 `
@@ -100,9 +101,9 @@ export const LoginLink = styled.div`
   color: var(--background-secondary2);
   max-width: fit-content;
   transition: 0.3s;
-  font-weight: 600;
+  font-weight: 500;
   :hover {
-    color: var(--warning1);
+    color: var(--background-secondary3);
   }
 `
 
