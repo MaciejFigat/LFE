@@ -26,26 +26,29 @@ export const SearchBarWrapper = styled.div`
   }
 `
 
-export const SearchHideButton = styled.div`
-  color: var(--background1-main) !important;
+export const SearchHideButton = styled.button`
+  color: var(--background1-main);
   padding: 0.25rem;
   /* background: var(--background-secondary2); */
   background: none;
   display: grid;
   place-items: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  align-items: center;
 `
 export const SearchBarButton = styled.button`
-  color: var(--background1-main);
-  background: var(--background-secondary2);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: transparent;
   align-items: center;
+  color: var(--background-secondary2);
 `
 export const SearchBarContainer = styled.div`
   display: flex;
-
-  /* min-width: fit-content;
-  align-self: center;
-  max-height: max-content;
-  align-items: center; */
 `
 export const SearchInput = styled.input`
   max-width: 100%;
