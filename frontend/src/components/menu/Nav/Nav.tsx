@@ -28,7 +28,7 @@ const Nav: React.FC<NavProps> = () => {
   const dispatch = useAppDispatch()
 
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
-  const { name, isAdmin } = userInfo
+  const { isAdmin } = userInfo
 
   const [open, cycleOpen] = useCycle(false, true)
   const handleClickMenu = () => {
@@ -132,7 +132,6 @@ const Nav: React.FC<NavProps> = () => {
           )}
         </MobileViewContainer>
         <NavContainer onClick={handleCloseMenu}>
-          {/* //!<SearchBar /> */}
           <NavListDesktop />
           <NavListMobile open={open} />
 

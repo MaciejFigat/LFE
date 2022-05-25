@@ -23,9 +23,16 @@ export const SearchBarWrapper = styled.div`
   }
 `
 
+export const SearchHideButton = styled.button`
+  color: var(--background1-main);
+  background: var(--background-secondary2);
+  display: grid;
+  place-items: center;
+`
 export const SearchBarButton = styled.button`
   color: var(--background1-main);
   background: var(--background-secondary2);
+  align-items: center;
 `
 export const SearchBarContainer = styled.div`
   display: flex;

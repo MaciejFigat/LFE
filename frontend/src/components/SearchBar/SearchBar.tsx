@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import SvgIcon from '../SvgIcon/SvgIcon'
 import {
   SearchBarButton,
   SearchBarContainer,
   SearchBarWrapper,
+  SearchHideButton,
   SearchInput,
 } from './SearchBar.styled'
 
@@ -16,9 +18,13 @@ const SearchBar: React.FC<SearchBarProps> = () => {
   }
   return (
     <SearchBarWrapper>
-      <SearchBarButton onClick={showSearchHandler}>
-        {showSearch ? '?' : '?'}
-      </SearchBarButton>
+      <SearchHideButton onClick={showSearchHandler}>
+        {showSearch ? (
+          <SvgIcon variant='search' noMargin={true} />
+        ) : (
+          <SvgIcon variant='searchPlus' noMargin={true} />
+        )}
+      </SearchHideButton>
       <SearchBarContainer
         className={`${showSearch === true ? 'show' : 'hide'} `}
       >
