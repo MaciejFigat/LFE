@@ -46,6 +46,15 @@ export const SearchBarButton = styled.button`
   background: transparent;
   align-items: center;
   color: var(--background-secondary2);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  &:hover {
+    /* transition: all 0.7s ease-out; */
+    border: 1px solid var(--background-secondary2);
+  }
+  &:active {
+    border: 1px solid var(--background-secondary4);
+  }
 `
 export const SearchBarContainer = styled.div`
   display: flex;
