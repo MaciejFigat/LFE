@@ -9,6 +9,7 @@ export const TransitionWrapperMain = styled.div`
   /* background: var(--background1-main); */
   /* background: transparent; */
   transition: color 1200ms ease-out;
+
   .nav_link {
     transition: color 600ms ease-out;
     // todo color: var(--background-main5);
@@ -55,9 +56,9 @@ export const TransitionWrapperMain = styled.div`
     } */
     transition: all 600ms ease-in;
     /* background for the scrolling div with navlist in it */
-    /* background: rgba(164, 219, 228, 0.9); */
+
     //todo
-    /* background: var(--background1-main); */
+    background: var(--background1-main);
   }
   .active.open {
     .burger {
@@ -151,7 +152,7 @@ export const NavContainer = styled.nav`
 export const NavList = styled.ul`
   list-style: none;
   display: flex;
-  /* max-height: 54.4px; */
+
   height: 100%;
   margin: 0;
   justify-content: space-around;
@@ -254,14 +255,15 @@ export const ListItemMobile = styled.div`
 // TODO here lies the background property of the holy grail. Meaning the container that shows when scrolling top.
 
 export const MobileViewContainer = styled.div`
-  display: flex;
+  display: none;
   flex-direction: row;
-  background: var(--background1-main);
   justify-content: space-between;
-  /* margin: 0 1.5rem 0 1rem; */
   padding: 0 1.5rem 0 1rem;
   /* this below fixes the irritating gap in nav when you scroll it down */
   /* margin-top: -1px !important; */
+  @media (max-width: 1020px) {
+    display: flex;
+  }
 `
 export const HeaderTitleMobile = styled.h1`
   color: var(--background1-main);

@@ -28,7 +28,6 @@ const NavListDesktop: React.FC<NavListMobileProps> = () => {
       <StaggerChildrenWrapper delay='rightFast'>
         <NavList>
           {links.map(({ name, to, id }) => (
-            // <motion.div variants={itemVariants} key={id}>
             <ListItem variants={itemVariants} key={id}>
               {' '}
               <NavLink
@@ -41,7 +40,6 @@ const NavListDesktop: React.FC<NavListMobileProps> = () => {
                 {name}
               </NavLink>
             </ListItem>
-            // </motion.div>
           ))}{' '}
           <ListItem>
             <NavDropdown />

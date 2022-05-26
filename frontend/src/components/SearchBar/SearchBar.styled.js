@@ -76,19 +76,14 @@ export const SearchInput = styled.input`
   height: 100%;
   padding: 11px 13px;
 
-  /* background: #f9f9fa; */
   color: var(--background4-main);
-  /* margin-bottom: 0.9rem; */
+
   border-radius: 12px;
   outline: 0;
   border: 1px solid rgba(245, 245, 245, 0.7);
   font-size: 1rem;
   transition: all 0.3s ease-out;
-  /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
-  :focus,
-  :hover {
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15), 0 1px 5px rgba(0, 0, 0, 0.1);
-  } */
+
   @media (max-width: 420px) {
     font-size: 0.8rem;
     padding: 5px 7px;
