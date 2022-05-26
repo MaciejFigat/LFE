@@ -59,9 +59,6 @@ const links: LinkData[] = [
   { name: 'Home', iconVariant: 'home', to: '/', id: '1' },
   { name: 'Store2', iconVariant: 'question', to: '/contact', id: '2' },
   { name: 'Storage', iconVariant: 'store', to: '/storage', id: '3' },
-  // { name: `${(<SvgIcon variant='home' noMargin />)} Home`, to: '/', id: '1' },
-  // { name: <SvgIcon variant='question' noMargin />, to: '/contact', id: '2' },
-  // { name: <SvgIcon variant='store' noMargin />, to: '/storage', id: '3' },
 ]
 
 const NavListMobile: React.FC<NavListMobileProps> = ({ open }) => {

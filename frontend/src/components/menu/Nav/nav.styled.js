@@ -6,6 +6,7 @@ export const TransitionWrapperMain = styled.div`
   z-index: 20;
   top: -2px;
   //todo
+  /* background: var(--background1-main); */
   /* background: transparent; */
   transition: color 1200ms ease-out;
   .nav_link {
@@ -32,7 +33,7 @@ export const TransitionWrapperMain = styled.div`
     /* additional className for burger so it changes color with scroll */
     .burger {
       // todo background: var(--background1-main);
-      background: var(--background5-main);
+      /* background: var(--background5-main); */
     }
     transition: all 1000ms ease-in;
     transition: color 1200ms ease-out;
@@ -46,32 +47,32 @@ export const TransitionWrapperMain = styled.div`
   }
   .active {
     .burger {
-      background: var(--background3-main);
+      /* background: var(--background3-main); */
     }
     /* li is for login/logout icons in navbar */
-    li {
+    /* li {
       color: var(--background3-main);
-    }
+    } */
     transition: all 600ms ease-in;
     /* background for the scrolling div with navlist in it */
-    //todo
     /* background: rgba(164, 219, 228, 0.9); */
-    background: var(--background1-main);
+    //todo
+    /* background: var(--background1-main); */
   }
   .active.open {
     .burger {
       //todo
-      background: var(--background5-main);
+      /* background: var(--background5-main); */
     }
     /* li is for login/logout icons in navbar */
-    li {
+    /* li {
       color: var(--background5-main);
-    }
+    } */
     transition: all 600ms ease-in;
     //todo
     /* background: var(--background3-main); */
 
-    border-bottom: none;
+    /* border-bottom: none; */
   }
 
   .open.top {
@@ -82,44 +83,41 @@ export const TransitionWrapperMain = styled.div`
 
     /* background for testing resolutions */
     @media (max-width: 1020px) {
-      //todo
-      background: var(--background3-main);
-      li {
+      /* //todo
+      background: var(--background1-main); */
+      /* li {
         color: var(--background3-main);
-      }
+      } */
     }
     .burger {
-      background: var(--background4-main);
+      background: var(--background5-main);
     }
   }
   .hidden {
     //todo
     /* transition: border-bottom 600ms ease-in; */
     /* border-bottom: 1px solid rgba(255, 255, 255, 0.125); */
-    .burger {
-      background: var(--background3-main);
-    }
+    /* .burger {
+      background: var(--background5-main);
+    } */
     /* this is for the username of logged user */
-    h1 {
+    /* h1 {
       color: var(--background3-main);
-    }
+    } */
     /* li is for login/logout icons in navbar */
-    li {
+    /* li {
       color: var(--background3-main);
-    }
+    } */
     transition: all 200ms ease-in;
     transform: translateY(-130%);
-    //todo
-    /* color: var(--background3-main); */
-    /* background: var(--background1-main); */
-    /* background: rgba(0, 0, 0, 0.015); */
   }
 `
 export const TransitionWrapper = styled.div`
   position: sticky;
   top: 0;
-  max-height: 3.2rem;
+  max-height: 3.4rem;
   height: 55px;
+
   @media (min-width: 1020px) {
     display: flex;
     justify-content: center;
@@ -127,21 +125,26 @@ export const TransitionWrapper = styled.div`
 `
 export const NavContainer = styled.nav`
   max-width: 1020px;
-  display: flex;
-  justify-content: space-around;
-  position: sticky;
-  top: 0;
+  /* display: flex; */
+  /* justify-content: space-around; */
+  /* position: sticky; */
+  /* top: 0; */
+  /* background: violet; */
   min-height: fit-content;
   @media (min-width: 2220px) {
     max-width: 2000px;
   }
   @media (max-width: 1020px) {
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    max-width: 100%;
-    box-shadow: none;
-    overflow: hidden;
+    /* flex-direction: column; */
+    /* background: transparent; */
+    /* background: violet; */
+    /* display: none; */
+
+    /* justify-content: center; */
+    /* width: 100%; */
+    /* max-width: 100%; */
+    /* box-shadow: none; */
+    /* overflow: hidden; */
   }
 `
 // the following list is used for desktop navigation
@@ -192,14 +195,12 @@ export const HeaderLoginWrapper = styled.div`
 
 export const MobileSvgDiv = styled.div`
   min-height: 100%;
-  /* background: red; */
+
   li {
     color: var(--background-secondary2) !important;
     transition: color 300ms ease-out;
-    //todo color: var(--background3-main);
-    /* color: var(--background5-main); */
+
     &:hover {
-      // todo color: var(--background2-main);
       color: var(--background2-main) !important;
     }
   }
@@ -243,14 +244,17 @@ export const ListItemMobile = styled.div`
     margin-left: 0.5rem;
   }
 `
+// TODO here lies the background property of the holy grail. Meaning the container that shows when scrolling top.
 
 export const MobileViewContainer = styled.div`
   display: flex;
   flex-direction: row;
+  background: var(--background1-main);
   justify-content: space-between;
-  margin: 0 1.5rem 0 1rem;
+  /* margin: 0 1.5rem 0 1rem; */
+  padding: 0 1.5rem 0 1rem;
   /* this below fixes the irritating gap in nav when you scroll it down */
-  margin-top: -1px !important;
+  /* margin-top: -1px !important; */
 `
 export const HeaderTitleMobile = styled.h1`
   color: var(--background1-main);
@@ -293,7 +297,7 @@ export const HeaderTitleDesktop = styled.h1`
 `
 export const AnimatedWrapperMobile = styled(motion.div)`
   //todo
-  background: var(--background3-main);
+  background: var(--background1-main);
   width: 18.75rem;
   height: calc(100vh + 50px);
   display: none;
