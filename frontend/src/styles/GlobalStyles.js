@@ -4,10 +4,11 @@ const GlobalStyle = createGlobalStyle`
 * {
   
   -webkit-tap-highlight-color: transparent;
+  
 }
 html {
   font-size: 100%;
-  
+  background: var(--background1-main);
 } 
 
 body {
@@ -155,18 +156,17 @@ body {
     
 }
 ::-webkit-scrollbar {
-  width: 0.5em;
-
-    var(--background3-main),
+  // width: 0.5em;
+  width: 0;
    
   
   
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--background1-main);
+  // background: var(--background2-main);
   @media (max-width: 1020px) {
-    background: var(--background1-main);
+    // background: var(--background2-main);
    
   }
   border-radius: 2px;

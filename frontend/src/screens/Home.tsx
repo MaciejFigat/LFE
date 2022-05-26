@@ -36,7 +36,6 @@ const Home: React.FC = () => {
             <FragmentsColumn />
           )
         }
-        // UserFragmentsColumn
         wideSection={
           <HighlightPopMenu>
             <InfoSection paddingTop='small' data={homeData}></InfoSection>

@@ -116,11 +116,12 @@ export const TransitionWrapperMain = styled.div`
 export const TransitionWrapper = styled.div`
   position: sticky;
   top: 0;
-  max-height: 3.4rem;
-  height: 55px;
-
+  /* //! irritating gap holy grail no 2 */
+  /* max-height: 3.4rem; */
+  height: 57px;
   @media (min-width: 1020px) {
     display: flex;
+
     justify-content: center;
   }
 `

@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavList, ListItem, NavListDesktopWrapper } from './nav.styled'
 import { NavLink } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import StaggerChildrenWrapper from '../../AnimationWrappers/StaggerChildrenWrapper'
 import SvgIcon from '../../SvgIcon/SvgIcon'
 import NavDropdown from './NavDropdown'

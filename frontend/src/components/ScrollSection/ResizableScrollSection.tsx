@@ -22,8 +22,6 @@ interface ResizableScrollSectionProps {
 const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
   wideSection,
   narrowSection,
-  widthSmall,
-  widthBig,
 }) => {
   const dispatch: any = useAppDispatch()
   const width = useAppSelector((state) => state.preference.width)

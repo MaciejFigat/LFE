@@ -35,6 +35,7 @@ export const ListTitleContainer = styled(motion.div)`
     /* min-height: fit-content; */
     /* height: fit-content; */
   }
+  margin-right: 0.5rem;
 `
 export const DatePar = styled(motion.p)`
   font-size: 0.5rem;
@@ -174,15 +175,3 @@ export const ItemWrapper = styled(motion.div)`
     margin-bottom: 5px;
   }
 `
-// export const KeywordDiv = styled(motion.h2)`
-//   display: grid;
-//   place-items: center;
-//   margin: 0;
-//   word-break: break-all;
-//   margin-left: 0.5rem;
-//   font-size: 1.1rem;
-//   @media (max-width: 740px) {
-//     font-size: 1rem;
-//     margin-left: 0rem;
-//   }
-// `
