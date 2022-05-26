@@ -22,6 +22,7 @@ import { useCycle } from 'framer-motion'
 import FadeInAnimationWrapper from '../../AnimationWrappers/FadeInAnimationWrapper'
 import { IconsWrapper } from '../../SvgIcon/iconsSvg.styled'
 import SearchBar from '../../SearchBar/SearchBar'
+import NavDropdown from './NavDropdown'
 interface NavProps {}
 
 const Nav: React.FC<NavProps> = () => {
@@ -138,7 +139,8 @@ const Nav: React.FC<NavProps> = () => {
         <NavListDesktop />
         <FadeInAnimationWrapper>
           <IconsWrapper>
-            {Object.keys(userInfo).length > 0 && isAdmin && (
+            <NavDropdown />
+            {/* {Object.keys(userInfo).length > 0 && isAdmin && (
               <ListLoginWrapper>
                 <NavLink
                   to='/admin'
@@ -189,7 +191,7 @@ const Nav: React.FC<NavProps> = () => {
                   <SvgIcon variant='login' />
                 </NavLink>
               </ListLoginWrapper>
-            )}
+            )} */}
           </IconsWrapper>
         </FadeInAnimationWrapper>
         {/* </NavContainer> */}

@@ -25,6 +25,10 @@ export const SearchBarWrapper = styled.div`
     opacity: 0;
     /* background: var(--background-secondary4); */
   }
+  @media (max-width: 420px) {
+    gap: 0.25rem;
+    height: 25px;
+  }
 `
 
 export const SearchHideButton = styled.button`
@@ -39,6 +43,9 @@ export const SearchHideButton = styled.button`
   cursor: pointer;
   background: transparent;
   align-items: center;
+  @media (max-width: 420px) {
+    padding: 0.15rem;
+  }
 `
 export const SearchBarButton = styled.button`
   outline: none;
@@ -56,6 +63,10 @@ export const SearchBarButton = styled.button`
   &:active {
     border: 1px solid var(--background-secondary4);
   }
+  @media (max-width: 420px) {
+    font-size: 0.7rem;
+    padding: none;
+  }
 `
 export const SearchBarContainer = styled.div`
   display: flex;
@@ -64,6 +75,7 @@ export const SearchInput = styled.input`
   max-width: 100%;
   height: 100%;
   padding: 11px 13px;
+
   /* background: #f9f9fa; */
   color: var(--background4-main);
   /* margin-bottom: 0.9rem; */
@@ -72,10 +84,14 @@ export const SearchInput = styled.input`
   border: 1px solid rgba(245, 245, 245, 0.7);
   font-size: 1rem;
   transition: all 0.3s ease-out;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
   :focus,
   :hover {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.15), 0 1px 5px rgba(0, 0, 0, 0.1);
+  } */
+  @media (max-width: 420px) {
+    font-size: 0.8rem;
+    padding: 5px 7px;
   }
 `
 /* export const SearchBarWrapper = styled.div` */
