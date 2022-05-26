@@ -4,9 +4,11 @@ import {
   ListItem,
   ListItemMobile,
   AnimatedWrapperMobile,
+  MobileSvgDiv,
 } from './nav.styled'
 import { NavLink } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
+import SvgIcon from '../../SvgIcon/SvgIcon'
 interface NavListMobileProps {
   open: boolean
 }
@@ -34,10 +36,32 @@ const sideVariants = {
   },
 }
 
-const links = [
-  { name: 'T-Lex', to: '/', id: '1' },
-  { name: 'Contact', to: '/contact', id: '2' },
-  { name: 'Storage', to: '/storage', id: '3' },
+type LinkData = {
+  name: string
+  iconVariant:
+    | 'home'
+    | 'question'
+    | 'store'
+    | 'search'
+    | 'login'
+    | 'logout'
+    | 'admin'
+    | 'user'
+    | 'searchPlus'
+    | 'homeTwo'
+    | 'cog'
+    | 'save'
+  to: string
+  id: string
+}
+
+const links: LinkData[] = [
+  { name: 'Home', iconVariant: 'home', to: '/', id: '1' },
+  { name: 'Store2', iconVariant: 'question', to: '/contact', id: '2' },
+  { name: 'Storage', iconVariant: 'store', to: '/storage', id: '3' },
+  // { name: `${(<SvgIcon variant='home' noMargin />)} Home`, to: '/', id: '1' },
+  // { name: <SvgIcon variant='question' noMargin />, to: '/contact', id: '2' },
+  // { name: <SvgIcon variant='store' noMargin />, to: '/storage', id: '3' },
 ]
 
 const NavListMobile: React.FC<NavListMobileProps> = ({ open }) => {
@@ -63,7 +87,7 @@ const NavListMobile: React.FC<NavListMobileProps> = ({ open }) => {
             {' '}
             <motion.div variants={itemVariants}></motion.div>
             <NavList>
-              {links.map(({ name, to, id }) => (
+              {links.map(({ name, to, id, iconVariant }) => (
                 <ListItem key={id}>
                   {' '}
                   <motion.div
@@ -77,13 +101,17 @@ const NavListMobile: React.FC<NavListMobileProps> = ({ open }) => {
                       }
                     >
                       {' '}
+                      <ListItemMobile>
+                        {' '}
+                        <MobileSvgDiv>
+                          <SvgIcon variant={iconVariant} noMargin />
+                        </MobileSvgDiv>
+                      </ListItemMobile>
                       {name}
                     </NavLink>
                   </motion.div>
                 </ListItem>
               ))}
-
-              <ListItemMobile> </ListItemMobile>
             </NavList>{' '}
           </motion.div>
         </AnimatedWrapperMobile>

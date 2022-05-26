@@ -8,9 +8,28 @@ import {
   faUserTie,
   faSearch,
   faSearchPlus,
+  faHome,
+  faLaptopHouse,
+  faUserCog,
+  faSave,
+  faFolderOpen,
+  faQuestionCircle,
 } from '@fortawesome/free-solid-svg-icons'
 interface SvgIconProps {
-  variant: 'login' | 'logout' | 'admin' | 'user' | 'search' | 'searchPlus'
+  variant:
+    | 'login'
+    | 'logout'
+    | 'admin'
+    | 'user'
+    | 'search'
+    | 'searchPlus'
+    | 'home'
+    | 'homeTwo'
+    | 'cog'
+    | 'store'
+    | 'save'
+    | 'question'
+
   noMargin?: boolean
 }
 
@@ -29,6 +48,18 @@ const SvgIcon: React.FC<SvgIconProps> = ({ variant, noMargin }) => {
         return faSearch
       case 'searchPlus':
         return faSearchPlus
+      case 'home':
+        return faHome
+      case 'cog':
+        return faUserCog
+      case 'store':
+        return faFolderOpen
+      case 'homeTwo':
+        return faLaptopHouse
+      case 'save':
+        return faSave
+      case 'question':
+        return faQuestionCircle
       default:
         return faUser
     }

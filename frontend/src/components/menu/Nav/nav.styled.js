@@ -190,7 +190,22 @@ export const HeaderLoginWrapper = styled.div`
   }
 `
 
-export const ListItem = styled.li`
+export const MobileSvgDiv = styled.div`
+  min-height: 100%;
+  /* background: red; */
+  li {
+    color: var(--background-secondary2) !important;
+    transition: color 300ms ease-out;
+    //todo color: var(--background3-main);
+    /* color: var(--background5-main); */
+    &:hover {
+      // todo color: var(--background2-main);
+      color: var(--background2-main) !important;
+    }
+  }
+`
+// export const ListItem = styled.li`
+export const ListItem = styled.div`
   margin-right: 1rem;
   font-size: 1.05rem;
   letter-spacing: 0.075em;

@@ -20,9 +20,9 @@ const SearchBar: React.FC<SearchBarProps> = () => {
     <SearchBarWrapper>
       <SearchHideButton onClick={showSearchHandler}>
         {showSearch ? (
-          <SvgIcon variant='search' noMargin={true} />
+          <SvgIcon variant='search' noMargin />
         ) : (
-          <SvgIcon variant='searchPlus' noMargin={true} />
+          <SvgIcon variant='searchPlus' noMargin />
         )}
       </SearchHideButton>
       <SearchBarContainer
@@ -37,10 +37,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
           // onChange={(e: any) => setEmail(e.target.value)}
         />
       </SearchBarContainer>
-      <SearchBarButton
-        // className={(showSearch: boolean) => (showSearch ? 'show' : 'hide')}
-        className={`${showSearch === true ? 'show' : 'hide'} `}
-      >
+      <SearchBarButton className={`${showSearch === true ? 'show' : 'hide'} `}>
         Search
       </SearchBarButton>
     </SearchBarWrapper>

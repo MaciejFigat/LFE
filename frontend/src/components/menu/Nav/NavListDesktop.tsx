@@ -3,12 +3,13 @@ import { NavList, ListItem, NavListDesktopWrapper } from './nav.styled'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import StaggerChildrenWrapper from '../../AnimationWrappers/StaggerChildrenWrapper'
+import SvgIcon from '../../SvgIcon/SvgIcon'
 interface NavListMobileProps {}
 
 const links = [
-  { name: 'T-Lex', to: '/', id: '1' },
-  { name: 'Contact', to: '/contact', id: '2' },
-  { name: 'Storage', to: '/storage', id: '3' },
+  { name: <SvgIcon variant='home' noMargin />, to: '/', id: '1' },
+  { name: <SvgIcon variant='question' noMargin />, to: '/contact', id: '2' },
+  { name: <SvgIcon variant='store' noMargin />, to: '/storage', id: '3' },
 ]
 const itemVariants = {
   closed: {

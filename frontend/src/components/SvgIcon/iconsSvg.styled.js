@@ -14,7 +14,8 @@ export const IconsWrapper = styled.ul`
     }
   } */
 `
-export const IconsItem = styled.li`
+// export const IconsItem = styled.li`
+export const IconsItem = styled.div`
   padding: 0;
   font-size: 1.1rem;
   display: flex;
@@ -26,12 +27,12 @@ export const IconsItem = styled.li`
     margin-right: 1rem;
   } */
 
-  @media (max-width: 1020px) {
-    /* margin-right: 0.75rem; */
-    &:last-child {
-      /* margin-right: 0rem; */
-    }
-  }
+  /* @media (max-width: 1020px) { */
+  /* margin-right: 0.75rem; */
+  /* &:last-child { */
+  /* margin-right: 0rem; */
+  /* } */
+  /* } */
   /* &:hover {
     color: var(--bluegreen4);
   } */

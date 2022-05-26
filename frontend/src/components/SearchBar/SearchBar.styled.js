@@ -7,7 +7,8 @@ export const SearchBarWrapper = styled.div`
   z-index: 10;
   gap: 0.5rem;
   /* background: var(--background-secondary2); */
-  background: var(--background1-main);
+  /* background: var(--background1-main); */
+  background: transparent;
   height: 30px;
   min-width: fit-content;
   min-height: fit-content;
@@ -27,7 +28,7 @@ export const SearchBarWrapper = styled.div`
 `
 
 export const SearchHideButton = styled.button`
-  color: var(--background1-main);
+  color: var(--background5-main);
   padding: 0.25rem;
   /* background: var(--background-secondary2); */
   background: none;
@@ -63,9 +64,9 @@ export const SearchInput = styled.input`
   max-width: 100%;
   height: 100%;
   padding: 11px 13px;
-  background: #f9f9fa;
+  /* background: #f9f9fa; */
   color: var(--background4-main);
-  margin-bottom: 0.9rem;
+  /* margin-bottom: 0.9rem; */
   border-radius: 12px;
   outline: 0;
   border: 1px solid rgba(245, 245, 245, 0.7);
