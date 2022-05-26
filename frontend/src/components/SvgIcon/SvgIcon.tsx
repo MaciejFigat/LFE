@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconsItem, IconsWrapper } from './iconsSvg.styled'
+import { IconsItem } from './iconsSvg.styled'
 import {
   faSignInAlt,
   faSignOutAlt,
@@ -35,11 +35,9 @@ const SvgIcon: React.FC<SvgIconProps> = ({ variant, noMargin }) => {
   }
 
   return (
-    // <IconsWrapper>
     <IconsItem noMargin={noMargin}>
       <FontAwesomeIcon icon={iconVersion(variant)} />
     </IconsItem>
-    // </IconsWrapper>
   )
 }
 export default SvgIcon
