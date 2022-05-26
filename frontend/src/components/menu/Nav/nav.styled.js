@@ -151,6 +151,9 @@ export const NavContainer = styled.nav`
 export const NavList = styled.ul`
   list-style: none;
   display: flex;
+  /* max-height: 54.4px; */
+  height: 100%;
+  margin: 0;
   justify-content: space-around;
   padding: 0;
   min-width: 50vw;
@@ -165,6 +168,7 @@ export const NavList = styled.ul`
     height: calc(100vh - 50px);
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     min-height: 85vh;
     max-width: 50vw;
     min-width: fit-content;
@@ -206,12 +210,15 @@ export const MobileSvgDiv = styled.div`
   }
 `
 // export const ListItem = styled.li`
-export const ListItem = styled.div`
+export const ListItem = styled(motion.div)`
   margin-right: 1rem;
   font-size: 1.05rem;
   letter-spacing: 0.075em;
   font-weight: 400;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  /* align-items: center; */
   text-transform: uppercase;
   color: var(--background5-main);
   @media (max-width: 1020px) {

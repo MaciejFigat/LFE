@@ -137,10 +137,10 @@ const Nav: React.FC<NavProps> = () => {
           <NavListMobile open={open} />
         </NavContainer>
         <NavListDesktop />
-        <FadeInAnimationWrapper>
-          <IconsWrapper>
-            <NavDropdown />
-            {/* {Object.keys(userInfo).length > 0 && isAdmin && (
+        {/* <FadeInAnimationWrapper> */}
+        {/* <IconsWrapper> */}
+        {/* <NavDropdown /> */}
+        {/* {Object.keys(userInfo).length > 0 && isAdmin && (
               <ListLoginWrapper>
                 <NavLink
                   to='/admin'
@@ -192,8 +192,8 @@ const Nav: React.FC<NavProps> = () => {
                 </NavLink>
               </ListLoginWrapper>
             )} */}
-          </IconsWrapper>
-        </FadeInAnimationWrapper>
+        {/* </IconsWrapper> */}
+        {/* </FadeInAnimationWrapper> */}
         {/* </NavContainer> */}
       </TransitionWrapper>
     </TransitionWrapperMain>

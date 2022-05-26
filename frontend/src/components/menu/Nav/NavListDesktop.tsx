@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import StaggerChildrenWrapper from '../../AnimationWrappers/StaggerChildrenWrapper'
 import SvgIcon from '../../SvgIcon/SvgIcon'
+import NavDropdown from './NavDropdown'
 interface NavListMobileProps {}
 
 const links = [
@@ -27,21 +28,24 @@ const NavListDesktop: React.FC<NavListMobileProps> = () => {
       <StaggerChildrenWrapper delay='rightFast'>
         <NavList>
           {links.map(({ name, to, id }) => (
-            <motion.div variants={itemVariants} key={id}>
-              <ListItem>
+            // <motion.div variants={itemVariants} key={id}>
+            <ListItem variants={itemVariants} key={id}>
+              {' '}
+              <NavLink
+                to={to}
+                className={(navData) =>
+                  'nav_link' + (navData.isActive ? ' activated' : '')
+                }
+              >
                 {' '}
-                <NavLink
-                  to={to}
-                  className={(navData) =>
-                    'nav_link' + (navData.isActive ? ' activated' : '')
-                  }
-                >
-                  {' '}
-                  {name}
-                </NavLink>
-              </ListItem>
-            </motion.div>
-          ))}
+                {name}
+              </NavLink>
+            </ListItem>
+            // </motion.div>
+          ))}{' '}
+          <ListItem>
+            <NavDropdown />
+          </ListItem>
         </NavList>
       </StaggerChildrenWrapper>
     </NavListDesktopWrapper>

@@ -5,14 +5,14 @@ export const Main = styled.div`
   /* position: absolute; */
 `
 export const DropDownContainer = styled.div`
-  width: 8rem;
+  /* width: 8rem; */
   /* min-width: max-content; */
   min-width: min-content;
   margin: 0 auto;
 `
 
 export const DropDownHeader = styled.div`
-  margin-bottom: 0.8em;
+  /* margin-bottom: 0.8em; */
   padding: 0.2rem 0.4rem 0.2rem 0.5rem;
   /* box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15); */
   font-weight: 500;
