@@ -6,28 +6,19 @@ import {
   NavContainer,
   MobileViewContainer,
   HeaderTitleMobile,
-  ListLoginWrapper,
-  HeaderLoginWrapper,
   WrapperDesktopOnly,
 } from './nav.styled'
-import { NavLink } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
+
 import NavListDesktop from './NavListDesktop'
 import NavListMobile from './NavListMobile'
 import useScrollListener from '../../../hooks/useScrollListener'
-import SvgIcon from '../../SvgIcon/SvgIcon'
-import { logout } from '../../../features/users/userSlice'
-import { UserInfo } from '../../../interfaces'
+
 import { useCycle } from 'framer-motion'
 import SearchBar from '../../SearchBar/SearchBar'
+import NavDropdown from './NavDropdown'
 interface NavProps {}
 
 const Nav: React.FC<NavProps> = () => {
-  const dispatch = useAppDispatch()
-
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
-  const { isAdmin } = userInfo
-
   const [open, cycleOpen] = useCycle(false, true)
   const handleClickMenu = () => {
     cycleOpen()
@@ -36,11 +27,6 @@ const Nav: React.FC<NavProps> = () => {
     if (open === true) {
       cycleOpen()
     }
-  }
-
-  const logoutHandler = (e: any) => {
-    e.preventDefault()
-    dispatch(logout())
   }
 
   const [scrollDirection, setScrollDirection] = useState<
@@ -80,54 +66,9 @@ const Nav: React.FC<NavProps> = () => {
           <HeaderTitleMobile>
             <SearchBar />
           </HeaderTitleMobile>
-          {Object.keys(userInfo).length > 0 ? (
-            <HeaderLoginWrapper>
-              {isAdmin && (
-                <NavLink
-                  to='/admin'
-                  className={(navData) =>
-                    'nav_link' + (navData.isActive ? ' activated' : '')
-                  }
-                >
-                  {' '}
-                  <SvgIcon variant='admin' />
-                </NavLink>
-              )}
-              {isAdmin === false && (
-                <NavLink
-                  to='/profile'
-                  className={(navData) =>
-                    'nav_link' + (navData.isActive ? ' activated' : '')
-                  }
-                >
-                  {' '}
-                  <SvgIcon variant='user' />
-                </NavLink>
-              )}{' '}
-              <NavLink
-                to='/'
-                onClick={logoutHandler}
-                className={(navData) =>
-                  'nav_link' + (navData.isActive ? ' activated' : '')
-                }
-              >
-                {' '}
-                <SvgIcon variant='logout' />
-              </NavLink>
-            </HeaderLoginWrapper>
-          ) : (
-            <HeaderLoginWrapper>
-              <NavLink
-                to='/login'
-                className={(navData) =>
-                  'nav_link' + (navData.isActive ? ' activated' : '')
-                }
-              >
-                {' '}
-                <SvgIcon variant='login' />
-              </NavLink>
-            </HeaderLoginWrapper>
-          )}
+          <HeaderTitleMobile>
+            <NavDropdown />
+          </HeaderTitleMobile>
         </MobileViewContainer>
 
         <NavContainer onClick={handleCloseMenu}>

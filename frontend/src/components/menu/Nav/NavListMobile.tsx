@@ -82,7 +82,7 @@ const NavListMobile: React.FC<NavListMobileProps> = ({ open }) => {
             variants={sideVariants}
           >
             {' '}
-            <motion.div variants={itemVariants}></motion.div>
+            {/* <motion.div variants={itemVariants}></motion.div> */}
             <NavList>
               {links.map(({ name, to, id, iconVariant }) => (
                 <ListItem key={id}>

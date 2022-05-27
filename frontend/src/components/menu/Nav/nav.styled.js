@@ -187,9 +187,9 @@ export const NavList = styled.ul`
   }
 `
 export const ListLoginWrapper = styled.div`
-  @media (max-width: 1020px) {
+  /* @media (max-width: 1020px) {
     display: none;
-  }
+  } */
 `
 export const HeaderLoginWrapper = styled.div`
   display: flex;
@@ -267,9 +267,9 @@ export const MobileViewContainer = styled.div`
   }
 `
 export const HeaderTitleMobile = styled.h1`
-  color: var(--background1-main);
-  font-size: 1.75rem;
-  font-weight: 400;
+  /* color: var(--background1-main); */
+  /* font-size: 1.75rem; */
+  /* font-weight: 400; */
   display: none;
   max-width: fit-content;
   @media (max-width: 1020px) {

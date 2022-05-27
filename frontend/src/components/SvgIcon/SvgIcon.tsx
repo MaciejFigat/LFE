@@ -14,6 +14,7 @@ import {
   faSave,
   faFolderOpen,
   faQuestionCircle,
+  faCog,
 } from '@fortawesome/free-solid-svg-icons'
 interface SvgIconProps {
   variant:
@@ -21,6 +22,7 @@ interface SvgIconProps {
     | 'logout'
     | 'admin'
     | 'user'
+    | 'userCog'
     | 'search'
     | 'searchPlus'
     | 'home'
@@ -50,8 +52,10 @@ const SvgIcon: React.FC<SvgIconProps> = ({ variant, noMargin }) => {
         return faSearchPlus
       case 'home':
         return faHome
-      case 'cog':
+      case 'userCog':
         return faUserCog
+      case 'cog':
+        return faCog
       case 'store':
         return faFolderOpen
       case 'homeTwo':

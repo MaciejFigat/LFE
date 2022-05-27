@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
 }
 html {
   font-size: 100%;
-  background: var(--background1-main);
+
 } 
 
 body {
@@ -121,7 +121,17 @@ body {
    
     .nav_link {
       display: flex;
-      align-items: center;
+      // display: none;
+// opacity: 0;
+// background:red;
+// padding-left: 0.5rem;
+// max-width: fit-content;
+      // align-items: center;
+      // justify-content: center;
+  
+  
+      // display: grid;
+      // place-items: center;
       @media (max-width: 1020px) {
         background: -webkit-linear-gradient(
           180deg,
@@ -137,19 +147,28 @@ body {
     }
     .nav_link.activated {
           
-      color: var(--background4-main);
+      // color: var(--background-secondary1);
       
      
       
     }
     .nav_link:hover  {
-       color: var(--background4-main);
-       transition: 0.3s; 
+     
+       color: var(--background-secondary2);
+       transition: 0.2s; 
     
     }
     a, a:link, a:visited, a:hover {
       text-decoration: none;
+      // display: flex;
+      // max-width: fit-content;
      
+      // align-items: center;
+      // justify-content: center;
+      svg {
+        // color: lime;
+    
+      }
     }
   
     
