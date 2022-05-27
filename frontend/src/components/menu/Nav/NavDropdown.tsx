@@ -47,7 +47,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
           {Object.keys(userInfo).length > 0 ? (
             <DropDownHeader onClick={toggling}>
               {' '}
-              <SvgIcon variant='cog' />
+              <SvgIcon variant='cog' contentAfter='settings' />
             </DropDownHeader>
           ) : (
             <DropDownHeader>
@@ -59,7 +59,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                 }
               >
                 {' '}
-                <SvgIcon variant='login' />
+                <SvgIcon variant='login' contentAfter='login' />
               </NavLink>
             </DropDownHeader>
           )}
@@ -76,7 +76,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                       }
                     >
                       {' '}
-                      <SvgIcon variant='admin' />
+                      <SvgIcon variant='admin' contentAfter='admin' toRight />
                     </NavLink>
                   </ListItem>
                 )}
@@ -90,7 +90,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                       }
                     >
                       {' '}
-                      <SvgIcon variant='user' />
+                      <SvgIcon variant='user' contentAfter='profile' toRight />
                     </NavLink>
                   </ListItem>
                 )}{' '}
@@ -104,7 +104,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                       }
                     >
                       {' '}
-                      <SvgIcon variant='logout' />
+                      <SvgIcon variant='logout' contentAfter='logout' toRight />
                     </NavLink>
                   </ListItem>
                 ) : (
@@ -117,7 +117,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                       }
                     >
                       {' '}
-                      <SvgIcon variant='login' />
+                      <SvgIcon variant='login' contentAfter='login' />
                     </NavLink>
                   </ListItem>
                 )}

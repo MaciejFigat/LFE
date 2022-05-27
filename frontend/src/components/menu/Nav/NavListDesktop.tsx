@@ -10,9 +10,23 @@ interface NavListMobileProps {
 }
 
 const links = [
-  { name: <SvgIcon variant='home' noMargin />, to: '/', id: '1' },
-  { name: <SvgIcon variant='question' noMargin />, to: '/contact', id: '2' },
-  { name: <SvgIcon variant='store' noMargin />, to: '/storage', id: '3' },
+  {
+    name: <SvgIcon variant='home' noMargin contentAfter='home' toRight />,
+    to: '/',
+    id: '1',
+  },
+  {
+    name: (
+      <SvgIcon variant='question' noMargin contentAfter='storage2' toRight />
+    ),
+    to: '/contact',
+    id: '2',
+  },
+  {
+    name: <SvgIcon variant='store' noMargin contentAfter='storage' toRight />,
+    to: '/storage',
+    id: '3',
+  },
 ]
 const itemVariants = {
   closed: {

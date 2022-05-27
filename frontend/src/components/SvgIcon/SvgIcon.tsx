@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconsItem } from './iconsSvg.styled'
 import {
@@ -33,9 +33,23 @@ interface SvgIconProps {
     | 'question'
 
   noMargin?: boolean
+  contentAfter?: string
+  toRight?: boolean
 }
 
-const SvgIcon: React.FC<SvgIconProps> = ({ variant, noMargin }) => {
+const SvgIcon: React.FC<SvgIconProps> = ({
+  variant,
+  noMargin,
+  contentAfter,
+  toRight,
+}) => {
+  const [copySuccess, setCopySuccess] = useState<string | undefined>('')
+  const hoverHelper = () => {
+    setCopySuccess(contentAfter)
+  }
+  const leaveHelper = () => {
+    setCopySuccess('')
+  }
   const iconVersion = (variant: string) => {
     switch (variant) {
       case 'login':
@@ -68,9 +82,20 @@ const SvgIcon: React.FC<SvgIconProps> = ({ variant, noMargin }) => {
         return faUser
     }
   }
-
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCopySuccess('')
+    }, 3000)
+    return () => clearTimeout(timer)
+  }, [copySuccess])
   return (
-    <IconsItem noMargin={noMargin}>
+    <IconsItem
+      contentAfter={copySuccess}
+      noMargin={noMargin}
+      onMouseEnter={() => hoverHelper()}
+      onMouseLeave={() => leaveHelper()}
+      toRight={toRight}
+    >
       <FontAwesomeIcon icon={iconVersion(variant)} />
     </IconsItem>
   )

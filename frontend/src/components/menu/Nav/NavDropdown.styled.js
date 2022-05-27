@@ -26,6 +26,8 @@ export const DropDownHeader = styled.div`
   /* &:active {
     color: var(--background-secondary4);
   } */
+  //? fixing width for svg icon inside
+  /* max-width: 50px; */
 `
 export const DropDownListContainer = styled.div`
   position: absolute;

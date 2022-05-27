@@ -5,110 +5,42 @@ export const TransitionWrapperMain = styled.div`
   position: sticky;
   z-index: 20;
   top: -2px;
-  //todo
-  /* background: var(--background1-main); */
-  /* background: transparent; */
   transition: color 1200ms ease-out;
 
   .nav_link {
     transition: color 600ms ease-out;
-    // todo color: var(--background-main5);
-    color: var(--background-main5);
+    /* color: var(--background-main5); */
   }
   .top {
-    /* this is for the username of logged user */
-    h1 {
-      //todo color: var(--background1-main);
-      color: var(--background5-main);
-    }
-    /* li is for login/logout icons in navbar */
-    li {
-      transition: color 300ms ease-out;
-      //todo color: var(--background3-main);
-      color: var(--background5-main);
-      &:hover {
-        // todo color: var(--background2-main);
-        color: var(--background2-main);
-      }
-    }
-    /* additional className for burger so it changes color with scroll */
-    .burger {
-      // todo background: var(--background1-main);
-      /* background: var(--background5-main); */
-    }
     transition: all 1000ms ease-in;
     transition: color 1200ms ease-out;
     transition: background 1200ms ease-out;
-    // todo background: transparent;
+
     background: var(--background1-main);
     .nav_link {
-      //todo color: var(--background1-main);
       color: var(--background5-main);
     }
   }
   .active {
-    .burger {
-      /* background: var(--background3-main); */
-    }
-    /* li is for login/logout icons in navbar */
-    /* li {
-      color: var(--background3-main);
-    } */
     transition: all 600ms ease-in;
-    /* background for the scrolling div with navlist in it */
 
-    //todo
     background: var(--background1-main);
   }
   .active.open {
-    .burger {
-      //todo
-      /* background: var(--background5-main); */
-    }
-    /* li is for login/logout icons in navbar */
-    /* li {
-      color: var(--background5-main);
-    } */
     transition: all 600ms ease-in;
-    //todo
-    /* background: var(--background3-main); */
-
-    /* border-bottom: none; */
   }
 
   .open.top {
     transition: all 300ms ease-in;
     /* background for the scrolling div with navlist in it */
-    //todo
-    /* background: transparent; */
 
     /* background for testing resolutions */
-    @media (max-width: 1020px) {
-      /* //todo
-      background: var(--background1-main); */
-      /* li {
-        color: var(--background3-main);
-      } */
-    }
+
     .burger {
       background: var(--background5-main);
     }
   }
   .hidden {
-    //todo
-    /* transition: border-bottom 600ms ease-in; */
-    /* border-bottom: 1px solid rgba(255, 255, 255, 0.125); */
-    /* .burger {
-      background: var(--background5-main);
-    } */
-    /* this is for the username of logged user */
-    /* h1 {
-      color: var(--background3-main);
-    } */
-    /* li is for login/logout icons in navbar */
-    /* li {
-      color: var(--background3-main);
-    } */
     transition: all 200ms ease-in;
     transform: translateY(-130%);
   }
@@ -127,26 +59,10 @@ export const TransitionWrapper = styled.div`
 `
 export const NavContainer = styled.nav`
   max-width: 1020px;
-  /* display: flex; */
-  /* justify-content: space-around; */
-  /* position: sticky; */
-  /* top: 0; */
-  /* background: violet; */
+
   min-height: fit-content;
   @media (min-width: 2220px) {
     max-width: 2000px;
-  }
-  @media (max-width: 1020px) {
-    /* flex-direction: column; */
-    /* background: transparent; */
-    /* background: violet; */
-    /* display: none; */
-
-    /* justify-content: center; */
-    /* width: 100%; */
-    /* max-width: 100%; */
-    /* box-shadow: none; */
-    /* overflow: hidden; */
   }
 `
 // the following list is used for desktop navigation
@@ -187,9 +103,9 @@ export const NavList = styled.ul`
   }
 `
 export const ListLoginWrapper = styled.div`
-  /* @media (max-width: 1020px) {
+  @media (max-width: 1020px) {
     display: none;
-  } */
+  }
 `
 export const HeaderLoginWrapper = styled.div`
   display: flex;
@@ -267,9 +183,9 @@ export const MobileViewContainer = styled.div`
   }
 `
 export const HeaderTitleMobile = styled.h1`
-  /* color: var(--background1-main); */
-  /* font-size: 1.75rem; */
-  /* font-weight: 400; */
+  color: var(--background1-main);
+  font-size: 1.75rem;
+  font-weight: 400;
   display: none;
   max-width: fit-content;
   @media (max-width: 1020px) {
