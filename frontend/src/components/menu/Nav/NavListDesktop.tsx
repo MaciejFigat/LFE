@@ -4,7 +4,10 @@ import { NavLink } from 'react-router-dom'
 import StaggerChildrenWrapper from '../../AnimationWrappers/StaggerChildrenWrapper'
 import SvgIcon from '../../SvgIcon/SvgIcon'
 import NavDropdown from './NavDropdown'
-interface NavListMobileProps {}
+
+interface NavListMobileProps {
+  scrollDirection?: 'up' | 'down' | 'top' | undefined | null
+}
 
 const links = [
   { name: <SvgIcon variant='home' noMargin />, to: '/', id: '1' },
@@ -21,7 +24,7 @@ const itemVariants = {
     opacity: 1,
   },
 }
-const NavListDesktop: React.FC<NavListMobileProps> = () => {
+const NavListDesktop: React.FC<NavListMobileProps> = ({ scrollDirection }) => {
   return (
     <NavListDesktopWrapper>
       <StaggerChildrenWrapper delay='rightFast'>
@@ -41,7 +44,7 @@ const NavListDesktop: React.FC<NavListMobileProps> = () => {
             </ListItem>
           ))}{' '}
           <ListItem>
-            <NavDropdown />
+            <NavDropdown scrollDirection={scrollDirection} />
           </ListItem>
         </NavList>
       </StaggerChildrenWrapper>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { logout } from '../../../features/users/userSlice'
 import { NavLink } from 'react-router-dom'
@@ -15,9 +15,10 @@ import {
 
 interface NavDropdownProps {
   options?: any
+  scrollDirection?: 'up' | 'down' | 'top' | undefined | null
 }
 
-const NavDropdown: React.FC<NavDropdownProps> = () => {
+const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   const dispatch = useAppDispatch()
 
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
@@ -33,6 +34,11 @@ const NavDropdown: React.FC<NavDropdownProps> = () => {
   const toggling = () => {
     setIsOpen(!isOpen)
   }
+  useEffect(() => {
+    if (scrollDirection === 'down') {
+      setIsOpen(false)
+    }
+  }, [scrollDirection])
 
   return (
     <>

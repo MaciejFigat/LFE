@@ -44,6 +44,7 @@ const Nav: React.FC<NavProps> = () => {
     } else if (scroll.y > 700 && scroll.y - scroll.lastY < 0) {
       setScrollDirection('up')
     }
+
     //todo if (scroll.y <= 300)
   }, [scroll.y, scroll.lastY])
 
@@ -67,14 +68,14 @@ const Nav: React.FC<NavProps> = () => {
             <SearchBar />
           </HeaderTitleMobile>
           <HeaderTitleMobile>
-            <NavDropdown />
+            <NavDropdown scrollDirection={scrollDirection} />
           </HeaderTitleMobile>
         </MobileViewContainer>
 
         <NavContainer onClick={handleCloseMenu}>
           <NavListMobile open={open} />
         </NavContainer>
-        <NavListDesktop />
+        <NavListDesktop scrollDirection={scrollDirection} />
       </TransitionWrapper>
     </TransitionWrapperMain>
   )
