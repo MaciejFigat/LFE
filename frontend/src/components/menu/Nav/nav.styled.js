@@ -6,7 +6,13 @@ export const TransitionWrapperMain = styled.div`
   z-index: 20;
   top: -2px;
   transition: color 1200ms ease-out;
-
+  svg {
+    color: var(--background5-main);
+    :hover {
+      transition: color 300ms ease-out;
+      color: var(--background-secondary2);
+    }
+  }
   .nav_link {
     transition: color 600ms ease-out;
     /* color: var(--background-main5); */
@@ -41,8 +47,15 @@ export const TransitionWrapperMain = styled.div`
     }
   }
   .hidden {
+    svg {
+      /* color: red; */
+      color: var(--background5-main);
+    }
     transition: all 200ms ease-in;
     transform: translateY(-130%);
+    //todo where is the violet color ?
+
+    color: var(--background5-main);
   }
 `
 export const TransitionWrapper = styled.div`
@@ -53,13 +66,11 @@ export const TransitionWrapper = styled.div`
   height: 57px;
   @media (min-width: 1020px) {
     display: flex;
-
     justify-content: center;
   }
 `
 export const NavContainer = styled.nav`
   max-width: 1020px;
-
   min-height: fit-content;
   @media (min-width: 2220px) {
     max-width: 2000px;
@@ -69,7 +80,6 @@ export const NavContainer = styled.nav`
 export const NavList = styled.ul`
   list-style: none;
   display: flex;
-
   height: 100%;
   margin: 0;
   justify-content: space-around;

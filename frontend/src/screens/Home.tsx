@@ -1,5 +1,4 @@
 import React from 'react'
-import InfoSection from '../components/InfoSection/InfoSection'
 import Toast from '../components/Toast/Toast'
 import HighlightPopMenu from '../components/HighlightPopRemake/HighlightPopMenu'
 import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
@@ -7,10 +6,19 @@ import ResizableScrollSection from '../components/ScrollSection/ResizableScrollS
 import { useAppSelector } from '../app/reduxHooks'
 import { UserInfo } from '../interfaces'
 import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
-export const homeData = {
-  topline: 'Lorem ipsum dolor sit.',
+import DataSection from '../components/InfoSection/DataSection'
+
+export const Data = {
+  topline: 'ISTOTA INTERPRETACJI:',
   headline:
-    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, mollitia?',
+    'w zakresie możliwości zaliczenia do kosztów uzyskania przychodów prowadzonej działalności gospodarczej opłaty za obronę pracy doktorskiej',
+  fragmentsFound: [
+    '(...) dochodowego od osób fizycznych w zakresie możliwości zaliczenia do kosztów uzyskania przychodów prowadzonej działalności gospodarczej opłaty za obronę pracy doktorskiej - jest prawidłowe. (...)',
+    '(...) w zakresie możliwości zaliczenia do kosztów uzyskania przychodów prowadzonej działalności gospodarczej opłaty za obronę pracy doktorskiej. We wniosku przedstawiono następujące zdarzenie (...)',
+    '(...) jak oprogramowanie komputerowe oraz programu prawniczego. W związku z powyższym opisem zadano następujące pytanie. Czy koszty związane z obroną pracy doktorskiej będą stanowiły koszty (...)',
+    '(...) uzyskania przychodów z tytułu prowadzenia pozarolniczej działalności gospodarczej w zakresie usług prawnych? Zdaniem Wnioskodawczyni, wydatki na obronę doktorską można zaliczyć do kosztów (...)',
+  ],
+
   subtitle:
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat perspiciatis non deleniti doloremque, iure laudantium quaerat esse odit. Similique nihil voluptate voluptatem sed tempora sunt libero, saepe corrupti laboriosam suscipit.',
 
@@ -38,13 +46,7 @@ const Home: React.FC = () => {
         }
         wideSection={
           <HighlightPopMenu>
-            <InfoSection paddingTop='small' data={homeData}></InfoSection>
-
-            <InfoSection
-              paddingTop='small'
-              variant='transparent'
-              data={homeData}
-            ></InfoSection>
+            <DataSection paddingTop='small' data={Data} />
           </HighlightPopMenu>
         }
       />

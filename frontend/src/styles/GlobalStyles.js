@@ -122,13 +122,13 @@ body {
     .nav_link {
       display: flex;
       // display: none;
-// opacity: 0;
-// background:red;
-// padding-left: 0.5rem;
-// max-width: fit-content;
+    // opacity: 0;
+    // background:red;
+    // padding-left: 0.5rem;
+    // max-width: fit-content;
       // align-items: center;
       // justify-content: center;
-  
+      // color: var(--background-secondary1)
   
       // display: grid;
       // place-items: center;
@@ -166,7 +166,8 @@ body {
       // align-items: center;
       // justify-content: center;
       svg {
-        // color: lime;
+        // color: var(--background5-main); 
+        // color: transparent; 
     
       }
     }

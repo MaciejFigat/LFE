@@ -1,16 +1,5 @@
 import styled from 'styled-components'
 import { handleSectionColor } from './utilsSection'
-// handleSectionColor includes these
-
-// sectionBackground
-// color
-// subtitleColor
-// headingColor
-// toplineColor
-// buttonColor
-// buttonBackground
-// buttonBackgroundHover
-//  buttonBackgroundColor
 
 export const InfoSec = styled.div`
   ${(props) => handleSectionColor(props).color}
@@ -31,7 +20,7 @@ export const InfoSec = styled.div`
 export const InfoRow = styled.div`
   display: flex;
   margin: 0 -15px -15px -15px;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: ${({ imgStart }) =>
     imgStart === true ? 'row-reverse' : 'row'};
   @media (max-width: 880px) {
@@ -46,6 +35,9 @@ export const InfoColumn = styled.div`
   padding-left: 15px;
   flex: 1;
   flex-basis: 50%;
+  /* display: flex;
+  align-items: flex-start;
+  justify-items: flex-start; */
   @media screen and (min-width: 770px) {
     max-width: 100%;
     display: flex;
@@ -53,10 +45,9 @@ export const InfoColumn = styled.div`
   }
 `
 export const TextWrapper = styled.div`
-  /* max-width: 540px; */
   min-width: fit-content;
   padding-top: 0;
-  padding-bottom: 60;
+  padding-bottom: 60px;
   @media screen and (max-width: 770px) {
     padding-bottom: 25px;
   }
@@ -86,6 +77,11 @@ export const Button = styled.button`
   cursor: pointer;
   border: none;
   transition: all 0.3s ease-in;
+  //!
+  margin-right: 1rem;
+  & + & {
+    /* margin-right: 1rem; */
+  }
   /* buttonColor */
   ${(props) => handleSectionColor(props).buttonColor}
   /* color for the link inside the button */
@@ -111,6 +107,10 @@ export const Button = styled.button`
   }
 `
 export const ButtonLink = styled.a`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
   /* buttonColor */
   /* ${(props) => handleSectionColor(props).buttonColor} */
   /* buttonColorHover */
