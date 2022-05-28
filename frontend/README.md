@@ -116,3 +116,14 @@ button.addEventListener('click', event => {
 2. import HighlightPop from 'react-highlight-pop'
     ├── I'll either need to write this one from the ground up or type it myself, for now its ts-ignored 
 3. 
+
+styling notes 
+
+glassmorphed 
+
+ background: rgba(60, 59, 61, 0.35);
+  width: 120px;
+  box-shadow: 0 8px 32px 0 rgba(60, 59, 61, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;

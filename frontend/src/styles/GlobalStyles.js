@@ -132,17 +132,18 @@ body {
   
       // display: grid;
       // place-items: center;
-      @media (max-width: 1020px) {
-        background: -webkit-linear-gradient(
-          180deg,
-          // ? var(--background1-main),
-          // ? var(--background1-main)
-          var(--background5-main),
-           var(--background5-main)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-     }
+      //! todo this caused the :after not to appear in <1020px
+    //   @media (max-width: 1020px) {
+    //     background: -webkit-linear-gradient(
+    //       180deg,
+    //       // ? var(--background1-main),
+    //       // ? var(--background1-main)
+    //       var(--background5-main),
+    //        var(--background5-main)
+    //     );
+    //     -webkit-background-clip: text;
+    //     -webkit-text-fill-color: transparent;
+    //  }
     
     }
     .nav_link.activated {

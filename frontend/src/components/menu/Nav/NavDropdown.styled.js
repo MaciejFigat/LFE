@@ -10,13 +10,12 @@ export const DropDownContainer = styled.div`
 `
 
 export const DropDownHeader = styled.div`
-  padding: 0.2rem 0.4rem 0.2rem 0.5rem;
-
+  /* padding: 0.2rem 0.4rem 0.2rem 0.5rem; */
   font-weight: 500;
   font-size: 0.9rem;
   color: var(--background5-main);
   /* color: var(--background-secondary2); */
-  background: var(--background1-main);
+  /* background: var(--background1-main); */
   transition: all 0.3s ease-out;
   text-align: center;
   border: 1px solid var(--background1-main);
@@ -31,14 +30,26 @@ export const DropDownHeader = styled.div`
 `
 export const DropDownListContainer = styled.div`
   position: absolute;
+
+  /* position: relative; */
   z-index: 10;
+  background: rgba(60, 59, 61, 0.35);
+  width: 120px;
+  box-shadow: 0 8px 32px 0 rgba(60, 59, 61, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  @media (max-width: 1020px) {
+    width: 110px;
+    right: 50px;
+  }
 `
 export const DropDownList = styled.div`
   display: flex;
   flex-direction: column;
   /* padding: 0.5rem; */
 
-  background: var(--background1-main);
+  /* background: var(--background1-main); */
 
   box-sizing: border-box;
   color: var(--background-secondary2);
@@ -46,8 +57,9 @@ export const DropDownList = styled.div`
   font-weight: 400;
   min-width: fit-content;
   &:first-child {
-    padding-top: 0.8rem;
+    padding-top: 1.2rem;
   }
+
   /* &:nth-child(2) {
     padding-right: 1.2rem;
   } */

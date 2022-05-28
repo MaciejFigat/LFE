@@ -16,7 +16,8 @@ export const IconsItem = styled.div`
   align-items: center;
   flex-direction: column;
   max-width: 50px;
-  margin-right: ${({ noMargin }) => (noMargin ? '0rem; ' : '1rem;')};
+  /* margin-right: ${({ noMargin }) => (noMargin ? '0rem; ' : '0rem;')}; */
+  margin-right: 0;
   /* transition: all 0.3s ease-out; */
   &:after {
     color: var(--background-tertiary2);
@@ -29,17 +30,12 @@ export const IconsItem = styled.div`
     display: block !important;
     position: relative !important;
 
-    bottom: ${({ toRight }) => (toRight ? '15px; ' : '0px;')};
-    left: ${({ toRight }) => (toRight ? '70px; ' : '0;')};
+    bottom: ${({ toRight }) => (toRight ? '15px; ' : '15px;')};
+    left: ${({ toRight }) => (toRight ? '70px; ' : '50px;')};
 
     @media (max-width: 1020px) {
-      /* color: lime !important; */
-
-      bottom: ${({ toRight }) => (toRight ? '15px; ' : '0px;')};
-      left: ${({ toRight }) => (toRight ? '-60px; ' : '0;')};
-
-      /* //! testing doesn't work <1020 px, content is passed - tested
-     */
+      bottom: ${({ toRight }) => (toRight ? '15px; ' : '15px;')};
+      left: ${({ toRight }) => (toRight ? '70px; ' : '-40px;')};
     }
 
     height: 5px;
