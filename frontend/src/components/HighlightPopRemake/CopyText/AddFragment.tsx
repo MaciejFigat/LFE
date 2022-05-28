@@ -14,6 +14,8 @@ interface AddFragmentProps {
 const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   const dispatch: any = useAppDispatch()
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  const savedFragment = useAppSelector((state) => state.fragment.fragmentSaved)
+  const { excerpt: savedExcerpt } = savedFragment
   const [copySuccess, setCopySuccess] = useState('')
 
   const hoverHelper = () => {
@@ -46,8 +48,9 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     e.preventDefault()
     dispatch(citationAdded(newCitation))
     setCopySuccess('Zapisano!')
-    if (Object.keys(userInfo).length > 0) {
+    if (Object.keys(userInfo).length > 0 && savedExcerpt !== highlightedText) {
       dispatch(createFragment(newFragment))
+      console.log(savedExcerpt)
     }
   }
   useEffect(() => {

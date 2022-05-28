@@ -23,9 +23,21 @@ interface FragmentCreated {
     description?: string
     keywords?: string[]
 }
+interface UserFragments {
+    // id: string
+    _id?: string
+    userId?: string
+    source?: string
+    excerpt?: string
+    coordinates?: string
+    title?: string
+    description?: string
+    keywords?: string[]
+}
 
 
 export {
     UserInfo,
-    FragmentCreated
+    FragmentCreated,
+    UserFragments,
 }

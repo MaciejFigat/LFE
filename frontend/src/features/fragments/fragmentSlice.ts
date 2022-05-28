@@ -35,6 +35,9 @@ export const createFragment = createAsyncThunk(
             )
             return data
 
+
+
+
         } catch (error: any) {
             return error
         }
@@ -100,7 +103,7 @@ export const deleteSavedFragment = createAsyncThunk(
 )
 
 export const getUserFragments = createAsyncThunk(
-    'article/getFragments',
+    'fragment/getFragments',
     // x- below is nothing, just a temporary solution so thunkAPI is recognized as a parameter
     async (x: any, thunkAPI) => {
 
@@ -142,6 +145,8 @@ const fragmentSlice = createSlice({
 
         userFragments: [
 
+
+
         ],
         fragmentsKeywordOne: [
 
@@ -149,7 +154,9 @@ const fragmentSlice = createSlice({
         fragmentsKeywordTwo: [
 
         ],
-        fragmentSaved: {},
+        fragmentSaved: {
+            excerpt: ''
+        },
         loading: false,
         loadingUpdate: false,
         error: {},
@@ -201,7 +208,7 @@ const fragmentSlice = createSlice({
         builder.addCase(createFragment.fulfilled, (state, action) => {
             state.loading = false
             state.fragmentSaved = action.payload
-            state.error = action.payload.message
+            // state.error = action.payload.message
             state.success = true
         })
         builder.addCase(createFragment.rejected, (state, action) => {
@@ -216,7 +223,7 @@ const fragmentSlice = createSlice({
             // state.userFragments = action.payload
             state.userFragments = action.payload.map((el: any) => ({ ...el, nanoId: nanoid() }))
 
-            state.error = action.payload.message
+            // state.error = action.payload.message
         })
         builder.addCase(getUserFragments.rejected, (state, action) => {
             state.loading = false

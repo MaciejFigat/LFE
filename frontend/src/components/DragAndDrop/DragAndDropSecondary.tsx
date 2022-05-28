@@ -1,13 +1,9 @@
 import React, { useCallback, useReducer, useState, useEffect } from 'react'
-import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
-// import { editSavedFragment } from '../../features/fragments/fragmentSlice'
+import { useAppSelector } from '../../app/reduxHooks'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { MainWrapper, ColOne } from './DragAndDrop.styled'
 import produce from 'immer'
 import AnimatedSavedItemSimple from '../AnimatedTextPanel/AnimatedSavedItemSimple'
-// import FilterWrapper from '../FragmentsColumn/FilterWrapper/FilterWrapper'
-import KeywordSearchSecondary from '../KeywordSearchPanel/KeywordSearch/KeywordSearchSecondary'
-// import KeywordSearch from '../KeywordSearchPanel/KeywordSearch/KeywordSearch'
 
 interface DragAndDropSecondaryProps {}
 
@@ -17,18 +13,8 @@ interface DragAndDropSecondaryProps {}
 const dragReducer = produce((draft, action) => {
   switch (action.type) {
     case 'MOVE': {
-      draft[action.from] =
-        draft[action.from] ||
-        [
-          // { title: 'Hello', _id: 'sdsd1d23312345' },
-          // { title: 'Hello', _id: 'sdsd1d23312345' },
-        ]
-      draft[action.to] =
-        draft[action.to] ||
-        [
-          // { title: 'Hello', _id: 'sdsd1d2ass3312345' },
-          // { title: 'Hello', _id: 'sdsddf1d2aa3312345' },
-        ]
+      draft[action.from] = draft[action.from] || []
+      draft[action.to] = draft[action.to] || []
       const [removed] = draft[action.from].splice(action.fromIndex, 1)
       draft[action.to].splice(action.toIndex, 0, removed)
     }
@@ -39,75 +25,40 @@ const DragAndDropSecondary: React.FC<DragAndDropSecondaryProps> = () => {
   const sortingKeywords = useAppSelector(
     (state) => state.preference.sortingKeywords
   )
-  const fragments: any[] = useAppSelector(
-    (state) => state.fragment.userFragments
-  )
+  // const fragments: any[] = useAppSelector(
+  const fragments: any = useAppSelector((state) => state.fragment.userFragments)
   const [keywordOneArr, setKeywordOneArr] = useState<any[]>([])
   const [keywordTwoArr, setKeywordTwoArr] = useState<any[]>([])
   useEffect(() => {
     if (fragments) {
       setKeywordOneArr(
         fragments.filter(
-          (fragmentsSorted) =>
+          (fragmentsSorted: any) =>
             fragmentsSorted.keywords?.indexOf(sortingKeywords.keywordOne) >= 0
         )
       )
       setKeywordTwoArr(
         fragments.filter(
-          (fragmentsSorted) =>
+          (fragmentsSorted: any) =>
             fragmentsSorted.keywords?.indexOf(sortingKeywords.keywordTwo) >= 0
         )
       )
     }
   }, [fragments, sortingKeywords.keywordOne, sortingKeywords.keywordTwo])
 
-  // const sortingDate = useAppSelector((state) => state.preference.sortingDate)
-  // const { sortingYear, sortingMonth, sortingDay } = sortingDate
-
-  // const sortingDateString = `${sortingYear}-${
-  //   sortingMonth < 10 ? `0${sortingMonth}` : `${sortingMonth}`
-  // }-${sortingDay < 10 ? `0${sortingDay}` : `${sortingDay}`}`
-
   const data = [...fragments]
-  // const data = fragments
-  //   const data = fragments.filter(
-  //     (fragmentsSorted) =>
-  //       // todo here is filtering function comparing the date
-  //       // fragmentsSorted.updatedAt.substring(0, 10) === sortingDateString
-  //       fragmentsSorted.createdAt.substring(0, 10) === sortingDateString
-  //   )
+
   const data2 = keywordOneArr
-  // fragments?.filter(
-  //      (fragmentsSorted) =>
-  //     fragmentsSorted.keywords?.indexOf(sortingKeywords.keywordOne) >= 0
-  // )
+
   const data3 = keywordTwoArr
-  // fragments?.filter(
-  //   (fragmentsSorted) =>
-  //     fragmentsSorted.keywords?.indexOf(sortingKeywords.keywordTwo) >= 0
-  // )
 
   const [state, dispatch] = useReducer(dragReducer, {
     items: data,
     items2: data2,
 
-    // items2: fragments?.filter(
-    //   (fragmentsSorted) =>
-    //     fragmentsSorted.keywords?.indexOf(sortingKeywords.keywordOne) >= 0
-    // ),
     items3: data3,
-    // fragments?.filter(
-    //   (fragmentsSorted) =>
-    //     fragmentsSorted.keywords?.indexOf(sortingKeywords.keywordTwo) >= 0
-    // ),
   })
-  // const [state, dispatch] = useReducer(dragReducer, {
-  //   items: data,
-  //   items2: data2,
-  //   items3: data3,
-  // })
-  //   const [testFragments, setTestFragments] = useState([])
-  //   const [testFragmentsTwo, setTestFragmentsTwo] = useState([])
+
   const onDragEnd = useCallback((result) => {
     if (result.reason === 'DROP') {
       if (!result.destination) {
