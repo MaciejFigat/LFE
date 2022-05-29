@@ -47,7 +47,9 @@ export const InfoColumn = styled.div`
 export const TextWrapper = styled.div`
   min-width: fit-content;
   padding-top: 0;
-  padding-bottom: 60px;
+  //todo
+  /* padding-bottom: 60px; */
+  padding-bottom: 30px;
   @media screen and (max-width: 770px) {
     padding-bottom: 25px;
   }
@@ -57,11 +59,14 @@ export const Container = styled.div`
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-right: 50px;
-  padding-left: 50px;
+  /* // todo */
+  /* padding-right: 50px;
+  padding-left: 50px; */
+  padding-right: 20px;
+  padding-left: 20px;
   @media screen and (max-width: 991px) {
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
   }
 `
 
@@ -141,11 +146,12 @@ export const Heading = styled.h1`
 `
 export const Subtitle = styled.p`
   max-width: 440px;
-  margin-bottom: 35px;
-  font-size: 18px;
+  margin-bottom: 15px;
+  font-size: 14px;
   /* line-height: 24px; */
-  line-height: 1.6rem;
+  line-height: 1.1rem;
   letter-spacing: 0.025em;
+  font-weight: 300;
   /* subtitleColor */
   ${(props) => handleSectionColor(props).subtitleColor}
 `

@@ -9,5 +9,6 @@ export const FilterOptionsWrapper = styled.div`
   border-radius: 10px;
   /* max-width: 100%; */
   max-width: fit-content;
+  min-width: 300px;
   padding: 1rem;
 `
