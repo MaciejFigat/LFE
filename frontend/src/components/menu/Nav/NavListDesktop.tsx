@@ -17,6 +17,13 @@ const links = [
   },
   {
     name: (
+      <SvgIcon variant='question' noMargin contentAfter='results' toRight />
+    ),
+    to: '/search',
+    id: '12',
+  },
+  {
+    name: (
       <SvgIcon variant='question' noMargin contentAfter='storage2' toRight />
     ),
     to: '/contact',

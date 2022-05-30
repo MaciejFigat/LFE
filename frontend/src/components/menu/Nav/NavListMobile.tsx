@@ -57,6 +57,7 @@ type LinkData = {
 
 const links: LinkData[] = [
   { name: 'Home', iconVariant: 'home', to: '/', id: '1' },
+  { name: 'Search', iconVariant: 'question', to: '/search', id: '12' },
   { name: 'Store2', iconVariant: 'question', to: '/contact', id: '2' },
   { name: 'Storage', iconVariant: 'store', to: '/storage', id: '3' },
 ]

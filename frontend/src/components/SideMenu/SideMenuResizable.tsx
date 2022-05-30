@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useState, useEffect } from 'react'
 import { useCycle } from 'framer-motion'
 import {
   BackgroundDiv,
@@ -25,9 +25,9 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: 'circle(50px at 88% 60px)',
+    clipPath: 'circle(20px at 88% 60px)',
     transition: {
-      delay: 0.2,
+      // delay: 0.2,
       type: 'spring',
       stiffness: 400,
       damping: 40,
@@ -39,10 +39,13 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
   children,
   mainData,
 }) => {
-  const [open, cycleOpen] = useCycle(false, true)
+  // const [open, cycleOpen] = useCycle(false, true)
+  const [open, cycleOpen] = useCycle(true, false)
   const handleClickMenu = () => {
     cycleOpen()
   }
+  // ? helper for the delay useEffect
+  const [openHelper, setOpenHelper] = useState<boolean>(open)
 
   const [initialPos, setInitialPos] = useState<any>(null)
   const [initialSize, setInitialSize] = useState<any>(null)
@@ -65,9 +68,23 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
       }px`
     }
   }
+  //! useEffect that passes open to the wrapper that decides about z-index of SideMenuDataColumn with a 0.2s delay, so it won't mess up the closing animation
+  //? when I close I want passing of the openHelper to be delayed
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (open) {
+        setOpenHelper(open)
+        // setOpenHelper(!openHelper)
+        // console.log(openHelper)
+      }
+      // openHelper, setOpenHelper
+    }, 300)
+    return () => clearTimeout(timer)
+  }, [open])
 
   return (
     <>
+      {/* <SideMenuDataColumn open={openHelper}>{mainData}</SideMenuDataColumn> */}
       <SideMenuDataColumn open={open}>{mainData}</SideMenuDataColumn>
       <SideMenuResizeWrapperUltimateWeapon id='SideMenuResizable'>
         <SideMenuWrapper

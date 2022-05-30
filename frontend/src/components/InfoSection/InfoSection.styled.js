@@ -4,7 +4,7 @@ import { handleSectionColor } from './utilsSection'
 export const InfoSec = styled.div`
   ${(props) => handleSectionColor(props).color}
   ${({ paddingTop }) =>
-    paddingTop === 'small' ? 'padding: 80px 0;' : 'padding: 120px 0;'};
+    paddingTop === 'small' ? 'padding: 30px 0;' : 'padding: 80px 0;'};
 
   ${(props) => handleSectionColor(props).sectionBackground}
   opacity: 0.8;

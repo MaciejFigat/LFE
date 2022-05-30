@@ -32,7 +32,8 @@ const sidebar = {
 }
 
 const SideMenu: React.FC<SideMenuProps> = ({ children, mainData }) => {
-  const [open, cycleOpen] = useCycle(false, true)
+  // const [open, cycleOpen] = useCycle(false, true)
+  const [open, cycleOpen] = useCycle(true, false)
   const handleClickMenu = () => {
     cycleOpen()
   }
