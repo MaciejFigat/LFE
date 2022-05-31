@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { handleSectionColor } from './utilsSection'
 
 export const InfoSec = styled.div`
+  max-width: 80%;
+  align-self: flex-end;
   ${(props) => handleSectionColor(props).color}
   ${({ paddingTop }) =>
     paddingTop === 'small' ? 'padding: 30px 0;' : 'padding: 80px 0;'};

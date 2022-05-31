@@ -2,25 +2,22 @@ import styled, { keyframes } from 'styled-components'
 import { motion } from 'framer-motion'
 
 const changeZindex = keyframes`
-from { z-index: 0; transform: scale(1); }
+from { z-index: -1; transform: scale(1); }
   to { z-index: 4; transform: scale(1); }
 `
 
 export const SideMenuDataColumn = styled(motion.div)`
   width: 90%;
-  position: absolute;
-  /* position: relative; */
-  top: 0;
-  animation: ${changeZindex} 8.3s linear;
+  /* position: absolute; */
+  position: relative;
+  top: -100vh;
+  z-index: -1;
+  animation: ${changeZindex} 1.09s linear;
   animation-iteration-count: 1;
   /* //?The animation-fill-mode CSS property specifies how a CSS animation should apply styles to its target before and after it is executing. */
   animation-fill-mode: forwards;
   animation: ${({ open }) => open && 'none'};
 `
-
-/* animation: ${animation}; */
-/* animation: ${({ open }) =>
-    open ? `${changeZindex} 0.3s linear;` : 'none'}; */
 
 export const SideMenuButtonDiv = styled(motion.div)`
   position: sticky;
@@ -39,19 +36,19 @@ export const SideMenuButtonDiv = styled(motion.div)`
   //todo
   /* right: 3%; */
   right: -200px;
-  z-index: 3;
+  z-index: 22222;
 `
 export const MainWrapperResizableMenu = styled.div`
   /* position: absolute; */
-  /* top: 0; */
-  /* width: 100%; */
+  /* position: sticky; */
+  top: 0;
+  width: 100%;
 `
 export const SideMenuResizeWrapperUltimateWeapon = styled.div`
-  /* position: sticky !important; */
   position: sticky;
   /* position: relative; */
   top: 0;
-  /* top: 0; */
+
   left: 100%;
   min-width: 200px;
   width: 40%;
@@ -70,12 +67,16 @@ export const BackgroundDiv = styled(motion.div)`
   top: 0; */
   //todo 1
   /* overflow: hidden; */
-  z-index: 1;
+  //!
+  z-index: 122222;
   top: 0;
   right: 0;
   bottom: 0;
   max-height: fit-content;
+
   min-height: 100vh;
+
+  height: 500px;
   min-width: 100%;
   padding-right: 1rem;
   margin-right: 1.5rem;
@@ -85,8 +86,10 @@ export const BackgroundDiv = styled(motion.div)`
 export const SideMenuDiv = styled(motion.div)`
   top: 50px;
   right: 0;
-  z-index: 2;
+  //!
+  z-index: 2222222;
   padding: 0.5rem;
+
   height: calc(100vh - 50px);
   flex-direction: column;
   justify-content: center;

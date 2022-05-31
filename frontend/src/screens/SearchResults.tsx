@@ -6,6 +6,7 @@ import SideMenuResizable from '../components/SideMenu/SideMenuResizable'
 import { UserInfo } from '../interfaces'
 import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
 import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
+import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
 interface SearchResultsProps {}
 
 export const Data = {
@@ -28,7 +29,32 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
   return (
     <div>
       {' '}
-      <SideMenuResizable
+      {/* <DataSection paddingTop='large' data={Data} /> */}
+      {/* <DataSection paddingTop='small' data={Data} /> */}
+      {/* <DataSection paddingTop='small' data={Data} /> */}
+      <SideMenuSecondary
+        mainData={
+          <HighlightPopMenu>
+            <DataSection paddingTop='large' data={Data} />
+            <DataSection paddingTop='small' data={Data} />
+            <DataSection paddingTop='small' data={Data} />
+            <DataSection paddingTop='small' data={Data} />
+            <DataSection paddingTop='small' data={Data} />
+            <DataSection paddingTop='small' data={Data} />
+            <DataSection paddingTop='small' data={Data} />
+            <DataSection paddingTop='small' data={Data} />
+          </HighlightPopMenu>
+        }
+      >
+        {Object.keys(userInfo).length > 0 ? (
+          <UserFragmentsColumn />
+        ) : (
+          <FragmentsColumn />
+        )}
+      </SideMenuSecondary>
+      {/* <DataSection paddingTop='large' data={Data} /> */}
+      {/* <DataSection paddingTop='small' data={Data} /> */}
+      {/* <SideMenuResizable
         mainData={
           <HighlightPopMenu>
             <DataSection paddingTop='large' data={Data} />
@@ -42,7 +68,7 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
         ) : (
           <FragmentsColumn />
         )}
-      </SideMenuResizable>
+      </SideMenuResizable> */}
     </div>
   )
 }

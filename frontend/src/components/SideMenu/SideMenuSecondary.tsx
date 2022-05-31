@@ -9,11 +9,11 @@ import {
   ChildrenWrapper,
   SideMenuResizeWrapperUltimateWeapon,
   MainWrapperResizableMenu,
-} from './SideMenu.styled'
+} from './SideMenuSecondary.styled'
 
 import SvgIcon from '../SvgIcon/SvgIcon'
 
-interface SideMenuResizableProps {
+interface SideMenuSecondaryProps {
   children: ReactNode
   mainData?: ReactNode
 }
@@ -37,7 +37,7 @@ const sidebar = {
   },
 }
 
-const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
+const SideMenuSecondary: React.FC<SideMenuSecondaryProps> = ({
   children,
   mainData,
 }) => {
@@ -71,29 +71,32 @@ const SideMenuResizable: React.FC<SideMenuResizableProps> = ({
   }
 
   return (
-    <MainWrapperResizableMenu>
-      <SideMenuDataColumn open={open}>{mainData}</SideMenuDataColumn>
+    <>
+      {' '}
       <SideMenuButtonDiv open={open} onClick={handleClickMenu}>
         <SvgIcon variant='question' />
       </SideMenuButtonDiv>
-      <SideMenuResizeWrapperUltimateWeapon id='SideMenuResizable'>
-        <SideMenuWrapper
-          initial={false}
-          animate={open ? 'open' : 'closed'}
-          draggable='true'
-        >
-          <DragDivSideMenu
-            open={open}
-            onDragStart={initial}
-            onDragEnd={resize}
+      <MainWrapperResizableMenu>
+        <SideMenuResizeWrapperUltimateWeapon id='SideMenuResizable'>
+          <SideMenuWrapper
+            initial={false}
+            animate={open ? 'open' : 'closed'}
             draggable='true'
-          />
-          <BackgroundDiv variants={sidebar}>
-            <ChildrenWrapper>{children}</ChildrenWrapper>
-          </BackgroundDiv>
-        </SideMenuWrapper>
-      </SideMenuResizeWrapperUltimateWeapon>
-    </MainWrapperResizableMenu>
+          >
+            <DragDivSideMenu
+              open={open}
+              onDragStart={initial}
+              onDragEnd={resize}
+              draggable='true'
+            />
+            <BackgroundDiv variants={sidebar}>
+              <ChildrenWrapper>{children}</ChildrenWrapper>
+            </BackgroundDiv>
+          </SideMenuWrapper>
+        </SideMenuResizeWrapperUltimateWeapon>
+        <SideMenuDataColumn open={open}>{mainData}</SideMenuDataColumn>
+      </MainWrapperResizableMenu>
+    </>
   )
 }
-export default SideMenuResizable
+export default SideMenuSecondary
