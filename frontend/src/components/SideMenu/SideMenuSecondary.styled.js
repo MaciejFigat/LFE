@@ -23,20 +23,19 @@ export const SideMenuButtonDiv = styled(motion.div)`
   position: sticky;
   display: grid;
   place-items: center;
-  /* //todo */
-  /* position: absolute; */
+  /* display: flex; */
 
   margin: 0;
+  margin-left: 93vw;
   border-radius: 50%;
-  top: 70px;
-
+  top: 120px;
   width: 50px;
   height: 50px;
   background: red;
   //todo
   /* right: 3%; */
-  right: -200px;
-  z-index: 22222;
+  /* right: -200px; */
+  z-index: 10;
 `
 export const MainWrapperResizableMenu = styled.div`
   /* position: absolute; */
@@ -48,7 +47,6 @@ export const SideMenuResizeWrapperUltimateWeapon = styled.div`
   position: sticky;
   /* position: relative; */
   top: 0;
-
   left: 100%;
   min-width: 200px;
   width: 40%;
@@ -68,28 +66,25 @@ export const BackgroundDiv = styled(motion.div)`
   //todo 1
   /* overflow: hidden; */
   //!
-  z-index: 122222;
+  z-index: 1;
   top: 0;
   right: 0;
   bottom: 0;
   max-height: fit-content;
-
   min-height: 100vh;
-
   height: 500px;
   min-width: 100%;
   padding-right: 1rem;
   margin-right: 1.5rem;
-  /* background: var(--background1-main); */
-  background: lime;
+  background: var(--background2-main);
+  /* background: lime; */
 `
 export const SideMenuDiv = styled(motion.div)`
   top: 50px;
   right: 0;
   //!
-  z-index: 2222222;
+  z-index: 2;
   padding: 0.5rem;
-
   height: calc(100vh - 50px);
   flex-direction: column;
   justify-content: center;

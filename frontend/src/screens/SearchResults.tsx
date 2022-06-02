@@ -2,11 +2,16 @@ import React from 'react'
 import HighlightPopMenu from '../components/HighlightPopRemake/HighlightPopMenu'
 import DataSection from '../components/InfoSection/DataSection'
 import { useAppSelector } from '../app/reduxHooks'
-import SideMenuResizable from '../components/SideMenu/SideMenuResizable'
+import axios from 'axios'
 import { UserInfo } from '../interfaces'
+import { useAppDispatch } from '../app/reduxHooks'
+import { getSearchResults } from '../features/searchResults/searchResultsSlice'
 import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
 import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
 import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
+import { SendButton } from '../components/Buttons/Buttons.styled'
+// import { useGetPokemonByNameQuery } from '../features/lexApi/lexApiSlice'
+
 interface SearchResultsProps {}
 
 export const Data = {
@@ -25,16 +30,140 @@ export const Data = {
 }
 
 const SearchResults: React.FC<SearchResultsProps> = () => {
+  const dispatch = useAppDispatch()
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+
+  //! testing here - express and react
+  const submitHandler = (e: any) => {
+    e.preventDefault()
+    // dispatch(getSearchResults('test'))
+    dispatch(getSearchResults())
+  }
+
+  // const testHandlerHackaton = () => {
+  const dataHandler = async () => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        // 'Access-Control-Allow-Origin': '*',
+      },
+    }
+
+    const data = await axios.get(
+      'https://null.turbo-lex.pl/search/?query=obrona%20konieczna',
+      config
+    )
+    //@ts-ignore
+    // setFetchedData(data)
+    console.log(data)
+  }
+  // dataHandler()
+  // }
+
+  // const submitHandlerFetch = (e: any) => {
+  //   e.preventDefault()
+  //   // const config = {
+  //   //   headers: {
+  //   //     'Content-Type': 'application/json',
+  //   //   },
+  //   // }
+  //   // axios.get('https://null.turbo-lex.pl/', config).then((res) => {
+  //   //   const data = res.data
+  //   //   return data
+  //   //   console.log(data)
+  //   // })
+  //   async function getResponse() {
+  //     try {
+  //       // 👇️ const data: GetUsersResponse
+  //       // 'https://cors-anywhere.herokuapp.com/https://null.turbo-lex.pl/',
+  //       const { data, status } = await axios.get('https://null.turbo-lex.pl/', {
+  //         headers: {
+  //           // Accept: 'application/json',
+  //           'Content-Type': 'application/json',
+  //           // 'Access-Control-Allow-Origin': '*',
+  //           // 'Access-Control-Allow-Credentials': 'true',
+  //         },
+  //       })
+
+  //       console.log(JSON.stringify(data, null, 4))
+
+  //       // 👇️ "response status is: 200"
+  //       console.log('response status is: ', status)
+
+  //       return data
+  //     } catch (error) {
+  //       if (axios.isAxiosError(error)) {
+  //         console.log('error message: ', error.message)
+  //         return error.message
+  //       } else {
+  //         console.log('unexpected error: ', error)
+  //         return 'An unexpected error occurred'
+  //       }
+  //     }
+  //   }
+  //   getResponse()
+  // }
+
+  // todo testing Api access
+  // const { data, error, isLoading } = useGetPokemonByNameQuery('pikachu')
+
+  // const dataHandlerApi = async () => {
+  //   const config = {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Access-Control-Allow-Origin': '*',
+  //     },
+  //   }
+
+  // const data = await axios.get(
+  //   // `https://778c-185-152-122-218.ngrok.io/sms/{text}?sms=${textMessage}`,
+  //   `https://null.turbo-lex.pl/doc/73470228`,
+  //   config
+  // )
+  //@ts-ignore
+  // setFetchedData(data)
+  //   console.log(data)
+  // }
+
+  // function callApiPlease() {
+  //   const makeAPICall = async () => {
+  //     try {
+  //       const response = await fetch('https://null.turbo-lex.pl/doc/73470228', {
+  //         mode: 'cors',
+  //       })
+  //       const data = await response.json()
+  //       console.log({ data })
+  //     } catch (e) {
+  //       console.log(e)
+  //     }
+  //   }
+  //   makeAPICall()
+  // }
   return (
     <div>
-      {' '}
-      {/* <DataSection paddingTop='large' data={Data} /> */}
-      {/* <DataSection paddingTop='small' data={Data} /> */}
-      {/* <DataSection paddingTop='small' data={Data} /> */}
       <SideMenuSecondary
         mainData={
           <HighlightPopMenu>
+            <SendButton onClick={submitHandler}>Testing the A's DB</SendButton>
+            <SendButton variant='secondary' onClick={dataHandler}>
+              hackaton test
+            </SendButton>
+            {/* <SendButton variant='success' onClick={dataHandlerApi}>
+              new way of dataHandlerApi
+            </SendButton>
+            <SendButton variant='success' onClick={callApiPlease}>
+              callApiPlease
+            </SendButton> */}
+            {/* {error ? (
+              <>Oh no, there was an error</>
+            ) : isLoading ? (
+              <>Loading...</>
+            ) : data ? (
+              <>
+                <h3>{data.species.name}</h3>
+                <img src={data.sprites.front_shiny} alt={data.species.name} />
+              </>
+            ) : null} */}
             <DataSection paddingTop='large' data={Data} />
             <DataSection paddingTop='small' data={Data} />
             <DataSection paddingTop='small' data={Data} />
@@ -52,23 +181,6 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
           <FragmentsColumn />
         )}
       </SideMenuSecondary>
-      {/* <DataSection paddingTop='large' data={Data} /> */}
-      {/* <DataSection paddingTop='small' data={Data} /> */}
-      {/* <SideMenuResizable
-        mainData={
-          <HighlightPopMenu>
-            <DataSection paddingTop='large' data={Data} />
-            <DataSection paddingTop='small' data={Data} />
-            <DataSection paddingTop='small' data={Data} />
-          </HighlightPopMenu>
-        }
-      >
-        {Object.keys(userInfo).length > 0 ? (
-          <UserFragmentsColumn />
-        ) : (
-          <FragmentsColumn />
-        )}
-      </SideMenuResizable> */}
     </div>
   )
 }

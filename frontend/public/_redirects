@@ -1,3 +1,5 @@
 /api/*  http://pthome.herokuapp.com/api/:splat  200
 
 /*    /index.html    200
+
+<!-- /lexapi/* https://null.turbo-lex.pl/ 200 -->

@@ -20,6 +20,7 @@ interface SideMenuSecondaryProps {
 const sidebar = {
   open: (height = 1000) => ({
     clipPath: `circle(${height * 2 + 200}px at 88% 60px)`,
+
     transition: {
       type: 'spring',
       stiffness: 20,
@@ -27,7 +28,7 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: 'circle(20px at 81.5% 39px)',
+    clipPath: 'circle(0px at 88% 31px)',
     transition: {
       // delay: 0.2,
       type: 'spring',
@@ -41,8 +42,7 @@ const SideMenuSecondary: React.FC<SideMenuSecondaryProps> = ({
   children,
   mainData,
 }) => {
-  // const [open, cycleOpen] = useCycle(false, true)
-  const [open, cycleOpen] = useCycle(true, false)
+  const [open, cycleOpen] = useCycle(false, true)
   const handleClickMenu = () => {
     cycleOpen()
   }
