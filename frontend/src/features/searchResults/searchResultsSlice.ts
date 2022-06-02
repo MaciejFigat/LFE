@@ -3,8 +3,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from 'axios'
 
 
-export const getSearchResults = createAsyncThunk(
-    'searchResults/getSearchResults',
+export const getSearchResultsTwo = createAsyncThunk(
+    'searchResultsTwo/getSearchResults',
 
     async () => {
         const config = {
@@ -27,7 +27,7 @@ export const getSearchResults = createAsyncThunk(
         }
     })
 
-export const getSearchResultsTwo = createAsyncThunk(
+export const getSearchResults = createAsyncThunk(
     'searchResults/getSearchResults',
 
     async (searchquery: string) => {
@@ -35,16 +35,24 @@ export const getSearchResultsTwo = createAsyncThunk(
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
+
             },
+            // searchquery: searchquery
         }
         try {
+            // let searchquery = 'testTest'
             const { data } = await axios.get(
-                `/lexapi/search/?query=${searchquery}`, config
+                // `/lexapi/search/?query=${searchquery}`, config
+                // `/lexapi/search`, { params: { searchquery: searchquery }, }
+                `/lexapi/search`, { params: { searchquery: searchquery } }
+                // config,
+                // searchquery
             )
 
             // console.log(data)
             // console.log('jestem')
-
+            //todo
+            console.log(JSON.stringify(data, null, 4))
             return data
         } catch (error: any) {
             return error
@@ -119,6 +127,21 @@ const searchResultSlice = createSlice({
             // state.error = action.payload.message
         })
         builder.addCase(getSearchResults.rejected, (state, action) => {
+            state.loading = false
+        })
+        builder.addCase(getSearchResultsTwo.pending, (state, action) => {
+            state.loading = true
+        })
+        builder.addCase(getSearchResultsTwo.fulfilled, (state, action) => {
+            state.loading = false
+            // state.userFragments = action.payload
+            // if action.payload {state.searchResults = action.payload} 
+            state.searchResults = action.payload
+            // state.searchResults = action.payload.map((el: any) => ({ ...el, nanoId: nanoid() }))
+
+            // state.error = action.payload.message
+        })
+        builder.addCase(getSearchResultsTwo.rejected, (state, action) => {
             state.loading = false
         })
 

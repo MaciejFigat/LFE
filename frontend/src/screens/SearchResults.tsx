@@ -5,7 +5,10 @@ import { useAppSelector } from '../app/reduxHooks'
 import axios from 'axios'
 import { UserInfo } from '../interfaces'
 import { useAppDispatch } from '../app/reduxHooks'
-import { getSearchResults } from '../features/searchResults/searchResultsSlice'
+import {
+  getSearchResults,
+  getSearchResultsTwo,
+} from '../features/searchResults/searchResultsSlice'
 import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
 import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
 import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
@@ -37,7 +40,12 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
   const submitHandler = (e: any) => {
     e.preventDefault()
     // dispatch(getSearchResults('test'))
-    dispatch(getSearchResults())
+    dispatch(getSearchResults('obrona'))
+  }
+  const submitHandlerTwo = (e: any) => {
+    e.preventDefault()
+    // dispatch(getSearchResults('test'))
+    dispatch(getSearchResultsTwo())
   }
 
   // const testHandlerHackaton = () => {
@@ -115,30 +123,6 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
   //     },
   //   }
 
-  // const data = await axios.get(
-  //   // `https://778c-185-152-122-218.ngrok.io/sms/{text}?sms=${textMessage}`,
-  //   `https://null.turbo-lex.pl/doc/73470228`,
-  //   config
-  // )
-  //@ts-ignore
-  // setFetchedData(data)
-  //   console.log(data)
-  // }
-
-  // function callApiPlease() {
-  //   const makeAPICall = async () => {
-  //     try {
-  //       const response = await fetch('https://null.turbo-lex.pl/doc/73470228', {
-  //         mode: 'cors',
-  //       })
-  //       const data = await response.json()
-  //       console.log({ data })
-  //     } catch (e) {
-  //       console.log(e)
-  //     }
-  //   }
-  //   makeAPICall()
-  // }
   return (
     <div>
       <SideMenuSecondary
@@ -148,22 +132,7 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
             <SendButton variant='secondary' onClick={dataHandler}>
               hackaton test
             </SendButton>
-            {/* <SendButton variant='success' onClick={dataHandlerApi}>
-              new way of dataHandlerApi
-            </SendButton>
-            <SendButton variant='success' onClick={callApiPlease}>
-              callApiPlease
-            </SendButton> */}
-            {/* {error ? (
-              <>Oh no, there was an error</>
-            ) : isLoading ? (
-              <>Loading...</>
-            ) : data ? (
-              <>
-                <h3>{data.species.name}</h3>
-                <img src={data.sprites.front_shiny} alt={data.species.name} />
-              </>
-            ) : null} */}
+
             <DataSection paddingTop='large' data={Data} />
             <DataSection paddingTop='small' data={Data} />
             <DataSection paddingTop='small' data={Data} />

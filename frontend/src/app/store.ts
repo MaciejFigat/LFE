@@ -4,7 +4,7 @@ import fragmentReducer from '../features/fragments/fragmentSlice'
 import preferenceReducer from '../features/preferences/preferenceSlice'
 import searchResultReducer from '../features/searchResults/searchResultsSlice'
 import { setupListeners } from '@reduxjs/toolkit/query'
-// import { lexApi } from '../features/lexApi/lexApiSlice'
+
 
 export const store = configureStore({
   reducer: {
@@ -12,13 +12,13 @@ export const store = configureStore({
     fragment: fragmentReducer,
     preference: preferenceReducer,
     searchResult: searchResultReducer,
-    // [lexApi.reducerPath]: lexApi.reducer,
+
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
       serializableCheck: false,
     })
-    // .concat(lexApi.middleware)
+
   },
 })
 
