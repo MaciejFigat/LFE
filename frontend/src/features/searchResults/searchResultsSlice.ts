@@ -31,14 +31,14 @@ export const getSearchResults = createAsyncThunk(
     'searchResults/getSearchResults',
 
     async (searchquery: string) => {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
+        // const config = {
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         Accept: 'application/json',
 
-            },
-            // searchquery: searchquery
-        }
+        //     },
+        //     // searchquery: searchquery
+        // }
         try {
             // let searchquery = 'testTest'
             const { data } = await axios.get(

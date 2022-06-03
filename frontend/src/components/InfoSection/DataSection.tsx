@@ -55,9 +55,7 @@ const DataSection: React.FC<DataSectionProps> = ({
           <InfoRow imgStart>
             <InfoColumn>
               <TextWrapper>
-                <TopLine variant={variant}>
-                  Dyrektor Krajowej Informacji Skarbowej{' '}
-                </TopLine>
+                <TopLine variant={variant}>Lorem ipsum dolor sit amet.</TopLine>
                 <TopLine variant={variant}>
                   Forma: interpretacja indywidualna Data wydania: 3 stycznia
                   2018 r.
