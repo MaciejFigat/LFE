@@ -8,6 +8,7 @@ import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColu
 import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
 import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
 import { SendButton } from '../components/Buttons/Buttons.styled'
+import parse from 'html-react-parser'
 
 interface SearchResultsProps {}
 
@@ -28,19 +29,35 @@ export const Data = {
 
 const SearchResults: React.FC<SearchResultsProps> = () => {
   const dispatch = useAppDispatch()
+
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
 
-  //! testing here - express and react
+  const searchResults: any = useAppSelector(
+    (state) => state.searchResult.searchResults
+  )
+  // const { data: searchResultsData } = searchResults
+  const { data } = searchResults
+
   const submitHandler = (e: any) => {
     e.preventDefault()
-    // dispatch(getSearchResults('test'))
-    // const query = 'podatek od towarów'
-    // const query = 'podatek'
+
     const query = 'podatek dochodowy'
+    //? the following is not accepted by the Api endpoint, what is the difference?
     // dispatch(getSearchResults(query.replace(/ /g, '%20')))
+    //? this method works well
     const queryTrimmed = encodeURIComponent(query.trim())
     dispatch(getSearchResults(queryTrimmed))
   }
+  // type FragmentArray = {
+  //   metryka: {}
+  //   trafnosc: number
+  //   data: number
+  //   typWyroku: number
+  //   typSadu: number
+  //   uuid: string
+  //   linkFrag: {}[]
+  //   fragment: {}[]
+  // }
 
   return (
     <div>
@@ -48,7 +65,37 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
         mainData={
           <HighlightPopMenu>
             <SendButton onClick={submitHandler}>Testing the A's DB</SendButton>
-            <DataSection paddingTop='large' data={Data} />
+            {/* //! problem solved with parse - html-react-parser - prarses string to html in React */}
+            {data.length > 0 && parse(data[0].fragment[0])}
+            {data.length > 0 &&
+              data.map((fragmentArray: any) => (
+                <div key={fragmentArray['uuid']}>
+                  {/* {fragmentArray?.length > 0 &&
+                    fragmentArray?.map((data: any) => (
+                      <div>
+                        <h1>{data}</h1>
+                      </div>
+                    ))} */}
+                  <h1>
+                    {fragmentArray.fragment.map((fragment: any) => (
+                      <div>
+                        <h2>{parse(fragment)}</h2>
+                      </div>
+                    ))}
+                  </h1>
+                </div>
+              ))}
+            {/* <button
+              onClick={() =>
+                data.length > 0 && console.log(data[0].fragment[0])
+              }
+            >
+              TESTY
+            </button> */}
+
+            <DataSection paddingTop='large' data={Data}>
+              {data.length > 0 && <div>{data[0].fragment[0]}</div>}
+            </DataSection>
             <DataSection paddingTop='small' data={Data} />
             <DataSection paddingTop='small' data={Data} />
           </HighlightPopMenu>

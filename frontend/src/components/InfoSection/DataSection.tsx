@@ -1,4 +1,9 @@
-import React, { ReactNode } from 'react'
+import React, {
+  HTMLAttributes,
+  ReactFragment,
+  ReactNode,
+  ReactText,
+} from 'react'
 // import { NavLink } from 'react-router-dom'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import {
@@ -32,7 +37,9 @@ interface DataSectionProps {
     | 'bluegreen'
     | 'transparent'
   imgStart?: boolean
-  children?: ReactNode
+  // children?: ReactNode
+  children?: ReactFragment
+  // children?: ReactText | ReactNode
   buttonLink?: string
   buttonNavLink?: string
   paddingTop?: 'large' | 'small' | undefined
@@ -93,7 +100,9 @@ const DataSection: React.FC<DataSectionProps> = ({
                 <TopLine variant={variant}>{data.topline}</TopLine>
                 <Subtitle variant={variant}>{data.headline}</Subtitle>
 
-                <TopLine variant={variant}>ZNALEZIONE FRAGMENTY</TopLine>
+                {/* <TopLine variant={variant}>{children?.stringify()}</TopLine> */}
+                <TopLine variant={variant}>{children}</TopLine>
+
                 {data.fragmentsFound.map((fragment) => (
                   <Subtitle key={fragment} variant={variant}>
                     {fragment}

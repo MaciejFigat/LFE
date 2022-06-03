@@ -94,9 +94,11 @@ const searchResultSlice = createSlice({
     name: 'fragments',
     initialState: {
 
-        searchResults: [
+        searchResults: {
+            data: [],
+        },
 
-        ],
+
 
         loading: false,
 

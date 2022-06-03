@@ -26,7 +26,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
     if (searchQuery?.length > 0) {
       const queryTrimmed = encodeURIComponent(searchQuery.trim())
       dispatch(getSearchResults(queryTrimmed))
-      console.log(encodeURIComponent(searchQuery.trim()))
+      // console.log(encodeURIComponent(searchQuery.trim()))
     }
   }
   return (
