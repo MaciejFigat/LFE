@@ -20,7 +20,7 @@ interface StyleVariant {
 
 const primaryStyle: StyleVariant = {
 
-    sectionBackground: `var(--background1-main);`,
+    sectionBackground: `var(--background-opaque6);`,
     color: `var(--background5-main);`,
     subtitleColor: 'var(--background5-main);',
     headingColor: 'var(--background4-main);',
@@ -33,13 +33,12 @@ const primaryStyle: StyleVariant = {
 
 
 const secondaryStyle: StyleVariant = {
-
-    sectionBackground: `var(--bluegreen4);`,
+    sectionBackground: `var(--background-opaque4);`,
     color: `var(--bluegreen9);`,
-    subtitleColor: 'var(--background1-main);',
-    headingColor: 'var(--bluegreen6);',
-    toplineColor: 'var(--bluegreen3);',
-    buttonColor: 'var(--secondary4);',
+    subtitleColor: 'var(--bluegreen3);',
+    headingColor: 'var(--bluegreen9);',
+    toplineColor: 'var(--bluegreen9);',
+    buttonColor: 'var(--secondary3);',
     buttonBackground: 'var(--secondary1);',
     buttonBackgroundHover: 'var(--secondary2);',
     buttonColorHover: 'var(--secondary1);'
@@ -49,39 +48,30 @@ const secondaryStyle: StyleVariant = {
 
 const tertiaryStyle: StyleVariant = {
 
-    sectionBackground: `var(--bluegreen8);`,
+    sectionBackground: `var(--background-opaque3)`,
     color: `var(--background-tertiary2);`,
-    subtitleColor: 'var(--bluegreen6);',
+    subtitleColor: 'var(--background5-main)',
     headingColor: 'var(--bluegreen7);',
     toplineColor: 'var(--bluegreen6);',
     buttonColor: 'var(--background-tertiary4);',
     buttonBackground: 'var(--background-tertiary5);',
     buttonBackgroundHover: 'var(--background-tertiary4);',
     buttonColorHover: 'var(--background-tertiary1);'
-    // sectionBackground: `var(--background-tertiary1);`,
-    // color: `var(--background-tertiary2);`,
-    // subtitleColor: 'var(--background-tertiary4);',
-    // headingColor: 'var(--background-tertiary5);',
-    // toplineColor: 'var(--background-tertiary3);',
-    // buttonColor: 'var(--background-tertiary4);',
-    // buttonBackground: 'var(--background-tertiary5);',
-    // buttonBackgroundHover: 'var(--background-tertiary4);',
-    // buttonColorHover: 'var(--background-tertiary1);'
+
 }
 const blueStyle: StyleVariant = {
 
-    sectionBackground: `var(--background-blue1);`,
-    color: `var(--background-blue2);`,
-    subtitleColor: 'var(--background-blue5);',
-    headingColor: 'var(--background-blue6);',
-    toplineColor: 'var(--background-blue4);',
-    buttonColor: 'var(--background-blue1);',
-    buttonBackground: 'var(--background-blue6);',
-    buttonBackgroundHover: 'var(--background-blue7);',
-    buttonColorHover: 'var(--background-blue5);'
+    sectionBackground: `var(--background-opaque7);`,
+    color: `var(--background-neon5);`,
+    subtitleColor: 'var(--background-neon5);',
+    headingColor: 'var(--background-neon5);',
+    toplineColor: 'var(--background-neon2);',
+    buttonColor: 'var(--background-neon3);',
+    buttonBackground: 'var(--background-neon4);',
+    buttonBackgroundHover: 'var(--background-neon1);',
+    buttonColorHover: 'var(--background-neon4);'
 }
 const bluegreenStyle: StyleVariant = {
-
     sectionBackground: `transparent;`,
     sectionBackgroundGradient: 'var(--gradient2-main);',
     color: `var(--bluegreen4);`,
@@ -97,18 +87,18 @@ const transparentStyle: StyleVariant = {
 
     sectionBackground: `transparent;`,
     // sectionBackgroundGradient: 'var(--gradient2-main);',
-    color: `var(--bluegreen4);`,
-    subtitleColor: 'var(--bluegreen5);',
-    headingColor: 'var(--bluegreen5);',
-    toplineColor: 'var(--bluegreen4);',
+    color: `var(--background-neon1);`,
+    subtitleColor: 'var(--background-neon5);',
+    headingColor: 'var(--background-neon2);',
+    toplineColor: 'var(--background-neon2);',
     buttonColor: 'var(--bluegreen5);',
     buttonBackground: 'var(--secondary2);',
-    buttonBackgroundHover: 'var(--bluegreen8);',
-    buttonColorHover: 'var(--background2-main);'
+    buttonBackgroundHover: 'var(--background-neon3);',
+    buttonColorHover: 'var(--background-neon5);'
 }
 const defaultStyle: StyleVariant = {
 
-    sectionBackground: `var(--background-tertiary1);`,
+    sectionBackground: `var(--background-opaque2);`,
     color: `var(--background-tertiary2);`,
     subtitleColor: 'var(--background-tertiary4);',
     headingColor: 'var(--background-tertiary5);',

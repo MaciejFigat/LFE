@@ -85,6 +85,8 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
             </DataSection>
             <DataSection variant='secondary' paddingTop='small' data={Data} />
             <DataSection paddingTop='small' data={Data} />
+            <DataSection variant='tertiary' paddingTop='small' data={Data} />
+            <DataSection variant='blue' paddingTop='small' data={Data} />
             <DataSection variant='transparent' paddingTop='small' data={Data} />
           </HighlightPopMenu>
         }

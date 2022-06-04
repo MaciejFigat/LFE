@@ -97,6 +97,23 @@ body {
     --background-blue5: #3B28CC;
     --background-blue6: #086788;
     --background-blue7: #7EBDC2;
+    
+    //! variants for semitransparent elements
+    --background-opaque1: rgba( 109, 108, 112, 0.1 );
+    --background-opaque2: rgba( 29, 53, 87, 0.4 );
+    --background-opaque3: rgba( 109, 108, 112, 0.1 );
+    --background-opaque4: rgba( 114, 93, 93, 0.29 );
+    --background-opaque5: rgba(38, 70, 83, 0.9);
+    --background-opaque6: rgba(60, 59, 61, 0.25);
+    --background-opaque7: rgba( 70, 52, 185, 0.12 );
+    
+    
+    --background-neon1: #4634b9;
+    --background-neon2: #d76140;
+    --background-neon3: #ca34ae;
+    --background-neon4: #e5d758;
+    --background-neon5: #54bea8;
+    
 
     --background-secondary1: #264653;
     --background-secondary15: rgba(38, 70, 83, 0.9);
@@ -106,6 +123,7 @@ body {
     --background-secondary5: #e76f51;
     
     --background-tertiary1: #1d3557;
+    --background-tertiary15:  rgba( 29, 53, 87, 0.4 );
     --background-tertiary2: #457b9d;
     --background-tertiary25: rgba(69, 123, 157, 1);
     --background-tertiary3: #a8dadc;
