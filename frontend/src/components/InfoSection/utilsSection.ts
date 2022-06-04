@@ -20,14 +20,13 @@ interface StyleVariant {
 
 const primaryStyle: StyleVariant = {
 
-    // sectionBackground: `var(--background1-main);`,
-    sectionBackground: `var(--bluegreen5);`,
+    sectionBackground: `var(--background1-main);`,
     color: `var(--background5-main);`,
-    subtitleColor: 'var(--bluegreen9);',
-    headingColor: 'var(--bluegreen4);',
-    toplineColor: 'var(--bluegreen9);',
-    buttonColor: 'var(--background5-main);',
-    buttonBackground: 'var(--background2-main);',
+    subtitleColor: 'var(--background5-main);',
+    headingColor: 'var(--background4-main);',
+    toplineColor: 'var(--background3-main);',
+    buttonColor: 'var(--background2-main);',
+    buttonBackground: 'var(--background5-main);',
     buttonBackgroundHover: 'var(--background4-main);',
     buttonColorHover: 'var(--background1-main);'
 }

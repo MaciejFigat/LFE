@@ -9,8 +9,17 @@ export const InfoSec = styled.div`
     paddingTop === 'small' ? 'padding: 30px 0;' : 'padding: 80px 0;'};
 
   ${(props) => handleSectionColor(props).sectionBackground}
-  opacity: 0.8;
+  /* opacity: 0.8; */
   ${(props) => handleSectionColor(props).sectionBackgroundGradient}
+  /* //! test*/
+
+  
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  border: solid 1px;
+  border-color: ${(props) => handleSectionColor(props).color};
+  /* //! end  */
   @media (max-width: 880px) {
     ${({ paddingTop }) =>
       paddingTop === 'small' ? 'padding: 20px 0;' : 'padding: 40px 0;'};
@@ -18,10 +27,12 @@ export const InfoSec = styled.div`
   @media (max-width: 380px) {
     padding: 10px 0;
   }
+  margin-bottom: 1rem;
+  margin-left: 1rem;
 `
 export const InfoRow = styled.div`
   display: flex;
-  margin: 0 -15px -15px -15px;
+  /* margin: 0 -15px -15px -15px; */
   align-items: flex-start;
   flex-direction: ${({ imgStart }) =>
     imgStart === true ? 'row-reverse' : 'row'};
@@ -32,11 +43,11 @@ export const InfoRow = styled.div`
   }
 `
 export const InfoColumn = styled.div`
-  margin-bottom: 15px;
-  margin-right: 15px;
+  /* margin-bottom: 15px; */
+  /* margin-right: 15px; */
   padding-left: 15px;
   flex: 1;
-  flex-basis: 50%;
+  flex-basis: 70%;
   /* display: flex;
   align-items: flex-start;
   justify-items: flex-start; */
@@ -46,14 +57,19 @@ export const InfoColumn = styled.div`
     justify-content: center;
   }
 `
+export const InfoColumnShort = styled(InfoColumn)`
+  padding-left: 15px;
+  flex-basis: 30%;
+`
 export const TextWrapper = styled.div`
-  min-width: fit-content;
+  width: 100%;
+  /* min-width: fit-content; */
   padding-top: 0;
   //todo
   /* padding-bottom: 60px; */
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
   @media screen and (max-width: 770px) {
-    padding-bottom: 25px;
+    /* padding-bottom: 25px; */
   }
 `
 export const Container = styled.div`
@@ -147,7 +163,7 @@ export const Heading = styled.h1`
   }
 `
 export const Subtitle = styled.p`
-  max-width: 440px;
+  /* max-width: 440px; */
   margin-bottom: 15px;
   font-size: 14px;
   /* line-height: 24px; */

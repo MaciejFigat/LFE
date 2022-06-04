@@ -1,9 +1,4 @@
-import React, {
-  HTMLAttributes,
-  ReactFragment,
-  ReactNode,
-  ReactText,
-} from 'react'
+import React, { ReactFragment } from 'react'
 // import { NavLink } from 'react-router-dom'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import {
@@ -17,6 +12,7 @@ import {
   Subtitle,
   Button,
   ButtonLink,
+  InfoColumnShort,
 } from './InfoSection.styled'
 interface InfoData {
   topline: string
@@ -59,8 +55,8 @@ const DataSection: React.FC<DataSectionProps> = ({
       <InfoSec variant={variant} paddingTop={paddingTop}>
         <Container>
           {/* <InfoRow imgStart={imgStart}> */}
-          <InfoRow imgStart>
-            <InfoColumn>
+          <InfoRow>
+            <InfoColumnShort>
               <TextWrapper>
                 <TopLine variant={variant}>Lorem ipsum dolor sit amet.</TopLine>
                 <TopLine variant={variant}>
@@ -94,13 +90,12 @@ const DataSection: React.FC<DataSectionProps> = ({
                   </ButtonLink>
                 </Button>{' '}
               </TextWrapper>
-            </InfoColumn>
+            </InfoColumnShort>
             <InfoColumn>
               <TextWrapper>
                 <TopLine variant={variant}>{data.topline}</TopLine>
                 <Subtitle variant={variant}>{data.headline}</Subtitle>
 
-                {/* <TopLine variant={variant}>{children?.stringify()}</TopLine> */}
                 <TopLine variant={variant}>{children}</TopLine>
 
                 {data.fragmentsFound.map((fragment) => (

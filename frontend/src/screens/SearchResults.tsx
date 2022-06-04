@@ -70,12 +70,6 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
             {data.length > 0 &&
               data.map((fragmentArray: any) => (
                 <div key={fragmentArray['uuid']}>
-                  {/* {fragmentArray?.length > 0 &&
-                    fragmentArray?.map((data: any) => (
-                      <div>
-                        <h1>{data}</h1>
-                      </div>
-                    ))} */}
                   <h1>
                     {fragmentArray.fragment.map((fragment: any) => (
                       <div>
@@ -85,19 +79,13 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
                   </h1>
                 </div>
               ))}
-            {/* <button
-              onClick={() =>
-                data.length > 0 && console.log(data[0].fragment[0])
-              }
-            >
-              TESTY
-            </button> */}
 
-            <DataSection paddingTop='large' data={Data}>
-              {data.length > 0 && <div>{data[0].fragment[0]}</div>}
+            <DataSection variant='primary' paddingTop='large' data={Data}>
+              {data.length > 0 && <div>{parse(data[0].fragment[0])}</div>}
             </DataSection>
+            <DataSection variant='secondary' paddingTop='small' data={Data} />
             <DataSection paddingTop='small' data={Data} />
-            <DataSection paddingTop='small' data={Data} />
+            <DataSection variant='transparent' paddingTop='small' data={Data} />
           </HighlightPopMenu>
         }
       >
