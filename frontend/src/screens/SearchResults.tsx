@@ -19,7 +19,7 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
   )
-  // const { data: searchResultsData } = searchResults
+
   const { data } = searchResults
 
   const submitHandler = (e: any) => {
@@ -32,16 +32,6 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
     const queryTrimmed = encodeURIComponent(query.trim())
     dispatch(getSearchResults(queryTrimmed))
   }
-  // type FragmentArray = {
-  //   metryka: {}
-  //   trafnosc: number
-  //   data: number
-  //   typWyroku: number
-  //   typSadu: number
-  //   uuid: string
-  //   linkFrag: {}[]
-  //   fragment: {}[]
-  // }
 
   return (
     <div>
@@ -60,6 +50,7 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
                   headline='headline 1'
                   subtitle='lorem subtitle 1'
                   fragmentsFound={fragmentArray.fragment}
+                  metryka={fragmentArray.metryka}
                 >
                   {/* {fragmentArray.fragment.map((fragment: any) => (
                     <div>{parse(fragment)}</div>

@@ -17,16 +17,19 @@ import {
 import parse from 'html-react-parser'
 //! problem solved with parse - html-react-parser - prarses string to html in React
 
-// interface InfoData {
-//   topline: string
-//   headline: string
-//   subtitle: string
-//   buttonLabel?: string
-//   fragmentsFound: string[]
-// }
+interface InfoData {
+  doc_id: number
+  doc_link: string
+  syg: string
+  organ: string
+  rodzaj_orzeczenia: string
+  data: string
+  numer_dokumentu: string
+  uuid: string
+}
 
 interface DataSectionProps {
-  // data: InfoData
+  metryka: InfoData
   topline: string
   headline: string
   subtitle: string
@@ -46,6 +49,7 @@ interface DataSectionProps {
 }
 
 const DataSection: React.FC<DataSectionProps> = ({
+  metryka,
   topline,
   headline,
   subtitle,
@@ -65,13 +69,16 @@ const DataSection: React.FC<DataSectionProps> = ({
           <InfoRow>
             <InfoColumnShort>
               <TextWrapper>
-                <TopLine variant={variant}>Lorem ipsum dolor sit amet.</TopLine>
+                <TopLine variant={variant}>Sygnatura: {metryka.syg}</TopLine>
                 <TopLine variant={variant}>
-                  Forma: interpretacja indywidualna Data wydania: 3 stycznia
-                  2018 r.
+                  Forma: {metryka.rodzaj_orzeczenia}
                 </TopLine>
-                <TopLine variant={variant}>Numer Dokumentu: 876219851</TopLine>
-                <Subtitle variant={variant}>{headline}</Subtitle>
+                <TopLine variant={variant}>
+                  Numer Dokumentu: {metryka.numer_dokumentu}
+                </TopLine>
+                <Subtitle variant={variant}>
+                  Organ wydający {metryka.organ}
+                </Subtitle>
                 <Subtitle variant={variant}>
                   0114-KDIP3-1.4011.461.2017.1.AM
                 </Subtitle>
