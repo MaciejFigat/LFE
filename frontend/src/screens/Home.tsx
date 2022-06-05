@@ -46,7 +46,7 @@ const Home: React.FC = () => {
         }
         wideSection={
           <HighlightPopMenu>
-            <DataSection paddingTop='small' data={Data} />
+            {/* <DataSection paddingTop='small'  /> */}
           </HighlightPopMenu>
         }
       />

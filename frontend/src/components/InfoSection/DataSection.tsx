@@ -14,17 +14,23 @@ import {
   ButtonLink,
   InfoColumnShort,
 } from './InfoSection.styled'
-interface InfoData {
+import parse from 'html-react-parser'
+//! problem solved with parse - html-react-parser - prarses string to html in React
+
+// interface InfoData {
+//   topline: string
+//   headline: string
+//   subtitle: string
+//   buttonLabel?: string
+//   fragmentsFound: string[]
+// }
+
+interface DataSectionProps {
+  // data: InfoData
   topline: string
   headline: string
   subtitle: string
-  buttonLabel?: string
-  img?: any
   fragmentsFound: string[]
-}
-
-interface DataSectionProps {
-  data: InfoData
   variant?:
     | 'primary'
     | 'secondary'
@@ -33,16 +39,17 @@ interface DataSectionProps {
     | 'bluegreen'
     | 'transparent'
   imgStart?: boolean
-  // children?: ReactNode
   children?: ReactFragment
-  // children?: ReactText | ReactNode
   buttonLink?: string
   buttonNavLink?: string
   paddingTop?: 'large' | 'small' | undefined
 }
 
 const DataSection: React.FC<DataSectionProps> = ({
-  data,
+  topline,
+  headline,
+  subtitle,
+  fragmentsFound,
   variant,
   imgStart,
   children,
@@ -64,15 +71,13 @@ const DataSection: React.FC<DataSectionProps> = ({
                   2018 r.
                 </TopLine>
                 <TopLine variant={variant}>Numer Dokumentu: 876219851</TopLine>
-                <Subtitle variant={variant}>{data.headline}</Subtitle>
+                <Subtitle variant={variant}>{headline}</Subtitle>
                 <Subtitle variant={variant}>
                   0114-KDIP3-1.4011.461.2017.1.AM
                 </Subtitle>
                 <Subtitle variant={variant}> Wynik przydatny?</Subtitle>
-                {/* <Button variant={variant}> */}
-                <Button variant='blue'>
+                <Button variant={variant}>
                   <ButtonLink
-                    // variant={variant}
                     variant={variant}
                     href={buttonLink}
                     target='_blank'
@@ -93,18 +98,15 @@ const DataSection: React.FC<DataSectionProps> = ({
             </InfoColumnShort>
             <InfoColumn>
               <TextWrapper>
-                <TopLine variant={variant}>{data.topline}</TopLine>
-                <Subtitle variant={variant}>{data.headline}</Subtitle>
+                <TopLine variant={variant}>{topline}</TopLine>
 
-                <TopLine variant={variant}>{children}</TopLine>
+                <Subtitle variant={variant}>{children}</Subtitle>
 
-                {data.fragmentsFound.map((fragment) => (
+                {fragmentsFound.map((fragment) => (
                   <Subtitle key={fragment} variant={variant}>
-                    {fragment}
+                    {parse(fragment)}
                   </Subtitle>
                 ))}
-
-                <Subtitle variant={variant}>{data.subtitle}</Subtitle>
               </TextWrapper>
             </InfoColumn>
           </InfoRow>
