@@ -6,7 +6,7 @@ export const InfoSec = styled.div`
   align-self: flex-end;
   ${(props) => handleSectionColor(props).color}
   ${({ paddingTop }) =>
-    paddingTop === 'small' ? 'padding: 30px 0;' : 'padding: 80px 0;'};
+    paddingTop === 'small' ? 'padding: 30px 0;' : 'padding: 35px 0;'};
 
   ${(props) => handleSectionColor(props).sectionBackground}
   /* opacity: 0.8; */
@@ -22,7 +22,7 @@ export const InfoSec = styled.div`
   /* //! end  */
   @media (max-width: 880px) {
     ${({ paddingTop }) =>
-      paddingTop === 'small' ? 'padding: 20px 0;' : 'padding: 40px 0;'};
+      paddingTop === 'small' ? 'padding: 20px 0;' : 'padding: 25px 0;'};
   }
   @media (max-width: 380px) {
     padding: 10px 0;
@@ -32,7 +32,7 @@ export const InfoSec = styled.div`
 `
 export const InfoRow = styled.div`
   display: flex;
-  /* margin: 0 -15px -15px -15px; */
+  margin: 0 -15px -15px -15px;
   align-items: flex-start;
   flex-direction: ${({ imgStart }) =>
     imgStart === true ? 'row-reverse' : 'row'};
@@ -64,10 +64,11 @@ export const InfoColumnShort = styled(InfoColumn)`
 export const TextWrapper = styled.div`
   width: 100%;
   /* min-width: fit-content; */
-  padding-top: 0;
+  /* padding-top: 0; */
   //todo
   /* padding-bottom: 60px; */
   /* padding-bottom: 30px; */
+  /* padding-right: 30px; */
   @media screen and (max-width: 770px) {
     /* padding-bottom: 25px; */
   }
@@ -95,10 +96,12 @@ export const Button = styled.button`
   padding: ${({ large }) => (large ? '12px 64px' : '10px 20px')};
   font-size: ${({ fontLarge }) => (fontLarge ? '22px' : '16px')};
   /* buttonBackground */
-  ${(props) => handleSectionColor(props).buttonBackground}
+  border: solid 1px;
+  background: none;
+  /* ${(props) => handleSectionColor(props).buttonBackground} */
   outline: none;
   cursor: pointer;
-  border: none;
+  /* border: none; */
   transition: all 0.3s ease-in;
   //!
   margin-right: 1rem;
@@ -163,9 +166,9 @@ export const Heading = styled.h1`
   }
 `
 export const Subtitle = styled.p`
-  /* max-width: 440px; */
+  /* max-width: 95%; */
   margin-bottom: 15px;
-  font-size: 14px;
+  font-size: 1.1rem;
   /* line-height: 24px; */
   line-height: 1.1rem;
   letter-spacing: 0.025em;

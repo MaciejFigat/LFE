@@ -105,15 +105,35 @@ const DataSection: React.FC<DataSectionProps> = ({
             </InfoColumnShort>
             <InfoColumn>
               <TextWrapper>
-                <TopLine variant={variant}>{topline}</TopLine>
+                {fragmentsFound.length > 0 &&
+                  fragmentsFound
+                    .filter((fragmentsSorted) =>
+                      fragmentsSorted.startsWith('ISTOTA INTERPRETACJI')
+                    )
+                    .map((fragment) => (
+                      <>
+                        {' '}
+                        <TopLine variant={variant}>
+                          ISTOTA INTERPRETACJI:
+                        </TopLine>
+                        <Subtitle key={fragment} variant={variant}>
+                          {parse(fragment.replace('ISTOTA INTERPRETACJI', ''))}
+                        </Subtitle>
+                      </>
+                    ))}
 
-                <Subtitle variant={variant}>{children}</Subtitle>
-
-                {fragmentsFound.map((fragment) => (
-                  <Subtitle key={fragment} variant={variant}>
-                    {parse(fragment)}
-                  </Subtitle>
-                ))}
+                <TopLine variant={variant}>ZNALEZIONE FRAGMENTY:</TopLine>
+                {fragmentsFound.length > 0 &&
+                  fragmentsFound
+                    .filter(
+                      (fragmentsSorted) =>
+                        !fragmentsSorted.startsWith('ISTOTA INTERPRETACJI')
+                    )
+                    .map((fragment) => (
+                      <Subtitle key={fragment} variant={variant}>
+                        (...) {parse(fragment)} (...)
+                      </Subtitle>
+                    ))}
               </TextWrapper>
             </InfoColumn>
           </InfoRow>

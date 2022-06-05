@@ -149,8 +149,10 @@ export const handleSectionColor: (props: any) => {} = (props: any) => {
         headingColor: `color: ${style.headingColor}`,
         toplineColor: `color: ${style.toplineColor}`,
         buttonColor: `color: ${style.buttonColor}`,
-        buttonBackground: `background-color: ${style.buttonBackground}`,
-        buttonBackgroundHover: `background-color: ${style.buttonBackgroundHover}`,
+        // buttonBackground: `background-color: ${style.buttonBackground}`,
+        buttonBackground: `border-color: ${style.buttonBackground}`,
+        buttonBackgroundHover: `border-color: ${style.buttonBackgroundHover}`,
+        // buttonBackgroundHover: `background-color: ${style.buttonBackgroundHover}`,
         buttonColorHover: `color: ${style.buttonColorHover}`,
     }
 }

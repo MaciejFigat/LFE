@@ -99,12 +99,14 @@ body {
     --background-blue7: #7EBDC2;
     
     //! variants for semitransparent elements
+ 
     --background-opaque1: rgba( 109, 108, 112, 0.1 );
     --background-opaque2: rgba( 29, 53, 87, 0.4 );
     --background-opaque3: rgba( 109, 108, 112, 0.1 );
     --background-opaque4: rgba( 114, 93, 93, 0.29 );
     --background-opaque5: rgba(38, 70, 83, 0.9);
     --background-opaque6: rgba(60, 59, 61, 0.25);
+    --background-opaque61: rgba(60, 59, 61, 0.35);
     --background-opaque7: rgba( 70, 52, 185, 0.12 );
     
     
