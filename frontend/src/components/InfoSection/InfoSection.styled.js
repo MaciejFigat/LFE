@@ -13,7 +13,6 @@ export const InfoSec = styled.div`
   ${(props) => handleSectionColor(props).sectionBackgroundGradient}
   /* //! test*/
 
-  
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
@@ -68,7 +67,7 @@ export const TextWrapper = styled.div`
   //todo
   /* padding-bottom: 60px; */
   /* padding-bottom: 30px; */
-  /* padding-right: 30px; */
+  padding-right: 15px;
   @media screen and (max-width: 770px) {
     /* padding-bottom: 25px; */
   }
@@ -98,16 +97,14 @@ export const Button = styled.button`
   /* buttonBackground */
   border: solid 1px;
   background: none;
-  /* ${(props) => handleSectionColor(props).buttonBackground} */
+  ${(props) => handleSectionColor(props).buttonBackground}
   outline: none;
   cursor: pointer;
-  /* border: none; */
+
   transition: all 0.3s ease-in;
   //!
   margin-right: 1rem;
-  & + & {
-    /* margin-right: 1rem; */
-  }
+
   /* buttonColor */
   ${(props) => handleSectionColor(props).buttonColor}
   /* color for the link inside the button */
@@ -166,11 +163,12 @@ export const Heading = styled.h1`
   }
 `
 export const Subtitle = styled.p`
-  /* max-width: 95%; */
+  margin: 0;
+  margin-top: 10px;
   margin-bottom: 15px;
   font-size: 1.1rem;
   /* line-height: 24px; */
-  line-height: 1.1rem;
+  line-height: 1.15rem;
   letter-spacing: 0.025em;
   font-weight: 300;
   /* subtitleColor */

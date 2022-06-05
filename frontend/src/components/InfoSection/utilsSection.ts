@@ -25,10 +25,10 @@ const primaryStyle: StyleVariant = {
     subtitleColor: 'var(--background5-main);',
     headingColor: 'var(--background5-main);',
     toplineColor: 'var(--background5-main);',
-    buttonColor: 'var(--background2-main);',
-    buttonBackground: 'var(--background5-main);',
-    buttonBackgroundHover: 'var(--background4-main);',
-    buttonColorHover: 'var(--background1-main);'
+    buttonColor: 'var(--background-neon2);',
+    buttonBackground: 'var(--background-neon1);',
+    buttonBackgroundHover: 'var(--background-neon2);',
+    buttonColorHover: 'var(--background-neon6);'
 }
 
 

@@ -69,19 +69,26 @@ const DataSection: React.FC<DataSectionProps> = ({
           <InfoRow>
             <InfoColumnShort>
               <TextWrapper>
-                <TopLine variant={variant}>Sygnatura: {metryka.syg}</TopLine>
                 <TopLine variant={variant}>
-                  Forma: {metryka.rodzaj_orzeczenia}
+                  Sygnatura:{' '}
+                  <Subtitle variant={variant}>{metryka.syg}</Subtitle>
                 </TopLine>
                 <TopLine variant={variant}>
-                  Numer Dokumentu: {metryka.numer_dokumentu}
+                  Forma:{' '}
+                  <Subtitle variant={variant}>
+                    {metryka.rodzaj_orzeczenia}
+                  </Subtitle>
                 </TopLine>
-                <Subtitle variant={variant}>
-                  Organ wydający {metryka.organ}
-                </Subtitle>
-                <Subtitle variant={variant}>
-                  0114-KDIP3-1.4011.461.2017.1.AM
-                </Subtitle>
+                <TopLine variant={variant}>
+                  Numer Dokumentu:
+                  <Subtitle variant={variant}>
+                    {metryka.numer_dokumentu}
+                  </Subtitle>
+                </TopLine>
+                <TopLine variant={variant}>
+                  Organ wydający:{' '}
+                  <Subtitle variant={variant}>{metryka.organ}</Subtitle>
+                </TopLine>
                 <Subtitle variant={variant}> Wynik przydatny?</Subtitle>
                 <Button variant={variant}>
                   <ButtonLink
@@ -105,6 +112,7 @@ const DataSection: React.FC<DataSectionProps> = ({
             </InfoColumnShort>
             <InfoColumn>
               <TextWrapper>
+                {/* //? I filter fragments that start with ISTOTA INTERPRETACJI string. Since they are not 100% guaranteed they won't be always displayed, afterwards said string needs to be removed, here replaced with '' */}
                 {fragmentsFound.length > 0 &&
                   fragmentsFound
                     .filter((fragmentsSorted) =>
