@@ -62,11 +62,7 @@ export const InfoColumnShort = styled(InfoColumn)`
 `
 export const TextWrapper = styled.div`
   width: 100%;
-  /* min-width: fit-content; */
-  /* padding-top: 0; */
-  //todo
-  /* padding-bottom: 60px; */
-  /* padding-bottom: 30px; */
+
   padding-right: 15px;
   @media screen and (max-width: 770px) {
     /* padding-bottom: 25px; */
@@ -77,9 +73,7 @@ export const Container = styled.div`
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  /* // todo */
-  /* padding-right: 50px;
-  padding-left: 50px; */
+
   padding-right: 20px;
   padding-left: 20px;
   @media screen and (max-width: 991px) {

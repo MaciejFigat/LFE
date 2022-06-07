@@ -117,6 +117,11 @@ body {
     --background-neon5: #54bea8;
     --background-neon6: #DB3EB1;
     --background-neon7: #44D62C;
+    --background-neon8: #FFAD00;
+    --background-neon9: #E0E722;
+    --background-neon10: #4D4DFF;
+    --background-neon11: #C724B1;
+    --background-neon12: #D22730;
     
 
     --background-secondary1: #264653;

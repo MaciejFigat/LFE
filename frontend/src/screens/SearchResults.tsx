@@ -3,7 +3,11 @@ import HighlightPopMenu from '../components/HighlightPopRemake/HighlightPopMenu'
 import DataSection from '../components/InfoSection/DataSection'
 import { UserInfo } from '../interfaces'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
-import { getSearchResults } from '../features/searchResults/searchResultsSlice'
+import {
+  getSearchResults,
+  getSearchResultsTwo,
+  getDocResult,
+} from '../features/searchResults/searchResultsSlice'
 import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
 import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
 import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
@@ -33,12 +37,25 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
     dispatch(getSearchResults(queryTrimmed))
   }
 
+  const docQuery = {
+    searchquery: 'dochodowy',
+    selectedDoc: 2,
+    docNumber: 26042463,
+  }
+  const submitHandlerDoc = (e: any) => {
+    e.preventDefault()
+    dispatch(getDocResult(docQuery))
+    console.log('test')
+  }
   return (
     <div>
       <SideMenuSecondary
         mainData={
           <HighlightPopMenu>
-            <SendButton onClick={submitHandler}>Testing the A's DB</SendButton>
+            <SendButton onClick={submitHandler}>Search Test</SendButton>
+            <SendButton variant='success' onClick={submitHandlerDoc}>
+              get Doc test
+            </SendButton>
             {data.length > 0 &&
               data.map((fragmentArray: any) => (
                 <DataSection
@@ -57,32 +74,6 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
                   ))} */}
                 </DataSection>
               ))}
-            {/* //! problem solved with parse - html-react-parser - prarses string to html in React */}
-            {/* {data.length > 0 && parse(data[0].fragment[0])} */}
-            {/* {data.length > 0 &&
-              data.map((fragmentArray: any) => (
-                <div key={fragmentArray['uuid']}>
-                  <h1>
-                    {fragmentArray.fragment.map((fragment: any) => (
-                      <div>
-                        <h2>{parse(fragment)}</h2>
-                      </div>
-                    ))}
-                  </h1>
-                </div>
-              ))} */}
-
-            {/* {data.length > 0 && <div>{parse(data[0].fragment[0])}</div>} */}
-            {/* <DataSection
-              variant='primary'
-              paddingTop='large'
-              data={Data}
-            ></DataSection>
-            <DataSection variant='secondary' paddingTop='small' data={Data} />
-            <DataSection paddingTop='small' data={Data} />
-            <DataSection variant='tertiary' paddingTop='small' data={Data} />
-            <DataSection variant='blue' paddingTop='small' data={Data} />
-            <DataSection variant='transparent' paddingTop='small' data={Data} /> */}
           </HighlightPopMenu>
         }
       >

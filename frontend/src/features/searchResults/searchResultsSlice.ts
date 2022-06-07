@@ -31,26 +31,42 @@ export const getSearchResults = createAsyncThunk(
     'searchResults/getSearchResults',
 
     async (searchquery: string) => {
-        // const config = {
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         Accept: 'application/json',
 
-        //     },
-        //     // searchquery: searchquery
-        // }
         try {
-            // let searchquery = 'testTest'
+
             const { data } = await axios.get(
-                // `/lexapi/search/?query=${searchquery}`, config
-                // `/lexapi/search`, { params: { searchquery: searchquery }, }
+
                 `/lexapi/search`, { params: { searchquery: searchquery } }
-                // config,
-                // searchquery
+
             )
 
-            // console.log(data)
-            // console.log('jestem')
+
+            //todo
+            // console.log(JSON.stringify(data, null, 4))
+            return data
+        } catch (error: any) {
+            return error
+        }
+    }
+)
+interface DocQuery {
+    searchquery: string, selectedDoc: number, docNumber: number
+}
+export const getDocResult = createAsyncThunk(
+    'docResult/getDocResult',
+
+
+    async (docQuery: DocQuery) => {
+
+        try {
+
+            const { data } = await axios.get(
+
+                `/lexapi/doc`, { params: { docQuery: docQuery } }
+
+
+            )
+
             //todo
             console.log(JSON.stringify(data, null, 4))
             return data
@@ -59,35 +75,6 @@ export const getSearchResults = createAsyncThunk(
         }
     }
 )
-// async () => {
-
-//     try {
-//         // 👇️ const data: GetUsersResponse
-//         const { data, status } = await axios.get('/lexapi/', {
-//             headers: {
-//                 Accept: 'application/json',
-//             },
-//         })
-
-//         console.log(JSON.stringify(data, null, 4))
-
-//         // 👇️ "response status is: 200"
-//         console.log('response status is: ', status)
-//         console.log(data)
-
-//         return data
-//     } catch (error) {
-//         if (axios.isAxiosError(error)) {
-//             console.log('error message: ', error.message)
-//             return error.message
-//         } else {
-//             console.log('unexpected error: ', error)
-//             return 'An unexpected error occurred'
-//         }
-//     }
-
-// }
-
 
 
 const searchResultSlice = createSlice({
@@ -95,6 +82,9 @@ const searchResultSlice = createSlice({
     initialState: {
 
         searchResults: {
+            data: [],
+        },
+        docResult: {
             data: [],
         },
 
@@ -129,6 +119,17 @@ const searchResultSlice = createSlice({
             // state.error = action.payload.message
         })
         builder.addCase(getSearchResults.rejected, (state, action) => {
+            state.loading = false
+        })
+        builder.addCase(getDocResult.pending, (state, action) => {
+            state.loading = true
+        })
+        builder.addCase(getDocResult.fulfilled, (state, action) => {
+            state.loading = false
+            state.docResult = action.payload
+
+        })
+        builder.addCase(getDocResult.rejected, (state, action) => {
             state.loading = false
         })
         builder.addCase(getSearchResultsTwo.pending, (state, action) => {

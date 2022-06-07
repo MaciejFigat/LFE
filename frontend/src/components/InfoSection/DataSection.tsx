@@ -119,15 +119,15 @@ const DataSection: React.FC<DataSectionProps> = ({
                       fragmentsSorted.startsWith('ISTOTA INTERPRETACJI')
                     )
                     .map((fragment) => (
-                      <>
+                      <div key={fragment}>
                         {' '}
                         <TopLine variant={variant}>
                           ISTOTA INTERPRETACJI:
                         </TopLine>
-                        <Subtitle key={fragment} variant={variant}>
+                        <Subtitle variant={variant}>
                           {parse(fragment.replace('ISTOTA INTERPRETACJI', ''))}
                         </Subtitle>
-                      </>
+                      </div>
                     ))}
 
                 <TopLine variant={variant}>ZNALEZIONE FRAGMENTY:</TopLine>
