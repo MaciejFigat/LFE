@@ -18,9 +18,9 @@ export const getSearchResultsTwo = createAsyncThunk(
                 `/lexapi`, config
             )
 
-            console.log(data)
+            // console.log(data)
 
-            console.log(JSON.stringify(data, null, 4))
+            // console.log(JSON.stringify(data, null, 4))
             return data
         } catch (error: any) {
             return error
@@ -68,7 +68,7 @@ export const getDocResult = createAsyncThunk(
             )
 
             //todo
-            console.log(JSON.stringify(data, null, 4))
+            // console.log(JSON.stringify(data, null, 4))
             return data
         } catch (error: any) {
             return error

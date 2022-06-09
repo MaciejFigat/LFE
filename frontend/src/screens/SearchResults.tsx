@@ -5,7 +5,7 @@ import { UserInfo } from '../interfaces'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import {
   getSearchResults,
-  getSearchResultsTwo,
+  // getSearchResultsTwo,
   getDocResult,
 } from '../features/searchResults/searchResultsSlice'
 import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'

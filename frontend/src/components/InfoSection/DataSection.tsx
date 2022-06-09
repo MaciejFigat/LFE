@@ -1,5 +1,6 @@
 import React, { ReactFragment } from 'react'
 // import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import {
   InfoSec,
@@ -138,9 +139,15 @@ const DataSection: React.FC<DataSectionProps> = ({
                         !fragmentsSorted.startsWith('ISTOTA INTERPRETACJI')
                     )
                     .map((fragment) => (
-                      <Subtitle key={fragment} variant={variant}>
-                        (...) {parse(fragment)} (...)
-                      </Subtitle>
+                      <Link
+                        to={`/search/result`}
+                        key={fragment}
+                        onClick={() => console.log('first')}
+                      >
+                        <Subtitle variant={variant}>
+                          (...) {parse(fragment)} (...)
+                        </Subtitle>
+                      </Link>
                     ))}
               </TextWrapper>
             </InfoColumn>
