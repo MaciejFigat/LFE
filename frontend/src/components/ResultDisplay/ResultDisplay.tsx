@@ -19,14 +19,14 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
   const dispatch: any = useAppDispatch()
   const docResult: any = useAppSelector((state) => state.searchResult.docResult)
 
-  useEffect(() => {
-    const docQuery = {
-      searchquery: 'dochodowy',
-      selectedDoc: 2,
-      docNumber: 26042463,
-    }
-    dispatch(getDocResult(docQuery))
-  }, [dispatch])
+  // useEffect(() => {
+  //   const docQuery = {
+  //     query: 'dochodowy',
+  //     selectedDoc: 2,
+  //     docNumber: 26042463,
+  //   }
+  //   dispatch(getDocResult(docQuery))
+  // }, [dispatch])
   return (
     <ArticleWrapper>
       {/* <h5>{data.createdAt.substring(0, 10)}</h5> */}

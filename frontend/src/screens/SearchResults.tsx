@@ -7,6 +7,7 @@ import {
   getSearchResults,
   // getSearchResultsTwo,
   getDocResult,
+  getDocByNr,
 } from '../features/searchResults/searchResultsSlice'
 import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
 import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
@@ -29,7 +30,7 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
   const submitHandler = (e: any) => {
     e.preventDefault()
 
-    const query = 'podatek dochodowy'
+    const query = 'poczta'
     //? the following is not accepted by the Api endpoint, what is the difference?
     // dispatch(getSearchResults(query.replace(/ /g, '%20')))
     //? this method works well
@@ -37,15 +38,22 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
     dispatch(getSearchResults(queryTrimmed))
   }
 
-  const docQuery = {
-    searchquery: 'dochodowy',
-    selectedDoc: 2,
-    docNumber: 26042463,
-  }
   const submitHandlerDoc = (e: any) => {
     e.preventDefault()
-    dispatch(getDocResult(docQuery))
-    console.log('test')
+    // const docQuery = {
+    const searchquery = {
+      query: 'poczta',
+      selectedDoc: 0,
+      docNumber: 90218449,
+    }
+    // dispatch(getDocResult(docQuery))
+    dispatch(getDocResult(searchquery))
+    console.log(searchquery.query, searchquery.docNumber)
+  }
+  const submitHandlerDocNr = (e: any) => {
+    e.preventDefault()
+    const nr = '90218449'
+    dispatch(getDocByNr(nr))
   }
   return (
     <div>
@@ -55,6 +63,9 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
             <SendButton onClick={submitHandler}>Search Test</SendButton>
             <SendButton variant='success' onClick={submitHandlerDoc}>
               get Doc test
+            </SendButton>
+            <SendButton variant='secondary' onClick={submitHandlerDocNr}>
+              get Doc nr test
             </SendButton>
             {data.length > 0 &&
               data.map((fragmentArray: any) => (

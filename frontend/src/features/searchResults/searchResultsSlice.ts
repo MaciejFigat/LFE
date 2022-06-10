@@ -50,25 +50,44 @@ export const getSearchResults = createAsyncThunk(
     }
 )
 interface DocQuery {
-    searchquery: string, selectedDoc: number, docNumber: number
+    query: string, selectedDoc: number, docNumber: number
+    // query: string, selectedDoc: number, docNumber: number
 }
 export const getDocResult = createAsyncThunk(
     'docResult/getDocResult',
 
 
-    async (docQuery: DocQuery) => {
+    // async (searchquery: DocQuery) => {
+    async (searchquery: any) => {
 
         try {
 
             const { data } = await axios.get(
 
-                `/lexapi/doc`, { params: { docQuery: docQuery } }
+                `/lexapi/doc`, { params: { searchquery: searchquery } }
 
 
             )
 
             //todo
             // console.log(JSON.stringify(data, null, 4))
+            return data
+        } catch (error: any) {
+            return error
+        }
+    }
+)
+export const getDocByNr = createAsyncThunk(
+    'docResult/getDocByNr',
+
+    async (nr: string) => {
+
+        try {
+
+            const { data } = await axios.get(
+                `/lexapi/doc/${nr}`
+            )
+
             return data
         } catch (error: any) {
             return error
@@ -130,6 +149,17 @@ const searchResultSlice = createSlice({
 
         })
         builder.addCase(getDocResult.rejected, (state, action) => {
+            state.loading = false
+        })
+        builder.addCase(getDocByNr.pending, (state, action) => {
+            state.loading = true
+        })
+        builder.addCase(getDocByNr.fulfilled, (state, action) => {
+            state.loading = false
+            state.docResult = action.payload
+
+        })
+        builder.addCase(getDocByNr.rejected, (state, action) => {
             state.loading = false
         })
         builder.addCase(getSearchResultsTwo.pending, (state, action) => {
