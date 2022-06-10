@@ -6,7 +6,7 @@ import ResizableScrollSection from '../components/ScrollSection/ResizableScrollS
 import { useAppSelector } from '../app/reduxHooks'
 import { UserInfo } from '../interfaces'
 import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
-import DataSection from '../components/InfoSection/DataSection'
+// import DataSection from '../components/InfoSection/DataSection'
 
 export const Data = {
   topline: 'ISTOTA INTERPRETACJI:',
