@@ -2,6 +2,9 @@ import React, { ReactFragment } from 'react'
 // import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import SvgIcon from '../SvgIcon/SvgIcon'
+import { useAppDispatch } from '../../app/reduxHooks'
+import { useNavigate } from 'react-router-dom'
+import { getDocByNr } from '../../features/searchResults/searchResultsSlice'
 import {
   InfoSec,
   Container,
@@ -62,12 +65,21 @@ const DataSection: React.FC<DataSectionProps> = ({
   buttonNavLink,
   paddingTop,
 }) => {
+  const dispatch = useAppDispatch()
+  let navigate = useNavigate()
+  const submitHandlerDocNr = (e: any) => {
+    e.preventDefault()
+
+    dispatch(getDocByNr(metryka.doc_id))
+    navigate('/search/result')
+  }
+
   return (
     <>
       <InfoSec variant={variant} paddingTop={paddingTop}>
         <Container>
-          {/* <InfoRow imgStart={imgStart}> */}
-          <InfoRow>
+          {/* <InfoRow> */}
+          <InfoRow imgStart={imgStart}>
             <InfoColumnShort>
               <TextWrapper>
                 <TopLine variant={variant}>
@@ -139,15 +151,13 @@ const DataSection: React.FC<DataSectionProps> = ({
                         !fragmentsSorted.startsWith('ISTOTA INTERPRETACJI')
                     )
                     .map((fragment) => (
-                      <Link
-                        to={`/search/result`}
+                      <Subtitle
+                        variant={variant}
                         key={fragment}
-                        onClick={() => console.log('first')}
+                        onClick={submitHandlerDocNr}
                       >
-                        <Subtitle variant={variant}>
-                          (...) {parse(fragment)} (...)
-                        </Subtitle>
-                      </Link>
+                        (...) {parse(fragment)} (...)
+                      </Subtitle>
                     ))}
               </TextWrapper>
             </InfoColumn>

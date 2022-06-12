@@ -80,12 +80,12 @@ export const getDocResult = createAsyncThunk(
 export const getDocByNr = createAsyncThunk(
     'docResult/getDocByNr',
 
-    async (nr: string) => {
+    async (nr: number) => {
 
         try {
 
             const { data } = await axios.get(
-                `/lexapi/doc/${nr}`
+                `/lexapi/doc/`, { params: { nr: nr } }
             )
 
             return data

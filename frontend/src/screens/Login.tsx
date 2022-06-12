@@ -40,7 +40,6 @@ const Login: React.FC<LoginProps> = () => {
   const resetPasswordHandler = (e: any) => {
     e.preventDefault()
     dispatch(sendEmailToResetPassword(userEmail))
-    console.log(email)
   }
 
   return (
@@ -59,7 +58,6 @@ const Login: React.FC<LoginProps> = () => {
 
           <Input
             type='password'
-            // name='password'
             autoComplete='current-password'
             placeholder='Enter your password'
             value={password}

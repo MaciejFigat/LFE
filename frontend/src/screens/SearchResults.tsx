@@ -52,7 +52,7 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
   }
   const submitHandlerDocNr = (e: any) => {
     e.preventDefault()
-    const nr = '90218449'
+    const nr = 90218449
     dispatch(getDocByNr(nr))
   }
   return (
@@ -70,10 +70,13 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
             {data.length > 0 &&
               data.map((fragmentArray: any) => (
                 <DataSection
-                  variant='primary'
+                  // variant='primary'
+                  variant='secondary'
+                  // variant='tertiary'
+                  // variant='transparent'
                   key={fragmentArray['uuid']}
                   paddingTop='large'
-                  // data={Data}
+                  // imgStart
                   topline='Topline 1'
                   headline='headline 1'
                   subtitle='lorem subtitle 1'
