@@ -42,13 +42,14 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
     e.preventDefault()
     // const docQuery = {
     const searchquery = {
-      query: 'poczta',
-      selectedDoc: 0,
-      docNumber: 90218449,
+      // query: 'poczta',
+      query: 'sp%C3%B3%C5%82ki+skarbu+pa%C5%84stwa',
+      selectedDoc: 1,
+      docNumber: 85725494,
     }
     // dispatch(getDocResult(docQuery))
     dispatch(getDocResult(searchquery))
-    console.log(searchquery.query, searchquery.docNumber)
+    // console.log(searchquery.query, searchquery.docNumber)
   }
   const submitHandlerDocNr = (e: any) => {
     e.preventDefault()
@@ -62,7 +63,7 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
           <HighlightPopMenu>
             <SendButton onClick={submitHandler}>Search Test</SendButton>
             <SendButton variant='success' onClick={submitHandlerDoc}>
-              get Doc test
+              get Doc test TEST TEST
             </SendButton>
             <SendButton variant='secondary' onClick={submitHandlerDocNr}>
               get Doc nr test

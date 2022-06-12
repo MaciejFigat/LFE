@@ -56,15 +56,20 @@ interface DocQuery {
 export const getDocResult = createAsyncThunk(
     'docResult/getDocResult',
 
+    async (searchquery: DocQuery) => {
 
-    // async (searchquery: DocQuery) => {
-    async (searchquery: any) => {
-
+        const { query, selectedDoc, docNumber } = searchquery
         try {
 
             const { data } = await axios.get(
+                `/lexapi/doc`, {
+                params: {
+                    query: query,
+                    selectedDoc: selectedDoc,
+                    docNumber: docNumber
+                },
+            }
 
-                `/lexapi/doc`, { params: { searchquery: searchquery } }
 
 
             )
