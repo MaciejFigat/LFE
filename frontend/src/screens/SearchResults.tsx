@@ -53,7 +53,7 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
   }
   const submitHandlerDocNr = (e: any) => {
     e.preventDefault()
-    const nr = 90218449
+    const nr = 85725494
     dispatch(getDocByNr(nr))
   }
   return (

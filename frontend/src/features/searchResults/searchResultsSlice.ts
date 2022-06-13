@@ -90,7 +90,9 @@ export const getDocByNr = createAsyncThunk(
         try {
 
             const { data } = await axios.get(
-                `/lexapi/doc/`, { params: { nr: nr } }
+                // `/lexapi/doc/`, { params: { nr: nr } }
+                // `/lexapi/doc/${id}`, { params: { nr: id } }
+                `/lexapi/doc/nr`, { params: { nr: nr } }
             )
 
             return data
