@@ -6,6 +6,7 @@ import {
   ArticleTitle,
   ArticleSection,
   ArticleTopline,
+  ArticleParagraph,
 } from './ResultDisplay.styled'
 
 interface ResultDisplayProps {
@@ -16,7 +17,7 @@ interface ResultDisplayProps {
 }
 
 const ResultDisplay: React.FC<ResultDisplayProps> = () => {
-  const dispatch: any = useAppDispatch()
+  // const dispatch: any = useAppDispatch()
   const docResult: any = useAppSelector((state) => state.searchResult.docResult)
 
   // useEffect(() => {
@@ -27,22 +28,44 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
   //   }
   //   dispatch(getDocResult(docQuery))
   // }, [dispatch])
+  useEffect(() => {}, [])
   return (
     <ArticleWrapper>
-      {/* <h5>{data.createdAt.substring(0, 10)}</h5> */}
-      <button onClick={() => console.log(docResult)}>
-        TEST docResult.length
-      </button>
       {docResult?.tresc?.sad && (
+        // {docResult.length > 0 && (
         <>
           {' '}
-          <p> {docResult.tresc.sad}</p>
-          <ArticleTopline>{docResult.tresc.syg}</ArticleTopline>
-          <ArticleTitle> {docResult.tresc.docResultOrzeczenia}</ArticleTitle>
           <ArticleTitle>{docResult.tresc.typWyroku}</ArticleTitle>
-          {/* <ArticleTopline>{docResult.topline}</ArticleTopline> */}
-          {/* <ArticleImage src={docResult.imgLink} alt='article ilustration' /> */}
-          <ArticleSection>{docResult.korpus[0][0]}</ArticleSection>
+          <ArticleParagraph> {docResult.tresc.sad}</ArticleParagraph>
+          <ArticleTopline>{docResult.tresc.syg}</ArticleTopline>
+          <ArticleParagraph> {docResult.tresc.dataOrzeczenia}</ArticleParagraph>
+          <>
+            {' '}
+            {docResult.korpus
+              // .filter((fragment:string) =>
+              //   fragment.startsWith('ISTOTA INTERPRETACJI')
+              // )
+              .map((korpusElement: any, index: number) => (
+                // <div key={fragment}>
+                //
+                <ArticleSection key={index}>
+                  {korpusElement.map((korpusParagraph: any, index: number) => (
+                    <ArticleTopline key={index}>
+                      {!Array.isArray(korpusParagraph) && korpusParagraph}
+                      {Array.isArray(korpusParagraph) &&
+                        korpusParagraph.map(
+                          (smallParagraph: any, index: number) => (
+                            <ArticleParagraph>
+                              {smallParagraph}
+                            </ArticleParagraph>
+                          )
+                        )}
+                    </ArticleTopline>
+                  ))}
+                </ArticleSection>
+              ))}
+          </>
+          {/* <ArticleSection>{docResult.korpus[0][0]}</ArticleSection> */}
         </>
       )}
     </ArticleWrapper>

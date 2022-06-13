@@ -25,8 +25,8 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
     (state) => state.searchResult.searchResults
   )
 
-  const { data } = searchResults
-
+  const { data, query } = searchResults
+  const queryTrimmed = encodeURIComponent(query?.trim())
   const submitHandler = (e: any) => {
     e.preventDefault()
 
@@ -83,6 +83,7 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
                   subtitle='lorem subtitle 1'
                   fragmentsFound={fragmentArray.fragment}
                   metryka={fragmentArray.metryka}
+                  query={queryTrimmed}
                 >
                   {/* {fragmentArray.fragment.map((fragment: any) => (
                     <div>{parse(fragment)}</div>

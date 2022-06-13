@@ -2,7 +2,10 @@ import React, { ReactFragment } from 'react'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
-import { getDocByNr } from '../../features/searchResults/searchResultsSlice'
+import {
+  // getDocByNr,
+  getDocResult,
+} from '../../features/searchResults/searchResultsSlice'
 import {
   InfoSec,
   Container,
@@ -32,6 +35,7 @@ interface InfoData {
 
 interface DataSectionProps {
   metryka: InfoData
+  query: string
   topline: string
   headline: string
   subtitle: string
@@ -52,6 +56,7 @@ interface DataSectionProps {
 
 const DataSection: React.FC<DataSectionProps> = ({
   metryka,
+  query,
   topline,
   headline,
   subtitle,
@@ -65,10 +70,19 @@ const DataSection: React.FC<DataSectionProps> = ({
 }) => {
   const dispatch = useAppDispatch()
   let navigate = useNavigate()
-  const submitHandlerDocNr = (e: any) => {
-    e.preventDefault()
+  // const submitHandlerDocNr = (e: any) => {
+  //   e.preventDefault()
 
-    dispatch(getDocByNr(metryka.doc_id))
+  //   dispatch(getDocByNr(metryka.doc_id))
+  //   navigate('/search/result')
+  // }
+  const submitHandlerDocNr = (index: number) => {
+    const searchquery = {
+      query: query,
+      selectedDoc: index,
+      docNumber: metryka.doc_id,
+    }
+    dispatch(getDocResult(searchquery))
     navigate('/search/result')
   }
 
@@ -148,11 +162,11 @@ const DataSection: React.FC<DataSectionProps> = ({
                       (fragmentsSorted) =>
                         !fragmentsSorted.startsWith('ISTOTA INTERPRETACJI')
                     )
-                    .map((fragment) => (
+                    .map((fragment, index) => (
                       <Subtitle
                         variant={variant}
                         key={fragment}
-                        onClick={submitHandlerDocNr}
+                        onClick={() => submitHandlerDocNr(index)}
                       >
                         (...) {parse(fragment)} (...)
                       </Subtitle>

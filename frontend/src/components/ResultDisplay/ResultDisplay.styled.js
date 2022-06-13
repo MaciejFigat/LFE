@@ -50,3 +50,9 @@ export const ArticleSection = styled.div`
     margin-top: 1rem;
   }
 `
+export const ArticleParagraph = styled.div`
+  /* padding: var(--padding); */
+  font-size: 1rem;
+  line-height: 1.1;
+  padding: 1rem;
+`
