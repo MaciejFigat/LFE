@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
-import { getDocResult } from '../../features/searchResults/searchResultsSlice'
+import { useAppSelector } from '../../app/reduxHooks'
+import HighlightPopMenu from '../../components/HighlightPopRemake/HighlightPopMenu'
 import {
   ArticleWrapper,
   ArticleTitle,
   ArticleSection,
   ArticleTopline,
   ArticleParagraph,
+  ArticleParagraphFragment,
 } from './ResultDisplay.styled'
 
 interface ResultDisplayProps {
@@ -17,55 +18,66 @@ interface ResultDisplayProps {
 }
 
 const ResultDisplay: React.FC<ResultDisplayProps> = () => {
-  // const dispatch: any = useAppDispatch()
   const docResult: any = useAppSelector((state) => state.searchResult.docResult)
+  // const { frags: fragmentsMatched } = docResult.frags
 
-  // useEffect(() => {
-  //   const docQuery = {
-  //     query: 'dochodowy',
-  //     selectedDoc: 2,
-  //     docNumber: 26042463,
-  //   }
-  //   dispatch(getDocResult(docQuery))
-  // }, [dispatch])
-  useEffect(() => {}, [])
+  // useEffect(() => {}, [])
   return (
     <ArticleWrapper>
       {docResult?.tresc?.sad && (
-        // {docResult.length > 0 && (
         <>
           {' '}
           <ArticleTitle>{docResult.tresc.typWyroku}</ArticleTitle>
           <ArticleParagraph> {docResult.tresc.sad}</ArticleParagraph>
           <ArticleTopline>{docResult.tresc.syg}</ArticleTopline>
-          <ArticleParagraph> {docResult.tresc.dataOrzeczenia}</ArticleParagraph>
-          <>
+          <ArticleParagraph>
             {' '}
-            {docResult.korpus
-              // .filter((fragment:string) =>
-              //   fragment.startsWith('ISTOTA INTERPRETACJI')
-              // )
-              .map((korpusElement: any, index: number) => (
-                // <div key={fragment}>
-                //
-                <ArticleSection key={index}>
-                  {korpusElement.map((korpusParagraph: any, index: number) => (
-                    <ArticleTopline key={index}>
-                      {!Array.isArray(korpusParagraph) && korpusParagraph}
-                      {Array.isArray(korpusParagraph) &&
-                        korpusParagraph.map(
-                          (smallParagraph: any, index: number) => (
-                            <ArticleParagraph>
+            {docResult.tresc.dataOrzeczenia}
+          </ArticleParagraph>{' '}
+          <HighlightPopMenu>
+            {docResult.korpus.map((korpusElement: any) => (
+              <ArticleSection key={Math.random()}>
+                {korpusElement.map((korpusParagraph: any) => (
+                  <ArticleParagraph key={Math.random()}>
+                    {!korpusParagraph.toString().startsWith('TRESC') &&
+                      !Array.isArray(korpusParagraph) &&
+                      korpusParagraph}
+                    {/* //todo 
+                 //todo   .filter(
+                      (fragmentsSorted) =>
+                        !fragmentsSorted.includes('')
+                    )
+                    fragmentsMatched
+                  //todo  .includes() */}
+                    {Array.isArray(docResult.frags) &&
+                      Array.isArray(korpusParagraph) &&
+                      korpusParagraph.map((smallParagraph: any) => (
+                        <>
+                          {docResult.frags.every((item: any) =>
+                            smallParagraph.includes(item.substring(30, 90))
+                          ) ? (
+                            <ArticleParagraphFragment key={Math.random()}>
+                              {smallParagraph}
+                            </ArticleParagraphFragment>
+                          ) : (
+                            <ArticleParagraph key={Math.random()}>
                               {smallParagraph}
                             </ArticleParagraph>
-                          )
-                        )}
-                    </ArticleTopline>
-                  ))}
-                </ArticleSection>
-              ))}
-          </>
-          {/* <ArticleSection>{docResult.korpus[0][0]}</ArticleSection> */}
+                          )}
+                        </>
+                      ))}
+                    {/* //?working version below */}
+                    {/* {Array.isArray(korpusParagraph) &&
+                      korpusParagraph.map(
+                        (smallParagraph: any, index: number) => (
+                          <ArticleParagraph>{smallParagraph}</ArticleParagraph>
+                        )
+                      )} */}
+                  </ArticleParagraph>
+                ))}
+              </ArticleSection>
+            ))}
+          </HighlightPopMenu>
         </>
       )}
     </ArticleWrapper>

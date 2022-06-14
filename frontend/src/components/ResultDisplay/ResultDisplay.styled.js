@@ -2,9 +2,6 @@ import styled from 'styled-components'
 
 export const ArticleWrapper = styled.div`
   display: flex;
-  /* //todo */
-  width: 800px;
-  height: 800px;
   background: var(--background2-main);
   flex-direction: column;
   align-items: center;
@@ -25,10 +22,10 @@ export const ArticleTitle = styled.h2`
   width: 80%;
   margin: 0rem auto 0.5rem;
   font-weight: 800;
-  padding: var(--padding);
+
   color: var(--background3-main);
   @media (max-width: 880px) {
-    font-size: 1.4rem;
+    font-size: 2.4rem;
     padding: 1.5rem;
     margin: 0;
   }
@@ -40,19 +37,27 @@ export const ArticleTopline = styled.h4`
 `
 export const ArticleSection = styled.div`
   padding: var(--padding);
+  padding-bottom: 0;
   font-size: 1.3rem;
   line-height: 1.9;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  max-width: 900px;
   @media (max-width: 880px) {
     padding: 1rem;
-    margin-top: 1rem;
+    padding-bottom: 0;
+    /* margin-top: 1rem; */
   }
 `
 export const ArticleParagraph = styled.div`
-  /* padding: var(--padding); */
   font-size: 1rem;
-  line-height: 1.1;
+  line-height: 1.4;
   padding: 1rem;
+  padding-bottom: 0;
+  font-weight: 500;
+`
+export const ArticleParagraphFragment = styled.div`
+  font-size: 1rem;
+  line-height: 1.4;
+  background: lime;
+  padding: 1rem;
+  padding-bottom: 0;
+  font-weight: 500;
 `
