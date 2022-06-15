@@ -185,3 +185,8 @@ export const Img = styled.img`
   display: inline-block;
   max-height: 500px;
 `
+export const CenterWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`

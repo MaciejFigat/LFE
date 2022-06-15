@@ -20,15 +20,9 @@ const links = [
       <SvgIcon variant='question' noMargin contentAfter='display' toRight />
     ),
     to: '/search/result',
-    id: '122',
-  },
-  {
-    name: (
-      <SvgIcon variant='question' noMargin contentAfter='results' toRight />
-    ),
-    to: '/search',
     id: '12',
   },
+
   {
     name: (
       <SvgIcon variant='question' noMargin contentAfter='storage2' toRight />

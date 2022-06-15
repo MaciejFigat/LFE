@@ -8,8 +8,9 @@ from { z-index: -1; transform: scale(1); }
 
 export const SideMenuDataColumn = styled(motion.div)`
   width: 90%;
-  /* position: absolute; */
   position: relative;
+  display: flex;
+  flex-direction: column;
   top: -100vh;
   z-index: -1;
   animation: ${changeZindex} 1.09s linear;

@@ -2,10 +2,7 @@ import React, { ReactFragment } from 'react'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
-import {
-  // getDocByNr,
-  getDocResult,
-} from '../../features/searchResults/searchResultsSlice'
+import { getDocResult } from '../../features/searchResults/searchResultsSlice'
 import {
   InfoSec,
   Container,
@@ -18,6 +15,7 @@ import {
   Button,
   ButtonLink,
   InfoColumnShort,
+  CenterWrapper,
 } from './InfoSection.styled'
 import parse from 'html-react-parser'
 //! problem solved with parse - html-react-parser - prarses string to html in React
@@ -70,12 +68,7 @@ const DataSection: React.FC<DataSectionProps> = ({
 }) => {
   const dispatch = useAppDispatch()
   let navigate = useNavigate()
-  // const submitHandlerDocNr = (e: any) => {
-  //   e.preventDefault()
 
-  //   dispatch(getDocByNr(metryka.doc_id))
-  //   navigate('/search/result')
-  // }
   const submitHandlerDocNr = (index: number) => {
     const searchquery = {
       query: query,
@@ -87,7 +80,7 @@ const DataSection: React.FC<DataSectionProps> = ({
   }
 
   return (
-    <>
+    <CenterWrapper>
       <InfoSec variant={variant} paddingTop={paddingTop}>
         <Container>
           {/* <InfoRow> */}
@@ -176,7 +169,7 @@ const DataSection: React.FC<DataSectionProps> = ({
           </InfoRow>
         </Container>
       </InfoSec>
-    </>
+    </CenterWrapper>
   )
 }
 export default DataSection
