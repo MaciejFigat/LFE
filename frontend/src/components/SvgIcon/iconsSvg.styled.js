@@ -25,7 +25,7 @@ export const IconsItem = styled.div`
     opacity: ${(props) => (props.contentAfter ? `1` : '0')};
     transition: all 0.3s ease-in;
     z-index: 11;
-    width: 100px;
+    width: ${(props) => (props.noContent ? `0px` : '100px')};
     font-size: 11px;
     display: block !important;
     position: relative !important;

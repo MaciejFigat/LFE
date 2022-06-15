@@ -32,14 +32,10 @@ export const SideMenuButtonDiv = styled(motion.div)`
   width: 50px;
   height: 50px;
   background: red;
-  //todo
-  /* right: 3%; */
-  /* right: -200px; */
+
   z-index: 10;
 `
 export const MainWrapperResizableMenu = styled.div`
-  /* position: absolute; */
-  /* position: sticky; */
   top: 0;
   width: 100%;
 `
@@ -72,10 +68,10 @@ export const BackgroundDiv = styled(motion.div)`
   bottom: 0;
   max-height: fit-content;
   min-height: 100vh;
-  height: 500px;
+  /* height: 500px; */
   min-width: 100%;
-  padding-right: 1rem;
-  margin-right: 1.5rem;
+  /* padding-right: 1rem; */
+  /* margin-right: 1.5rem; */
   background: var(--background2-main);
   /* background: lime; */
 `

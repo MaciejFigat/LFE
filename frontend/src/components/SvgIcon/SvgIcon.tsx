@@ -35,6 +35,7 @@ interface SvgIconProps {
   noMargin?: boolean
   contentAfter?: string
   toRight?: boolean
+  noContent?: boolean
 }
 
 const SvgIcon: React.FC<SvgIconProps> = ({
@@ -42,6 +43,7 @@ const SvgIcon: React.FC<SvgIconProps> = ({
   noMargin,
   contentAfter,
   toRight,
+  noContent,
 }) => {
   const [copySuccess, setCopySuccess] = useState<string | undefined>('')
   const hoverHelper = () => {
@@ -78,6 +80,7 @@ const SvgIcon: React.FC<SvgIconProps> = ({
         return faSave
       case 'question':
         return faQuestionCircle
+
       default:
         return faUser
     }
@@ -95,6 +98,7 @@ const SvgIcon: React.FC<SvgIconProps> = ({
       onMouseEnter={() => hoverHelper()}
       onMouseLeave={() => leaveHelper()}
       toRight={toRight}
+      noContent={noContent}
     >
       <FontAwesomeIcon icon={iconVersion(variant)} />
     </IconsItem>

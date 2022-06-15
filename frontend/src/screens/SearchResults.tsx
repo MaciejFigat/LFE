@@ -1,16 +1,13 @@
 import React from 'react'
-import HighlightPopMenu from '../components/HighlightPopRemake/HighlightPopMenu'
 import DataSection from '../components/InfoSection/DataSection'
 import { UserInfo } from '../interfaces'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import {
   getSearchResults,
-  // getSearchResultsTwo,
   getDocResult,
   getDocByNr,
 } from '../features/searchResults/searchResultsSlice'
-import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
-import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
+
 import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
 import { SendButton } from '../components/Buttons/Buttons.styled'
 
@@ -40,16 +37,14 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
 
   const submitHandlerDoc = (e: any) => {
     e.preventDefault()
-    // const docQuery = {
+
     const searchquery = {
-      // query: 'poczta',
       query: 'sp%C3%B3%C5%82ki+skarbu+pa%C5%84stwa',
       selectedDoc: 1,
       docNumber: 85725494,
     }
-    // dispatch(getDocResult(docQuery))
+
     dispatch(getDocResult(searchquery))
-    // console.log(searchquery.query, searchquery.docNumber)
   }
   const submitHandlerDocNr = (e: any) => {
     e.preventDefault()
@@ -60,21 +55,11 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
     <div>
       <SideMenuSecondary
         mainData={
-          <HighlightPopMenu>
-            <SendButton onClick={submitHandler}>Search Test</SendButton>
-            <SendButton variant='success' onClick={submitHandlerDoc}>
-              get Doc test TEST TEST
-            </SendButton>
-            <SendButton variant='secondary' onClick={submitHandlerDocNr}>
-              get Doc nr test
-            </SendButton>
+          <>
             {data.length > 0 &&
               data.map((fragmentArray: any) => (
                 <DataSection
-                  // variant='primary'
                   variant='secondary'
-                  // variant='tertiary'
-                  // variant='transparent'
                   key={fragmentArray['uuid']}
                   paddingTop='large'
                   // imgStart
@@ -84,19 +69,32 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
                   fragmentsFound={fragmentArray.fragment}
                   metryka={fragmentArray.metryka}
                   query={queryTrimmed}
-                >
-                  {/* {fragmentArray.fragment.map((fragment: any) => (
-                    <div>{parse(fragment)}</div>
-                  ))} */}
-                </DataSection>
+                />
               ))}
-          </HighlightPopMenu>
+          </>
         }
       >
         {Object.keys(userInfo).length > 0 ? (
-          <UserFragmentsColumn />
+          <>
+            <SendButton onClick={submitHandler}>Search Test</SendButton>
+            <SendButton variant='success' onClick={submitHandlerDoc}>
+              get Doc test TEST TEST
+            </SendButton>
+            <SendButton variant='secondary' onClick={submitHandlerDocNr}>
+              get Doc nr test
+            </SendButton>
+          </>
         ) : (
-          <FragmentsColumn />
+          <>
+            {' '}
+            <SendButton onClick={submitHandler}>Search Test</SendButton>
+            <SendButton variant='success' onClick={submitHandlerDoc}>
+              get Doc test TEST TEST
+            </SendButton>
+            <SendButton variant='secondary' onClick={submitHandlerDocNr}>
+              get Doc nr test
+            </SendButton>
+          </>
         )}
       </SideMenuSecondary>
     </div>

@@ -1,7 +1,29 @@
 import styled from 'styled-components'
 
+export const ArticleContainer = styled.div`
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  /* width: 100vw; */
+  /* max-height: 100vh; */
+  /* background: var(--background1-main); */
+
+  /* &::-webkit-scrollbar {
+    width: 1rem !important;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--background3-main);
+    background: lime;
+
+    border-radius: 2px;
+  } */
+`
 export const ArticleWrapper = styled.div`
   display: flex;
+  /* align-self: flex-end; */
+  /* background: lime; */
+  max-width: 1080px;
   background: var(--background2-main);
   flex-direction: column;
   align-items: center;
@@ -32,8 +54,9 @@ export const ArticleTitle = styled.h2`
 `
 export const ArticleTopline = styled.h4`
   letter-spacing: 0.75px;
+  font-size: 1.5rem;
   margin: 1rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 `
 export const ArticleSection = styled.div`
   padding: var(--padding);
@@ -47,17 +70,13 @@ export const ArticleSection = styled.div`
   }
 `
 export const ArticleParagraph = styled.div`
-  font-size: 1rem;
+  font-size: 1.3rem;
   line-height: 1.4;
-  padding: 1rem;
-  padding-bottom: 0;
+  padding-top: 1rem;
+  /* padding-bottom: 0; */
   font-weight: 500;
+  text-align: justify;
 `
-export const ArticleParagraphFragment = styled.div`
-  font-size: 1rem;
-  line-height: 1.4;
-  background: lime;
-  padding: 1rem;
-  padding-bottom: 0;
-  font-weight: 500;
+export const ArticleParagraphFragment = styled(ArticleParagraph)`
+  color: var(--background-secondary3);
 `

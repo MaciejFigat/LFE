@@ -27,7 +27,7 @@ body {
 
 :root {
   
-   --padding: 2rem;
+   --padding: 3rem;
    
    --gradient1-main: linear-gradient(
     355deg,
@@ -207,15 +207,20 @@ body {
     
 }
 ::-webkit-scrollbar {
-  // width: 0.5em;
-  width: 0;
+  width: 0.5em;
+  // width: 0;
    
   
   
 }
 
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-corner {
   // background: var(--background2-main);
+  background: none;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--background-secondary2);
+
   @media (max-width: 1020px) {
     // background: var(--background2-main);
    

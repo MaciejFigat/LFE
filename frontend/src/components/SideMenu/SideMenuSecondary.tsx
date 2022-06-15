@@ -74,7 +74,7 @@ const SideMenuSecondary: React.FC<SideMenuSecondaryProps> = ({
     <>
       {' '}
       <SideMenuButtonDiv open={open} onClick={handleClickMenu}>
-        <SvgIcon variant='question' />
+        <SvgIcon variant='question' noContent />
       </SideMenuButtonDiv>
       <MainWrapperResizableMenu>
         <SideMenuResizeWrapperUltimateWeapon id='SideMenuResizable'>

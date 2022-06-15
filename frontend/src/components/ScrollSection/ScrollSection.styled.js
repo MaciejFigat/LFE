@@ -137,7 +137,7 @@ export const SectionColumnResize = styled.div`
   max-height: 100vh;
   min-height: fit-content;
   width: 30%;
-  overflow: scroll;
+  /* overflow: scroll; */
   flex-grow: 1;
   min-width: 300px;
   max-width: 70vw;
