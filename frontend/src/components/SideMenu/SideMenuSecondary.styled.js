@@ -11,7 +11,10 @@ export const SideMenuDataColumn = styled(motion.div)`
   position: relative;
   display: flex;
   flex-direction: column;
-  top: -100vh;
+  //todo
+  /* top: -100vh; */
+  margin-top: -100vh;
+
   z-index: -1;
   animation: ${changeZindex} 1.09s linear;
   animation-iteration-count: 1;
@@ -24,8 +27,6 @@ export const SideMenuButtonDiv = styled(motion.div)`
   position: sticky;
   display: grid;
   place-items: center;
-  /* display: flex; */
-
   margin: 0;
   margin-left: 93vw;
   border-radius: 50%;
@@ -37,7 +38,13 @@ export const SideMenuButtonDiv = styled(motion.div)`
   z-index: 10;
 `
 export const MainWrapperResizableMenu = styled.div`
+  display: grid;
+  place-items: center;
+
+  //todo
   top: 0;
+
+  //todo
   width: 100%;
 `
 export const SideMenuResizeWrapperUltimateWeapon = styled.div`
