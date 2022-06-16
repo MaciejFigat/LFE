@@ -14,7 +14,7 @@ interface SearchBarProps {}
 const SearchBar: React.FC<SearchBarProps> = () => {
   const dispatch = useAppDispatch()
   const [searchQuery, setSearchQuery] = useState<string>('')
-  const [showSearch, setShowSearch] = useState<boolean>(false)
+  const [showSearch, setShowSearch] = useState<boolean>(true)
 
   const showSearchHandler = () => {
     setShowSearch(!showSearch)

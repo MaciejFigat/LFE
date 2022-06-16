@@ -32,7 +32,7 @@ export const SideMenuButtonDiv = styled(motion.div)`
   top: 120px;
   width: 50px;
   height: 50px;
-  background: red;
+  background: var(--background-secondary2);
 
   z-index: 10;
 `
@@ -58,11 +58,6 @@ export const SideMenuWrapper = styled(motion.div)`
   flex-direction: row;
 `
 export const BackgroundDiv = styled(motion.div)`
-  /* position: sticky;
-  top: 0; */
-  //todo 1
-  /* overflow: hidden; */
-  //!
   z-index: 1;
   top: 0;
   right: 0;
@@ -79,7 +74,7 @@ export const BackgroundDiv = styled(motion.div)`
 export const SideMenuDiv = styled(motion.div)`
   top: 50px;
   right: 0;
-  //!
+
   z-index: 2;
   padding: 0.5rem;
   height: calc(100vh - 50px);

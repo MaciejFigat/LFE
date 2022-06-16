@@ -36,6 +36,7 @@ const Home: React.FC = () => {
 
     const searchquery = {
       query: 'sp%C3%B3%C5%82ki+skarbu+pa%C5%84stwa',
+      // query: 'spółki skarbu państwa',
       selectedDoc: 1,
       docNumber: 85725494,
     }

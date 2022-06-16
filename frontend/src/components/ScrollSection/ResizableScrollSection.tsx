@@ -1,6 +1,9 @@
 import React, { ReactNode, useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
-import { preferredWidthSaved } from '../../features/preferences/preferenceSlice'
+import {
+  preferredNarrowWidthSaved,
+  preferredWidthSaved,
+} from '../../features/preferences/preferenceSlice'
 
 import {
   SectionColumnResize,
@@ -17,14 +20,17 @@ interface ResizableScrollSectionProps {
   widthSmall?: string
   widthBig?: string
   transparent?: boolean
+  narrowOption?: boolean
 }
 
 const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
   wideSection,
   narrowSection,
+  narrowOption,
 }) => {
   const dispatch: any = useAppDispatch()
   const width = useAppSelector((state) => state.preference.width)
+  const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
 
   const [initialPos, setInitialPos] = useState<any>(null)
   const [initialSize, setInitialSize] = useState<any>(null)
@@ -53,16 +59,20 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
   }
   const saveWidthHandler = () => {
     let resizable = document.getElementById('SectionWide')
-    if (resizable !== null) {
+    if (resizable !== null && narrowOption) {
+      dispatch(preferredNarrowWidthSaved(resizable.style.width))
+    } else if (resizable !== null && !narrowOption) {
       dispatch(preferredWidthSaved(resizable.style.width))
     }
   }
   useEffect(() => {
     let resizable = document.getElementById('SectionWide')
-    if (width !== '' && resizable !== null) {
+    if (width !== '' && resizable !== null && !narrowOption) {
       resizable.style.width = width
+    } else if (widthNarrow !== '' && resizable !== null && narrowOption) {
+      resizable.style.width = widthNarrow
     }
-  }, [dispatch, width])
+  }, [dispatch, width, narrowOption, widthNarrow])
 
   return (
     <ScrollSec>
@@ -70,12 +80,7 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
         {/* <SectionColumnResize width={widthSmall}> */}
         <SectionColumnResize>{narrowSection}</SectionColumnResize>
 
-        <DragDiv
-          // id='Draggable'
-          draggable='true'
-          onDragStart={initial}
-          onDrag={resize}
-        >
+        <DragDiv draggable='true' onDragStart={initial} onDrag={resize}>
           {' '}
           <DragButton draggable='true' onDragEnd={saveWidthHandler} />
         </DragDiv>

@@ -116,18 +116,19 @@ export const DragDiv = styled.div`
   width: 5px;
   align-self: flex-start;
 `
+// ? this encloses {wideSection}
 export const SectionColumnScrollResize = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 15px;
   padding-left: 15px;
-  width: 50%;
+  /* width: 50%; */
   min-width: 400px;
-  max-width: 70vw;
+  max-width: 90vw;
 `
-
+// ? this encloses {narrowSection}
 export const SectionColumnResize = styled.div`
   background: none;
   position: sticky;
@@ -136,9 +137,9 @@ export const SectionColumnResize = styled.div`
   padding-left: 15px;
   max-height: 100vh;
   min-height: fit-content;
-  width: 30%;
   /* overflow: scroll; */
   flex-grow: 1;
-  min-width: 300px;
+  /* min-width: 300px; */
   max-width: 70vw;
+  width: 10%;
 `

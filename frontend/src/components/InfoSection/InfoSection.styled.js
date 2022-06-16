@@ -160,6 +160,7 @@ export const Subtitle = styled.p`
   margin: 0;
   margin-top: 10px;
   margin-bottom: 15px;
+  text-align: justify;
   font-size: 1.1rem;
   /* line-height: 24px; */
   line-height: 1.15rem;
@@ -187,6 +188,9 @@ export const Img = styled.img`
 `
 export const CenterWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  /* width: 95vw; */
+  width: 100%;
+  /* background: lime; */
+
   justify-content: center;
 `

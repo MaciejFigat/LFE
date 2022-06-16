@@ -1,8 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit"
-// import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-
-// import { FragmentCreated } from '../../interfaces'
-// import axios from 'axios'
 
 const today = new Date()
 
@@ -10,7 +6,8 @@ const preferenceSlice = createSlice({
     name: 'settings',
     initialState: {
 
-        width: '',
+        width: '700px',
+        widthNarrow: '300px',
         sortingDate: { sortingYear: today.getFullYear(), sortingMonth: today.getMonth() + 1, sortingDay: today.getDate() },
         sortingKeywords: {
             keywordOne: '',
@@ -26,6 +23,9 @@ const preferenceSlice = createSlice({
             // const { width } = action.payload
             // state.width = width
             state.width = action.payload
+        },
+        preferredNarrowWidthSaved(state, action) {
+            state.widthNarrow = action.payload
         },
         sortingDateEdit(state, action) {
 
@@ -50,6 +50,6 @@ const preferenceSlice = createSlice({
 
 
 
-export const { preferredWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingOptionEdit } = preferenceSlice.actions
+export const { preferredWidthSaved, preferredNarrowWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingOptionEdit } = preferenceSlice.actions
 
 export default preferenceSlice.reducer
