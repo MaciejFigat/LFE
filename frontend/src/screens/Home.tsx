@@ -55,8 +55,9 @@ const Home: React.FC = () => {
       <SideMenuSecondary
         mainData={
           <>
-            {data?.length === 0 && <HomeWelcome variant='primary' />}
-            {data?.length > 0 &&
+            {data && data?.length === 0 && <HomeWelcome variant='primary' />}
+            {data &&
+              data?.length > 0 &&
               data.map((fragmentArray: any) => (
                 <DataSection
                   variant='secondary'
