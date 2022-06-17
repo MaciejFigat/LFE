@@ -1,7 +1,7 @@
 /api/*  http://pthome.herokuapp.com/api/:splat  200
 <!-- /lexapi/*  http://pthome.herokuapp.com/lexapi/:splat  200 -->
 <!-- /lexapi/*  http://pthome.herokuapp.com/lexapi/*  200 -->
-/lexapi/*  http://pthome.herokuapp.com/lexapi/*  200
+/lexapi/*  http://pthome.herokuapp.com/*  200
 
 
 
