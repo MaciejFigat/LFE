@@ -14,6 +14,8 @@ export const FilterOptionsWrapper = styled.div`
 `
 export const OptionsWrapper = styled.div`
   display: flex;
+  z-index: 10;
+  margin-top: 2.5rem;
   /* align-items: flex-end; */
   justify-content: space-evenly;
   /* background: rgba(60, 59, 61, 0.35); */

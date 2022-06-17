@@ -1,19 +1,19 @@
-import React, { ReactFragment } from 'react'
-import SvgIcon from '../SvgIcon/SvgIcon'
+import React from 'react'
+// import SvgIcon from '../SvgIcon/SvgIcon'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
 import { getDocResult } from '../../features/searchResults/searchResultsSlice'
 import {
-  InfoSec,
+  //   InfoSec,
   Container,
   InfoRow,
   InfoColumn,
-  TextWrapper,
-  TopLine,
+  //   TextWrapper,
+  //   TopLine,
   //   Heading,
-  Subtitle,
+  //   Subtitle,
   InfoColumnShort,
-  CenterWrapper,
+  //   CenterWrapper,
   InfoSecSimple,
   TopLineSimple,
   TextWrapperSimple,
