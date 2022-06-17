@@ -141,9 +141,13 @@ export const SectionColumnResize = styled.div`
   padding-left: 15px;
   max-height: 100vh;
   min-height: fit-content;
-  /* overflow: scroll; */
+  overflow: scroll;
   flex-grow: 1;
   /* min-width: 300px; */
   max-width: 70vw;
   width: 10%;
+  ::-webkit-scrollbar {
+    /* width: 0.2em; */
+    width: 0px;
+  }
 `

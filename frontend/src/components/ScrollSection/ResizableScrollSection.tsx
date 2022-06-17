@@ -17,8 +17,8 @@ import {
 interface ResizableScrollSectionProps {
   wideSection?: ReactNode
   narrowSection?: ReactNode
-  widthSmall?: string
-  widthBig?: string
+  // widthSmall?: string
+  // widthBig?: string
   transparent?: boolean
   narrowOption?: boolean
 }

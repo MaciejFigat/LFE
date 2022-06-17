@@ -16,10 +16,7 @@ const StoredFragments: React.FC<StoredFragmentsProps> = () => {
     <div>
       {Object.keys(userInfo).length > 0 ? (
         <ResizableScrollSection
-          widthBig='50%'
-          widthSmall='30%'
           transparent
-          // wideSection={<UserFragmentsColumn />}
           wideSection={<UserFragColSimple />}
           narrowSection={
             <KeywordColumnContainer>

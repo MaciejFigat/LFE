@@ -12,7 +12,7 @@ export const InfoSec = styled.div`
   /* opacity: 0.8; */
   ${(props) => handleSectionColor(props).sectionBackgroundGradient}
   /* //! test*/
-
+  
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
@@ -28,6 +28,14 @@ export const InfoSec = styled.div`
   }
   margin-bottom: 1rem;
   margin-left: 1rem;
+`
+export const InfoSecSimple = styled(InfoSec)`
+  padding: 0;
+
+  padding-top: 0.25rem;
+  padding-bottom: 0.75rem;
+  margin: 0;
+  min-height: fit-content;
 `
 export const InfoRow = styled.div`
   display: flex;
@@ -67,6 +75,9 @@ export const TextWrapper = styled.div`
   @media screen and (max-width: 770px) {
     /* padding-bottom: 25px; */
   }
+`
+export const TextWrapperSimple = styled(TextWrapper)`
+  padding: 0.5rem;
 `
 export const Container = styled.div`
   z-index: 1;
@@ -146,6 +157,12 @@ export const TopLine = styled.div`
   letter-spacing: 1.4px;
   margin-bottom: 10px;
 `
+export const TopLineSimple = styled(TopLine)`
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+`
 export const Heading = styled.h1`
   margin-bottom: 24px;
   font-size: 48px;
@@ -168,6 +185,17 @@ export const Subtitle = styled.p`
   font-weight: 300;
   /* subtitleColor */
   ${(props) => handleSectionColor(props).subtitleColor}
+`
+export const SubtitleSimple = styled(Subtitle)`
+  /* margin-top: 5px; */
+  margin: 0;
+  /* margin-bottom: 10px; */
+  text-align: left;
+  font-size: 0.9rem;
+  /* line-height: 24px; */
+  line-height: 1.15rem;
+  letter-spacing: 0em;
+  font-weight: 300;
 `
 export const ImgWrapper = styled.div`
   /* max-width: 555px; */
@@ -193,4 +221,9 @@ export const CenterWrapper = styled.div`
   /* background: lime; */
 
   justify-content: center;
+`
+export const CenterWrapperSimple = styled(CenterWrapper)`
+  margin-bottom: 0.5rem;
+  height: fit-content;
+  align-self: flex-start;
 `

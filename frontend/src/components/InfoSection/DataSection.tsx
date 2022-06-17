@@ -34,9 +34,9 @@ interface InfoData {
 interface DataSectionProps {
   metryka: InfoData
   query: string
-  topline: string
-  headline: string
-  subtitle: string
+  topline?: string
+  headline?: string
+  subtitle?: string
   fragmentsFound: string[]
   variant?:
     | 'primary'

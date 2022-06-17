@@ -200,8 +200,8 @@ body {
       }
     }
   .highlight{
-    background: pink;
-    color: black;
+    // background: pink;
+    color: var(--background-neon4);
   }
     
     

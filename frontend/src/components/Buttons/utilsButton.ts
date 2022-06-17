@@ -27,6 +27,26 @@ const primaryEmptyStyle: StyleVariant = {
     buttonColorActive: 'var(--background-secondary2);',
     buttonBorderActive: 'var(--background-secondary2);'
 }
+const darkEmptyStyle: StyleVariant = {
+    buttonColor: 'var(--background-neon1);',
+    buttonBackground: 'transparent;',
+    buttonBackgroundHover: 'transparent;',
+    buttonColorHover: 'var(--background-neon5);',
+    buttonBorder: '1px solid var(--background-neon1);',
+    buttonBorderHover: '1px solid var(--background-neon1);',
+    buttonColorActive: 'var(--background-secondary2);',
+    buttonBorderActive: 'var(--background-secondary2);'
+}
+const lightEmptyStyle: StyleVariant = {
+    buttonColor: 'var(--background-neon10);',
+    buttonBackground: 'transparent;',
+    buttonBackgroundHover: 'transparent;',
+    buttonColorHover: 'var(--background-neon6);',
+    buttonBorder: '1px solid var(--background-neon10);',
+    buttonBorderHover: '1px solid var(--background-neon10);',
+    buttonColorActive: 'var(--background-secondary2);',
+    buttonBorderActive: 'var(--background-secondary2);'
+}
 
 
 const secondaryStyle: StyleVariant = {
@@ -116,6 +136,12 @@ export const handleButtonColor: (props: any) => {} = (props: any) => {
         case 'danger':
             style = dangerStyle
             break;
+        case 'darkEmpty':
+            style = darkEmptyStyle
+            break;
+        case 'lightEmpty':
+            style = lightEmptyStyle
+            break;
 
         default:
             style = defaultStyle
@@ -131,7 +157,7 @@ export const handleButtonColor: (props: any) => {} = (props: any) => {
         buttonBorder: `border: ${style.buttonBorder}`,
         buttonBorderHover: `border: ${style.buttonBorderHover}`,
         buttonColorActive: `color: ${style.buttonColorActive}`,
-        buttonBorderActive: `border: 2px solid ${style.buttonBorderActive}`
+        buttonBorderActive: `border: 1px solid ${style.buttonBorderActive}`
     }
 }
 

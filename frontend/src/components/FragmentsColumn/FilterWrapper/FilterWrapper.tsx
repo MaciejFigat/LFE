@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { useAppSelector } from '../../../app/reduxHooks'
 import DateCompare from '../DateCompare'
 import DropdownFilter from './DropdownFilter/DropdownFilter'
