@@ -5,6 +5,6 @@
 <!-- https://lexfront.netlify.app/lexapi/* https://null.turbo-lex.pl/lexapi/* 301! -->
 <!-- /lexapi/*  http://null.turbo-lex.pl/lexapi/:splat 200 -->
 <!-- /lexapi/search  http://null.turbo-lex.pl/lexapi/search 200 -->
-/lexapi/search  http://null.turbo-lex.pl/search/ 200
+/lexapi/search/*  http://null.turbo-lex.pl/search/ 200
 
 /*    /index.html    200
