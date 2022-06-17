@@ -2,6 +2,6 @@
 <!-- /lexapi/*  https://null.turbo-lex.pl/lexapi/:splat 200 -->
 <!-- /lexapi/* https://null.turbo-lex.pl/:splat 200 -->
 <!-- https://lexfront.netlify.app/lexapi/* https://null.turbo-lex.pl/lexapi/:splat 200 -->
-https://lexfront.netlify.app/lexapi/* https://null.turbo-lex.pl/lexapi/:splat 200
+https://lexfront.netlify.app/lexapi/* https://null.turbo-lex.pl/lexapi/* 200
 
 /*    /index.html    200
