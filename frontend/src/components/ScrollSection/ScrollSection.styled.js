@@ -124,7 +124,11 @@ export const SectionColumnScrollResize = styled.div`
   align-items: center;
   margin-bottom: 15px;
   padding-left: 15px;
-  /* width: 50%; */
+  //* the following sets width depending on whether it's narrowOption (used in DocResult display) or regular
+  ${(props) =>
+    props.narrowOption && props.widthNarrow && `width: ${props.widthNarrow}`};
+  ${(props) =>
+    !props.narrowOption && props.widthNarrow && `width: ${props.width}`};
   min-width: 400px;
   max-width: 90vw;
 `

@@ -77,15 +77,19 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
   return (
     <ScrollSec>
       <ScrollSectionRow imgStart>
-        {/* <SectionColumnResize width={widthSmall}> */}
         <SectionColumnResize>{narrowSection}</SectionColumnResize>
 
         <DragDiv draggable='true' onDragStart={initial} onDrag={resize}>
           {' '}
           <DragButton draggable='true' onDragEnd={saveWidthHandler} />
         </DragDiv>
-        {/* <SectionColumnScrollResize width={widthBig} id='SectionWide'> */}
-        <SectionColumnScrollResize id='SectionWide'>
+        <SectionColumnScrollResize
+          width={width}
+          widthNarrow={widthNarrow}
+          narrowOption={narrowOption}
+          id='SectionWide'
+        >
+          {/* <SectionColumnScrollResize id='SectionWide'> */}
           {wideSection}{' '}
         </SectionColumnScrollResize>
       </ScrollSectionRow>

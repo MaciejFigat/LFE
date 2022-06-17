@@ -16,7 +16,6 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
       <ResizableScrollSection
         widthBig='60%'
         widthSmall='40%'
-        // transparent
         narrowOption
         narrowSection={
           Object.keys(userInfo).length > 0 ? (

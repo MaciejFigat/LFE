@@ -51,53 +51,52 @@ const Home: React.FC = () => {
   return (
     <>
       <Toast option='registerUser' />
-      <div>
-        <SideMenuSecondary
-          mainData={
-            <>
-              {data.length === 0 && <HomeWelcome variant='primary' />}
-              {data.length > 0 &&
-                data.map((fragmentArray: any) => (
-                  <DataSection
-                    variant='secondary'
-                    key={fragmentArray['uuid']}
-                    paddingTop='large'
-                    // imgStart
-                    topline='Topline 1'
-                    headline='headline 1'
-                    subtitle='lorem subtitle 1'
-                    fragmentsFound={fragmentArray.fragment}
-                    metryka={fragmentArray.metryka}
-                    query={queryTrimmed}
-                  />
-                ))}
-            </>
-          }
-        >
-          {Object.keys(userInfo).length > 0 ? (
-            <>
-              <SendButton onClick={submitHandler}>Search Test</SendButton>
-              <SendButton variant='success' onClick={submitHandlerDoc}>
-                get Doc test TEST TEST
-              </SendButton>
-              <SendButton variant='secondary' onClick={submitHandlerDocNr}>
-                get Doc nr test
-              </SendButton>
-            </>
-          ) : (
-            <>
-              {' '}
-              <SendButton onClick={submitHandler}>Search Test</SendButton>
-              <SendButton variant='success' onClick={submitHandlerDoc}>
-                get Doc test TEST TEST
-              </SendButton>
-              <SendButton variant='secondary' onClick={submitHandlerDocNr}>
-                get Doc nr test
-              </SendButton>
-            </>
-          )}
-        </SideMenuSecondary>
-      </div>
+
+      <SideMenuSecondary
+        mainData={
+          <>
+            {data.length === 0 && <HomeWelcome variant='primary' />}
+            {data.length > 0 &&
+              data.map((fragmentArray: any) => (
+                <DataSection
+                  variant='secondary'
+                  key={fragmentArray['uuid']}
+                  paddingTop='large'
+                  // imgStart
+                  topline='Topline 1'
+                  headline='headline 1'
+                  subtitle='lorem subtitle 1'
+                  fragmentsFound={fragmentArray.fragment}
+                  metryka={fragmentArray.metryka}
+                  query={queryTrimmed}
+                />
+              ))}
+          </>
+        }
+      >
+        {Object.keys(userInfo).length > 0 ? (
+          <>
+            <SendButton onClick={submitHandler}>Search Test</SendButton>
+            <SendButton variant='success' onClick={submitHandlerDoc}>
+              get Doc test TEST TEST
+            </SendButton>
+            <SendButton variant='secondary' onClick={submitHandlerDocNr}>
+              get Doc nr test
+            </SendButton>
+          </>
+        ) : (
+          <>
+            {' '}
+            <SendButton onClick={submitHandler}>Search Test</SendButton>
+            <SendButton variant='success' onClick={submitHandlerDoc}>
+              get Doc test TEST TEST
+            </SendButton>
+            <SendButton variant='secondary' onClick={submitHandlerDocNr}>
+              get Doc nr test
+            </SendButton>
+          </>
+        )}
+      </SideMenuSecondary>
     </>
   )
 }

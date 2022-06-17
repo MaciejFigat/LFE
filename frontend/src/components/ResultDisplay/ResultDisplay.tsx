@@ -43,7 +43,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
                       {Array.isArray(docResult.frags) &&
                         Array.isArray(korpusParagraph) &&
                         korpusParagraph.map((smallParagraph: any) => (
-                          <>
+                          <div key={Math.random()}>
                             {docResult.frags.every((item: any) =>
                               smallParagraph.includes(item.substring(30, 90))
                             ) ? (
@@ -55,7 +55,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
                                 {smallParagraph}
                               </ArticleParagraph>
                             )}
-                          </>
+                          </div>
                         ))}
                     </ArticleParagraph>
                   ))}

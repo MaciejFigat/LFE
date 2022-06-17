@@ -144,30 +144,20 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
         keywords: [...keywords, keywordTwo],
       }
 
-      // // //todo move to 1 include k1
-      // if (destinationIndex === 1 && keywords.includes(keywordOne)) {
-      //   console.log('move to 1 and include k1')
-      // }
-      // // //todo move to 2 include k2
-      // if (destinationIndex === 2 && keywords.includes(keywordTwo)) {
-      //   console.log('move to 2 and include k2')
-      // }
       // //todo move to 1 from 0 and does not include k1
       if (
         sourceIndex === 0 &&
         destinationIndex === 1 &&
         !keywords.includes(keywordOne)
       ) {
-        // console.log('move to 1 and does not include k1')
         dispatch(editSavedFragment(newKeywordListOne))
       }
-      // //todo move to 2 from 0 and does not include k2'
+      //todo move to 2 from 0 and does not include k2
       if (
         sourceIndex === 0 &&
         destinationIndex === 2 &&
         !keywords.includes(keywordTwo)
       ) {
-        // console.log('move to 2 and does not include k2')
         dispatch(editSavedFragment(newKeywordListTwo))
       }
 
@@ -207,23 +197,14 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
       ) {
         //* from 1 to 2 and there is no keyword2 in 1
         dispatch(editSavedFragment(newKeywordListWithoutOne))
-        // console.log('1 to 2 ')
-        // console.log(keywords)
-        // console.log(
-        //   keywords.filter((keyword: string) => keyword !== keywordOne)
-        // )
       } else if (
         sourceIndex === 2 &&
         destinationIndex === 1 &&
         !keywords.includes(keywordOne)
       ) {
         //* from 2 to 1 and there is no keyword1 in 2
-        // console.log('2 to 1 ')
+
         dispatch(editSavedFragment(newKeywordListWithoutTwo))
-        // console.log(keywords)
-        // console.log(
-        //   keywords.filter((keyword: string) => keyword !== keywordTwo)
-        // )
       }
 
       //* END of removing keywords
@@ -244,11 +225,6 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
       // setState(newState.filter((group) => group.length))
       //* this will not remove empty one
       setState(newState)
-
-      // setState(newState.filter((group) => group.length > 0))
-      //todo adding keyword with onDrag event
-
-      //todo
     }
   }
 
@@ -274,8 +250,6 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <ResizableScrollSection
-        widthBig='30%'
-        widthSmall='60%'
         transparent
         wideSection={<FirstColumn state={state} />}
         // ! 2nd 3rd columns

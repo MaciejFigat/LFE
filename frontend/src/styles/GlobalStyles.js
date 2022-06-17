@@ -207,7 +207,7 @@ body {
     
 }
 ::-webkit-scrollbar {
-  width: 0.5em;
+  width: 0.3em;
   // width: 0;
    
   
