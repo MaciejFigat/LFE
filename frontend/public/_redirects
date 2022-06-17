@@ -8,9 +8,9 @@
 <!-- /lexapi/search/*  http://null.turbo-lex.pl/search/ 200 -->
 <!-- /lexapi/search/  http://null.turbo-lex.pl/search/  200 -->
 <!-- /lexapi/doc/  http://null.turbo-lex.pl/doc/  200 -->
-
+<!-- https://null.turbo-lex.pl/search/?query=test -->
 <!-- //! gets search  /lexapi/*  http://null.turbo-lex.pl/lexapi/:splat  200 -->
- /lexapi/*  http://null.turbo-lex.pl/:splat  200
+ /lexapi/*  http://null.turbo-lex.pl/  200
 
 
 /*    /index.html    200
