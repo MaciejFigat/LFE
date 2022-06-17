@@ -1,5 +1,6 @@
 /api/*  http://pthome.herokuapp.com/api/:splat  200
-/lexapi/*  http://pthome.herokuapp.com/lexapi/:splat  200
+<!-- /lexapi/*  http://pthome.herokuapp.com/lexapi/:splat  200 -->
+/lexapi/*  http://pthome.herokuapp.com/:splat  200
 <!-- /lexapi/*  https://null.turbo-lex.pl/lexapi/:splat 200 -->
 <!-- /lexapi/* https://null.turbo-lex.pl/:splat 200 -->
 <!-- https://lexfront.netlify.app/lexapi/* https://null.turbo-lex.pl/lexapi/:splat 200 -->
