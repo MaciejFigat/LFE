@@ -3,6 +3,6 @@
 <!-- /lexapi/* https://null.turbo-lex.pl/:splat 200 -->
 <!-- https://lexfront.netlify.app/lexapi/* https://null.turbo-lex.pl/lexapi/:splat 200 -->
 <!-- https://lexfront.netlify.app/lexapi/* https://null.turbo-lex.pl/lexapi/* 301! -->
-/lexapi/*  http://null.turbo-lex.pl/lexapi/ 200
+/lexapi/*  http://null.turbo-lex.pl/lexapi/:splat 200
 
 /*    /index.html    200
