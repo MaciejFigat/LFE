@@ -68,6 +68,10 @@ export const SearchBarButton = styled.button`
     padding: none;
   }
 `
+export const SearchBarForm = styled.form`
+  display: flex;
+  flex-direction: row;
+`
 export const SearchBarContainer = styled.div`
   display: flex;
 `
@@ -75,9 +79,7 @@ export const SearchInput = styled.input`
   max-width: 100%;
   height: 100%;
   padding: 11px 13px;
-
   color: var(--background4-main);
-
   border-radius: 12px;
   outline: 0;
   border: 1px solid rgba(245, 245, 245, 0.7);

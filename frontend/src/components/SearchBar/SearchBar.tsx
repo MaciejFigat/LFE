@@ -5,6 +5,7 @@ import SvgIcon from '../SvgIcon/SvgIcon'
 import {
   SearchBarButton,
   SearchBarContainer,
+  SearchBarForm,
   SearchBarWrapper,
   SearchHideButton,
   SearchInput,
@@ -38,24 +39,27 @@ const SearchBar: React.FC<SearchBarProps> = () => {
           <SvgIcon variant='searchPlus' noMargin />
         )}
       </SearchHideButton>
-      <SearchBarContainer
-        className={`${showSearch === true ? 'show' : 'hide'} `}
-      >
-        <SearchInput
-          type='search'
-          name='search'
-          placeholder='Search'
-          autoComplete='search'
-          value={searchQuery}
-          onChange={(e: any) => setSearchQuery(e.target.value)}
-        />
-      </SearchBarContainer>
-      <SearchBarButton
-        className={`${showSearch === true ? 'show' : 'hide'} `}
-        onClick={submitHandler}
-      >
-        Search
-      </SearchBarButton>
+      <SearchBarForm onSubmit={submitHandler}>
+        <SearchBarContainer
+          className={`${showSearch === true ? 'show' : 'hide'} `}
+        >
+          <SearchInput
+            type='search'
+            name='search'
+            placeholder='Search'
+            autoComplete='search'
+            value={searchQuery}
+            onChange={(e: any) => setSearchQuery(e.target.value)}
+          />
+        </SearchBarContainer>
+        <SearchBarButton
+          className={`${showSearch === true ? 'show' : 'hide'} `}
+          // onClick={submitHandler}
+          type='submit'
+        >
+          Search
+        </SearchBarButton>
+      </SearchBarForm>
     </SearchBarWrapper>
   )
 }
