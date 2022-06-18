@@ -2,7 +2,7 @@
 
 
 
-/lexapi/*  http://pthome.herokuapp.com/:splat  200 
+/lexapi/*  http://pthome.herokuapp.com/api/:splat  200 
 
 
 
