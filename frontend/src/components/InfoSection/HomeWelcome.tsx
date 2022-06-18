@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { getSearchResultsTwo } from '../../features/searchResults/searchResultsSlice'
+import { useAppDispatch } from '../../app/reduxHooks'
 import {
   InfoSec,
   Container,
@@ -25,11 +26,15 @@ interface HomeWelcomeProps {
 }
 
 const HomeWelcome: React.FC<HomeWelcomeProps> = ({ variant }) => {
+  const dispatch = useAppDispatch()
   return (
     <>
       <CenterWrapper>
         <InfoSec variant={variant} paddingTop='large'>
           <Container>
+            <button onClick={() => dispatch(getSearchResultsTwo())}>
+              TEST
+            </button>
             <InfoRow imgStart={false}>
               <InfoColumnShort>
                 <TextWrapper>
