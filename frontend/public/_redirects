@@ -1,5 +1,5 @@
+/lexapi/*  http://pthome.herokuapp.com/:splat  200 
 /api/*  http://pthome.herokuapp.com/api/:splat  200
-
 
 
 
