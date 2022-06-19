@@ -54,7 +54,6 @@ const SearchBar: React.FC<SearchBarProps> = () => {
         </SearchBarContainer>
         <SearchBarButton
           className={`${showSearch === true ? 'show' : 'hide'} `}
-          // onClick={submitHandler}
           type='submit'
         >
           Search

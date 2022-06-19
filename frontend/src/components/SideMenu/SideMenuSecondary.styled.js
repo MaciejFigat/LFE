@@ -11,10 +11,7 @@ export const SideMenuDataColumn = styled(motion.div)`
   position: relative;
   display: flex;
   flex-direction: column;
-  //todo
-  /* top: -100vh; */
   margin-top: -100vh;
-
   z-index: -1;
   animation: ${changeZindex} 1.09s linear;
   animation-iteration-count: 1;
@@ -34,22 +31,17 @@ export const SideMenuButtonDiv = styled(motion.div)`
   width: 50px;
   height: 50px;
   background: var(--background-secondary2);
-
   z-index: 10;
 `
 export const MainWrapperResizableMenu = styled.div`
   display: grid;
   place-items: center;
-
-  //todo
   top: 0;
-
-  //todo
   width: 100%;
+  /* background: lime; */
 `
 export const SideMenuResizeWrapperUltimateWeapon = styled.div`
   position: sticky;
-  /* position: relative; */
   top: 0;
   left: 100%;
   min-width: 200px;
@@ -57,7 +49,6 @@ export const SideMenuResizeWrapperUltimateWeapon = styled.div`
 `
 
 export const SideMenuWrapper = styled(motion.div)`
-  /* position: sticky; */
   top: 0;
   left: 80%;
   min-width: 200px;
@@ -71,17 +62,14 @@ export const BackgroundDiv = styled(motion.div)`
   bottom: 0;
   max-height: fit-content;
   min-height: 100vh;
-  /* height: 500px; */
   min-width: 100%;
-  /* padding-right: 1rem; */
-  /* margin-right: 1.5rem; */
-  background: var(--background2-main);
-  /* background: lime; */
+  background: var(--background-blur1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 `
 export const SideMenuDiv = styled(motion.div)`
   top: 50px;
   right: 0;
-
   z-index: 2;
   padding: 0.5rem;
   height: calc(100vh - 50px);
@@ -89,13 +77,8 @@ export const SideMenuDiv = styled(motion.div)`
   justify-content: center;
   min-width: fit-content;
   background: var(--background1-main);
-  /* max-height: 100vh; */
-  /* min-height: fit-content; */
-  //todo 1
   /* overflow: scroll; */
 `
-// export const SideMenuDivResize = styled(SideMenu)``
-// todo draggable components
 
 export const DragDivSideMenu = styled.div`
   position: sticky;
@@ -103,12 +86,13 @@ export const DragDivSideMenu = styled.div`
   background: none;
   border-right: 12.5px solid;
   border-color: transparent;
+
   transition: 0.2s;
   &:active {
-    border-color: var(--background2-main);
+    border-color: var(--background-blur2);
   }
   &:hover {
-    border-color: var(--background-secondary1);
+    border-color: var(--background-blur2);
   }
   cursor: col-resize;
   height: 100vh;

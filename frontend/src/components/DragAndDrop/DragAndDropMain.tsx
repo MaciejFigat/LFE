@@ -6,7 +6,6 @@ import {
   updateUserFragmentsKeywordTwo,
 } from '../../features/fragments/fragmentSlice'
 import { DragDropContext } from 'react-beautiful-dnd'
-
 import ResizableScrollSection from '../ScrollSection/ResizableScrollSection'
 import FirstColumn from './FirstColumn'
 import SecondAndThirdCol from './SecondAndThirdCol'

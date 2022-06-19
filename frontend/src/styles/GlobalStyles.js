@@ -50,6 +50,9 @@ body {
    --background3-main: #6D6C70;
    --background4-main: #A2A1A6;
    --background5-main: #CBC9CF;
+   --background-blur1: rgba(60, 59, 61, 0.35);
+   //  --background-blur2: #CBC9CF;
+   --background-blur2: rgba(42, 157, 143, 0.25);
 
    --secondary1: #264653;
    --secondary2: #2a9d8f;

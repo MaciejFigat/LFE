@@ -214,13 +214,19 @@ export const Img = styled.img`
   display: inline-block;
   max-height: 500px;
 `
+export const HomeContentWrapper = styled.div`
+  /* margin-top: -30vh; */
+  display: grid;
+  place-items: center;
+`
 export const CenterWrapper = styled.div`
   display: flex;
   /* width: 95vw; */
   width: 100%;
-  /* background: lime; */
-
+  background: lime;
+  /* flex-direction: column; */
   justify-content: center;
+  /* align-items: center; */
 `
 export const CenterWrapperSimple = styled(CenterWrapper)`
   margin-bottom: 0.5rem;

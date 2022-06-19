@@ -54,7 +54,6 @@ const Home: React.FC = () => {
       <SideMenuSecondary
         mainData={
           <>
-            {/* //todo błąd w deploymencie */}
             {data && data?.length === 0 && <HomeWelcome variant='primary' />}
             {data &&
               data?.length > 0 &&
