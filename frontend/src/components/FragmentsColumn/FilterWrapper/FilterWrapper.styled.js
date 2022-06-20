@@ -30,3 +30,10 @@ export const OptionsWrapper = styled.div`
   /* min-width: 300px; */
   /* padding: 1rem; */
 `
+export const ChoiceWrapperRow = styled.div`
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  text-align: center;
+  justify-content: left;
+`

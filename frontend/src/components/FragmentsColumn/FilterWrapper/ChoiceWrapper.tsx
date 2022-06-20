@@ -1,11 +1,11 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 import { showFragments } from '../../../features/preferences/preferenceSlice'
-import { SendButton } from '../../Buttons/Buttons.styled'
+import { SendButton, SendButtonVerySmall } from '../../Buttons/Buttons.styled'
 import SvgIcon from '../../SvgIcon/SvgIcon'
 import FilterWrapper from './FilterWrapper'
 
-import { OptionsWrapper } from './FilterWrapper.styled'
+import { ChoiceWrapperRow, OptionsWrapper } from './FilterWrapper.styled'
 
 interface ChoiceWrapperProps {}
 
@@ -27,21 +27,21 @@ const ChoiceWrapper: React.FC<ChoiceWrapperProps> = () => {
   return (
     <OptionsWrapper>
       {showFragmentsState ? (
-        <>
+        <ChoiceWrapperRow>
+          <FilterWrapper />
           <SendButton variant='darkEmpty' onClick={showSearchResultsHandler}>
             Search results <SvgIcon variant='arrowRight' noContent />
           </SendButton>
-          <FilterWrapper />
-        </>
+        </ChoiceWrapperRow>
       ) : (
-        <>
-          <SendButton variant='lightEmpty'>
+        <ChoiceWrapperRow>
+          <SendButtonVerySmall variant='lightEmpty'>
             Displaying {numberOfResults && numberOfResults} search results
-          </SendButton>
+          </SendButtonVerySmall>
           <SendButton variant='darkEmpty' onClick={showFragmentsHandler}>
             Saved fragments <SvgIcon variant='arrowRight' noContent />
           </SendButton>
-        </>
+        </ChoiceWrapperRow>
       )}
     </OptionsWrapper>
   )
