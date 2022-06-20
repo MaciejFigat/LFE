@@ -223,7 +223,7 @@ export const CenterWrapper = styled.div`
   display: flex;
   /* width: 95vw; */
   width: 100%;
-  background: lime;
+  /* background: lime; */
   /* flex-direction: column; */
   justify-content: center;
   /* align-items: center; */

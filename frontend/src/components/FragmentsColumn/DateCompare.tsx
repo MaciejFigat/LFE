@@ -1,7 +1,8 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { sortingDateEdit } from '../../features/preferences/preferenceSlice'
-import { SendButtonSmall } from '../Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
+import { DateCompareRow, DateCompareWrapper } from './FragmentsColumn.styled'
 interface DateCompareProps {}
 
 const DateCompare: React.FC<DateCompareProps> = () => {
@@ -181,45 +182,73 @@ const DateCompare: React.FC<DateCompareProps> = () => {
     dispatch(sortingDateEdit(date))
   }
   return (
-    <div>
-      <p>Sorting by date -/+ for now</p>
-
-      <SendButtonSmall variant='primary' onClick={handleDecreaseSortDay}>
-        -
-      </SendButtonSmall>
-      <b>{sortingDay}</b>
-      <SendButtonSmall variant='primary' onClick={handleIncreaseSortDay}>
-        +
-      </SendButtonSmall>
-      <SendButtonSmall variant='primary' onClick={handleDecreaseSortMonth}>
-        -
-      </SendButtonSmall>
-      <b>{sortingMonth}</b>
-      {sortingMonth - 1 < new Date().getMonth() && (
-        <SendButtonSmall variant='primary' onClick={handleIncreaseSortMonth}>
+    <DateCompareWrapper>
+      <DateCompareRow>
+        <SendButtonVerySmall
+          variant='secondaryEmpty'
+          onClick={handleDecreaseSortDay}
+        >
+          -
+        </SendButtonVerySmall>
+        <b>{sortingDay}</b>
+        <SendButtonVerySmall
+          variant='primaryEmpty'
+          onClick={handleIncreaseSortDay}
+        >
           +
-        </SendButtonSmall>
-      )}
-      <SendButtonSmall variant='primary' onClick={handleDecreaseSortYear}>
-        -
-      </SendButtonSmall>
-      <b>{sortingYear}</b>
-      {sortingYear < new Date().getFullYear() && (
-        <SendButtonSmall variant='primary' onClick={handleIncreaseSortYear}>
-          +
-        </SendButtonSmall>
-      )}
-      {(sortingYear !== new Date().getFullYear() ||
-        sortingMonth !== new Date().getMonth() + 1 ||
-        sortingDay !== new Date().getDate()) && (
-        <SendButtonSmall variant='primaryEmpty' onClick={handleSetToday}>
-          Today
-        </SendButtonSmall>
-      )}
-      <SendButtonSmall variant='primaryEmpty' onClick={handleSetLastSession}>
-        Last session
-      </SendButtonSmall>
-    </div>
+        </SendButtonVerySmall>
+        <SendButtonVerySmall
+          variant='secondaryEmpty'
+          onClick={handleDecreaseSortMonth}
+        >
+          -
+        </SendButtonVerySmall>
+        <b>{sortingMonth}</b>
+        {sortingMonth - 1 < new Date().getMonth() ? (
+          <SendButtonVerySmall
+            variant='primaryEmpty'
+            onClick={handleIncreaseSortMonth}
+          >
+            +
+          </SendButtonVerySmall>
+        ) : (
+          <SendButtonVerySmall variant='primaryEmpty'>
+            &nbsp;
+          </SendButtonVerySmall>
+        )}
+        <SendButtonVerySmall
+          variant='secondaryEmpty'
+          onClick={handleDecreaseSortYear}
+        >
+          -
+        </SendButtonVerySmall>
+        <b>{sortingYear}</b>
+        {sortingYear < new Date().getFullYear() && (
+          <SendButtonVerySmall
+            variant='primaryEmpty'
+            onClick={handleIncreaseSortYear}
+          >
+            +
+          </SendButtonVerySmall>
+        )}
+      </DateCompareRow>
+      <DateCompareRow>
+        {' '}
+        {(sortingYear !== new Date().getFullYear() ||
+          sortingMonth !== new Date().getMonth() + 1 ||
+          sortingDay !== new Date().getDate()) && (
+          <SendButtonVerySmall variant='primaryEmpty' onClick={handleSetToday}>
+            Today
+          </SendButtonVerySmall>
+        )}
+        <SendButtonVerySmall
+          variant='primaryEmpty'
+          onClick={handleSetLastSession}
+        >
+          Last session
+        </SendButtonVerySmall>
+      </DateCompareRow>
+    </DateCompareWrapper>
   )
 }
 export default DateCompare

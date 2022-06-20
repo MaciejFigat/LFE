@@ -8,7 +8,7 @@ import {
 } from '../AnimatedTextPanel/AnimatedList.styled'
 import AnimatedSavedItem from '../AnimatedTextPanel/AnimatedSavedItem'
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
-import FilterWrapper from './FilterWrapper/FilterWrapper'
+// import FilterWrapper from './FilterWrapper/FilterWrapper'
 
 interface UserFragmentsColumnProps {}
 
@@ -38,7 +38,7 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
 
   return (
     <AnimateSharedLayout>
-      <FilterWrapper />
+      {/* <FilterWrapper /> */}
       {fragments.length > 0 &&
         fragments
           .filter(

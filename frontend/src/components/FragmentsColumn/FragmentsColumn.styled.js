@@ -15,3 +15,17 @@ export const FragmentsP = styled.p`
 export const FragmentsPExcerpt = styled.p`
   font-size: 1rem;
 `
+export const DateCompareWrapper = styled.div`
+  display: flex;
+  /* flex-direction: row; */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* text-justify: center; */
+`
+export const DateCompareRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+`
