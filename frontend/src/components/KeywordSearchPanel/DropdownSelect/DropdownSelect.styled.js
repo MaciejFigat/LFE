@@ -34,7 +34,10 @@ export const DropDownList = styled.div`
   margin: 0;
   padding-left: 1rem;
   padding-right: 0.5rem;
-  background: var(--background2-main);
+  /* background: var(--background2-main); */
+  background: var(--background-blur11);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 
   border-top: 1px solid var(--background-secondary4);
   border-bottom: 1px solid var(--background-secondary4);

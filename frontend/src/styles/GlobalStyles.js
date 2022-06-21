@@ -51,9 +51,10 @@ body {
    --background4-main: #A2A1A6;
    --background5-main: #CBC9CF;
    --background-blur1: rgba(60, 59, 61, 0.35);
-   //  --background-blur2: #CBC9CF;
+   --background-blur11: rgba(60, 59, 61, 0.85);
    --background-blur2: rgba(42, 157, 143, 0.25);
    --background-blur21: rgba(42, 157, 143, 0.75);
+ 
 
    --secondary1: #264653;
    --secondary2: #2a9d8f;

@@ -6,7 +6,7 @@ import {
   KeywordB,
   KeywordDivSimple,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
-import { ListItem } from './AnimatedList.styled'
+import { ListItem, ListItemSimple } from './AnimatedList.styled'
 
 interface AnimatedSavedItemSimpleProps {
   title: string
@@ -28,8 +28,8 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
 }) => {
   return (
     <>
-      <ListItem
-        initial={{ borderRadius: 3, opacity: 1, scale: 1 }}
+      <ListItemSimple
+        initial={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
         exit={{ opacity: 0 }}
       >
@@ -57,7 +57,7 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
             ))}
           </KeywordDivSimple>
         </FragmentDivSmall>
-      </ListItem>
+      </ListItemSimple>
     </>
   )
 }

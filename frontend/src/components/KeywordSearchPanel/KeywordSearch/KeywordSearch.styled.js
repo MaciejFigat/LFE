@@ -34,7 +34,11 @@ export const FragmentParSmall = styled.p`
 `
 export const FragmentDivSmall = styled.div`
   align-self: center;
-  border: 1px solid var(--background5-main);
+  background: var(--background-blur1);
+  /* background: var(--background-blur1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); */
+  border-radius: 10px;
   width: 80%;
   /* max-width: max-content; */
   padding: 0.5rem;

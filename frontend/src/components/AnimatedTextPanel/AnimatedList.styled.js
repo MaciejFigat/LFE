@@ -15,9 +15,11 @@ export const ListWrapper = styled(motion.ul)`
 
 export const ListItem = styled(motion.li)`
   padding-bottom: 12px;
-
+  /* margin-top: 1rem;
+  margin-bottom: 1rem; */
   // ! border radius passed as proprerty of ListItem in order to animate propre
   /* border-radius: 20px; */
+
   list-style: none;
   overflow: hidden;
   background: var(--background1-main);
@@ -28,6 +30,10 @@ export const ListItem = styled(motion.li)`
   @media (max-width: 740px) {
     padding: 12px;
   }
+`
+export const ListItemSimple = styled(ListItem)`
+  display: grid;
+  place-items: center;
 `
 export const ListTitleContainer = styled(motion.div)`
   display: grid;

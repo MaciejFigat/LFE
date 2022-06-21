@@ -25,13 +25,13 @@ export const DropDownHeader = styled.div`
 `
 export const DropDownListContainer = styled.div`
   position: absolute;
-  z-index: 99;
+  /* z-index: 2; */
 `
 export const DropDownList = styled.div`
   position: relative;
   cursor: pointer;
   top: -33px;
-  right: -60px;
+  right: -110px;
   z-index: 99;
   padding: 0;
   margin: 0;
