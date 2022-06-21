@@ -17,7 +17,7 @@ import {
   faCog,
   faArrowCircleRight,
   faArrowCircleLeft,
-  faAlignRight,
+  faAlignLeft,
   faArrowsAltV,
 } from '@fortawesome/free-solid-svg-icons'
 interface SvgIconProps {
@@ -37,7 +37,7 @@ interface SvgIconProps {
     | 'question'
     | 'arrowRight'
     | 'arrowLeft'
-    | 'textRight'
+    | 'textLeft'
     | 'upAndDown'
 
   noMargin?: boolean
@@ -88,8 +88,8 @@ const SvgIcon: React.FC<SvgIconProps> = ({
         return faSave
       case 'question':
         return faQuestionCircle
-      case 'textRight':
-        return faAlignRight
+      case 'textLeft':
+        return faAlignLeft
       case 'arrowRight':
         return faArrowCircleRight
       case 'upAndDown':

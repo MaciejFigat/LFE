@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
+import SelectMainKeyword from '../../KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
 import DateCompare from '../DateCompare'
 import DropdownFilter from './DropdownFilter/DropdownFilter'
 import { FilterOptionsWrapper } from './FilterWrapper.styled'
@@ -14,7 +15,7 @@ const FilterWrapper: React.FC<FilterWrapperProps> = () => {
     <FilterOptionsWrapper>
       <DropdownFilter options={optionsTest} />
       {sortingOption === 'date' && <DateCompare />}
-      {sortingOption === 'keyword' && 'keyword sorting'}
+      {sortingOption === 'keyword' && <SelectMainKeyword />}
       {sortingOption === 'else' && 'else sorting'}
     </FilterOptionsWrapper>
   )

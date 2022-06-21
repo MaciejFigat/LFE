@@ -2,8 +2,7 @@ import React, { useState, ReactNode } from 'react'
 import { SendButtonSmall } from '../Buttons/Buttons.styled'
 import AnimatedSavedItem from './AnimatedSavedItem'
 import AnimatedSavedItemSimple from './AnimatedSavedItemSimple'
-import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
-import { editSavedFragment } from '../../features/fragments/fragmentSlice'
+
 import { AnimateSharedLayout } from 'framer-motion'
 interface AnimatedSavedItemWrapperProps {
   title: string
@@ -27,45 +26,10 @@ const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({
   updatedAt,
   keywords,
 }) => {
-  const dispatch: any = useAppDispatch()
-  const sortingKeywords = useAppSelector(
-    (state) => state.preference.sortingKeywords
-  )
-  const { keywordOne, keywordTwo } = sortingKeywords
   const [simpleView, setSimpleView] = useState<boolean>(true)
 
   const viewHandler = () => {
     setSimpleView(!simpleView)
-  }
-  const newKeywordListOne = {
-    _id: id,
-    source: source,
-    excerpt: excerpt,
-    coordinates: coordinates,
-    title: title,
-    description: description,
-    keywords: [...keywords, keywordOne],
-  }
-  const newKeywordListTwo = {
-    _id: id,
-    source: source,
-    excerpt: excerpt,
-    coordinates: coordinates,
-    title: title,
-    description: description,
-    keywords: [...keywords, keywordTwo],
-  }
-  const addOneHandler = () => {
-    if (!keywords.includes(keywordOne)) {
-      dispatch(editSavedFragment(newKeywordListOne))
-      console.log('One')
-    }
-  }
-  const addTwoHandler = () => {
-    if (!keywords.includes(keywordTwo)) {
-      dispatch(editSavedFragment(newKeywordListTwo))
-      console.log('Two')
-    }
   }
 
   return (
@@ -73,16 +37,7 @@ const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({
       <SendButtonSmall variant='primaryEmpty' onClick={viewHandler}>
         edit
       </SendButtonSmall>
-      {keywordOne !== '' && (
-        <SendButtonSmall variant='primaryEmpty' onClick={addOneHandler}>
-          {keywordOne} -&gt;
-        </SendButtonSmall>
-      )}
-      {keywordTwo !== '' && (
-        <SendButtonSmall variant='primaryEmpty' onClick={addTwoHandler}>
-          {keywordTwo} -&gt;
-        </SendButtonSmall>
-      )}
+
       {simpleView ? (
         <AnimatedSavedItemSimple
           title={title}

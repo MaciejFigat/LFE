@@ -51,6 +51,7 @@ type LinkData = {
     | 'homeTwo'
     | 'cog'
     | 'save'
+    | 'textLeft'
   to: string
   id: string
 }
@@ -59,7 +60,7 @@ const links: LinkData[] = [
   { name: 'Home', iconVariant: 'home', to: '/', id: '1' },
   {
     name: 'Display',
-    iconVariant: 'question',
+    iconVariant: 'textLeft',
     to: '/search/result',
     id: '2',
   },

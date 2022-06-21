@@ -7,6 +7,7 @@ import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColu
 import ResultDisplay from '../components/ResultDisplay/ResultDisplay'
 import ChoiceWrapper from '../components/FragmentsColumn/FilterWrapper/ChoiceWrapper'
 import DataSectionSimple from '../components/InfoSection/DataSectionSimple'
+import UserFragmentsByKeyword from '../components/FragmentsColumn/UserFragmentsByKeyword'
 
 interface ResultDisplayScreenProps {}
 
@@ -17,6 +18,9 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
   )
   const showFragmentsState: boolean = useAppSelector(
     (state) => state.preference.showFragments
+  )
+  const sortingOption: string = useAppSelector(
+    (state) => state.preference.sortingOption
   )
   const { data, query } = searchResults
   const queryTrimmed = encodeURIComponent(query?.trim())
@@ -29,7 +33,13 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
           Object.keys(userInfo).length > 0 ? (
             <>
               <ChoiceWrapper />
-              {showFragmentsState && <UserFragmentsColumn />}
+              {showFragmentsState && sortingOption === 'date' && (
+                <UserFragmentsColumn />
+              )}
+              {/* //todo */}
+              {showFragmentsState && sortingOption === 'keyword' && (
+                <UserFragmentsByKeyword />
+              )}
               {!showFragmentsState &&
                 data.length > 0 &&
                 data.map((fragmentArray: any) => (
@@ -42,8 +52,6 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
                     query={queryTrimmed}
                   />
                 ))}
-
-              {/* //todo simplified dataSection*/}
             </>
           ) : (
             <FragmentsColumn />

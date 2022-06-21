@@ -6,27 +6,22 @@ import {
   ListWrapper,
   ItemWrapper,
 } from '../AnimatedTextPanel/AnimatedList.styled'
-import AnimatedSavedItem from '../AnimatedTextPanel/AnimatedSavedItem'
+
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
+import AnimatedSavedItemWrapper from '../AnimatedTextPanel/AnimatedSavedItemWrapper'
 
-interface UserFragmentsColumnProps {}
+interface UserFragmentsByKeywordProps {}
 
-const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
+const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = () => {
   const dispatch: any = useAppDispatch()
 
   const fragments: any[] = useAppSelector(
-    (state) => state.fragment.userFragments
+    (state) => state.fragment.fragmentsKeywordMain
   )
-  const sortingDate = useAppSelector((state) => state.preference.sortingDate)
-  const { sortingYear, sortingMonth, sortingDay } = sortingDate
 
   const fragmentSuccess: boolean = useAppSelector(
     (state) => state.fragment.success
   )
-
-  const sortingDateString = `${sortingYear}-${
-    sortingMonth < 10 ? `0${sortingMonth}` : `${sortingMonth}`
-  }-${sortingDay < 10 ? `0${sortingDay}` : `${sortingDay}`}`
 
   useEffect(() => {
     dispatch(getUserFragments(1))
@@ -39,12 +34,7 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
     <AnimateSharedLayout>
       {fragments.length > 0 &&
         fragments
-          .filter(
-            (fragmentsSorted) =>
-              // todo here is filtering function comparing the date
-              // fragmentsSorted.updatedAt.substring(0, 10) === sortingDateString
-              fragmentsSorted.createdAt.substring(0, 10) === sortingDateString
-          )
+
           .map((fragment) => (
             <ListWrapper
               as={motion.ul}
@@ -58,7 +48,7 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
                 <FragmentContainer key={fragment.title}>
                   <ItemWrapper>
                     {' '}
-                    <AnimatedSavedItem
+                    <AnimatedSavedItemWrapper
                       id={fragment._id}
                       title={fragment.title}
                       description={fragment.description}
@@ -77,4 +67,4 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
     </AnimateSharedLayout>
   )
 }
-export default UserFragmentsColumn
+export default UserFragmentsByKeyword

@@ -17,7 +17,7 @@ const links = [
   },
   {
     name: (
-      <SvgIcon variant='question' noMargin contentAfter='display' toRight />
+      <SvgIcon variant='textLeft' noMargin contentAfter='display' toRight />
     ),
     to: '/search/result',
     id: '2',
