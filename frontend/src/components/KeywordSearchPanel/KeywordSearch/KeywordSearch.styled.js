@@ -34,7 +34,8 @@ export const FragmentParSmall = styled.p`
 `
 export const FragmentDivSmall = styled.div`
   align-self: center;
-  background: var(--background-blur1);
+  background: var(--background-blur1) !important;
+
   /* background: var(--background-blur1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px); */
