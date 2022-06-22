@@ -50,14 +50,10 @@ export const InfoRow = styled.div`
   }
 `
 export const InfoColumn = styled.div`
-  /* margin-bottom: 15px; */
-  /* margin-right: 15px; */
   padding-left: 15px;
   flex: 1;
   flex-basis: 70%;
-  /* display: flex;
-  align-items: flex-start;
-  justify-items: flex-start; */
+
   @media screen and (min-width: 770px) {
     max-width: 100%;
     display: flex;
@@ -221,12 +217,10 @@ export const HomeContentWrapper = styled.div`
 `
 export const CenterWrapper = styled.div`
   display: flex;
-  /* width: 95vw; */
+
   width: 100%;
-  /* background: lime; */
-  /* flex-direction: column; */
+
   justify-content: center;
-  /* align-items: center; */
 `
 export const CenterWrapperSimple = styled(CenterWrapper)`
   margin-bottom: 0.5rem;

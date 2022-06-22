@@ -36,11 +36,8 @@ export const FragmentDivSmall = styled.div`
   align-self: center;
   background: var(--background-blur1) !important;
 
-  /* background: var(--background-blur1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); */
   border-radius: 10px;
   width: 80%;
-  /* max-width: max-content; */
+
   padding: 0.5rem;
 `
