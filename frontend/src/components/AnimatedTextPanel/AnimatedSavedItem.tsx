@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useState, Dispatch, SetStateAction } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ListItem,
@@ -19,7 +19,7 @@ import {
   deleteSavedFragment,
   editSavedFragment,
 } from '../../features/fragments/fragmentSlice'
-import { SendButtonSmall } from '../Buttons/Buttons.styled'
+import { SendButtonSmall, SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import KeywordEditing from './KeywordEditing'
 
 interface AnimatedSavedItemProps {
@@ -32,6 +32,8 @@ interface AnimatedSavedItemProps {
   coordinates: string
   updatedAt: string
   keywords: string[]
+  simpleView?: boolean
+  setSimpleView?: Dispatch<SetStateAction<boolean>>
 }
 
 const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
@@ -44,6 +46,8 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   coordinates,
   updatedAt,
   keywords,
+  setSimpleView,
+  simpleView,
 }) => {
   const dispatch: any = useAppDispatch()
 
@@ -147,7 +151,9 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     dispatch(editSavedFragment(newSource))
     setSourceEditing(!sourceEditing)
   }
-
+  const setSimpleViewHandler = () => {
+    setSimpleView !== undefined && setSimpleView(!simpleView)
+  }
   return (
     <>
       <ListItem
@@ -159,6 +165,12 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
         exit={{ opacity: 0 }}
       >
         {' '}
+        <SendButtonVerySmall
+          // onClick={setSimpleView !== undefined && setSimpleView(!simpleView)}
+          onClick={setSimpleViewHandler}
+        >
+          Test
+        </SendButtonVerySmall>
         <ListTitleContainer as={motion.div} layout='size'>
           {!titleEditing ? (
             <ListTitle as={motion.h2} layout onClick={toggleOpen}>

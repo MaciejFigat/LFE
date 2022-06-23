@@ -47,6 +47,8 @@ const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({
           coordinates={coordinates}
           updatedAt={updatedAt}
           keywords={keywords}
+          simpleView={simpleView}
+          setSimpleView={setSimpleView}
         />
       ) : (
         <AnimatedSavedItem
@@ -58,6 +60,8 @@ const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({
           coordinates={coordinates}
           updatedAt={updatedAt}
           keywords={keywords}
+          simpleView={simpleView}
+          setSimpleView={setSimpleView}
         />
       )}
     </AnimateSharedLayout>

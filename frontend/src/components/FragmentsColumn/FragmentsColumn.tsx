@@ -43,7 +43,7 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
                     >
                       <FragmentsP>created at: {citation.date}</FragmentsP>
                       <FragmentsPExcerpt>{citation.excerpt}</FragmentsPExcerpt>
-                      <FragmentsP>source: {citation.source}</FragmentsP>
+                      {/* <FragmentsP>source: {citation.source}</FragmentsP> */}
                     </AnimatedItem>
                   </ItemWrapper>
                 </FragmentContainer>

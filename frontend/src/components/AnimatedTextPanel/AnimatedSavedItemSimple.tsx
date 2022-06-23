@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
+import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import {
   FragmentB,
   FragmentDivSmall,
@@ -6,7 +7,7 @@ import {
   KeywordB,
   KeywordDivSimple,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
-import { ListItem, ListItemSimple } from './AnimatedList.styled'
+import { ListItemSimple } from './AnimatedList.styled'
 
 interface AnimatedSavedItemSimpleProps {
   title: string
@@ -16,6 +17,8 @@ interface AnimatedSavedItemSimpleProps {
   coordinates: string
   updatedAt: string
   keywords: string[]
+  simpleView?: boolean
+  setSimpleView?: Dispatch<SetStateAction<boolean>>
 }
 
 const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
@@ -25,7 +28,13 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
   excerpt,
   updatedAt,
   keywords,
+  setSimpleView,
+  simpleView,
 }) => {
+  const setSimpleViewHandler = () => {
+    setSimpleView !== undefined && setSimpleView(!simpleView)
+  }
+
   return (
     <>
       <ListItemSimple
@@ -34,6 +43,9 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
         exit={{ opacity: 0 }}
       >
         <FragmentDivSmall>
+          <SendButtonVerySmall onClick={setSimpleViewHandler}>
+            Test
+          </SendButtonVerySmall>
           <FragmentParSmall>
             <FragmentB>Title:</FragmentB> {title}
           </FragmentParSmall>
