@@ -89,11 +89,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
     console.log(keywordArr)
     console.log(keywords)
   }
-  // useEffect(() => {
-  //   if (keywordArr !== keywords) {
-  //     dispatch(editSavedFragment(newKeywordList))
-  //   } else return
-  // }, [keywordArr, keywords, dispatch, newKeywordList])
+
   useEffect(() => {
     if (keywordArr?.length > 0 && keywords?.length > 0) {
       setSameContents(haveSameContents(keywordArr, keywords))

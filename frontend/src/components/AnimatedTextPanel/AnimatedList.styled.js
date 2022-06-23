@@ -36,14 +36,13 @@ export const ListItemSimple = styled(ListItem)`
   place-items: center;
 `
 export const ListTitleContainer = styled(motion.div)`
-  display: grid;
+  display: flex;
+  flex-direction: row;
+  /* display: grid; */
+  /* align-content: space-around; */
+  justify-content: space-around;
   min-height: min-content;
-  grid-template: auto 1fr / auto 2fr;
-  @media (max-width: 740px) {
-    /* max-height: 5.5rem; */
-    /* min-height: fit-content; */
-    /* height: fit-content; */
-  }
+  /* grid-template: auto 1fr / auto 2fr; */
   margin-right: 0.5rem;
 `
 export const DatePar = styled(motion.p)`
@@ -73,7 +72,10 @@ export const ListTitle = styled(motion.h2)`
 `
 export const ListButtonContainer = styled(motion.div)`
   display: flex;
-  flex-direction: row;
+  max-width: 200px;
+  /* flex-direction: row; */
+  flex-direction: column;
+  gap: 2rem;
   justify-content: flex-end;
 `
 export const ListButtonContainerLeft = styled(ListButtonContainer)`
@@ -159,6 +161,7 @@ export const DescriptionDiv = styled(motion.div)`
 
 export const ListRow = styled(motion.div)`
   text-align: left;
+  /* justify-content: space-between; */
   padding: 0.75rem;
   padding-top: 0.25rem;
   margin-top: 0.5rem;
@@ -166,7 +169,7 @@ export const ListRow = styled(motion.div)`
   font-weight: 400;
   color: var(--background4-main);
   background: var(--background2-main);
-  border-radius: 3px;
+  /* border-radius: 3px; */
   min-height: 125px;
   min-width: 90%;
   max-width: 100%;

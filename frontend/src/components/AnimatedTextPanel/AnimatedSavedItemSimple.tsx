@@ -7,6 +7,7 @@ import {
   KeywordB,
   KeywordDivSimple,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
+import SvgIcon from '../SvgIcon/SvgIcon'
 import { ListItemSimple } from './AnimatedList.styled'
 
 interface AnimatedSavedItemSimpleProps {
@@ -43,8 +44,11 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
         exit={{ opacity: 0 }}
       >
         <FragmentDivSmall>
-          <SendButtonVerySmall onClick={setSimpleViewHandler}>
-            Test
+          <SendButtonVerySmall
+            variant='primaryEmpty'
+            onClick={setSimpleViewHandler}
+          >
+            <SvgIcon variant='edit' contentAfter='edit' />
           </SendButtonVerySmall>
           <FragmentParSmall>
             <FragmentB>Title:</FragmentB> {title}

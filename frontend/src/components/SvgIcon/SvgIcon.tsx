@@ -19,6 +19,10 @@ import {
   faArrowCircleLeft,
   faAlignLeft,
   faArrowsAltV,
+  faEdit,
+  faClone,
+  faTrashAlt,
+  faBackward,
 } from '@fortawesome/free-solid-svg-icons'
 interface SvgIconProps {
   variant:
@@ -39,10 +43,15 @@ interface SvgIconProps {
     | 'arrowLeft'
     | 'textLeft'
     | 'upAndDown'
+    | 'edit'
+    | 'add'
+    | 'remove'
+    | 'back'
 
   noMargin?: boolean
   contentAfter?: string
   toRight?: boolean
+  toLeft?: boolean
   noContent?: boolean
 }
 
@@ -51,6 +60,7 @@ const SvgIcon: React.FC<SvgIconProps> = ({
   noMargin,
   contentAfter,
   toRight,
+  toLeft,
   noContent,
 }) => {
   const [copySuccess, setCopySuccess] = useState<string | undefined>('')
@@ -96,6 +106,14 @@ const SvgIcon: React.FC<SvgIconProps> = ({
         return faArrowsAltV
       case 'arrowLeft':
         return faArrowCircleLeft
+      case 'edit':
+        return faEdit
+      case 'add':
+        return faClone
+      case 'remove':
+        return faTrashAlt
+      case 'back':
+        return faBackward
 
       default:
         return faUser
@@ -114,6 +132,7 @@ const SvgIcon: React.FC<SvgIconProps> = ({
       onMouseEnter={() => hoverHelper()}
       onMouseLeave={() => leaveHelper()}
       toRight={toRight}
+      toLeft={toLeft}
       noContent={noContent}
     >
       <FontAwesomeIcon icon={iconVersion(variant)} />

@@ -21,6 +21,7 @@ import {
 } from '../../features/fragments/fragmentSlice'
 import { SendButtonSmall, SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import KeywordEditing from './KeywordEditing'
+import SvgIcon from '../SvgIcon/SvgIcon'
 
 interface AnimatedSavedItemProps {
   title: string
@@ -164,13 +165,6 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0 }}
       >
-        {' '}
-        <SendButtonVerySmall
-          // onClick={setSimpleView !== undefined && setSimpleView(!simpleView)}
-          onClick={setSimpleViewHandler}
-        >
-          Test
-        </SendButtonVerySmall>
         <ListTitleContainer as={motion.div} layout='size'>
           {!titleEditing ? (
             <ListTitle as={motion.h2} layout onClick={toggleOpen}>
@@ -219,33 +213,39 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                 transition={{ duration: 0.6, ease: [0.04, 0.22, 0.49, 0.98] }}
                 exit={{ opacity: 0 }}
               >
+                {' '}
+                <SendButtonVerySmall
+                  variant='primaryEmpty'
+                  onClick={setSimpleViewHandler}
+                >
+                  <SvgIcon variant='back' toLeft contentAfter='back' />
+                </SendButtonVerySmall>
                 {!titleEditing ? (
-                  <SendButtonSmall
-                    variant='primaryEmpty'
+                  <SendButtonVerySmall
+                    variant='secondaryEmpty'
                     onClick={toggleEditing}
                     as={motion.button}
                   >
-                    edit title
-                  </SendButtonSmall>
+                    <SvgIcon variant='edit' toLeft contentAfter='edit title' />
+                  </SendButtonVerySmall>
                 ) : (
-                  <SendButtonSmall
+                  <SendButtonVerySmall
                     variant='successEmpty'
                     onClick={saveTitleHandler}
                   >
-                    save title
-                  </SendButtonSmall>
+                    <SvgIcon variant='save' toLeft contentAfter='save title' />
+                  </SendButtonVerySmall>
                 )}
-                <SendButtonSmall
+                <SendButtonVerySmall
                   variant='secondaryEmpty'
                   onClick={() => removeFragmentHandler(id)}
                 >
-                  delete permanently
-                </SendButtonSmall>
+                  <SvgIcon variant='remove' toLeft contentAfter='delete' />
+                </SendButtonVerySmall>
               </motion.div>{' '}
             </AnimatePresence>
           </ListButtonContainer>
         </ListTitleContainer>{' '}
-        {/* //? testing another keyword presentation */}
         <KeywordEditing
           keywords={keywords}
           id={id}
@@ -324,27 +324,27 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                   <ListButtonContainer>
                     {excerptEditing && excerptValue !== excerpt && (
                       <>
-                        <SendButtonSmall
+                        <SendButtonVerySmall
                           variant='primaryEmpty'
                           onClick={toggleExcerptReset}
                         >
-                          reset
-                        </SendButtonSmall>
-                        <SendButtonSmall
+                          <SvgIcon variant='back' toLeft contentAfter='reset' />
+                        </SendButtonVerySmall>
+                        <SendButtonVerySmall
                           variant='successEmpty'
                           onClick={saveExcerptHandler}
                         >
-                          save
-                        </SendButtonSmall>
+                          <SvgIcon variant='save' toLeft contentAfter='save' />
+                        </SendButtonVerySmall>
                       </>
                     )}
                     {excerptEditing && excerptValue === excerpt && (
-                      <SendButtonSmall
+                      <SendButtonVerySmall
                         variant='primaryEmpty'
                         onClick={toggleExcerptEditing}
                       >
-                        back
-                      </SendButtonSmall>
+                        <SvgIcon variant='back' toLeft contentAfter='back' />
+                      </SendButtonVerySmall>
                     )}
                   </ListButtonContainer>
                 </ListTitleContainer>
@@ -407,27 +407,27 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                   <ListButtonContainer>
                     {descriptionEditing && descriptionValue !== description && (
                       <>
-                        <SendButtonSmall
+                        <SendButtonVerySmall
                           variant='primaryEmpty'
                           onClick={toggleDescriptionReset}
                         >
-                          reset
-                        </SendButtonSmall>
-                        <SendButtonSmall
+                          <SvgIcon variant='back' toLeft contentAfter='back' />
+                        </SendButtonVerySmall>
+                        <SendButtonVerySmall
                           variant='successEmpty'
                           onClick={saveDescriptionHandler}
                         >
-                          save
-                        </SendButtonSmall>
+                          <SvgIcon variant='save' toLeft contentAfter='save' />
+                        </SendButtonVerySmall>
                       </>
                     )}
                     {descriptionEditing && descriptionValue === description && (
-                      <SendButtonSmall
+                      <SendButtonVerySmall
                         variant='primaryEmpty'
                         onClick={toggleDescriptionEditing}
                       >
-                        back
-                      </SendButtonSmall>
+                        <SvgIcon variant='back' toLeft contentAfter='back' />
+                      </SendButtonVerySmall>
                     )}
                   </ListButtonContainer>
                 </ListTitleContainer>
@@ -488,27 +488,27 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                   <ListButtonContainer>
                     {sourceEditing && sourceValue !== source && (
                       <>
-                        <SendButtonSmall
+                        <SendButtonVerySmall
                           variant='primaryEmpty'
                           onClick={toggleSourceReset}
                         >
-                          reset
-                        </SendButtonSmall>
-                        <SendButtonSmall
+                          <SvgIcon variant='back' toLeft contentAfter='back' />
+                        </SendButtonVerySmall>
+                        <SendButtonVerySmall
                           variant='successEmpty'
                           onClick={saveSourceHandler}
                         >
-                          save
-                        </SendButtonSmall>
+                          <SvgIcon variant='save' toLeft contentAfter='save' />
+                        </SendButtonVerySmall>
                       </>
                     )}
                     {sourceEditing && sourceValue === source && (
-                      <SendButtonSmall
+                      <SendButtonVerySmall
                         variant='primaryEmpty'
                         onClick={toggleSourceEditing}
                       >
-                        back
-                      </SendButtonSmall>
+                        <SvgIcon variant='back' toLeft contentAfter='back' />
+                      </SendButtonVerySmall>
                     )}
                   </ListButtonContainer>
                 </ListTitleContainer>

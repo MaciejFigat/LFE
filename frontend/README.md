@@ -127,3 +127,6 @@ glassmorphed
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
+
+
+  AnimatedSavedItemWrapper - wraps simple view and editing view (AnimatedSavedItem) - passes the useState function to switch between them

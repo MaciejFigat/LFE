@@ -28,16 +28,8 @@ const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({
 }) => {
   const [simpleView, setSimpleView] = useState<boolean>(true)
 
-  const viewHandler = () => {
-    setSimpleView(!simpleView)
-  }
-
   return (
     <AnimateSharedLayout>
-      <SendButtonSmall variant='primaryEmpty' onClick={viewHandler}>
-        edit
-      </SendButtonSmall>
-
       {simpleView ? (
         <AnimatedSavedItemSimple
           title={title}

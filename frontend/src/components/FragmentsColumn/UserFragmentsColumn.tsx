@@ -67,7 +67,6 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
                       coordinates={fragment.coordinates}
                       updatedAt={fragment.updatedAt}
                       keywords={fragment.keywords}
-                      // simpleView={false}
                     />
                   </ItemWrapper>
                 </FragmentContainer>

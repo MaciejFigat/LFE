@@ -20,22 +20,27 @@ export const IconsItem = styled.div`
   margin-right: 0;
   /* transition: all 0.3s ease-out; */
   &:after {
-    color: var(--background-tertiary2);
+    /* color: var(--background-tertiary2); */
     content: '${(props) => props.contentAfter}';
     opacity: ${(props) => (props.contentAfter ? `1` : '0')};
-    transition: all 0.3s ease-in;
+    transition: all 0.2s ease-in;
+    /* transition: text 0.9s ease-in; */
     z-index: 11;
     width: ${(props) => (props.noContent ? `0px` : '100px')};
-    font-size: 11px;
+    /* font-size: 14px; */
+    /* font-size: 0.75rem; */
+    font-size: min(max(1rem, 4vw), 12px);
     display: block !important;
     position: relative !important;
-
+    text-transform: uppercase;
     bottom: ${({ toRight }) => (toRight ? '15px; ' : '15px;')};
     left: ${({ toRight }) => (toRight ? '70px; ' : '50px;')};
+    left: ${({ toLeft }) => (toLeft ? '-50px; ' : '50px;')};
 
     @media (max-width: 1020px) {
       bottom: ${({ toRight }) => (toRight ? '15px; ' : '15px;')};
       left: ${({ toRight }) => (toRight ? '70px; ' : '-40px;')};
+      left: ${({ toLeft }) => (toLeft ? '-45px; ' : '-40px;')};
     }
 
     height: 5px;
