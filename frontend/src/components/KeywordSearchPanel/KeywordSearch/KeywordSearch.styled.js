@@ -32,12 +32,17 @@ export const KeywordDivSimple = styled.b`
 export const FragmentParSmall = styled.p`
   margin: 0;
 `
+export const FragmentTitleRowSmall = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 1.2rem;
+`
 export const FragmentDivSmall = styled.div`
   align-self: center;
   background: var(--background-blur1) !important;
-
   border-radius: 10px;
-  width: 80%;
-
-  padding: 0.5rem;
+  width: 95%;
+  padding: 0.75rem;
+  padding-right: 0;
 `

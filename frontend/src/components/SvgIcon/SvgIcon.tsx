@@ -51,6 +51,7 @@ interface SvgIconProps {
     | 'back'
     | 'exit'
     | 'expand'
+    | 'cross'
 
   noMargin?: boolean
   contentAfter?: string

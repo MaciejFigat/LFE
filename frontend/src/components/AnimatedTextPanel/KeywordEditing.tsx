@@ -11,7 +11,8 @@ import {
 import { useAppDispatch } from '../../app/reduxHooks'
 import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SendButtonSmall } from '../Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
+import SvgIcon from '../SvgIcon/SvgIcon'
 interface KeywordEditingProps {
   keywords: string[]
   id: string
@@ -168,36 +169,44 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                 <>
                   {' '}
                   {!sameContents ? (
-                    <SendButtonSmall
-                      variant='successEmpty'
+                    <SendButtonVerySmall
+                      variant='secondaryEmpty'
                       onClick={saveKeywordArrHandler}
+                      as={motion.button}
                     >
-                      Test save Arr
-                    </SendButtonSmall>
+                      <SvgIcon variant='save' toLeft contentAfter='save' />
+                    </SendButtonVerySmall>
                   ) : (
-                    <SendButtonSmall
-                      variant='primaryEmpty'
+                    <SendButtonVerySmall
+                      variant='secondaryEmpty'
                       onClick={addKeywordHandler}
                       as={motion.button}
                     >
-                      +
-                    </SendButtonSmall>
+                      <SvgIcon
+                        variant='edit'
+                        toLeft
+                        contentAfter='add keyword'
+                      />
+                    </SendButtonVerySmall>
                   )}
                 </>
               ) : (
                 <>
-                  <SendButtonSmall
+                  <SendButtonVerySmall
                     variant='successEmpty'
                     onClick={saveKeywordHandler}
+                    as={motion.button}
                   >
-                    s
-                  </SendButtonSmall>
-                  <SendButtonSmall
+                    <SvgIcon variant='save' toLeft contentAfter='save' />
+                  </SendButtonVerySmall>
+
+                  <SendButtonVerySmall
                     variant='secondaryEmpty'
                     onClick={deleteKeywordHandler}
+                    as={motion.button}
                   >
-                    x
-                  </SendButtonSmall>
+                    <SvgIcon variant='remove' toLeft contentAfter='delete' />
+                  </SendButtonVerySmall>
                 </>
               )}
             </motion.div>{' '}

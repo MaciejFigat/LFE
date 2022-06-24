@@ -8,11 +8,9 @@ import {
   HeaderTitleMobile,
   WrapperDesktopOnly,
 } from './nav.styled'
-
 import NavListDesktop from './NavListDesktop'
 import NavListMobile from './NavListMobile'
 import useScrollListener from '../../../hooks/useScrollListener'
-
 import { useCycle } from 'framer-motion'
 import SearchBar from '../../SearchBar/SearchBar'
 import NavDropdown from './NavDropdown'

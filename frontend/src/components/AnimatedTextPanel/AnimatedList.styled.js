@@ -40,15 +40,17 @@ export const ListItemSimple = styled(ListItem)`
 export const ListTitleContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
-  /* display: grid; */
-  /* align-content: space-around; */
-  justify-content: space-around;
+  align-items: flex-start;
+  justify-content: space-between;
   min-height: min-content;
+
   /* grid-template: auto 1fr / auto 2fr; */
-  margin-right: 0.5rem;
+  /* margin-right: 0.5rem; */
 `
 export const DatePar = styled(motion.p)`
-  font-size: 0.5rem;
+  font-size: 0.75rem;
+  margin: 0;
+  margin-right: 2.25rem;
   color: var(--background-secondary2);
 `
 export const KeywordDiv = styled(motion.div)`
@@ -147,7 +149,7 @@ export const DescriptionInput = styled(motion.textarea)`
   min-height: 100px;
   overflow-y: auto;
   line-height: 1.2;
-  transition: 1.9s;
+  /* transition: 1.9s; */
   font-size: inherit;
   font-family: inherit;
   &::placeholder {
@@ -171,12 +173,13 @@ export const ListRow = styled(motion.div)`
   margin-top: 0.5rem;
   font-size: 0.9rem;
   font-weight: 400;
-  color: var(--background4-main);
+  border-radius: 10px;
+  /* color: var(--background4-main); */
   background: var(--background2-main);
   /* border-radius: 3px; */
   min-height: 125px;
   min-width: 90%;
-  max-width: 100%;
+  max-width: 90%;
   @media (max-width: 740px) {
     padding: 0.55rem;
     font-size: 0.65rem;

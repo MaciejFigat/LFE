@@ -34,13 +34,13 @@ export const IconsItem = styled.div`
     position: relative !important;
     text-transform: uppercase;
     bottom: ${({ toRight }) => (toRight ? '15px; ' : '15px;')};
-    left: ${({ toRight }) => (toRight ? '70px; ' : '50px;')};
-    left: ${({ toLeft }) => (toLeft ? '-50px; ' : '50px;')};
+    left: ${({ toRight }) => (toRight ? '80px; ' : '50px;')};
+    left: ${({ toLeft }) => (toLeft ? '-50px; ' : '80px;')};
 
     @media (max-width: 1020px) {
       bottom: ${({ toRight }) => (toRight ? '15px; ' : '15px;')};
       left: ${({ toRight }) => (toRight ? '70px; ' : '-40px;')};
-      left: ${({ toLeft }) => (toLeft ? '-45px; ' : '-40px;')};
+      left: ${({ toLeft }) => (toLeft ? '-45px; ' : '70px;')};
     }
 
     height: 5px;

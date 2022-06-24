@@ -5,6 +5,7 @@ import {
   FragmentB,
   FragmentDivSmall,
   FragmentParSmall,
+  FragmentTitleRowSmall,
   KeywordB,
   KeywordDivSimple,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
@@ -48,15 +49,19 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
         exit={{ opacity: 0 }}
       >
         <FragmentDivSmall>
-          <SendButtonVerySmall
-            variant='primaryEmpty'
-            onClick={setSimpleViewHandler}
-          >
-            <SvgIcon variant='edit' contentAfter='edit' />
-          </SendButtonVerySmall>
-          <FragmentParSmall>
-            <FragmentB>Title:</FragmentB> {title}
-          </FragmentParSmall>
+          <FragmentTitleRowSmall>
+            <FragmentParSmall>
+              {' '}
+              <FragmentB>Title:</FragmentB> {title}{' '}
+            </FragmentParSmall>
+            <SendButtonVerySmall
+              toLeft
+              variant='primaryEmpty'
+              onClick={setSimpleViewHandler}
+            >
+              <SvgIcon variant='edit' toLeft contentAfter='edit' />
+            </SendButtonVerySmall>
+          </FragmentTitleRowSmall>
           <FragmentParSmall>
             <FragmentB>Excerpt:</FragmentB> {excerpt}
           </FragmentParSmall>
