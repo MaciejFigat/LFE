@@ -39,7 +39,7 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = () => {
             <ListWrapper
               as={motion.ul}
               key={fragment._id}
-              layout
+              // layout
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

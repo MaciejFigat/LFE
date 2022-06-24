@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
+import { motion } from 'framer-motion'
 import {
   FragmentB,
   FragmentDivSmall,
@@ -39,8 +40,11 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
   return (
     <>
       <ListItemSimple
-        initial={{ opacity: 1, scale: 1 }}
+        as={motion.li}
+        // layout
+        initial={{ opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.4 }}
+        animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0 }}
       >
         <FragmentDivSmall>
@@ -62,9 +66,9 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
           <FragmentParSmall>
             <FragmentB>Updated:</FragmentB> {updatedAt}
           </FragmentParSmall>
-          <FragmentParSmall>
+          {/* <FragmentParSmall>
             <FragmentB>Source:</FragmentB> {source}
-          </FragmentParSmall>
+          </FragmentParSmall> */}
 
           <KeywordDivSimple>
             <FragmentB>Keywords:&nbsp;</FragmentB>

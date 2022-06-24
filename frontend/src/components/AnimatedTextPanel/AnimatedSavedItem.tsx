@@ -1,4 +1,10 @@
-import React, { ReactNode, useState, Dispatch, SetStateAction } from 'react'
+import React, {
+  ReactNode,
+  useState,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+} from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ListItem,
@@ -13,12 +19,14 @@ import {
   DescriptionDiv,
   DatePar,
 } from './AnimatedList.styled'
-import { useAppDispatch } from '../../app/reduxHooks'
+import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 
 import {
   deleteSavedFragment,
   editSavedFragment,
+  getUserFragments,
 } from '../../features/fragments/fragmentSlice'
+
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import KeywordEditing from './KeywordEditing'
 import SvgIcon from '../SvgIcon/SvgIcon'
@@ -51,8 +59,14 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   simpleView,
 }) => {
   const dispatch: any = useAppDispatch()
+  const successUpdate: boolean = useAppSelector(
+    (state) => state.fragment.successUpdate
+  )
+  const loadingUpdate: boolean = useAppSelector(
+    (state) => state.fragment.successUpdate
+  )
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
 
   const [titleEditing, setTitleEditing] = useState(false)
 
@@ -155,12 +169,19 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   const setSimpleViewHandler = () => {
     setSimpleView !== undefined && setSimpleView(!simpleView)
   }
+  // todo it trigers on every render, need to change it in this regard
+  useEffect(() => {
+    if (successUpdate === true) {
+      dispatch(getUserFragments(1))
+    }
+  }, [dispatch, successUpdate, loadingUpdate])
+
   return (
     <>
       <ListItem
         as={motion.li}
         layout
-        initial={{ borderRadius: 3, opacity: 0, scale: 0.8 }}
+        initial={{ borderRadius: 3, opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.4 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0 }}
@@ -220,7 +241,24 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                 >
                   <SvgIcon variant='back' toLeft contentAfter='back' />
                 </SendButtonVerySmall>
-                {!titleEditing ? (
+                {!titleEditing && (
+                  <SendButtonVerySmall
+                    variant='secondaryEmpty'
+                    onClick={toggleEditing}
+                    as={motion.button}
+                  >
+                    <SvgIcon variant='edit' toLeft contentAfter='edit title' />
+                  </SendButtonVerySmall>
+                )}{' '}
+                {titleEditing && titleValue !== title && (
+                  <SendButtonVerySmall
+                    variant='successEmpty'
+                    onClick={saveTitleHandler}
+                  >
+                    <SvgIcon variant='save' toLeft contentAfter='save title' />
+                  </SendButtonVerySmall>
+                )}
+                {/* {!titleEditing ? (
                   <SendButtonVerySmall
                     variant='secondaryEmpty'
                     onClick={toggleEditing}
@@ -235,7 +273,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                   >
                     <SvgIcon variant='save' toLeft contentAfter='save title' />
                   </SendButtonVerySmall>
-                )}
+                )} */}
                 <SendButtonVerySmall
                   variant='secondaryEmpty'
                   onClick={() => removeFragmentHandler(id)}

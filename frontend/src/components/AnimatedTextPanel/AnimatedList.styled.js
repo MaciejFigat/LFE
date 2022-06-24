@@ -14,6 +14,8 @@ export const ListWrapper = styled(motion.ul)`
 `
 
 export const ListItem = styled(motion.li)`
+  /* display: grid;
+  place-items: center; */
   padding-bottom: 12px;
   /* margin-top: 1rem;
   margin-bottom: 1rem; */
@@ -23,7 +25,7 @@ export const ListItem = styled(motion.li)`
   list-style: none;
   overflow: hidden;
   background: var(--background1-main);
-  cursor: pointer;
+  /* cursor: pointer; */
   &:last-child {
     /* margin-bottom: 0px; */
   }
@@ -62,6 +64,7 @@ export const ListTitle = styled(motion.h2)`
   display: grid;
   place-items: center;
   margin: 0;
+
   word-break: break-all;
   margin-left: 0.5rem;
   font-size: 1.1rem;
@@ -90,6 +93,7 @@ export const TitleAnimated = styled(motion.div)`
   word-break: break-all;
   justify-content: flex-start;
   width: 100%;
+
   min-width: 250px;
   /* font-weight: 400; */
   @media (max-width: 1020px) {

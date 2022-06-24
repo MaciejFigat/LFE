@@ -2,7 +2,6 @@ import React, { useState, ReactNode } from 'react'
 import AnimatedSavedItem from './AnimatedSavedItem'
 import AnimatedSavedItemSimple from './AnimatedSavedItemSimple'
 
-import { AnimateSharedLayout } from 'framer-motion'
 interface AnimatedSavedItemWrapperProps {
   title: string
   description: string
@@ -28,7 +27,7 @@ const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({
   const [simpleView, setSimpleView] = useState<boolean>(true)
 
   return (
-    <AnimateSharedLayout>
+    <>
       {simpleView ? (
         <AnimatedSavedItemSimple
           title={title}
@@ -55,7 +54,7 @@ const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({
           setSimpleView={setSimpleView}
         />
       )}
-    </AnimateSharedLayout>
+    </>
   )
 }
 export default AnimatedSavedItemWrapper

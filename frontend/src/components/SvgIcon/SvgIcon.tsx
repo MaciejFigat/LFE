@@ -23,6 +23,8 @@ import {
   faClone,
   faTrashAlt,
   faBackward,
+  faExpand,
+  faStepBackward,
 } from '@fortawesome/free-solid-svg-icons'
 interface SvgIconProps {
   variant:
@@ -47,6 +49,8 @@ interface SvgIconProps {
     | 'add'
     | 'remove'
     | 'back'
+    | 'exit'
+    | 'expand'
 
   noMargin?: boolean
   contentAfter?: string
@@ -114,6 +118,10 @@ const SvgIcon: React.FC<SvgIconProps> = ({
         return faTrashAlt
       case 'back':
         return faBackward
+      case 'exit':
+        return faStepBackward
+      case 'expand':
+        return faExpand
 
       default:
         return faUser
