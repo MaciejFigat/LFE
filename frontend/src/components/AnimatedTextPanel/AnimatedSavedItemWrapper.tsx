@@ -1,5 +1,4 @@
 import React, { useState, ReactNode } from 'react'
-import { SendButtonSmall } from '../Buttons/Buttons.styled'
 import AnimatedSavedItem from './AnimatedSavedItem'
 import AnimatedSavedItemSimple from './AnimatedSavedItemSimple'
 

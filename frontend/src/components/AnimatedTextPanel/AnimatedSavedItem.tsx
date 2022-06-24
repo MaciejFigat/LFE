@@ -19,7 +19,7 @@ import {
   deleteSavedFragment,
   editSavedFragment,
 } from '../../features/fragments/fragmentSlice'
-import { SendButtonSmall, SendButtonVerySmall } from '../Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import KeywordEditing from './KeywordEditing'
 import SvgIcon from '../SvgIcon/SvgIcon'
 
