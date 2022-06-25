@@ -21,7 +21,6 @@ export const ListItem = styled(motion.li)`
   margin-bottom: 1rem; */
   // ! border radius passed as proprerty of ListItem in order to animate propre
   /* border-radius: 20px; */
-
   list-style: none;
   overflow: hidden;
   background: var(--background1-main);
@@ -47,10 +46,25 @@ export const ListTitleContainer = styled(motion.div)`
   /* grid-template: auto 1fr / auto 2fr; */
   /* margin-right: 0.5rem; */
 `
+export const TextAreaContainer = styled(motion.div)`
+  display: flex;
+  /* display: grid; */
+  /* flex-direction: row; */
+  /* align-items: flex-start; */
+  /* justify-content: space-between; */
+  /* min-height: min-content; */
+  display: flex;
+  flex-wrap: wrap;
+
+  /* grid-template: auto 2fr / auto 1fr; */
+  /* margin-right: 0.5rem; */
+`
 export const DatePar = styled(motion.p)`
   font-size: 0.75rem;
   margin: 0;
-  margin-right: 2.25rem;
+  padding: 0rem 0.75rem 0rem 0.75rem;
+  /* padding-bottom: 0; */
+  /* margin-right: 2.25rem; */
   color: var(--background-secondary2);
 `
 export const KeywordDiv = styled(motion.div)`
@@ -132,24 +146,22 @@ export const TitleInput = styled(motion.input)`
   font-family: inherit;
 `
 export const DescriptionAnimated = styled(motion.div)`
-  display: flex;
-  align-items: baseline;
+  /* display: flex; */
+  min-width: 80%;
   color: 'var(--background4-main);';
   transition: all 0.3s ease-out;
 `
 export const DescriptionInput = styled(motion.textarea)`
   outline: none;
   border: none;
+
   color: var(--background-tertiary4);
   transition: all 0.3s ease-out;
   background: none;
   line-height: 1.1;
-  min-width: 100%;
   cursor: text;
-  min-height: 100px;
   overflow-y: auto;
   line-height: 1.2;
-  /* transition: 1.9s; */
   font-size: inherit;
   font-family: inherit;
   &::placeholder {
@@ -166,11 +178,13 @@ export const DescriptionDiv = styled(motion.div)`
 `
 
 export const ListRow = styled(motion.div)`
-  text-align: left;
+  /* text-align: left; */
+  /* align-self: center; */
   /* justify-content: space-between; */
   padding: 0.75rem;
   padding-top: 0.25rem;
   margin-top: 0.5rem;
+  margin-right: 0.75rem;
   font-size: 0.9rem;
   font-weight: 400;
   border-radius: 10px;
@@ -178,8 +192,8 @@ export const ListRow = styled(motion.div)`
   background: var(--background2-main);
   /* border-radius: 3px; */
   min-height: 125px;
-  min-width: 90%;
-  max-width: 90%;
+  /* min-width: 100%; */
+  max-width: 100%;
   @media (max-width: 740px) {
     padding: 0.55rem;
     font-size: 0.65rem;

@@ -18,6 +18,7 @@ import {
   DescriptionInput,
   DescriptionDiv,
   DatePar,
+  TextAreaContainer,
 } from './AnimatedList.styled'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 
@@ -139,20 +140,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     dispatch(editSavedFragment(newExcerpt))
     setExcerptEditing(!excerptEditing)
   }
-  // TODO source editing
-  // const newSource = {
-  //   _id: id,
-  //   source: sourceValue,
-  //   excerpt: excerpt,
-  //   coordinates: coordinates,
-  //   title: title,
-  //   description: description,
-  //   keywords: keywords,
-  // }
-  // const saveSourceHandler = () => {
-  //   dispatch(editSavedFragment(newSource))
-  //   setSourceEditing(!sourceEditing)
-  // }
+
   const setSimpleViewHandler = () => {
     setSimpleView !== undefined && setSimpleView(!simpleView)
   }
@@ -164,342 +152,115 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   }, [dispatch, successUpdate, loadingUpdate])
 
   return (
-    <>
-      <ListItem
-        as={motion.li}
-        layout
-        initial={{ borderRadius: 3, opacity: 0, scale: 0.9 }}
-        transition={{ duration: 0.4 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        <FragmentDivSmall as={motion.div} layout>
-          <ListTitleContainer as={motion.div} layout='size'>
-            {!titleEditing ? (
-              <ListTitle as={motion.h2} layout onClick={toggleEditing}>
-                <TitleAnimated as={motion.div} layout>
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                  >
-                    {title}
-                  </motion.div>
-                </TitleAnimated>
-              </ListTitle>
-            ) : (
-              <ListTitle>
-                <TitleAnimated as={motion.div}>
-                  <TitleInput
-                    type='title'
-                    name='title'
-                    layout
-                    placeholder='new title'
-                    value={titleValue}
-                    onChange={(e: any) => setTitleValue(e.target.value)}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                  />{' '}
-                  {titleEditing && titleValue !== title && (
-                    <SendButtonVerySmall
-                      variant='successEmpty'
-                      onClick={saveTitleHandler}
-                    >
-                      <SvgIcon
-                        variant='save'
-                        toLeft
-                        contentAfter='save title'
-                      />
-                    </SendButtonVerySmall>
-                  )}
-                  {titleEditing && titleValue === title && (
-                    <SendButtonVerySmall
-                      variant='secondaryEmpty'
-                      onClick={toggleEditing}
-                    >
-                      <SvgIcon
-                        variant='back'
-                        toLeft
-                        contentAfter='reset title'
-                      />
-                    </SendButtonVerySmall>
-                  )}
-                </TitleAnimated>
-              </ListTitle>
-            )}{' '}
-            <DatePar>
-              updated: {updatedAt.substring(0, 10)} at{' '}
-              {updatedAt.substring(12, 16)}
-            </DatePar>
-            {/* {!titleEditing && (
-              <SendButtonVerySmall
-                variant='secondaryEmpty'
-                onClick={toggleEditing}
-                as={motion.button}
-              >
-                <SvgIcon variant='edit' toLeft contentAfter='edit title' />
-              </SendButtonVerySmall>
-            )}{' '} */}
-            <ListButtonContainer
-              as={motion.div}
-              layout='position'
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              <AnimatePresence>
+    <ListItem
+      as={motion.li}
+      layout
+      initial={{ borderRadius: 3, opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.4 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <FragmentDivSmall as={motion.div} layout>
+        <ListTitleContainer as={motion.div} layout='size'>
+          {!titleEditing ? (
+            <ListTitle as={motion.h2} layout onClick={toggleEditing}>
+              <TitleAnimated as={motion.div} layout>
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, ease: [0.04, 0.22, 0.49, 0.98] }}
                   exit={{ opacity: 0 }}
                 >
-                  {' '}
+                  Title: &nbsp; {title}
+                </motion.div>
+              </TitleAnimated>
+            </ListTitle>
+          ) : (
+            <ListTitle>
+              <TitleAnimated as={motion.div}>
+                <TitleInput
+                  type='title'
+                  name='title'
+                  layout
+                  placeholder='new title'
+                  value={titleValue}
+                  onChange={(e: any) => setTitleValue(e.target.value)}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                />{' '}
+                {titleEditing && titleValue !== title && (
                   <SendButtonVerySmall
                     variant='successEmpty'
-                    onClick={setSimpleViewHandler}
+                    onClick={saveTitleHandler}
                   >
-                    <SvgIcon variant='arrowLeft' toLeft contentAfter='back' />
+                    <SvgIcon variant='save' toLeft contentAfter='save title' />
                   </SendButtonVerySmall>
-                  {/* {!titleEditing && (
-                    <SendButtonVerySmall
-                      variant='secondaryEmpty'
-                      onClick={toggleEditing}
-                      as={motion.button}
-                    >
-                      <SvgIcon
-                        variant='edit'
-                        toLeft
-                        contentAfter='edit title'
-                      />
-                    </SendButtonVerySmall>
-                  )}{' '}
-                  {titleEditing && titleValue !== title && (
-                    <SendButtonVerySmall
-                      variant='successEmpty'
-                      onClick={saveTitleHandler}
-                    >
-                      <SvgIcon
-                        variant='save'
-                        toLeft
-                        contentAfter='save title'
-                      />
-                    </SendButtonVerySmall>
-                  )}
-                  {titleEditing && titleValue === title && (
-                    <SendButtonVerySmall
-                      variant='primaryEmpty'
-                      onClick={toggleEditing}
-                    >
-                      <SvgIcon
-                        variant='back'
-                        toLeft
-                        contentAfter='reset title'
-                      />
-                    </SendButtonVerySmall>
-                  )} */}
+                )}
+                {titleEditing && titleValue === title && (
                   <SendButtonVerySmall
                     variant='secondaryEmpty'
-                    onClick={() => removeFragmentHandler(id)}
+                    onClick={toggleEditing}
                   >
-                    <SvgIcon variant='remove' toLeft contentAfter='delete' />
+                    <SvgIcon variant='back' toLeft contentAfter='reset title' />
                   </SendButtonVerySmall>
-                </motion.div>{' '}
-              </AnimatePresence>
-            </ListButtonContainer>
-          </ListTitleContainer>{' '}
-          {/* //! here edit */}
-          <KeywordEditing
-            keywords={keywords}
-            id={id}
-            title={title}
-            description={description}
-            source={source}
-            excerpt={excerpt}
-            coordinates={coordinates}
-          />
-          <AnimatePresence>
-            {/*//! todo {isOpen && ( */}
-            <motion.div
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              {/* {children && (
-              <ListRow as={motion.div} layout>
-                {children}
-              </ListRow>
-            )} */}
-              {/* //todo excerpt editing/display below */}
-              <ListRow as={motion.div} layout>
-                <ListTitleContainer>
-                  {!excerptEditing ? (
-                    <DescriptionAnimated
-                      initial={{ opacity: 0, scale: 1 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{
-                        duration: 0.4,
-                        ease: [0.04, 0.52, 0.73, 0.98],
-                      }}
-                      as={motion.div}
-                      layout='position'
-                    >
-                      <DescriptionDiv onClick={toggleExcerptEditing}>
-                        {' '}
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                        >
-                          <DatePar>Excerpt:</DatePar>
-                          {excerpt}
-                        </motion.div>
-                      </DescriptionDiv>
-                    </DescriptionAnimated>
-                  ) : (
-                    <DescriptionAnimated
-                      as={motion.div}
-                      initial={{ opacity: 0, scale: 1 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{
-                        duration: 0.4,
-                        ease: [0.04, 0.62, 0.23, 0.98],
-                      }}
-                      layout='position'
-                    >
-                      {' '}
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                      >
-                        <DescriptionInput
-                          type='excerpt'
-                          name='excerpt'
-                          layout
-                          placeholder='new excerpt'
-                          value={excerptValue}
-                          onChange={(e: any) => setExcerptValue(e.target.value)}
-                        />
-                      </motion.div>
-                    </DescriptionAnimated>
-                  )}
-                  <ListButtonContainer>
-                    {excerptEditing && excerptValue !== excerpt && (
-                      <>
-                        <SendButtonVerySmall
-                          variant='primaryEmpty'
-                          onClick={toggleExcerptReset}
-                        >
-                          <SvgIcon variant='back' toLeft contentAfter='reset' />
-                        </SendButtonVerySmall>
-                        <SendButtonVerySmall
-                          variant='successEmpty'
-                          onClick={saveExcerptHandler}
-                        >
-                          <SvgIcon variant='save' toLeft contentAfter='save' />
-                        </SendButtonVerySmall>
-                      </>
-                    )}
-                    {excerptEditing && excerptValue === excerpt && (
-                      <SendButtonVerySmall
-                        variant='primaryEmpty'
-                        onClick={toggleExcerptEditing}
-                      >
-                        <SvgIcon variant='back' toLeft contentAfter='back' />
-                      </SendButtonVerySmall>
-                    )}
-                  </ListButtonContainer>
-                </ListTitleContainer>
-              </ListRow>
-              {/* //todo description editing/display below */}
-              <ListRow as={motion.div} layout>
-                <ListTitleContainer>
-                  {!descriptionEditing ? (
-                    <DescriptionAnimated
-                      initial={{ opacity: 0, scale: 1 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{
-                        duration: 0.4,
-                        ease: [0.04, 0.52, 0.73, 0.98],
-                      }}
-                      as={motion.div}
-                      layout='position'
-                    >
-                      <DescriptionDiv onClick={toggleDescriptionEditing}>
-                        {' '}
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                        >
-                          <DatePar>Description:</DatePar> {description}
-                        </motion.div>
-                      </DescriptionDiv>
-                    </DescriptionAnimated>
-                  ) : (
-                    <DescriptionAnimated
-                      as={motion.div}
-                      initial={{ opacity: 0, scale: 1 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{
-                        duration: 0.4,
-                        ease: [0.04, 0.62, 0.23, 0.98],
-                      }}
-                      layout='position'
-                    >
-                      {' '}
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                      >
-                        <DescriptionInput
-                          type='description'
-                          name='description'
-                          layout
-                          placeholder='new description'
-                          value={descriptionValue}
-                          onChange={(e: any) =>
-                            setDescriptionValue(e.target.value)
-                          }
-                        />
-                      </motion.div>
-                    </DescriptionAnimated>
-                  )}
-                  <ListButtonContainer>
-                    {descriptionEditing && descriptionValue !== description && (
-                      <>
-                        <SendButtonVerySmall
-                          variant='primaryEmpty'
-                          onClick={toggleDescriptionReset}
-                        >
-                          <SvgIcon variant='back' toLeft contentAfter='back' />
-                        </SendButtonVerySmall>
-                        <SendButtonVerySmall
-                          variant='successEmpty'
-                          onClick={saveDescriptionHandler}
-                        >
-                          <SvgIcon variant='save' toLeft contentAfter='save' />
-                        </SendButtonVerySmall>
-                      </>
-                    )}
-                    {descriptionEditing && descriptionValue === description && (
-                      <SendButtonVerySmall
-                        variant='primaryEmpty'
-                        onClick={toggleDescriptionEditing}
-                      >
-                        <SvgIcon variant='back' toLeft contentAfter='back' />
-                      </SendButtonVerySmall>
-                    )}
-                  </ListButtonContainer>
-                </ListTitleContainer>
-              </ListRow>
-              {/* //todo from here source display/editing */}
-              {/* <ListRow as={motion.div} layout>
+                )}
+              </TitleAnimated>
+            </ListTitle>
+          )}{' '}
+          <ListButtonContainer
+            as={motion.div}
+            layout='position'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <AnimatePresence>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, ease: [0.04, 0.22, 0.49, 0.98] }}
+                exit={{ opacity: 0 }}
+              >
+                {' '}
+                <SendButtonVerySmall
+                  variant='successEmpty'
+                  onClick={setSimpleViewHandler}
+                >
+                  <SvgIcon variant='arrowLeft' toLeft contentAfter='back' />
+                </SendButtonVerySmall>
+                <SendButtonVerySmall
+                  variant='secondaryEmpty'
+                  onClick={() => removeFragmentHandler(id)}
+                >
+                  <SvgIcon variant='remove' toLeft contentAfter='delete' />
+                </SendButtonVerySmall>
+              </motion.div>{' '}
+            </AnimatePresence>
+          </ListButtonContainer>
+        </ListTitleContainer>{' '}
+        <DatePar>
+          updated: {updatedAt.substring(0, 10)} at {updatedAt.substring(12, 16)}
+        </DatePar>
+        <DatePar>source: {source}</DatePar>
+        <KeywordEditing
+          keywords={keywords}
+          id={id}
+          title={title}
+          description={description}
+          source={source}
+          excerpt={excerpt}
+          coordinates={coordinates}
+        />
+        <AnimatePresence>
+          <motion.div
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* //todo excerpt editing/display below */}
+            <ListRow as={motion.div} layout>
               <ListTitleContainer>
-                {!sourceEditing ? (
+                {!excerptEditing ? (
                   <DescriptionAnimated
                     initial={{ opacity: 0, scale: 1 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -510,14 +271,15 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                     as={motion.div}
                     layout='position'
                   >
-                    <DescriptionDiv onClick={toggleSourceEditing}>
+                    <DescriptionDiv onClick={toggleExcerptEditing}>
                       {' '}
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                       >
-                        <DatePar>Source:</DatePar> {source}
+                        <DatePar>Excerpt:</DatePar>
+                        {excerpt}
                       </motion.div>
                     </DescriptionDiv>
                   </DescriptionAnimated>
@@ -539,50 +301,136 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                       exit={{ opacity: 0 }}
                     >
                       <DescriptionInput
-                        type='source'
-                        name='source'
+                        type='excerpt'
+                        name='excerpt'
+                        cols='39'
+                        rows='7'
                         layout
-                        placeholder='new source'
-                        value={sourceValue}
-                        onChange={(e: any) => setSourceValue(e.target.value)}
+                        placeholder='new excerpt'
+                        value={excerptValue}
+                        onChange={(e: any) => setExcerptValue(e.target.value)}
                       />
                     </motion.div>
                   </DescriptionAnimated>
                 )}
                 <ListButtonContainer>
-                  {sourceEditing && sourceValue !== source && (
+                  {excerptEditing && excerptValue !== excerpt && (
                     <>
                       <SendButtonVerySmall
                         variant='primaryEmpty'
-                        onClick={toggleSourceReset}
+                        onClick={toggleExcerptReset}
                       >
-                        <SvgIcon variant='back' toLeft contentAfter='back' />
+                        <SvgIcon variant='back' toLeft contentAfter='reset' />
                       </SendButtonVerySmall>
                       <SendButtonVerySmall
                         variant='successEmpty'
-                        onClick={saveSourceHandler}
+                        onClick={saveExcerptHandler}
                       >
                         <SvgIcon variant='save' toLeft contentAfter='save' />
                       </SendButtonVerySmall>
                     </>
                   )}
-                  {sourceEditing && sourceValue === source && (
+                  {excerptEditing && excerptValue === excerpt && (
                     <SendButtonVerySmall
                       variant='primaryEmpty'
-                      onClick={toggleSourceEditing}
+                      onClick={toggleExcerptEditing}
                     >
                       <SvgIcon variant='back' toLeft contentAfter='back' />
                     </SendButtonVerySmall>
                   )}
                 </ListButtonContainer>
               </ListTitleContainer>
-            </ListRow> */}
-            </motion.div>
-            {/* )} */}
-          </AnimatePresence>
-        </FragmentDivSmall>
-      </ListItem>
-    </>
+            </ListRow>
+            {/* //todo description editing/display below */}
+            <ListRow as={motion.div} layout>
+              <TextAreaContainer>
+                {!descriptionEditing ? (
+                  <DescriptionAnimated
+                    initial={{ opacity: 0, scale: 1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.4,
+                      ease: [0.04, 0.52, 0.73, 0.98],
+                    }}
+                    as={motion.div}
+                    layout='position'
+                  >
+                    <DescriptionDiv onClick={toggleDescriptionEditing}>
+                      {' '}
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                      >
+                        <DatePar>Description:</DatePar> {description}
+                      </motion.div>
+                    </DescriptionDiv>
+                  </DescriptionAnimated>
+                ) : (
+                  <DescriptionAnimated
+                    as={motion.div}
+                    initial={{ opacity: 0, scale: 1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.4,
+                      ease: [0.04, 0.62, 0.23, 0.98],
+                    }}
+                    layout='position'
+                  >
+                    {' '}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    >
+                      <DescriptionInput
+                        type='description'
+                        name='description'
+                        layout
+                        cols='35'
+                        rows='5'
+                        placeholder='new description'
+                        value={descriptionValue}
+                        onChange={(e: any) =>
+                          setDescriptionValue(e.target.value)
+                        }
+                      />
+                    </motion.div>
+                  </DescriptionAnimated>
+                )}
+                <ListButtonContainer>
+                  {descriptionEditing && descriptionValue !== description && (
+                    <>
+                      <SendButtonVerySmall
+                        variant='primaryEmpty'
+                        onClick={toggleDescriptionReset}
+                      >
+                        <SvgIcon variant='back' toLeft contentAfter='back' />
+                      </SendButtonVerySmall>
+                      <SendButtonVerySmall
+                        variant='successEmpty'
+                        onClick={saveDescriptionHandler}
+                      >
+                        <SvgIcon variant='save' toLeft contentAfter='save' />
+                      </SendButtonVerySmall>
+                    </>
+                  )}
+                  {descriptionEditing && descriptionValue === description && (
+                    <SendButtonVerySmall
+                      variant='primaryEmpty'
+                      onClick={toggleDescriptionEditing}
+                    >
+                      <SvgIcon variant='back' toLeft contentAfter='back' />
+                    </SendButtonVerySmall>
+                  )}
+                </ListButtonContainer>
+              </TextAreaContainer>
+            </ListRow>
+            {/* //todo from here source display/editing */}
+          </motion.div>
+        </AnimatePresence>
+      </FragmentDivSmall>
+    </ListItem>
   )
 }
 export default AnimatedSavedItem

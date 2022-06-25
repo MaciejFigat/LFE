@@ -27,6 +27,8 @@ export const IconsItem = styled.div`
     /* transition: text 0.9s ease-in; */
     z-index: 11;
     width: ${(props) => (props.noContent ? `0px` : '100px')};
+    min-width: min-content;
+    padding-right: 0.25rem;
     /* font-size: 14px; */
     /* font-size: 0.75rem; */
     font-size: min(max(1rem, 4vw), 12px);
@@ -35,7 +37,7 @@ export const IconsItem = styled.div`
     text-transform: uppercase;
     bottom: ${({ toRight }) => (toRight ? '15px; ' : '15px;')};
     left: ${({ toRight }) => (toRight ? '80px; ' : '50px;')};
-    left: ${({ toLeft }) => (toLeft ? '-50px; ' : '80px;')};
+    left: ${({ toLeft }) => (toLeft ? '-60px; ' : '80px;')};
 
     @media (max-width: 1020px) {
       bottom: ${({ toRight }) => (toRight ? '15px; ' : '15px;')};
