@@ -49,7 +49,6 @@ interface AnimatedSavedItemProps {
 const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   title,
   description,
-  // children,
   id,
   source,
   excerpt,
@@ -67,25 +66,17 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     (state) => state.fragment.successUpdate
   )
 
-  // const [isOpen, setIsOpen] = useState(true)
-
   const [titleEditing, setTitleEditing] = useState(false)
 
   const [descriptionEditing, setDescriptionEditing] = useState(false)
 
   const [excerptEditing, setExcerptEditing] = useState(false)
 
-  // const [sourceEditing, setSourceEditing] = useState(false)
-
   const [titleValue, setTitleValue] = useState(title)
 
   const [descriptionValue, setDescriptionValue] = useState(description)
 
   const [excerptValue, setExcerptValue] = useState(excerpt)
-
-  // const [sourceValue, setSourceValue] = useState(source)
-
-  // const toggleOpen = () => setIsOpen(!isOpen)
 
   const toggleEditing = () => setTitleEditing(!titleEditing)
 
@@ -103,11 +94,6 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     setExcerptValue(excerpt)
   }
 
-  // const toggleSourceEditing = () => setSourceEditing(!sourceEditing)
-  // const toggleSourceReset = () => {
-  //   setSourceEditing(!sourceEditing)
-  //   setSourceValue(source)
-  // }
   const removeFragmentHandler = (id: string) => {
     dispatch(deleteSavedFragment(id))
   }

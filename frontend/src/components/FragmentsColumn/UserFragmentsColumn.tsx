@@ -6,8 +6,8 @@ import {
   ListWrapper,
   ItemWrapper,
 } from '../AnimatedTextPanel/AnimatedList.styled'
-import AnimatedSavedItem from '../AnimatedTextPanel/AnimatedSavedItem'
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
+import AnimatedSavedItemWrapper from '../AnimatedTextPanel/AnimatedSavedItemWrapper'
 
 interface UserFragmentsColumnProps {}
 
@@ -58,7 +58,7 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
                 <FragmentContainer key={fragment.title}>
                   <ItemWrapper>
                     {' '}
-                    <AnimatedSavedItem
+                    <AnimatedSavedItemWrapper
                       id={fragment._id}
                       title={fragment.title}
                       description={fragment.description}
