@@ -65,7 +65,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     (state) => state.fragment.successUpdate
   )
   const loadingUpdate: boolean = useAppSelector(
-    (state) => state.fragment.successUpdate
+    (state) => state.fragment.loadingUpdate
   )
 
   const [titleEditing, setTitleEditing] = useState(false)
@@ -146,16 +146,14 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     setSimpleView !== undefined && setSimpleView(!simpleView)
   }
   // todo it trigers on every render, need to change it in this regard
+
   useMemo(() => {
     if (successUpdate === true) {
-      dispatch(getUserFragments(1))
+      if (loadingUpdate === false) {
+        dispatch(getUserFragments(1))
+      }
     }
-  }, [dispatch, successUpdate])
-  // useEffect(() => {
-  //   if (successUpdate === true) {
-  //     dispatch(getUserFragments(1))
-  //   }
-  // }, [dispatch, successUpdate, loadingUpdate])
+  }, [dispatch, successUpdate, loadingUpdate])
 
   return (
     <ListItem
