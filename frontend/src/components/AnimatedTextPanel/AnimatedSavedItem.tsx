@@ -1,7 +1,8 @@
 import React, {
   ReactNode,
   useState,
-  useEffect,
+  useMemo,
+  // useEffect,
   Dispatch,
   SetStateAction,
 } from 'react'
@@ -145,11 +146,16 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     setSimpleView !== undefined && setSimpleView(!simpleView)
   }
   // todo it trigers on every render, need to change it in this regard
-  useEffect(() => {
+  useMemo(() => {
     if (successUpdate === true) {
       dispatch(getUserFragments(1))
     }
-  }, [dispatch, successUpdate, loadingUpdate])
+  }, [dispatch, successUpdate])
+  // useEffect(() => {
+  //   if (successUpdate === true) {
+  //     dispatch(getUserFragments(1))
+  //   }
+  // }, [dispatch, successUpdate, loadingUpdate])
 
   return (
     <ListItem
