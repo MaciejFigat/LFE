@@ -35,20 +35,22 @@ export const IconsItem = styled.div`
     display: block !important;
     position: relative !important;
     text-transform: uppercase;
-    bottom: ${({ toRight }) => (toRight ? '15px; ' : '15px;')};
-    left: ${({ toRight }) => (toRight ? '80px; ' : '50px;')};
-    left: ${({ toLeft }) => (toLeft ? '-60px; ' : '80px;')};
+    bottom: ${({ toRight }) => (toRight ? '15px;' : '15px;')};
+    bottom: ${({ toBottom }) => toBottom && '-5px;'};
+    /* left: 180px; */
+    left: ${({ toRight }) => (toRight ? '80px;' : '80px;')};
+    left: ${({ toLeft }) => (toLeft ? '-60px;' : '80px;')};
+    left: ${({ toBottom }) => toBottom && '0px; '};
 
     @media (max-width: 1020px) {
+      /* bottom: 0px; */
       bottom: ${({ toRight }) => (toRight ? '15px; ' : '15px;')};
+      bottom: ${({ toBottom }) => toBottom && '-5px;'};
       left: ${({ toRight }) => (toRight ? '70px; ' : '-40px;')};
-      left: ${({ toLeft }) => (toLeft ? '-45px; ' : '70px;')};
+      left: ${({ toLeft }) => (toLeft ? '-45px; ' : '-40px;')};
+      left: ${({ toBottom }) => toBottom && '0px;'};
     }
 
     height: 5px;
   }
-
-  /* @media (max-width: 1020px) { */
-
-  /* }  */
 `

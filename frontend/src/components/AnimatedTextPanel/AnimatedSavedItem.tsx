@@ -20,6 +20,7 @@ import {
   DescriptionDiv,
   DatePar,
   TextAreaContainer,
+  HorizontalButtonContainer,
 } from './AnimatedList.styled'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 
@@ -167,8 +168,8 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
       <FragmentDivSmall as={motion.div} layout>
         <ListTitleContainer as={motion.div} layout='size'>
           {!titleEditing ? (
-            <ListTitle as={motion.h2} layout onClick={toggleEditing}>
-              <TitleAnimated as={motion.div} layout>
+            <ListTitle onClick={toggleEditing}>
+              <TitleAnimated>
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -193,53 +194,78 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                   exit={{ opacity: 0 }}
                 />{' '}
                 {titleEditing && titleValue !== title && (
-                  <SendButtonVerySmall
-                    variant='successEmpty'
-                    onClick={saveTitleHandler}
-                  >
-                    <SvgIcon variant='save' toLeft contentAfter='save title' />
-                  </SendButtonVerySmall>
+                  <>
+                    {' '}
+                    <SendButtonVerySmall
+                      variant='secondaryEmpty'
+                      onClick={toggleEditing}
+                    >
+                      <SvgIcon
+                        variant='back'
+                        toBottom
+                        contentAfter='reset title'
+                      />
+                    </SendButtonVerySmall>{' '}
+                    <SendButtonVerySmall
+                      variant='successEmpty'
+                      onClick={saveTitleHandler}
+                    >
+                      <SvgIcon
+                        variant='save'
+                        toBottom
+                        contentAfter='save title'
+                      />
+                    </SendButtonVerySmall>
+                  </>
                 )}
                 {titleEditing && titleValue === title && (
                   <SendButtonVerySmall
                     variant='secondaryEmpty'
                     onClick={toggleEditing}
                   >
-                    <SvgIcon variant='back' toLeft contentAfter='reset title' />
+                    <SvgIcon
+                      variant='back'
+                      toBottom
+                      contentAfter='reset title'
+                    />
                   </SendButtonVerySmall>
                 )}
               </TitleAnimated>
             </ListTitle>
           )}{' '}
-          <ListButtonContainer
-            as={motion.div}
-            layout='position'
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            <AnimatePresence>
-              <motion.div
+          <AnimatePresence>
+            {' '}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, ease: [0.04, 0.22, 0.49, 0.98] }}
+              exit={{ opacity: 0 }}
+            >
+              <HorizontalButtonContainer
+                as={motion.div}
+                layout='position'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, ease: [0.04, 0.22, 0.49, 0.98] }}
-                exit={{ opacity: 0 }}
               >
-                {' '}
                 <SendButtonVerySmall
                   variant='successEmpty'
                   onClick={setSimpleViewHandler}
                 >
-                  <SvgIcon variant='arrowLeft' toLeft contentAfter='back' />
+                  <SvgIcon
+                    variant='arrowLeft'
+                    toBottom
+                    contentAfter='stop editing'
+                  />
                 </SendButtonVerySmall>
                 <SendButtonVerySmall
                   variant='secondaryEmpty'
                   onClick={() => removeFragmentHandler(id)}
                 >
-                  <SvgIcon variant='remove' toLeft contentAfter='delete' />
+                  <SvgIcon variant='remove' toBottom contentAfter='delete' />
                 </SendButtonVerySmall>
-              </motion.div>{' '}
-            </AnimatePresence>
-          </ListButtonContainer>
+              </HorizontalButtonContainer>
+            </motion.div>{' '}
+          </AnimatePresence>
         </ListTitleContainer>{' '}
         <DatePar>
           updated: {updatedAt.substring(0, 10)} at {updatedAt.substring(12, 16)}
@@ -324,13 +350,17 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                         variant='primaryEmpty'
                         onClick={toggleExcerptReset}
                       >
-                        <SvgIcon variant='back' toLeft contentAfter='reset' />
+                        <SvgIcon
+                          variant='back'
+                          toBottom
+                          contentAfter='reset changes'
+                        />
                       </SendButtonVerySmall>
                       <SendButtonVerySmall
                         variant='successEmpty'
                         onClick={saveExcerptHandler}
                       >
-                        <SvgIcon variant='save' toLeft contentAfter='save' />
+                        <SvgIcon variant='save' toBottom contentAfter='save' />
                       </SendButtonVerySmall>
                     </>
                   )}

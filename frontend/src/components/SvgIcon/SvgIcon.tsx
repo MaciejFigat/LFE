@@ -58,6 +58,8 @@ interface SvgIconProps {
   toRight?: boolean
   toLeft?: boolean
   noContent?: boolean
+  showContent?: boolean
+  toBottom?: boolean
 }
 
 const SvgIcon: React.FC<SvgIconProps> = ({
@@ -66,6 +68,8 @@ const SvgIcon: React.FC<SvgIconProps> = ({
   contentAfter,
   toRight,
   toLeft,
+  toBottom,
+  showContent,
   noContent,
 }) => {
   const [copySuccess, setCopySuccess] = useState<string | undefined>('')
@@ -142,7 +146,9 @@ const SvgIcon: React.FC<SvgIconProps> = ({
       onMouseLeave={() => leaveHelper()}
       toRight={toRight}
       toLeft={toLeft}
+      toBottom={toBottom}
       noContent={noContent}
+      showContent={showContent}
     >
       <FontAwesomeIcon icon={iconVersion(variant)} />
     </IconsItem>

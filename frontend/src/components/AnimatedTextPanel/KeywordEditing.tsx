@@ -7,6 +7,7 @@ import {
   ListTitleContainer,
   TitleAnimated,
   TitleInput,
+  HorizontalButtonContainer,
 } from './AnimatedList.styled'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { editSavedFragment } from '../../features/fragments/fragmentSlice'
@@ -86,16 +87,16 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
   }
   const saveKeywordArrHandler = () => {
     dispatch(editSavedFragment(newKeywordList))
-
-    console.log(keywordArr)
-    console.log(keywords)
   }
 
   useEffect(() => {
     if (keywordArr?.length > 0 && keywords?.length > 0) {
       setSameContents(haveSameContents(keywordArr, keywords))
     }
-  }, [keywordArr, keywords])
+    // if (sameContents === false) {
+    //   dispatch(editSavedFragment(newKeywordList))
+    // }
+  }, [keywordArr, keywords, sameContents, dispatch])
 
   //? helper function to compare 2 arrays pertaining elements regardless of the order
   const haveSameContents = (a: any[], b: any[]) => {
@@ -106,115 +107,130 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
   }
 
   return (
-    <ListTitleContainer as={motion.div} layout='size'>
-      {!keywordEditing ? (
-        <ListTitle as={motion.h2} layout>
-          <TitleAnimated as={motion.div} layout>
+    <>
+      <ListTitleContainer as={motion.div} layout='size'>
+        {!keywordEditing ? (
+          <ListTitle as={motion.h2} layout>
+            <TitleAnimated as={motion.div} layout>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <KeywordPar>
+                  {' '}
+                  {keywordArr &&
+                    keywordArr.map((keyword, index) => (
+                      <KeywordDiv
+                        key={index}
+                        onClick={() => editKeywordHandler(keyword, index)}
+                      >
+                        Keywords: &nbsp;
+                        {keywordArr.length > 1 ? `${keyword} \u00A0` : keyword}
+                      </KeywordDiv>
+                    ))}
+                </KeywordPar>
+              </motion.div>
+            </TitleAnimated>
+          </ListTitle>
+        ) : (
+          <ListTitle>
+            <TitleAnimated as={motion.div}>
+              <TitleInput
+                type='keyword'
+                name='keyword'
+                layout
+                placeholder='new keyword'
+                value={keywordValue}
+                onChange={(e: any) => setKeywordValue(e.target.value)}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              />
+            </TitleAnimated>
+          </ListTitle>
+        )}
+
+        <ListButtonContainer
+          as={motion.div}
+          layout='position'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <AnimatePresence>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              transition={{
+                duration: 0.6,
+              }}
               exit={{ opacity: 0 }}
             >
-              <KeywordPar>
-                {' '}
-                Keywords: &nbsp;
-                {keywordArr &&
-                  keywordArr.map((keyword, index) => (
-                    <KeywordDiv
-                      key={index}
-                      onClick={() => editKeywordHandler(keyword, index)}
-                    >
-                      {keywordArr.length > 1 ? `${keyword} \u00A0` : keyword}
-                    </KeywordDiv>
-                  ))}
-              </KeywordPar>
-            </motion.div>
-          </TitleAnimated>
-        </ListTitle>
-      ) : (
-        <ListTitle>
-          <TitleAnimated as={motion.div}>
-            <TitleInput
-              type='keyword'
-              name='keyword'
-              layout
-              placeholder='new keyword'
-              value={keywordValue}
-              onChange={(e: any) => setKeywordValue(e.target.value)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            />
-          </TitleAnimated>
-        </ListTitle>
-      )}
-
-      <ListButtonContainer
-        as={motion.div}
-        layout='position'
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        <AnimatePresence>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 0.6,
-            }}
-            exit={{ opacity: 0 }}
-          >
-            {!keywordEditing ? (
-              <>
-                {' '}
-                {!sameContents ? (
-                  <SendButtonVerySmall
-                    variant='secondaryEmpty'
-                    onClick={saveKeywordArrHandler}
-                    as={motion.button}
-                  >
-                    <SvgIcon variant='save' toLeft contentAfter='save' />
-                  </SendButtonVerySmall>
+              <HorizontalButtonContainer>
+                {!keywordEditing ? (
+                  <>
+                    {!sameContents ? (
+                      <SendButtonVerySmall
+                        variant='successEmpty'
+                        onClick={saveKeywordArrHandler}
+                        as={motion.button}
+                      >
+                        <SvgIcon variant='save' toBottom contentAfter='save' />
+                      </SendButtonVerySmall>
+                    ) : (
+                      <SendButtonVerySmall
+                        variant='secondaryEmpty'
+                        onClick={addKeywordHandler}
+                        as={motion.button}
+                      >
+                        <SvgIcon
+                          variant='edit'
+                          toBottom
+                          contentAfter='add keyword'
+                        />
+                      </SendButtonVerySmall>
+                    )}
+                  </>
                 ) : (
-                  <SendButtonVerySmall
-                    variant='secondaryEmpty'
-                    onClick={addKeywordHandler}
-                    as={motion.button}
-                  >
-                    <SvgIcon variant='edit' toLeft contentAfter='add keyword' />
-                  </SendButtonVerySmall>
-                )}
-              </>
-            ) : (
-              <>
-                <SendButtonVerySmall
-                  variant='primaryEmpty'
-                  onClick={() => setKeywordEditing(!keywordEditing)}
-                  as={motion.button}
-                >
-                  <SvgIcon variant='back' toLeft contentAfter='back' />
-                </SendButtonVerySmall>
-                <SendButtonVerySmall
-                  variant='successEmpty'
-                  onClick={saveKeywordHandler}
-                  as={motion.button}
-                >
-                  <SvgIcon variant='save' toLeft contentAfter='save changes' />
-                </SendButtonVerySmall>
+                  <>
+                    <SendButtonVerySmall
+                      variant='successEmpty'
+                      onClick={saveKeywordHandler}
+                      as={motion.button}
+                    >
+                      <SvgIcon
+                        variant='save'
+                        toBottom
+                        contentAfter='save changes'
+                      />
+                    </SendButtonVerySmall>
 
-                <SendButtonVerySmall
-                  variant='secondaryEmpty'
-                  onClick={deleteKeywordHandler}
-                  as={motion.button}
-                >
-                  <SvgIcon variant='remove' toLeft contentAfter='delete' />
-                </SendButtonVerySmall>
-              </>
-            )}
-          </motion.div>{' '}
-        </AnimatePresence>
-      </ListButtonContainer>
-    </ListTitleContainer>
+                    <SendButtonVerySmall
+                      variant='secondaryEmpty'
+                      onClick={deleteKeywordHandler}
+                      as={motion.button}
+                    >
+                      <SvgIcon
+                        variant='remove'
+                        toBottom
+                        contentAfter='delete'
+                      />
+                    </SendButtonVerySmall>
+                    <SendButtonVerySmall
+                      variant='primaryEmpty'
+                      onClick={() => setKeywordEditing(!keywordEditing)}
+                      as={motion.button}
+                    >
+                      <SvgIcon variant='back' toBottom contentAfter='back' />
+                    </SendButtonVerySmall>
+                  </>
+                )}
+              </HorizontalButtonContainer>
+            </motion.div>
+          </AnimatePresence>
+        </ListButtonContainer>
+      </ListTitleContainer>
+    </>
   )
 }
 export default KeywordEditing
