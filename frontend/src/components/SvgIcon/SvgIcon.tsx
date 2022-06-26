@@ -133,11 +133,17 @@ const SvgIcon: React.FC<SvgIconProps> = ({
     }
   }
   useEffect(() => {
+    if (showContent) {
+      setCopySuccess(contentAfter)
+    }
     const timer = setTimeout(() => {
-      setCopySuccess('')
+      if (!showContent) {
+        setCopySuccess('')
+      }
     }, 3000)
     return () => clearTimeout(timer)
-  }, [copySuccess])
+  }, [copySuccess, showContent, contentAfter])
+
   return (
     <IconsItem
       contentAfter={copySuccess}

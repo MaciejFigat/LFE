@@ -254,6 +254,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                   <SvgIcon
                     variant='arrowLeft'
                     toBottom
+                    showContent
                     contentAfter='stop editing'
                   />
                 </SendButtonVerySmall>
