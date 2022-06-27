@@ -25,6 +25,7 @@ import {
   faBackward,
   faExpand,
   faStepBackward,
+  faPlusCircle,
 } from '@fortawesome/free-solid-svg-icons'
 interface SvgIconProps {
   variant:
@@ -51,7 +52,7 @@ interface SvgIconProps {
     | 'back'
     | 'exit'
     | 'expand'
-    | 'cross'
+    | 'plus'
 
   noMargin?: boolean
   contentAfter?: string
@@ -127,6 +128,8 @@ const SvgIcon: React.FC<SvgIconProps> = ({
         return faStepBackward
       case 'expand':
         return faExpand
+      case 'plus':
+        return faPlusCircle
 
       default:
         return faUser

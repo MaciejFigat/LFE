@@ -17,8 +17,6 @@ import {
 interface ResizableScrollSectionProps {
   wideSection?: ReactNode
   narrowSection?: ReactNode
-  // widthSmall?: string
-  // widthBig?: string
   transparent?: boolean
   narrowOption?: boolean
 }
@@ -40,9 +38,7 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
 
   const initial = (e: any) => {
     let resizable = document.getElementById('SectionWide')
-
     setInitialPos(e.clientX)
-
     if (resizable !== null) {
       setInitialSize(resizable.offsetWidth)
     }
@@ -50,7 +46,6 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
 
   const resize = (e: any) => {
     let resizable = document.getElementById('SectionWide')
-
     if (resizable !== null) {
       resizable.style.width = `${
         parseInt(initialSize) + Math.floor(e.clientX - initialPos)
@@ -89,7 +84,6 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
           narrowOption={narrowOption}
           id='SectionWide'
         >
-          {/* <SectionColumnScrollResize id='SectionWide'> */}
           {wideSection}{' '}
         </SectionColumnScrollResize>
       </ScrollSectionRow>

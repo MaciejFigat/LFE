@@ -39,17 +39,15 @@ export const ListItemSimple = styled(ListItem)`
 export const ListTitleContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   min-height: min-content;
-
-  /* grid-template: auto 1fr / auto 2fr; */
   margin-bottom: 0.5rem;
-  /* margin-right: 0.5rem; */
 `
 export const HorizontalButtonContainer = styled(ListTitleContainer)`
   align-items: flex-start;
   justify-content: flex-end;
+  margin-bottom: 0;
 `
 export const TextAreaContainer = styled(motion.div)`
   display: flex;
@@ -59,10 +57,7 @@ export const TextAreaContainer = styled(motion.div)`
   /* justify-content: space-between; */
   /* min-height: min-content; */
   display: flex;
-  flex-wrap: wrap;
-
-  /* grid-template: auto 2fr / auto 1fr; */
-  /* margin-right: 0.5rem; */
+  /* flex-wrap: wrap; */
 `
 export const DatePar = styled(motion.p)`
   font-size: 0.75rem;

@@ -248,21 +248,21 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                 animate={{ opacity: 1 }}
               >
                 <SendButtonVerySmall
-                  variant='successEmpty'
+                  variant='secondaryEmpty'
+                  onClick={() => removeFragmentHandler(id)}
+                >
+                  <SvgIcon variant='remove' toBottom contentAfter='delete' />
+                </SendButtonVerySmall>{' '}
+                <SendButtonVerySmall
+                  variant='primaryEmpty'
                   onClick={setSimpleViewHandler}
                 >
                   <SvgIcon
                     variant='arrowLeft'
                     toBottom
                     showContent
-                    contentAfter='stop editing'
+                    contentAfter='back'
                   />
-                </SendButtonVerySmall>
-                <SendButtonVerySmall
-                  variant='secondaryEmpty'
-                  onClick={() => removeFragmentHandler(id)}
-                >
-                  <SvgIcon variant='remove' toBottom contentAfter='delete' />
                 </SendButtonVerySmall>
               </HorizontalButtonContainer>
             </motion.div>{' '}

@@ -117,15 +117,14 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <KeywordPar>
-                  {' '}
+                <KeywordPar layout>
+                  Keywords: &nbsp;
                   {keywordArr &&
                     keywordArr.map((keyword, index) => (
                       <KeywordDiv
                         key={index}
                         onClick={() => editKeywordHandler(keyword, index)}
                       >
-                        Keywords: &nbsp;
                         {keywordArr.length > 1 ? `${keyword} \u00A0` : keyword}
                       </KeywordDiv>
                     ))}
@@ -184,7 +183,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                         as={motion.button}
                       >
                         <SvgIcon
-                          variant='edit'
+                          variant='plus'
                           toBottom
                           contentAfter='add keyword'
                         />
