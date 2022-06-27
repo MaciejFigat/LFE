@@ -14,8 +14,8 @@ export const ListWrapper = styled(motion.ul)`
 `
 
 export const ListItem = styled(motion.li)`
-  /* display: grid;
-  place-items: center; */
+  display: grid;
+  place-items: center;
   padding-bottom: 12px;
   /* margin-top: 1rem;
   margin-bottom: 1rem; */

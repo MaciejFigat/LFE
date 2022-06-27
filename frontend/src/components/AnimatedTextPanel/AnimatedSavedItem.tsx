@@ -341,7 +341,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                   </motion.div>
                 </DescriptionAnimated>
               )}
-              <ListButtonContainer>
+              <HorizontalButtonContainer>
                 {excerptEditing && excerptValue !== excerpt && (
                   <>
                     <SendButtonVerySmall
@@ -370,43 +370,47 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                     <SvgIcon variant='back' toBottom contentAfter='back' />
                   </SendButtonVerySmall>
                 )}
-              </ListButtonContainer>
+              </HorizontalButtonContainer>
             </ListTitleContainer>
           </ListRow>
           {/* //todo description editing/display below */}
           <ListRowShort as={motion.div} layout>
             <TextAreaContainer layout>
               {!descriptionEditing ? (
-                <DescriptionAnimated
-                  initial={{ opacity: 0, scale: 1 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  as={motion.div}
-                  layout='position'
-                >
-                  <DescriptionDiv onClick={toggleDescriptionEditing}>
-                    {' '}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                    >
-                      <FragmentB>Description:</FragmentB> {description}
-                    </motion.div>
-                  </DescriptionDiv>
-                </DescriptionAnimated>
+                <AnimatePresence>
+                  <DescriptionAnimated
+                    initial={{ opacity: 0, scale: 1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                    as={motion.div}
+                    layout='position'
+                  >
+                    <DescriptionDiv onClick={toggleDescriptionEditing}>
+                      {' '}
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                      >
+                        <FragmentB>Description:</FragmentB> {description}
+                      </motion.div>
+                    </DescriptionDiv>
+                  </DescriptionAnimated>
+                </AnimatePresence>
               ) : (
-                <DescriptionAnimated
-                  as={motion.div}
-                  initial={{ opacity: 0, scale: 1 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  layout='position'
-                >
-                  {' '}
-                  <motion.div
+                <AnimatePresence>
+                  <DescriptionAnimated
+                    as={motion.div}
+                    initial={{ opacity: 0, scale: 1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                    layout
+                  >
+                    {/* <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                  >
+                  > */}
                     <DescriptionInput
                       type='description'
                       name='description'
@@ -417,8 +421,9 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                       value={descriptionValue}
                       onChange={(e: any) => setDescriptionValue(e.target.value)}
                     />
-                  </motion.div>
-                </DescriptionAnimated>
+                    {/* </motion.div> */}
+                  </DescriptionAnimated>
+                </AnimatePresence>
               )}
               <ListButtonContainer>
                 {descriptionEditing && descriptionValue !== description && (

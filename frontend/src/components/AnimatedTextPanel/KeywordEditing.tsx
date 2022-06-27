@@ -4,7 +4,6 @@ import {
   KeywordDiv,
   ListButtonContainer,
   ListTitle,
-  ListTitleContainer,
   TitleAnimated,
   TitleInput,
   HorizontalButtonContainer,
