@@ -35,9 +35,6 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   description,
   children,
   id,
-  source,
-  excerpt,
-  coordinates,
 }) => {
   const dispatch: any = useAppDispatch()
 

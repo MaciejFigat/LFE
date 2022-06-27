@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 export const KeywordSearchContainer = styled.div`
@@ -38,7 +39,7 @@ export const FragmentTitleRowSmall = styled.div`
   justify-content: space-between;
   max-height: 1.2rem;
 `
-export const FragmentDivSmall = styled.div`
+export const FragmentDivSmall = styled(motion.div)`
   align-self: center;
   background: var(--background-blur1) !important;
   border-radius: 10px;

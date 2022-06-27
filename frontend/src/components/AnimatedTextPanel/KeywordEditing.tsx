@@ -8,12 +8,14 @@ import {
   TitleAnimated,
   TitleInput,
   HorizontalButtonContainer,
+  ListKeywordContainer,
 } from './AnimatedList.styled'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
+import { FragmentB } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 interface KeywordEditingProps {
   keywords: string[]
   id: string
@@ -108,7 +110,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
 
   return (
     <>
-      <ListTitleContainer as={motion.div} layout='size'>
+      <ListKeywordContainer as={motion.div} layout='size'>
         {!keywordEditing ? (
           <ListTitle as={motion.h2} layout>
             <TitleAnimated as={motion.div} layout>
@@ -118,7 +120,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                 exit={{ opacity: 0 }}
               >
                 <KeywordPar layout>
-                  Keywords: &nbsp;
+                  <FragmentB>Keywords:&nbsp;</FragmentB>
                   {keywordArr &&
                     keywordArr.map((keyword, index) => (
                       <KeywordDiv
@@ -178,7 +180,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                       </SendButtonVerySmall>
                     ) : (
                       <SendButtonVerySmall
-                        variant='secondaryEmpty'
+                        variant='successEmpty'
                         onClick={addKeywordHandler}
                         as={motion.button}
                       >
@@ -228,7 +230,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
             </motion.div>
           </AnimatePresence>
         </ListButtonContainer>
-      </ListTitleContainer>
+      </ListKeywordContainer>
     </>
   )
 }
