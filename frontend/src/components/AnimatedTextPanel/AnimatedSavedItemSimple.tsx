@@ -55,11 +55,10 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
               <FragmentB>Title:</FragmentB> {title}{' '}
             </FragmentParSmall>
             <SendButtonVerySmall
-              toLeft
               variant='primaryEmpty'
               onClick={setSimpleViewHandler}
             >
-              <SvgIcon variant='edit' toLeft contentAfter='edit' />
+              <SvgIcon variant='edit' toBottom contentAfter='edit' />
             </SendButtonVerySmall>
           </FragmentTitleRowSmall>
           <FragmentParSmall>

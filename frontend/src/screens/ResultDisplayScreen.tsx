@@ -36,7 +36,7 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
               {showFragmentsState && sortingOption === 'date' && (
                 <UserFragmentsColumn />
               )}
-              {/* //todo */}
+
               {showFragmentsState && sortingOption === 'keyword' && (
                 <UserFragmentsByKeyword />
               )}
@@ -45,6 +45,7 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
                 data.map((fragmentArray: any) => (
                   <DataSectionSimple
                     variant='blue'
+                    imgStart
                     key={fragmentArray['uuid']}
                     paddingTop='small'
                     fragmentsFound={fragmentArray.fragment}

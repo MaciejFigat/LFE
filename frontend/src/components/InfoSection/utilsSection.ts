@@ -41,7 +41,7 @@ const secondaryStyle: StyleVariant = {
     buttonColor: 'var(--secondary3);',
     buttonBackground: 'var(--secondary1);',
     buttonBackgroundHover: 'var(--secondary2);',
-    buttonColorHover: 'var(--secondary1);'
+    buttonColorHover: 'var(--background-neon5);'
 
 
 }
@@ -56,7 +56,7 @@ const tertiaryStyle: StyleVariant = {
     buttonColor: 'var(--background-tertiary4);',
     buttonBackground: 'var(--background-tertiary5);',
     buttonBackgroundHover: 'var(--background-tertiary4);',
-    buttonColorHover: 'var(--background-tertiary1);'
+    buttonColorHover: 'var(--background-neon6);'
 
 }
 const blueStyle: StyleVariant = {
@@ -81,7 +81,7 @@ const bluegreenStyle: StyleVariant = {
     buttonColor: 'var(--bluegreen5);',
     buttonBackground: 'var(--secondary2);',
     buttonBackgroundHover: 'var(--bluegreen8);',
-    buttonColorHover: 'var(--background2-main);'
+    buttonColorHover: 'var(--background-neon5)'
 }
 const transparentStyle: StyleVariant = {
 
@@ -106,7 +106,7 @@ const defaultStyle: StyleVariant = {
     buttonColor: 'var(--background-tertiary4);',
     buttonBackground: 'var(--background-tertiary5);',
     buttonBackgroundHover: 'var(--background-tertiary4);',
-    buttonColorHover: 'var(--background-tertiary1);'
+    buttonColorHover: 'var(--background-neon5);'
 }
 
 

@@ -415,7 +415,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
                       type='description'
                       name='description'
                       layout
-                      cols='35'
+                      // cols='35'
                       rows='3'
                       placeholder='new description'
                       value={descriptionValue}

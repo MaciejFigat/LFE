@@ -30,28 +30,27 @@ export const InfoSec = styled.div`
   margin-left: 1rem;
 `
 export const InfoSecSimple = styled(InfoSec)`
-  padding: 0;
-
-  padding-top: 0.25rem;
-  padding-bottom: 0.75rem;
+  padding: 0.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1.5rem;
   margin: 0;
-  min-height: fit-content;
+  min-height: min-content;
 `
 export const InfoRow = styled.div`
   display: flex;
   margin: 0 -15px -15px -15px;
   align-items: flex-start;
+
   flex-direction: ${({ imgStart }) =>
     imgStart === true ? 'row-reverse' : 'row'};
   @media (max-width: 880px) {
     flex-direction: ${({ imgStart }) =>
       imgStart === true ? 'column-reverse' : 'column'};
-    /* flex-direction: column-reverse; */
   }
 `
 export const InfoColumn = styled.div`
-  padding-left: 15px;
-  flex: 1;
+  padding-left: 0.5rem;
+  /* flex: 1; */
   flex-basis: 70%;
 
   @media screen and (min-width: 770px) {
@@ -61,7 +60,8 @@ export const InfoColumn = styled.div`
   }
 `
 export const InfoColumnShort = styled(InfoColumn)`
-  padding-left: 15px;
+  padding: 0;
+  /* padding-left: 0.25rem; */
   flex-basis: 30%;
 `
 export const TextWrapper = styled.div`
@@ -74,6 +74,7 @@ export const TextWrapper = styled.div`
 `
 export const TextWrapperSimple = styled(TextWrapper)`
   padding: 0.5rem;
+  padding-right: 0;
 `
 export const Container = styled.div`
   z-index: 1;
@@ -154,9 +155,9 @@ export const TopLine = styled.div`
   margin-bottom: 10px;
 `
 export const TopLineSimple = styled(TopLine)`
-  font-size: 11px;
+  font-size: 0.85rem;
   line-height: 14px;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 1px;
 `
 export const Heading = styled.h1`
@@ -175,41 +176,25 @@ export const Subtitle = styled.p`
   margin-bottom: 15px;
   text-align: justify;
   font-size: 1.1rem;
-  /* line-height: 24px; */
   line-height: 1.15rem;
   letter-spacing: 0.025em;
   font-weight: 300;
+  transition: 0.3s;
   /* subtitleColor */
   ${(props) => handleSectionColor(props).subtitleColor}
+  &:hover {
+    ${(props) => handleSectionColor(props).buttonColorHover}
+  }
 `
 export const SubtitleSimple = styled(Subtitle)`
-  /* margin-top: 5px; */
   margin: 0;
-  /* margin-bottom: 10px; */
   text-align: left;
-  font-size: 0.9rem;
-  /* line-height: 24px; */
+  font-size: 0.95rem;
   line-height: 1.15rem;
   letter-spacing: 0em;
   font-weight: 300;
 `
-export const ImgWrapper = styled.div`
-  /* max-width: 555px; */
-  display: flex;
-  justify-content: ${({ imgStart }) => (imgStart ? 'flex-start' : 'flex-end')};
-  @media (max-width: 880px) {
-    padding-bottom: 20px;
-  }
-`
-export const Img = styled.img`
-  padding-right: 0;
-  border: 0;
-  border-radius: 20px;
-  max-width: 100%;
-  vertical-align: middle;
-  display: inline-block;
-  max-height: 500px;
-`
+
 export const HomeContentWrapper = styled.div`
   /* margin-top: -30vh; */
   display: grid;

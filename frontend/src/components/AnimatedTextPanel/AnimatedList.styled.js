@@ -152,8 +152,8 @@ export const TitleInput = styled(motion.input)`
   font-family: inherit;
 `
 export const DescriptionAnimated = styled(motion.div)`
-  /* display: flex; */
   min-width: 80%;
+  min-height: 100px;
   color: 'var(--background4-main);';
   transition: all 0.3s ease-out;
 `
@@ -182,15 +182,11 @@ export const DescriptionInput = styled(motion.textarea)`
   }
 `
 export const DescriptionDiv = styled(motion.div)`
-  /* min-width: 80%; */
   max-width: 80%;
   min-height: fit-content;
 `
 
 export const ListRow = styled(motion.div)`
-  /* text-align: left; */
-  /* align-self: center; */
-  /* justify-content: space-between; */
   padding: 0.75rem;
   padding-top: 0.25rem;
   margin-top: 0.5rem;
@@ -198,14 +194,7 @@ export const ListRow = styled(motion.div)`
   font-size: 0.9rem;
   font-weight: 400;
   border-radius: 10px;
-  /* color: var(--background4-main); */
   background: var(--background2-main);
-  /* border-radius: 3px; */
-  /* height: 9rem; */
-  /* max-height: fit-content; */
-  /* height: 3rem; */
-  /* min-height: fit-content; */
-  /* min-width: 100%; */
   max-width: 100%;
   @media (max-width: 740px) {
     padding: 0.55rem;

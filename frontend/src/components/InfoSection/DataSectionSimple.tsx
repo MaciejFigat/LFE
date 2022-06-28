@@ -79,10 +79,10 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
           <InfoRow imgStart={imgStart}>
             <InfoColumnShort>
               <TextWrapperSimple>
-                <TopLineSimple variant={variant}>{metryka.data}</TopLineSimple>{' '}
                 <TopLineSimple variant={variant}>
                   {metryka.rodzaj_orzeczenia}
-                </TopLineSimple>
+                </TopLineSimple>{' '}
+                <TopLineSimple variant={variant}>{metryka.data}</TopLineSimple>{' '}
                 {/* <TopLineSimple variant={variant}>{metryka.syg}</TopLineSimple> */}
                 {/* <TopLineSimple variant={variant}>
                   {metryka.numer_dokumentu}
