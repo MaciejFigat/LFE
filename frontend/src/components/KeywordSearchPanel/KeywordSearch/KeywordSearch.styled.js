@@ -9,6 +9,7 @@ export const KeywordSearchContainer = styled.div`
   align-items: center;
   gap: 1rem;
   flex-basis: 50%;
+  margin-right: 0.5rem;
 `
 //? both columns in this one
 export const KeywordColumnContainer = styled.div`

@@ -9,6 +9,7 @@ import {
   KeywordSearchContainer,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
+import { nanoid } from '@reduxjs/toolkit'
 import DropdownSelect from '../KeywordSearchPanel/DropdownSelect/DropdownSelect'
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
@@ -40,7 +41,11 @@ const SecondAndThirdCol: React.FC<SecondAndThirdColProps> = ({ state }) => {
     <KeywordColumnContainer>
       {state.slice(1).map((el, ind) => (
         // ? here indexes have '+1' because I separated 1st column and since I used its indexes aswell as those here, +1 is to avoid the conflict in logic of Droppable
-        <Droppable key={ind + 1} droppableId={`${ind + 1}`}>
+        <Droppable
+          key={ind + 1}
+          // key={Math.random()}
+          droppableId={`${ind + 1}`}
+        >
           {(provided, snapshot) => (
             <KeywordSearchContainer
               ref={provided.innerRef}
@@ -62,8 +67,15 @@ const SecondAndThirdCol: React.FC<SecondAndThirdColProps> = ({ state }) => {
 
               {el.map((fragment: any, index: number) => (
                 <Draggable
-                  key={fragment.nanoId}
-                  draggableId={fragment.nanoId}
+                  // key={`${fragment.nanoId}hello${ind + 1}`}
+                  // key={Math.random()}
+                  // key={`${fragment.nanoId}${Math.random()}`}
+                  // key={nanoid()}
+                  // key={Math.random()}
+                  // draggableId={nanoid()}
+                  // draggableId={fragment.nanoId}
+                  draggableId={`${fragment.nanoId}${ind}`}
+                  // draggableId={`${fragment.nanoId}${Math.random()}`}
                   index={index}
                 >
                   {(provided, snapshot) => (
@@ -88,23 +100,10 @@ const SecondAndThirdCol: React.FC<SecondAndThirdColProps> = ({ state }) => {
                       <KeywordDivSimple>
                         <FragmentB>Keywords:&nbsp;</FragmentB>
                         {fragment.keywords.map((keyword: string) => (
-                          <KeywordB key={Math.random()}>
-                            {keyword} &nbsp;
-                          </KeywordB>
+                          // <KeywordB key={Math.random()}>
+                          <KeywordB key={keyword}>{keyword} &nbsp;</KeywordB>
                         ))}
                       </KeywordDivSimple>
-                      {/* <button
-                          type='button'
-                          onClick={() => {
-                            const newState = [...state]
-                            newState[ind].splice(index, 1)
-                            setState(
-                              newState.filter((group) => group.length)
-                              )
-                            }}
-                            >
-                            delete
-                          </button> */}
                     </FragmentDivSmall>
                   )}
                 </Draggable>
