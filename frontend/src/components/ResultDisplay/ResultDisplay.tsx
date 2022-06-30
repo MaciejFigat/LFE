@@ -165,8 +165,8 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
                                 {/* {hashIds[0] && */}
                                 {reactStringReplace(
                                   smallParagraph,
-                                  new RegExp(`${hashIds[0]}`),
-                                  // hashIds[0],
+                                  // new RegExp(`${hashIds[0]}`),
+                                  hashIds[0],
                                   (match, i) => (
                                     <span
                                       id={`${hashIds[0]}`}
@@ -179,8 +179,8 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
                                 )}
                                 {reactStringReplace(
                                   smallParagraph,
-                                  new RegExp(`${hashIds[1]}`),
-                                  // hashIds[1],
+                                  // new RegExp(`${hashIds[1]}`),
+                                  hashIds[1],
                                   (match, i) => (
                                     <span
                                       id={`${hashIds[1]}`}
@@ -196,7 +196,11 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
 
                                   hashIds[2],
                                   (match, i) => (
-                                    <span key={i} style={{ color: 'pink' }}>
+                                    <span
+                                      id={`${hashIds[2]}`}
+                                      key={i}
+                                      style={{ color: 'pink' }}
+                                    >
                                       {match}
                                     </span>
                                   )
