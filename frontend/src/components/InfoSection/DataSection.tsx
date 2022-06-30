@@ -2,6 +2,7 @@ import React, { ReactFragment } from 'react'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
+// import { NavHashLink } from 'react-router-hash-link'
 import { getDocResult } from '../../features/searchResults/searchResultsSlice'
 import {
   InfoSec,
@@ -137,7 +138,7 @@ const DataSection: React.FC<DataSectionProps> = ({
                       fragmentsSorted.startsWith('ISTOTA INTERPRETACJI')
                     )
                     .map((fragment) => (
-                      <div key={fragment}>
+                      <div key={Math.random()}>
                         {' '}
                         <TopLine variant={variant}>
                           ISTOTA INTERPRETACJI:
@@ -158,7 +159,7 @@ const DataSection: React.FC<DataSectionProps> = ({
                     .map((fragment, index) => (
                       <Subtitle
                         variant={variant}
-                        key={fragment}
+                        key={Math.random()}
                         onClick={() => submitHandlerDocNr(index)}
                       >
                         (...) {parse(fragment)} (...)

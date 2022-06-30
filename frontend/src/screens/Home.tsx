@@ -36,7 +36,6 @@ const Home: React.FC = () => {
 
     const searchquery = {
       query: 'sp%C3%B3%C5%82ki+skarbu+pa%C5%84stwa',
-      // query: 'spółki skarbu państwa',
       selectedDoc: 1,
       docNumber: 85725494,
     }
@@ -59,10 +58,10 @@ const Home: React.FC = () => {
               data?.length > 0 &&
               data.map((fragmentArray: any) => (
                 <DataSection
-                  variant='secondary'
+                  variant='blue'
                   key={fragmentArray['uuid']}
                   paddingTop='large'
-                  // imgStart
+                  imgStart
                   topline='Topline 1'
                   headline='headline 1'
                   subtitle='lorem subtitle 1'

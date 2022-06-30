@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useAppSelector } from '../../app/reduxHooks'
-import { NavHashLink, HashLink } from 'react-router-hash-link'
+// import { HashLink } from 'react-router-hash-link'
+// import { NavHashLink, HashLink } from 'react-router-hash-link'
 import reactStringReplace from 'react-string-replace'
 import HighlightPopMenu from '../../components/HighlightPopRemake/HighlightPopMenu'
 import {
@@ -12,6 +13,7 @@ import {
   ArticleParagraphFragment,
   ArticleContainer,
 } from './ResultDisplay.styled'
+import SideButtons from '../menu/SideButtons/SideButtons'
 
 interface ResultDisplayProps {
   // variant?: 'primary' | 'secondary' | 'tertiary' | 'blue'
@@ -22,25 +24,6 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
   const docResult: any = useAppSelector((state) => state.searchResult.docResult)
   const [hashIds, setHashIds] = useState<string[]>([])
   useEffect(() => {
-    // const ids = docResult.korpus.map((korpusElement: any) => (
-    //   korpusElement.map((korpusParagraph: any) => (
-    //     korpusParagraph.map((smallParagraph: any) => (
-    //       docResult.frags.every((item: any) =>
-    //         smallParagraph.includes(item.substring(30, 90))
-    //         setHashIds([...hashIds, smallParagraph.substring(30, 50)])
-    //     )
-    //   )
-    // )
-    //TODO
-    // korpusElement.map((korpusParagraph: any) => (
-    // korpusParagraph.map((smallParagraph: any) => (
-    //     {docResult.frags.every((item: any) =>
-    //       smallParagraph.includes(item.substring(30, 90))
-    //         id={`${smallParagraph.substring(30, 50)}`}}
-    //         //todo
-  }, [])
-
-  const testHandler = () => {
     if (docResult.frags) {
       const idArray = []
       for (let i = 0; i < docResult.frags.length; i++) {
@@ -49,10 +32,21 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
       }
       setHashIds(idArray)
     }
-  }
-  const helperTwo = () => {
-    console.log(hashIds)
-  }
+  }, [docResult.frags])
+
+  // const testHandler = () => {
+  //   if (docResult.frags) {
+  //     const idArray = []
+  //     for (let i = 0; i < docResult.frags.length; i++) {
+  //       console.log(docResult.frags[i].substring(30, 50))
+  //       idArray.push(docResult.frags[i].substring(30, 50))
+  //     }
+  //     setHashIds(idArray)
+  //   }
+  // }
+  // const helperTwo = () => {
+  //   console.log(hashIds)
+  // }
   const helperThree = (smallParagraph: string) => {
     if (docResult.frags) {
       if (
@@ -78,16 +72,19 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
     <ArticleContainer>
       {/* <NavHashLink smooth to='/search/result#idNumber1'> */}
       {/* <NavHashLink smooth to='/search/result#testing'> */}
-      <button onClick={testHandler}>TESTING !!!1</button>
+      {/* <button onClick={testHandler}>TESTING !!!1</button>
       <button onClick={helperTwo}>TESTING 2</button>
-      <button onClick={() => helperThree}>Compare</button>
-      <NavHashLink to={`/search/result#${hashIds[0]}`}>TEST</NavHashLink>
-      {hashIds.length > 0 &&
+      <button onClick={() => helperThree}>Compare</button> */}
+      {/* <NavHashLink to={`/search/result#${hashIds[3]}`}>TEST</NavHashLink> */}
+      {/* //todo */}
+      {/* {hashIds.length > 0 &&
         hashIds.map((id: any) => (
           <HashLink smooth to={`/search/result#${id}`} key={Math.random()}>
             {id}
           </HashLink>
-        ))}
+        ))} */}
+      {/* //todo */}
+      <SideButtons hashIds={hashIds} />
       {/* // <HashLink to=`/search/result#${id}`>id</HashLink> */}
       {/* // <HashLink to=`/search/result#`>id</HashLink> */}
 
@@ -120,15 +117,15 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
                             {helperThree(smallParagraph) ? (
                               <ArticleParagraphFragment
                                 key={Math.random()}
-                                onClick={() =>
-                                  console.log(
-                                    `${hashIds.every((item: any) =>
-                                      smallParagraph.match(
-                                        `/${item.toString}/g`
-                                      )
-                                    )}`
-                                  )
-                                }
+                                // onClick={() =>
+                                //   console.log(
+                                //     `${hashIds.every((item: any) =>
+                                //       smallParagraph.match(
+                                //         `/${item.toString}/g`
+                                //       )
+                                //     )}`
+                                //   )
+                                // }
                                 // id={smallParagraph.substring(30, 50)}
                                 id={`${hashIds.every((item: any) =>
                                   smallParagraph.match(`/${item}/g`)
@@ -142,14 +139,14 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
                             ) : (
                               <ArticleParagraph
                                 key={Math.random()}
-                                onClick={() =>
-                                  console.log(
-                                    `${hashIds.every((item: string) =>
-                                      smallParagraph.match(/[${item}]/)
-                                    )}`
-                                    // (str.match(/[`${item}`]/))
-                                  )
-                                }
+                                // onClick={() =>
+                                //   console.log(
+                                //     `${hashIds.every((item: string) =>
+                                //       smallParagraph.match(/[${item}]/)
+                                //     )}`
+
+                                //   )
+                                // }
                               >
                                 {/* {smallParagraph} */}
 
@@ -220,30 +217,6 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
                         ))}
                     </ArticleParagraph>
                   ))}
-                  {/* <ArticleParagraph key={Math.random()} id='testing'> */}
-                  {/* <ArticleParagraph
-                    key={Math.random()}
-                    id='dników majątku będąc'
-                  >
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Amet eaque vitae quasi maiores odio sapiente doloremque
-                    veritatis, ad, velit consectetur a illum minus dolor ipsam
-                    fuga? Repudiandae, cupiditate nisi. Facere, id ducimus ad
-                    voluptate nobis natus? Ipsam, deserunt? Esse animi excepturi
-                    magni corporis ipsam consectetur neque voluptatem! At sit
-                    nemo sint assumenda odit. Esse beatae dolore quod aspernatur
-                    recusandae? Optio ullam recusandae nam ipsum fugiat
-                    voluptatum, totam velit quia hic explicabo nisi architecto
-                    cumque rerum in vero maiores tenetur sit, enim sint deserunt
-                    debitis quas molestias pariatur quaerat voluptates qui
-                    tempora aut, recusandae porro excepturi corrupti accusantium
-                    molestiae? Praesentium eius tempora, consequuntur similique
-                    doloremque labore saepe deserunt consectetur doloribus?
-                    Harum iusto ipsa ducimus porro tenetur. Necessitatibus,
-                    unde. Debitis eligendi, ut veniam ratione consequuntur
-                    itaque impedit eaque. Porro sequi in nihil doloremque quae
-                    ex quam consectetur itaque possimus.
-                  </ArticleParagraph> */}
                 </ArticleSection>
               ))}
             </HighlightPopMenu>

@@ -101,7 +101,7 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
                     .map((fragment, index) => (
                       <SubtitleSimple
                         variant={variant}
-                        key={fragment}
+                        key={Math.random()}
                         onClick={() => submitHandlerDocNr(index)}
                       >
                         * {parse(fragment.substring(0, 60))}

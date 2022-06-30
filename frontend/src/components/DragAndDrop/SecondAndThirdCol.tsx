@@ -9,7 +9,7 @@ import {
   KeywordSearchContainer,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-import { nanoid } from '@reduxjs/toolkit'
+// import { nanoid } from '@reduxjs/toolkit'
 import DropdownSelect from '../KeywordSearchPanel/DropdownSelect/DropdownSelect'
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
