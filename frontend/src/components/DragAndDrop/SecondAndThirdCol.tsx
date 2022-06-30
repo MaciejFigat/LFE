@@ -69,8 +69,9 @@ const SecondAndThirdCol: React.FC<SecondAndThirdColProps> = ({ state }) => {
                 <Draggable
                   // key={`${fragment.nanoId}hello${ind + 1}`}
                   // key={Math.random()}
-                  // key={`${fragment.nanoId}${Math.random()}`}
                   // key={nanoid()}
+                  // key={`${fragment.nanoId}${Math.random()}`}
+                  key={fragment.excerpt + fragment.title + index}
                   // key={Math.random()}
                   // draggableId={nanoid()}
                   // draggableId={fragment.nanoId}
