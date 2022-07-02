@@ -13,8 +13,8 @@ import ResetPassword from './screens/ResetPassword'
 import ConfirmAccount from './screens/ConfirmAccount'
 // import Contact from './screens/Contact'
 import StoredFragments from './screens/StoredFragments'
-
 import ResultDisplayScreen from './screens/ResultDisplayScreen'
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 
 function App() {
   const location = useLocation()

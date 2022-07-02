@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { useAppDispatch } from '../../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { getSearchResults } from '../../features/searchResults/searchResultsSlice'
 import SvgIcon from '../SvgIcon/SvgIcon'
+import { ThreeDots } from 'react-loader-spinner'
 import {
   SearchBarButton,
   SearchBarContainer,
@@ -14,6 +15,9 @@ interface SearchBarProps {}
 
 const SearchBar: React.FC<SearchBarProps> = () => {
   const dispatch = useAppDispatch()
+  const loadingResults: any = useAppSelector(
+    (state) => state.searchResult.loading
+  )
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [showSearch, setShowSearch] = useState<boolean>(true)
 
@@ -33,10 +37,21 @@ const SearchBar: React.FC<SearchBarProps> = () => {
   return (
     <SearchBarWrapper>
       <SearchHideButton onClick={showSearchHandler}>
-        {showSearch ? (
-          <SvgIcon variant='search' noMargin />
+        {loadingResults === false ? (
+          <SvgIcon
+            noContent
+            variant={showSearch ? 'search' : 'searchPlus'}
+            noMargin
+          />
         ) : (
-          <SvgIcon variant='searchPlus' noMargin />
+          <>
+            <ThreeDots
+              height='22'
+              width='22'
+              color='var(--background-neon5)'
+              ariaLabel='loading'
+            />
+          </>
         )}
       </SearchHideButton>
       <SearchBarForm onSubmit={submitHandler}>

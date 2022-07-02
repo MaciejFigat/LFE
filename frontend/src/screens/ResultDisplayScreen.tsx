@@ -26,7 +26,6 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
   const queryTrimmed = encodeURIComponent(query?.trim())
   return (
     <>
-      {' '}
       <ResizableScrollSection
         narrowOption
         narrowSection={

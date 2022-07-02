@@ -5,7 +5,7 @@ export const SearchBarWrapper = styled.div`
   align-self: center;
   color: var(--background1-main);
   z-index: 10;
-  gap: 0.5rem;
+  gap: 0.75rem;
   /* background: var(--background-secondary2); */
   /* background: var(--background1-main); */
   background: transparent;
@@ -13,7 +13,7 @@ export const SearchBarWrapper = styled.div`
   min-width: fit-content;
   min-height: fit-content;
   /* color: var(--background1-main); */
-  font-size: 1.25rem;
+  font-size: 1.55rem;
   font-weight: 400;
   .show {
     transition: 0.3s;
@@ -32,12 +32,14 @@ export const SearchBarWrapper = styled.div`
 `
 
 export const SearchHideButton = styled.button`
-  color: var(--background5-main);
-  padding: 0.25rem;
   /* background: var(--background-secondary2); */
-  background: none;
   display: grid;
   place-items: center;
+  width: 30px;
+  background: none;
+  color: var(--background5-main);
+  padding: 0.25rem;
+  /* margin-right: 0.45rem; */
   outline: none;
   border: none;
   cursor: pointer;
@@ -53,9 +55,11 @@ export const SearchBarButton = styled.button`
   cursor: pointer;
   background: transparent;
   align-items: center;
-  color: var(--background-secondary2);
+  /* color: var(--background-secondary2); */
+  color: var(--background-neon5);
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: 10px;
+  margin-left: 0.5rem;
   &:hover {
     /* transition: all 0.7s ease-out; */
     border: 1px solid var(--background-secondary2);

@@ -15,19 +15,19 @@ const SideButtons: React.FC<SideButtonsProps> = ({ hashIds }) => {
         hashIds.map((id: any, index: number) => (
           <HashLink smooth to={`/search/result#${id}`} key={Math.random()}>
             {index === 0 && (
-              <SendButtonVerySmall variant='darkEmpty'>
+              <SendButtonVerySmall variant='successEmpty'>
                 {index + 1}
                 <SvgIcon noContent variant='arrowLeft' />
               </SendButtonVerySmall>
             )}
             {index === 1 && (
-              <SendButtonVerySmall variant='lightEmpty'>
+              <SendButtonVerySmall variant='successEmpty'>
                 {index + 1}
                 <SvgIcon noContent variant='arrowRight' />
               </SendButtonVerySmall>
             )}
             {index === 2 && (
-              <SendButtonVerySmall variant='darkEmpty'>
+              <SendButtonVerySmall variant='successEmpty'>
                 {index + 1}
                 <SvgIcon noContent variant='searchPlus' />
               </SendButtonVerySmall>
@@ -38,8 +38,14 @@ const SideButtons: React.FC<SideButtonsProps> = ({ hashIds }) => {
                 <SvgIcon noContent variant='arrowLeft' />
               </SendButtonVerySmall>
             )}
-            {index > 3 && (
-              <SendButtonVerySmall variant='darkEmpty'>
+            {index === 4 && (
+              <SendButtonVerySmall variant='successEmpty'>
+                {index + 1}
+                <SvgIcon noContent variant='arrowLeft' />
+              </SendButtonVerySmall>
+            )}
+            {index === 5 && (
+              <SendButtonVerySmall variant='successEmpty'>
                 {index + 1}
                 <SvgIcon noContent variant='arrowLeft' />
               </SendButtonVerySmall>

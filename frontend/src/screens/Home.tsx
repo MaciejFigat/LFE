@@ -11,6 +11,7 @@ import {
 import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
 import { SendButton } from '../components/Buttons/Buttons.styled'
 import HomeWelcome from '../components/InfoSection/HomeWelcome'
+import Pagination from '../components/Pagination/Pagination'
 
 const Home: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -18,6 +19,7 @@ const Home: React.FC = () => {
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
   )
+
   const { data, query } = searchResults
   const queryTrimmed = encodeURIComponent(query?.trim())
   const submitHandler = (e: any) => {
@@ -54,22 +56,23 @@ const Home: React.FC = () => {
         mainData={
           <>
             {data && data?.length === 0 && <HomeWelcome variant='primary' />}
-            {data &&
-              data?.length > 0 &&
-              data.map((fragmentArray: any) => (
-                <DataSection
-                  variant='blue'
-                  key={fragmentArray['uuid']}
-                  paddingTop='large'
-                  imgStart
-                  topline='Topline 1'
-                  headline='headline 1'
-                  subtitle='lorem subtitle 1'
-                  fragmentsFound={fragmentArray.fragment}
-                  metryka={fragmentArray.metryka}
-                  query={queryTrimmed}
-                />
-              ))}
+
+            {data && data?.length > 0 && (
+              <>
+                <Pagination />
+                {data.slice(0, 3).map((fragmentArray: any) => (
+                  <DataSection
+                    variant='blue'
+                    key={fragmentArray['uuid']}
+                    paddingTop='large'
+                    imgStart
+                    fragmentsFound={fragmentArray.fragment}
+                    metryka={fragmentArray.metryka}
+                    query={queryTrimmed}
+                  />
+                ))}
+              </>
+            )}
           </>
         }
       >
