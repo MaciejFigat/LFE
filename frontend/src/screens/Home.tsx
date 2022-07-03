@@ -19,8 +19,12 @@ const Home: React.FC = () => {
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
   )
-
   const { data, query } = searchResults
+
+  const searchResultsPage: any = useAppSelector(
+    (state) => state.preference.searchResultsPage
+  )
+  const { start, end } = searchResultsPage
   const queryTrimmed = encodeURIComponent(query?.trim())
   const submitHandler = (e: any) => {
     e.preventDefault()
@@ -60,7 +64,8 @@ const Home: React.FC = () => {
             {data && data?.length > 0 && (
               <>
                 <Pagination />
-                {data.slice(0, 3).map((fragmentArray: any) => (
+                {/* //*slice method returns shallow copy of the part between start and end - end not included, hence +1 */}
+                {data.slice(start, end + 1).map((fragmentArray: any) => (
                   <DataSection
                     variant='blue'
                     key={fragmentArray['uuid']}

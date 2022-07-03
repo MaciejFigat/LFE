@@ -1,21 +1,35 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react'
+import React, { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+import { searchResultsPageSaved } from '../../features/preferences/preferenceSlice'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
-import { PaginateWrapper } from './Paginate.styled'
+import { PaginateActive, PaginateWrapper } from './Paginate.styled'
 
 interface PaginationProps {}
 
 const Pagination: React.FC<PaginationProps> = () => {
+  const dispatch = useAppDispatch()
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults.data
+  )
+  const searchResultsPage: any = useAppSelector(
+    (state) => state.preference.searchResultsPage
   )
   const [buttonArray, setButtonArray] = useState<{
     start: number
     end: number
-  }>({ start: 0, end: 9 })
+    pageNr: number
+  }>({ start: 0, end: 9, pageNr: 1 })
   const buttonHelper = (i: number) => {
-    setButtonArray({ start: i * 10, end: (i + 1) * 10 - 1 })
+    // setButtonArray({ start: i * 10, end: (i + 1) * 10 - 1 })
+    setButtonArray({ start: i * 10, end: (i + 1) * 10 - 1, pageNr: i + 1 })
     console.log(buttonArray)
+    dispatch(
+      searchResultsPageSaved({
+        start: i * 10,
+        end: (i + 1) * 10 - 1,
+        pageNr: i + 1,
+      })
+    )
   }
   return (
     <PaginateWrapper>
@@ -28,7 +42,11 @@ const Pagination: React.FC<PaginationProps> = () => {
                 variant='secondaryEmpty'
                 onClick={() => buttonHelper(i)}
               >
-                {i + 1}
+                <PaginateActive
+                  pageActive={searchResultsPage.pageNr === i + 1 ? true : false}
+                >
+                  {i + 1}
+                </PaginateActive>
               </SendButtonVerySmall>
             )
           )
