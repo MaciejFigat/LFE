@@ -38,7 +38,7 @@ const getListStyle = (isDraggingOver: any) => ({
 })
 const FirstColumn: React.FC<FirstColumnProps> = ({ state }) => {
   const preference: any = useAppSelector((state) => state.preference)
-  const { sortingDate, sortingOption } = preference
+  const { sortingOption } = preference
   const savedFragmentsPage: any = useAppSelector(
     (state) => state.preference.savedFragmentsPage
   )

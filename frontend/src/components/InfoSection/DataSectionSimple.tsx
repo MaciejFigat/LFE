@@ -1,24 +1,18 @@
 import React from 'react'
-// import SvgIcon from '../SvgIcon/SvgIcon'
+
 import { useAppDispatch } from '../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
 import { getDocResult } from '../../features/searchResults/searchResultsSlice'
 import {
-  //   InfoSec,
   Container,
   InfoRow,
   InfoColumn,
-  //   TextWrapper,
-  //   TopLine,
-  //   Heading,
-  //   Subtitle,
-  InfoColumnShort,
-  //   CenterWrapper,
   InfoSecSimple,
   TopLineSimple,
   TextWrapperSimple,
   SubtitleSimple,
   CenterWrapperSimple,
+  InfoColumnShortSimple,
 } from './InfoSection.styled'
 import parse from 'html-react-parser'
 //! problem solved with parse - html-react-parser - prarses string to html in React
@@ -77,7 +71,7 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
       <InfoSecSimple variant={variant} paddingTop={paddingTop}>
         <Container>
           <InfoRow imgStart={imgStart}>
-            <InfoColumnShort>
+            <InfoColumnShortSimple>
               <TextWrapperSimple>
                 <TopLineSimple variant={variant}>
                   {metryka.rodzaj_orzeczenia}
@@ -89,7 +83,7 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
                 </TopLineSimple> */}
                 <TopLineSimple variant={variant}>{metryka.organ}</TopLineSimple>
               </TextWrapperSimple>
-            </InfoColumnShort>
+            </InfoColumnShortSimple>
             <InfoColumn>
               <TextWrapperSimple>
                 {fragmentsFound.length > 0 &&

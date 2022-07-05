@@ -1,5 +1,4 @@
 import React, { ReactFragment } from 'react'
-import SvgIcon from '../SvgIcon/SvgIcon'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
 // import { NavHashLink } from 'react-router-hash-link'

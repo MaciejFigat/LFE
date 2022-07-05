@@ -72,6 +72,10 @@ export const InfoColumnShort = styled(InfoColumn)`
   ${({ imgStart }) =>
     imgStart ? 'border-left: 1px solid' : 'border-right: 1px solid'};
 `
+export const InfoColumnShortSimple = styled(InfoColumnShort)`
+  padding-left: 0rem;
+  padding-right: 0.5rem;
+`
 export const TextWrapper = styled.div`
   width: 100%;
 

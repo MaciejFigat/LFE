@@ -8,6 +8,8 @@ import ResultDisplay from '../components/ResultDisplay/ResultDisplay'
 import ChoiceWrapper from '../components/FragmentsColumn/FilterWrapper/ChoiceWrapper'
 import DataSectionSimple from '../components/InfoSection/DataSectionSimple'
 import UserFragmentsByKeyword from '../components/FragmentsColumn/UserFragmentsByKeyword'
+import FragmentsPagination from '../components/Pagination/FragmentsPagination'
+import Pagination from '../components/Pagination/Pagination'
 
 interface ResultDisplayScreenProps {}
 
@@ -16,6 +18,10 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
   )
+  const searchResultsPage: any = useAppSelector(
+    (state) => state.preference.searchResultsPage
+  )
+  const { start, end } = searchResultsPage
   const showFragmentsState: boolean = useAppSelector(
     (state) => state.preference.showFragments
   )
@@ -32,7 +38,11 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
           Object.keys(userInfo).length > 0 ? (
             <>
               <ChoiceWrapper />
-              {showFragmentsState && sortingOption === 'date' && (
+              {sortingOption === 'all' && showFragmentsState && (
+                <FragmentsPagination />
+              )}
+              {showFragmentsState === false && <Pagination />}
+              {showFragmentsState && (sortingOption === 'date' || 'all') && (
                 <UserFragmentsColumn />
               )}
 
@@ -41,10 +51,10 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
               )}
               {!showFragmentsState &&
                 data.length > 0 &&
-                data.map((fragmentArray: any) => (
+                data.slice(start, end + 1).map((fragmentArray: any) => (
                   <DataSectionSimple
                     variant='blue'
-                    imgStart
+                    // imgStart
                     key={fragmentArray['uuid']}
                     paddingTop='small'
                     fragmentsFound={fragmentArray.fragment}
