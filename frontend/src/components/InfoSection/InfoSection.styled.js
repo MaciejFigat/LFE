@@ -3,6 +3,9 @@ import { handleSectionColor } from './utilsSection'
 
 export const InfoSec = styled.div`
   max-width: 80%;
+  @media (min-width: 1180px) {
+    max-width: 1084px;
+  }
   align-self: flex-end;
   ${(props) => handleSectionColor(props).color}
   ${({ paddingTop }) =>
@@ -26,6 +29,7 @@ export const InfoSec = styled.div`
   @media (max-width: 380px) {
     padding: 10px 0;
   }
+
   margin-bottom: 1rem;
   margin-left: 1rem;
 `
@@ -40,7 +44,6 @@ export const InfoRow = styled.div`
   display: flex;
   margin: 0 -15px -15px -15px;
   align-items: flex-start;
-
   flex-direction: ${({ imgStart }) =>
     imgStart === true ? 'row-reverse' : 'row'};
   @media (max-width: 880px) {
@@ -63,11 +66,17 @@ export const InfoColumnShort = styled(InfoColumn)`
   padding: 0;
   /* padding-left: 0.25rem; */
   flex-basis: 30%;
+  min-height: 90%;
+  /* border-left: 1px solid; */
+  border-color: ${(props) => handleSectionColor(props).color};
+  ${({ imgStart }) =>
+    imgStart ? 'border-left: 1px solid' : 'border-right: 1px solid'};
 `
 export const TextWrapper = styled.div`
   width: 100%;
 
   padding-right: 15px;
+  padding-left: 15px;
   @media screen and (max-width: 770px) {
     /* padding-bottom: 25px; */
   }
@@ -94,7 +103,7 @@ export const Button = styled.button`
   border-radius: 4px;
   white-space: nowrap;
   min-width: fit-content;
-  padding: ${({ large }) => (large ? '12px 64px' : '10px 20px')};
+  padding: ${({ large }) => (large ? '12px 34px' : '10px 12px')};
   font-size: ${({ fontLarge }) => (fontLarge ? '22px' : '16px')};
   /* buttonBackground */
   border: solid 1px;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
-import { searchResultsPageSaved } from '../../features/preferences/preferenceSlice'
+import { fragmentsPageSaved } from '../../features/preferences/preferenceSlice'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import {
   PaginateActive,
@@ -8,20 +8,20 @@ import {
   PaginateWrapper,
 } from './Paginate.styled'
 
-interface PaginationProps {}
+interface FragmentsPaginationProps {}
 
-const Pagination: React.FC<PaginationProps> = () => {
+const FragmentsPagination: React.FC<FragmentsPaginationProps> = () => {
   const dispatch = useAppDispatch()
-  const searchResults: any = useAppSelector(
-    (state) => state.searchResult.searchResults.data
+  const userFragments: any = useAppSelector(
+    (state) => state.fragment.userFragments
   )
-  const searchResultsPage: any = useAppSelector(
-    (state) => state.preference.searchResultsPage
+  const savedFragmentsPage: any = useAppSelector(
+    (state) => state.preference.savedFragmentsPage
   )
 
   const buttonHelper = (i: number) => {
     dispatch(
-      searchResultsPageSaved({
+      fragmentsPageSaved({
         start: i * 10,
         end: (i + 1) * 10 - 1,
         pageNr: i + 1,
@@ -30,9 +30,9 @@ const Pagination: React.FC<PaginationProps> = () => {
   }
   return (
     <PaginateWrapper>
-      {searchResults.length % 10 > 0
+      {userFragments.length % 10 > 0
         ? Array.from(
-            { length: Math.floor(searchResults.length / 10) + 1 },
+            { length: Math.floor(userFragments.length / 10) + 1 },
             (_, i) => (
               <PaginateBorderWrapper key={i}>
                 <SendButtonVerySmall
@@ -41,7 +41,7 @@ const Pagination: React.FC<PaginationProps> = () => {
                 >
                   <PaginateActive
                     pageActive={
-                      searchResultsPage.pageNr === i + 1 ? true : false
+                      savedFragmentsPage.pageNr === i + 1 ? true : false
                     }
                   >
                     {i + 1}
@@ -50,7 +50,7 @@ const Pagination: React.FC<PaginationProps> = () => {
               </PaginateBorderWrapper>
             )
           )
-        : Array.from({ length: searchResults.length / 10 }, (_, i) => (
+        : Array.from({ length: userFragments.length / 10 }, (_, i) => (
             <SendButtonVerySmall key={i} variant='secondaryEmpty'>
               {i + 1}
             </SendButtonVerySmall>
@@ -58,4 +58,4 @@ const Pagination: React.FC<PaginationProps> = () => {
     </PaginateWrapper>
   )
 }
-export default Pagination
+export default FragmentsPagination

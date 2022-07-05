@@ -55,8 +55,15 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
   )
+  const fragmentsKeywordMain: any[] = useAppSelector(
+    (state) => state.fragment.fragmentsKeywordMain
+  )
   const fragment = useAppSelector((state) => state.fragment)
   const { loading, success } = fragment
+
+  const sortingOption: string = useAppSelector(
+    (state) => state.preference.sortingOption
+  )
 
   const sortingKeywords = useAppSelector(
     (state) => state.preference.sortingKeywords
@@ -76,12 +83,36 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   }-${sortingDay < 10 ? `0${sortingDay}` : `${sortingDay}`}`
 
   const [state, setState] = useState([
-    fragments.filter(
-      (fragmentsSorted) =>
-        fragmentsSorted.createdAt.substring(0, 10) === sortingDateString
-    ),
+    fragments,
+    // fragments.filter(
+    //   (fragmentsSorted) =>
+    //     fragmentsSorted.createdAt.substring(0, 10) === sortingDateString
+    // ),
     fragmentsKeywordOne,
     fragmentsKeywordTwo,
+  ])
+  useEffect(() => {
+    if (sortingOption === 'date') {
+      setState([
+        fragments.filter(
+          (fragmentsSorted) =>
+            fragmentsSorted.createdAt.substring(0, 10) === sortingDateString
+        ),
+        fragmentsKeywordOne,
+        fragmentsKeywordTwo,
+      ])
+    } else if (sortingOption === 'keyword') {
+      setState([fragmentsKeywordMain, fragmentsKeywordOne, fragmentsKeywordTwo])
+    } else if (sortingOption === 'all') {
+      setState([fragments, fragmentsKeywordOne, fragmentsKeywordTwo])
+    }
+  }, [
+    sortingOption,
+    fragments,
+    fragmentsKeywordOne,
+    fragmentsKeywordTwo,
+    sortingDateString,
+    fragmentsKeywordMain,
   ])
 
   //? Behold the monster, onDragEnd with no end

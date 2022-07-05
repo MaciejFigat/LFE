@@ -14,9 +14,11 @@ export const KeywordSearchContainer = styled.div`
 //? both columns in this one
 export const KeywordColumnContainer = styled.div`
   display: flex;
+  min-height: 100vh;
   flex-direction: row;
   align-items: flex-start;
   padding-top: 4rem;
+  width: 100%;
 `
 // ? test styling
 

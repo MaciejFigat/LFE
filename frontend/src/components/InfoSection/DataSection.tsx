@@ -56,15 +56,10 @@ interface DataSectionProps {
 const DataSection: React.FC<DataSectionProps> = ({
   metryka,
   query,
-  topline,
-  headline,
-  subtitle,
   fragmentsFound,
   variant,
   imgStart,
-  children,
   buttonLink,
-  buttonNavLink,
   paddingTop,
 }) => {
   const dispatch = useAppDispatch()
@@ -86,7 +81,7 @@ const DataSection: React.FC<DataSectionProps> = ({
         <Container>
           {/* <InfoRow> */}
           <InfoRow imgStart={imgStart}>
-            <InfoColumnShort>
+            <InfoColumnShort imgStart={imgStart}>
               <TextWrapper>
                 <TopLine variant={variant}>
                   Sygnatura:{' '}
@@ -115,7 +110,7 @@ const DataSection: React.FC<DataSectionProps> = ({
                     href={buttonLink}
                     target='_blank'
                   >
-                    Tak <SvgIcon variant='question' />
+                    Tak
                   </ButtonLink>
                 </Button>
                 <Button variant={variant}>
@@ -124,7 +119,7 @@ const DataSection: React.FC<DataSectionProps> = ({
                     href={buttonLink}
                     target='_blank'
                   >
-                    Nie <SvgIcon variant='question' />
+                    Nie
                   </ButtonLink>
                 </Button>{' '}
               </TextWrapper>

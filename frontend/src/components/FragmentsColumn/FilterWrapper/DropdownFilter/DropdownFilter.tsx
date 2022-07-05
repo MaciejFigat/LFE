@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../../app/reduxHooks'
 import { sortingOptionEdit } from '../../../../features/preferences/preferenceSlice'
+
 import {
   DropDownContainer,
   DropDownHeader,
@@ -39,7 +40,9 @@ const DropdownFilter: React.FC<DropdownFilterProps> = ({ options }) => {
       <Main>
         <DropDownContainer>
           <DropDownHeader onClick={toggling}>
-            Sort by: {selectedOption}
+            {sortingOption === 'all'
+              ? `Show ${selectedOption}`
+              : `Sort by: ${selectedOption}`}
           </DropDownHeader>
           {isOpen && (
             <DropDownListContainer>

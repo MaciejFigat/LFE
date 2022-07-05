@@ -49,7 +49,6 @@ const KeywordSearchSecondary: React.FC<KeywordSearchSecondaryProps> = ({
           ?.map((fragment: any, index: any) => (
             <Draggable
               key={Math.random()}
-              // key={fragment?._id || Math.random()}
               draggableId={fragment._id}
               index={index}
             >
