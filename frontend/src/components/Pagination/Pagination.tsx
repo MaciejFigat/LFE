@@ -8,9 +8,11 @@ import {
   PaginateWrapper,
 } from './Paginate.styled'
 
-interface PaginationProps {}
+interface PaginationProps {
+  narrow?: boolean
+}
 
-const Pagination: React.FC<PaginationProps> = () => {
+const Pagination: React.FC<PaginationProps> = (narrow) => {
   const dispatch = useAppDispatch()
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults.data
@@ -29,12 +31,12 @@ const Pagination: React.FC<PaginationProps> = () => {
     )
   }
   return (
-    <PaginateWrapper>
+    <PaginateWrapper narrow={narrow}>
       {searchResults.length % 10 > 0
         ? Array.from(
             { length: Math.floor(searchResults.length / 10) + 1 },
             (_, i) => (
-              <PaginateBorderWrapper key={i}>
+              <PaginateBorderWrapper key={i} narrow={narrow}>
                 <SendButtonVerySmall
                   variant='secondaryEmpty'
                   onClick={() => buttonHelper(i)}

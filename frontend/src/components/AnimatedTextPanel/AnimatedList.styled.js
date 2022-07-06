@@ -42,7 +42,6 @@ export const ListTitleContainer = styled(motion.div)`
   align-items: center;
   justify-content: space-between;
   min-height: min-content;
-  /* margin-bottom: 0.5rem; */
 `
 export const ListKeywordContainer = styled(ListTitleContainer)`
   margin-bottom: 0.75rem;

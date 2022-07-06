@@ -16,6 +16,7 @@ import {
   ButtonLink,
   InfoColumnShort,
   CenterWrapper,
+  SubtitleShort,
 } from './InfoSection.styled'
 import parse from 'html-react-parser'
 //! problem solved with parse - html-react-parser - prarses string to html in React
@@ -78,31 +79,28 @@ const DataSection: React.FC<DataSectionProps> = ({
     <CenterWrapper>
       <InfoSec variant={variant} paddingTop={paddingTop}>
         <Container>
-          {/* <InfoRow> */}
           <InfoRow imgStart={imgStart}>
             <InfoColumnShort imgStart={imgStart}>
               <TextWrapper>
-                <TopLine variant={variant}>
-                  Sygnatura:{' '}
-                  <Subtitle variant={variant}>{metryka.syg}</Subtitle>
-                </TopLine>
+                <TopLine variant={variant}>{metryka.syg}</TopLine>
+                <SubtitleShort variant={variant}>{metryka.organ}</SubtitleShort>
                 <TopLine variant={variant}>
                   Forma:{' '}
-                  <Subtitle variant={variant}>
+                  <SubtitleShort variant={variant}>
                     {metryka.rodzaj_orzeczenia}
-                  </Subtitle>
+                  </SubtitleShort>
                 </TopLine>
                 <TopLine variant={variant}>
                   Numer Dokumentu:
-                  <Subtitle variant={variant}>
+                  <SubtitleShort variant={variant}>
                     {metryka.numer_dokumentu}
-                  </Subtitle>
+                  </SubtitleShort>
                 </TopLine>
-                <TopLine variant={variant}>
-                  Organ wydający:{' '}
-                  <Subtitle variant={variant}>{metryka.organ}</Subtitle>
-                </TopLine>
-                <Subtitle variant={variant}> Wynik przydatny?</Subtitle>
+                <TopLine variant={variant}></TopLine>
+                <SubtitleShort variant={variant}>
+                  {' '}
+                  Wynik przydatny?
+                </SubtitleShort>
                 <Button variant={variant}>
                   <ButtonLink
                     variant={variant}

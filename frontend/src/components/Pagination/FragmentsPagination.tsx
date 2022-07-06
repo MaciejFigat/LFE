@@ -8,9 +8,13 @@ import {
   PaginateWrapper,
 } from './Paginate.styled'
 
-interface FragmentsPaginationProps {}
+interface FragmentsPaginationProps {
+  narrow?: boolean
+}
 
-const FragmentsPagination: React.FC<FragmentsPaginationProps> = () => {
+const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
+  narrow,
+}) => {
   const dispatch = useAppDispatch()
   const userFragments: any = useAppSelector(
     (state) => state.fragment.userFragments
@@ -29,12 +33,12 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = () => {
     )
   }
   return (
-    <PaginateWrapper>
+    <PaginateWrapper narrow={narrow}>
       {userFragments.length % 10 > 0
         ? Array.from(
             { length: Math.floor(userFragments.length / 10) + 1 },
             (_, i) => (
-              <PaginateBorderWrapper key={i}>
+              <PaginateBorderWrapper key={i} narrow={narrow}>
                 <SendButtonVerySmall
                   variant='secondaryEmpty'
                   onClick={() => buttonHelper(i)}

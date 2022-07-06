@@ -13,8 +13,10 @@ import {
   SubtitleSimple,
   CenterWrapperSimple,
   InfoColumnShortSimple,
+  TextWrapperSimpleShort,
 } from './InfoSection.styled'
 import parse from 'html-react-parser'
+import SvgIcon from '../SvgIcon/SvgIcon'
 //! problem solved with parse - html-react-parser - prarses string to html in React
 
 interface InfoData {
@@ -72,17 +74,13 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
         <Container>
           <InfoRow imgStart={imgStart}>
             <InfoColumnShortSimple>
-              <TextWrapperSimple>
+              <TextWrapperSimpleShort imgStart={imgStart}>
                 <TopLineSimple variant={variant}>
                   {metryka.rodzaj_orzeczenia}
                 </TopLineSimple>{' '}
                 <TopLineSimple variant={variant}>{metryka.data}</TopLineSimple>{' '}
-                {/* <TopLineSimple variant={variant}>{metryka.syg}</TopLineSimple> */}
-                {/* <TopLineSimple variant={variant}>
-                  {metryka.numer_dokumentu}
-                </TopLineSimple> */}
                 <TopLineSimple variant={variant}>{metryka.organ}</TopLineSimple>
-              </TextWrapperSimple>
+              </TextWrapperSimpleShort>
             </InfoColumnShortSimple>
             <InfoColumn>
               <TextWrapperSimple>
@@ -98,7 +96,7 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
                         key={Math.random()}
                         onClick={() => submitHandlerDocNr(index)}
                       >
-                        * {parse(fragment.substring(0, 60))}
+                        &#9830;{parse(fragment.substring(0, 120))}
                       </SubtitleSimple>
                     ))}
               </TextWrapperSimple>

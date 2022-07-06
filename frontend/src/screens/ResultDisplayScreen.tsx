@@ -10,6 +10,7 @@ import DataSectionSimple from '../components/InfoSection/DataSectionSimple'
 import UserFragmentsByKeyword from '../components/FragmentsColumn/UserFragmentsByKeyword'
 import FragmentsPagination from '../components/Pagination/FragmentsPagination'
 import Pagination from '../components/Pagination/Pagination'
+import { DataContainerSimple } from '../components/InfoSection/InfoSection.styled'
 
 interface ResultDisplayScreenProps {}
 
@@ -39,7 +40,7 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
             <>
               <ChoiceWrapper />
               {sortingOption === 'all' && showFragmentsState && (
-                <FragmentsPagination />
+                <FragmentsPagination narrow />
               )}
               {showFragmentsState === false && <Pagination />}
               {showFragmentsState && (sortingOption === 'date' || 'all') && (
@@ -49,19 +50,21 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
               {showFragmentsState && sortingOption === 'keyword' && (
                 <UserFragmentsByKeyword />
               )}
-              {!showFragmentsState &&
-                data.length > 0 &&
-                data.slice(start, end + 1).map((fragmentArray: any) => (
-                  <DataSectionSimple
-                    variant='blue'
-                    // imgStart
-                    key={fragmentArray['uuid']}
-                    paddingTop='small'
-                    fragmentsFound={fragmentArray.fragment}
-                    metryka={fragmentArray.metryka}
-                    query={queryTrimmed}
-                  />
-                ))}
+              <DataContainerSimple>
+                {!showFragmentsState &&
+                  data.length > 0 &&
+                  data.slice(start, end + 1).map((fragmentArray: any) => (
+                    <DataSectionSimple
+                      variant='blue'
+                      // imgStart
+                      key={fragmentArray['uuid']}
+                      paddingTop='small'
+                      fragmentsFound={fragmentArray.fragment}
+                      metryka={fragmentArray.metryka}
+                      query={queryTrimmed}
+                    />
+                  ))}
+              </DataContainerSimple>
             </>
           ) : (
             <FragmentsColumn />

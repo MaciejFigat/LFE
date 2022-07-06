@@ -18,7 +18,7 @@ export const InfoSec = styled.div`
   
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-radius: 10px;
+  border-radius: 8px;
   border: solid 1px;
   border-color: ${(props) => handleSectionColor(props).color};
   /* //! end  */
@@ -36,14 +36,16 @@ export const InfoSec = styled.div`
 export const InfoSecSimple = styled(InfoSec)`
   padding: 0.25rem;
   padding-top: 0.5rem;
+
   padding-bottom: 1.5rem;
   margin: 0;
   min-height: min-content;
+  max-width: 650px;
 `
 export const InfoRow = styled.div`
   display: flex;
   margin: 0 -15px -15px -15px;
-  align-items: flex-start;
+  /* align-items: flex-start; */
   flex-direction: ${({ imgStart }) =>
     imgStart === true ? 'row-reverse' : 'row'};
   @media (max-width: 880px) {
@@ -53,7 +55,6 @@ export const InfoRow = styled.div`
 `
 export const InfoColumn = styled.div`
   padding-left: 0.5rem;
-  /* flex: 1; */
   flex-basis: 70%;
 
   @media screen and (min-width: 770px) {
@@ -64,10 +65,9 @@ export const InfoColumn = styled.div`
 `
 export const InfoColumnShort = styled(InfoColumn)`
   padding: 0;
-  /* padding-left: 0.25rem; */
   flex-basis: 30%;
-  min-height: 90%;
-  /* border-left: 1px solid; */
+  min-height: 120%;
+  text-align: left;
   border-color: ${(props) => handleSectionColor(props).color};
   ${({ imgStart }) =>
     imgStart ? 'border-left: 1px solid' : 'border-right: 1px solid'};
@@ -78,7 +78,6 @@ export const InfoColumnShortSimple = styled(InfoColumnShort)`
 `
 export const TextWrapper = styled.div`
   width: 100%;
-
   padding-right: 15px;
   padding-left: 15px;
   @media screen and (max-width: 770px) {
@@ -88,6 +87,9 @@ export const TextWrapper = styled.div`
 export const TextWrapperSimple = styled(TextWrapper)`
   padding: 0.5rem;
   padding-right: 0;
+`
+export const TextWrapperSimpleShort = styled(TextWrapperSimple)`
+  text-align: left;
 `
 export const Container = styled.div`
   z-index: 1;
@@ -188,6 +190,7 @@ export const Subtitle = styled.p`
   margin-top: 10px;
   margin-bottom: 15px;
   text-align: justify;
+  /* text-align: left; */
   font-size: 1.1rem;
   line-height: 1.15rem;
   letter-spacing: 0.025em;
@@ -199,8 +202,16 @@ export const Subtitle = styled.p`
     ${(props) => handleSectionColor(props).buttonColorHover}
   }
 `
+export const SubtitleShort = styled(Subtitle)`
+  text-align: left;
+  &:hover {
+    ${(props) => handleSectionColor(props).subtitleColor}
+  }
+`
 export const SubtitleSimple = styled(Subtitle)`
   margin: 0;
+  /* display: flex; */
+  /* flex-direction: row; */
   text-align: left;
   font-size: 0.95rem;
   line-height: 1.15rem;
@@ -223,5 +234,13 @@ export const CenterWrapper = styled.div`
 export const CenterWrapperSimple = styled(CenterWrapper)`
   margin-bottom: 0.5rem;
   height: fit-content;
-  align-self: flex-start;
+  /* align-self: flex-start; */
+
+  width: 95%;
+`
+export const DataContainerSimple = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
 `
