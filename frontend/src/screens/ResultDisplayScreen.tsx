@@ -42,7 +42,7 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
               {sortingOption === 'all' && showFragmentsState && (
                 <FragmentsPagination narrow />
               )}
-              {showFragmentsState === false && <Pagination />}
+              {showFragmentsState === false && <Pagination narrow />}
               {showFragmentsState && (sortingOption === 'date' || 'all') && (
                 <UserFragmentsColumn />
               )}

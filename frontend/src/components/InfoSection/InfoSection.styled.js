@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { handleSectionColor } from './utilsSection'
+import { Marker } from 'react-mark.js'
 
 export const InfoSec = styled.div`
   max-width: 80%;
@@ -192,7 +193,7 @@ export const Subtitle = styled.p`
   text-align: justify;
   /* text-align: left; */
   font-size: 1.1rem;
-  line-height: 1.15rem;
+  line-height: 1.2rem;
   letter-spacing: 0.025em;
   font-weight: 300;
   transition: 0.3s;
@@ -243,4 +244,12 @@ export const DataContainerSimple = styled.div`
   flex-direction: column;
   align-items: center;
   justify-items: center;
+`
+
+export const HighlightMarker = styled(Marker)`
+  mark {
+    /* background-color: red !important; */
+    /* background-color: white !important; */
+    /* color: red !important; */
+  }
 `

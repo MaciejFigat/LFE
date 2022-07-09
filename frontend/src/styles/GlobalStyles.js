@@ -205,10 +205,20 @@ body {
       }
     }
   .highlight{
-    // background: pink;
+    // background: pink !important;
     color: var(--background-neon4);
+    background: red;
   }
-    
+  .highlightQuery{
+    border-radius: 4px;
+    // background: var(--background-neon1);
+    background: red;
+    color: var(--background-neon5);
+  }
+  mark {
+    background-color: var(--background-neon1);
+    color: var(--background-neon5) !important;
+  } 
     
 }
 ::-webkit-scrollbar {

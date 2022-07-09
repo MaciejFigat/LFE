@@ -17,7 +17,8 @@ const preferenceSlice = createSlice({
         sortingOption: 'date',
         showFragments: true,
         searchResultsPage: { start: 0, end: 9, pageNr: 1 },
-        savedFragmentsPage: { start: 0, end: 9, pageNr: 1 }
+        savedFragmentsPage: { start: 0, end: 9, pageNr: 1 },
+        highlightQuery: '',
 
 
     },
@@ -27,8 +28,7 @@ const preferenceSlice = createSlice({
             state.showFragments = action.payload
         },
         preferredWidthSaved(state, action) {
-            // const { width } = action.payload
-            // state.width = width
+
             state.width = action.payload
         },
         searchResultsPageSaved(state, action) {
@@ -56,6 +56,9 @@ const preferenceSlice = createSlice({
 
             state.sortingOption = action.payload
         },
+        highlightQueryEdit(state, action) {
+            state.highlightQuery = action.payload
+        },
 
 
 
@@ -67,6 +70,6 @@ const preferenceSlice = createSlice({
 
 
 
-export const { showFragments, preferredWidthSaved, searchResultsPageSaved, fragmentsPageSaved, preferredNarrowWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingKeywordMainEdit, sortingOptionEdit } = preferenceSlice.actions
+export const { showFragments, preferredWidthSaved, searchResultsPageSaved, fragmentsPageSaved, preferredNarrowWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingKeywordMainEdit, sortingOptionEdit, highlightQueryEdit } = preferenceSlice.actions
 
 export default preferenceSlice.reducer

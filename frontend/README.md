@@ -130,3 +130,7 @@ glassmorphed
 
 
   AnimatedSavedItemWrapper - wraps simple view and editing view (AnimatedSavedItem) - passes the useState function to switch between them
+
+
+
+  getResultsFiltered - thunk name for searchSkip

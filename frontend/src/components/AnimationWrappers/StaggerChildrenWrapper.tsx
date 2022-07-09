@@ -54,7 +54,7 @@ const twoVariants = {
     },
   },
 }
-//  Warning - wrapper incomplete ---- To make it work You need to wrap the element within the children you want to animate and also set itemVariants
+//todo  Warning - wrapper incomplete ---- To make it work You need to wrap the element within the children you want to animate and also set itemVariants
 // const itemVariants = {
 //     closed: {
 //       opacity: 0,

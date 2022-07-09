@@ -12,7 +12,7 @@ interface PaginationProps {
   narrow?: boolean
 }
 
-const Pagination: React.FC<PaginationProps> = (narrow) => {
+const Pagination: React.FC<PaginationProps> = ({ narrow }) => {
   const dispatch = useAppDispatch()
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults.data

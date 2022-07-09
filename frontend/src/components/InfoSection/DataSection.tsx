@@ -2,6 +2,7 @@ import React, { ReactFragment } from 'react'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
 // import { NavHashLink } from 'react-router-hash-link'
+// import Highlighter from 'react-highlight-words'
 import { getDocResult } from '../../features/searchResults/searchResultsSlice'
 import {
   InfoSec,
@@ -17,6 +18,7 @@ import {
   InfoColumnShort,
   CenterWrapper,
   SubtitleShort,
+  HighlightMarker,
 } from './InfoSection.styled'
 import parse from 'html-react-parser'
 //! problem solved with parse - html-react-parser - prarses string to html in React
@@ -35,9 +37,8 @@ interface InfoData {
 interface DataSectionProps {
   metryka: InfoData
   query: string
-  topline?: string
-  headline?: string
-  subtitle?: string
+  highlightQuery: string
+
   fragmentsFound: string[]
   variant?:
     | 'primary'
@@ -56,6 +57,7 @@ interface DataSectionProps {
 const DataSection: React.FC<DataSectionProps> = ({
   metryka,
   query,
+  highlightQuery,
   fragmentsFound,
   variant,
   imgStart,
@@ -63,6 +65,7 @@ const DataSection: React.FC<DataSectionProps> = ({
   paddingTop,
 }) => {
   const dispatch = useAppDispatch()
+
   let navigate = useNavigate()
 
   const submitHandlerDocNr = (index: number) => {
@@ -149,13 +152,28 @@ const DataSection: React.FC<DataSectionProps> = ({
                         !fragmentsSorted.startsWith('ISTOTA INTERPRETACJI')
                     )
                     .map((fragment, index) => (
-                      <Subtitle
-                        variant={variant}
+                      <HighlightMarker
                         key={Math.random()}
-                        onClick={() => submitHandlerDocNr(index)}
+                        mark={[query, highlightQuery]}
                       >
-                        (...) {parse(fragment)} (...)
-                      </Subtitle>
+                        {' '}
+                        <Subtitle
+                          variant={variant}
+                          onClick={() => submitHandlerDocNr(index)}
+                        >
+                          (...){' '}
+                          {/* <Highlighter
+                          highlightClassName='highlightQuery'
+                          searchWords={[highlightQuery]}
+                          autoEscape={true}
+                          textToHighlight={fragment
+                            .replace('<em>', '')
+                            .replace('</em>', '')}
+                        /> */}
+                          (...)
+                          {parse(fragment)}
+                        </Subtitle>
+                      </HighlightMarker>
                     ))}
               </TextWrapper>
             </InfoColumn>

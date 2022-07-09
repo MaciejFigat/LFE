@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-// import { nanoid } from '@reduxjs/toolkit'
+
 import axios from 'axios'
 
 
@@ -18,9 +18,7 @@ export const getSearchResultsTwo = createAsyncThunk(
                 `/lexapi`, config
             )
 
-            // console.log(data)
 
-            // console.log(JSON.stringify(data, null, 4))
             return data
         } catch (error: any) {
             return error
@@ -51,7 +49,7 @@ export const getSearchResults = createAsyncThunk(
 )
 interface DocQuery {
     query: string, selectedDoc: number, docNumber: number
-    // query: string, selectedDoc: number, docNumber: number
+
 }
 export const getDocResult = createAsyncThunk(
     'docResult/getDocResult',
@@ -82,6 +80,43 @@ export const getDocResult = createAsyncThunk(
         }
     }
 )
+// ! Work in progress /searchSkip
+interface ResultQuery {
+    query: string, skip: number, take: number, start_date: number, end_date: number
+
+
+}
+export const getResultsFiltered = createAsyncThunk(
+    'docResult/getResultsFiltered',
+
+    async (searchquery: ResultQuery) => {
+        const { query, skip, take, start_date, end_date } = searchquery
+
+        try {
+
+            const { data } = await axios.get(
+                `/lexapi/searchSkip`, {
+                params: {
+                    query: query,
+                    skip: skip,
+                    take: take,
+                    start_date: start_date,
+                    end_date: end_date,
+
+                },
+            }
+
+            )
+
+            //todo
+            console.log(JSON.stringify(data, null, 4))
+            return data
+        } catch (error: any) {
+            return error
+        }
+    }
+)
+//! Work in progress /searchSkip
 export const getDocByNr = createAsyncThunk(
     'docResult/getDocByNr',
 
@@ -146,6 +181,16 @@ const searchResultSlice = createSlice({
         builder.addCase(getSearchResults.rejected, (state, action) => {
             state.loading = false
         })
+        builder.addCase(getResultsFiltered.pending, (state, action) => {
+            state.loading = true
+        })
+        builder.addCase(getResultsFiltered.fulfilled, (state, action) => {
+            state.loading = false
+            state.searchResults = action.payload
+        })
+        builder.addCase(getResultsFiltered.rejected, (state, action) => {
+            state.loading = false
+        })
         builder.addCase(getDocResult.pending, (state, action) => {
             state.loading = true
         })
@@ -189,7 +234,5 @@ const searchResultSlice = createSlice({
 })
 
 
-
-// export const {  } = fragmentSlice.actions
 
 export default searchResultSlice.reducer

@@ -12,6 +12,7 @@ import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
 import { SendButton } from '../components/Buttons/Buttons.styled'
 import HomeWelcome from '../components/InfoSection/HomeWelcome'
 import Pagination from '../components/Pagination/Pagination'
+import SearchFilter from '../components/SearchFilter/SearchFilter'
 
 const Home: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -23,6 +24,9 @@ const Home: React.FC = () => {
 
   const searchResultsPage: any = useAppSelector(
     (state) => state.preference.searchResultsPage
+  )
+  const highlightQuery: string = useAppSelector(
+    (state) => state.preference.highlightQuery
   )
   const { start, end } = searchResultsPage
   const queryTrimmed = encodeURIComponent(query?.trim())
@@ -56,10 +60,16 @@ const Home: React.FC = () => {
   return (
     <>
       <Toast option='registerUser' />
+
       <SideMenuSecondary
         mainData={
           <>
-            {data && data?.length === 0 && <HomeWelcome variant='primary' />}
+            {data && data?.length === 0 && (
+              <>
+                {' '}
+                <HomeWelcome variant='primary' />
+              </>
+            )}
 
             {data && data?.length > 0 && (
               <>
@@ -67,6 +77,7 @@ const Home: React.FC = () => {
                 {/* //*slice method returns shallow copy of the part between start and end - end not included, hence +1 */}
                 {data.slice(start, end + 1).map((fragmentArray: any) => (
                   <DataSection
+                    highlightQuery={highlightQuery}
                     variant='blue'
                     key={fragmentArray['uuid']}
                     paddingTop='large'
@@ -90,6 +101,7 @@ const Home: React.FC = () => {
             <SendButton variant='secondary' onClick={submitHandlerDocNr}>
               get Doc nr test
             </SendButton>
+            <SearchFilter />
           </>
         ) : (
           <>
@@ -101,6 +113,7 @@ const Home: React.FC = () => {
             <SendButton variant='secondary' onClick={submitHandlerDocNr}>
               get Doc nr test
             </SendButton>
+            <SearchFilter />
           </>
         )}
       </SideMenuSecondary>

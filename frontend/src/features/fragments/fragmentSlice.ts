@@ -1,4 +1,3 @@
-// import { createSlice } from "@reduxjs/toolkit"
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { FragmentCreated } from '../../interfaces'
 import { nanoid } from '@reduxjs/toolkit'
@@ -214,7 +213,6 @@ const fragmentSlice = createSlice({
         builder.addCase(createFragment.fulfilled, (state, action) => {
             state.loading = false
             state.fragmentSaved = action.payload
-            // state.error = action.payload.message
             state.success = true
         })
         builder.addCase(createFragment.rejected, (state, action) => {
@@ -226,12 +224,12 @@ const fragmentSlice = createSlice({
         })
         builder.addCase(getUserFragments.fulfilled, (state, action) => {
             state.loading = false
-            // state.userFragments = action.payload
+
             state.userFragments = action.payload.map((el: any) => ({ ...el, nanoId: nanoid() }))
             state.success = true
             // ? setting successUpdate = false so after I fetch the fragments after updating data I won't activate getUserFragments for every subsequent render
             state.successUpdate = false
-            // state.error = action.payload.message
+
         })
         builder.addCase(getUserFragments.rejected, (state, action) => {
             state.loading = false

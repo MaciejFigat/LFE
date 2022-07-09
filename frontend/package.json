@@ -23,11 +23,14 @@
     "framer-motion": "^4.1.17",
     "html-react-parser": "^1.4.14",
     "immer": "^9.0.14",
+    "mark.js": "^8.11.1",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^17.0.2",
+    "react-highlight-words": "^0.18.0",
     "react-intersection-observer": "^8.33.1",
     "react-loader-spinner": "^5.1.5",
+    "react-mark.js": "^9.0.7",
     "react-redux": "^7.2.4",
     "react-router-dom": "^6.1.1",
     "react-router-hash-link": "^2.4.3",
@@ -61,7 +64,9 @@
     ]
   },
   "devDependencies": {
+    "@types/mark.js": "^8.11.7",
     "@types/react-beautiful-dnd": "^13.1.2",
+    "@types/react-highlight-words": "^0.16.4",
     "@types/react-router-hash-link": "^2.4.1",
     "@types/smoothscroll-polyfill": "^0.3.1"
   }
