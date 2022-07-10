@@ -60,6 +60,7 @@ const Nav: React.FC<NavProps> = () => {
         <WrapperDesktopOnly>
           <SearchDropdown scrollDirection={scrollDirection} />
         </WrapperDesktopOnly>
+
         <MobileViewContainer>
           <div onClick={handleClickMenu}>
             <Burger menuOpen={open} />

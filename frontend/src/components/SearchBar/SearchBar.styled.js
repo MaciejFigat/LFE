@@ -18,14 +18,14 @@ export const SearchBarWrapper = styled.div`
   font-weight: 400;
   .show {
     transition: 0.3s;
-    opacity: 1;
-    /* background: var(--background-secondary4); */
+    /* opacity: 1; */
+    //! here searchButton color is defined when panel is open
+    color: var(--background-neon9);
   }
   .hide {
     transition: 0.2s;
     /* opacity: 0; */
-
-    /* background: var(--background-secondary4); */
+    color: var(--background-neon11);
   }
   @media (max-width: 420px) {
     gap: 0.25rem;
@@ -109,12 +109,15 @@ export const SearchAdvancedWrapper = styled.div`
 
 export const Main = styled.div`
   /* height: 100vh; */
-  /* position: absolute; */
-  display: flex;
-  align-self: center;
 
+  /* display: flex;
+  align-self: center; */
+  /* display: flex; */
+  /* align-self: center; */
+  /* display: block; */
   @media (max-width: 1020px) {
-    display: block;
+    /* display: block; */
+    /* display: flex; */
     font-size: 1.25rem;
   }
 `
@@ -123,6 +126,10 @@ export const DropDownContainer = styled.div`
   margin: 0 auto;
 `
 
+export const DropdownIconWrapper = styled.div`
+  display: grid;
+  place-items: center;
+`
 export const DropDownHeader = styled.div`
   display: flex;
   font-weight: 500;
@@ -136,11 +143,16 @@ export const DropDownHeader = styled.div`
   }
 `
 export const DropDownListContainer = styled.div`
-  position: absolute;
+  /* position: absolute;
 
-  top: 60px;
-  /* position: relative; */
-  /* top: 210px; */
+  top: 360px;
+
+  position: relative; */
+  position: relative;
+  /* position: absolute; */
+  left: 30px;
+  /* top: 620px; */
+  top: 15px;
   z-index: 10;
   background: var(--background-blur2);
   width: 250px;
@@ -150,8 +162,9 @@ export const DropDownListContainer = styled.div`
   -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
   @media (max-width: 1020px) {
-    /* width: 120px; */
-    /* right: 50px; */
+    position: relative;
+    left: 30px;
+    top: 20px;
   }
 `
 export const DropDownList = styled.div`

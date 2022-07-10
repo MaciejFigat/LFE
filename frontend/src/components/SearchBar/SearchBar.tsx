@@ -10,17 +10,14 @@ import {
   SearchInput,
 } from './SearchBar.styled'
 
-interface SearchBarProps {}
+interface SearchBarProps {
+  isOpen: boolean
+}
 
-const SearchBar: React.FC<SearchBarProps> = () => {
+const SearchBar: React.FC<SearchBarProps> = ({ isOpen }) => {
   const dispatch = useAppDispatch()
 
   const [searchQuery, setSearchQuery] = useState<string>('')
-  const [showSearch, setShowSearch] = useState<boolean>(true)
-
-  const showSearchHandler = () => {
-    setShowSearch(!showSearch)
-  }
 
   const submitHandler = (e: any) => {
     e.preventDefault()
@@ -33,28 +30,8 @@ const SearchBar: React.FC<SearchBarProps> = () => {
   }
   return (
     <SearchBarWrapper>
-      {/* <SearchHideButton onClick={showSearchHandler}>
-        {loadingResults === false ? (
-          <SvgIcon
-            noContent
-            variant={showSearch ? 'search' : 'searchPlus'}
-            noMargin
-          />
-        ) : (
-          <>
-            <ThreeDots
-              height='22'
-              width='22'
-              color='var(--background-neon5)'
-              ariaLabel='loading'
-            />
-          </>
-        )}
-      </SearchHideButton> */}
       <SearchBarForm onSubmit={submitHandler}>
-        <SearchBarContainer
-          className={`${showSearch === true ? 'show' : 'hide'} `}
-        >
+        <SearchBarContainer>
           <SearchInput
             type='search'
             name='search'
@@ -65,7 +42,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
           />
         </SearchBarContainer>
         <SearchBarButton
-          className={`${showSearch === true ? 'show' : 'hide'} `}
+          className={`${isOpen === true ? 'show' : 'hide'} `}
           type='submit'
         >
           Search

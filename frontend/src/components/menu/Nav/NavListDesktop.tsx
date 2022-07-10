@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import StaggerChildrenWrapper from '../../AnimationWrappers/StaggerChildrenWrapper'
 import SvgIcon from '../../SvgIcon/SvgIcon'
 import NavDropdown from './NavDropdown'
+import SearchDropdown from '../../SearchBar/SearchDropdown'
 
 interface NavListMobileProps {
   scrollDirection?: 'up' | 'down' | 'top' | undefined | null

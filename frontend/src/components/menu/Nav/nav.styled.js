@@ -204,9 +204,13 @@ export const HeaderTitleMobile = styled.h1`
     font-size: 1.25rem;
   }
 `
+
 export const WrapperDesktopOnly = styled.div`
-  display: flex;
-  /* max-width: fit-content; */
+  /* //!brute forcing position for searchDropdown*/
+  margin-top: 0.85rem;
+
+  justify-content: center;
+
   @media (max-width: 1020px) {
     display: none;
     font-size: 1.25rem;

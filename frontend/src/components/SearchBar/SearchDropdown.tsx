@@ -6,6 +6,7 @@ import { UserInfo } from '../../interfaces'
 import {
   DropDownContainer,
   DropDownHeader,
+  DropdownIconWrapper,
   DropDownList,
   DropDownListContainer,
   ListItem,
@@ -19,7 +20,6 @@ interface NavDropdownProps {
 }
 
 const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const loadingResults: any = useAppSelector(
     (state) => state.searchResult.loading
   )
@@ -37,14 +37,16 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   return (
     <Main>
       <DropDownContainer>
-        <DropDownHeader onClick={toggling}>
+        <DropDownHeader>
           {' '}
           {loadingResults === false ? (
-            <SvgIcon
-              variant={isOpen ? 'search' : 'searchPlus'}
-              toBottom
-              contentAfter={isOpen ? 'close' : 'advanced'}
-            />
+            <DropdownIconWrapper onClick={toggling}>
+              <SvgIcon
+                variant={isOpen ? 'search' : 'searchPlus'}
+                toBottom
+                contentAfter={isOpen ? 'close' : 'advanced'}
+              />
+            </DropdownIconWrapper>
           ) : (
             <>
               <ThreeDots
@@ -55,7 +57,7 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
               />
             </>
           )}
-          <SearchBar />
+          <SearchBar isOpen={isOpen} />
         </DropDownHeader>
 
         {isOpen && (
