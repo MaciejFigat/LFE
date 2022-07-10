@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { getResultsFiltered } from '../../features/searchResults/searchResultsSlice'
-import { ThreeDots } from 'react-loader-spinner'
-import Highlighter from 'react-highlight-words'
+// import { ThreeDots } from 'react-loader-spinner'
+// import Highlighter from 'react-highlight-words'
 
 import {
   SearchBarButton,
   SearchBarContainer,
   SearchBarForm,
-  SearchBarWrapper,
-  SearchHideButton,
+  // SearchBarWrapper,
+  // SearchHideButton,
   SearchInput,
 } from './SearchFilter.styled'
-import { SendButtonSmall, SendButtonVerySmall } from '../Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import { highlightQueryEdit } from '../../features/preferences/preferenceSlice'
 
 interface SearchFilterProps {}
@@ -22,13 +22,12 @@ const SearchFilter: React.FC<SearchFilterProps> = ({}) => {
   const loadingResults: any = useAppSelector(
     (state) => state.searchResult.loading
   )
-  const [highlightQuery, setHighlightQuery] = useState<string>('cfc')
-  const [searchQuery, setSearchQuery] = useState<string>('cfc')
+  const [highlightQuery, setHighlightQuery] = useState<string>('')
+  const [searchQuery, setSearchQuery] = useState<string>('')
   const [skip, setSkip] = useState<number>(1)
   const [take, setTake] = useState<number>(5)
   const [startDate, setStartDate] = useState<number>(20150113)
   const [endDate, setEndDate] = useState<number>(20160113)
-  // const { query, skip, take, start_date, end_date } = searchquery
 
   const testHandler = (e: any) => {
     e.preventDefault()
@@ -39,7 +38,9 @@ const SearchFilter: React.FC<SearchFilterProps> = ({}) => {
       start_date: startDate,
       end_date: endDate,
     }
-    dispatch(getResultsFiltered(searchquery))
+    if (searchquery.query !== '') {
+      dispatch(getResultsFiltered(searchquery))
+    }
   }
 
   const highlightHandler = (e: any) => {
@@ -65,7 +66,6 @@ const SearchFilter: React.FC<SearchFilterProps> = ({}) => {
   }
   return (
     <div>
-      <h1>Testing /searchSkip</h1>
       <SendButtonVerySmall variant='emptyLight' onClick={testHandler}>
         test{' '}
       </SendButtonVerySmall>

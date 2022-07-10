@@ -1,20 +1,23 @@
 import React, { useState } from 'react'
-import { useAppDispatch } from '../../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { getSearchResults } from '../../features/searchResults/searchResultsSlice'
-
+import SvgIcon from '../SvgIcon/SvgIcon'
+import { ThreeDots } from 'react-loader-spinner'
 import {
   SearchBarButton,
   SearchBarContainer,
   SearchBarForm,
   SearchBarWrapper,
+  SearchHideButton,
   SearchInput,
 } from './SearchBar.styled'
-
 interface SearchBarProps {}
 
 const SearchBar: React.FC<SearchBarProps> = () => {
   const dispatch = useAppDispatch()
-
+  const loadingResults: any = useAppSelector(
+    (state) => state.searchResult.loading
+  )
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [showSearch, setShowSearch] = useState<boolean>(true)
 
@@ -33,7 +36,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
   }
   return (
     <SearchBarWrapper>
-      {/* <SearchHideButton onClick={showSearchHandler}>
+      <SearchHideButton onClick={showSearchHandler}>
         {loadingResults === false ? (
           <SvgIcon
             noContent
@@ -50,7 +53,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
             />
           </>
         )}
-      </SearchHideButton> */}
+      </SearchHideButton>
       <SearchBarForm onSubmit={submitHandler}>
         <SearchBarContainer
           className={`${showSearch === true ? 'show' : 'hide'} `}

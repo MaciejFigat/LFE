@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const SearchBarWrapper = styled.div`
   display: flex;
+  /* flex-direction: column; */
   align-self: center;
   color: var(--background1-main);
   z-index: 10;
@@ -22,7 +23,8 @@ export const SearchBarWrapper = styled.div`
   }
   .hide {
     transition: 0.2s;
-    opacity: 0;
+    /* opacity: 0; */
+
     /* background: var(--background-secondary4); */
   }
   @media (max-width: 420px) {
@@ -75,6 +77,8 @@ export const SearchBarButton = styled.button`
 export const SearchBarForm = styled.form`
   display: flex;
   flex-direction: row;
+  /* align-items: center; */
+  /* justify-items: center; */
 `
 export const SearchBarContainer = styled.div`
   display: flex;
@@ -96,3 +100,89 @@ export const SearchInput = styled.input`
   }
 `
 /* export const SearchBarWrapper = styled.div` */
+export const SearchAdvancedWrapper = styled.div`
+  width: 150px;
+  height: 150px;
+  background: ;
+`
+/*//! SearchDropdown */
+
+export const Main = styled.div`
+  /* height: 100vh; */
+  /* position: absolute; */
+  display: flex;
+  align-self: center;
+
+  @media (max-width: 1020px) {
+    display: block;
+    font-size: 1.25rem;
+  }
+`
+export const DropDownContainer = styled.div`
+  min-width: min-content;
+  margin: 0 auto;
+`
+
+export const DropDownHeader = styled.div`
+  display: flex;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--background5-main);
+  transition: all 0.3s ease-out;
+  text-align: center;
+  border: 1px solid var(--background1-main);
+  &:hover {
+    color: var(--background-secondary2);
+  }
+`
+export const DropDownListContainer = styled.div`
+  position: absolute;
+
+  top: 60px;
+  /* position: relative; */
+  /* top: 210px; */
+  z-index: 10;
+  background: var(--background-blur2);
+  width: 250px;
+  min-width: 20vw;
+  box-shadow: 0 8px 32px 0 rgba(60, 59, 61, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  @media (max-width: 1020px) {
+    /* width: 120px; */
+    /* right: 50px; */
+  }
+`
+export const DropDownList = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* padding: 0.5rem; */
+
+  /* background: var(--background1-main); */
+
+  box-sizing: border-box;
+  color: var(--background-secondary2);
+  font-size: 1rem;
+  font-weight: 400;
+  min-width: fit-content;
+  &:first-child {
+    padding-top: 1.2rem;
+  }
+
+  /* &:nth-child(2) {
+    padding-right: 1.2rem;
+  } */
+`
+export const ListItem = styled.li`
+  display: grid;
+  place-items: center;
+  list-style: none;
+  max-width: fit-content;
+  padding-left: 0.75rem;
+  padding-bottom: 0.75rem;
+  /* margin-bottom: 1rem; */
+  &:last-child {
+    /* margin-bottom: 0.5rem; */
+  }
+`
