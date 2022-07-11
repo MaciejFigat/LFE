@@ -55,7 +55,7 @@ const FirstColumn: React.FC<FirstColumnProps> = ({ state }) => {
           >
             <FilterWrapper />
             {sortingOption === 'all' && <FragmentsPagination />}
-            {/* <FragmentsPagination /> */}
+
             {state[0]
               .slice(start, end + 1)
               .map((fragment: any, index: number) => (

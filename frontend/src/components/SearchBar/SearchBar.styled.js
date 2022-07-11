@@ -34,10 +34,9 @@ export const SearchBarWrapper = styled.div`
 `
 
 export const SearchHideButton = styled.button`
-  /* background: var(--background-secondary2); */
   display: grid;
   place-items: center;
-  width: 30px;
+  width: 50px;
   background: none;
   color: var(--background5-main);
   padding: 0.25rem;
@@ -105,19 +104,15 @@ export const SearchAdvancedWrapper = styled.div`
   height: 150px;
   background: ;
 `
+export const SpinnerWrapperSearch = styled.div`
+  display: grid;
+  place-items: center;
+  width: 50px;
+`
 /*//! SearchDropdown */
 
 export const Main = styled.div`
-  /* height: 100vh; */
-
-  /* display: flex;
-  align-self: center; */
-  /* display: flex; */
-  /* align-self: center; */
-  /* display: block; */
   @media (max-width: 1020px) {
-    /* display: block; */
-    /* display: flex; */
     font-size: 1.25rem;
   }
 `
@@ -143,37 +138,25 @@ export const DropDownHeader = styled.div`
   }
 `
 export const DropDownListContainer = styled.div`
-  /* position: absolute;
-
-  top: 360px;
-
-  position: relative; */
   position: relative;
-  /* position: absolute; */
-  left: 30px;
-  /* top: 620px; */
+  left: 10px;
   top: 15px;
   z-index: 10;
   background: var(--background-blur2);
   width: 250px;
-  min-width: 20vw;
-  box-shadow: 0 8px 32px 0 rgba(60, 59, 61, 0.35);
+  /* min-width: 20vw; */
+  box-shadow: 4px 2px 4px 0 var(--background-blur2);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
-  @media (max-width: 1020px) {
-    position: relative;
-    left: 30px;
-    top: 20px;
+  @media (min-width: 1400px) {
+    /* max-width: 20vw; */
+    /* min-width: 20vw; */
   }
 `
 export const DropDownList = styled.div`
   display: flex;
   flex-direction: column;
-  /* padding: 0.5rem; */
-
-  /* background: var(--background1-main); */
-
   box-sizing: border-box;
   color: var(--background-secondary2);
   font-size: 1rem;
@@ -182,10 +165,6 @@ export const DropDownList = styled.div`
   &:first-child {
     padding-top: 1.2rem;
   }
-
-  /* &:nth-child(2) {
-    padding-right: 1.2rem;
-  } */
 `
 export const ListItem = styled.li`
   display: grid;
@@ -194,8 +173,4 @@ export const ListItem = styled.li`
   max-width: fit-content;
   padding-left: 0.75rem;
   padding-bottom: 0.75rem;
-  /* margin-bottom: 1rem; */
-  &:last-child {
-    /* margin-bottom: 0.5rem; */
-  }
 `

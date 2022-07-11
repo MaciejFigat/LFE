@@ -12,7 +12,7 @@ import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
 import { SendButton } from '../components/Buttons/Buttons.styled'
 import HomeWelcome from '../components/InfoSection/HomeWelcome'
 import Pagination from '../components/Pagination/Pagination'
-import SearchFilter from '../components/SearchFilter/SearchFilter'
+// import SearchFilter from '../components/SearchFilter/SearchFilter'
 
 const Home: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -101,7 +101,6 @@ const Home: React.FC = () => {
             <SendButton variant='secondary' onClick={submitHandlerDocNr}>
               get Doc nr test
             </SendButton>
-            <SearchFilter />
           </>
         ) : (
           <>
@@ -113,7 +112,6 @@ const Home: React.FC = () => {
             <SendButton variant='secondary' onClick={submitHandlerDocNr}>
               get Doc nr test
             </SendButton>
-            <SearchFilter />
           </>
         )}
       </SideMenuSecondary>

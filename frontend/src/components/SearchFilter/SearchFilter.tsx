@@ -1,29 +1,27 @@
 import React, { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { getResultsFiltered } from '../../features/searchResults/searchResultsSlice'
-// import { ThreeDots } from 'react-loader-spinner'
-// import Highlighter from 'react-highlight-words'
 
 import {
   SearchBarButton,
   SearchBarContainer,
   SearchBarForm,
-  // SearchBarWrapper,
-  // SearchHideButton,
   SearchInput,
 } from './SearchFilter.styled'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import { highlightQueryEdit } from '../../features/preferences/preferenceSlice'
 
-interface SearchFilterProps {}
+interface SearchFilterProps {
+  searchQuery: string
+}
 
-const SearchFilter: React.FC<SearchFilterProps> = ({}) => {
+const SearchFilter: React.FC<SearchFilterProps> = ({ searchQuery }) => {
   const dispatch = useAppDispatch()
   const loadingResults: any = useAppSelector(
     (state) => state.searchResult.loading
   )
   const [highlightQuery, setHighlightQuery] = useState<string>('')
-  const [searchQuery, setSearchQuery] = useState<string>('')
+  // const [searchQuery, setSearchQuery] = useState<string>('')
   const [skip, setSkip] = useState<number>(1)
   const [take, setTake] = useState<number>(5)
   const [startDate, setStartDate] = useState<number>(20150113)
@@ -70,16 +68,6 @@ const SearchFilter: React.FC<SearchFilterProps> = ({}) => {
         test{' '}
       </SendButtonVerySmall>
       <SearchBarForm onSubmit={submitHandler}>
-        <SearchBarContainer>
-          <SearchInput
-            type='search'
-            name='search'
-            placeholder='Search'
-            autoComplete='search'
-            value={searchQuery}
-            onChange={(e: any) => setSearchQuery(e.target.value)}
-          />
-        </SearchBarContainer>
         <SearchBarButton type='submit'>Search</SearchBarButton>
       </SearchBarForm>
       <SearchBarForm onSubmit={highlightHandler}>
@@ -87,7 +75,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({}) => {
           <SearchInput
             type='search'
             name='search'
-            placeholder='Search'
+            placeholder='Highlight'
             autoComplete='search'
             value={highlightQuery}
             onChange={(e: any) => setHighlightQuery(e.target.value)}

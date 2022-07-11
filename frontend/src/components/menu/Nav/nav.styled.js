@@ -87,7 +87,7 @@ export const NavList = styled.ul`
   min-width: 50vw;
   @media (min-width: 1820px) {
     justify-content: space-evenly;
-    min-width: 30vw;
+    min-width: 35vw;
   }
   @media (max-width: 1020px) {
     width: 100%;

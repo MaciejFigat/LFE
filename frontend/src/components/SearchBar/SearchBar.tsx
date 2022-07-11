@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { getSearchResults } from '../../features/searchResults/searchResultsSlice'
 
@@ -12,6 +12,8 @@ import {
 
 interface SearchBarProps {
   isOpen: boolean
+  searchQuery: string
+  setSearchQuery?: Dispatch<SetStateAction<string>>
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ isOpen }) => {
