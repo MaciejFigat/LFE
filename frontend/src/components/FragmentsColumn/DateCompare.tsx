@@ -3,6 +3,7 @@ import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { sortingDateEdit } from '../../features/preferences/preferenceSlice'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import { DateCompareRow, DateCompareWrapper } from './FragmentsColumn.styled'
+
 interface DateCompareProps {}
 
 const DateCompare: React.FC<DateCompareProps> = () => {

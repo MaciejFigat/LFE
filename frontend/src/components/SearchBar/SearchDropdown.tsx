@@ -3,7 +3,10 @@ import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { ThreeDots } from 'react-loader-spinner'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import { getSearchResults } from '../../features/searchResults/searchResultsSlice'
+import DatePicker, { registerLocale } from 'react-datepicker'
+import pl from 'date-fns/locale/pl'
 
+import 'react-datepicker/dist/react-datepicker.css'
 import { SpinnerWrapperSearch } from './SearchBar.styled'
 import {
   DropDownContainer,
@@ -16,6 +19,8 @@ import {
 } from './SearchBar.styled'
 import SearchBar from './SearchBar'
 import SearchFilter from '../SearchFilter/SearchFilter'
+
+registerLocale('pl', pl) //* registers locale for me to use it with DatePicker
 
 interface NavDropdownProps {
   options?: any
@@ -35,7 +40,8 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   const [endYear, setEndYear] = useState<number>(2016)
   const [endMonth, setEndMonth] = useState<number>(1)
   const [endDay, setEndDay] = useState<number>(1)
-
+  //todo
+  const [startDate, setStartDate] = useState(new Date())
   const [isOpen, setIsOpen] = useState(false)
 
   const toggling = () => {
@@ -92,6 +98,14 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
               {/* <ListItem onClick={toggling}> */}
               <ListItem>
                 <SearchFilter searchQuery={searchQuery} />
+              </ListItem>
+              <ListItem>
+                <DatePicker
+                  selected={startDate}
+                  locale='pl'
+                  dateFormat='dd/MM/yyyy'
+                  onChange={(date: Date) => setStartDate(date)}
+                />
               </ListItem>
             </DropDownList>
           </DropDownListContainer>
