@@ -18,6 +18,7 @@ import {
 } from './SearchBar.styled'
 import SearchBar from './SearchBar'
 import SearchFilter from '../SearchFilter/SearchFilter'
+import CustomInputDatePicker from './CustomInputDatePicker'
 
 registerLocale('pl', pl) //* registers locale for me to use it with DatePicker
 
@@ -55,6 +56,7 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
       dispatch(getSearchResults(queryTrimmed))
     }
   }
+
   useEffect(() => {
     if (scrollDirection === 'down') {
       setIsOpen(false)
@@ -106,6 +108,9 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                   locale='pl'
                   dateFormat='dd/MM/yyyy'
                   onChange={(date: Date) => setStartDate(date)}
+                  // dayClassName='dayFormat'
+                  calendarClassName='calendarFormat'
+                  className='dateFormat'
                 />
               </ListItem>
               <ListItem>
@@ -115,6 +120,7 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                   locale='pl'
                   dateFormat='dd/MM/yyyy'
                   onChange={(date: Date) => setEndDate(date)}
+                  customInput={<CustomInputDatePicker />}
                 />
               </ListItem>
             </DropDownList>

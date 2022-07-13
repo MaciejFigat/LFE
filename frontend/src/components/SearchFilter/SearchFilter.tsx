@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { getResultsFiltered } from '../../features/searchResults/searchResultsSlice'
-
 import {
   SearchBarButton,
   SearchBarContainer,

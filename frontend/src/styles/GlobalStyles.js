@@ -219,7 +219,27 @@ body {
     background-color: var(--background-neon1);
     color: var(--background-neon5) !important;
   } 
-    
+  .dateFormat{
+    input{
+      // display: grid;
+      // place-items: center;
+      max-width: fit-content;
+    }
+    border-radius: 4px;
+    color: var(--background-neon10);
+    background-color: var(--background-neon4);
+    border: 1px solid var(--background-neon1);
+    &:active{
+      border: 1px solid var(--background-neon3);
+    }
+  }
+  .calendarFormat{
+    background-color: var(--background-neon2);
+    color: var(--background-neon2);
+  }
+  .example-custom-input{
+    background: lime;
+  }
 }
 ::-webkit-scrollbar {
   width: 0.3em;
