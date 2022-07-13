@@ -5,7 +5,6 @@ import SvgIcon from '../SvgIcon/SvgIcon'
 import { getSearchResults } from '../../features/searchResults/searchResultsSlice'
 import DatePicker, { registerLocale } from 'react-datepicker'
 import pl from 'date-fns/locale/pl'
-
 import 'react-datepicker/dist/react-datepicker.css'
 import { SpinnerWrapperSearch } from './SearchBar.styled'
 import {
@@ -42,6 +41,7 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   const [endDay, setEndDay] = useState<number>(1)
   //todo
   const [startDate, setStartDate] = useState(new Date())
+  const [endDate, setEndDate] = useState(new Date())
   const [isOpen, setIsOpen] = useState(false)
 
   const toggling = () => {
@@ -100,11 +100,21 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                 <SearchFilter searchQuery={searchQuery} />
               </ListItem>
               <ListItem>
+                From:{' '}
                 <DatePicker
                   selected={startDate}
                   locale='pl'
                   dateFormat='dd/MM/yyyy'
                   onChange={(date: Date) => setStartDate(date)}
+                />
+              </ListItem>
+              <ListItem>
+                To:{' '}
+                <DatePicker
+                  selected={endDate}
+                  locale='pl'
+                  dateFormat='dd/MM/yyyy'
+                  onChange={(date: Date) => setEndDate(date)}
                 />
               </ListItem>
             </DropDownList>

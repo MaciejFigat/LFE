@@ -246,6 +246,7 @@ export const DataContainerSimple = styled.div`
   justify-items: center;
 `
 
+// export const HighlightMarker = styled.div`
 export const HighlightMarker = styled(Marker)`
   mark {
     /* background-color: red !important; */
