@@ -1,23 +1,31 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
+import { DatePickerButton } from './DatePicker.styled'
 
 interface CustomInputDatePickerProps {
   onClick?: any
   value?: any
   ref?: any
+  onChange?: (date: Date) => void
 }
 
 const CustomInputDatePicker: React.FC<CustomInputDatePickerProps> = ({
   onClick,
   value,
   ref,
+  onChange,
 }) => {
   return (
-    // * custom input for DatePicker
-    //    forwardRef(({ value, onClick }, ref) => (
+    <DatePickerButton
+      onClick={onClick}
+      ref={ref}
+      value={value}
+      onChange={onChange}
+    />
+    // {value}
 
-    <button className='example-custom-input' onClick={onClick} ref={ref}>
-      {value}
-    </button>
+    // <DatePickerButton onClick={onClick} ref={ref}>
+    //   {value}
+    // </DatePickerButton>
   )
 }
 export default CustomInputDatePicker

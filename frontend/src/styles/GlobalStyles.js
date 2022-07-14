@@ -237,9 +237,9 @@ body {
     background-color: var(--background-neon2);
     color: var(--background-neon2);
   }
-  .example-custom-input{
-    background: lime;
-  }
+  // .example-custom-input{
+  //   background: lime;
+  // }
 }
 ::-webkit-scrollbar {
   width: 0.3em;
