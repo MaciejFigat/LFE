@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+// import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+import { useAppSelector } from '../../app/reduxHooks'
 import { ThreeDots } from 'react-loader-spinner'
 import SvgIcon from '../SvgIcon/SvgIcon'
-import { getSearchResults } from '../../features/searchResults/searchResultsSlice'
+// import { getSearchResults } from '../../features/searchResults/searchResultsSlice'
 import DatePicker, { registerLocale } from 'react-datepicker'
 import pl from 'date-fns/locale/pl'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -28,18 +29,18 @@ interface NavDropdownProps {
 }
 
 const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
-  const dispatch = useAppDispatch()
+  // const dispatch = useAppDispatch()
 
   const loadingResults: any = useAppSelector(
     (state) => state.searchResult.loading
   )
   const [searchQuery, setSearchQuery] = useState<string>('')
-  const [startYear, setStartYear] = useState<number>(2015)
-  const [startMonth, setStartMonth] = useState<number>(1)
-  const [startDay, setStartDay] = useState<number>(1)
-  const [endYear, setEndYear] = useState<number>(2016)
-  const [endMonth, setEndMonth] = useState<number>(1)
-  const [endDay, setEndDay] = useState<number>(1)
+  // const [startYear, setStartYear] = useState<number>(2015)
+  // const [startMonth, setStartMonth] = useState<number>(1)
+  // const [startDay, setStartDay] = useState<number>(1)
+  // const [endYear, setEndYear] = useState<number>(2016)
+  // const [endMonth, setEndMonth] = useState<number>(1)
+  // const [endDay, setEndDay] = useState<number>(1)
   //todo
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
@@ -48,14 +49,14 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   const toggling = () => {
     setIsOpen(!isOpen)
   }
-  const submitHandler = (e: any) => {
-    e.preventDefault()
+  // const submitHandler = (e: any) => {
+  //   e.preventDefault()
 
-    if (searchQuery?.length > 0) {
-      const queryTrimmed = encodeURIComponent(searchQuery.trim())
-      dispatch(getSearchResults(queryTrimmed))
-    }
-  }
+  //   if (searchQuery?.length > 0) {
+  //     const queryTrimmed = encodeURIComponent(searchQuery.trim())
+  //     dispatch(getSearchResults(queryTrimmed))
+  //   }
+  // }
 
   useEffect(() => {
     if (scrollDirection === 'down') {
@@ -127,7 +128,11 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                   locale='pl'
                   dateFormat='dd/MM/yyyy'
                   onChange={(date: Date) => setEndDate(date)}
-                  customInput={<CustomInputDatePicker />}
+                  customInput={
+                    <CustomInputDatePicker
+                      onChange={(date: Date) => setEndDate(date)}
+                    />
+                  }
                 />
               </ListItem>
             </DropDownList>

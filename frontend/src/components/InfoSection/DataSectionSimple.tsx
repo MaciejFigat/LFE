@@ -16,7 +16,7 @@ import {
   TextWrapperSimpleShort,
 } from './InfoSection.styled'
 import parse from 'html-react-parser'
-import SvgIcon from '../SvgIcon/SvgIcon'
+
 //! problem solved with parse - html-react-parser - prarses string to html in React
 
 interface InfoData {

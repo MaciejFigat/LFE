@@ -16,9 +16,9 @@ interface SearchFilterProps {
 
 const SearchFilter: React.FC<SearchFilterProps> = ({ searchQuery }) => {
   const dispatch = useAppDispatch()
-  const loadingResults: any = useAppSelector(
-    (state) => state.searchResult.loading
-  )
+  // const loadingResults: any = useAppSelector(
+  //   (state) => state.searchResult.loading
+  // )
   const [highlightQuery, setHighlightQuery] = useState<string>('')
   // const [searchQuery, setSearchQuery] = useState<string>('')
   const [skip, setSkip] = useState<number>(1)
@@ -74,12 +74,28 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ searchQuery }) => {
           <SearchInput
             type='search'
             name='search'
-            placeholder='Highlight'
-            autoComplete='search'
-            value={highlightQuery}
+            placeholder='take'
+            autoComplete='take'
+            value={take}
             onChange={(e: any) => setHighlightQuery(e.target.value)}
           />
         </SearchBarContainer>
+        <SearchInput
+          type='search'
+          name='search'
+          placeholder='skip'
+          autoComplete='skip'
+          value={skip}
+          onChange={(e: any) => setSkip(e.target.value)}
+        />{' '}
+        <SearchInput
+          type='search'
+          name='search'
+          placeholder='Highlight'
+          autoComplete='skip'
+          value={highlightQuery}
+          onChange={(e: any) => setTake(e.target.value)}
+        />
         <SearchBarButton type='submit'>Highlight</SearchBarButton>
       </SearchBarForm>
     </div>

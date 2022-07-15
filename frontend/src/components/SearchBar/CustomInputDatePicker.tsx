@@ -21,11 +21,6 @@ const CustomInputDatePicker: React.FC<CustomInputDatePickerProps> = ({
       value={value}
       onChange={onChange}
     />
-    // {value}
-
-    // <DatePickerButton onClick={onClick} ref={ref}>
-    //   {value}
-    // </DatePickerButton>
   )
 }
 export default CustomInputDatePicker
