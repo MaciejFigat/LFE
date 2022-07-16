@@ -12,11 +12,6 @@ interface StyleVariant {
 }
 
 
-// --background - secondary1:
-// --background - tertiary1:
-// --background - quaternary1:
-// --background - blue1:
-// --background - blue7:
 
 const primaryStyle: StyleVariant = {
 

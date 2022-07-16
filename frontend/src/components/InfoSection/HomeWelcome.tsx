@@ -6,12 +6,8 @@ import {
   InfoColumn,
   TextWrapper,
   TopLine,
-  //   Heading,
   Subtitle,
-  // Button,
-  // ButtonLink,
   InfoColumnShort,
-  // CenterWrapper,
   HomeContentWrapper,
 } from './InfoSection.styled'
 interface HomeWelcomeProps {

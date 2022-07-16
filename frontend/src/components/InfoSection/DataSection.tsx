@@ -11,7 +11,6 @@ import {
   InfoColumn,
   TextWrapper,
   TopLine,
-  //   Heading,
   Subtitle,
   Button,
   ButtonLink,
