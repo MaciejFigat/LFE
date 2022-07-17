@@ -4,14 +4,14 @@ import { DatePickerButton } from './DatePicker.styled'
 interface CustomInputDatePickerProps {
   onClick?: any
   value?: any
-  ref?: any
+  innerRef?: any
   onChange?: (date: Date) => void
 }
 
 const CustomInputDatePicker: React.FC<CustomInputDatePickerProps> = ({
   onClick,
   value,
-  ref,
+  innerRef,
   onChange,
 }) => {
   const testChange = () => {
@@ -23,7 +23,7 @@ const CustomInputDatePicker: React.FC<CustomInputDatePickerProps> = ({
   return (
     <DatePickerButton
       onClick={onClick}
-      ref={ref}
+      ref={innerRef}
       value={value}
       onChange={onChange}
       // onChange={testChange}

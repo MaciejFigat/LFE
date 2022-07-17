@@ -20,6 +20,7 @@ import {
 import SearchBar from './SearchBar'
 import SearchFilter from '../SearchFilter/SearchFilter'
 import CustomInputDatePicker from './CustomInputDatePicker'
+import { DatePickerButton } from './DatePicker.styled'
 
 registerLocale('pl', pl) //* registers locale for me to use it with DatePicker
 
@@ -121,9 +122,9 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                   dateFormat='dd/MM/yyyy'
                   onChange={(date: Date) => setStartDate(date)}
                   customInput={
-                    <CustomInputDatePicker
-                      onChange={(date: Date) => setStartDate(date)}
-                    />
+                    <DatePickerButton />
+                    // <button>hello</button>
+                    // onChange={(date: Date) => setStartDate(date)}
                   }
                 />
                 To:{' '}
@@ -133,9 +134,10 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                   dateFormat='dd/MM/yyyy'
                   onChange={(date: Date) => setEndDate(date)}
                   customInput={
-                    <CustomInputDatePicker
-                      onChange={(date: Date) => setEndDate(date)}
-                    />
+                    // <CustomInputDatePicker
+                    //   onChange={(date: Date) => setEndDate(date)}
+                    // />
+                    <DatePickerButton />
                   }
                 />
               </ListItem>
