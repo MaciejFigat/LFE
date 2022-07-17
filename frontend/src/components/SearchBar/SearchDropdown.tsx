@@ -109,20 +109,24 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                   locale='pl'
                   dateFormat='dd/MM/yyyy'
                   onChange={(date: Date) => setStartDate(date)}
-                  // dayClassName='dayFormat'
                   calendarClassName='calendarFormat'
                   className='dateFormat'
                 />
               </ListItem>
               <ListItem>
-                To:{' '}
+                From:{' '}
                 <DatePicker
-                  selected={endDate}
+                  selected={startDate}
                   locale='pl'
                   dateFormat='dd/MM/yyyy'
-                  onChange={(date: Date) => setEndDate(date)}
-                  customInput={<CustomInputDatePicker />}
+                  onChange={(date: Date) => setStartDate(date)}
+                  customInput={
+                    <CustomInputDatePicker
+                      onChange={(date: Date) => setStartDate(date)}
+                    />
+                  }
                 />
+                To:{' '}
                 <DatePicker
                   selected={endDate}
                   locale='pl'

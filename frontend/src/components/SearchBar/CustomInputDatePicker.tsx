@@ -14,12 +14,19 @@ const CustomInputDatePicker: React.FC<CustomInputDatePickerProps> = ({
   ref,
   onChange,
 }) => {
+  const testChange = () => {
+    console.log(value)
+    if (onChange) {
+      onChange(value)
+    }
+  }
   return (
     <DatePickerButton
       onClick={onClick}
       ref={ref}
       value={value}
       onChange={onChange}
+      // onChange={testChange}
     />
   )
 }
