@@ -29,6 +29,7 @@ import SearchBar from './SearchBar'
 // import CustomInputDatePicker from './CustomInputDatePicker'
 import { DatePickerButton } from './DatePicker.styled'
 import { NumberInput } from './SearchFilter.styled'
+import SwitchButton from './SwitchButton'
 
 registerLocale('pl', pl) //* registers locale for me to use it with DatePicker
 
@@ -49,6 +50,7 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
   const [isOpen, setIsOpen] = useState(false)
+  const [isOnOne, setIsOnOne] = useState(false)
 
   const [highlightQuery, setHighlightQuery] = useState<string>('')
 
@@ -58,14 +60,7 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   const toggling = () => {
     setIsOpen(!isOpen)
   }
-  // const submitHandler = (e: any) => {
-  //   e.preventDefault()
 
-  //   if (searchQuery?.length > 0) {
-  //     const queryTrimmed = encodeURIComponent(searchQuery.trim())
-  //     dispatch(getSearchResults(queryTrimmed))
-  //   }
-  // }
   const highlightHandler = (e: any) => {
     e.preventDefault()
     dispatch(highlightQueryEdit(highlightQuery))
@@ -177,6 +172,7 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
               </ListItem>
               <ListItem>
                 <b>Krajowa Informacja Skarbowa</b>
+                <SwitchButton isOn={isOnOne} setIsOn={setIsOnOne} />
               </ListItem>
               <ListItem>
                 <b>Izba Skarbowa</b>

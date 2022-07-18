@@ -1,19 +1,15 @@
 import styled from 'styled-components'
-
+import { motion } from 'framer-motion'
 export const SearchBarWrapper = styled.div`
   display: flex;
-  /* flex-direction: column; */
   align-self: center;
   color: var(--background1-main);
   z-index: 10;
   gap: 0.75rem;
-  /* background: var(--background-secondary2); */
-  /* background: var(--background1-main); */
   background: transparent;
   height: 30px;
   min-width: fit-content;
   min-height: fit-content;
-  /* color: var(--background1-main); */
   font-size: 1.55rem;
   font-weight: 400;
   .show {
@@ -33,30 +29,12 @@ export const SearchBarWrapper = styled.div`
   }
 `
 
-export const SearchHideButton = styled.button`
-  display: grid;
-  place-items: center;
-  width: 50px;
-  background: none;
-  color: var(--background5-main);
-  padding: 0.25rem;
-  /* margin-right: 0.45rem; */
-  outline: none;
-  border: none;
-  cursor: pointer;
-  background: transparent;
-  align-items: center;
-  @media (max-width: 420px) {
-    padding: 0.15rem;
-  }
-`
 export const SearchBarButton = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
   background: transparent;
   align-items: center;
-  /* color: var(--background-secondary2); */
   color: var(--background-neon5);
   border: 1px solid transparent;
   border-radius: 10px;
@@ -76,8 +54,6 @@ export const SearchBarButton = styled.button`
 export const SearchBarForm = styled.form`
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
-  /* justify-items: center; */
 `
 export const SearchBarContainer = styled.div`
   display: flex;
@@ -98,12 +74,7 @@ export const SearchInput = styled.input`
     padding: 5px 7px;
   }
 `
-/* export const SearchBarWrapper = styled.div` */
-export const SearchAdvancedWrapper = styled.div`
-  width: 150px;
-  height: 150px;
-  background: ;
-`
+
 export const SpinnerWrapperSearch = styled.div`
   display: grid;
   place-items: center;
@@ -144,20 +115,14 @@ export const DropDownListContainer = styled.div`
   z-index: 10;
   background: var(--background-blur2);
   width: 250px;
-  /* width: 80%; */
-  /* min-width: 20vw; */
-  /* box-shadow: 4px 2px 4px 0 var(--background-blur2); */
+
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
   @media (min-width: 1400px) {
-    /* max-width: 20vw; */
-    /* min-width: 20vw; */
   }
 `
 export const DropDownDateContainer = styled.div`
-  /* display: grid;
-  place-items: center; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -165,13 +130,11 @@ export const DropDownDateContainer = styled.div`
   gap: 0.25rem;
 `
 export const DropDownList = styled.div`
-  /* display: flex; */
-  /* flex-direction: column; */
   display: grid;
   place-items: center;
   width: 100%;
   box-sizing: border-box;
-  /* color: var(--background-secondary2); */
+
   color: var(--background-neon5);
   font-size: 1rem;
   font-weight: 400;
@@ -185,9 +148,30 @@ export const ListItem = styled.li`
   place-items: center;
   list-style: none;
   max-width: fit-content;
-  /* padding-left: 0.75rem; */
   padding-bottom: 0.75rem;
   b {
     font-size: 0.75rem;
   }
+`
+/*//! switch */
+
+export const SwitchDiv = styled.div`
+  width: 24px;
+  height: 15px;
+  background-color: ${({ isOn }) =>
+    isOn ? 'var(--background-neon5)' : 'var(--background-neon6)'};
+  display: flex;
+  border-radius: 10px;
+  padding: 1px;
+  cursor: pointer;
+  justify-content: ${({ isOn }) => (isOn ? 'flex-end' : 'flex-start')};
+  align-items: center;
+`
+export const SwitchHandle = styled(motion.div)`
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border-radius: 12px;
+  background-color: ${({ isOn }) =>
+    isOn ? 'var(--background-neon6)' : 'var(--background-neon5)'};
 `
