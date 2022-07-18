@@ -52,11 +52,11 @@ export const SearchBarButton = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
-  background: transparent;
+  background: var(--background-neon1);
   align-items: center;
   /* color: var(--background-secondary2); */
   color: var(--background-neon5);
-  border: 1px solid transparent;
+  border: 1px solid var(--background-neon1);
   border-radius: 10px;
   margin-left: 0.5rem;
   &:hover {
@@ -74,24 +74,54 @@ export const SearchBarButton = styled.button`
 export const SearchBarForm = styled.form`
   display: flex;
   flex-direction: row;
+  align-items: center;
 `
 export const SearchBarContainer = styled.div`
   display: flex;
 `
-export const SearchInput = styled.input`
-  max-width: 100%;
-  height: 100%;
-  padding: 11px 13px;
-  color: var(--background4-main);
-  border-radius: 12px;
-  outline: 0;
-  border: 1px solid rgba(245, 245, 245, 0.7);
-  font-size: 1rem;
-  transition: all 0.3s ease-out;
 
-  @media (max-width: 420px) {
+export const SearchInput = styled.input`
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  color: var(--background-neon4);
+
+  background: transparent;
+  /* border-radius: 4px; */
+  padding: 0.25rem;
+  width: 70px;
+  border: none;
+  border-bottom: 1px solid var(--background-neon4);
+  &:focus {
+    outline: none;
+    /* border: none;
+    border-bottom: 1px solid var(--background-neon6); */
+  }
+  &:active {
+    background: var(--background-neon1);
+
+    border-bottom: 1px solid var(--background-neon6);
+  }
+
+  &:hover {
+    color: var(--background-neon6);
+    /* background: var(--background-blur11); */
+    background: var(--background-neon5);
+  }
+
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* ::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  } */
+  /* @media (max-width: 420px) {
     font-size: 0.8rem;
     padding: 5px 7px;
-  }
+  } */
 `
-/* export const SearchBarWrapper = styled.div` */
+export const NumberInput = styled(SearchInput)`
+  width: 25px;
+`

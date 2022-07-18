@@ -1,6 +1,9 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { useAppDispatch } from '../../app/reduxHooks'
-import { getSearchResults } from '../../features/searchResults/searchResultsSlice'
+import {
+  getSearchResults,
+  getResultsFiltered,
+} from '../../features/searchResults/searchResultsSlice'
 
 import {
   SearchBarButton,
@@ -14,17 +17,30 @@ interface SearchBarProps {
   isOpen: boolean
   searchQuery: string
   setSearchQuery?: Dispatch<SetStateAction<string>>
+  startDate: any
+  endDate: any
+  skip: number
+  take: number
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ isOpen }) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+  isOpen,
+  startDate,
+  endDate,
+  skip,
+  take,
+}) => {
   const dispatch = useAppDispatch()
 
   const [searchQuery, setSearchQuery] = useState<string>('')
 
   const submitHandler = (e: any) => {
     e.preventDefault()
+    if (searchQuery?.length > 0 && isOpen) {
+      console.log(startDate, endDate, skip, take)
+    }
 
-    if (searchQuery?.length > 0) {
+    if (searchQuery?.length > 0 && !isOpen) {
       const queryTrimmed = encodeURIComponent(searchQuery.trim())
       dispatch(getSearchResults(queryTrimmed))
       // console.log(encodeURIComponent(searchQuery.trim()))

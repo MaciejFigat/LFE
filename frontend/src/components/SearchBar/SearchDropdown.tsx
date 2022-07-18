@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react'
-// import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
-import { useAppSelector } from '../../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+// import { useAppSelector } from '../../app/reduxHooks'
 import { ThreeDots } from 'react-loader-spinner'
 import SvgIcon from '../SvgIcon/SvgIcon'
+import { highlightQueryEdit } from '../../features/preferences/preferenceSlice'
 // import { getSearchResults } from '../../features/searchResults/searchResultsSlice'
 import DatePicker, { registerLocale } from 'react-datepicker'
 import pl from 'date-fns/locale/pl'
 import 'react-datepicker/dist/react-datepicker.css'
-import { SpinnerWrapperSearch } from './SearchBar.styled'
+import { DropDownDateContainer, SpinnerWrapperSearch } from './SearchBar.styled'
+import {
+  SearchBarButton,
+  SearchBarContainer,
+  SearchBarForm,
+  SearchInput,
+} from '../SearchFilter/SearchFilter.styled'
 import {
   DropDownContainer,
   DropDownHeader,
@@ -18,9 +25,10 @@ import {
   Main,
 } from './SearchBar.styled'
 import SearchBar from './SearchBar'
-import SearchFilter from '../SearchFilter/SearchFilter'
-import CustomInputDatePicker from './CustomInputDatePicker'
+// import SearchFilter from '../SearchFilter/SearchFilter'
+// import CustomInputDatePicker from './CustomInputDatePicker'
 import { DatePickerButton } from './DatePicker.styled'
+import { NumberInput } from '../SearchFilter/SearchFilter.styled'
 
 registerLocale('pl', pl) //* registers locale for me to use it with DatePicker
 
@@ -30,22 +38,22 @@ interface NavDropdownProps {
 }
 
 const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
-  // const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch()
 
   const loadingResults: any = useAppSelector(
     (state) => state.searchResult.loading
   )
   const [searchQuery, setSearchQuery] = useState<string>('')
-  // const [startYear, setStartYear] = useState<number>(2015)
-  // const [startMonth, setStartMonth] = useState<number>(1)
-  // const [startDay, setStartDay] = useState<number>(1)
-  // const [endYear, setEndYear] = useState<number>(2016)
-  // const [endMonth, setEndMonth] = useState<number>(1)
-  // const [endDay, setEndDay] = useState<number>(1)
+
   //todo
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
   const [isOpen, setIsOpen] = useState(false)
+
+  const [highlightQuery, setHighlightQuery] = useState<string>('')
+
+  const [skip, setSkip] = useState<number>(1)
+  const [take, setTake] = useState<number>(5)
 
   const toggling = () => {
     setIsOpen(!isOpen)
@@ -58,7 +66,10 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   //     dispatch(getSearchResults(queryTrimmed))
   //   }
   // }
-
+  const highlightHandler = (e: any) => {
+    e.preventDefault()
+    dispatch(highlightQueryEdit(highlightQuery))
+  }
   useEffect(() => {
     if (scrollDirection === 'down') {
       setIsOpen(false)
@@ -93,53 +104,85 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
             isOpen={isOpen}
+            startDate={startDate}
+            endDate={endDate}
+            skip={skip}
+            take={take}
           />
         </DropDownHeader>
 
         {isOpen && (
           <DropDownListContainer>
             <DropDownList>
-              {/* <ListItem onClick={toggling}> */}
               <ListItem>
-                <SearchFilter searchQuery={searchQuery} />
+                <b>Filtruj po datach</b>
               </ListItem>
               <ListItem>
-                From:{' '}
-                <DatePicker
-                  selected={startDate}
-                  locale='pl'
-                  dateFormat='dd/MM/yyyy'
-                  onChange={(date: Date) => setStartDate(date)}
-                  calendarClassName='calendarFormat'
-                  className='dateFormat'
-                />
+                <DropDownDateContainer>
+                  Od:{' '}
+                  <DatePicker
+                    selected={startDate}
+                    locale='pl'
+                    dateFormat='dd/MM/yyyy'
+                    calendarClassName='calendarFormat'
+                    onChange={(date: Date) => setStartDate(date)}
+                    customInput={<DatePickerButton />}
+                  />
+                  Do:{' '}
+                  <DatePicker
+                    selected={endDate}
+                    locale='pl'
+                    dateFormat='dd/MM/yyyy'
+                    calendarClassName='calendarFormat'
+                    onChange={(date: Date) => setEndDate(date)}
+                    customInput={<DatePickerButton />}
+                  />
+                </DropDownDateContainer>
               </ListItem>
               <ListItem>
-                From:{' '}
-                <DatePicker
-                  selected={startDate}
-                  locale='pl'
-                  dateFormat='dd/MM/yyyy'
-                  onChange={(date: Date) => setStartDate(date)}
-                  customInput={
-                    <DatePickerButton />
-                    // <button>hello</button>
-                    // onChange={(date: Date) => setStartDate(date)}
-                  }
-                />
-                To:{' '}
-                <DatePicker
-                  selected={endDate}
-                  locale='pl'
-                  dateFormat='dd/MM/yyyy'
-                  onChange={(date: Date) => setEndDate(date)}
-                  customInput={
-                    // <CustomInputDatePicker
-                    //   onChange={(date: Date) => setEndDate(date)}
-                    // />
-                    <DatePickerButton />
-                  }
-                />
+                {/* <SearchFilter searchQuery={searchQuery} /> */}
+                <SearchBarForm onSubmit={highlightHandler}>
+                  <SearchBarContainer>
+                    <SearchInput
+                      type='highlight'
+                      name='highlight'
+                      placeholder='highlight'
+                      autoComplete='highlight'
+                      value={highlightQuery}
+                      onChange={(e: any) => setHighlightQuery(e.target.value)}
+                    />
+                  </SearchBarContainer>
+                  <SearchBarButton type='submit'>Highlight</SearchBarButton>
+                </SearchBarForm>
+                <SearchBarForm>
+                  <b> Wyniki od:</b>
+                  <NumberInput
+                    type='number'
+                    name='skip'
+                    placeholder='skip'
+                    autoComplete='skip'
+                    value={skip}
+                    onChange={(e: any) => setSkip(e.target.value)}
+                  />
+                  <b> Do:</b>{' '}
+                  <NumberInput
+                    type='number'
+                    name='take'
+                    placeholder='take'
+                    autoComplete='take'
+                    value={take}
+                    onChange={(e: any) => setTake(e.target.value)}
+                  />
+                </SearchBarForm>
+              </ListItem>
+              <ListItem>
+                <b>Krajowa Informacja Skarbowa</b>
+              </ListItem>
+              <ListItem>
+                <b>Izba Skarbowa</b>
+              </ListItem>
+              <ListItem>
+                <b>Minister Finansów</b>
               </ListItem>
             </DropDownList>
           </DropDownListContainer>
