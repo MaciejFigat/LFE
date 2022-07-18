@@ -14,7 +14,7 @@ import {
   SearchBarContainer,
   SearchBarForm,
   SearchInput,
-} from '../SearchFilter/SearchFilter.styled'
+} from './SearchFilter.styled'
 import {
   DropDownContainer,
   DropDownHeader,
@@ -28,7 +28,7 @@ import SearchBar from './SearchBar'
 // import SearchFilter from '../SearchFilter/SearchFilter'
 // import CustomInputDatePicker from './CustomInputDatePicker'
 import { DatePickerButton } from './DatePicker.styled'
-import { NumberInput } from '../SearchFilter/SearchFilter.styled'
+import { NumberInput } from './SearchFilter.styled'
 
 registerLocale('pl', pl) //* registers locale for me to use it with DatePicker
 

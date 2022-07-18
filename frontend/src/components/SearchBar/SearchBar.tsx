@@ -4,7 +4,7 @@ import {
   getSearchResults,
   getResultsFiltered,
 } from '../../features/searchResults/searchResultsSlice'
-
+import Moment from 'moment'
 import {
   SearchBarButton,
   SearchBarContainer,
@@ -36,12 +36,25 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   const submitHandler = (e: any) => {
     e.preventDefault()
+    const queryTrimmed = encodeURIComponent(searchQuery.trim())
+    const filteredSearch = {
+      query: queryTrimmed,
+      skip: skip,
+      take: take,
+      start_date: parseInt(Moment(startDate).format('YYYYMMDD'), 10),
+      end_date: parseInt(Moment(endDate).format('YYYYMMDD'), 10),
+    }
     if (searchQuery?.length > 0 && isOpen) {
-      console.log(startDate, endDate, skip, take)
+      dispatch(getResultsFiltered(filteredSearch))
+      console.log(
+        parseInt(Moment(startDate).format('YYYYMMDD'), 10),
+        parseInt(Moment(endDate).format('YYYYMMDD'), 10),
+        skip,
+        take
+      )
     }
 
     if (searchQuery?.length > 0 && !isOpen) {
-      const queryTrimmed = encodeURIComponent(searchQuery.trim())
       dispatch(getSearchResults(queryTrimmed))
       // console.log(encodeURIComponent(searchQuery.trim()))
     }
