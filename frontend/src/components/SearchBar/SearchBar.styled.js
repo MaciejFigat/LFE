@@ -115,7 +115,7 @@ export const DropDownListContainer = styled.div`
   z-index: 10;
   background: var(--background-blur2);
   width: 250px;
-
+  padding: 0.5rem;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
@@ -126,7 +126,8 @@ export const DropDownDateContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-items: center;
+  width: 100%;
+  justify-content: flex-start;
   gap: 0.25rem;
 `
 export const DropDownList = styled.div`
@@ -146,6 +147,7 @@ export const DropDownList = styled.div`
 export const ListItem = styled.li`
   display: grid;
   place-items: center;
+  width: 100%;
   list-style: none;
   max-width: fit-content;
   padding-bottom: 0.75rem;
@@ -153,11 +155,27 @@ export const ListItem = styled.li`
     font-size: 0.75rem;
   }
 `
-/*//! switch */
 
+/*//! switch */
+export const SwitchSectionWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* padding-left: 1.5rem; */
+  margin-left: 2rem;
+`
+export const SwitchDivContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+`
 export const SwitchDiv = styled.div`
-  width: 24px;
-  height: 15px;
+  /* width: 24px; */
+  width: 28px;
+  /* height: 15px; */
+  height: 16px;
   background-color: ${({ isOn }) =>
     isOn ? 'var(--background-neon5)' : 'var(--background-neon6)'};
   display: flex;

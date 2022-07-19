@@ -75,6 +75,8 @@ export const SearchBarForm = styled.form`
   display: flex;
   flex-direction: row;
   align-items: center;
+  /* width: 100%; */
+  justify-content: flex-start;
 `
 export const SearchBarContainer = styled.div`
   display: flex;
@@ -89,7 +91,7 @@ export const SearchInput = styled.input`
   background: transparent;
   /* border-radius: 4px; */
   padding: 0.25rem;
-  width: 70px;
+  width: 120px;
   border: none;
   border-bottom: 1px solid var(--background-neon4);
   &:focus {

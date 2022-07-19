@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
-// import { useAppSelector } from '../../app/reduxHooks'
 import { ThreeDots } from 'react-loader-spinner'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import { highlightQueryEdit } from '../../features/preferences/preferenceSlice'
-// import { getSearchResults } from '../../features/searchResults/searchResultsSlice'
 import DatePicker, { registerLocale } from 'react-datepicker'
 import pl from 'date-fns/locale/pl'
 import 'react-datepicker/dist/react-datepicker.css'
-import { DropDownDateContainer, SpinnerWrapperSearch } from './SearchBar.styled'
+import {
+  DropDownDateContainer,
+  SpinnerWrapperSearch,
+  SwitchDivContainer,
+  SwitchSectionWrapper,
+} from './SearchBar.styled'
 import {
   SearchBarButton,
-  SearchBarContainer,
   SearchBarForm,
   SearchInput,
 } from './SearchFilter.styled'
@@ -25,8 +27,6 @@ import {
   Main,
 } from './SearchBar.styled'
 import SearchBar from './SearchBar'
-// import SearchFilter from '../SearchFilter/SearchFilter'
-// import CustomInputDatePicker from './CustomInputDatePicker'
 import { DatePickerButton } from './DatePicker.styled'
 import { NumberInput } from './SearchFilter.styled'
 import SwitchButton from './SwitchButton'
@@ -51,11 +51,13 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   const [endDate, setEndDate] = useState(new Date())
   const [isOpen, setIsOpen] = useState(false)
   const [isOnOne, setIsOnOne] = useState(false)
+  const [isOnTwo, setIsOnTwo] = useState(false)
+  const [isOnThree, setIsOnThree] = useState(false)
 
   const [highlightQuery, setHighlightQuery] = useState<string>('')
 
   const [skip, setSkip] = useState<number>(1)
-  const [take, setTake] = useState<number>(5)
+  const [take, setTake] = useState<number>(10)
 
   const toggling = () => {
     setIsOpen(!isOpen)
@@ -135,9 +137,8 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                 </DropDownDateContainer>
               </ListItem>
               <ListItem>
-                {/* <SearchFilter searchQuery={searchQuery} /> */}
-                <SearchBarForm onSubmit={highlightHandler}>
-                  <SearchBarContainer>
+                <SwitchSectionWrapper>
+                  <SearchBarForm onSubmit={highlightHandler}>
                     <SearchInput
                       type='highlight'
                       name='highlight'
@@ -145,41 +146,52 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                       autoComplete='highlight'
                       value={highlightQuery}
                       onChange={(e: any) => setHighlightQuery(e.target.value)}
+                    />{' '}
+                    <SearchBarButton type='submit'>Highlight</SearchBarButton>
+                  </SearchBarForm>
+                  <SwitchDivContainer>
+                    <b> Wyniki od:</b>
+                    <NumberInput
+                      type='number'
+                      name='skip'
+                      placeholder='skip'
+                      autoComplete='skip'
+                      value={skip}
+                      onChange={(e: any) => setSkip(e.target.value)}
                     />
-                  </SearchBarContainer>
-                  <SearchBarButton type='submit'>Highlight</SearchBarButton>
-                </SearchBarForm>
-                <SearchBarForm>
-                  <b> Wyniki od:</b>
-                  <NumberInput
-                    type='number'
-                    name='skip'
-                    placeholder='skip'
-                    autoComplete='skip'
-                    value={skip}
-                    onChange={(e: any) => setSkip(e.target.value)}
-                  />
-                  <b> Do:</b>{' '}
-                  <NumberInput
-                    type='number'
-                    name='take'
-                    placeholder='take'
-                    autoComplete='take'
-                    value={take}
-                    onChange={(e: any) => setTake(e.target.value)}
-                  />
-                </SearchBarForm>
+                    <b> Do:</b>{' '}
+                    <NumberInput
+                      type='number'
+                      name='take'
+                      placeholder='take'
+                      autoComplete='take'
+                      value={take}
+                      onChange={(e: any) => setTake(e.target.value)}
+                    />
+                  </SwitchDivContainer>
+                </SwitchSectionWrapper>
               </ListItem>
-              <ListItem>
-                <b>Krajowa Informacja Skarbowa</b>
-                <SwitchButton isOn={isOnOne} setIsOn={setIsOnOne} />
-              </ListItem>
-              <ListItem>
-                <b>Izba Skarbowa</b>
-              </ListItem>
-              <ListItem>
-                <b>Minister Finansów</b>
-              </ListItem>
+              <SwitchSectionWrapper>
+                <ListItem>
+                  <SwitchDivContainer>
+                    <SwitchButton isOn={isOnOne} setIsOn={setIsOnOne} />
+                    <b>Krajowa Informacja Skarbowa</b>
+                  </SwitchDivContainer>
+                </ListItem>
+                <ListItem>
+                  <SwitchDivContainer>
+                    <SwitchButton isOn={isOnTwo} setIsOn={setIsOnTwo} />
+                    <b>Izba Skarbowa</b>
+                  </SwitchDivContainer>
+                </ListItem>
+                <ListItem>
+                  {' '}
+                  <SwitchDivContainer>
+                    <SwitchButton isOn={isOnThree} setIsOn={setIsOnThree} />
+                    <b>Minister Finansów</b>
+                  </SwitchDivContainer>
+                </ListItem>
+              </SwitchSectionWrapper>
             </DropDownList>
           </DropDownListContainer>
         )}
