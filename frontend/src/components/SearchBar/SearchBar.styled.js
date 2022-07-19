@@ -185,6 +185,10 @@ export const SwitchDiv = styled.div`
   justify-content: ${({ isOn }) => (isOn ? 'flex-end' : 'flex-start')};
   align-items: center;
 `
+export const SwitchText = styled.b`
+  color: ${({ isOn }) =>
+    isOn ? 'var(--background-neon6)' : 'var(--background-neon5)'};
+`
 export const SwitchHandle = styled(motion.div)`
   width: 14px;
   height: 14px;

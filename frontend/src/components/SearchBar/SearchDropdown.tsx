@@ -11,6 +11,7 @@ import {
   SpinnerWrapperSearch,
   SwitchDivContainer,
   SwitchSectionWrapper,
+  SwitchText,
 } from './SearchBar.styled'
 import {
   SearchBarButton,
@@ -175,20 +176,22 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                 <ListItem>
                   <SwitchDivContainer>
                     <SwitchButton isOn={isOnOne} setIsOn={setIsOnOne} />
-                    <b>Krajowa Informacja Skarbowa</b>
+                    <SwitchText isOn={isOnOne}>
+                      Krajowa Informacja Skarbowa
+                    </SwitchText>
                   </SwitchDivContainer>
                 </ListItem>
                 <ListItem>
                   <SwitchDivContainer>
                     <SwitchButton isOn={isOnTwo} setIsOn={setIsOnTwo} />
-                    <b>Izba Skarbowa</b>
+                    <SwitchText isOn={isOnTwo}>Izba Skarbowa</SwitchText>
                   </SwitchDivContainer>
                 </ListItem>
                 <ListItem>
                   {' '}
                   <SwitchDivContainer>
                     <SwitchButton isOn={isOnThree} setIsOn={setIsOnThree} />
-                    <b>Minister Finansów</b>
+                    <SwitchText isOn={isOnThree}>Minister Finansów</SwitchText>
                   </SwitchDivContainer>
                 </ListItem>
               </SwitchSectionWrapper>

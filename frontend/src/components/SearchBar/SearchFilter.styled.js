@@ -87,12 +87,11 @@ export const SearchInput = styled.input`
   justify-items: center;
   align-items: center;
   color: var(--background-neon4);
-
   background: transparent;
-  /* border-radius: 4px; */
   padding: 0.25rem;
   width: 120px;
   border: none;
+  background: var(--background-neon1);
   border-bottom: 1px solid var(--background-neon4);
   &:focus {
     outline: none;
@@ -106,9 +105,7 @@ export const SearchInput = styled.input`
   }
 
   &:hover {
-    color: var(--background-neon6);
-    /* background: var(--background-blur11); */
-    background: var(--background-neon5);
+    border-bottom: 1px solid var(--background-neon6);
   }
 
   ::-webkit-inner-spin-button {
