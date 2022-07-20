@@ -25,10 +25,15 @@ const Home: React.FC = () => {
   const searchResultsPage: any = useAppSelector(
     (state) => state.preference.searchResultsPage
   )
+  const { start, end } = searchResultsPage
   const highlightQuery: string = useAppSelector(
     (state) => state.preference.highlightQuery
   )
-  const { start, end } = searchResultsPage
+  const FragmentsSource: any = useAppSelector(
+    (state) => state.preference.sortFragmentsBySource
+  )
+  const { KrajowaInformacjaSkarbowa, IzbaSkarbowa, MinisterFinansów } =
+    FragmentsSource
   const queryTrimmed = encodeURIComponent(query?.trim())
   const submitHandler = (e: any) => {
     e.preventDefault()
@@ -57,6 +62,39 @@ const Home: React.FC = () => {
     const nr = 85725494
     dispatch(getDocByNr(nr))
   }
+  // KrajowaInformacjaSkarbowa: boolean, IzbaSkarbowa: boolean, MinisterFinansów: boolean
+  const helperFragmentSourceFilter = () => {
+    let numbers: number[]
+    switch (true) {
+      case KrajowaInformacjaSkarbowa && !IzbaSkarbowa && !MinisterFinansów:
+        numbers = [7]
+        break
+      case !KrajowaInformacjaSkarbowa && IzbaSkarbowa && !MinisterFinansów:
+        numbers = [8]
+        break
+      case !KrajowaInformacjaSkarbowa && !IzbaSkarbowa && MinisterFinansów:
+        numbers = [3]
+        break
+      case KrajowaInformacjaSkarbowa && IzbaSkarbowa && !MinisterFinansów:
+        numbers = [7, 8]
+        break
+      case !KrajowaInformacjaSkarbowa && IzbaSkarbowa && MinisterFinansów:
+        numbers = [8, 3]
+        break
+      case KrajowaInformacjaSkarbowa && !IzbaSkarbowa && MinisterFinansów:
+        numbers = [7, 3]
+        break
+      case !KrajowaInformacjaSkarbowa && !IzbaSkarbowa && !MinisterFinansów:
+        numbers = []
+        break
+
+      default:
+        numbers = [8, 7, 3]
+        break
+    }
+    return numbers
+  }
+
   return (
     <>
       <Toast option='registerUser' />
@@ -75,18 +113,48 @@ const Home: React.FC = () => {
               <>
                 <Pagination />
                 {/* //*slice method returns shallow copy of the part between start and end - end not included, hence +1 */}
-                {data.slice(start, end + 1).map((fragmentArray: any) => (
-                  <DataSection
-                    highlightQuery={highlightQuery}
-                    variant='blue'
-                    key={fragmentArray['uuid']}
-                    paddingTop='large'
-                    imgStart
-                    fragmentsFound={fragmentArray.fragment}
-                    metryka={fragmentArray.metryka}
-                    query={queryTrimmed}
-                  />
-                ))}
+                {/* {data.slice(start, end + 1).map((fragmentArray: any) => ( */}
+                {/* //! filtering by sortBySource  sortFragmentsBySource: {
+            KrajowaInformacjaSkarbowa: true,
+            IzbaSkarbowa: true,
+            MinisterFinansów: true,
+
+        } */}
+                {data
+                  .slice(start, end + 1)
+                  .filter(
+                    (dataSliced: any) =>
+                      //  if (KrajowaInformacjaSkarbowa && IzbaSkarbowa && MinisterFinansów) {
+                      // helperFragmentSourceFilter()
+                      dataSliced.typSadu ===
+                      (helperFragmentSourceFilter()[0] ||
+                        helperFragmentSourceFilter()[1] ||
+                        helperFragmentSourceFilter()[2])
+
+                    //   }
+                    // KrajowaInformacjaSkarbowa &&
+                    // IzbaSkarbowa &&
+                    // MinisterFinansów &&
+                    // dataSliced.typSadu === (8 | 7 | 3)
+
+                    //* all true = no fiter
+
+                    // dataSliced.typSadu === 8
+                    // dataSliced.typSadu === 7
+                    // dataSliced.typSadu === 3
+                  )
+                  .map((fragmentArray: any) => (
+                    <DataSection
+                      highlightQuery={highlightQuery}
+                      variant='blue'
+                      key={fragmentArray['uuid']}
+                      paddingTop='large'
+                      imgStart
+                      fragmentsFound={fragmentArray.fragment}
+                      metryka={fragmentArray.metryka}
+                      query={queryTrimmed}
+                    />
+                  ))}
               </>
             )}
           </>
