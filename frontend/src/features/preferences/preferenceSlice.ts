@@ -16,6 +16,12 @@ const preferenceSlice = createSlice({
         },
         sortingOption: 'date',
         showFragments: true,
+        sortFragmentsBySource: {
+            KrajowaInformacjaSkarbowa: true,
+            IzbaSkarbowa: true,
+            MinisterFinansów: true,
+
+        },
         searchResultsPage: { start: 0, end: 9, pageNr: 1 },
         savedFragmentsPage: { start: 0, end: 9, pageNr: 1 },
         highlightQuery: '',
@@ -60,7 +66,15 @@ const preferenceSlice = createSlice({
             state.highlightQuery = action.payload
         },
 
-
+        sortFragmentsBySourceEditOne(state) {
+            state.sortFragmentsBySource.KrajowaInformacjaSkarbowa = !state.sortFragmentsBySource.KrajowaInformacjaSkarbowa
+        },
+        sortFragmentsBySourceEditTwo(state) {
+            state.sortFragmentsBySource.IzbaSkarbowa = !state.sortFragmentsBySource.IzbaSkarbowa
+        },
+        sortFragmentsBySourceEditThree(state) {
+            state.sortFragmentsBySource.MinisterFinansów = !state.sortFragmentsBySource.MinisterFinansów
+        },
 
 
     },
@@ -70,6 +84,6 @@ const preferenceSlice = createSlice({
 
 
 
-export const { showFragments, preferredWidthSaved, searchResultsPageSaved, fragmentsPageSaved, preferredNarrowWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingKeywordMainEdit, sortingOptionEdit, highlightQueryEdit } = preferenceSlice.actions
+export const { sortFragmentsBySourceEditOne, sortFragmentsBySourceEditTwo, sortFragmentsBySourceEditThree, showFragments, preferredWidthSaved, searchResultsPageSaved, fragmentsPageSaved, preferredNarrowWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingKeywordMainEdit, sortingOptionEdit, highlightQueryEdit } = preferenceSlice.actions
 
 export default preferenceSlice.reducer

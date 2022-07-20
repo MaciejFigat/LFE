@@ -74,6 +74,16 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
     }
   }, [scrollDirection])
 
+  // useMemo(() => {
+  //   dispatch(sortFragmentsBySourceEditOne())
+  // }, [dispatch, isOnOne])
+  // useMemo(() => {
+  //   dispatch(sortFragmentsBySourceEditTwo())
+  // }, [dispatch, isOnTwo])
+  // useMemo(() => {
+  //   dispatch(sortFragmentsBySourceEditThree())
+  // }, [dispatch, isOnThree])
+
   return (
     <Main>
       <DropDownContainer>
@@ -137,8 +147,8 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                   />
                 </DropDownDateContainer>
               </ListItem>
-              <ListItem>
-                <SwitchSectionWrapper>
+              <SwitchSectionWrapper>
+                <ListItem>
                   <SearchBarForm onSubmit={highlightHandler}>
                     <SearchInput
                       type='highlight'
@@ -150,6 +160,8 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                     />{' '}
                     <SearchBarButton type='submit'>Highlight</SearchBarButton>
                   </SearchBarForm>
+                </ListItem>
+                <ListItem>
                   <SwitchDivContainer>
                     <b> Wyniki od:</b>
                     <NumberInput
@@ -170,12 +182,16 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                       onChange={(e: any) => setTake(e.target.value)}
                     />
                   </SwitchDivContainer>
-                </SwitchSectionWrapper>
-              </ListItem>
+                </ListItem>
+              </SwitchSectionWrapper>
               <SwitchSectionWrapper>
                 <ListItem>
                   <SwitchDivContainer>
-                    <SwitchButton isOn={isOnOne} setIsOn={setIsOnOne} />
+                    <SwitchButton
+                      isOn={isOnOne}
+                      setIsOn={setIsOnOne}
+                      sortingOption='one'
+                    />
                     <SwitchText isOn={isOnOne}>
                       Krajowa Informacja Skarbowa
                     </SwitchText>
@@ -183,14 +199,22 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                 </ListItem>
                 <ListItem>
                   <SwitchDivContainer>
-                    <SwitchButton isOn={isOnTwo} setIsOn={setIsOnTwo} />
+                    <SwitchButton
+                      isOn={isOnTwo}
+                      setIsOn={setIsOnTwo}
+                      sortingOption='two'
+                    />
                     <SwitchText isOn={isOnTwo}>Izba Skarbowa</SwitchText>
                   </SwitchDivContainer>
                 </ListItem>
                 <ListItem>
                   {' '}
                   <SwitchDivContainer>
-                    <SwitchButton isOn={isOnThree} setIsOn={setIsOnThree} />
+                    <SwitchButton
+                      isOn={isOnThree}
+                      setIsOn={setIsOnThree}
+                      sortingOption='three'
+                    />
                     <SwitchText isOn={isOnThree}>Minister Finansów</SwitchText>
                   </SwitchDivContainer>
                 </ListItem>
