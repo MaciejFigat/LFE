@@ -113,35 +113,15 @@ const Home: React.FC = () => {
               <>
                 <Pagination />
                 {/* //*slice method returns shallow copy of the part between start and end - end not included, hence +1 */}
-                {/* {data.slice(start, end + 1).map((fragmentArray: any) => ( */}
-                {/* //! filtering by sortBySource  sortFragmentsBySource: {
-            KrajowaInformacjaSkarbowa: true,
-            IzbaSkarbowa: true,
-            MinisterFinansów: true,
 
-        } */}
                 {data
                   .slice(start, end + 1)
                   .filter(
                     (dataSliced: any) =>
-                      //  if (KrajowaInformacjaSkarbowa && IzbaSkarbowa && MinisterFinansów) {
-                      // helperFragmentSourceFilter()
                       dataSliced.typSadu ===
                       (helperFragmentSourceFilter()[0] ||
                         helperFragmentSourceFilter()[1] ||
                         helperFragmentSourceFilter()[2])
-
-                    //   }
-                    // KrajowaInformacjaSkarbowa &&
-                    // IzbaSkarbowa &&
-                    // MinisterFinansów &&
-                    // dataSliced.typSadu === (8 | 7 | 3)
-
-                    //* all true = no fiter
-
-                    // dataSliced.typSadu === 8
-                    // dataSliced.typSadu === 7
-                    // dataSliced.typSadu === 3
                   )
                   .map((fragmentArray: any) => (
                     <DataSection
