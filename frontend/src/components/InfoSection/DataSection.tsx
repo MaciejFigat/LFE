@@ -1,7 +1,6 @@
 import React, { ReactFragment } from 'react'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
-// import { NavHashLink } from 'react-router-hash-link'
 // import Highlighter from 'react-highlight-words'
 import { getDocResult } from '../../features/searchResults/searchResultsSlice'
 import {

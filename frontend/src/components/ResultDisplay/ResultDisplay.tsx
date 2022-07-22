@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAppSelector } from '../../app/reduxHooks'
-// import { HashLink } from 'react-router-hash-link'
-// import { NavHashLink, HashLink } from 'react-router-hash-link'
-import reactStringReplace from 'react-string-replace'
+import parse from 'html-react-parser'
 import HighlightPopMenu from '../../components/HighlightPopRemake/HighlightPopMenu'
 import {
   ArticleWrapper,
@@ -21,85 +19,19 @@ interface ResultDisplayProps {
 
 const ResultDisplay: React.FC<ResultDisplayProps> = () => {
   const docResult: any = useAppSelector((state) => state.searchResult.docResult)
+  const { frags: highlightedFragments } = docResult
   const [hashIds, setHashIds] = useState<string[]>([])
 
-  const replaceText = (smallParagraph: string) => {
-    let replacedText
-
-    replacedText = reactStringReplace(
-      smallParagraph,
-      //   new RegExp(`${hashIds[0]}`),
-      hashIds[0],
-      (match, i) => (
-        <span
-          id={`${hashIds[0]}`}
-          key={Math.random()}
-          style={{ color: 'cyan' }}
-        >
-          {match}
-        </span>
-      )
-    )
-    replacedText = reactStringReplace(
-      replacedText,
-      //   new RegExp(`${hashIds[1]}`),
-      hashIds[1],
-      (match, i) => (
-        <span
-          id={`${hashIds[1]}`}
-          key={Math.random()}
-          style={{ color: 'gold' }}
-        >
-          {match}
-        </span>
-      )
-    )
-    replacedText = reactStringReplace(
-      replacedText,
-      //   new RegExp(`${hashIds[2]}`),
-      hashIds[2],
-      (match, i) => (
-        <span id={`${hashIds[2]}`} key={Math.random()} style={{ color: 'red' }}>
-          {match}
-        </span>
-      )
-    )
-    replacedText = reactStringReplace(
-      replacedText,
-      //   new RegExp(`${hashIds[3]}`),
-      hashIds[3],
-      (match, i) => (
-        <span
-          id={`${hashIds[3]}`}
-          key={Math.random()}
-          style={{ color: 'yellow' }}
-        >
-          {match}
-        </span>
-      )
-    )
-
-    return replacedText
-  }
-
+  //! useEffect to look for id's: frag-0, frag-1 etc.
   useEffect(() => {
-    const idArray = []
-    if (docResult.frags && docResult.selected_frag) {
-      idArray.push(
-        // docResult.selected_frag.substring(21, docResult.selected_frag.length)
-        docResult.selected_frag.substring(30, 60)
-      )
-      for (let i = 0; i < docResult.frags.length; i++) {
-        console.log(docResult.frags[i].substring(21, 120))
-        // idArray.push(docResult.frags[i].substring(30, 120))
-        idArray.push(
-          //   docResult.frags[i].substring(21, docResult.frags[i].length)
-          docResult.frags[i].substring(30, 60)
-        )
+    const idArray: string[] = []
+    if (highlightedFragments) {
+      for (let i = 0; i < highlightedFragments.length; i++) {
+        idArray.push(`frag-${i}`)
       }
       setHashIds(idArray)
     }
-  }, [docResult.frags, docResult.selected_frag])
+  }, [highlightedFragments])
 
   return (
     <ArticleContainer>
@@ -123,56 +55,16 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
                     <div key={Math.random()}>
                       {!korpusParagraph.toString().startsWith('TRESC') &&
                         !Array.isArray(korpusParagraph) && (
-                          <ArticleParagraph>{korpusParagraph}</ArticleParagraph>
+                          <ArticleParagraph>
+                            {parse(korpusParagraph)}
+                          </ArticleParagraph>
                         )}
-                      {/* {korpusParagraph} */}
+
                       {Array.isArray(docResult.frags) &&
                         Array.isArray(korpusParagraph) &&
                         korpusParagraph.map((smallParagraph: any) => (
                           <ArticleParagraph key={Math.random()}>
-                            {replaceText(smallParagraph)}
-                            {/* {reactStringReplace(
-                              smallParagraph,
-                              // new RegExp(`${hashIds[1]}`),
-                              hashIds[1],
-                              (match, i) => (
-                                <span
-                                  id={`${hashIds[1]}`}
-                                  key={i}
-                                  style={{ color: 'lime' }}
-                                >
-                                  {match}
-                                </span>
-                              )
-                            )}
-                            {reactStringReplace(
-                              smallParagraph,
-                              // new RegExp(`${hashIds[2]}`),
-                              hashIds[2],
-                              (match, i) => (
-                                <span
-                                  id={`${hashIds[2]}`}
-                                  key={i}
-                                  style={{ color: 'pink' }}
-                                >
-                                  {match}
-                                </span>
-                              )
-                            )}
-                            {reactStringReplace(
-                              smallParagraph,
-                              // new RegExp(`${hashIds[3]}`),
-                              hashIds[3],
-                              (match, i) => (
-                                <span
-                                  key={i}
-                                  id={`${hashIds[3]}`}
-                                  style={{ color: 'rebeccapurple' }}
-                                >
-                                  {match}
-                                </span>
-                              )
-                            )} */}
+                            {parse(smallParagraph)}
                           </ArticleParagraph>
                         ))}
                     </div>

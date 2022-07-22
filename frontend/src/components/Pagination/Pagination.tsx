@@ -34,6 +34,8 @@ const Pagination: React.FC<PaginationProps> = ({ narrow }) => {
     <PaginateWrapper narrow={narrow}>
       {searchResults.length % 10 > 0
         ? Array.from(
+            //! here I would insert the filter based on advanced options
+            //* { length: Math.floor(searchResults.filter HERE.length / 10) + 1 },
             { length: Math.floor(searchResults.length / 10) + 1 },
             (_, i) => (
               <PaginateBorderWrapper key={i} narrow={narrow}>
