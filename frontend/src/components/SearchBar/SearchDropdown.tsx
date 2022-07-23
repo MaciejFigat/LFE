@@ -8,8 +8,10 @@ import pl from 'date-fns/locale/pl'
 import 'react-datepicker/dist/react-datepicker.css'
 import {
   DropDownDateContainer,
+  SetTakeButton,
   SpinnerWrapperSearch,
   SwitchDivContainer,
+  SwitchDivContainerNarrow,
   SwitchSectionWrapper,
   SwitchText,
 } from './SearchBar.styled'
@@ -29,7 +31,7 @@ import {
 } from './SearchBar.styled'
 import SearchBar from './SearchBar'
 import { DatePickerButton } from './DatePicker.styled'
-import { NumberInput } from './SearchFilter.styled'
+// import { NumberInput } from './SearchFilter.styled'
 import SwitchButton from './SwitchButton'
 
 registerLocale('pl', pl) //* registers locale for me to use it with DatePicker
@@ -57,9 +59,13 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
 
   const [highlightQuery, setHighlightQuery] = useState<string>('')
 
-  const [skip, setSkip] = useState<number>(1)
-  const [take, setTake] = useState<number>(10)
+  // const [skip, setSkip] = useState<number>(1)
+  const skip: number = 1
+  const [take, setTake] = useState<number>(30)
 
+  const setTakeHandler = (n: number) => {
+    setTake(n)
+  }
   const toggling = () => {
     setIsOpen(!isOpen)
   }
@@ -73,16 +79,6 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
       setIsOpen(false)
     }
   }, [scrollDirection])
-
-  // useMemo(() => {
-  //   dispatch(sortFragmentsBySourceEditOne())
-  // }, [dispatch, isOnOne])
-  // useMemo(() => {
-  //   dispatch(sortFragmentsBySourceEditTwo())
-  // }, [dispatch, isOnTwo])
-  // useMemo(() => {
-  //   dispatch(sortFragmentsBySourceEditThree())
-  // }, [dispatch, isOnThree])
 
   return (
     <Main>
@@ -162,8 +158,40 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                   </SearchBarForm>
                 </ListItem>
                 <ListItem>
-                  <SwitchDivContainer>
-                    <b> Wyniki od:</b>
+                  <SwitchDivContainerNarrow>
+                    <b>Ilość wyników:</b>
+                    <SetTakeButton
+                      buttonActive={take === 10 ? true : false}
+                      onClick={() => setTakeHandler(10)}
+                    >
+                      10
+                    </SetTakeButton>
+                    <SetTakeButton
+                      buttonActive={take === 20 ? true : false}
+                      onClick={() => setTakeHandler(20)}
+                    >
+                      20
+                    </SetTakeButton>
+                    <SetTakeButton
+                      buttonActive={take === 30 ? true : false}
+                      onClick={() => setTakeHandler(30)}
+                    >
+                      30
+                    </SetTakeButton>
+                    <SetTakeButton
+                      buttonActive={take === 50 ? true : false}
+                      onClick={() => setTakeHandler(50)}
+                    >
+                      50
+                    </SetTakeButton>
+                    <SetTakeButton
+                      buttonActive={take === 100 ? true : false}
+                      onClick={() => setTakeHandler(100)}
+                    >
+                      100
+                    </SetTakeButton>
+
+                    {/* <b> Wyniki od:</b>
                     <NumberInput
                       type='number'
                       name='skip'
@@ -180,8 +208,8 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                       autoComplete='take'
                       value={take}
                       onChange={(e: any) => setTake(e.target.value)}
-                    />
-                  </SwitchDivContainer>
+                    /> */}
+                  </SwitchDivContainerNarrow>
                 </ListItem>
               </SwitchSectionWrapper>
               <SwitchSectionWrapper>

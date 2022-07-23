@@ -171,6 +171,9 @@ export const SwitchDivContainer = styled.div`
   flex-direction: row;
   gap: 0.5rem;
 `
+export const SwitchDivContainerNarrow = styled(SwitchDivContainer)`
+  gap: 0.15rem;
+`
 export const SwitchDiv = styled.div`
   /* width: 24px; */
   width: 28px;
@@ -196,4 +199,35 @@ export const SwitchHandle = styled(motion.div)`
   border-radius: 12px;
   background-color: ${({ isOn }) =>
     isOn ? 'var(--background-neon6)' : 'var(--background-neon5)'};
+`
+export const SetTakeButton = styled.button`
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  align-items: center;
+  color: var(--background-neon5);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  background-color: ${({ buttonActive }) =>
+    buttonActive ? 'var(--background-neon6)' : 'transparent'};
+  /* margin-left: 0.5rem; */
+  margin: 0 auto;
+  &:hover {
+    /* transition: all 0.7s ease-out; */
+    /* border: 1px solid var(--background-secondary2); */
+    border: 1px solid;
+    border-color: ${({ buttonActive }) =>
+      buttonActive
+        ? 'var(--background-neon4)'
+        : 'var(--background-secondary2)'};
+  }
+  &:active {
+    border: 1px solid var(--background-secondary4);
+  }
+  @media (max-width: 420px) {
+    font-size: 0.7rem;
+    padding: none;
+  }
 `

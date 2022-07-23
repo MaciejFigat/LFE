@@ -46,12 +46,12 @@ const SearchBar: React.FC<SearchBarProps> = ({
     }
     if (searchQuery?.length > 0 && isOpen) {
       dispatch(getResultsFiltered(filteredSearch))
-      console.log(
-        parseInt(Moment(startDate).format('YYYYMMDD'), 10),
-        parseInt(Moment(endDate).format('YYYYMMDD'), 10),
-        skip,
-        take
-      )
+      // console.log(
+      //   parseInt(Moment(startDate).format('YYYYMMDD'), 10),
+      //   parseInt(Moment(endDate).format('YYYYMMDD'), 10),
+      //   skip,
+      //   take
+      // )
     }
 
     if (searchQuery?.length > 0 && !isOpen) {

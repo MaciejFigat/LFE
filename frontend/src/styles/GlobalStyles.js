@@ -240,6 +240,23 @@ body {
   // .example-custom-input{
   //   background: lime;
   // }
+  .highlightFrag0{
+    background-color: var(--background-neon2);
+    color: var(--background-neon1);
+  }
+  .highlightFrag1{ 
+    background-color: var(--background-neon4);
+    color: var(--background-neon3);}
+  .highlightFrag2{ 
+    background-color: var(--background-neon2);
+    color: var(--background-neon1);}
+  .highlightFrag3{ 
+    background-color: var(--background-neon7);
+    color: var(--background-neon10);}
+  .highlightFrag4{
+    background-color: var(--background-neon9);
+    color: var(--background-neon10);
+  }
 }
 ::-webkit-scrollbar {
   width: 0.3em;
