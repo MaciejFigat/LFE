@@ -80,8 +80,6 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
         </DragDiv>
         <SectionColumnScrollResize
           width={width}
-          animate={narrowOption ? { widthNarrow } : { width }}
-          transition={{ type: 'inertia' }}
           widthNarrow={widthNarrow}
           narrowOption={narrowOption}
           id='SectionWide'

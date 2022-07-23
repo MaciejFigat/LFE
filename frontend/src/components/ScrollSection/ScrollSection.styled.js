@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 export const ScrollSec = styled.div`
   background: var(--background1-main);
@@ -117,7 +118,9 @@ export const DragDiv = styled.div`
   align-self: flex-start;
 `
 // ? this encloses {wideSection}
-export const SectionColumnScrollResize = styled.div`
+//! change into motion component
+// export const SectionColumnScrollResize = styled.div`
+export const SectionColumnScrollResize = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
