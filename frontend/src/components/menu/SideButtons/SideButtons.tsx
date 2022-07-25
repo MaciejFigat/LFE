@@ -23,22 +23,13 @@ const SideButtons: React.FC<SideButtonsProps> = ({ hashIds }) => {
       <SideButtonWrapper>
         {hashIds.length > 0 &&
           hashIds.map((id: any, index: number) => (
-          
             <div onMouseOver={() => setSelected(colors[index])}>
-              <HashLink
-                smooth
-                to={`/search/result#${id}`}
-                key={Math.random()}
-              
-              >
-               
+              <HashLink smooth to={`/search/result#${id}`} key={Math.random()}>
                 <ButtonComponent
                   color={colors[index]}
                   isSelected={selected === colors[index]}
-              
                   onClick={() => setSelected(colors[index])}
-                 
-                </ButtonComponent>
+                ></ButtonComponent>
               </HashLink>
             </div>
           ))}
