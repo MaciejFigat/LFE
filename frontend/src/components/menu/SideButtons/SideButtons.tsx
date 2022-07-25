@@ -23,39 +23,21 @@ const SideButtons: React.FC<SideButtonsProps> = ({ hashIds }) => {
       <SideButtonWrapper>
         {hashIds.length > 0 &&
           hashIds.map((id: any, index: number) => (
-            // <div onClick={() => setSelected(colors[index])}>
-            // <div onMouseDown={() => setSelected(colors[index])}>
+          
             <div onMouseOver={() => setSelected(colors[index])}>
               <HashLink
                 smooth
                 to={`/search/result#${id}`}
                 key={Math.random()}
-                // onClick={() => setSelected(colors[index])}
-                // onClick={() => console.log(selected)}
+              
               >
-                {/* <SendButtonVerySmall variant='successEmpty'>
-                {index + 1}
-                <SvgIcon noContent variant='arrowLeft' />
-              </SendButtonVerySmall> */}
-                {/* <SendButtonVerySmall variant='successEmpty'>
-              {index + 1}
-              <SvgIcon noContent variant='arrowLeft' />
-            </SendButtonVerySmall>{' '} */}
-                {/* <ButtonComponent color='red' isSelected={selected === color}/> */}
+               
                 <ButtonComponent
                   color={colors[index]}
                   isSelected={selected === colors[index]}
-                  // onClick={() => setSelected(colors[index])}
+              
                   onClick={() => setSelected(colors[index])}
-                  // onClick={() => console.log(selected)}
-
-                  // onMouseDown={() => setSelected(colors[index])}
-                >
-                  {/* <HashLink
-                  smooth
-                  to={`/search/result#${id}`}
-                  key={Math.random()}
-                /> */}
+                 
                 </ButtonComponent>
               </HashLink>
             </div>
