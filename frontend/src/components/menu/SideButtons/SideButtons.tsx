@@ -8,7 +8,15 @@ import { fragmentScrolledEdit } from '../../../features/preferences/preferenceSl
 interface SideButtonsProps {
   hashIds: string[]
 }
-const colors = ['#0099ff', '#ff0055', '#22cc88', '#ffaa00']
+
+const colors = [
+  'var(--background-neon10)',
+  'var(--background-neon2)',
+  'var(--background-neon3)',
+  'var(--background-neon4)',
+  'var(--background-neon5)',
+  'var(--background-neon6)',
+]
 
 const SideButtons: React.FC<SideButtonsProps> = ({ hashIds }) => {
   const dispatch: any = useAppDispatch()

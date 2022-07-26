@@ -3,35 +3,36 @@ import { motion } from 'framer-motion'
 
 export const SideButtonWrapper = styled.ul`
   position: sticky;
-  /* position: absolute; */
   display: grid;
   place-items: center;
+  padding: 0;
+  /* padding-right: -0.55rem; */
+  width: 100px;
   gap: 2rem;
   margin: 0;
   font-size: 1.8rem !important;
-  /* margin-right: 50vw; */
   border-radius: 10px;
   top: 120px;
-  width: 150px;
   height: fit-content;
-  background: var(--background-blur11);
+  background: var(--background-blur2);
+  /* background: var(--background2-main); */
   z-index: 10;
 `
 
 export const ButtonOutline = styled(motion.div)`
-  /* .outline { */
   position: absolute;
-  top: -20px;
-  left: -20px;
+  top: -10px;
   right: -20px;
-  bottom: -20px;
-  border: 10px solid white;
-  border-radius: 50%;
+  bottom: -10px;
+
+  &:after {
+    content: '§';
+  }
 `
 export const ButtonItem = styled.li`
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   margin: 10px;
   position: relative;

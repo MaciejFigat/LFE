@@ -241,20 +241,24 @@ body {
   //   background: lime;
   // }
   .highlightFrag0{
-    background-color: var(--background-neon2);
-    color: var(--background-neon1);
+    background-color: var(--background-neon1);
+    color: var(--background-neon2);
   }
   .highlightFrag1{ 
-    background-color: var(--background-neon4);
-    color: var(--background-neon3);}
-  .highlightFrag2{ 
     background-color: var(--background-neon2);
     color: var(--background-neon1);}
+  .highlightFrag2{ 
+    background-color: var(--background-neon3);
+    color: var(--background-neon7);}
   .highlightFrag3{ 
-    background-color: var(--background-neon7);
+    background-color: var(--background-neon4);
     color: var(--background-neon10);}
   .highlightFrag4{
-    background-color: var(--background-neon9);
+    background-color: var(--background-neon5);
+    color: var(--background-neon10);
+  }
+  .highlightFrag5{
+    background-color: var(--background-neon6);
     color: var(--background-neon10);
   }
 }
