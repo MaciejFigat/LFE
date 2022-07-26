@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+
 export const SideButtonWrapper = styled.ul`
   position: sticky;
   /* position: absolute; */

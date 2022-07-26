@@ -4,30 +4,33 @@ import { ButtonItem, ButtonOutline } from './SideButtons.styled'
 interface ButtonComponentProps {
   color: string
   isSelected: boolean
-  onClick: Dispatch<SetStateAction<string>>
-  //   onMouseDown: Dispatch<SetStateAction<string>>
-}
 
+  onMouseOver: Dispatch<SetStateAction<string>>
+}
+const spring = {
+  type: 'spring',
+  stiffness: 500,
+  damping: 30,
+  duration: 0.4,
+}
 const ButtonComponent: React.FC<ButtonComponentProps> = ({
   color,
   isSelected,
-  onClick,
-  //   onMouseDown,
+
+  onMouseOver,
 }) => {
   return (
     <ButtonItem
       className='item'
-      onClick={onClick}
-      //   onMouseDown={onMouseDown}
+      onMouseOver={onMouseOver}
       style={{ backgroundColor: color }}
     >
       {isSelected && (
         <ButtonOutline
           layoutId='outline'
-          className='outline'
           initial={false}
           animate={{ borderColor: color }}
-          transition={{ type: 'spring' }}
+          transition={spring}
         />
       )}
     </ButtonItem>

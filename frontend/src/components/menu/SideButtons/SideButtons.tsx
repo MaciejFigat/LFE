@@ -1,40 +1,41 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { HashLink } from 'react-router-hash-link'
-import { motion, AnimateSharedLayout } from 'framer-motion'
-import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
-import SvgIcon from '../../SvgIcon/SvgIcon'
+import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
+import { AnimateSharedLayout } from 'framer-motion'
 import { SideButtonWrapper } from './SideButtons.styled'
 import ButtonComponent from './ButtonComponent'
+import { fragmentScrolledEdit } from '../../../features/preferences/preferenceSlice'
 interface SideButtonsProps {
   hashIds: string[]
 }
 const colors = ['#0099ff', '#ff0055', '#22cc88', '#ffaa00']
 
-const spring = {
-  type: 'spring',
-  stiffness: 500,
-  damping: 30,
-}
 const SideButtons: React.FC<SideButtonsProps> = ({ hashIds }) => {
-  const [selected, setSelected] = useState(colors[0])
+  const dispatch: any = useAppDispatch()
+  const fragmentScrolled = useAppSelector(
+    (state) => state.preference.fragmentScrolled
+  )
+
+  const colorChangeHelper = (index: number) => {
+    dispatch(fragmentScrolledEdit(index))
+  }
 
   return (
-    <AnimateSharedLayout>
-      <SideButtonWrapper>
+    <SideButtonWrapper>
+      <AnimateSharedLayout>
         {hashIds.length > 0 &&
           hashIds.map((id: any, index: number) => (
-            <div onMouseOver={() => setSelected(colors[index])}>
-              <HashLink smooth to={`/search/result#${id}`} key={Math.random()}>
-                <ButtonComponent
-                  color={colors[index]}
-                  isSelected={selected === colors[index]}
-                  onClick={() => setSelected(colors[index])}
-                ></ButtonComponent>
-              </HashLink>
-            </div>
+            <HashLink smooth to={`/search/result#${id}`} key={index}>
+              <ButtonComponent
+                color={colors[index]}
+                isSelected={colors[fragmentScrolled] === colors[index]}
+                key={index}
+                onMouseOver={() => colorChangeHelper(index)}
+              ></ButtonComponent>
+            </HashLink>
           ))}
-      </SideButtonWrapper>
-    </AnimateSharedLayout>
+      </AnimateSharedLayout>
+    </SideButtonWrapper>
   )
 }
 
