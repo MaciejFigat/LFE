@@ -7,6 +7,7 @@ import {
   MobileViewContainer,
   HeaderTitleMobile,
   WrapperDesktopOnly,
+  MobileNavContainer,
 } from './nav.styled'
 import NavListDesktop from './NavListDesktop'
 import NavListMobile from './NavListMobile'
@@ -39,6 +40,9 @@ const Nav: React.FC<NavProps> = () => {
   useEffect(() => {
     if (scroll.y > 200 && scroll.y - scroll.lastY > 0) {
       setScrollDirection('down')
+      if (open === true) {
+        cycleOpen()
+      }
     } else if (scroll.y <= 200) {
       setScrollDirection('top')
     } else if (scroll.y > 700 && scroll.y - scroll.lastY < 0) {
@@ -46,7 +50,7 @@ const Nav: React.FC<NavProps> = () => {
     }
 
     //todo if (scroll.y <= 300)
-  }, [scroll.y, scroll.lastY])
+  }, [scroll.y, scroll.lastY, open, cycleOpen])
 
   return (
     <TransitionWrapperMain>
@@ -73,9 +77,10 @@ const Nav: React.FC<NavProps> = () => {
           </HeaderTitleMobile>
         </MobileViewContainer>
 
-        <NavContainer onClick={handleCloseMenu}>
+        {/* <NavContainer onClick={handleCloseMenu}> */}
+        <MobileNavContainer onClick={handleCloseMenu}>
           <NavListMobile open={open} />
-        </NavContainer>
+        </MobileNavContainer>
         <NavListDesktop scrollDirection={scrollDirection} />
       </TransitionWrapper>
     </TransitionWrapperMain>

@@ -76,7 +76,11 @@ export const NavContainer = styled.nav`
     max-width: 2000px;
   }
 `
+export const MobileNavContainer = styled.nav`
+  /* width: fit-content; */
+`
 // the following list is used for desktop navigation
+
 export const NavList = styled.ul`
   list-style: none;
   display: flex;
@@ -117,6 +121,30 @@ export const ListLoginWrapper = styled.div`
     display: none;
   }
 `
+export const MobileNavList = styled.ul`
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around; */
+  justify-content: center;
+  /* align-items: flex-start; */
+  align-items: center;
+  list-style: none;
+  /* height: 100%; */
+  margin: 0;
+  padding: 0;
+  /* min-width: 30vw; */
+  /* width: 30%; */
+  width: 100%;
+  /* position: sticky; */
+  /* position: absolute; */
+  top: 110px;
+  /* height: calc(100vh - 50px); */
+  /* min-height: 35vh; */
+  /* max-width: 50vw; */
+  /* min-width: fit-content; */
+  /* padding-bottom: 3rem; */
+  gap: 0.55rem;
+`
 export const HeaderLoginWrapper = styled.div`
   display: flex;
   gap: 2rem;
@@ -148,14 +176,14 @@ export const ListItem = styled(motion.div)`
   align-items: center;
   /* align-items: center; */
   text-transform: uppercase;
-  color: var(--background5-main);
+  /* color: var(--background5-main); */
   @media (max-width: 1020px) {
     flex-direction: column;
     align-content: flex-start;
-    font-size: 2.55rem;
+    font-size: 1.15rem;
     margin-right: 0.25rem;
     margin-left: 1.25rem;
-    font-weight: 800;
+    font-weight: 400;
     /* @media screen and (orientation: landscape) { */
     @media (max-width: 700px) and (orientation: landscape) {
       font-size: 1.55rem;
@@ -238,12 +266,21 @@ export const HeaderTitleDesktop = styled.h1`
 `
 export const AnimatedWrapperMobile = styled(motion.div)`
   //todo
+  /* background: var(--background1-main); */
   background: var(--background1-main);
-  width: 18.75rem;
-  height: calc(100vh + 50px);
+  border-radius: 10px;
+  /* background: var(--background-blur11); */
+  /* width: 18.75rem; */
+  width: 100%;
+  /* height: calc(100vh + 50px); */
+  height: 60px;
   display: none;
+  position: absolute;
+  top: 50px;
   @media (max-width: 1020px) {
     display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `
 export const NavListDesktopWrapper = styled.div`
@@ -254,4 +291,8 @@ export const NavListDesktopWrapper = styled.div`
   @media (max-width: 1020px) {
     display: none;
   }
+`
+export const MobileLinkText = styled.div`
+  display: flex;
+  align-items: center;
 `

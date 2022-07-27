@@ -153,37 +153,17 @@ body {
    
     .nav_link {
       display: flex;
-      // display: none;
-    // opacity: 0;
-    // background:red;
-    // padding-left: 0.5rem;
-    // max-width: fit-content;
-      // align-items: center;
-      // justify-content: center;
-      // color: var(--background-secondary1)
-  
-      // display: grid;
-      // place-items: center;
-      //! todo this caused the :after not to appear in <1020px
-    //   @media (max-width: 1020px) {
-    //     background: -webkit-linear-gradient(
-    //       180deg,
-    //       // ? var(--background1-main),
-    //       // ? var(--background1-main)
-    //       var(--background5-main),
-    //        var(--background5-main)
-    //     );
-    //     -webkit-background-clip: text;
-    //     -webkit-text-fill-color: transparent;
-    //  }
-    
+      color: var(--background-secondary1)
     }
+    .nav_link_desktop{
+ 
+    }
+    .nav_link_desktop.activated {
+      color: var(--background-secondary1) !important;
+    }
+
     .nav_link.activated {
-          
-      // color: var(--background-secondary1);
-      
-     
-      
+      color: var(--background-secondary1);    
     }
     .nav_link:hover  {
      
@@ -193,19 +173,9 @@ body {
     }
     a, a:link, a:visited, a:hover {
       text-decoration: none;
-      // display: flex;
-      // max-width: fit-content;
-     
-      // align-items: center;
-      // justify-content: center;
-      svg {
-        // color: var(--background5-main); 
-        // color: transparent; 
     
-      }
     }
   .highlight{
-    // background: pink !important;
     color: var(--background-neon4);
     background: red;
   }
@@ -237,9 +207,7 @@ body {
     background-color: var(--background-neon2);
     color: var(--background-neon2);
   }
-  // .example-custom-input{
-  //   background: lime;
-  // }
+ 
   .highlightFrag0{
     background-color: var(--background-neon1);
     color: var(--background-neon2);

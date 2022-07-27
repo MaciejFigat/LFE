@@ -1,10 +1,11 @@
 import React from 'react'
 import {
-  NavList,
   ListItem,
   ListItemMobile,
   AnimatedWrapperMobile,
   MobileSvgDiv,
+  MobileNavList,
+  MobileLinkText,
 } from './nav.styled'
 import { NavLink } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -72,12 +73,15 @@ const NavListMobile: React.FC<NavListMobileProps> = ({ open }) => {
     <AnimatePresence>
       {open && (
         <AnimatedWrapperMobile
-          initial={{ width: 0 }}
+          // initial={{ width: 0 }}
+          initial={{ height: 0 }}
           animate={{
-            width: '100vw',
+            // width: '100vw',
+            height: '50px',
           }}
           exit={{
-            width: 0,
+            // width: 0,
+            height: 0,
             transition: { delay: 0.7, duration: 0.3 },
           }}
         >
@@ -89,12 +93,13 @@ const NavListMobile: React.FC<NavListMobileProps> = ({ open }) => {
           >
             {' '}
             {/* <motion.div variants={itemVariants}></motion.div> */}
-            <NavList>
+            <MobileNavList>
               {links.map(({ name, to, id, iconVariant }) => (
                 <ListItem key={id}>
                   {' '}
                   <motion.div
-                    whileHover={{ scale: 1.075 }}
+                    // whileHover={{ scale: 1.075 }}
+
                     variants={itemVariants}
                   >
                     <NavLink
@@ -110,12 +115,12 @@ const NavListMobile: React.FC<NavListMobileProps> = ({ open }) => {
                           <SvgIcon variant={iconVariant} noMargin />
                         </MobileSvgDiv>
                       </ListItemMobile>
-                      {name}
+                      <MobileLinkText>{name}</MobileLinkText>
                     </NavLink>
                   </motion.div>
                 </ListItem>
               ))}
-            </NavList>{' '}
+            </MobileNavList>{' '}
           </motion.div>
         </AnimatedWrapperMobile>
       )}
