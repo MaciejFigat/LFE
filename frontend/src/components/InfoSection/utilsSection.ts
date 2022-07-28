@@ -14,7 +14,6 @@ interface StyleVariant {
 
 
 const primaryStyle: StyleVariant = {
-
     sectionBackground: `var(--background-opaque6);`,
     color: `var(--background5-main);`,
     subtitleColor: 'var(--background5-main);',

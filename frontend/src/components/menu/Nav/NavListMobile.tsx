@@ -73,14 +73,11 @@ const NavListMobile: React.FC<NavListMobileProps> = ({ open }) => {
     <AnimatePresence>
       {open && (
         <AnimatedWrapperMobile
-          // initial={{ width: 0 }}
           initial={{ height: 0 }}
           animate={{
-            // width: '100vw',
             height: '50px',
           }}
           exit={{
-            // width: 0,
             height: 0,
             transition: { delay: 0.7, duration: 0.3 },
           }}
@@ -91,17 +88,10 @@ const NavListMobile: React.FC<NavListMobileProps> = ({ open }) => {
             exit='closed'
             variants={sideVariants}
           >
-            {' '}
-            {/* <motion.div variants={itemVariants}></motion.div> */}
             <MobileNavList>
               {links.map(({ name, to, id, iconVariant }) => (
                 <ListItem key={id}>
-                  {' '}
-                  <motion.div
-                    // whileHover={{ scale: 1.075 }}
-
-                    variants={itemVariants}
-                  >
+                  <motion.div variants={itemVariants}>
                     <NavLink
                       to={to}
                       className={(navData) =>

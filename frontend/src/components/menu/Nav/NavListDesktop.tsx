@@ -50,7 +50,7 @@ const NavListDesktop: React.FC<NavListMobileProps> = ({ scrollDirection }) => {
               <NavLink
                 to={to}
                 className={(navData) =>
-                  'nav_link' + (navData.isActive ? ' activated' : '')
+                  'nav_link_desktop' + (navData.isActive ? ' activated' : '')
                 }
               >
                 {' '}

@@ -3,7 +3,6 @@ import Burger from '../Burger/Burger'
 import {
   TransitionWrapperMain,
   TransitionWrapper,
-  NavContainer,
   MobileViewContainer,
   HeaderTitleMobile,
   WrapperDesktopOnly,
@@ -77,7 +76,6 @@ const Nav: React.FC<NavProps> = () => {
           </HeaderTitleMobile>
         </MobileViewContainer>
 
-        {/* <NavContainer onClick={handleCloseMenu}> */}
         <MobileNavContainer onClick={handleCloseMenu}>
           <NavListMobile open={open} />
         </MobileNavContainer>

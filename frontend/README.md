@@ -135,4 +135,17 @@ glassmorphed
 
   getResultsFiltered - thunk name for searchSkip
 
- 
+  // --background-secondary1: #264653;
+    // --background-secondary15: rgba(38, 70, 83, 0.9);
+    // --background-secondary2: #2a9d8f;
+    // --background-secondary3: #e9c46a;
+    // --background-secondary4: #f4a261;
+    // --background-secondary5: #e76f51;
+    
+    // --background-tertiary1: #1d3557;
+    // --background-tertiary15:  rgba( 29, 53, 87, 0.4 );
+    // --background-tertiary2: #457b9d;
+    // --background-tertiary25: rgba(69, 123, 157, 1);
+    // --background-tertiary3: #a8dadc;
+    // --background-tertiary4: #f1faee;
+    // --background-tertiary5: #e63946;

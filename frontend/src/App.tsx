@@ -22,12 +22,16 @@ function App() {
   return (
     <>
       <ScrollTopHelper />
-      <GlobalStyle />
+
+      {/* <GlobalStyle globalScheme='secondary' /> */}
+      {/* <GlobalStyle globalScheme='quaternary' /> */}
+      <GlobalStyle globalScheme='quinary' />
+      {/* <GlobalStyle globalScheme='primary' /> */}
+      {/* <GlobalStyle globalScheme='tertiary' /> */}
       <Nav />
       <Routes location={location} key={location.key}>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        {/* <Route path='/contact' element={<Contact />} /> */}
         <Route path='/search/result' element={<ResultDisplayScreen />} />
         <Route path='/storage' element={<StoredFragments />} />
         <Route path='/resetpassword' element={<ResetPassword />} />

@@ -170,7 +170,7 @@ export const ListItem = styled(motion.div)`
   margin-right: 1rem;
   font-size: 1.05rem;
   letter-spacing: 0.075em;
-  font-weight: 400;
+  font-weight: 700;
   display: flex;
   justify-content: center;
   align-items: center;
