@@ -1,8 +1,9 @@
 import React, { ReactFragment } from 'react'
-import { useAppDispatch } from '../../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
 // import Highlighter from 'react-highlight-words'
 import { getDocResult } from '../../features/searchResults/searchResultsSlice'
+import { addVisitedLink } from '../../features/searchResults/searchResultsSlice'
 import {
   InfoSec,
   Container,
@@ -63,6 +64,9 @@ const DataSection: React.FC<DataSectionProps> = ({
   paddingTop,
 }) => {
   const dispatch = useAppDispatch()
+  const visitedLinks: any[] = useAppSelector(
+    (state) => state.searchResult.visitedLinks
+  )
 
   let navigate = useNavigate()
 
@@ -73,6 +77,17 @@ const DataSection: React.FC<DataSectionProps> = ({
       docNumber: metryka.doc_id,
     }
     dispatch(getDocResult(searchquery))
+    const fragData = {
+      doc_link: metryka.doc_link,
+      rodzaj_orzeczenia: metryka.rodzaj_orzeczenia,
+      data: metryka.data,
+      organ: metryka.organ,
+    }
+
+    const existingLink = visitedLinks.find(
+      (visitedLinks) => visitedLinks.doc_link === fragData.doc_link
+    )
+    if (!existingLink) dispatch(addVisitedLink(fragData))
     navigate('/search/result')
   }
 
@@ -130,13 +145,16 @@ const DataSection: React.FC<DataSectionProps> = ({
                     .filter((fragmentsSorted) =>
                       fragmentsSorted.startsWith('ISTOTA INTERPRETACJI')
                     )
-                    .map((fragment) => (
+                    .map((fragment, index) => (
                       <div key={Math.random()}>
                         {' '}
                         <TopLine variant={variant}>
                           ISTOTA INTERPRETACJI:
                         </TopLine>
-                        <Subtitle variant={variant}>
+                        <Subtitle
+                          variant={variant}
+                          onClick={() => submitHandlerDocNr(index)}
+                        >
                           {parse(fragment.replace('ISTOTA INTERPRETACJI', ''))}
                         </Subtitle>
                       </div>

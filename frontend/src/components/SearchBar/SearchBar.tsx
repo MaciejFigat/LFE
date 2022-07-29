@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { useAppDispatch } from '../../app/reduxHooks'
+import { useNavigate } from 'react-router-dom'
 import {
   getSearchResults,
   getResultsFiltered,
@@ -31,7 +32,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   take,
 }) => {
   const dispatch = useAppDispatch()
-
+  let navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState<string>('')
 
   const submitHandler = (e: any) => {
@@ -46,6 +47,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     }
     if (searchQuery?.length > 0 && isOpen) {
       dispatch(getResultsFiltered(filteredSearch))
+      navigate('/')
       // console.log(
       //   parseInt(Moment(startDate).format('YYYYMMDD'), 10),
       //   parseInt(Moment(endDate).format('YYYYMMDD'), 10),
@@ -56,6 +58,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
     if (searchQuery?.length > 0 && !isOpen) {
       dispatch(getSearchResults(queryTrimmed))
+      navigate('/')
       // console.log(encodeURIComponent(searchQuery.trim()))
     }
   }

@@ -25,13 +25,7 @@ function App() {
   return (
     <>
       <ScrollTopHelper />
-
-      {/* <GlobalStyle globalScheme='secondary' /> */}
-      {/* <GlobalStyle globalScheme='quaternary' /> */}
-      {/* <GlobalStyle globalScheme='quinary' /> */}
-      {/* <GlobalStyle globalScheme='primary' /> */}
       <GlobalStyle globalScheme={globalScheme} />
-      {/* <GlobalStyle globalScheme='tertiary' /> */}
       <Nav />
       <Routes location={location} key={location.key}>
         <Route path='/login' element={<Login />} />

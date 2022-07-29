@@ -9,11 +9,11 @@ const CopyText: React.FC<CopyTextProps> = ({ highlightedText }) => {
   const [copySuccess, setCopySuccess] = useState('')
   // const text = highlightedText
   const copyHandler = (highlightedText: string) => {
-    navigator.clipboard.writeText(highlightedText)
+    // navigator.clipboard.writeText(highlightedText)
     if (highlightedText) {
       navigator.clipboard.writeText(highlightedText)
       setCopySuccess('Copied!')
-      console.log(copySuccess)
+      // console.log(copySuccess)
     }
   }
   const hoverHelper = () => {

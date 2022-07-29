@@ -147,7 +147,7 @@ const searchResultSlice = createSlice({
         docResult: {
             data: [],
         },
-
+        visitedLinks: [{ test: true, doc_link: 0 }],
 
 
         loading: false,
@@ -158,7 +158,19 @@ const searchResultSlice = createSlice({
     },
     reducers: {
 
+        addVisitedLink: (state, action) => {
+            const { doc_link } = action.payload
+            const existingLink = state.visitedLinks.find(visitedLinks => visitedLinks.doc_link === doc_link)
 
+            if (!existingLink && state.visitedLinks && state.visitedLinks.length < 10) { state.visitedLinks.push(action.payload) }
+            else if (!existingLink && state.visitedLinks && state.visitedLinks.length >= 10) {
+                // unshift() adds element to the beginnig of an array
+                state.visitedLinks.unshift(action.payload)
+                // .pop() removes last element of an array
+                state.visitedLinks.pop()
+
+            }
+        },
 
 
     },
@@ -234,5 +246,5 @@ const searchResultSlice = createSlice({
 })
 
 
-
+export const { addVisitedLink } = searchResultSlice.actions
 export default searchResultSlice.reducer

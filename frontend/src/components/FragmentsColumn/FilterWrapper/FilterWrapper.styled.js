@@ -23,7 +23,8 @@ export const OptionsWrapper = styled.div`
 `
 export const ChoiceWrapperRow = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  /* flex-direction: column-reverse; */
+  flex-direction: column;
   align-items: center;
   text-align: center;
   /* justify-content: left; */

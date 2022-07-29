@@ -1,8 +1,10 @@
 import React from 'react'
-
-import { useAppDispatch } from '../../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
-import { getDocResult } from '../../features/searchResults/searchResultsSlice'
+import {
+  addVisitedLink,
+  getDocResult,
+} from '../../features/searchResults/searchResultsSlice'
 import {
   Container,
   InfoRow,
@@ -56,6 +58,10 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
   paddingTop,
 }) => {
   const dispatch = useAppDispatch()
+
+  const visitedLinks: any[] = useAppSelector(
+    (state) => state.searchResult.visitedLinks
+  )
   let navigate = useNavigate()
 
   const submitHandlerDocNr = (index: number) => {
@@ -65,6 +71,17 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
       docNumber: metryka.doc_id,
     }
     dispatch(getDocResult(searchquery))
+    const fragData = {
+      doc_link: metryka.doc_link,
+      rodzaj_orzeczenia: metryka.rodzaj_orzeczenia,
+      data: metryka.data,
+      organ: metryka.organ,
+    }
+    const existingLink = visitedLinks.find(
+      (visitedLinks) => visitedLinks.doc_link === fragData.doc_link
+    )
+    if (!existingLink) dispatch(addVisitedLink(fragData))
+    navigate('/search/result')
     navigate('/search/result')
   }
 
