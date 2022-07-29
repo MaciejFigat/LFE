@@ -1,6 +1,7 @@
 import Nav from './components/menu/Nav/Nav'
 import Home from './screens/Home'
 import { GlobalStyle } from './styles/GlobalStyles'
+import { useAppSelector } from './app/reduxHooks'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Login from './screens/Login'
 import Register from './screens/Register'
@@ -18,15 +19,18 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 
 function App() {
   const location = useLocation()
-
+  const globalScheme: any = useAppSelector(
+    (state) => state.preference.preferedScheme
+  )
   return (
     <>
       <ScrollTopHelper />
 
       {/* <GlobalStyle globalScheme='secondary' /> */}
       {/* <GlobalStyle globalScheme='quaternary' /> */}
-      <GlobalStyle globalScheme='quinary' />
+      {/* <GlobalStyle globalScheme='quinary' /> */}
       {/* <GlobalStyle globalScheme='primary' /> */}
+      <GlobalStyle globalScheme={globalScheme} />
       {/* <GlobalStyle globalScheme='tertiary' /> */}
       <Nav />
       <Routes location={location} key={location.key}>

@@ -32,7 +32,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggling = () => {
-    setIsOpen(!isOpen)
+    setIsOpen((isOpen) => !isOpen)
   }
   useEffect(() => {
     if (scrollDirection === 'down') {
@@ -94,33 +94,40 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                     </NavLink>
                   </ListItem>
                 )}{' '}
-                {Object.keys(userInfo).length > 0 ? (
-                  <ListItem onClick={toggling}>
-                    <NavLink
-                      to='/'
-                      onClick={logoutHandler}
-                      className={(navData) =>
-                        'nav_link' + (navData.isActive ? ' activated' : '')
-                      }
-                    >
-                      {' '}
-                      <SvgIcon variant='logout' contentAfter='logout' toRight />
-                    </NavLink>
-                  </ListItem>
-                ) : (
-                  <ListItem onClick={toggling}>
-                    {' '}
-                    <NavLink
-                      to='/login'
-                      className={(navData) =>
-                        'nav_link' + (navData.isActive ? ' activated' : '')
-                      }
-                    >
-                      {' '}
-                      <SvgIcon variant='login' contentAfter='login' />
-                    </NavLink>
-                  </ListItem>
-                )}
+                {
+                  Object.keys(userInfo).length > 0 && (
+                    <ListItem onClick={toggling}>
+                      <NavLink
+                        to='/'
+                        onClick={logoutHandler}
+                        className={(navData) =>
+                          'nav_link' + (navData.isActive ? ' activated' : '')
+                        }
+                      >
+                        {' '}
+                        <SvgIcon
+                          variant='logout'
+                          contentAfter='logout'
+                          toRight
+                        />
+                      </NavLink>
+                    </ListItem>
+                  )
+                  // : (
+                  //   <ListItem onClick={toggling}>
+                  //     {' '}
+                  //     <NavLink
+                  //       to='/login'
+                  //       className={(navData) =>
+                  //         'nav_link' + (navData.isActive ? ' activated' : '')
+                  //       }
+                  //     >
+                  //       {' '}
+                  //       <SvgIcon variant='login' contentAfter='login' />
+                  //     </NavLink>
+                  //   </ListItem>
+                  // )
+                }
               </DropDownList>
             </DropDownListContainer>
           )}

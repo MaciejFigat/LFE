@@ -27,6 +27,7 @@ import {
   faStepBackward,
   faPlusCircle,
   faArrowRight,
+  faPaintBrush,
 } from '@fortawesome/free-solid-svg-icons'
 interface SvgIconProps {
   variant:
@@ -55,6 +56,7 @@ interface SvgIconProps {
     | 'expand'
     | 'plus'
     | 'arrow'
+    | 'paint'
 
   noMargin?: boolean
   contentAfter?: string
@@ -134,6 +136,8 @@ const SvgIcon: React.FC<SvgIconProps> = ({
         return faPlusCircle
       case 'arrow':
         return faArrowRight
+      case 'paint':
+        return faPaintBrush
 
       default:
         return faUser

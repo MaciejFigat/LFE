@@ -27,7 +27,7 @@ export const IconsItem = styled.div`
     text-transform: uppercase;
     bottom: ${({ toRight }) => (toRight ? '15px;' : '15px;')};
     bottom: ${({ toBottom }) => toBottom && '-5px;'};
-    left: ${({ toRight }) => (toRight ? '80px;' : '80px;')};
+    left: ${({ toRight }) => (toRight ? '70px;' : '80px;')};
     left: ${({ toLeft }) => (toLeft ? '-60px;' : '80px;')};
     left: ${({ toBottom }) => toBottom && '0px; '};
 
