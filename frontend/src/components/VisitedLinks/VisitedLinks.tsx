@@ -8,10 +8,9 @@ const VisitedLinks: React.FC<VisitedLinksProps> = () => {
   const visitedLinks: any[] = useAppSelector(
     (state) => state.searchResult.visitedLinks
   )
-  const copyHandler = (highlightedText: string) => {
-    navigator.clipboard.writeText(highlightedText)
-    if (highlightedText) {
-      navigator.clipboard.writeText(highlightedText)
+  const copyHandler = (doc_link: string) => {
+    if (doc_link) {
+      navigator.clipboard.writeText(doc_link)
     }
   }
   return (
@@ -22,13 +21,13 @@ const VisitedLinks: React.FC<VisitedLinksProps> = () => {
 
           .map((link: any) => (
             <div key={Math.random()}>
-              <SendButtonVerySmall
-                variant='darkEmpty'
-                // onClick={showLinksHandler}
-              >
+              <SendButtonVerySmall variant='darkEmpty'>
                 {link.rodzaj_orzeczenia} | {link.data}
               </SendButtonVerySmall>
-              <SendButtonSmall variant='lightEmpty'>
+              <SendButtonSmall
+                variant='lightEmpty'
+                onClick={() => copyHandler(link.doc_link)}
+              >
                 kopiuj link
               </SendButtonSmall>
             </div>
