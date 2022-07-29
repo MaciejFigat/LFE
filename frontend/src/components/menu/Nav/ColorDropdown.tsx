@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
+// import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
+import { useAppDispatch } from '../../../app/reduxHooks'
 import { preferedSchemeEdit } from '../../../features/preferences/preferenceSlice'
 import { SendButtonSmall } from '../../Buttons/Buttons.styled'
 import SvgIcon from '../../SvgIcon/SvgIcon'
@@ -20,9 +21,9 @@ interface ColorDropdownProps {
 
 const ColorDropdown: React.FC<ColorDropdownProps> = ({ scrollDirection }) => {
   const dispatch = useAppDispatch()
-  const preferedScheme: string = useAppSelector(
-    (state) => state.preference.preferedScheme
-  )
+  //   const preferedScheme: string = useAppSelector(
+  //     (state) => state.preference.preferedScheme
+  //   )
   const [isOpen, setIsOpen] = useState(false)
 
   const toggling = () => {
