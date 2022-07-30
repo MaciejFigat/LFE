@@ -15,13 +15,14 @@ const VisitedLinks: React.FC<VisitedLinksProps> = () => {
   }
   return (
     <div>
+      <h3>Ostatnio przeglądane</h3>
       {visitedLinks.length > 1 &&
         visitedLinks
           .filter((linkSorted) => linkSorted.test === false || !linkSorted.test)
 
           .map((link: any) => (
             <div key={Math.random()}>
-              <SendButtonVerySmall variant='darkEmpty'>
+              <SendButtonVerySmall variant='secondaryEmpty'>
                 {link.rodzaj_orzeczenia} | {link.data}
               </SendButtonVerySmall>
               <SendButtonSmall

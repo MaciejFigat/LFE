@@ -11,6 +11,7 @@ import UserFragmentsByKeyword from '../components/FragmentsColumn/UserFragmentsB
 import FragmentsPagination from '../components/Pagination/FragmentsPagination'
 import Pagination from '../components/Pagination/Pagination'
 import { DataContainerSimple } from '../components/InfoSection/InfoSection.styled'
+import SharedChoiceWrapper from '../components/FragmentsColumn/SharedChoiceWrapper/SharedChoiceWrapper'
 
 interface ResultDisplayScreenProps {}
 
@@ -39,6 +40,7 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
           Object.keys(userInfo).length > 0 ? (
             <>
               <ChoiceWrapper />
+              <SharedChoiceWrapper />
               {sortingOption === 'all' && showFragmentsState && (
                 <FragmentsPagination narrow />
               )}
