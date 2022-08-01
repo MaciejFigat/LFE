@@ -3,7 +3,6 @@ import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 import { showFragments } from '../../../features/preferences/preferenceSlice'
 import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
 import SvgIcon from '../../SvgIcon/SvgIcon'
-import VisitedLinks from '../../VisitedLinks/VisitedLinks'
 import FilterWrapper from './FilterWrapper'
 
 import { ChoiceWrapperRow, OptionsWrapper } from './FilterWrapper.styled'
@@ -49,8 +48,6 @@ const ChoiceWrapper: React.FC<ChoiceWrapperProps> = () => {
           >
             Saved fragments <SvgIcon variant='arrowRight' noContent />
           </SendButtonVerySmall>
-
-          <VisitedLinks />
         </ChoiceWrapperRow>
       )}
     </OptionsWrapper>

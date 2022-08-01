@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import VisitedLinks from '../../VisitedLinks/VisitedLinks'
 import {
   ChoiceItem,
   ChoiceList,
@@ -13,46 +14,15 @@ interface SharedChoiceWrapperProps {}
 
 const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
   const tabs = [
-    { label: 'one', icon: '😋' },
-    { label: 'two', icon: '😋😋' },
-    { label: 'three', icon: '😋😋😋' },
+    { label: 'Zapisane', content: <h1>😋</h1> },
+    { label: 'Wyszukane', content: '😋😋' },
+    { label: 'Przeglądane', content: <VisitedLinks /> },
   ]
   const [selectedTab, setSelectedTab] = useState(tabs[0])
-  const [isSelectedOne, setIsSelectedOne] = useState(false)
-  const [isSelectedTwo, setIsSelectedTwo] = useState(false)
-  const [isSelectedThree, setIsSelectedThree] = useState(false)
-  // const selectedHelper = () => {
-  //   setIsSelectedOne((isSelectedOne) => !isSelectedOne)
-  //   setIsSelectedTwo((isSelectedTwo) => !isSelectedTwo)
-  //   setIsSelectedThree((isSelectedThree) => !isSelectedThree)
-  // }
+
   const tabHelper = (item: any) => {
     setSelectedTab(item)
-    // selectedHelper()
   }
-  // const spring = {
-  //   type: 'spring',
-  //   stiffness: 500,
-  //   damping: 320,
-  //   duration: 1.4,
-  // }
-  // useEffect(() => {
-  //   if (selectedTab === tabs[0]) {
-  //     setIsSelectedOne(true)
-  //     setIsSelectedTwo(false)
-  //     setIsSelectedThree(false)
-  //   }
-  //   if (selectedTab === tabs[1]) {
-  //     setIsSelectedOne(false)
-  //     setIsSelectedTwo(true)
-  //     setIsSelectedThree(false)
-  //   }
-  //   if (selectedTab === tabs[2]) {
-  //     setIsSelectedOne(false)
-  //     setIsSelectedTwo(false)
-  //     setIsSelectedThree(true)
-  //   }
-  // }, [selectedTab, tabs])
 
   return (
     <>
@@ -66,33 +36,11 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
                   className={item.label === selectedTab.label ? 'selected' : ''}
                   onClick={() => tabHelper(item)}
                 >
-                  {`${item.icon} ${item.label}`}
-                  {/* {item.label === selectedTab.label ? (
-                  <ChoiceUnderline layoutId='under' transition={spring} />
-                  <motion.div className='underOn' layoutId='under' />
-                ) :  null} */}
-                  {/* transition={spring}
-                 <motion.div className='underOff' layoutId='under' />
-                 <motion.div layoutId='under' /> */}
+                  {`${item.label}`}
 
                   {item.label === selectedTab.label && (
-                    <motion.div className='underline' layoutId='underline' />
+                    <ChoiceUnderline layoutId='under' />
                   )}
-                  {item.label === selectedTab.label && (
-                    <motion.div
-                      className='underlineTwo'
-                      layoutId='underlineTwo'
-                    />
-                  )}
-                  {/* {item.label === selectedTab.label && isSelectedOne ? (
-                  <motion.div className='under' layoutId='undermeishell' />
-                ) : null} */}
-                  {/* {isSelectedTwo ? (
-                  <motion.div className='under' layoutId='www' />
-                ) : null} */}
-                  {/* {isSelectedThree ? (
-                  <motion.div className='under' layoutId='www' />
-                ) : null} */}
                 </ChoiceItem>
               ))}
             </ChoiceList>
@@ -107,7 +55,7 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
               exit={{ y: -10, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              {selectedTab ? selectedTab.icon : '😋'}
+              {selectedTab ? selectedTab.content : ''}
             </motion.div>
           </AnimatePresence>
         </MainChoiceContainer>

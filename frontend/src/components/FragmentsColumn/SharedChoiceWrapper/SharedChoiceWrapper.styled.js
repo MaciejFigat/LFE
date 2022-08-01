@@ -23,8 +23,8 @@ export const MainChoiceContainer = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 58px;
-  flex-grow: 1;
+  /* font-size: 58px; */
+  /* flex-grow: 1; */
   /* user-select: none; */
 `
 export const MainChoiceBackground = styled.div`
@@ -56,7 +56,7 @@ export const ChoiceItem = styled.li`
   cursor: pointer;
   height: 24px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex: 1;
   min-width: 0;

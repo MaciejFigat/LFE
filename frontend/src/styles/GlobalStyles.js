@@ -250,24 +250,7 @@ body {
     background-color: var(--background-neon6);
     color: var(--background-neon10);
   }
-  .underline{
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    width:100px;
-    background: var(--background-secondary3);
-  }
-  .underlineTwo{
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    right: 0;
-    height: 5px;
-    width:100px;
-    background: var(--background-secondary5);
-  }
+  
 
 }
 ::-webkit-scrollbar {
