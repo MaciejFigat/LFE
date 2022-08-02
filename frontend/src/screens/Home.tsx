@@ -66,6 +66,27 @@ const Home: React.FC = () => {
   const helperFragmentSourceFilter = () => {
     let numbers: number[]
     switch (true) {
+      // case KrajowaInformacjaSkarbowa && !IzbaSkarbowa && !MinisterFinansów:
+      //   numbers = [7]
+      //   break
+      // case !KrajowaInformacjaSkarbowa && IzbaSkarbowa && !MinisterFinansów:
+      //   numbers = [8]
+      //   break
+      // case !KrajowaInformacjaSkarbowa && !IzbaSkarbowa && MinisterFinansów:
+      //   numbers = [3]
+      //   break
+      // case KrajowaInformacjaSkarbowa && IzbaSkarbowa && !MinisterFinansów:
+      //   numbers = [7, 8]
+      //   break
+      // case !KrajowaInformacjaSkarbowa && IzbaSkarbowa && MinisterFinansów:
+      //   numbers = [8, 3]
+      //   break
+      // case KrajowaInformacjaSkarbowa && !IzbaSkarbowa && MinisterFinansów:
+      //   numbers = [7, 3]
+      //   break
+      // case !KrajowaInformacjaSkarbowa && !IzbaSkarbowa && !MinisterFinansów:
+      //   numbers = []
+      //   break
       case KrajowaInformacjaSkarbowa && !IzbaSkarbowa && !MinisterFinansów:
         numbers = [7]
         break
@@ -73,23 +94,23 @@ const Home: React.FC = () => {
         numbers = [8]
         break
       case !KrajowaInformacjaSkarbowa && !IzbaSkarbowa && MinisterFinansów:
-        numbers = [3]
+        numbers = [9]
         break
       case KrajowaInformacjaSkarbowa && IzbaSkarbowa && !MinisterFinansów:
         numbers = [7, 8]
         break
       case !KrajowaInformacjaSkarbowa && IzbaSkarbowa && MinisterFinansów:
-        numbers = [8, 3]
+        numbers = [8, 9]
         break
       case KrajowaInformacjaSkarbowa && !IzbaSkarbowa && MinisterFinansów:
-        numbers = [7, 3]
+        numbers = [7, 9]
         break
       case !KrajowaInformacjaSkarbowa && !IzbaSkarbowa && !MinisterFinansów:
         numbers = []
         break
-
       default:
-        numbers = [8, 7, 3]
+        numbers = [7, 8, 9, 3]
+
         break
     }
     return numbers
@@ -116,12 +137,11 @@ const Home: React.FC = () => {
 
                 {data
                   .slice(start, end + 1)
+                  //! todo
                   .filter(
                     (dataSliced: any) =>
-                      dataSliced.typSadu ===
-                      (helperFragmentSourceFilter()[0] ||
-                        helperFragmentSourceFilter()[1] ||
-                        helperFragmentSourceFilter()[2])
+                      helperFragmentSourceFilter().indexOf(dataSliced.typSadu) >
+                      -1
                   )
                   .map((fragmentArray: any) => (
                     <DataSection

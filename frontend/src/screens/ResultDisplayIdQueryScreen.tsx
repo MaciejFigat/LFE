@@ -7,14 +7,15 @@ import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColu
 import ResultDisplay from '../components/ResultDisplay/ResultDisplay'
 import DataSectionSimple from '../components/InfoSection/DataSectionSimple'
 import UserFragmentsByKeyword from '../components/FragmentsColumn/UserFragmentsByKeyword'
-// import FragmentsPagination from '../components/Pagination/FragmentsPagination'
-// import Pagination from '../components/Pagination/Pagination'
+
 import { DataContainerSimple } from '../components/InfoSection/InfoSection.styled'
 import SharedChoiceWrapper from '../components/FragmentsColumn/SharedChoiceWrapper/SharedChoiceWrapper'
 
-interface ResultDisplayScreenProps {}
+interface ResultDisplayIdQueryScreenProps {}
 
-const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
+const ResultDisplayIdQueryScreen: React.FC<
+  ResultDisplayIdQueryScreenProps
+> = () => {
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
@@ -72,4 +73,4 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
     </>
   )
 }
-export default ResultDisplayScreen
+export default ResultDisplayIdQueryScreen

@@ -16,6 +16,7 @@ import ConfirmAccount from './screens/ConfirmAccount'
 import StoredFragments from './screens/StoredFragments'
 import ResultDisplayScreen from './screens/ResultDisplayScreen'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
+import ResultDisplayIdQueryScreen from './screens/ResultDisplayIdQueryScreen'
 
 function App() {
   const location = useLocation()
@@ -31,6 +32,11 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/search/result' element={<ResultDisplayScreen />} />
+        {/* <Route path="/dashboard" element={<Dashboard authed={true} />} /> */}
+        <Route
+          path='/search/result/:id/:query'
+          element={<ResultDisplayIdQueryScreen />}
+        />
         <Route path='/storage' element={<StoredFragments />} />
         <Route path='/resetpassword' element={<ResetPassword />} />
         <Route path='/confirmaccount' element={<ConfirmAccount />} />

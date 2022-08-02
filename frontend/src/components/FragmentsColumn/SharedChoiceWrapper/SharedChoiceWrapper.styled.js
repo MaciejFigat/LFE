@@ -3,11 +3,11 @@ import { motion } from 'framer-motion'
 
 export const WrapperWindow = styled.div`
   min-width: 180px;
-  width: 100%;
+  width: 90%;
   height: 260px;
   border-radius: 10px;
   background: var(--background-blur1);
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
 `
@@ -24,8 +24,7 @@ export const MainChoiceContainer = styled.main`
   justify-content: center;
   align-items: center;
   /* font-size: 58px; */
-  /* flex-grow: 1; */
-  /* user-select: none; */
+  flex-grow: 1;
 `
 export const MainChoiceBackground = styled.div`
   position: absolute;

@@ -27,20 +27,21 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
 
   const newCitation = {
     id: nanoid(),
-    title: highlightedText.substring(0, 12),
-    date: '22-Mar-2100',
+    title: highlightedText.substring(0, 22),
+    date: '',
+    // ! SOURCE
     source: 'source',
     excerpt: highlightedText,
-    coordinates: 'coordinates',
-    description: 'description',
+    coordinates: '',
+    description: '',
   }
   const newFragment = {
-    title: highlightedText.substring(0, 12),
+    title: highlightedText.substring(0, 22),
     source: 'source',
     excerpt: highlightedText,
-    coordinates: 'coordinates',
-    description: 'description',
-    keywords: ['test', 'testAgain'],
+    coordinates: '',
+    description: '',
+    keywords: [],
   }
   // todo saving into the DB
 

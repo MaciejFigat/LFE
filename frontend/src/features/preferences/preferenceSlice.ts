@@ -24,6 +24,7 @@ const preferenceSlice = createSlice({
         },
         searchResultsPage: { start: 0, end: 9, pageNr: 1 },
         savedFragmentsPage: { start: 0, end: 9, pageNr: 1 },
+        visitedLinksPage: { start: 0, end: 3, pageNr: 1 },
         fragmentScrolled: 1,
         highlightQuery: '',
         preferedScheme: 'primary',
@@ -44,6 +45,9 @@ const preferenceSlice = createSlice({
         },
         fragmentsPageSaved(state, action) {
             state.savedFragmentsPage = action.payload
+        },
+        linksPageSaved(state, action) {
+            state.visitedLinksPage = action.payload
         },
         preferredNarrowWidthSaved(state, action) {
             state.widthNarrow = action.payload
@@ -92,6 +96,6 @@ const preferenceSlice = createSlice({
 
 
 
-export const { sortFragmentsBySourceEditOne, sortFragmentsBySourceEditTwo, sortFragmentsBySourceEditThree, showFragments, preferredWidthSaved, searchResultsPageSaved, fragmentsPageSaved, preferredNarrowWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingKeywordMainEdit, sortingOptionEdit, highlightQueryEdit, fragmentScrolledEdit, preferedSchemeEdit } = preferenceSlice.actions
+export const { sortFragmentsBySourceEditOne, sortFragmentsBySourceEditTwo, sortFragmentsBySourceEditThree, showFragments, preferredWidthSaved, searchResultsPageSaved, fragmentsPageSaved, linksPageSaved, preferredNarrowWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingKeywordMainEdit, sortingOptionEdit, highlightQueryEdit, fragmentScrolledEdit, preferedSchemeEdit } = preferenceSlice.actions
 
 export default preferenceSlice.reducer
