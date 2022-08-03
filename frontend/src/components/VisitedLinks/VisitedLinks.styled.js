@@ -12,3 +12,11 @@ export const VisitedLinkRow = styled.div`
   flex-direction: row;
   align-items: center;
 `
+export const VisitedLinkPar = styled.p`
+  margin: 0;
+  padding: 0;
+  color: var(--background-secondary2);
+  &:hover {
+    color: var(--background-secondary3);
+  }
+`

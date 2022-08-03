@@ -10,9 +10,13 @@ import {
 
 interface LinksPaginationProps {
   narrow?: boolean
+  miniVersion?: boolean
 }
 
-const LinksPagination: React.FC<LinksPaginationProps> = ({ narrow }) => {
+const LinksPagination: React.FC<LinksPaginationProps> = ({
+  narrow,
+  miniVersion,
+}) => {
   const dispatch = useAppDispatch()
   const visitedLinksPage: any = useAppSelector(
     (state) => state.preference.visitedLinksPage
@@ -32,17 +36,22 @@ const LinksPagination: React.FC<LinksPaginationProps> = ({ narrow }) => {
   }
   return (
     <>
-      <PaginateWrapper narrow={narrow}>
+      <PaginateWrapper narrow={narrow} miniVersion={miniVersion}>
         {visitedLinks.length % 4 > 0
           ? Array.from(
               { length: Math.floor(visitedLinks.length / 3) + 1 },
               (_, i) => (
-                <PaginateBorderWrapper key={i} narrow={narrow}>
+                <PaginateBorderWrapper
+                  key={i}
+                  narrow={narrow}
+                  miniVersion={miniVersion}
+                >
                   <SendButtonVerySmall
                     variant='secondaryEmpty'
                     onClick={() => buttonHelper(i)}
                   >
                     <PaginateActive
+                      miniVersion={miniVersion}
                       pageActive={
                         visitedLinksPage.pageNr === i + 1 ? true : false
                       }

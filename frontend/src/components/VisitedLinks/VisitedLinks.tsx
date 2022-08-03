@@ -1,7 +1,11 @@
 import React from 'react'
-import { SendButtonSmall } from '../Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import { useAppSelector } from '../../app/reduxHooks'
-import { VisitedLinkRow, VisitedLinkWrapper } from './VisitedLinks.styled'
+import {
+  VisitedLinkPar,
+  VisitedLinkRow,
+  VisitedLinkWrapper,
+} from './VisitedLinks.styled'
 import LinksPagination from '../Pagination/LinksPagination'
 import { NavLink } from 'react-router-dom'
 
@@ -15,18 +19,25 @@ const VisitedLinks: React.FC<VisitedLinksProps> = () => {
     (state) => state.preference.visitedLinksPage
   )
   const { start, end } = visitedLinksPage
-  const copyHandler = (doc_link: string) => {
-    if (doc_link) {
-      navigator.clipboard.writeText(doc_link)
+  const copyHandler = (id: string, query: string) => {
+    if (id && query) {
+      // navigator.clipboard.writeText(`/search/result/${id}/${query}`)
+      navigator.clipboard.writeText(
+        // ! here change to
+        // ! here change to
+        // `http://lexbis.netlify.app/search/result/${id}/${query}`
+        `http://localhost:3000/search/result/${id}/${query}`
+      )
     }
   }
-  const testHandler = (query: string, id: string) => {
-    console.log(query, id)
-  }
+  // const copyHandler = (doc_link: string) => {
+  //   if (doc_link) {
+  //     navigator.clipboard.writeText(doc_link)
+  //   }
+  // }
+
   return (
     <div>
-      {/* <h3>Ostatnio przeglądane</h3> */}
-      {visitedLinks.length > 3 && <LinksPagination narrow />}
       {visitedLinks.length > 1 &&
         visitedLinks
           .filter((linkSorted) => linkSorted.test === false || !linkSorted.test)
@@ -35,23 +46,22 @@ const VisitedLinks: React.FC<VisitedLinksProps> = () => {
             <VisitedLinkWrapper key={Math.random()}>
               <VisitedLinkRow>
                 <NavLink to={`/search/result/${link.id}/${link.query}`}>
-                  {link.rodzaj_orzeczenia} | {link.data}
+                  <VisitedLinkPar>
+                    {link.query.replace('%20', ' ')} | {link.data} |{' '}
+                    {link.rodzaj_orzeczenia}
+                  </VisitedLinkPar>
                 </NavLink>
-                <SendButtonSmall
+                <SendButtonVerySmall
                   variant='lightEmpty'
-                  onClick={() => copyHandler(link.doc_link)}
+                  // onClick={() => copyHandler(link.doc_link)}
+                  onClick={() => copyHandler(link.id, link.query)}
                 >
                   kopiuj link
-                </SendButtonSmall>
-                <SendButtonSmall
-                  variant='lightEmpty'
-                  onClick={() => testHandler(link.query, link.id)}
-                >
-                  test
-                </SendButtonSmall>
+                </SendButtonVerySmall>
               </VisitedLinkRow>
             </VisitedLinkWrapper>
           ))}
+      {visitedLinks.length > 3 && <LinksPagination miniVersion />}
     </div>
   )
 }

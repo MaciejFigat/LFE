@@ -44,10 +44,7 @@ const ResultDisplayIdQueryScreen: React.FC<
   }>()
   useEffect(() => {
     const searchquery = {
-      // query: 'cfc',
-      // docNumber: 89136284,
       query: urlQuery ? urlQuery : '',
-      // docNumber: urlId,
       docNumber: urlId ? parseInt(urlId) : 0,
     }
 
