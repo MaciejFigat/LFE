@@ -3,6 +3,7 @@ import { SendButtonSmall } from '../Buttons/Buttons.styled'
 import { useAppSelector } from '../../app/reduxHooks'
 import { VisitedLinkRow, VisitedLinkWrapper } from './VisitedLinks.styled'
 import LinksPagination from '../Pagination/LinksPagination'
+import { NavLink } from 'react-router-dom'
 
 interface VisitedLinksProps {}
 
@@ -19,6 +20,9 @@ const VisitedLinks: React.FC<VisitedLinksProps> = () => {
       navigator.clipboard.writeText(doc_link)
     }
   }
+  const testHandler = (query: string, id: string) => {
+    console.log(query, id)
+  }
   return (
     <div>
       {/* <h3>Ostatnio przeglądane</h3> */}
@@ -30,12 +34,20 @@ const VisitedLinks: React.FC<VisitedLinksProps> = () => {
           .map((link: any) => (
             <VisitedLinkWrapper key={Math.random()}>
               <VisitedLinkRow>
-                {link.rodzaj_orzeczenia} | {link.data}
+                <NavLink to={`/search/result/${link.id}/${link.query}`}>
+                  {link.rodzaj_orzeczenia} | {link.data}
+                </NavLink>
                 <SendButtonSmall
                   variant='lightEmpty'
                   onClick={() => copyHandler(link.doc_link)}
                 >
                   kopiuj link
+                </SendButtonSmall>
+                <SendButtonSmall
+                  variant='lightEmpty'
+                  onClick={() => testHandler(link.query, link.id)}
+                >
+                  test
                 </SendButtonSmall>
               </VisitedLinkRow>
             </VisitedLinkWrapper>

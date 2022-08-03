@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
 import ResizableScrollSection from '../components/ScrollSection/ResizableScrollSection'
-import { useAppSelector } from '../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { UserInfo } from '../interfaces'
+import { useParams } from 'react-router-dom'
 import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
 import ResultDisplay from '../components/ResultDisplay/ResultDisplay'
 import DataSectionSimple from '../components/InfoSection/DataSectionSimple'
@@ -10,12 +11,15 @@ import UserFragmentsByKeyword from '../components/FragmentsColumn/UserFragmentsB
 
 import { DataContainerSimple } from '../components/InfoSection/InfoSection.styled'
 import SharedChoiceWrapper from '../components/FragmentsColumn/SharedChoiceWrapper/SharedChoiceWrapper'
+import { getDocByIdAndQuery } from '../features/searchResults/searchResultsSlice'
 
 interface ResultDisplayIdQueryScreenProps {}
 
 const ResultDisplayIdQueryScreen: React.FC<
   ResultDisplayIdQueryScreenProps
 > = () => {
+  const dispatch = useAppDispatch()
+
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
@@ -32,6 +36,26 @@ const ResultDisplayIdQueryScreen: React.FC<
   )
   const { data, query } = searchResults
   const queryTrimmed = encodeURIComponent(query?.trim())
+
+  // const { id: urlId, query: urlQuery } = useParams()
+  const { id: urlId, query: urlQuery } = useParams<{
+    id: string
+    query: string
+  }>()
+  useEffect(() => {
+    const searchquery = {
+      // query: 'cfc',
+      // docNumber: 89136284,
+      query: urlQuery ? urlQuery : '',
+      // docNumber: urlId,
+      docNumber: urlId ? parseInt(urlId) : 0,
+    }
+
+    if (urlQuery && urlId) {
+      dispatch(getDocByIdAndQuery(searchquery))
+    }
+  }, [dispatch, urlId, urlQuery])
+
   return (
     <>
       <ResizableScrollSection

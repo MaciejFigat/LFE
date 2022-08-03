@@ -82,6 +82,8 @@ const DataSection: React.FC<DataSectionProps> = ({
       rodzaj_orzeczenia: metryka.rodzaj_orzeczenia,
       data: metryka.data,
       organ: metryka.organ,
+      id: metryka.doc_id,
+      query: query,
     }
 
     const existingLink = visitedLinks.find(

@@ -80,6 +80,38 @@ export const getDocResult = createAsyncThunk(
         }
     }
 )
+//? thunk for id and query link 
+interface DocIdQuery {
+    query: string,
+    docNumber: number
+
+}
+export const getDocByIdAndQuery = createAsyncThunk(
+    'docResult/getDocByIdAndQuery',
+
+    async (searchquery: DocIdQuery) => {
+
+        const { query, docNumber } = searchquery
+        try {
+
+            const { data } = await axios.get(
+                `/lexapi/doc/id/query`, {
+                params: {
+                    query: query,
+                    docNumber: docNumber
+                },
+            }
+
+            )
+
+
+            return data
+        } catch (error: any) {
+            return error
+        }
+    }
+)
+// /lexapi/doc/id/query
 // ! Work in progress /searchSkip
 interface ResultQuery {
     query: string, skip: number, take: number, start_date: number, end_date: number
@@ -212,6 +244,17 @@ const searchResultSlice = createSlice({
 
         })
         builder.addCase(getDocResult.rejected, (state, action) => {
+            state.loading = false
+        })
+        builder.addCase(getDocByIdAndQuery.pending, (state, action) => {
+            state.loading = true
+        })
+        builder.addCase(getDocByIdAndQuery.fulfilled, (state, action) => {
+            state.loading = false
+            state.docResult = action.payload
+
+        })
+        builder.addCase(getDocByIdAndQuery.rejected, (state, action) => {
             state.loading = false
         })
         builder.addCase(getDocByNr.pending, (state, action) => {

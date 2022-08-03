@@ -32,7 +32,6 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/search/result' element={<ResultDisplayScreen />} />
-        {/* <Route path="/dashboard" element={<Dashboard authed={true} />} /> */}
         <Route
           path='/search/result/:id/:query'
           element={<ResultDisplayIdQueryScreen />}

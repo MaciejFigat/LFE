@@ -76,6 +76,8 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
       rodzaj_orzeczenia: metryka.rodzaj_orzeczenia,
       data: metryka.data,
       organ: metryka.organ,
+      id: metryka.doc_id,
+      query: query,
     }
     const existingLink = visitedLinks.find(
       (visitedLinks) => visitedLinks.doc_link === fragData.doc_link
