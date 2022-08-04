@@ -57,6 +57,7 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = () => {
                       coordinates={fragment.coordinates}
                       updatedAt={fragment.updatedAt}
                       keywords={fragment.keywords}
+                      keywordValue={fragment.keywordValue}
                     />
                   </ItemWrapper>
                 </FragmentContainer>

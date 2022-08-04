@@ -23,6 +23,7 @@ interface KeywordEditingProps {
   source: string
   excerpt: string
   coordinates: string
+  keywordValue: { keyword: string; value: boolean }[]
 }
 
 const KeywordEditing: React.FC<KeywordEditingProps> = ({
@@ -33,6 +34,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
   source,
   excerpt,
   coordinates,
+  keywordValue: keywordValueObject,
 }) => {
   const dispatch: any = useAppDispatch()
 
@@ -50,6 +52,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
     title: title,
     description: description,
     keywords: keywordArr,
+    keywordValue: keywordValueObject,
   }
 
   const editKeywordHandler = (keyword: string, index: number) => {

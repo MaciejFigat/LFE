@@ -25,8 +25,8 @@ const VisitedLinks: React.FC<VisitedLinksProps> = () => {
       navigator.clipboard.writeText(
         // ! here change to
         // ! here change to
-        // `http://lexbis.netlify.app/search/result/${id}/${query}`
-        `http://localhost:3000/search/result/${id}/${query}`
+        `http://lexbis.netlify.app/search/result/${id}/${query}`
+        // `http://localhost:3000/search/result/${id}/${query}`
       )
     }
   }

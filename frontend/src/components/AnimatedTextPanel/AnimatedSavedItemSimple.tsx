@@ -20,6 +20,7 @@ interface AnimatedSavedItemSimpleProps {
   coordinates: string
   updatedAt: string
   keywords: string[]
+  keywordValue: { keyword: string; value: boolean }[]
   simpleView?: boolean
   setSimpleView?: Dispatch<SetStateAction<boolean>>
 }

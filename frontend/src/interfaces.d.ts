@@ -22,6 +22,7 @@ interface FragmentCreated {
     title?: string
     description?: string
     keywords?: string[]
+    keywordValue?: { keyword: string, value: boolean }[]
 }
 interface UserFragments {
     // id: string

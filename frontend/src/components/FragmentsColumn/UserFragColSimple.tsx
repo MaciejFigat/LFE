@@ -75,6 +75,7 @@ const UserFragColSimple: React.FC<UserFragColSimpleProps> = () => {
                         coordinates={fragment.coordinates}
                         updatedAt={fragment.updatedAt}
                         keywords={fragment.keywords}
+                        keywordValue={fragment.keywordValue}
                       />
                     </ItemWrapper>
                   </FragmentContainer>

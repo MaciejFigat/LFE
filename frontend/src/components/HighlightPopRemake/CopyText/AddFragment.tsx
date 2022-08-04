@@ -37,11 +37,12 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   }
   const newFragment = {
     title: highlightedText.substring(0, 22),
-    source: 'source',
+    source: 'test',
     excerpt: highlightedText,
-    coordinates: '',
-    description: '',
-    keywords: [],
+    coordinates: 'test',
+    description: 'test',
+    // keywords: [],
+    // keywordValue: [{ keyword: '', value: true }],
   }
   // todo saving into the DB
 
@@ -51,7 +52,7 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     setCopySuccess('Zapisano!')
     if (Object.keys(userInfo).length > 0 && savedExcerpt !== highlightedText) {
       dispatch(createFragment(newFragment))
-      console.log(savedExcerpt)
+      // console.log(savedExcerpt)
     }
   }
   useEffect(() => {

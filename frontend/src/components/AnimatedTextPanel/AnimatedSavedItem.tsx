@@ -51,6 +51,7 @@ interface AnimatedSavedItemProps {
   keywords: string[]
   simpleView?: boolean
   setSimpleView?: Dispatch<SetStateAction<boolean>>
+  keywordValue: { keyword: string; value: boolean }[]
 }
 
 const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
@@ -64,6 +65,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   keywords,
   setSimpleView,
   simpleView,
+  keywordValue,
 }) => {
   const dispatch: any = useAppDispatch()
   const successUpdate: boolean = useAppSelector(
@@ -113,6 +115,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     title: titleValue,
     description: description,
     keywords: keywords,
+    keywordValue: keywordValue,
   }
   const saveTitleHandler = () => {
     dispatch(editSavedFragment(newTitle))
@@ -127,6 +130,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     title: title,
     description: descriptionValue,
     keywords: keywords,
+    keywordValue: keywordValue,
   }
   const saveDescriptionHandler = () => {
     dispatch(editSavedFragment(newDescription))
@@ -141,6 +145,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
     title: title,
     description: description,
     keywords: keywords,
+    keywordValue: keywordValue,
   }
   const saveExcerptHandler = () => {
     dispatch(editSavedFragment(newExcerpt))
@@ -289,6 +294,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
             source={source}
             excerpt={excerpt}
             coordinates={coordinates}
+            keywordValue={keywordValue}
           />
           {/* //todo excerpt editing/display below */}
           <ListRow as={motion.div} layout>

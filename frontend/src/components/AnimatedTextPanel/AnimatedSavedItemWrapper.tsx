@@ -12,6 +12,7 @@ interface AnimatedSavedItemWrapperProps {
   coordinates: string
   updatedAt: string
   keywords: string[]
+  keywordValue: { keyword: string; value: boolean }[]
 }
 
 const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({
@@ -23,6 +24,7 @@ const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({
   coordinates,
   updatedAt,
   keywords,
+  keywordValue,
 }) => {
   const [simpleView, setSimpleView] = useState<boolean>(true)
 
@@ -39,6 +41,7 @@ const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({
           keywords={keywords}
           simpleView={simpleView}
           setSimpleView={setSimpleView}
+          keywordValue={keywordValue}
         />
       ) : (
         <AnimatedSavedItem
@@ -52,6 +55,7 @@ const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({
           keywords={keywords}
           simpleView={simpleView}
           setSimpleView={setSimpleView}
+          keywordValue={keywordValue}
         />
       )}
     </>
