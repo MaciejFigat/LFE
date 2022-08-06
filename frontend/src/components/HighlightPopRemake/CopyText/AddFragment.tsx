@@ -16,6 +16,9 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const savedFragment = useAppSelector((state) => state.fragment.fragmentSaved)
   const { excerpt: savedExcerpt } = savedFragment
+
+  const docResult: any = useAppSelector((state) => state.searchResult.docResult)
+  const { sad, syg, dataOrzeczenia, typWyroku } = docResult.tresc
   const [copySuccess, setCopySuccess] = useState('')
 
   const hoverHelper = () => {
@@ -37,12 +40,10 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   }
   const newFragment = {
     title: highlightedText.substring(0, 22),
-    source: 'test',
+    source: `${typWyroku} ${sad} ${dataOrzeczenia}`,
     excerpt: highlightedText,
-    coordinates: 'test',
-    description: 'test',
-    // keywords: [],
-    // keywordValue: [{ keyword: '', value: true }],
+    coordinates: `${syg}`,
+    description: `${typWyroku} ${sad}`,
   }
   // todo saving into the DB
 
@@ -52,7 +53,6 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     setCopySuccess('Zapisano!')
     if (Object.keys(userInfo).length > 0 && savedExcerpt !== highlightedText) {
       dispatch(createFragment(newFragment))
-      // console.log(savedExcerpt)
     }
   }
   useEffect(() => {

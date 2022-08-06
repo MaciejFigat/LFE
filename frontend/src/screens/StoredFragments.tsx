@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { UserInfo } from '../interfaces'
-import DragAndDropMain from '../components/DragAndDrop/DragAndDropMain'
+// import DragAndDropMain from '../components/DragAndDrop/DragAndDropMain'
+import DragAndDropProject from '../components/DragAndDropProject/DragAndDropProject'
 import { getUserFragments } from '../features/fragments/fragmentSlice'
 interface StoredFragmentsProps {}
 
@@ -13,6 +14,7 @@ const StoredFragments: React.FC<StoredFragmentsProps> = () => {
       dispatch(getUserFragments(1))
     }
   }, [dispatch, userInfo])
-  return <DragAndDropMain />
+  return <DragAndDropProject />
+  // return <DragAndDropMain />
 }
 export default StoredFragments

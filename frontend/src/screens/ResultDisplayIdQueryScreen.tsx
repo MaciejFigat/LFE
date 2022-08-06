@@ -37,7 +37,6 @@ const ResultDisplayIdQueryScreen: React.FC<
   const { data, query } = searchResults
   const queryTrimmed = encodeURIComponent(query?.trim())
 
-  // const { id: urlId, query: urlQuery } = useParams()
   const { id: urlId, query: urlQuery } = useParams<{
     id: string
     query: string

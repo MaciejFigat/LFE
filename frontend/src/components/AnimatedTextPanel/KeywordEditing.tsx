@@ -18,24 +18,9 @@ import { FragmentB } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.sty
 interface KeywordEditingProps {
   keywords: string[]
   id: string
-  title: string
-  description: string
-  source: string
-  excerpt: string
-  coordinates: string
-  keywordValue: { keyword: string; value: boolean }[]
 }
 
-const KeywordEditing: React.FC<KeywordEditingProps> = ({
-  keywords,
-  id,
-  title,
-  description,
-  source,
-  excerpt,
-  coordinates,
-  keywordValue: keywordValueObject,
-}) => {
+const KeywordEditing: React.FC<KeywordEditingProps> = ({ keywords, id }) => {
   const dispatch: any = useAppDispatch()
 
   const [keywordEditing, setKeywordEditing] = useState(false)
@@ -46,13 +31,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
 
   const newKeywordList = {
     _id: id,
-    source: source,
-    excerpt: excerpt,
-    coordinates: coordinates,
-    title: title,
-    description: description,
     keywords: keywordArr,
-    keywordValue: keywordValueObject,
   }
 
   const editKeywordHandler = (keyword: string, index: number) => {

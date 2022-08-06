@@ -7,8 +7,8 @@ import {
 } from '../../features/fragments/fragmentSlice'
 import { DragDropContext } from 'react-beautiful-dnd'
 import ResizableScrollSection from '../ScrollSection/ResizableScrollSection'
-import FirstColumn from './FirstColumn'
-import SecondAndThirdCol from './SecondAndThirdCol'
+import FirstColumnProject from './FirstColumnProject'
+import SecondAndThirdColProject from './SecondAndThirdColProject'
 
 //? reordering the items within a list
 
@@ -47,9 +47,9 @@ const move = (
   return result
 }
 
-interface DragAndDropMainProps {}
+interface DragAndDropProjectProps {}
 
-const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
+const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   const dispatch: any = useAppDispatch()
 
   const fragments: any[] = useAppSelector(
@@ -58,12 +58,12 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   const fragmentsKeywordMain: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordMain
   )
-  const fragment = useAppSelector((state) => state.fragment)
-  const { loading, success } = fragment
+  // const fragment = useAppSelector((state) => state.fragment)
+  // const { loading, success } = fragment
 
-  const sortingOption: string = useAppSelector(
-    (state) => state.preference.sortingOption
-  )
+  // const sortingOption: string = useAppSelector(
+  //   (state) => state.preference.sortingOption
+  // )
 
   const sortingKeywords = useAppSelector(
     (state) => state.preference.sortingKeywords
@@ -75,40 +75,17 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   const fragmentsKeywordTwo: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordTwo
   )
-  const sortingDate = useAppSelector((state) => state.preference.sortingDate)
-  const { sortingYear, sortingMonth, sortingDay } = sortingDate
+  // const sortingDate = useAppSelector((state) => state.preference.sortingDate)
+  // const { sortingYear, sortingMonth, sortingDay } = sortingDate
 
-  const sortingDateString = `${sortingYear}-${
-    sortingMonth < 10 ? `0${sortingMonth}` : `${sortingMonth}`
-  }-${sortingDay < 10 ? `0${sortingDay}` : `${sortingDay}`}`
+  // const sortingDateString = `${sortingYear}-${
+  //   sortingMonth < 10 ? `0${sortingMonth}` : `${sortingMonth}`
+  // }-${sortingDay < 10 ? `0${sortingDay}` : `${sortingDay}`}`
 
   const [state, setState] = useState([
     fragments,
     fragmentsKeywordOne,
     fragmentsKeywordTwo,
-  ])
-  useEffect(() => {
-    if (sortingOption === 'date') {
-      setState([
-        fragments.filter(
-          (fragmentsSorted) =>
-            fragmentsSorted.createdAt.substring(0, 10) === sortingDateString
-        ),
-        fragmentsKeywordOne,
-        fragmentsKeywordTwo,
-      ])
-    } else if (sortingOption === 'keyword') {
-      setState([fragmentsKeywordMain, fragmentsKeywordOne, fragmentsKeywordTwo])
-    } else if (sortingOption === 'all') {
-      setState([fragments, fragmentsKeywordOne, fragmentsKeywordTwo])
-    }
-  }, [
-    sortingOption,
-    fragments,
-    fragmentsKeywordOne,
-    fragmentsKeywordTwo,
-    sortingDateString,
-    fragmentsKeywordMain,
   ])
 
   //? Behold the monster, onDragEnd with no end
@@ -255,33 +232,28 @@ const DragAndDropMain: React.FC<DragAndDropMainProps> = () => {
   }
 
   // * for rerendering after Redux state side fragmentsKeywordOne and Two are changed
-  useEffect(() => {
-    setState([fragments, fragmentsKeywordOne, fragmentsKeywordTwo])
-  }, [fragmentsKeywordTwo, fragmentsKeywordOne, fragments])
+  //! changing
 
-  // * updates matching keyword lists one and two after successful dispatch that updates a fragment
   useEffect(() => {
-    const fragmentsMatchingOne = fragments?.filter(
-      (fragmentsSorted) => fragmentsSorted.keywords?.indexOf(keywordOne) >= 0
+    const fragmentsValueTrue = fragmentsKeywordMain.filter(
+      (fragmentsSorted) => fragmentsSorted.keywordValue[0].value === true
     )
-    const fragmentsMatchingTwo = fragments?.filter(
-      (fragmentsSorted) => fragmentsSorted.keywords?.indexOf(keywordTwo) >= 0
+    const fragmentsValueFalse = fragmentsKeywordMain.filter(
+      (fragmentsSorted) => fragmentsSorted.keywordValue[0].value === false
     )
 
-    if (success === true && loading === false) {
-      dispatch(updateUserFragmentsKeywordOne(fragmentsMatchingOne))
-      dispatch(updateUserFragmentsKeywordTwo(fragmentsMatchingTwo))
-    }
-  }, [fragments, dispatch, keywordOne, keywordTwo, loading, success])
+    setState([fragmentsKeywordMain, fragmentsValueTrue, fragmentsValueFalse])
+  }, [fragmentsKeywordMain, fragments])
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <ResizableScrollSection
         transparent
-        wideSection={<FirstColumn state={state} />}
+        wideSection={<FirstColumnProject state={state} />}
         // ! 2nd 3rd columns
-        narrowSection={<SecondAndThirdCol state={state} />}
+        narrowSection={<SecondAndThirdColProject state={state} />}
       />
     </DragDropContext>
   )
 }
-export default DragAndDropMain
+export default DragAndDropProject

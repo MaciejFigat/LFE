@@ -2,7 +2,6 @@ import React, {
   ReactNode,
   useState,
   useMemo,
-  // useEffect,
   Dispatch,
   SetStateAction,
 } from 'react'
@@ -60,12 +59,12 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   id,
   source,
   excerpt,
-  coordinates,
+  // coordinates,
   updatedAt,
   keywords,
   setSimpleView,
   simpleView,
-  keywordValue,
+  // keywordValue,
 }) => {
   const dispatch: any = useAppDispatch()
   const successUpdate: boolean = useAppSelector(
@@ -109,13 +108,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   // Todo title editing
   const newTitle = {
     _id: id,
-    source: source,
-    excerpt: excerpt,
-    coordinates: coordinates,
     title: titleValue,
-    description: description,
-    keywords: keywords,
-    keywordValue: keywordValue,
   }
   const saveTitleHandler = () => {
     dispatch(editSavedFragment(newTitle))
@@ -124,13 +117,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   // Todo description editing
   const newDescription = {
     _id: id,
-    source: source,
-    excerpt: excerpt,
-    coordinates: coordinates,
-    title: title,
     description: descriptionValue,
-    keywords: keywords,
-    keywordValue: keywordValue,
   }
   const saveDescriptionHandler = () => {
     dispatch(editSavedFragment(newDescription))
@@ -139,13 +126,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   // Todo excerpt editing
   const newExcerpt = {
     _id: id,
-    source: source,
     excerpt: excerptValue,
-    coordinates: coordinates,
-    title: title,
-    description: description,
-    keywords: keywords,
-    keywordValue: keywordValue,
   }
   const saveExcerptHandler = () => {
     dispatch(editSavedFragment(newExcerpt))
@@ -286,16 +267,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
             <FragmentB>source:&nbsp;</FragmentB>
             {source}
           </DatePar>
-          <KeywordEditing
-            keywords={keywords}
-            id={id}
-            title={title}
-            description={description}
-            source={source}
-            excerpt={excerpt}
-            coordinates={coordinates}
-            keywordValue={keywordValue}
-          />
+          <KeywordEditing keywords={keywords} id={id} />
           {/* //todo excerpt editing/display below */}
           <ListRow as={motion.div} layout>
             <ListTitleContainer as={motion.div} layout>

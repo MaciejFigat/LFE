@@ -34,6 +34,7 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
   keywords,
   setSimpleView,
   simpleView,
+  coordinates,
 }) => {
   const setSimpleViewHandler = () => {
     setSimpleView !== undefined && setSimpleView(!simpleView)
@@ -63,24 +64,30 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
             </SendButtonVerySmall>
           </FragmentTitleRowSmall>
           <FragmentParSmall>
+            <FragmentB>Source:</FragmentB> {source}
+          </FragmentParSmall>
+          <FragmentParSmall>
+            <FragmentB>Syg:</FragmentB> {coordinates}
+          </FragmentParSmall>
+          <FragmentParSmall>
             <FragmentB>Excerpt:</FragmentB> {excerpt}
           </FragmentParSmall>
           <FragmentParSmall>
             <FragmentB>Desc:</FragmentB> {description}
           </FragmentParSmall>
           <FragmentParSmall>
-            <FragmentB>Updated:</FragmentB> {updatedAt}
+            <FragmentB>Updated:</FragmentB> {updatedAt.substring(0, 10)} at{' '}
+            {updatedAt.substring(12, 16)}
           </FragmentParSmall>
-          {/* <FragmentParSmall>
-            <FragmentB>Source:</FragmentB> {source}
-          </FragmentParSmall> */}
 
-          <KeywordDivSimple>
-            <FragmentB>Keywords:&nbsp;</FragmentB>
-            {keywords.map((keyword) => (
-              <KeywordB key={Math.random()}>{keyword} &nbsp;</KeywordB>
-            ))}
-          </KeywordDivSimple>
+          {(keywords.length > 1 || keywords[0] !== '') && (
+            <KeywordDivSimple>
+              <FragmentB>Keywords:&nbsp;</FragmentB>
+              {keywords.map((keyword) => (
+                <KeywordB key={Math.random()}>{keyword} &nbsp;</KeywordB>
+              ))}
+            </KeywordDivSimple>
+          )}
         </FragmentDivSmall>
       </ListItemSimple>
     </>
