@@ -9,7 +9,6 @@ import {
   KeywordSearchContainer,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-// import { nanoid } from '@reduxjs/toolkit'
 import DropdownSelect from '../KeywordSearchPanel/DropdownSelect/DropdownSelect'
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
@@ -52,16 +51,6 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
             >
               {ind === 0 && <DropdownSelect keywordOptionOne />}
               {ind === 1 && <DropdownSelect />}
-              {/* {el.length === 1 && (
-                <FragmentDivSmall>
-                  <FragmentParSmall>
-                    <KeywordB>Warning: </KeywordB>
-                    <FragmentB>
-                      If You remove last fragment this category will dissapear!
-                    </FragmentB>
-                  </FragmentParSmall>
-                </FragmentDivSmall>
-              )} */}
 
               {el.map((fragment: any, index: number) => (
                 <Draggable
@@ -91,7 +80,6 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                       <KeywordDivSimple>
                         <FragmentB>Keywords:&nbsp;</FragmentB>
                         {fragment.keywords.map((keyword: string) => (
-                          // <KeywordB key={Math.random()}>
                           <KeywordB key={keyword}>{keyword} &nbsp;</KeywordB>
                         ))}
                       </KeywordDivSimple>

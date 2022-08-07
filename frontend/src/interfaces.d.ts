@@ -22,7 +22,7 @@ interface FragmentCreated {
     title?: string
     description?: string
     keywords?: string[]
-    keywordValue?: { keyword: string, value: boolean }[]
+    keywordValue?: { keyword: string, value: boolean, skip: boolean }[]
 }
 interface UserFragments {
     // id: string

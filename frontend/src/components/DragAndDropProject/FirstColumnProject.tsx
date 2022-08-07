@@ -11,7 +11,7 @@ import {
 import { useAppSelector } from '../../app/reduxHooks'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 // import FilterWrapper from '../FragmentsColumn/FilterWrapper/FilterWrapper'
-import FragmentsPagination from '../Pagination/FragmentsPagination'
+// import FragmentsPagination from '../Pagination/FragmentsPagination'
 import SelectMainKeyword from '../KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
 
 interface FirstColumnProjectProps {
@@ -39,8 +39,8 @@ const getListStyle = (isDraggingOver: any) => ({
   minWidth: '100%',
 })
 const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({ state }) => {
-  const preference: any = useAppSelector((state) => state.preference)
-  const { sortingOption } = preference
+  // const preference: any = useAppSelector((state) => state.preference)
+  // const { sortingOption } = preference
   const savedFragmentsPage: any = useAppSelector(
     (state) => state.preference.savedFragmentsPage
   )
@@ -59,7 +59,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({ state }) => {
             {...provided.droppableProps}
           >
             <SelectMainKeyword />
-            {sortingOption === 'all' && <FragmentsPagination />}
+            {/* {sortingOption === 'all' && <FragmentsPagination />} */}
 
             {state[0]
               .slice(start, end + 1)

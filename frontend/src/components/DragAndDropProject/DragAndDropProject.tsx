@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
-import {
-  editSavedFragment,
-  updateUserFragmentsKeywordOne,
-  updateUserFragmentsKeywordTwo,
-} from '../../features/fragments/fragmentSlice'
+import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import { DragDropContext } from 'react-beautiful-dnd'
 import ResizableScrollSection from '../ScrollSection/ResizableScrollSection'
 import FirstColumnProject from './FirstColumnProject'
@@ -58,29 +54,18 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   const fragmentsKeywordMain: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordMain
   )
-  // const fragment = useAppSelector((state) => state.fragment)
-  // const { loading, success } = fragment
-
-  // const sortingOption: string = useAppSelector(
-  //   (state) => state.preference.sortingOption
-  // )
 
   const sortingKeywords = useAppSelector(
     (state) => state.preference.sortingKeywords
   )
-  const { keywordOne, keywordTwo } = sortingKeywords
+
+  const { keywordMain, keywordOne, keywordTwo } = sortingKeywords
   const fragmentsKeywordOne: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordOne
   )
   const fragmentsKeywordTwo: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordTwo
   )
-  // const sortingDate = useAppSelector((state) => state.preference.sortingDate)
-  // const { sortingYear, sortingMonth, sortingDay } = sortingDate
-
-  // const sortingDateString = `${sortingYear}-${
-  //   sortingMonth < 10 ? `0${sortingMonth}` : `${sortingMonth}`
-  // }-${sortingDay < 10 ? `0${sortingDay}` : `${sortingDay}`}`
 
   const [state, setState] = useState([
     fragments,
@@ -109,6 +94,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       setState(newState)
     } else {
       if (destinationIndex === 0) {
+        //! Here fragmentsSorted.keywordValue[0].skip: false
         //* I don't want to move anything to the 1st column
         return
       }
@@ -120,46 +106,47 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       // const droppableId = destination.droppableId
       const {
         _id,
-        source: fragmentSource,
-        excerpt,
-        coordinates,
-        title,
-        description,
         keywords,
+        // keywordValue,
       } = droppedFragment
 
       const newKeywordListOne = {
         _id: _id,
-        source: fragmentSource,
-        excerpt: excerpt,
-        coordinates: coordinates,
-        title: title,
-        description: description,
-        keywords: [...keywords, keywordOne],
+
+        //keywords: [...keywords, keywordOne],
+        keywordValue: [{ keyword: keywordMain, value: true, skip: false }],
+        // keywordValue: [
+        //   ...keywordValue,
+        //   { keyword: keywordOne, value: true, skip: true },
+        // ],
       }
       const newKeywordListTwo = {
         _id: _id,
-        source: fragmentSource,
-        excerpt: excerpt,
-        coordinates: coordinates,
-        title: title,
-        description: description,
-        keywords: [...keywords, keywordTwo],
+
+        // keywords: [...keywords, keywordTwo],
+        keywordValue: [{ keyword: keywordMain, value: false, skip: false }],
+
+        // keywordValue: [
+        //   ...keywordValue,
+        //   { keyword: keywordOne, value: false, skip: true },
+        // ],
       }
 
-      // //todo move to 1 from 0 and does not include k1
+      // //todo move from 0 to 1 and does not include k1
       if (
         sourceIndex === 0 &&
-        destinationIndex === 1 &&
-        !keywords.includes(keywordOne)
+        destinationIndex === 1
+        // destinationIndex === 1 &&
+        // !keywords.includes(keywordOne)
       ) {
         dispatch(editSavedFragment(newKeywordListOne))
       }
-      //todo move to 2 from 0 and does not include k2
+      //todo move from 0 to 2 and does not include k2
       if (
         sourceIndex === 0 &&
-        destinationIndex === 2 &&
-        !keywords.includes(keywordTwo)
+        destinationIndex === 2
+        // destinationIndex === 2 &&
+        // !keywords.includes(keywordTwo)
       ) {
         dispatch(editSavedFragment(newKeywordListTwo))
       }
@@ -169,41 +156,35 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       //? if (sourceIndex ===1 || sourceIndex ===2 ) { remove }
       const newKeywordListWithoutOne = {
         _id: _id,
-        source: fragmentSource,
-        excerpt: excerpt,
-        coordinates: coordinates,
-        title: title,
-        description: description,
-        keywords: [
-          ...keywords.filter((keyword: string) => keyword !== keywordOne),
-          keywordTwo,
-        ],
+        // keywords: [
+        //   ...keywords.filter((keyword: string) => keyword !== keywordOne),
+        //   keywordTwo,
+        // ],
+        keywordValue: [{ keyword: keywordMain, value: false, skip: false }],
       }
       const newKeywordListWithoutTwo = {
         _id: _id,
-        source: fragmentSource,
-        excerpt: excerpt,
-        coordinates: coordinates,
-        title: title,
-        description: description,
-        keywords: [
-          ...keywords.filter((keyword: string) => keyword !== keywordTwo),
-          keywordOne,
-        ],
+        // keywords: [
+        //   ...keywords.filter((keyword: string) => keyword !== keywordTwo),
+        //   keywordOne,
+        // ],
+        keywordValue: [{ keyword: keywordMain, value: true, skip: false }],
       }
 
       if (
         sourceIndex === 1 &&
-        destinationIndex === 2 &&
-        // * keywordOne is in
-        !keywords.includes(keywordTwo)
+        destinationIndex === 2
+        // destinationIndex === 2 &&
+        // // * keywordOne is in
+        // !keywords.includes(keywordTwo)
       ) {
         //* from 1 to 2 and there is no keyword2 in 1
         dispatch(editSavedFragment(newKeywordListWithoutOne))
       } else if (
         sourceIndex === 2 &&
-        destinationIndex === 1 &&
-        !keywords.includes(keywordOne)
+        destinationIndex === 1
+        // destinationIndex === 1 &&
+        // !keywords.includes(keywordOne)
       ) {
         //* from 2 to 1 and there is no keyword1 in 2
 
@@ -224,25 +205,29 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       newState[sourceIndex] = result[sourceIndex]
       newState[destinationIndex] = result[destinationIndex]
 
-      //* below setState will remove the empty group [] from the state
-      // setState(newState.filter((group) => group.length))
       //* this will not remove empty one
       setState(newState)
     }
   }
 
-  // * for rerendering after Redux state side fragmentsKeywordOne and Two are changed
-  //! changing
-
   useEffect(() => {
-    const fragmentsValueTrue = fragmentsKeywordMain.filter(
-      (fragmentsSorted) => fragmentsSorted.keywordValue[0].value === true
-    )
-    const fragmentsValueFalse = fragmentsKeywordMain.filter(
-      (fragmentsSorted) => fragmentsSorted.keywordValue[0].value === false
-    )
+    if (fragmentsKeywordMain[0]?.keywordValue[0]?.value) {
+      const fragmentsSkipTrue = fragmentsKeywordMain.filter(
+        (fragmentsSorted) => fragmentsSorted.keywordValue[0].skip === true
+      )
 
-    setState([fragmentsKeywordMain, fragmentsValueTrue, fragmentsValueFalse])
+      const fragmentsValueTrue = fragmentsKeywordMain.filter(
+        (fragmentsSorted) =>
+          fragmentsSorted.keywordValue[0].value === true &&
+          fragmentsSorted.keywordValue[0].skip === false
+      )
+      const fragmentsValueFalse = fragmentsKeywordMain.filter(
+        (fragmentsSorted) =>
+          fragmentsSorted.keywordValue[0].value === false &&
+          fragmentsSorted.keywordValue[0].skip === false
+      )
+      setState([fragmentsSkipTrue, fragmentsValueTrue, fragmentsValueFalse])
+    }
   }, [fragmentsKeywordMain, fragments])
 
   return (

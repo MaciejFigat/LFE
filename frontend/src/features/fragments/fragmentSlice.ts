@@ -22,7 +22,7 @@ export const createFragment = createAsyncThunk(
             }
             const keywords = ['']
             // const keywordValue = ['']
-            const keywordValue = [{ keyword: '', value: true }]
+            const keywordValue = [{ keyword: '', value: true, skip: true }]
             const { data } = await axios.post(
                 '/api/fragments/',
                 {
