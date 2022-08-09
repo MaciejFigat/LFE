@@ -70,8 +70,9 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
     const fragmentsMatching = fragments?.filter(
       (fragmentsSorted) =>
         fragmentsSorted.keywords?.indexOf(selectedMainKeyword) >= 0 &&
-        fragmentsSorted.keywords.length === 2
-      // fragmentsSorted.keywords.length > 2
+        (fragmentsSorted.keywords.length === 2 ||
+          fragmentsSorted.keywords.length === 1)
+      //* Some fragments after I edit a '' keyword will have length === 1
     )
     console.log(fragmentsMatching)
     //! new BE controller needed for deleting multiple fragments
