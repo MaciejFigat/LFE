@@ -48,9 +48,12 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({ state }) => {
   // const testHandler = () => {
   //   console.log(state)
   // }
+  // const removeKeywordHelper = () => {
+  //   console.log('object')
+  // }
+
   return (
     <KeywordColumnContainer>
-      {/* <button onClick={testHandler}>TEsting State</button> */}
       <Droppable key={'0'} droppableId={`0`}>
         {(provided, snapshot) => (
           <KeywordSearchContainer
@@ -59,6 +62,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({ state }) => {
             {...provided.droppableProps}
           >
             <SelectMainKeyword />
+            {/* <button onClick={removeKeywordHelper}>TEsting remove</button> */}
             {/* {sortingOption === 'all' && <FragmentsPagination />} */}
 
             {state[0]

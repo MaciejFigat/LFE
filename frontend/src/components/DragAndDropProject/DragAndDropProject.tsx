@@ -59,7 +59,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
     (state) => state.preference.sortingKeywords
   )
 
-  const { keywordMain, keywordOne, keywordTwo } = sortingKeywords
+  const { keywordMain } = sortingKeywords
   const fragmentsKeywordOne: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordOne
   )
@@ -86,6 +86,14 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
     const sourceIndex = +source.droppableId
     const destinationIndex = +destination.droppableId
     // * reordering within the same array
+    //* this is how I access the fragment I just dropped
+    const droppedFragment: any = state[source.droppableId][source.index]
+    // const droppableId = destination.droppableId
+    const {
+      _id,
+      // keywords,
+      // keywordValue,
+    } = droppedFragment
 
     if (sourceIndex === destinationIndex) {
       const items = reorder(state[sourceIndex], source.index, destination.index)
@@ -94,6 +102,11 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       setState(newState)
     } else {
       if (destinationIndex === 0) {
+        const destinationZero = {
+          _id: _id,
+          keywordValue: [{ keyword: keywordMain, value: true, skip: true }],
+        }
+        dispatch(editSavedFragment(destinationZero))
         //! Here fragmentsSorted.keywordValue[0].skip: false
         //* I don't want to move anything to the 1st column
         return
@@ -101,19 +114,9 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
 
       //* HERE Begins section of adding keyword to fragment dragged
       // ? if destination index is 1 then I want to compare keywords[] of the fragment I'm moving keywords.includes(keywordOne) if it does I return, if it doesn't I add the keywordOne to keywords[] of dragged fragment
-      //* this is how I access the fragment I just dropped
-      const droppedFragment: any = state[source.droppableId][source.index]
-      // const droppableId = destination.droppableId
-      const {
-        _id,
-        keywords,
-        // keywordValue,
-      } = droppedFragment
 
       const newKeywordListOne = {
         _id: _id,
-
-        //keywords: [...keywords, keywordOne],
         keywordValue: [{ keyword: keywordMain, value: true, skip: false }],
         // keywordValue: [
         //   ...keywordValue,
@@ -122,8 +125,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       }
       const newKeywordListTwo = {
         _id: _id,
-
-        // keywords: [...keywords, keywordTwo],
         keywordValue: [{ keyword: keywordMain, value: false, skip: false }],
 
         // keywordValue: [
@@ -211,20 +212,32 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   }
 
   useEffect(() => {
-    if (fragmentsKeywordMain[0]?.keywordValue[0]?.value) {
+    if (
+      // fragmentsKeywordMain[0]?.keywordValue[0]?.skip !== undefined &&
+      // fragmentsKeywordMain[0]?.keywordValue[0]?.value !== undefined &&
+      fragmentsKeywordMain[0]?.keywordValue[0]?.value &&
+      fragmentsKeywordMain[0]?.keywordValue[0]?.hasOwnProperty('skip')
+      //* .hasOwnProperty('skip') checks whether an object has the property 'skip'
+    ) {
       const fragmentsSkipTrue = fragmentsKeywordMain.filter(
-        (fragmentsSorted) => fragmentsSorted.keywordValue[0].skip === true
+        (fragmentsSorted) =>
+          fragmentsSorted?.keywordValue[0]?.skip !== undefined &&
+          fragmentsSorted?.keywordValue[0]?.skip === true
       )
 
       const fragmentsValueTrue = fragmentsKeywordMain.filter(
         (fragmentsSorted) =>
-          fragmentsSorted.keywordValue[0].value === true &&
-          fragmentsSorted.keywordValue[0].skip === false
+          // fragmentsSorted?.keywordValue[0]?.skip !== undefined &&
+          // fragmentsSorted?.keywordValue[0]?.value !== undefined &&
+          fragmentsSorted?.keywordValue[0]?.value === true &&
+          fragmentsSorted?.keywordValue[0]?.skip === false
       )
       const fragmentsValueFalse = fragmentsKeywordMain.filter(
         (fragmentsSorted) =>
-          fragmentsSorted.keywordValue[0].value === false &&
-          fragmentsSorted.keywordValue[0].skip === false
+          // fragmentsSorted?.keywordValue[0]?.skip !== undefined &&
+          // fragmentsSorted?.keywordValue[0]?.value !== undefined &&
+          fragmentsSorted?.keywordValue[0]?.value === false &&
+          fragmentsSorted?.keywordValue[0]?.skip === false
       )
       setState([fragmentsSkipTrue, fragmentsValueTrue, fragmentsValueFalse])
     }

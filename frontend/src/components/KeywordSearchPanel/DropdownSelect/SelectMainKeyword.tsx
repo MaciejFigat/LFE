@@ -8,6 +8,11 @@ import {
   ListItem,
   Main,
 } from './DropdownSelect.styled'
+import {
+  deleteSavedFragment,
+  editSavedFragment,
+  // getUserFragments,
+} from '../../../features/fragments/fragmentSlice'
 import { sortingKeywordMainEdit } from '../../../features/preferences/preferenceSlice'
 import { updateUserFragmentsKeywordMain } from '../../../features/fragments/fragmentSlice'
 import { nanoid } from '@reduxjs/toolkit'
@@ -61,6 +66,28 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
     console.log(selectedMainKeyword)
   }, [fragments, dispatch, selectedMainKeyword])
 
+  const removeKeywordHelper = () => {
+    const fragmentsMatching = fragments?.filter(
+      (fragmentsSorted) =>
+        fragmentsSorted.keywords?.indexOf(selectedMainKeyword) >= 0 &&
+        fragmentsSorted.keywords.length === 2
+      // fragmentsSorted.keywords.length > 2
+    )
+    console.log(fragmentsMatching)
+    //! new BE controller needed for deleting multiple fragments
+    //* or for every fragment a loop dispatching deleteSavedFragment(id)
+    // dispatch(deleteSavedFragment(id))
+    //? if if fragment has only this keyword and keyword: '', then => delete fragment, if more keywords are present => delete the this keyword from said fragment )
+  }
+  const removeKeywordHelperTwo = () => {
+    const fragmentsMatching = fragments?.filter(
+      (fragmentsSorted) =>
+        fragmentsSorted.keywords?.indexOf(selectedMainKeyword) >= 0 &&
+        fragmentsSorted.keywords.length > 2
+    )
+    console.log(fragmentsMatching)
+  }
+
   return (
     <>
       <Main>
@@ -68,6 +95,12 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
           <DropDownHeader onClick={toggling}>
             {selectedMainKeyword || 'Select a keyword'}
           </DropDownHeader>
+          <button onClick={removeKeywordHelper}>
+            Remove fragment (k === 2)
+          </button>
+          <button onClick={removeKeywordHelperTwo}>
+            Remove keyword from keyword:[]
+          </button>
           {isOpen && (
             <DropDownListContainer>
               <DropDownList>
