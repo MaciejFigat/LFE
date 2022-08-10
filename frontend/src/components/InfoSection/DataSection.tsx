@@ -50,6 +50,7 @@ interface DataSectionProps {
   children?: ReactFragment
   buttonLink?: string
   buttonNavLink?: string
+  istota_interpretacji?: string
   paddingTop?: 'large' | 'small' | undefined
 }
 
@@ -62,6 +63,7 @@ const DataSection: React.FC<DataSectionProps> = ({
   imgStart,
   buttonLink,
   paddingTop,
+  istota_interpretacji,
 }) => {
   const dispatch = useAppDispatch()
   const visitedLinks: any[] = useAppSelector(
@@ -142,45 +144,29 @@ const DataSection: React.FC<DataSectionProps> = ({
             <InfoColumn>
               <TextWrapper>
                 {/* //? I filter fragments that start with ISTOTA INTERPRETACJI string. Since they are not 100% guaranteed they won't be always displayed, afterwards said string needs to be removed, here replaced with '' */}
-                {fragmentsFound.length > 0 &&
-                  fragmentsFound
-                    .filter((fragmentsSorted) =>
-                      fragmentsSorted.startsWith('ISTOTA INTERPRETACJI')
-                    )
-                    .map((fragment, index) => (
-                      <div key={Math.random()}>
-                        {' '}
-                        <TopLine variant={variant}>
-                          ISTOTA INTERPRETACJI:
-                        </TopLine>
-                        <Subtitle
-                          variant={variant}
-                          onClick={() => submitHandlerDocNr(index)}
-                        >
-                          {parse(fragment.replace('ISTOTA INTERPRETACJI', ''))}
-                        </Subtitle>
-                      </div>
-                    ))}
+                <div>
+                  <TopLine variant={variant}>ISTOTA INTERPRETACJI:</TopLine>
+                  <Subtitle
+                    variant={variant}
+                    onClick={() => submitHandlerDocNr(0)}
+                  >
+                    {istota_interpretacji}
+                  </Subtitle>
+                </div>
 
                 <TopLine variant={variant}>ZNALEZIONE FRAGMENTY:</TopLine>
                 {fragmentsFound.length > 0 &&
-                  fragmentsFound
-                    .filter(
-                      (fragmentsSorted) =>
-                        !fragmentsSorted.startsWith('ISTOTA INTERPRETACJI')
-                    )
-                    .map((fragment, index) => (
-                      <HighlightMarker
-                        key={Math.random()}
-                        mark={[query, highlightQuery]}
+                  fragmentsFound.map((fragment, index) => (
+                    <HighlightMarker
+                      key={Math.random()}
+                      mark={[query, highlightQuery]}
+                    >
+                      {' '}
+                      <Subtitle
+                        variant={variant}
+                        onClick={() => submitHandlerDocNr(index)}
                       >
-                        {' '}
-                        <Subtitle
-                          variant={variant}
-                          onClick={() => submitHandlerDocNr(index)}
-                        >
-                          (...){' '}
-                          {/* <Highlighter
+                        {/* <Highlighter
                           highlightClassName='highlightQuery'
                           searchWords={[highlightQuery]}
                           autoEscape={true}
@@ -188,11 +174,13 @@ const DataSection: React.FC<DataSectionProps> = ({
                             .replace('<em>', '')
                             .replace('</em>', '')}
                         /> */}
-                          (...)
-                          {parse(fragment)}
-                        </Subtitle>
-                      </HighlightMarker>
-                    ))}
+                        {/* (...) */}
+                        {/* {parse(fragment)} */}
+                        &bull;
+                        {parse(fragment.replace('ISTOTA INTERPRETACJI', ''))}
+                      </Subtitle>
+                    </HighlightMarker>
+                  ))}
               </TextWrapper>
             </InfoColumn>
           </InfoRow>

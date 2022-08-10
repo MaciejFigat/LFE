@@ -66,27 +66,6 @@ const Home: React.FC = () => {
   const helperFragmentSourceFilter = () => {
     let numbers: number[]
     switch (true) {
-      // case KrajowaInformacjaSkarbowa && !IzbaSkarbowa && !MinisterFinansów:
-      //   numbers = [7]
-      //   break
-      // case !KrajowaInformacjaSkarbowa && IzbaSkarbowa && !MinisterFinansów:
-      //   numbers = [8]
-      //   break
-      // case !KrajowaInformacjaSkarbowa && !IzbaSkarbowa && MinisterFinansów:
-      //   numbers = [3]
-      //   break
-      // case KrajowaInformacjaSkarbowa && IzbaSkarbowa && !MinisterFinansów:
-      //   numbers = [7, 8]
-      //   break
-      // case !KrajowaInformacjaSkarbowa && IzbaSkarbowa && MinisterFinansów:
-      //   numbers = [8, 3]
-      //   break
-      // case KrajowaInformacjaSkarbowa && !IzbaSkarbowa && MinisterFinansów:
-      //   numbers = [7, 3]
-      //   break
-      // case !KrajowaInformacjaSkarbowa && !IzbaSkarbowa && !MinisterFinansów:
-      //   numbers = []
-      //   break
       case KrajowaInformacjaSkarbowa && !IzbaSkarbowa && !MinisterFinansów:
         numbers = [7]
         break
@@ -152,6 +131,7 @@ const Home: React.FC = () => {
                       imgStart
                       fragmentsFound={fragmentArray.fragment}
                       metryka={fragmentArray.metryka}
+                      istota_interpretacji={fragmentArray.istota_interpretacji}
                       query={queryTrimmed}
                     />
                   ))}
