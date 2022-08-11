@@ -50,7 +50,13 @@ interface AnimatedSavedItemProps {
   keywords: string[]
   simpleView?: boolean
   setSimpleView?: Dispatch<SetStateAction<boolean>>
-  keywordValue: { keyword: string; value: boolean }[]
+  keywordValue: {
+    keyword: string
+    value: boolean
+    labelOne: string
+    labelTwo: string
+    skip: boolean
+  }[]
 }
 
 const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
@@ -64,7 +70,7 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
   keywords,
   setSimpleView,
   simpleView,
-  // keywordValue,
+  keywordValue,
 }) => {
   const dispatch: any = useAppDispatch()
   const successUpdate: boolean = useAppSelector(
@@ -267,7 +273,11 @@ const AnimatedSavedItem: React.FC<AnimatedSavedItemProps> = ({
             <FragmentB>source:&nbsp;</FragmentB>
             {source}
           </DatePar>
-          <KeywordEditing keywords={keywords} id={id} />
+          <KeywordEditing
+            keywords={keywords}
+            keywordValue={keywordValue}
+            id={id}
+          />
           {/* //todo excerpt editing/display below */}
           <ListRow as={motion.div} layout>
             <ListTitleContainer as={motion.div} layout>

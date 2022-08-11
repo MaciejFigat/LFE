@@ -12,7 +12,13 @@ interface AnimatedSavedItemWrapperProps {
   coordinates: string
   updatedAt: string
   keywords: string[]
-  keywordValue: { keyword: string; value: boolean }[]
+  keywordValue: {
+    keyword: string
+    value: boolean
+    labelOne: string
+    labelTwo: string
+    skip: boolean
+  }[]
 }
 
 const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({

@@ -104,7 +104,16 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       if (destinationIndex === 0) {
         const destinationZero = {
           _id: _id,
-          keywordValue: [{ keyword: keywordMain, value: true, skip: true }],
+          // keywordValue: [{ keyword: keywordMain, value: true, skip: true }],
+          keywordValue: [
+            {
+              keyword: keywordMain,
+              labelOne: 'pro',
+              labelTwo: 'contra',
+              value: true,
+              skip: true,
+            },
+          ],
         }
         dispatch(editSavedFragment(destinationZero))
         //! Here fragmentsSorted.keywordValue[0].skip: false
@@ -117,7 +126,15 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
 
       const newKeywordListOne = {
         _id: _id,
-        keywordValue: [{ keyword: keywordMain, value: true, skip: false }],
+        keywordValue: [
+          {
+            keyword: keywordMain,
+            value: true,
+            labelOne: 'pro',
+            labelTwo: 'contra',
+            skip: false,
+          },
+        ],
         // keywordValue: [
         //   ...keywordValue,
         //   { keyword: keywordOne, value: true, skip: true },
@@ -125,7 +142,15 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       }
       const newKeywordListTwo = {
         _id: _id,
-        keywordValue: [{ keyword: keywordMain, value: false, skip: false }],
+        keywordValue: [
+          {
+            keyword: keywordMain,
+            labelOne: 'pro',
+            labelTwo: 'contra',
+            value: false,
+            skip: false,
+          },
+        ],
 
         // keywordValue: [
         //   ...keywordValue,
@@ -161,7 +186,15 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
         //   ...keywords.filter((keyword: string) => keyword !== keywordOne),
         //   keywordTwo,
         // ],
-        keywordValue: [{ keyword: keywordMain, value: false, skip: false }],
+        keywordValue: [
+          {
+            keyword: keywordMain,
+            labelOne: 'pro',
+            labelTwo: 'contra',
+            value: false,
+            skip: false,
+          },
+        ],
       }
       const newKeywordListWithoutTwo = {
         _id: _id,
@@ -169,7 +202,15 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
         //   ...keywords.filter((keyword: string) => keyword !== keywordTwo),
         //   keywordOne,
         // ],
-        keywordValue: [{ keyword: keywordMain, value: true, skip: false }],
+        keywordValue: [
+          {
+            keyword: keywordMain,
+            labelOne: 'pro',
+            labelTwo: 'contra',
+            value: true,
+            skip: false,
+          },
+        ],
       }
 
       if (

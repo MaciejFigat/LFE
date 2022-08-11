@@ -18,13 +18,27 @@ import { FragmentB } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.sty
 interface KeywordEditingProps {
   keywords: string[]
   id: string
+  keywordValue: {
+    keyword: string
+    value: boolean
+    labelOne: string
+    labelTwo: string
+    skip: boolean
+  }[]
 }
 
-const KeywordEditing: React.FC<KeywordEditingProps> = ({ keywords, id }) => {
+const KeywordEditing: React.FC<KeywordEditingProps> = ({
+  keywords,
+  id,
+  keywordValue: keywordValueProps,
+}) => {
   const dispatch: any = useAppDispatch()
 
   const [keywordEditing, setKeywordEditing] = useState(false)
   const [keywordValue, setKeywordValue] = useState<string>('')
+  const [keywordValuePropsFiltered, setKeywordValuePropsFiltered] = useState<
+    any[]
+  >([])
   const [prevKeywordValue, setPrevKeywordValue] = useState<string>('')
   const [keywordArr, setKeywordArr] = useState<string[]>(keywords)
   const [sameContents, setSameContents] = useState<boolean>()
@@ -32,6 +46,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({ keywords, id }) => {
   const newKeywordList = {
     _id: id,
     keywords: keywordArr,
+    keywordValue: keywordValuePropsFiltered,
   }
 
   const editKeywordHandler = (keyword: string, index: number) => {
@@ -55,6 +70,16 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({ keywords, id }) => {
         )
         setKeywordArr(() => [...filteredArr, keywordValue])
       } else if (prevKeywordValue === '' && keywordArr) {
+        setKeywordValuePropsFiltered([
+          ...keywordValueProps,
+          {
+            keyword: keywordValue,
+            value: true,
+            labelOne: 'pro',
+            labelTwo: 'contra',
+            skip: true,
+          },
+        ])
         setKeywordArr((keywordArr) => [...keywordArr, keywordValue])
       }
     }
@@ -65,6 +90,13 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({ keywords, id }) => {
 
   const deleteKeywordHandler = () => {
     let filteredArr = keywordArr.filter((keyword) => keyword !== keywordValue)
+    setKeywordValuePropsFiltered([
+      ...keywordValueProps.filter(
+        (keywordObject) =>
+          // keywordObject.keyword !== keywordValue || keywordObject.keyword === ''
+          keywordObject.keyword !== keywordValue
+      ),
+    ])
     setKeywordArr(() => filteredArr)
     setKeywordEditing(!keywordEditing)
   }
