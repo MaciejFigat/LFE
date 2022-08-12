@@ -39,15 +39,13 @@ const getListStyle = (isDraggingOver: any) => ({
   minWidth: '100%',
 })
 const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({ state }) => {
-  // const preference: any = useAppSelector((state) => state.preference)
-  // const { sortingOption } = preference
   const savedFragmentsPage: any = useAppSelector(
     (state) => state.preference.savedFragmentsPage
   )
   const { start, end } = savedFragmentsPage
-  // const testHandler = () => {
-  //   console.log(state)
-  // }
+  const testHandler = () => {
+    console.log(state[0])
+  }
   // const removeKeywordHelper = () => {
   //   console.log('object')
   // }
@@ -63,6 +61,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({ state }) => {
           >
             <SelectMainKeyword />
             {/* <button onClick={removeKeywordHelper}>TEsting remove</button> */}
+            <button onClick={testHandler}>TEsting state</button>
             {/* {sortingOption === 'all' && <FragmentsPagination />} */}
 
             {state[0]

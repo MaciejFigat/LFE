@@ -135,10 +135,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
             skip: false,
           },
         ],
-        // keywordValue: [
-        //   ...keywordValue,
-        //   { keyword: keywordOne, value: true, skip: true },
-        // ],
       }
       const newKeywordListTwo = {
         _id: _id,
@@ -151,11 +147,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
             skip: false,
           },
         ],
-
-        // keywordValue: [
-        //   ...keywordValue,
-        //   { keyword: keywordOne, value: false, skip: true },
-        // ],
       }
 
       // //todo move from 0 to 1 and does not include k1
@@ -182,10 +173,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       //? if (sourceIndex ===1 || sourceIndex ===2 ) { remove }
       const newKeywordListWithoutOne = {
         _id: _id,
-        // keywords: [
-        //   ...keywords.filter((keyword: string) => keyword !== keywordOne),
-        //   keywordTwo,
-        // ],
+
         keywordValue: [
           {
             keyword: keywordMain,
@@ -198,10 +186,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       }
       const newKeywordListWithoutTwo = {
         _id: _id,
-        // keywords: [
-        //   ...keywords.filter((keyword: string) => keyword !== keywordTwo),
-        //   keywordOne,
-        // ],
+
         keywordValue: [
           {
             keyword: keywordMain,
@@ -252,37 +237,71 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
     }
   }
 
+  // useEffect(() => {
+  //   if (
+  //     fragmentsKeywordMain[0]?.keywordValue[0]?.value &&
+  //     fragmentsKeywordMain[0]?.keywordValue[0]?.hasOwnProperty('skip')
+  //     //* .hasOwnProperty('skip') checks whether an object has the property 'skip'
+  //   ) {
+  //     const fragmentsSkipTrue = fragmentsKeywordMain.filter(
+  //       (fragmentsSorted) =>
+  //         fragmentsSorted?.keywordValue[0]?.skip !== undefined &&
+  //         fragmentsSorted?.keywordValue[0]?.skip === true
+  //     )
+
+  //     const fragmentsValueTrue = fragmentsKeywordMain.filter(
+  //       (fragmentsSorted) =>
+  //         fragmentsSorted?.keywordValue[0]?.value === true &&
+  //         fragmentsSorted?.keywordValue[0]?.skip === false
+  //     )
+  //     const fragmentsValueFalse = fragmentsKeywordMain.filter(
+  //       (fragmentsSorted) =>
+  //         fragmentsSorted?.keywordValue[0]?.value === false &&
+  //         fragmentsSorted?.keywordValue[0]?.skip === false
+  //     )
+  //     setState([fragmentsSkipTrue, fragmentsValueTrue, fragmentsValueFalse])
+  //   }
+  // }, [fragmentsKeywordMain, fragments])
   useEffect(() => {
     if (
-      // fragmentsKeywordMain[0]?.keywordValue[0]?.skip !== undefined &&
-      // fragmentsKeywordMain[0]?.keywordValue[0]?.value !== undefined &&
       fragmentsKeywordMain[0]?.keywordValue[0]?.value &&
       fragmentsKeywordMain[0]?.keywordValue[0]?.hasOwnProperty('skip')
       //* .hasOwnProperty('skip') checks whether an object has the property 'skip'
     ) {
       const fragmentsSkipTrue = fragmentsKeywordMain.filter(
-        (fragmentsSorted) =>
-          fragmentsSorted?.keywordValue[0]?.skip !== undefined &&
-          fragmentsSorted?.keywordValue[0]?.skip === true
+        (filteredFragment) =>
+          filteredFragment.keywordValue.find(
+            (keywordSearched: any) =>
+              keywordSearched.keyword === keywordMain &&
+              keywordSearched?.skip !== undefined &&
+              keywordSearched.skip === true
+          )
       )
 
       const fragmentsValueTrue = fragmentsKeywordMain.filter(
-        (fragmentsSorted) =>
-          // fragmentsSorted?.keywordValue[0]?.skip !== undefined &&
-          // fragmentsSorted?.keywordValue[0]?.value !== undefined &&
-          fragmentsSorted?.keywordValue[0]?.value === true &&
-          fragmentsSorted?.keywordValue[0]?.skip === false
+        (filteredFragment) =>
+          filteredFragment.keywordValue.find(
+            (keywordSearched: any) =>
+              keywordSearched.keyword === keywordMain &&
+              keywordSearched?.skip !== undefined &&
+              keywordSearched.skip === false &&
+              keywordSearched.value === true
+          )
       )
       const fragmentsValueFalse = fragmentsKeywordMain.filter(
-        (fragmentsSorted) =>
-          // fragmentsSorted?.keywordValue[0]?.skip !== undefined &&
-          // fragmentsSorted?.keywordValue[0]?.value !== undefined &&
-          fragmentsSorted?.keywordValue[0]?.value === false &&
-          fragmentsSorted?.keywordValue[0]?.skip === false
+        (filteredFragment) =>
+          filteredFragment.keywordValue.find(
+            (keywordSearched: any) =>
+              keywordSearched.keyword === keywordMain &&
+              keywordSearched?.skip !== undefined &&
+              keywordSearched.skip === false &&
+              keywordSearched.value === true
+          )
       )
+
       setState([fragmentsSkipTrue, fragmentsValueTrue, fragmentsValueFalse])
     }
-  }, [fragmentsKeywordMain, fragments])
+  }, [fragmentsKeywordMain, fragments, keywordMain])
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
