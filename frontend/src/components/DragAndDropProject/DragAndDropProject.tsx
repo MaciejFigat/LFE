@@ -66,7 +66,8 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   const fragmentsKeywordTwo: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordTwo
   )
-
+  const [labelOneState, setLabelOneState] = useState()
+  const [labelTwoState, setLabelTwoState] = useState()
   const [state, setState] = useState([
     fragments,
     fragmentsKeywordOne,
@@ -198,22 +199,11 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
         ],
       }
 
-      if (
-        sourceIndex === 1 &&
-        destinationIndex === 2
-        // destinationIndex === 2 &&
-        // // * keywordOne is in
-        // !keywords.includes(keywordTwo)
-      ) {
-        //* from 1 to 2 and there is no keyword2 in 1
+      if (sourceIndex === 1 && destinationIndex === 2) {
+        //* from 1 to 2
         dispatch(editSavedFragment(newKeywordListWithoutOne))
-      } else if (
-        sourceIndex === 2 &&
-        destinationIndex === 1
-        // destinationIndex === 1 &&
-        // !keywords.includes(keywordOne)
-      ) {
-        //* from 2 to 1 and there is no keyword1 in 2
+      } else if (sourceIndex === 2 && destinationIndex === 1) {
+        //* from 2 to 1
 
         dispatch(editSavedFragment(newKeywordListWithoutTwo))
       }
@@ -237,37 +227,8 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
     }
   }
 
-  // useEffect(() => {
-  //   if (
-  //     fragmentsKeywordMain[0]?.keywordValue[0]?.value &&
-  //     fragmentsKeywordMain[0]?.keywordValue[0]?.hasOwnProperty('skip')
-  //     //* .hasOwnProperty('skip') checks whether an object has the property 'skip'
-  //   ) {
-  //     const fragmentsSkipTrue = fragmentsKeywordMain.filter(
-  //       (fragmentsSorted) =>
-  //         fragmentsSorted?.keywordValue[0]?.skip !== undefined &&
-  //         fragmentsSorted?.keywordValue[0]?.skip === true
-  //     )
-
-  //     const fragmentsValueTrue = fragmentsKeywordMain.filter(
-  //       (fragmentsSorted) =>
-  //         fragmentsSorted?.keywordValue[0]?.value === true &&
-  //         fragmentsSorted?.keywordValue[0]?.skip === false
-  //     )
-  //     const fragmentsValueFalse = fragmentsKeywordMain.filter(
-  //       (fragmentsSorted) =>
-  //         fragmentsSorted?.keywordValue[0]?.value === false &&
-  //         fragmentsSorted?.keywordValue[0]?.skip === false
-  //     )
-  //     setState([fragmentsSkipTrue, fragmentsValueTrue, fragmentsValueFalse])
-  //   }
-  // }, [fragmentsKeywordMain, fragments])
   useEffect(() => {
-    if (
-      fragmentsKeywordMain[0]?.keywordValue[0]?.value &&
-      fragmentsKeywordMain[0]?.keywordValue[0]?.hasOwnProperty('skip')
-      //* .hasOwnProperty('skip') checks whether an object has the property 'skip'
-    ) {
+    if (fragmentsKeywordMain) {
       const fragmentsSkipTrue = fragmentsKeywordMain.filter(
         (filteredFragment) =>
           filteredFragment.keywordValue.find(
@@ -300,6 +261,8 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       )
 
       setState([fragmentsSkipTrue, fragmentsValueTrue, fragmentsValueFalse])
+      setLabelOneState(fragmentsSkipTrue[0]?.keywordValue[0].labelOne)
+      setLabelTwoState(fragmentsSkipTrue[0]?.keywordValue[0].labelTwo)
     }
   }, [fragmentsKeywordMain, fragments, keywordMain])
 
@@ -309,7 +272,14 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
         transparent
         wideSection={<FirstColumnProject state={state} />}
         // ! 2nd 3rd columns
-        narrowSection={<SecondAndThirdColProject state={state} />}
+        narrowSection={
+          <SecondAndThirdColProject
+            labelOne={labelOneState}
+            // labelOne='helllo'
+            labelTwo={labelTwoState}
+            state={state}
+          />
+        }
       />
     </DragDropContext>
   )

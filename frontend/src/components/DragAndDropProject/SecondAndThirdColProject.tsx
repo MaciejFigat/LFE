@@ -9,7 +9,6 @@ import {
   KeywordSearchContainer,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-// import DropdownSelect from '../KeywordSearchPanel/DropdownSelect/DropdownSelect'
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   userSelect: 'none',
@@ -33,10 +32,14 @@ const getListStyle = (isDraggingOver: any) => ({
 })
 interface SecondAndThirdColProjectProps {
   state: any[]
+  labelOne?: string
+  labelTwo?: string
 }
 
 const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
   state,
+  labelOne,
+  labelTwo,
 }) => {
   return (
     <KeywordColumnContainer>
@@ -49,8 +52,8 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
               style={getListStyle(snapshot.isDraggingOver)}
               {...provided.droppableProps}
             >
-              {ind === 0 && <h3>Arguments for:</h3>}
-              {ind === 1 && <h3>Arguments against:</h3>}
+              {ind === 0 && <h3>{labelOne ?? 'For'}</h3>}
+              {ind === 1 && <h3>{labelTwo ?? 'Against'} </h3>}
 
               {el.map((fragment: any, index: number) => (
                 <Draggable

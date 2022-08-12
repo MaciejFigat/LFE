@@ -10,8 +10,6 @@ import {
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { useAppSelector } from '../../app/reduxHooks'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-// import FilterWrapper from '../FragmentsColumn/FilterWrapper/FilterWrapper'
-// import FragmentsPagination from '../Pagination/FragmentsPagination'
 import SelectMainKeyword from '../KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
 
 interface FirstColumnProjectProps {
@@ -43,9 +41,9 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({ state }) => {
     (state) => state.preference.savedFragmentsPage
   )
   const { start, end } = savedFragmentsPage
-  const testHandler = () => {
-    console.log(state[0])
-  }
+  // const testHandler = () => {
+  //   console.log(state[0])
+  // }
   // const removeKeywordHelper = () => {
   //   console.log('object')
   // }
@@ -61,8 +59,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({ state }) => {
           >
             <SelectMainKeyword />
             {/* <button onClick={removeKeywordHelper}>TEsting remove</button> */}
-            <button onClick={testHandler}>TEsting state</button>
-            {/* {sortingOption === 'all' && <FragmentsPagination />} */}
+            {/* <button onClick={testHandler}>TEsting state</button> */}
 
             {state[0]
               .slice(start, end + 1)
