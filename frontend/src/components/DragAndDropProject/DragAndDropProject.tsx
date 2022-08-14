@@ -70,6 +70,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   const [labelTwoState, setLabelTwoState] = useState()
   const [state, setState] = useState([
     fragments,
+    // fragmentsKeywordMain,
     fragmentsKeywordOne,
     fragmentsKeywordTwo,
   ])

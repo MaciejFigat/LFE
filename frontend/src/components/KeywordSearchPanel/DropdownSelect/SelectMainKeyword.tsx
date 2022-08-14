@@ -67,45 +67,6 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
     console.log(selectedMainKeyword)
   }, [fragments, dispatch, selectedMainKeyword])
 
-  // todo delete if there is only one keyword and '' from initial state or only one keyword (edited '')
-  // const removeKeywordHelper = () => {
-  //   const fragmentsMatching = fragments?.filter(
-  //     (fragmentsSorted) =>
-  //       fragmentsSorted.keywords?.indexOf(selectedMainKeyword) >= 0 &&
-  //       (fragmentsSorted.keywords.length === 2 ||
-  //         fragmentsSorted.keywords.length === 1)
-  //     //* Some fragments after I edit a '' keyword will have length === 1
-  //   )
-  //   console.log(fragmentsMatching)
-  //   fragmentsMatching.map((fragment) =>
-  //     dispatch(deleteSavedFragment(fragment._id))
-  //   )
-  // dispatch(deleteSavedFragment(id))
-  //! new BE controller needed for deleting multiple fragments
-  //* or for every fragment a loop dispatching deleteSavedFragment(id)
-  // dispatch(deleteSavedFragment(id))
-  //? if if fragment has only this keyword and keyword: '', then => delete fragment, if more keywords are present => delete the this keyword from said fragment )
-  // }
-  // const removeKeywordHelperTwo = () => {
-  //   const fragmentsMatching: any = fragments
-  //     ?.filter(
-  //       (fragmentsSorted) =>
-  //         fragmentsSorted.keywords?.indexOf(selectedMainKeyword) >= 0 &&
-  //         fragmentsSorted.keywords.length > 2
-  //     )
-  //     .map((fragment) =>
-  //       dispatch(
-  //         editSavedFragment({
-  //           _id: fragment._id,
-  //           keywords: fragment?.keywords?.filter(
-  //             (keyword: string) => keyword !== selectedMainKeyword
-  //           ),
-  //         })
-  //       )
-  //     )
-
-  //   console.log(fragmentsMatching)
-  // }
   const removeKeywordHelperUltimate = () => {
     const fragmentsMatching = fragments?.filter(
       (fragmentsSorted) =>

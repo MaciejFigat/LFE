@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import {
   FragmentB,
   FragmentDivSmall,
@@ -9,6 +11,7 @@ import {
   KeywordSearchContainer,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
+import LabelInput from './LabelInput/LabelInput'
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   userSelect: 'none',
@@ -41,6 +44,29 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
   labelOne,
   labelTwo,
 }) => {
+  //? part for saving changes in the db and redux
+
+  // const dispatch: any = useAppDispatch()
+  // const fragments: any[] = useAppSelector(
+  //   (state) => state.fragment.userFragments
+  // )
+  // const sortingKeywords = useAppSelector(
+  //   (state) => state.preference.sortingKeywords
+  // )
+  // const { keywordMain } = sortingKeywords
+
+  //? end of db and redux part
+
+  const [inputOneEditing, setInputOneEditing] = useState(false)
+  const [inputTwoEditing, setInputTwoEditing] = useState(false)
+  const [labelOneState, setLabelOneState] = useState(labelOne)
+  const [labelTwoState, setLabelTwoState] = useState(labelTwo)
+
+  useEffect(() => {
+    setLabelOneState(labelOne)
+    setLabelTwoState(labelTwo)
+  }, [labelOne, labelTwo])
+
   return (
     <KeywordColumnContainer>
       {state.slice(1).map((el, ind) => (
@@ -52,8 +78,33 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
               style={getListStyle(snapshot.isDraggingOver)}
               {...provided.droppableProps}
             >
-              {ind === 0 && <h3>{labelOne ?? 'For'}</h3>}
-              {ind === 1 && <h3>{labelTwo ?? 'Against'} </h3>}
+              {ind === 0 && (
+                <h3>
+                  {
+                    <LabelInput
+                      labelNrOne
+                      editing={inputOneEditing}
+                      setEditing={setInputOneEditing}
+                      label={labelOneState ?? ''}
+                      labelRedux={labelOne ?? ''}
+                      setLabel={setLabelOneState}
+                    />
+                  }
+                </h3>
+              )}
+              {ind === 1 && (
+                <h3>
+                  {
+                    <LabelInput
+                      editing={inputTwoEditing}
+                      setEditing={setInputTwoEditing}
+                      label={labelTwoState ?? ''}
+                      labelRedux={labelTwo ?? ''}
+                      setLabel={setLabelTwoState}
+                    />
+                  }
+                </h3>
+              )}
 
               {el.map((fragment: any, index: number) => (
                 <Draggable
