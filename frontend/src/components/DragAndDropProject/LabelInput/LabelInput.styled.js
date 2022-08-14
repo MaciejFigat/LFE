@@ -7,7 +7,7 @@ export const TitleAnimated = styled(motion.div)`
   flex-direction: row;
   align-items: center;
   word-break: break-all;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
 
   min-width: 250px;
@@ -55,14 +55,12 @@ export const TitleInput = styled(motion.input)`
   font-size: inherit;
   font-family: inherit;
 `
-export const ListTitleContainer = styled(motion.div)`
+export const HorizontalButtonContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  /* align-items: center; */
+
   min-height: min-content;
-`
-export const HorizontalButtonContainer = styled(ListTitleContainer)`
   align-items: flex-start;
   justify-content: flex-end;
   margin-bottom: 0;

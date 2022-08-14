@@ -91,11 +91,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
     //* this is how I access the fragment I just dropped
     const droppedFragment: any = state[source.droppableId][source.index]
     // const droppableId = destination.droppableId
-    const {
-      _id,
-      // keywords,
-      // keywordValue,
-    } = droppedFragment
+    const { _id } = droppedFragment
 
     if (sourceIndex === destinationIndex) {
       const items = reorder(state[sourceIndex], source.index, destination.index)
@@ -106,7 +102,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       if (destinationIndex === 0) {
         const destinationZero = {
           _id: _id,
-          // keywordValue: [{ keyword: keywordMain, value: true, skip: true }],
           keywordValue: [
             {
               keyword: keywordMain,
@@ -119,12 +114,11 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
         }
         dispatch(editSavedFragment(destinationZero))
         //! Here fragmentsSorted.keywordValue[0].skip: false
-        //* I don't want to move anything to the 1st column
+
         return
       }
 
       //* HERE Begins section of adding keyword to fragment dragged
-      // ? if destination index is 1 then I want to compare keywords[] of the fragment I'm moving keywords.includes(keywordOne) if it does I return, if it doesn't I add the keywordOne to keywords[] of dragged fragment
 
       const newKeywordListOne = {
         _id: _id,
@@ -151,26 +145,14 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
         ],
       }
 
-      // //todo move from 0 to 1 and does not include k1
-      if (
-        sourceIndex === 0 &&
-        destinationIndex === 1
-        // destinationIndex === 1 &&
-        // !keywords.includes(keywordOne)
-      ) {
+      // //todo move from 0 to 1
+      if (sourceIndex === 0 && destinationIndex === 1) {
         dispatch(editSavedFragment(newKeywordListOne))
       }
-      //todo move from 0 to 2 and does not include k2
-      if (
-        sourceIndex === 0 &&
-        destinationIndex === 2
-        // destinationIndex === 2 &&
-        // !keywords.includes(keywordTwo)
-      ) {
+      //todo move from 0 to 2
+      if (sourceIndex === 0 && destinationIndex === 2) {
         dispatch(editSavedFragment(newKeywordListTwo))
       }
-
-      //* HERE Begins section responsible for moving/removing keywords between column[1] column[2]
 
       //? if (sourceIndex ===1 || sourceIndex ===2 ) { remove }
       const newKeywordListWithoutOne = {
@@ -188,7 +170,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       }
       const newKeywordListWithoutTwo = {
         _id: _id,
-
         keywordValue: [
           {
             keyword: keywordMain,
@@ -208,8 +189,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
 
         dispatch(editSavedFragment(newKeywordListWithoutTwo))
       }
-
-      //* END of removing keywords
 
       const result = move(
         state[sourceIndex],
@@ -276,7 +255,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
         narrowSection={
           <SecondAndThirdColProject
             labelOne={labelOneState}
-            // labelOne='helllo'
             labelTwo={labelTwoState}
             state={state}
           />

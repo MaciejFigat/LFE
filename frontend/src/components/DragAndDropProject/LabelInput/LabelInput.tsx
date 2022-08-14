@@ -3,7 +3,11 @@ import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { editSavedFragment } from '../../../features/fragments/fragmentSlice'
 import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
 import SvgIcon from '../../SvgIcon/SvgIcon'
-import { HorizontalButtonContainer, TitleInput } from './LabelInput.styled'
+import {
+  HorizontalButtonContainer,
+  TitleAnimated,
+  TitleInput,
+} from './LabelInput.styled'
 
 interface LabelInputProps {
   labelNrOne?: boolean
@@ -51,9 +55,9 @@ const LabelInput: React.FC<LabelInputProps> = ({
     }
   }
   const saveInputLabelHelper = () => {
-    // if (setEditing !== undefined) {
-    //   setEditing(!editing)
-    // }
+    if (setEditing !== undefined) {
+      setEditing(!editing)
+    }
 
     for (let i = 0; i < fragmentsKeywordMain.length; i++) {
       if (fragmentsKeywordMain[i].keywordValue.keyword === keywordMain) {
@@ -62,7 +66,7 @@ const LabelInput: React.FC<LabelInputProps> = ({
       const foundArr = fragmentsKeywordMain[i].keywordValue.find(
         (keywordSearched: any) => keywordSearched.keyword === keywordMain
       )
-      // const foundArr = fragmentsKeywordMain[i].keywordMain.keyword.find(keyword:any => keywordMain);
+
       const fragEdited = {
         _id: fragmentsKeywordMain[i]._id,
         keywordValue: [
@@ -97,15 +101,17 @@ const LabelInput: React.FC<LabelInputProps> = ({
           >
             <SvgIcon variant='back' toBottom contentAfter='wróć' />
           </SendButtonVerySmall>
-          <SendButtonVerySmall
-            variant='successEmpty'
-            onClick={saveInputLabelHelper}
-          >
-            <SvgIcon variant='save' toBottom contentAfter='zapisz' />
-          </SendButtonVerySmall>
+          {labelRedux !== label && (
+            <SendButtonVerySmall
+              variant='successEmpty'
+              onClick={saveInputLabelHelper}
+            >
+              <SvgIcon variant='save' toBottom contentAfter='zapisz' />
+            </SendButtonVerySmall>
+          )}
         </HorizontalButtonContainer>
       ) : (
-        <div onClick={editingHelper}> {label}</div>
+        <TitleAnimated onClick={editingHelper}> {label}</TitleAnimated>
       )}
     </>
   )
