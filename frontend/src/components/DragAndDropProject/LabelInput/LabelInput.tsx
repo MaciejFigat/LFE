@@ -86,11 +86,14 @@ const LabelInput: React.FC<LabelInputProps> = ({
   return (
     <>
       {editing ? (
-        <HorizontalButtonContainer>
+        <HorizontalButtonContainer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
           <TitleInput
             type='title'
             name='title'
-            // layout
             placeholder='new title'
             value={label}
             onChange={(e: any) => setLabelHelper(e.target.value)}
@@ -111,7 +114,15 @@ const LabelInput: React.FC<LabelInputProps> = ({
           )}
         </HorizontalButtonContainer>
       ) : (
-        <TitleAnimated onClick={editingHelper}> {label}</TitleAnimated>
+        <TitleAnimated
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={editingHelper}
+        >
+          {' '}
+          {label}
+        </TitleAnimated>
       )}
     </>
   )

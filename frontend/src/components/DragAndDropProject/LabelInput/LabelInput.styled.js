@@ -9,7 +9,7 @@ export const TitleAnimated = styled(motion.div)`
   word-break: break-all;
   justify-content: center;
   width: 100%;
-
+  min-height: 30px;
   min-width: 250px;
   /* font-weight: 400; */
   @media (max-width: 1020px) {
@@ -59,7 +59,7 @@ export const HorizontalButtonContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
   /* align-items: center; */
-
+  min-width: 250px;
   min-height: min-content;
   align-items: flex-start;
   justify-content: flex-end;
