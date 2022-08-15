@@ -29,10 +29,14 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
   const keywordMain = useAppSelector(
     (state) => state.preference.sortingKeywords.keywordMain
   )
+  const fragmentsKeywordMain: any[] = useAppSelector(
+    (state) => state.fragment.fragmentsKeywordMain
+  )
 
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
   )
+
   const keywordsAll = fragments
     ?.map((fragment) => fragment.keywords?.map((keyword: string) => keyword))
     .flat()
@@ -54,7 +58,6 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
     setKeywordEditing((keywordEditing) => !keywordEditing)
   }
   const editingNewHandler = () => {
-    // onOptionClicked('')
     setSelectedMainKeyword('')
     setKeywordEditing((keywordEditing) => !keywordEditing)
   }
@@ -87,6 +90,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
       .map((el) => ({ ...el, nanoId: nanoid() }))
     if (selectedMainKeyword === '') {
       dispatch(updateUserFragmentsKeywordMain(fragmentsNoName))
+      console.log(fragmentsNoName)
     }
   }, [fragments, dispatch, selectedMainKeyword])
 
@@ -112,6 +116,45 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
           )
         )
       }
+    }
+  }
+
+  const saveNewKeywordHelper = () => {
+    setKeywordEditing((keywordEditing) => !keywordEditing)
+    for (let i = 0; i < fragmentsKeywordMain.length; i++) {
+      // const fragEdited = {
+      //   _id: fragmentsKeywordMain[i]._id,
+      //   keywords: [newKeyword],
+      //   keywordValue: {
+      //     keyword: newKeyword,
+      //     labelOne: fragmentsKeywordMain[i].labelOne,
+      //     labelTwo: fragmentsKeywordMain[i].labelTwo,
+      //     value: fragmentsKeywordMain[i].value,
+      //     skip: fragmentsKeywordMain[i].skip,
+      //   },
+      // }
+      // // @ts-ignore
+      // dispatch(editSavedFragment(fragEdited))
+      const fragEdited = {
+        _id: fragmentsKeywordMain[i]._id,
+        keywords: [newKeyword],
+        keywordValue: [
+          {
+            keyword: newKeyword,
+            labelOne: fragmentsKeywordMain[i].labelOne ?? 'pro',
+            labelTwo: fragmentsKeywordMain[i].labelTwo ?? 'contra',
+            value: fragmentsKeywordMain[i].value ?? true,
+            skip: fragmentsKeywordMain[i].skip ?? true,
+            // labelOne: 'pro',
+            // labelTwo: 'contra',
+            // value: true,
+            // skip: true,
+          },
+        ],
+      }
+
+      dispatch(editSavedFragment(fragEdited))
+      console.log(fragmentsKeywordMain[i].keywords)
     }
   }
   return (
@@ -188,7 +231,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
 
                 <SendButtonVerySmall
                   variant='successEmpty'
-                  // onClick={'editingHandler'}
+                  onClick={saveNewKeywordHelper}
                 >
                   <SvgIcon variant='save' toBottom contentAfter='zapisz' />
                 </SendButtonVerySmall>

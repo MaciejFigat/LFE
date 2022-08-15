@@ -40,7 +40,7 @@ const LabelInput: React.FC<LabelInputProps> = ({
 
   const editingHelper = () => {
     if (editing !== undefined && setEditing !== undefined) {
-      setEditing(!editing)
+      setEditing((editing) => !editing)
     }
   }
   const setLabelHelper = (value: string) => {
@@ -51,12 +51,12 @@ const LabelInput: React.FC<LabelInputProps> = ({
   const resetLabelHelper = () => {
     if (setLabel !== undefined && setEditing !== undefined) {
       setLabel(labelRedux)
-      setEditing(!editing)
+      setEditing((editing) => !editing)
     }
   }
   const saveInputLabelHelper = () => {
     if (setEditing !== undefined) {
-      setEditing(!editing)
+      setEditing((editing) => !editing)
     }
 
     for (let i = 0; i < fragmentsKeywordMain.length; i++) {
