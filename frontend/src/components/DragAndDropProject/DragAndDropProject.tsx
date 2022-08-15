@@ -66,8 +66,8 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   const fragmentsKeywordTwo: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordTwo
   )
-  const [labelOneState, setLabelOneState] = useState()
-  const [labelTwoState, setLabelTwoState] = useState()
+  const [labelOneState, setLabelOneState] = useState<string | undefined>()
+  const [labelTwoState, setLabelTwoState] = useState<string | undefined>()
   const [state, setState] = useState([
     fragments,
     // fragmentsKeywordMain,
@@ -249,8 +249,13 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       )
 
       setState([fragmentsSkipTrue, fragmentsValueTrue, fragmentsValueFalse])
-      setLabelOneState(fragmentsSkipTrue[0]?.keywordValue[0].labelOne)
-      setLabelTwoState(fragmentsSkipTrue[0]?.keywordValue[0].labelTwo)
+
+      const keywordValueFound = fragmentsKeywordMain[0]?.keywordValue?.find(
+        (keywordSearched: any) => keywordSearched.keyword === keywordMain
+      )
+
+      setLabelOneState(keywordValueFound?.labelOne)
+      setLabelTwoState(keywordValueFound?.labelTwo)
     }
   }, [fragmentsKeywordMain, fragments, keywordMain])
 
