@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import { motion } from 'framer-motion'
 export const Main = styled.div``
 export const DropDownContainer = styled.div`
   width: 12rem;
@@ -7,7 +7,7 @@ export const DropDownContainer = styled.div`
   margin: 0 auto;
 `
 
-export const DropDownHeader = styled.div`
+export const DropDownHeader = styled(motion.div)`
   margin-bottom: 0.8em;
   cursor: pointer;
   padding: 0.4rem 1rem 0.4rem 1rem;
@@ -57,4 +57,36 @@ export const ListItem = styled.li`
   &:hover {
     color: var(--background-secondary4);
   }
+`
+export const HorizontalButtonContainer = styled(motion.div)`
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  min-width: 250px;
+  min-height: min-content;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 0;
+`
+export const TitleInputMainKeyword = styled(motion.input)`
+  color: var(--background-tertiary3);
+  text-align: center;
+  width: 100%;
+  height: 36px;
+  min-width: 250px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0.75rem;
+  line-height: normal;
+  background: transparent;
+  outline: 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--background-secondary4);
+  &:focus {
+    border: none;
+    outline: 0;
+  }
+  font-size: inherit;
+  font-family: inherit;
 `

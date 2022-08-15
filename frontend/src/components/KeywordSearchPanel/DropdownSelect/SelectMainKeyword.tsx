@@ -5,8 +5,10 @@ import {
   DropDownHeader,
   DropDownList,
   DropDownListContainer,
+  HorizontalButtonContainer,
   ListItem,
   Main,
+  TitleInputMainKeyword,
 } from './DropdownSelect.styled'
 import {
   deleteSavedFragment,
@@ -16,7 +18,8 @@ import {
 import { sortingKeywordMainEdit } from '../../../features/preferences/preferenceSlice'
 import { updateUserFragmentsKeywordMain } from '../../../features/fragments/fragmentSlice'
 import { nanoid } from '@reduxjs/toolkit'
-import { SendButtonSmall } from '../../Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
+import SvgIcon from '../../SvgIcon/SvgIcon'
 
 interface SelectMainKeywordProps {}
 
@@ -38,12 +41,23 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
   let uniqueKeywords = [...Array.from(new Set(keywordsAll))]
 
   const [isOpen, setIsOpen] = useState(false)
+  const [keywordEditing, setKeywordEditing] = useState<boolean>(false)
+  const [newKeyword, setNewKeyword] = useState<string>('')
+
   const [selectedMainKeyword, setSelectedMainKeyword] = useState<string | null>(
     keywordMain
   )
 
-  const toggling = () => setIsOpen(!isOpen)
+  const toggling = () => setIsOpen((isOpen) => !isOpen)
 
+  const editingHandler = () => {
+    setKeywordEditing((keywordEditing) => !keywordEditing)
+  }
+  const editingNewHandler = () => {
+    // onOptionClicked('')
+    setSelectedMainKeyword('')
+    setKeywordEditing((keywordEditing) => !keywordEditing)
+  }
   const onOptionClicked = (value: string | null) => () => {
     setSelectedMainKeyword(value)
     setIsOpen(false)
@@ -64,7 +78,16 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
     if (selectedMainKeyword !== '') {
       dispatch(updateUserFragmentsKeywordMain(fragmentsMatching))
     }
-    console.log(selectedMainKeyword)
+    const fragmentsNoName = fragments
+      ?.filter(
+        (fragmentsSorted) =>
+          fragmentsSorted.keywords.length === 1 &&
+          fragmentsSorted.keywords?.indexOf(selectedMainKeyword) >= 0
+      )
+      .map((el) => ({ ...el, nanoId: nanoid() }))
+    if (selectedMainKeyword === '') {
+      dispatch(updateUserFragmentsKeywordMain(fragmentsNoName))
+    }
   }, [fragments, dispatch, selectedMainKeyword])
 
   const removeKeywordHelperUltimate = () => {
@@ -72,42 +95,113 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
       (fragmentsSorted) =>
         fragmentsSorted.keywords?.indexOf(selectedMainKeyword) >= 0
     )
-    if (fragmentsMatching.length === 1 || 2) {
-      fragmentsMatching.map((fragment) =>
-        dispatch(deleteSavedFragment(fragment._id))
-      )
-    } else if (fragmentsMatching.length > 2) {
-      fragmentsMatching.map((fragment) =>
-        dispatch(
-          editSavedFragment({
-            _id: fragment._id,
-            keywords: fragment?.keywords?.filter(
-              (keyword: string) => keyword !== selectedMainKeyword
-            ),
-          })
+    if (window.confirm('Are you sure?')) {
+      if (fragmentsMatching.length === 1 || 2) {
+        fragmentsMatching.map((fragment) =>
+          dispatch(deleteSavedFragment(fragment._id))
         )
-      )
+      } else if (fragmentsMatching.length > 2) {
+        fragmentsMatching.map((fragment) =>
+          dispatch(
+            editSavedFragment({
+              _id: fragment._id,
+              keywords: fragment?.keywords?.filter(
+                (keyword: string) => keyword !== selectedMainKeyword
+              ),
+            })
+          )
+        )
+      }
     }
   }
   return (
     <>
       <Main>
         <DropDownContainer>
-          <DropDownHeader onClick={toggling}>
-            {selectedMainKeyword || 'Select a keyword'}
-          </DropDownHeader>
+          {keywordEditing ? (
+            <TitleInputMainKeyword
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              type='mainLabel'
+              name='main label'
+              placeholder='new project'
+              value={newKeyword}
+              onChange={(e: any) => setNewKeyword(e.target.value)}
+            />
+          ) : (
+            <DropDownHeader
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={toggling}
+            >
+              {selectedMainKeyword || 'Select a project'}
+            </DropDownHeader>
+          )}
+          <HorizontalButtonContainer>
+            {!keywordEditing && (
+              <>
+                <SendButtonVerySmall
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  variant='successEmpty'
+                  onClick={editingNewHandler}
+                >
+                  <SvgIcon variant='add' toBottom contentAfter='add new' />
+                </SendButtonVerySmall>
+                {/* {selectedMainKeyword && ( */}
+                <SendButtonVerySmall
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  variant='primaryEmpty'
+                  onClick={editingHandler}
+                >
+                  <SvgIcon variant='edit' toBottom contentAfter='edit' />
+                </SendButtonVerySmall>
+                {/* )} */}
+                <SendButtonVerySmall
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  variant='secondaryEmpty'
+                  onClick={removeKeywordHelperUltimate}
+                >
+                  <SvgIcon
+                    variant='remove'
+                    toBottom
+                    contentAfter='usuń powiązane'
+                  />
+                </SendButtonVerySmall>
+              </>
+            )}
+            {keywordEditing && (
+              <>
+                <SendButtonVerySmall
+                  variant='primaryEmpty'
+                  onClick={editingHandler}
+                >
+                  <SvgIcon variant='back' toBottom contentAfter='wróć' />
+                </SendButtonVerySmall>
+
+                <SendButtonVerySmall
+                  variant='successEmpty'
+                  // onClick={'editingHandler'}
+                >
+                  <SvgIcon variant='save' toBottom contentAfter='zapisz' />
+                </SendButtonVerySmall>
+              </>
+            )}
+          </HorizontalButtonContainer>
           {/* <button onClick={removeKeywordHelper}>
             Remove fragment (k === 2)
           </button>
           <button onClick={removeKeywordHelperTwo}>
             Remove keyword from keyword:[]
           </button> */}
-          <SendButtonSmall
-            variant='secondaryEmpty'
-            onClick={removeKeywordHelperUltimate}
-          >
-            remove keyword || remove fragment
-          </SendButtonSmall>
+
           {isOpen && (
             <DropDownListContainer>
               <DropDownList>
@@ -119,6 +213,9 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                     {keyword}
                   </ListItem>
                 ))}
+                {/* <ListItem onClick={onOptionClicked('')} key={Math.random()}>
+                  new project
+                </ListItem> */}
               </DropDownList>
             </DropDownListContainer>
           )}

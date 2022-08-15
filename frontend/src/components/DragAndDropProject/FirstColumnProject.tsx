@@ -28,6 +28,7 @@ const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   // styles we need to apply on draggables
   ...draggableStyle,
 })
+
 const getListStyle = (isDraggingOver: any) => ({
   background: isDraggingOver
     ? 'var(--background-tertiary1)'
@@ -41,13 +42,13 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({ state }) => {
     (state) => state.preference.savedFragmentsPage
   )
   const { start, end } = savedFragmentsPage
+
   // const testHandler = () => {
   //   console.log(state[0])
   // }
   // const removeKeywordHelper = () => {
   //   console.log('object')
   // }
-
   return (
     <KeywordColumnContainer>
       <Droppable key={'0'} droppableId={`0`}>

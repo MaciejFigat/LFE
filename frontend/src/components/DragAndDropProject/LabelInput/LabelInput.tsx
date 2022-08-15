@@ -92,9 +92,9 @@ const LabelInput: React.FC<LabelInputProps> = ({
           exit={{ opacity: 0 }}
         >
           <TitleInput
-            type='title'
-            name='title'
-            placeholder='new title'
+            type='label'
+            name='label'
+            placeholder='new label'
             value={label}
             onChange={(e: any) => setLabelHelper(e.target.value)}
           />

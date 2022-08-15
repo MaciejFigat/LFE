@@ -39,6 +39,7 @@ export const ListTitle = styled(motion.h2)`
 `
 export const TitleInput = styled(motion.input)`
   color: var(--background-tertiary3);
+  text-align: center;
   width: 60%;
   /* min-width: 250px; */
   padding: 0;
