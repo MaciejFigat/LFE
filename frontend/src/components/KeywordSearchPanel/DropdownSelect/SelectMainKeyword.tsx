@@ -141,14 +141,10 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
         keywordValue: [
           {
             keyword: newKeyword,
-            labelOne: fragmentsKeywordMain[i].labelOne ?? 'pro',
-            labelTwo: fragmentsKeywordMain[i].labelTwo ?? 'contra',
-            value: fragmentsKeywordMain[i].value ?? true,
-            skip: fragmentsKeywordMain[i].skip ?? true,
-            // labelOne: 'pro',
-            // labelTwo: 'contra',
-            // value: true,
-            // skip: true,
+            labelOne: fragmentsKeywordMain[0].keywordValue[0].labelOne,
+            labelTwo: fragmentsKeywordMain[0].keywordValue[0].labelTwo,
+            value: fragmentsKeywordMain[0].keywordValue[0].value,
+            skip: fragmentsKeywordMain[0].keywordValue[0].skip,
           },
         ],
       }

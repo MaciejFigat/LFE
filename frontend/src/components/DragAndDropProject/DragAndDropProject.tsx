@@ -91,7 +91,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
     //* this is how I access the fragment I just dropped
     const droppedFragment: any = state[source.droppableId][source.index]
     // const droppableId = destination.droppableId
-    const { _id } = droppedFragment
+    const { _id, keywordValue: keywordValueDropped } = droppedFragment
 
     if (sourceIndex === destinationIndex) {
       const items = reorder(state[sourceIndex], source.index, destination.index)
@@ -99,10 +99,14 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       newState[sourceIndex] = items
       setState(newState)
     } else {
+      const filteredKeywordValue = keywordValueDropped.filter(
+        (keywordSearched: any) => keywordSearched.keyword !== keywordMain
+      )
       if (destinationIndex === 0) {
         const destinationZero = {
           _id: _id,
           keywordValue: [
+            ...filteredKeywordValue,
             {
               keyword: keywordMain,
               labelOne: 'pro',
@@ -123,6 +127,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       const newKeywordListOne = {
         _id: _id,
         keywordValue: [
+          ...filteredKeywordValue,
           {
             keyword: keywordMain,
             value: true,
@@ -135,6 +140,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       const newKeywordListTwo = {
         _id: _id,
         keywordValue: [
+          ...filteredKeywordValue,
           {
             keyword: keywordMain,
             labelOne: 'pro',
@@ -159,6 +165,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
         _id: _id,
 
         keywordValue: [
+          ...filteredKeywordValue,
           {
             keyword: keywordMain,
             labelOne: 'pro',
@@ -169,6 +176,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
         ],
       }
       const newKeywordListWithoutTwo = {
+        ...filteredKeywordValue,
         _id: _id,
         keywordValue: [
           {

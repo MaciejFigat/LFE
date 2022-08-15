@@ -66,10 +66,18 @@ const LabelInput: React.FC<LabelInputProps> = ({
       const foundArr = fragmentsKeywordMain[i].keywordValue.find(
         (keywordSearched: any) => keywordSearched.keyword === keywordMain
       )
+      // const filteredArr = fragmentsKeywordMain[i].keywordValue.map(
+      //   (keywordValueObject: any) => keywordValueObject.keyword !== keywordMain
+      //   // (keywordSearched: any) => keywordSearched.keyword !== keywordMain
+      // )
+      const filteredArr = fragmentsKeywordMain[i].keywordValue.filter(
+        (keywordSearched: any) => keywordSearched.keyword !== keywordMain
+      )
 
       const fragEdited = {
         _id: fragmentsKeywordMain[i]._id,
         keywordValue: [
+          ...filteredArr,
           {
             keyword: foundArr.keyword,
             labelOne: labelNrOne ? label : foundArr.labelOne,
@@ -81,6 +89,7 @@ const LabelInput: React.FC<LabelInputProps> = ({
       }
 
       dispatch(editSavedFragment(fragEdited))
+      // console.log(filteredArr)
     }
   }
   return (
