@@ -46,7 +46,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
 
   const [isOpen, setIsOpen] = useState(false)
   const [keywordEditing, setKeywordEditing] = useState<boolean>(false)
-  const [newKeyword, setNewKeyword] = useState<string>('')
+  const [newKeyword, setNewKeyword] = useState<string>(keywordMain)
 
   const [selectedMainKeyword, setSelectedMainKeyword] = useState<string | null>(
     keywordMain
@@ -122,19 +122,6 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
   const saveNewKeywordHelper = () => {
     setKeywordEditing((keywordEditing) => !keywordEditing)
     for (let i = 0; i < fragmentsKeywordMain.length; i++) {
-      // const fragEdited = {
-      //   _id: fragmentsKeywordMain[i]._id,
-      //   keywords: [newKeyword],
-      //   keywordValue: {
-      //     keyword: newKeyword,
-      //     labelOne: fragmentsKeywordMain[i].labelOne,
-      //     labelTwo: fragmentsKeywordMain[i].labelTwo,
-      //     value: fragmentsKeywordMain[i].value,
-      //     skip: fragmentsKeywordMain[i].skip,
-      //   },
-      // }
-      // // @ts-ignore
-      // dispatch(editSavedFragment(fragEdited))
       const fragEdited = {
         _id: fragmentsKeywordMain[i]._id,
         keywords: [newKeyword],
@@ -153,6 +140,50 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
       console.log(fragmentsKeywordMain[i].keywords)
     }
   }
+  const saveEditedKeywordHelper = () => {
+    setKeywordEditing((keywordEditing) => !keywordEditing)
+    // todo loop through fragmentsKeywordMain ->
+    // for each fragment looped i will change an object in keywordValue that contains keywordMain
+    // only keyword: '' will change, rest of the {} will remain intact
+    // also keywords: [] needs ..., newkeyword
+    // also no duplicates
+    for (let i = 0; i < fragmentsKeywordMain.length; i++) {
+      //  todo 1
+      const kvalueNoKewordMain = fragmentsKeywordMain[i].keywordValue.filter(
+        (keywordSearched: any) => keywordSearched.keyword !== keywordMain
+      )
+      const kvalueWithKewordMain = fragmentsKeywordMain[i].keywordValue.filter(
+        (keywordSearched: any) => keywordSearched.keyword === keywordMain
+      )
+
+      //  todo 2
+
+      //* no duplicates edited in
+      if (!fragmentsKeywordMain[i].keywords.includes(newKeyword)) {
+        const fragEdited = {
+          _id: fragmentsKeywordMain[i]._id,
+          keywords: [
+            ...fragmentsKeywordMain[i].keywords.filter(
+              (keyword: string) => keyword !== keywordMain
+            ),
+            newKeyword,
+          ],
+          keywordValue: [
+            ...kvalueNoKewordMain,
+            {
+              keyword: newKeyword,
+              labelOne: kvalueWithKewordMain.labelOne,
+              labelTwo: kvalueWithKewordMain.labelTwo,
+              value: kvalueWithKewordMain.value,
+              skip: kvalueWithKewordMain.skip,
+            },
+          ],
+        }
+
+        dispatch(editSavedFragment(fragEdited))
+      }
+    }
+  }
   return (
     <>
       <Main>
@@ -164,7 +195,8 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
               exit={{ opacity: 0 }}
               type='mainLabel'
               name='main label'
-              placeholder='new project'
+              // placeholder='new project'
+              placeholder={newKeyword}
               value={newKeyword}
               onChange={(e: any) => setNewKeyword(e.target.value)}
             />
@@ -230,6 +262,16 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                   onClick={saveNewKeywordHelper}
                 >
                   <SvgIcon variant='save' toBottom contentAfter='zapisz' />
+                </SendButtonVerySmall>
+                <SendButtonVerySmall
+                  variant='successEmpty'
+                  onClick={saveEditedKeywordHelper}
+                >
+                  <SvgIcon
+                    variant='save'
+                    toBottom
+                    contentAfter='zapisz zmiany'
+                  />
                 </SendButtonVerySmall>
               </>
             )}
