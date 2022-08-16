@@ -46,6 +46,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
 
   const [isOpen, setIsOpen] = useState(false)
   const [keywordEditing, setKeywordEditing] = useState<boolean>(false)
+  const [keywordCreation, setKeywordCreation] = useState<boolean>(false)
   const [newKeyword, setNewKeyword] = useState<string>(keywordMain)
 
   const [selectedMainKeyword, setSelectedMainKeyword] = useState<string | null>(
@@ -60,6 +61,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
   const editingNewHandler = () => {
     setSelectedMainKeyword('')
     setKeywordEditing((keywordEditing) => !keywordEditing)
+    setKeywordCreation((keywordCreation) => !keywordCreation)
   }
   const onOptionClicked = (value: string | null) => () => {
     setSelectedMainKeyword(value)
@@ -121,6 +123,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
 
   const saveNewKeywordHelper = () => {
     setKeywordEditing((keywordEditing) => !keywordEditing)
+    setKeywordEditing((keywordCreation) => !keywordCreation)
     for (let i = 0; i < fragmentsKeywordMain.length; i++) {
       const fragEdited = {
         _id: fragmentsKeywordMain[i]._id,
@@ -211,7 +214,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
             </DropDownHeader>
           )}
           <HorizontalButtonContainer>
-            {!keywordEditing && (
+            {!keywordEditing && !keywordCreation && (
               <>
                 <SendButtonVerySmall
                   initial={{ opacity: 0 }}
@@ -220,7 +223,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                   variant='successEmpty'
                   onClick={editingNewHandler}
                 >
-                  <SvgIcon variant='add' toBottom contentAfter='add new' />
+                  <SvgIcon variant='plus' toBottom contentAfter='add new' />
                 </SendButtonVerySmall>
                 {/* {selectedMainKeyword && ( */}
                 <SendButtonVerySmall
@@ -257,22 +260,25 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                   <SvgIcon variant='back' toBottom contentAfter='wróć' />
                 </SendButtonVerySmall>
 
-                <SendButtonVerySmall
-                  variant='successEmpty'
-                  onClick={saveNewKeywordHelper}
-                >
-                  <SvgIcon variant='save' toBottom contentAfter='zapisz' />
-                </SendButtonVerySmall>
-                <SendButtonVerySmall
-                  variant='successEmpty'
-                  onClick={saveEditedKeywordHelper}
-                >
-                  <SvgIcon
-                    variant='save'
-                    toBottom
-                    contentAfter='zapisz zmiany'
-                  />
-                </SendButtonVerySmall>
+                {keywordCreation ? (
+                  <SendButtonVerySmall
+                    variant='successEmpty'
+                    onClick={saveNewKeywordHelper}
+                  >
+                    <SvgIcon variant='save' toBottom contentAfter='zapisz' />
+                  </SendButtonVerySmall>
+                ) : (
+                  <SendButtonVerySmall
+                    variant='successEmpty'
+                    onClick={saveEditedKeywordHelper}
+                  >
+                    <SvgIcon
+                      variant='save'
+                      toBottom
+                      contentAfter='zapisz zmiany'
+                    />
+                  </SendButtonVerySmall>
+                )}
               </>
             )}
           </HorizontalButtonContainer>
