@@ -8,8 +8,11 @@ export const DropDownContainer = styled.div`
 `
 
 export const DropDownHeader = styled(motion.div)`
-  margin-bottom: 0.8em;
+  /* margin-bottom: 0.8em; */
   cursor: pointer;
+  /* min-width: 80%; */
+  max-width: 80%;
+  /* margin: 0; */
   padding: 0.4rem 1rem 0.4rem 1rem;
   /* box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15); */
   font-weight: 500;
@@ -65,24 +68,35 @@ export const HorizontalButtonContainer = styled(motion.div)`
   min-width: 250px;
   min-height: min-content;
   align-items: flex-start;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
+  justify-content: center;
   margin-bottom: 0;
+`
+export const HeaderAndCogContainer = styled(HorizontalButtonContainer)`
+  min-width: 280px;
+  width: 80%;
+  justify-content: space-between;
+  /* justify-content: space-around; */
+  /* align-items: flex-start; */
+  align-items: center;
 `
 export const TitleInputMainKeyword = styled(motion.input)`
   color: var(--background-tertiary3);
   text-align: center;
-  width: 100%;
-  height: 36px;
-  min-width: 250px;
-  padding: 0;
+  /* width: 100%; */
+  height: 22px;
+  /* min-width: 250px; */
+  /* max-width: 80%; */
+  /* padding: 0; */
+  padding: 0.4rem 1rem 0.4rem 1rem;
   margin: 0;
-  margin-bottom: 0.75rem;
+  /* margin-bottom: 0.75rem; */
   line-height: normal;
   background: transparent;
   outline: 0;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid var(--background-secondary4);
+  border-bottom: 1px solid var(--background-secondary2);
   &:focus {
     border: none;
     outline: 0;

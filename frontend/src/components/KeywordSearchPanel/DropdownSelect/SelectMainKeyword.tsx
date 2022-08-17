@@ -5,6 +5,7 @@ import {
   DropDownHeader,
   DropDownList,
   DropDownListContainer,
+  HeaderAndCogContainer,
   HorizontalButtonContainer,
   ListItem,
   Main,
@@ -191,28 +192,39 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
     <>
       <Main>
         <DropDownContainer>
-          {keywordEditing ? (
-            <TitleInputMainKeyword
+          <HeaderAndCogContainer>
+            {keywordEditing ? (
+              <TitleInputMainKeyword
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                type='mainLabel'
+                name='main label'
+                // placeholder='new project'
+                placeholder={newKeyword}
+                value={newKeyword}
+                onChange={(e: any) => setNewKeyword(e.target.value)}
+              />
+            ) : (
+              <DropDownHeader
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={toggling}
+              >
+                {selectedMainKeyword || 'Select a project'}
+              </DropDownHeader>
+            )}{' '}
+            <SendButtonVerySmall
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              type='mainLabel'
-              name='main label'
-              // placeholder='new project'
-              placeholder={newKeyword}
-              value={newKeyword}
-              onChange={(e: any) => setNewKeyword(e.target.value)}
-            />
-          ) : (
-            <DropDownHeader
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={toggling}
+              variant='primaryEmpty'
+              // onClick={editingHandler}
             >
-              {selectedMainKeyword || 'Select a project'}
-            </DropDownHeader>
-          )}
+              <SvgIcon variant='cog' toBottom contentAfter='opcje' />
+            </SendButtonVerySmall>
+          </HeaderAndCogContainer>
           <HorizontalButtonContainer>
             {!keywordEditing && !keywordCreation && (
               <>
@@ -223,7 +235,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                   variant='successEmpty'
                   onClick={editingNewHandler}
                 >
-                  <SvgIcon variant='plus' toBottom contentAfter='add new' />
+                  <SvgIcon variant='plus' toBottom contentAfter='dodaj nowy' />
                 </SendButtonVerySmall>
                 {/* {selectedMainKeyword && ( */}
                 <SendButtonVerySmall
@@ -233,7 +245,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                   variant='primaryEmpty'
                   onClick={editingHandler}
                 >
-                  <SvgIcon variant='edit' toBottom contentAfter='edit' />
+                  <SvgIcon variant='edit' toBottom contentAfter='edytuj' />
                 </SendButtonVerySmall>
                 {/* )} */}
                 <SendButtonVerySmall

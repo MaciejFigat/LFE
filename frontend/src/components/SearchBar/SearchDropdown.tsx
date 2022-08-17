@@ -31,7 +31,6 @@ import {
 } from './SearchBar.styled'
 import SearchBar from './SearchBar'
 import { DatePickerButton } from './DatePicker.styled'
-// import { NumberInput } from './SearchFilter.styled'
 import SwitchButton from './SwitchButton'
 
 registerLocale('pl', pl) //* registers locale for me to use it with DatePicker
@@ -59,7 +58,6 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
 
   const [highlightQuery, setHighlightQuery] = useState<string>('')
 
-  // const [skip, setSkip] = useState<number>(1)
   const skip: number = 1
   const [take, setTake] = useState<number>(30)
 
