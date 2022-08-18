@@ -76,21 +76,14 @@ export const HeaderAndCogContainer = styled(HorizontalButtonContainer)`
   min-width: 280px;
   width: 80%;
   justify-content: space-between;
-  /* justify-content: space-around; */
-  /* align-items: flex-start; */
   align-items: center;
 `
 export const TitleInputMainKeyword = styled(motion.input)`
   color: var(--background-tertiary3);
   text-align: center;
-  /* width: 100%; */
   height: 22px;
-  /* min-width: 250px; */
-  /* max-width: 80%; */
-  /* padding: 0; */
   padding: 0.4rem 1rem 0.4rem 1rem;
   margin: 0;
-  /* margin-bottom: 0.75rem; */
   line-height: normal;
   background: transparent;
   outline: 0;
@@ -103,4 +96,24 @@ export const TitleInputMainKeyword = styled(motion.input)`
   }
   font-size: inherit;
   font-family: inherit;
+`
+export const OptionsDropdownContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 3.3rem;
+  left: 10px;
+  top: 15px;
+  z-index: 10;
+  background: var(--background-blur2);
+  width: 250px;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
 `

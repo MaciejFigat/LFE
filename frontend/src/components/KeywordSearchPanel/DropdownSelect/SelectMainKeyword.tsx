@@ -9,6 +9,7 @@ import {
   HorizontalButtonContainer,
   ListItem,
   Main,
+  OptionsDropdownContainer,
   TitleInputMainKeyword,
 } from './DropdownSelect.styled'
 import {
@@ -46,6 +47,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
   let uniqueKeywords = [...Array.from(new Set(keywordsAll))]
 
   const [isOpen, setIsOpen] = useState(false)
+  const [optionsOpen, setOptionsOpen] = useState(false)
   const [keywordEditing, setKeywordEditing] = useState<boolean>(false)
   const [keywordCreation, setKeywordCreation] = useState<boolean>(false)
   const [newKeyword, setNewKeyword] = useState<string>(keywordMain)
@@ -188,6 +190,10 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
       }
     }
   }
+
+  const togglingOptions = () => {
+    setOptionsOpen((optionsOpen) => !optionsOpen)
+  }
   return (
     <>
       <Main>
@@ -200,8 +206,8 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                 exit={{ opacity: 0 }}
                 type='mainLabel'
                 name='main label'
-                // placeholder='new project'
-                placeholder={newKeyword}
+                placeholder='new project'
+                // placeholder={newKeyword}
                 value={newKeyword}
                 onChange={(e: any) => setNewKeyword(e.target.value)}
               />
@@ -221,13 +227,14 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
               exit={{ opacity: 0 }}
               variant='primaryEmpty'
               // onClick={editingHandler}
+              onClick={togglingOptions}
             >
               <SvgIcon variant='cog' toBottom contentAfter='opcje' />
             </SendButtonVerySmall>
           </HeaderAndCogContainer>
-          <HorizontalButtonContainer>
-            {!keywordEditing && !keywordCreation && (
-              <>
+          <DropDownListContainer>
+            {optionsOpen && !keywordEditing && !keywordCreation && (
+              <OptionsDropdownContainer>
                 <SendButtonVerySmall
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -261,10 +268,10 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                     contentAfter='usuń powiązane'
                   />
                 </SendButtonVerySmall>
-              </>
+              </OptionsDropdownContainer>
             )}
-            {keywordEditing && (
-              <>
+            {optionsOpen && keywordEditing && (
+              <OptionsDropdownContainer>
                 <SendButtonVerySmall
                   variant='primaryEmpty'
                   onClick={editingHandler}
@@ -291,9 +298,9 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                     />
                   </SendButtonVerySmall>
                 )}
-              </>
+              </OptionsDropdownContainer>
             )}
-          </HorizontalButtonContainer>
+          </DropDownListContainer>
           {/* <button onClick={removeKeywordHelper}>
             Remove fragment (k === 2)
           </button>

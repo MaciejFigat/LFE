@@ -263,7 +263,9 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
     <DragDropContext onDragEnd={onDragEnd}>
       <ResizableScrollSection
         transparent
-        wideSection={<FirstColumnProject state={state} />}
+        wideSection={
+          <FirstColumnProject state={state} keywordMain={keywordMain} />
+        }
         // ! 2nd 3rd columns
         narrowSection={
           <SecondAndThirdColProject
