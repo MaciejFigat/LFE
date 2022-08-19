@@ -9,7 +9,7 @@ import axios from 'axios'
 export const createFragment = createAsyncThunk(
     'fragment/createFragment',
     async (newFragmentInfo: FragmentCreated, thunkAPI) => {
-        const { source, excerpt, coordinates, title, description } = newFragmentInfo
+        const { source, excerpt, coordinates, title, description, docId, query } = newFragmentInfo
 
         try {
             const state: any = thunkAPI.getState()
@@ -21,7 +21,7 @@ export const createFragment = createAsyncThunk(
                 },
             }
             const keywords = ['']
-            // const keywordValue = ['']
+            // const docTest = 'testing this horrible '
             const keywordValue = [{
                 keyword: '', value: true, skip: true, labelOne: 'pro',
                 labelTwo: 'contra'
@@ -34,6 +34,9 @@ export const createFragment = createAsyncThunk(
                     coordinates,
                     title,
                     description,
+                    query,
+                    docId,
+                    // docId: docTest,
                     keywords: keywords,
                     keywordValue: keywordValue
                 },

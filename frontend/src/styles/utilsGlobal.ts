@@ -45,13 +45,19 @@ const primaryStyle: GlobalStyle = {
     background3Secondary: '#e9c46a;',
     background4Secondary: '#f4a261;',
     background5Secondary: '#e76f51;',
-    background1Tertiary: '#1d3557;',
-    background2Tertiary: '#457b9d;',
-    background3Tertiary: '#a8dadc;',
+    background1Tertiary: '#e63946;',
+    background2Tertiary: '#3a86ff;',
+    background3Tertiary: '#02c39a;',
     background4Tertiary: '#f1faee;',
     background5Tertiary: '#e63946;',
 }
 
+// blue: #3a86ff;
+// grey: #d3d3d3;
+// green: #02c39a;
+// lightBlue: #00a5cf;
+// orange: #eb5e28;
+// red: #e63946;
 
 const secondaryStyle: GlobalStyle = {
     background1Main: '#f8f9fa;',

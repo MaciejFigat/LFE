@@ -27,7 +27,7 @@ const preferenceSlice = createSlice({
         visitedLinksPage: { start: 0, end: 3, pageNr: 1 },
         fragmentScrolled: 1,
         highlightQuery: '',
-        preferedScheme: 'primary',
+        preferedScheme: 'secondary',
 
 
     },

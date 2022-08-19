@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useAppDispatch } from '../../../app/reduxHooks'
 import Burger from '../Burger/Burger'
 import {
   TransitionWrapperMain,
@@ -16,9 +17,12 @@ import { useCycle } from 'framer-motion'
 import NavDropdown from './NavDropdown'
 
 import SearchDropdown from '../../SearchBar/SearchDropdown'
+import { preferedSchemeEdit } from '../../../features/preferences/preferenceSlice'
 interface NavProps {}
 
 const Nav: React.FC<NavProps> = () => {
+  const dispatch = useAppDispatch()
+
   const [open, cycleOpen] = useCycle(false, true)
   const handleClickMenu = () => {
     cycleOpen()
@@ -50,6 +54,17 @@ const Nav: React.FC<NavProps> = () => {
 
     //todo if (scroll.y <= 300)
   }, [scroll.y, scroll.lastY, open, cycleOpen])
+
+  useEffect(() => {
+    const isDark = window.matchMedia('(prefers-color-scheme: dark)')
+    const useDarkMode = isDark.matches
+    if (useDarkMode === true) {
+      dispatch(preferedSchemeEdit('primary'))
+    }
+    if (useDarkMode === false) {
+      dispatch(preferedSchemeEdit('secondary'))
+    }
+  }, [dispatch])
 
   return (
     <TransitionWrapperMain>

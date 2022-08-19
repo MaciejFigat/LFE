@@ -13,7 +13,6 @@ interface CitationCreated {
     createdAt: string
 }
 interface FragmentCreated {
-    // id: string
     _id?: string
     userId?: string
     source?: string
@@ -21,8 +20,10 @@ interface FragmentCreated {
     coordinates?: string
     title?: string
     description?: string
+    docId?: string
+    query?: string
     keywords?: string[]
-    // keywordValue?: { keyword: string, value: boolean, skip: boolean }[]
+
     keywordValue?: {
         keyword: string
         value: boolean

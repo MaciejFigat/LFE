@@ -19,6 +19,13 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
 
   const docResult: any = useAppSelector((state) => state.searchResult.docResult)
   const { sad, syg, dataOrzeczenia, typWyroku } = docResult.tresc
+  const querySaved = docResult.query_f
+  const visitedLinks: any[] = useAppSelector(
+    (state) => state.searchResult.visitedLinks
+  )
+
+  const lastId = visitedLinks[visitedLinks.length - 1].id
+
   const [copySuccess, setCopySuccess] = useState('')
 
   const hoverHelper = () => {
@@ -32,7 +39,6 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     id: nanoid(),
     title: highlightedText.substring(0, 22),
     date: '',
-    // ! SOURCE
     source: 'source',
     excerpt: highlightedText,
     coordinates: '',
@@ -42,6 +48,8 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     title: highlightedText.substring(0, 22),
     source: `${typWyroku} ${sad} ${dataOrzeczenia}`,
     excerpt: highlightedText,
+    query: `${querySaved}`,
+    docId: `${lastId}`,
     coordinates: `${syg}`,
     description: `${typWyroku} ${sad}`,
   }

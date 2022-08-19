@@ -10,7 +10,15 @@ import {
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { useAppSelector } from '../../app/reduxHooks'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-import { Document, Packer, Paragraph, TextRun, Header, PageBreak } from 'docx'
+import {
+  Document,
+  Packer,
+  Paragraph,
+  TextRun,
+  Header,
+  PageBreak,
+  ExternalHyperlink,
+} from 'docx'
 import { saveAs } from 'file-saver'
 // import * as fs from 'fs'
 import SelectMainKeyword from '../KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
@@ -62,7 +70,6 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
       saveAs(blob, 'example.docx')
       console.log('Document created successfully')
     })
-    // console.log(state.flat()[0].title)
   }
 
   const buildParagraphTwo = () => {
@@ -77,6 +84,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
           new TextRun({
             text: `Fragmenty bez kategorii`,
             italics: true,
+            bold: true,
           }),
         ],
       }),
@@ -84,55 +92,33 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
     for (let i = 0; i < state[0].length; i++) {
       paragraphArray.push(
         new Paragraph({
-          // children: [new TextRun(`${keywordMain}`)],
-          // children: [new TextRun(`${state[0][i].title}`)],
           children: [
             new Paragraph({
               children: [
-                new TextRun({
-                  text: `Tytuł:`,
-                  bold: true,
-                }),
-                // new PageBreak(),
-                new TextRun({
-                  text: ` ${state[0][i].title}`,
+                new ExternalHyperlink({
+                  children: [
+                    new TextRun({
+                      text: `${state[0][i].source} ${state[0][i].coordinates}`,
+                      italics: true,
+                    }),
+                  ],
+                  link: `http://lexbis.netlify.app/search/result/${
+                    state[0][i].docId
+                  }/${state[0][i].query ?? ''}`,
                 }),
               ],
             }),
-
             new Paragraph({
               children: [
                 new TextRun({
                   text: `Cytowany fragment:`,
                   bold: true,
                 }),
-                // new PageBreak(),
+
                 new TextRun({
                   text: ` ${state[0][i].excerpt}`,
                 }),
               ],
-            }),
-            new Paragraph({
-              children: [
-                new TextRun({
-                  text: `Źródło: ${state[0][i].source}`,
-                  italics: true,
-                }),
-              ],
-              bullet: {
-                level: 0,
-              },
-            }),
-            new Paragraph({
-              children: [
-                new TextRun({
-                  text: `Sygnatura: ${state[0][i].coordinates}`,
-                  italics: true,
-                }),
-              ],
-              bullet: {
-                level: 0,
-              },
             }),
           ],
         })
@@ -147,6 +133,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
               state[1][0]?.keywordValue[0]?.labelOne ?? 'Pros'
             }`,
             italics: true,
+            bold: true,
           }),
           new PageBreak(),
         ],
@@ -155,18 +142,19 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
     for (let i = 0; i < state[1].length; i++) {
       paragraphArray.push(
         new Paragraph({
-          // children: [new TextRun(`${keywordMain}`)],
-          // children: [new TextRun(`${state[0][i].title}`)],
           children: [
             new Paragraph({
               children: [
-                new TextRun({
-                  text: `Tytuł:`,
-                  bold: true,
-                }),
-                // new PageBreak(),
-                new TextRun({
-                  text: ` ${state[0][i].title}`,
+                new ExternalHyperlink({
+                  children: [
+                    new TextRun({
+                      text: `${state[1][i].source} ${state[1][i].coordinates}`,
+                      italics: true,
+                    }),
+                  ],
+                  link: `http://lexbis.netlify.app/search/result/${
+                    state[1][i].docId
+                  }/${state[1][i].query ?? ''}`,
                 }),
               ],
             }),
@@ -179,31 +167,9 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                 }),
                 // new PageBreak(),
                 new TextRun({
-                  text: ` ${state[0][i].excerpt}`,
+                  text: ` ${state[1][i].excerpt}`,
                 }),
               ],
-            }),
-            new Paragraph({
-              children: [
-                new TextRun({
-                  text: `Źródło: ${state[0][i].source}`,
-                  italics: true,
-                }),
-              ],
-              bullet: {
-                level: 0,
-              },
-            }),
-            new Paragraph({
-              children: [
-                new TextRun({
-                  text: `Sygnatura: ${state[0][i].coordinates}`,
-                  italics: true,
-                }),
-              ],
-              bullet: {
-                level: 0,
-              },
             }),
           ],
         })
@@ -218,6 +184,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
               state[1][0]?.keywordValue[0]?.labelTwo ?? 'Cons'
             }`,
             italics: true,
+            bold: true,
           }),
           new PageBreak(),
         ],
@@ -229,50 +196,30 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
           children: [
             new Paragraph({
               children: [
-                new TextRun({
-                  text: `Tytuł:`,
-                  bold: true,
-                }),
-                // new PageBreak(),
-                new TextRun({
-                  text: ` ${state[0][i].title}`,
+                new ExternalHyperlink({
+                  children: [
+                    new TextRun({
+                      text: `${state[2][i].source} ${state[2][i].coordinates}`,
+                      italics: true,
+                    }),
+                  ],
+                  link: `http://lexbis.netlify.app/search/result/${
+                    state[2][i].docId
+                  }/${state[2][i].query ?? ''}`,
                 }),
               ],
             }),
-
             new Paragraph({
               children: [
                 new TextRun({
                   text: `Cytowany fragment:`,
                   bold: true,
                 }),
-                // new PageBreak(),
+
                 new TextRun({
-                  text: ` ${state[0][i].excerpt}`,
+                  text: ` ${state[2][i].excerpt}`,
                 }),
               ],
-            }),
-            new Paragraph({
-              children: [
-                new TextRun({
-                  text: `Źródło: ${state[0][i].source}`,
-                  italics: true,
-                }),
-              ],
-              bullet: {
-                level: 0,
-              },
-            }),
-            new Paragraph({
-              children: [
-                new TextRun({
-                  text: `Sygnatura: ${state[0][i].coordinates}`,
-                  italics: true,
-                }),
-              ],
-              bullet: {
-                level: 0,
-              },
             }),
           ],
         })
