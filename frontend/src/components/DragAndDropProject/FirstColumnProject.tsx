@@ -10,18 +10,16 @@ import {
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { useAppSelector } from '../../app/reduxHooks'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-import {
-  Document,
-  Packer,
-  Paragraph,
-  TextRun,
-  Header,
-  PageBreak,
-  SymbolRun,
-} from 'docx'
+import { Document, Packer, Paragraph, TextRun, Header, PageBreak } from 'docx'
 import { saveAs } from 'file-saver'
 // import * as fs from 'fs'
 import SelectMainKeyword from '../KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
+import {
+  AlignCenterContainer,
+  HorizontalButtonContainer,
+} from './LabelInput/LabelInput.styled'
+import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
+import SvgIcon from '../SvgIcon/SvgIcon'
 
 interface FirstColumnProjectProps {
   state: any[]
@@ -285,22 +283,6 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
   }
 
   const doc = new Document({
-    // sections: [
-    //   {
-    //     // headers: {
-    //     //   default: new Header({
-    //     //     children: [new Paragraph(`Nazwa projektu: ${keywordMain}`)],
-    //     //   }),
-    //     // },
-    //     headers: {
-    //       default: new Header({
-    //         children: [new Paragraph('Header text')],
-    //       }),
-    //     },
-    //     properties: {},
-
-    //   },
-    // ],
     sections: [
       {
         headers: {
@@ -321,12 +303,6 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
         children: buildParagraphTwo(),
       },
     ],
-    // sections: [
-    //   {
-
-    //     children: buildParagraphTwo(),
-    //   },
-    // ],
   })
 
   return (
@@ -338,9 +314,20 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
             style={getListStyle(snapshot.isDraggingOver)}
             {...provided.droppableProps}
           >
-            <SelectMainKeyword />
-
-            <button onClick={testHandler}>Save Project as docX</button>
+            <HorizontalButtonContainer>
+              <SelectMainKeyword />
+              <AlignCenterContainer>
+                <SendButtonVerySmall
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  variant='successEmpty'
+                  onClick={testHandler}
+                >
+                  <SvgIcon variant='add' toBottom contentAfter='eksportuj' />
+                </SendButtonVerySmall>
+              </AlignCenterContainer>
+            </HorizontalButtonContainer>
 
             {/* //todo DocX part START */}
 

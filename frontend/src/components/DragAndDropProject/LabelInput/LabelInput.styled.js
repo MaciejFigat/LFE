@@ -59,10 +59,16 @@ export const TitleInput = styled(motion.input)`
 export const HorizontalButtonContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
+  align-items: center;
   min-width: 250px;
   min-height: min-content;
   align-items: flex-start;
   justify-content: flex-end;
   margin-bottom: 0;
+`
+export const AlignCenterContainer = styled.div`
+  display: flex;
+  padding-top: 0.25rem;
+  /* flex-direction: row; */
+  align-items: flex-end;
 `
