@@ -29,25 +29,8 @@ body {
 :root {
   
    --padding: 3rem;
-   
-  //  --gradient1-main: linear-gradient(
-  //   355deg,
-  //   hsl(114deg 74% 17%) 0%,
-  //   hsl(122deg 73% 23%) 4%,
-  //   hsl(129deg 70% 29%) 7%,
-  //   hsl(137deg 69% 35%) 11%,
-  //   hsl(144deg 66% 41%) 14%,
-  //   hsl(151deg 64% 47%) 16%,
-  //   hsl(159deg 62% 53%) 18%,
-  //   hsl(166deg 60% 59%) 20%,
-  //   hsl(174deg 59% 65%) 23%,
-  //   hsl(181deg 56% 71%) 26%,
-  //   hsl(188deg 54% 77%) 38%
-  // );
-  // --gradient2-main: linear-gradient(to bottom, #a4dbe4, #69e6de, #45eeb9, #6af07b, #a8eb12);
-
  
- 
+  
   --background1-main: ${(props) =>
     handleGlobalScheme(props.globalScheme).background1Main} 
   --background2-main: ${(props) =>
@@ -81,6 +64,10 @@ body {
     handleGlobalScheme(props.globalScheme).background4Tertiary}
   --background-tertiary5: ${(props) =>
     handleGlobalScheme(props.globalScheme).background5Tertiary}
+  --background-tertiary6: ${(props) =>
+    handleGlobalScheme(props.globalScheme).background6Tertiary}
+  --background-tertiary7: ${(props) =>
+    handleGlobalScheme(props.globalScheme).background7Tertiary}
 
     
   --background-tertiary15:  rgba( 29, 53, 87, 0.4 );
@@ -140,29 +127,56 @@ body {
     
     //! variants for semitransparent elements
  
-    --background-opaque1: rgba( 109, 108, 112, 0.1 );
-    --background-opaque2: rgba( 29, 53, 87, 0.4 );
+    // --background-opaque1: rgba( 109, 108, 112, 0.1 );
+    // --background-opaque2: rgba( 29, 53, 87, 0.4 );
+    --background-opaque1: ${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundOpaque1}
+    --background-opaque2: ${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundOpaque2}
     --background-opaque3: rgba( 109, 108, 112, 0.1 );
     --background-opaque4: rgba( 114, 93, 93, 0.29 );
     --background-opaque5: rgba(38, 70, 83, 0.9);
     --background-opaque6: rgba(60, 59, 61, 0.25);
     --background-opaque61: rgba(60, 59, 61, 0.35);
     --background-opaque7: rgba( 70, 52, 185, 0.12 );
+   
     
-    
-    --background-neon1: #4634b9;
-    --background-neon2: #d76140;
-    --background-neon3: #ca34ae;
-    --background-neon4: #e5d758;
-    --background-neon5: #54bea8;
-    --background-neon6: #DB3EB1;
-    --background-neon7: #44D62C;
-    --background-neon8: #FFAD00;
-    --background-neon9: #E0E722;
-    --background-neon10: #4D4DFF;
-    --background-neon11: #C724B1;
-    --background-neon12: #D22730;
-    
+    // --background-neon1: #4634b9;
+    // --background-neon2: #d76140;
+    // --background-neon3: #ca34ae;
+    // --background-neon4: #e5d758;
+    // --background-neon5: #54bea8;
+    // --background-neon6: #DB3EB1;
+    // --background-neon7: #44D62C;
+    // --background-neon8: #FFAD00;
+    // --background-neon9: #E0E722;
+    // --background-neon10: #4D4DFF;
+    // --background-neon11: #C724B1;
+    // --background-neon12: #D22730;
+    // --background-neon1:${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundNeon1}
+    // --background-neon2: ${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundNeon2}
+    // --background-neon3: ${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundNeon3}
+    // --background-neon4: ${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundNeon4}
+    // --background-neon5: ${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundNeon5}
+    // --background-neon6: ${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundNeon6}
+    // --background-neon7: ${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundNeon7}
+    // --background-neon8: ${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundNeon8}
+    // --background-neon9: ${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundNeon9}
+    // --background-neon10: ${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundNeon10}
+    // --background-neon11: ${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundNeon11}
+    // --background-neon12: ${(props) =>
+      handleGlobalScheme(props.globalScheme).backgroundNeon12}
 
   
 

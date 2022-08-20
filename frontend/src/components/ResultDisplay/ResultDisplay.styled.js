@@ -2,27 +2,11 @@ import styled from 'styled-components'
 
 export const ArticleContainer = styled.div`
   display: flex;
-  /* align-items: center; */
+
   justify-content: center;
-  /* width: 100vw; */
-  /* max-height: 100vh; */
-  /* background: var(--background1-main); */
-
-  /* &::-webkit-scrollbar {
-    width: 1rem !important;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: var(--background3-main);
-    background: lime;
-
-    border-radius: 2px;
-  } */
 `
 export const ArticleWrapper = styled.div`
   display: flex;
-  /* align-self: flex-end; */
-  /* background: lime; */
   max-width: 1080px;
   background: var(--background2-main);
   flex-direction: column;

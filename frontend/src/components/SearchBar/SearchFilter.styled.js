@@ -52,11 +52,11 @@ export const SearchBarButton = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
-  background: var(--background-neon1);
+  background: var(--background-tertiary3);
   align-items: center;
   /* color: var(--background-secondary2); */
-  color: var(--background-neon5);
-  border: 1px solid var(--background-neon1);
+  color: var(--background-tertiary1);
+  border: 1px solid var(--background-tertiary3);
   border-radius: 10px;
   margin-left: 0.5rem;
   &:hover {
@@ -86,26 +86,24 @@ export const SearchInput = styled.input`
   display: flex;
   justify-items: center;
   align-items: center;
-  color: var(--background-neon4);
+  color: var(--background-tertiary4);
   background: transparent;
   padding: 0.25rem;
   width: 120px;
   border: none;
-  background: var(--background-neon1);
-  border-bottom: 1px solid var(--background-neon4);
+  background: var(--background-tertiary3);
+  border-bottom: 1px solid var(--background-tertiary4);
   &:focus {
     outline: none;
-    /* border: none;
-    border-bottom: 1px solid var(--background-neon6); */
   }
   &:active {
-    background: var(--background-neon1);
+    background: var(--background-tertiary3);
 
-    border-bottom: 1px solid var(--background-neon6);
+    border-bottom: 1px solid var(--background-tertiary2);
   }
 
   &:hover {
-    border-bottom: 1px solid var(--background-neon6);
+    border-bottom: 1px solid var(--background-tertiary2);
   }
 
   ::-webkit-inner-spin-button {

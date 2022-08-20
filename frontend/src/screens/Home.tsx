@@ -125,7 +125,7 @@ const Home: React.FC = () => {
                   .map((fragmentArray: any) => (
                     <DataSection
                       highlightQuery={highlightQuery}
-                      variant='secondary'
+                      variant='primary'
                       key={fragmentArray['uuid']}
                       paddingTop='large'
                       imgStart

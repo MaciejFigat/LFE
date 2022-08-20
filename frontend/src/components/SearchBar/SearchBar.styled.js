@@ -16,12 +16,12 @@ export const SearchBarWrapper = styled.div`
     transition: 0.3s;
     /* opacity: 1; */
     //! here searchButton color is defined when panel is open
-    color: var(--background-neon9);
+    color: var(--background-tertiary6);
   }
   .hide {
     transition: 0.2s;
     /* opacity: 0; */
-    color: var(--background-neon11);
+    color: var(--background-tertiary7);
   }
   @media (max-width: 420px) {
     gap: 0.25rem;
@@ -35,7 +35,7 @@ export const SearchBarButton = styled.button`
   cursor: pointer;
   background: transparent;
   align-items: center;
-  color: var(--background-neon5);
+  color: var(--background-tertiary1);
   border: 1px solid transparent;
   border-radius: 10px;
   margin-left: 0.5rem;
@@ -136,7 +136,7 @@ export const DropDownList = styled.div`
   width: 100%;
   box-sizing: border-box;
 
-  color: var(--background-neon5);
+  color: var(--background-tertiary1);
   font-size: 1rem;
   font-weight: 400;
   min-width: fit-content;
@@ -180,7 +180,7 @@ export const SwitchDiv = styled.div`
   /* height: 15px; */
   height: 16px;
   background-color: ${({ isOn }) =>
-    isOn ? 'var(--background-neon5)' : 'var(--background-neon6)'};
+    isOn ? 'var(--background-tertiary1)' : 'var(--background-tertiary2)'};
   display: flex;
   border-radius: 10px;
   padding: 1px;
@@ -190,7 +190,7 @@ export const SwitchDiv = styled.div`
 `
 export const SwitchText = styled.b`
   color: ${({ isOn }) =>
-    isOn ? 'var(--background-neon6)' : 'var(--background-neon5)'};
+    isOn ? 'var(--background-tertiary2)' : 'var(--background-tertiary1)'};
 `
 export const SwitchHandle = styled(motion.div)`
   width: 14px;
@@ -198,7 +198,7 @@ export const SwitchHandle = styled(motion.div)`
   background-color: white;
   border-radius: 12px;
   background-color: ${({ isOn }) =>
-    isOn ? 'var(--background-neon6)' : 'var(--background-neon5)'};
+    isOn ? 'var(--background-tertiary2)' : 'var(--background-tertiary1)'};
 `
 export const SetTakeButton = styled.button`
   outline: none;
@@ -206,12 +206,12 @@ export const SetTakeButton = styled.button`
   cursor: pointer;
   background: transparent;
   align-items: center;
-  color: var(--background-neon5);
+  color: var(--background-tertiary1);
   border: 1px solid transparent;
   border-radius: 8px;
   font-size: 0.7rem;
   background-color: ${({ buttonActive }) =>
-    buttonActive ? 'var(--background-neon6)' : 'transparent'};
+    buttonActive ? 'var(--background-tertiary2)' : 'transparent'};
   /* margin-left: 0.5rem; */
   margin: 0 auto;
   &:hover {
@@ -220,7 +220,7 @@ export const SetTakeButton = styled.button`
     border: 1px solid;
     border-color: ${({ buttonActive }) =>
       buttonActive
-        ? 'var(--background-neon4)'
+        ? 'var(--background-tertiary4)'
         : 'var(--background-secondary2)'};
   }
   &:active {

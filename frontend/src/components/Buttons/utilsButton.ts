@@ -28,22 +28,22 @@ const primaryEmptyStyle: StyleVariant = {
     buttonBorderActive: 'var(--background-secondary2);'
 }
 const darkEmptyStyle: StyleVariant = {
-    buttonColor: 'var(--background-neon1);',
+    buttonColor: 'var(--background-tertiary3);',
     buttonBackground: 'transparent;',
     buttonBackgroundHover: 'transparent;',
-    buttonColorHover: 'var(--background-neon5);',
-    buttonBorder: '1px solid var(--background-neon1);',
-    buttonBorderHover: '1px solid var(--background-neon1);',
+    buttonColorHover: 'var(--background-tertiary1);',
+    buttonBorder: '1px solid var(--background-tertiary3);',
+    buttonBorderHover: '1px solid var(--background-tertiary3);',
     buttonColorActive: 'var(--background-secondary2);',
     buttonBorderActive: 'var(--background-secondary2);'
 }
 const lightEmptyStyle: StyleVariant = {
-    buttonColor: 'var(--background-neon10);',
+    buttonColor: 'var(--background-tertiary3);',
     buttonBackground: 'transparent;',
     buttonBackgroundHover: 'transparent;',
-    buttonColorHover: 'var(--background-neon6);',
-    buttonBorder: '1px solid var(--background-neon10);',
-    buttonBorderHover: '1px solid var(--background-neon10);',
+    buttonColorHover: 'var(--background-tertiary2);',
+    buttonBorder: '1px solid var(--background-tertiary3);',
+    buttonBorderHover: '1px solid var(--background-tertiary3);',
     buttonColorActive: 'var(--background-secondary2);',
     buttonBorderActive: 'var(--background-secondary2);'
 }

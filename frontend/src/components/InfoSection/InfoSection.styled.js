@@ -195,7 +195,7 @@ export const Subtitle = styled.p`
   font-size: 1.1rem;
   line-height: 1.2rem;
   letter-spacing: 0.025em;
-  font-weight: 300;
+  font-weight: 400;
   transition: 0.3s;
   /* subtitleColor */
   ${(props) => handleSectionColor(props).subtitleColor}

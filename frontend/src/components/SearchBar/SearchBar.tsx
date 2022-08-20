@@ -48,18 +48,11 @@ const SearchBar: React.FC<SearchBarProps> = ({
     if (searchQuery?.length > 0 && isOpen) {
       dispatch(getResultsFiltered(filteredSearch))
       navigate('/')
-      // console.log(
-      //   parseInt(Moment(startDate).format('YYYYMMDD'), 10),
-      //   parseInt(Moment(endDate).format('YYYYMMDD'), 10),
-      //   skip,
-      //   take
-      // )
     }
 
     if (searchQuery?.length > 0 && !isOpen) {
       dispatch(getSearchResults(queryTrimmed))
       navigate('/')
-      // console.log(encodeURIComponent(searchQuery.trim()))
     }
   }
   return (

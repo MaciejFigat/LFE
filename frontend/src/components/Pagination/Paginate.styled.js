@@ -15,7 +15,7 @@ export const PaginateWrapper = styled.div`
 `
 export const PaginateBorderWrapper = styled.div`
   & + & {
-    border-left: 1px solid var(--background-neon11);
+    border-left: 1px solid var(--background-tertiary7);
     ${({ narrow }) =>
       narrow ? 'padding-left: 0.25rem' : 'padding-left: 0.75rem'};
     ${({ miniVersion }) => miniVersion && 'padding-left: 0.05rem'};
@@ -24,7 +24,7 @@ export const PaginateBorderWrapper = styled.div`
 `
 export const PaginateActive = styled.div`
   color: ${({ pageActive }) =>
-    pageActive ? 'var(--background-neon9)' : 'var(--background-neon8)'};
+    pageActive ? 'var(--background-tertiary6)' : 'var(--background-tertiary5)'};
   font-size: 0.75rem;
   ${({ miniVersion }) => miniVersion && 'font-size: 0.65rem;'};
 `

@@ -14,6 +14,22 @@ interface GlobalStyle {
     background3Tertiary?: string
     background4Tertiary?: string
     background5Tertiary?: string
+    background6Tertiary?: string
+    background7Tertiary?: string
+    backgroundNeon1?: string
+    backgroundNeon2?: string
+    backgroundNeon3?: string
+    backgroundNeon4?: string
+    backgroundNeon5?: string
+    backgroundNeon6?: string
+    backgroundNeon7?: string
+    backgroundNeon8?: string
+    backgroundNeon9?: string
+    backgroundNeon10?: string
+    backgroundNeon11?: string
+    backgroundNeon12?: string
+    backgroundOpaque1?: string
+    backgroundOpaque2?: string
 }
 
 
@@ -45,12 +61,42 @@ const primaryStyle: GlobalStyle = {
     background3Secondary: '#e9c46a;',
     background4Secondary: '#f4a261;',
     background5Secondary: '#e76f51;',
-    background1Tertiary: '#e63946;',
-    background2Tertiary: '#3a86ff;',
-    background3Tertiary: '#02c39a;',
-    background4Tertiary: '#f1faee;',
-    background5Tertiary: '#e63946;',
+
+    background1Tertiary: '#54bea8;',
+    background2Tertiary: '#DB3EB1;',
+    background3Tertiary: '#4634b9;',
+    background4Tertiary: '#e5d758;',
+    background5Tertiary: '#FFAD00;',
+    background6Tertiary: '#E0E722;',
+    background7Tertiary: '#C724B1;',
+    // background1Tertiary: '#e63946;',
+    // background2Tertiary: '#3a86ff;',
+    // background3Tertiary: '#02c39a;',
+    // background4Tertiary: '#f1faee;',
+    // background5Tertiary: '#e63946;',
+    // backgroundNeon1: '#4634b9;',
+    // backgroundNeon2: '#d76140;',
+    // backgroundNeon3: '#ca34ae;',
+    // backgroundNeon4: '#e5d758;',
+    // backgroundNeon5: '#54bea8;',
+    // backgroundNeon6: '#DB3EB1;',
+    // backgroundNeon7: '#44D62C;',
+    // backgroundNeon8: '#FFAD00;',
+    // backgroundNeon9: '#E0E722;',
+    // backgroundNeon10: '#4D4DFF;',
+    // backgroundNeon11: '#C724B1;',
+    // backgroundNeon12: '#D22730;',
+    backgroundOpaque1: 'rgba( 109, 108, 112, 0.1 );',
+    // backgroundOpaque1: 'rgba( 109, 108, 112, 0.1 );',
+    backgroundOpaque2: 'rgba( 29, 53, 87, 0.4 );',
 }
+// backgroundNeon5: '#54bea8;', 1
+// backgroundNeon6: '#DB3EB1;   2
+// backgroundNeon1: '#4634b9;', 3
+// backgroundNeon4: '#e5d758;', 4
+// backgroundNeon8: '#FFAD00;', 5
+// backgroundNeon9: '#E0E722;', 6
+// backgroundNeon11: '#C724B1;', 7
 
 // blue: #3a86ff;
 // grey: #d3d3d3;
@@ -60,21 +106,40 @@ const primaryStyle: GlobalStyle = {
 // red: #e63946;
 
 const secondaryStyle: GlobalStyle = {
-    background1Main: '#f8f9fa;',
-    background2Main: '#dee2e6;',
-    background3Main: '#adb5bd;',
-    background4Main: '#343a40;',
+    background1Main: '#F7F6F2;',
+    background2Main: '#C8C6C6;',
+    background3Main: '#4B6587;',
+    background4Main: '#F0E5CF;',
     background5Main: '#212529;',
-    background1Secondary: '#F3CED0;',
-    background2Secondary: '#23857A;',
-    background3Secondary: '#8CAFCE',
-    background4Secondary: '#7FD1AE;',
-    background5Secondary: '#FFD381;',
-    background1Tertiary: '#1d3557;',
-    background2Tertiary: '#457b9d;',
-    background3Tertiary: '#a8dadc;',
-    background4Tertiary: '#f1faee;',
-    background5Tertiary: '#e63946;',
+    // background1Main: '#f8f9fa;',
+    // background2Main: '#dee2e6;',
+    // background3Main: '#adb5bd;',
+    // background4Main: '#343a40;',
+    // background5Main: '#212529;',
+    background1Secondary: '#2188A9;',
+    background2Secondary: '#00ACB5;',
+    background3Secondary: '#35CCA6',
+    background4Secondary: '#97E788;',
+    background5Secondary: '#F9F871;',
+    background1Tertiary: '#5F6993;',
+    background2Tertiary: '#766D9C;',
+    background3Tertiary: '#8F6FA0;',
+    background4Tertiary: '#A871A0;',
+    background5Tertiary: '#C0739C;',
+    // backgroundNeon1: '#5F6993;',
+    // backgroundNeon2: '#766D9C;',
+    // backgroundNeon3: '#8F6FA0;',
+    // backgroundNeon4: '#A871A0;',
+    // backgroundNeon5: '#C0739C;',
+    // backgroundNeon6: '#1d3557;',
+    // backgroundNeon8: '#457b9d;',
+    // backgroundNeon7: '#44D62C;',
+    // backgroundNeon9: '#E0E722;',
+    // backgroundNeon10: '#4D4DFF;',
+    // backgroundNeon11: '#C724B1;',
+    // backgroundNeon12: '#D22730;',
+    backgroundOpaque1: 'rgba( 109, 108, 112, 0.1 );',
+    backgroundOpaque2: 'rgba( 29, 53, 87, 0.4 );',
 }
 const tertiaryStyle: GlobalStyle = {
     background1Main: '#264653;',
@@ -173,7 +238,22 @@ export const handleGlobalScheme: (props: any) => {} = (props: any) => {
         background3Tertiary: `${style.background3Tertiary}`,
         background4Tertiary: `${style.background4Tertiary}`,
         background5Tertiary: `${style.background5Tertiary}`,
-
+        background6Tertiary: `${style.background6Tertiary}`,
+        background7Tertiary: `${style.background7Tertiary}`,
+        // backgroundNeon1: `${style.backgroundNeon1}`,
+        // backgroundNeon2: `${style.backgroundNeon2}`,
+        // backgroundNeon3: `${style.backgroundNeon3}`,
+        // backgroundNeon4: `${style.backgroundNeon4}`,
+        // backgroundNeon5: `${style.backgroundNeon5}`,
+        // backgroundNeon6: `${style.backgroundNeon6}`,
+        // backgroundNeon7: `${style.backgroundNeon7}`,
+        // backgroundNeon8: `${style.backgroundNeon8}`,
+        // backgroundNeon9: `${style.backgroundNeon9}`,
+        // backgroundNeon10: `${style.backgroundNeon10}`,
+        // backgroundNeon11: `${style.backgroundNeon11}`,
+        // backgroundNeon12: `${style.backgroundNeon12}`,
+        backgroundOpaque1: `${style.backgroundOpaque1}`,
+        backgroundOpaque2: `${style.backgroundOpaque2}`,
 
     }
 }
