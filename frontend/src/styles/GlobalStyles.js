@@ -78,17 +78,15 @@ body {
   --secondary3: #e9c46a;
   --secondary4: #f4a261; 
   --secondary5: #e76f51;
-
-  --background-blur1: rgba(60, 59, 61, 0.35);
+ 
+  --background-blur1: ${(props) =>
+    handleGlobalScheme(props.globalScheme).backgroundBlur1}
+  --background-blur2: ${(props) =>
+    handleGlobalScheme(props.globalScheme).backgroundBlur2}
   --background-blur11: rgba(60, 59, 61, 0.85);
-  --background-blur2: rgba(42, 157, 143, 0.25);
   --background-blur21: rgba(42, 157, 143, 0.75);
 
-  //  --redblue1: #e63946;
-  //  --redblue2: #f1faee;
-  //  --redblue3: #a8dadc;
-  //  --redblue4: #457b9d;
-  //  --redblue5: #1d3557;
+
 
    --bluegreen1:#A4DBE4;
    --bluegreen2:#FA990E;
@@ -126,19 +124,16 @@ body {
     --background-blue7: #7EBDC2;
     
     //! variants for semitransparent elements
- 
-    // --background-opaque1: rgba( 109, 108, 112, 0.1 );
-    // --background-opaque2: rgba( 29, 53, 87, 0.4 );
     --background-opaque1: ${(props) =>
       handleGlobalScheme(props.globalScheme).backgroundOpaque1}
     --background-opaque2: ${(props) =>
       handleGlobalScheme(props.globalScheme).backgroundOpaque2}
-    --background-opaque3: rgba( 109, 108, 112, 0.1 );
-    --background-opaque4: rgba( 114, 93, 93, 0.29 );
-    --background-opaque5: rgba(38, 70, 83, 0.9);
-    --background-opaque6: rgba(60, 59, 61, 0.25);
-    --background-opaque61: rgba(60, 59, 61, 0.35);
-    --background-opaque7: rgba( 70, 52, 185, 0.12 );
+    // --background-opaque3: rgba( 109, 108, 112, 0.1 );
+    // --background-opaque4: rgba( 114, 93, 93, 0.29 );
+    // --background-opaque5: rgba(38, 70, 83, 0.9);
+    // --background-opaque6: rgba(60, 59, 61, 0.25);
+    // --background-opaque61: rgba(60, 59, 61, 0.35);
+    // --background-opaque7: rgba( 70, 52, 185, 0.12 );
    
     
     // --background-neon1: #4634b9;

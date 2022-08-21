@@ -67,10 +67,10 @@ export const Input = styled.input`
 export const Button = styled.button`
   max-width: 100%;
   padding: 11px 13px;
-  color: var(--background4-main);
+  color: var(--background-tertiary1);
   font-weight: 600;
   text-transform: uppercase;
-  background: var(--background1-main);
+  background: var(--background-secondary1);
   border: none;
   border-radius: 3px;
   outline: 0;
