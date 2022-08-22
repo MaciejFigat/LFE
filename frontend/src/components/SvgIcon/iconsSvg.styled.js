@@ -25,10 +25,11 @@ export const IconsItem = styled.div`
     display: block !important;
     position: relative !important;
     text-transform: uppercase;
+    left: 60px;
     bottom: ${({ toRight }) => (toRight ? '15px;' : '15px;')};
     bottom: ${({ toBottom }) => toBottom && '-5px;'};
-    left: ${({ toRight }) => (toRight ? '70px;' : '80px;')};
-    left: ${({ toLeft }) => (toLeft ? '-60px;' : '80px;')};
+    left: ${({ toRight }) => toRight && '70px;'};
+    left: ${({ toLeft }) => toLeft && '-60px;'};
     left: ${({ toBottom }) => toBottom && '0px; '};
 
     @media (max-width: 1020px) {

@@ -11,7 +11,7 @@ import {
   MainWrapperResizableMenu,
 } from './SideMenuSecondary.styled'
 
-import SvgIcon from '../SvgIcon/SvgIcon'
+// import SvgIcon from '../SvgIcon/SvgIcon'
 
 interface SideMenuSecondaryProps {
   children: ReactNode

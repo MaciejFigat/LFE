@@ -13,15 +13,15 @@ export const DropDownHeader = styled.div`
   /* padding: 0.2rem 0.4rem 0.2rem 0.5rem; */
   font-weight: 500;
   font-size: 0.9rem;
-  color: var(--background5-main);
+  color: var(--background4-main);
   /* color: var(--background-secondary2); */
   /* background: var(--background1-main); */
   transition: all 0.3s ease-out;
   text-align: center;
   border: 1px solid var(--background1-main);
-  &:hover {
+  /* &:hover {
     color: var(--background-secondary2);
-  }
+  } */
   /* &:active {
     color: var(--background-secondary4);
   } */

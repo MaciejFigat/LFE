@@ -160,20 +160,20 @@ body {
    
     .nav_link {
       display: flex;
-      color: var(--background-secondary3)
+      color: var(--background4-main);
     }
     .nav_link_desktop{
-      color: var(--background-secondary3)
+      color: var(--background4-main);
     }
     .nav_link_desktop.activated {
-      color: var(--background-secondary2);
+      color: var(--background5-main);
     }
 
     .nav_link.activated {
-      color: var(--background-secondary2);    
+      color: var(--background5-main);   
     }
     .nav_link:hover  {
-       color: var(--background-secondary3);
+      color: var(--background5-main);
        transition: 0.2s; 
     
     }

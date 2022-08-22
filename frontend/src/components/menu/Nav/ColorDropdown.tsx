@@ -21,9 +21,7 @@ interface ColorDropdownProps {
 
 const ColorDropdown: React.FC<ColorDropdownProps> = ({ scrollDirection }) => {
   const dispatch = useAppDispatch()
-  //   const preferedScheme: string = useAppSelector(
-  //     (state) => state.preference.preferedScheme
-  //   )
+
   const [isOpen, setIsOpen] = useState(false)
 
   const toggling = () => {
@@ -56,7 +54,7 @@ const ColorDropdown: React.FC<ColorDropdownProps> = ({ scrollDirection }) => {
       <Main>
         <DropDownContainer>
           <DropDownHeader onClick={toggling}>
-            <SvgIcon variant='paint' toRight contentAfter='colors' />
+            <SvgIcon variant='paint' contentAfter='colors' />
           </DropDownHeader>
 
           {isOpen && (
@@ -67,7 +65,7 @@ const ColorDropdown: React.FC<ColorDropdownProps> = ({ scrollDirection }) => {
                     variant='primaryEmpty'
                     onClick={firstSchemeHelper}
                   >
-                    Set scheme 1
+                    Dark
                   </SendButtonSmall>
                 </ListItem>
                 <ListItem>
@@ -75,7 +73,7 @@ const ColorDropdown: React.FC<ColorDropdownProps> = ({ scrollDirection }) => {
                     variant='primaryEmpty'
                     onClick={secondSchemeHelper}
                   >
-                    Set scheme 2
+                    Light
                   </SendButtonSmall>
                 </ListItem>
                 <ListItem>
@@ -83,7 +81,7 @@ const ColorDropdown: React.FC<ColorDropdownProps> = ({ scrollDirection }) => {
                     variant='primaryEmpty'
                     onClick={thirdSchemeHelper}
                   >
-                    Set scheme 3
+                    scheme 3
                   </SendButtonSmall>
                 </ListItem>
                 <ListItem>
@@ -91,7 +89,7 @@ const ColorDropdown: React.FC<ColorDropdownProps> = ({ scrollDirection }) => {
                     variant='primaryEmpty'
                     onClick={fourthSchemeHelper}
                   >
-                    Set scheme 4
+                    scheme 4
                   </SendButtonSmall>
                 </ListItem>
                 <ListItem>
@@ -99,7 +97,7 @@ const ColorDropdown: React.FC<ColorDropdownProps> = ({ scrollDirection }) => {
                     variant='primaryEmpty'
                     onClick={fifthSchemeHelper}
                   >
-                    Set scheme 5
+                    scheme 5
                   </SendButtonSmall>
                 </ListItem>
               </DropDownList>

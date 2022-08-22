@@ -10,7 +10,7 @@ export const TransitionWrapperMain = styled.div`
     color: var(--background5-main);
     :hover {
       transition: color 300ms ease-out;
-      color: var(--background-secondary2);
+      color: var(--background4-main);
     }
   }
   .nav_link {
@@ -157,7 +157,7 @@ export const MobileSvgDiv = styled.div`
   min-height: 100%;
 
   li {
-    color: var(--background-secondary2) !important;
+    color: var(--background5-main) !important;
     transition: color 300ms ease-out;
 
     &:hover {
