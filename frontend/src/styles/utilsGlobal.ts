@@ -127,26 +127,19 @@ const secondaryStyle: GlobalStyle = {
     background5Tertiary: '#C0739C;',
     backgroundOpaque1: 'rgba(240, 229, 207, 0.75);',
     backgroundOpaque2: 'rgba(240, 229, 207, 0.75);',
-    // backgroundBlur1: 'rgba(38, 70, 83, 0.8);',
-    // backgroundBlur1: '#457b9d;',
-    // backgroundBlur1: 'rgba(240, 229, 207, 0.85);',
-    // backgroundBlur1: 'rgba(42, 157, 143, 0.75);',
-    backgroundBlur1: 'rgba( 0, 157, 248, 0.25 );',
+    backgroundBlur1: 'rgba( 200, 198, 198, 0.25 );',
+    // backgroundBlur1: 'rgba( 0, 157, 248, 0.25 );',
     backgroundBlur2: 'rgba( 0, 157, 248, 0.55 );',
-    // backgroundBlur2: 'rgba(114, 93, 93, 0.29);',
-    success1: '#02c39a;',
-    success2: '#02b875;',
+    // success1: '#02c39a;',
+    success1: '#226f54;',
+    // success2: '#02b875;',
+    success2: '#058c42;',
     info1: '#3a86ff;',
     info2: '#00a5cf;',
     // warning1: '#eb5e28;',
     warning1: '#fca311;',
     danger1: '#e63946;',
-    // blue: #3a86ff;
-    // grey: #d3d3d3;
-    // green: #02c39a;
-    // lightBlue: #00a5cf;
-    // orange: #eb5e28;
-    // red: #e63946;
+
 }
 const tertiaryStyle: GlobalStyle = {
     background1Main: '#264653;',

@@ -67,20 +67,20 @@ export const DatePar = styled(motion.p)`
   padding: 0rem 0.75rem 0rem 0.5rem;
   /* padding-bottom: 0; */
   /* margin-right: 2.25rem; */
-  color: var(--background-secondary3);
+  color: var(--background4-main);
 `
 export const KeywordDiv = styled(motion.div)`
   min-width: fit-content;
   transition: 0.2s;
   &:hover {
-    color: var(--background-secondary4);
+    color: color: var(--background3-main);
   }
 `
 export const KeywordPar = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   font-size: 0.9rem;
-  color: var(--background-secondary3);
+  color: var(--background4-main);
 `
 export const ListTitle = styled(motion.h2)`
   display: grid;
@@ -124,10 +124,10 @@ export const TitleAnimated = styled(motion.div)`
   /* color: var(--background-secondary2); */
   transition: all 0.3s ease-out;
   &:hover {
-    color: var(--background-secondary2);
+    color: var(--background3-main);
   }
   &:active {
-    color: var(--background-secondary4);
+    color: var(--background4-main);
   }
 `
 // export const TitleContainer = styled(motion.div)``
@@ -163,7 +163,7 @@ export const DescriptionInput = styled(motion.textarea)`
   width: 100%;
   min-height: fit-content;
   height: 100%;
-  color: var(--background-tertiary4);
+  color: var(--background3-main);
   transition: all 0.3s ease-out;
   background: none;
   cursor: text;
@@ -172,7 +172,7 @@ export const DescriptionInput = styled(motion.textarea)`
   font-size: inherit;
   font-family: inherit;
   &::placeholder {
-    color: var(--background-tertiary3);
+    color: var(--background4-main);
     font-weight: 400;
   }
   @media (max-width: 798px) {
