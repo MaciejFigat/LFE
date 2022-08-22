@@ -33,9 +33,10 @@ export const DropDownListContainer = styled.div`
 
   /* position: relative; */
   z-index: 10;
-  background: rgba(60, 59, 61, 0.35);
+  background: var(--background-blur1);
   width: 120px;
-  box-shadow: 0 8px 32px 0 rgba(60, 59, 61, 0.35);
+  min-width: fit-content;
+  /* box-shadow: 0 8px 24px 0 var(--background1-main); */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;

@@ -225,7 +225,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              variant='primaryEmpty'
+              variant='secondaryEmpty'
               // onClick={editingHandler}
               onClick={togglingOptions}
             >
@@ -259,7 +259,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  variant='secondaryEmpty'
+                  variant='dangerEmpty'
                   onClick={removeKeywordHelperUltimate}
                 >
                   <SvgIcon

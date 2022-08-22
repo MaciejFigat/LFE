@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 export const SearchBarWrapper = styled.div`
   display: flex;
   align-self: center;
-  color: var(--background1-main);
+  color: var(--background5-main);
   z-index: 10;
   gap: 0.75rem;
   background: transparent;
@@ -16,12 +16,12 @@ export const SearchBarWrapper = styled.div`
     transition: 0.3s;
     /* opacity: 1; */
     //! here searchButton color is defined when panel is open
-    color: var(--background-tertiary6);
+    color: var(--background5-main);
   }
   .hide {
     transition: 0.2s;
     /* opacity: 0; */
-    color: var(--background-tertiary7);
+    color: var(--background4-main);
   }
   @media (max-width: 420px) {
     gap: 0.25rem;

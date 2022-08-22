@@ -84,7 +84,7 @@ export const HeaderAndCogContainer = styled(HorizontalButtonContainer)`
   align-items: center;
 `
 export const TitleInputMainKeyword = styled(motion.input)`
-  color: var(--background-tertiary3);
+  color: var(--background4-main);
   text-align: center;
   height: 22px;
   padding: 0.4rem 1rem 0.4rem 1rem;
@@ -94,7 +94,7 @@ export const TitleInputMainKeyword = styled(motion.input)`
   outline: 0;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid var(--background-secondary2);
+  border-bottom: 1px solid var(--background3-main);
   &:focus {
     border: none;
     outline: 0;
@@ -115,8 +115,9 @@ export const OptionsDropdownContainer = styled.div`
   left: 10px;
   top: 15px;
   z-index: 10;
-  background: var(--background-blur2);
+  background: var(--background2-main);
   width: 250px;
+  border: 1px solid var(--background4-main);
 
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);

@@ -20,6 +20,14 @@ interface GlobalStyle {
     backgroundOpaque2?: string
     backgroundBlur1?: string
     backgroundBlur2?: string
+    success1?: string
+    success2?: string
+    warning1?: string
+    warning2?: string
+    danger1?: string
+    danger2?: string
+    info1?: string
+    info2?: string
 }
 
 
@@ -62,6 +70,15 @@ const primaryStyle: GlobalStyle = {
     backgroundOpaque2: 'rgba( 29, 53, 87, 0.4 );',
     backgroundBlur1: 'rgba(60, 59, 61, 0.65);',
     backgroundBlur2: 'rgba( 29, 53, 87, 0.4 );',
+    success1: '#A1F8B4;',
+    success2: '#C8FB91;',
+    warning1: '#ca6702;',
+    warning2: '#ee9b00;',
+    // warning2:
+    // info1:
+    // info2:
+    danger1: '#D22730;'
+    // danger2:
 
 }
 // backgroundNeon5: '#54bea8;', 1
@@ -117,6 +134,19 @@ const secondaryStyle: GlobalStyle = {
     backgroundBlur1: 'rgba( 0, 157, 248, 0.25 );',
     backgroundBlur2: 'rgba( 0, 157, 248, 0.55 );',
     // backgroundBlur2: 'rgba(114, 93, 93, 0.29);',
+    success1: '#02c39a;',
+    success2: '#02b875;',
+    info1: '#3a86ff;',
+    info2: '#00a5cf;',
+    // warning1: '#eb5e28;',
+    warning1: '#fca311;',
+    danger1: '#e63946;',
+    // blue: #3a86ff;
+    // grey: #d3d3d3;
+    // green: #02c39a;
+    // lightBlue: #00a5cf;
+    // orange: #eb5e28;
+    // red: #e63946;
 }
 const tertiaryStyle: GlobalStyle = {
     background1Main: '#264653;',
@@ -223,6 +253,14 @@ export const handleGlobalScheme: (props: any) => {} = (props: any) => {
 
         backgroundBlur1: `${style.backgroundBlur1}`,
         backgroundBlur2: `${style.backgroundBlur2}`,
+        success1: `${style.success1}`,
+        success2: `${style.success2}`,
+        info1: `${style.info1}`,
+        info2: `${style.info2}`,
+        warning1: `${style.warning1}`,
+        warning2: `${style.warning2}`,
+        danger1: `${style.danger1}`,
+        danger2: `${style.danger2}`,
 
     }
 }

@@ -26,7 +26,7 @@ export const FragmentB = styled.b`
   color: var(--background-secondary2);
 `
 export const KeywordB = styled.b`
-  color: var(--background-secondary3);
+  color: var(--background4-main);
 `
 export const KeywordDivSimple = styled.b`
   display: flex;
@@ -48,5 +48,5 @@ export const FragmentDivSmall = styled(motion.div)`
   border-radius: 10px;
   width: 95%;
   padding: 0.75rem;
-  padding-right: 0;
+  padding-right: 0.25rem;
 `

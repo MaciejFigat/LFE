@@ -57,10 +57,10 @@ const secondaryStyle: StyleVariant = {
 
 }
 const secondaryEmptyStyle: StyleVariant = {
-    buttonColor: 'var(--background3-main);',
+    buttonColor: 'var(--background4-main);',
     buttonBackground: 'transparent;',
     buttonBackgroundHover: 'transparent;',
-    buttonColorHover: 'var(--background2-main);',
+    buttonColorHover: 'var(--background3-main);',
     buttonBorder: '2px solid var(--background3-main);',
     buttonBorderHover: '2px solid var(--background2-main);',
     buttonColorActive: 'var(--background2-main);',
@@ -74,8 +74,8 @@ const successEmptyStyle: StyleVariant = {
     buttonBorderHover: '2px solid var(--success2);',
     buttonBackgroundHover: 'transparent;',
     buttonColorHover: 'var(--success2);',
-    buttonColorActive: 'var(--success3);',
-    buttonBorderActive: 'var(--success3);'
+    buttonColorActive: 'var(--success2);',
+    buttonBorderActive: 'var(--success2);'
 
 }
 
@@ -90,6 +90,26 @@ const infoStyle: StyleVariant = {
     buttonBackground: 'var(--background-blue6);',
     buttonBackgroundHover: 'var(--background-blue7);',
     buttonColorHover: 'var(--background-blue5);'
+}
+const infoEmptyStyle: StyleVariant = {
+    buttonColor: 'var(--background4-main);',
+    buttonBackground: 'transparent;',
+    buttonBackgroundHover: 'transparent;',
+    buttonColorHover: 'var(--background3-main);',
+    buttonBorder: '2px solid var(--background3-main);',
+    buttonBorderHover: '2px solid var(--background2-main);',
+    buttonColorActive: 'var(--background2-main);',
+    buttonBorderActive: 'var(--background2-main);'
+}
+const dangerEmptyStyle: StyleVariant = {
+    buttonColor: 'var(--danger1);',
+    buttonBackground: 'transparent;',
+    buttonBackgroundHover: 'transparent;',
+    buttonColorHover: 'var(--warning1);',
+    buttonBorder: '2px solid var(--danger1);',
+    buttonBorderHover: '2px solid var(--warning1);',
+    buttonColorActive: 'var(--danger1);',
+    buttonBorderActive: 'var(--warning1);'
 }
 const dangerStyle: StyleVariant = {
     buttonColor: 'var(--background-tertiary4);',
@@ -133,8 +153,15 @@ export const handleButtonColor: (props: any) => {} = (props: any) => {
             style = infoStyle
             break;
 
+        case 'infoEmpty':
+            style = infoEmptyStyle
+            break;
+
         case 'danger':
             style = dangerStyle
+            break;
+        case 'dangerEmpty':
+            style = dangerEmptyStyle
             break;
         case 'darkEmpty':
             style = darkEmptyStyle

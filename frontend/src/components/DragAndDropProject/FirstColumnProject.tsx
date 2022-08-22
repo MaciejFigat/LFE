@@ -268,17 +268,13 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  variant='successEmpty'
+                  variant='primaryEmpty'
                   onClick={testHandler}
                 >
                   <SvgIcon variant='add' toBottom contentAfter='eksportuj' />
                 </SendButtonVerySmall>
               </AlignCenterContainer>
             </HorizontalButtonContainer>
-
-            {/* //todo DocX part START */}
-
-            {/* //todo DocX part END */}
 
             {state[0]
               .slice(start, end + 1)

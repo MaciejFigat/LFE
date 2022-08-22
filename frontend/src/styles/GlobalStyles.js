@@ -70,8 +70,8 @@ body {
     handleGlobalScheme(props.globalScheme).background7Tertiary}
 
     
-  --background-tertiary15:  rgba( 29, 53, 87, 0.4 );
-  --background-tertiary25: rgba(69, 123, 157, 1);
+  // --background-tertiary15:  rgba( 29, 53, 87, 0.4 );
+  // --background-tertiary25: rgba(69, 123, 157, 1);
   
   --secondary1: #264653;
   --secondary2: #2a9d8f;
@@ -83,8 +83,8 @@ body {
     handleGlobalScheme(props.globalScheme).backgroundBlur1}
   --background-blur2: ${(props) =>
     handleGlobalScheme(props.globalScheme).backgroundBlur2}
-  --background-blur11: rgba(60, 59, 61, 0.85);
-  --background-blur21: rgba(42, 157, 143, 0.75);
+  // --background-blur11: rgba(60, 59, 61, 0.85);
+  // --background-blur21: rgba(42, 157, 143, 0.75);
 
 
 
@@ -100,20 +100,20 @@ body {
    --bluegreen10:#00C2E1;
    --bluegreen11:#FE7BFF;
    
-   
-  //  --pink1: #f7a14e;
-     
+       
   --orange1: #ca6702;
   --orange2: #ee9b00;
   --orange3: #fca311;
 
-    --success1: #A1F8B4;
+    --success1: ${(props) => handleGlobalScheme(props.globalScheme).success1}
    
-    --success2: #C8FB91;
+    --success2: ${(props) => handleGlobalScheme(props.globalScheme).success2}
 
     --success3: #70e000;
 
-    --warning1: rgb(200, 50, 70);
+    --warning1: ${(props) => handleGlobalScheme(props.globalScheme).warning1}
+
+    --danger1: ${(props) => handleGlobalScheme(props.globalScheme).danger1}
     
     --background-blue1: #ADD7F6;
     --background-blue2: #87BFFF;
@@ -148,31 +148,7 @@ body {
     // --background-neon10: #4D4DFF;
     // --background-neon11: #C724B1;
     // --background-neon12: #D22730;
-    // --background-neon1:${(props) =>
-      handleGlobalScheme(props.globalScheme).backgroundNeon1}
-    // --background-neon2: ${(props) =>
-      handleGlobalScheme(props.globalScheme).backgroundNeon2}
-    // --background-neon3: ${(props) =>
-      handleGlobalScheme(props.globalScheme).backgroundNeon3}
-    // --background-neon4: ${(props) =>
-      handleGlobalScheme(props.globalScheme).backgroundNeon4}
-    // --background-neon5: ${(props) =>
-      handleGlobalScheme(props.globalScheme).backgroundNeon5}
-    // --background-neon6: ${(props) =>
-      handleGlobalScheme(props.globalScheme).backgroundNeon6}
-    // --background-neon7: ${(props) =>
-      handleGlobalScheme(props.globalScheme).backgroundNeon7}
-    // --background-neon8: ${(props) =>
-      handleGlobalScheme(props.globalScheme).backgroundNeon8}
-    // --background-neon9: ${(props) =>
-      handleGlobalScheme(props.globalScheme).backgroundNeon9}
-    // --background-neon10: ${(props) =>
-      handleGlobalScheme(props.globalScheme).backgroundNeon10}
-    // --background-neon11: ${(props) =>
-      handleGlobalScheme(props.globalScheme).backgroundNeon11}
-    // --background-neon12: ${(props) =>
-      handleGlobalScheme(props.globalScheme).backgroundNeon12}
-
+   
   
 
     --background-quaternary1: #1d3557;
