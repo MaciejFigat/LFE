@@ -3,24 +3,24 @@ import { motion } from 'framer-motion'
 
 export const ListWrapper = styled(motion.ul)`
   display: flex;
+  margin: 0;
   flex-direction: column;
-  margin-top: 16px;
+  /* margin-top: 16px; */
   height: fit-content;
   padding: 0.5rem;
 
   @media (max-width: 1140px) {
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
 `
 
 export const ListItem = styled(motion.li)`
   display: grid;
   place-items: center;
-  padding-bottom: 12px;
-  /* margin-top: 1rem;
-  margin-bottom: 1rem; */
+  /* padding-bottom: 12px; */
+
   // ! border radius passed as proprerty of ListItem in order to animate propre
-  /* border-radius: 20px; */
+
   list-style: none;
   overflow: hidden;
   background: var(--background1-main);

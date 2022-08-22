@@ -3,27 +3,27 @@ import { motion } from 'framer-motion'
 
 export const WrapperWindow = styled.div`
   min-width: 180px;
-  width: 90%;
+  /* width: 80%; */
+  margin: 0 1rem 0 1rem;
   height: 260px;
   border-radius: 10px;
   background: var(--background-blur1);
-  /* overflow: hidden; */
+  /* background: var(--background3-main); */
   display: flex;
   flex-direction: column;
+  color: var(--background5-main);
 `
 export const ChoiceNav = styled.nav`
-  /* padding: 5px 5px 0; */
   border-radius: 10px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-bottom: 1px solid var(--background-secondary2);
+  border-bottom: 1px solid var(--background3-main);
 `
 
 export const MainChoiceContainer = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* font-size: 58px; */
   flex-grow: 1;
 `
 export const MainChoiceBackground = styled.div`
@@ -32,7 +32,6 @@ export const MainChoiceBackground = styled.div`
   left: 0;
   bottom: 0;
   width: 300px;
-  /* background: var(--background-blur2); */
 `
 export const ChoiceList = styled.ul`
   list-style: none;
@@ -76,8 +75,6 @@ export const ChoiceItem = styled.li`
     bottom: -1px;
     left: 0;
     right: 0;
-    /* height: 1px; */
-    /* background: var(--background-secondary2); */
   }
 `
 

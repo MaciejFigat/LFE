@@ -39,15 +39,15 @@ const primaryStyle: StyleVariant = {
 
 
 const secondaryStyle: StyleVariant = {
-    sectionBackground: `var(--background-opaque4);`,
-    color: `var(--bluegreen9);`,
-    subtitleColor: 'var(--bluegreen3);',
-    headingColor: 'var(--bluegreen9);',
-    toplineColor: 'var(--bluegreen9);',
-    buttonColor: 'var(--secondary3);',
-    buttonBackground: 'var(--secondary1);',
-    buttonBackgroundHover: 'var(--secondary2);',
-    buttonColorHover: 'var(--background-neon5);'
+    sectionBackground: `var(--background1-main);`,
+    color: `var(--background5-main);`,
+    subtitleColor: 'var(--background5-main);',
+    headingColor: 'var(--background4-main);',
+    toplineColor: 'var(--background4-main);',
+    buttonColor: 'var(--background3-main);',
+    buttonBackground: 'var(--background4-main);',
+    buttonBackgroundHover: 'var(--background4-main);',
+    buttonColorHover: 'var(--background3-main);'
 
 
 }

@@ -14,13 +14,14 @@ export const DropDownHeader = styled.div`
   padding: 0.2rem 0.4rem 0.2rem 0.5rem;
   font-weight: 500;
   font-size: 0.9rem;
-  color: var(--background-secondary4);
+  /* color: var(--background-secondary4); */
+  color: var(--background4-main);
   transition: all 0.3s ease-out;
   text-align: center;
   cursor: pointer;
   border-bottom: 1px solid transparent;
   &:hover {
-    border-bottom: 1px solid var(--background-secondary4);
+    border-bottom: 1px solid var(--background-secondary2);
   }
 `
 export const DropDownListContainer = styled.div`

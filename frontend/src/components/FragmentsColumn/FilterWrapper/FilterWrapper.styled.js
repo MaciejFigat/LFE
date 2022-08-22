@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 export const FilterOptionsWrapper = styled.div`
   /* background: rgba(60, 59, 61, 0.35); */
-  background: var(--background-blur1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  /* background: var(--background-blur1); */
+  background: var(--background2-main);
+  /* backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); */
   border-radius: 10px;
   max-width: fit-content;
   min-width: 200px;

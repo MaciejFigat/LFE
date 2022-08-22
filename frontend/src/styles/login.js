@@ -67,10 +67,10 @@ export const Input = styled.input`
 export const Button = styled.button`
   max-width: 100%;
   padding: 11px 13px;
-  color: var(--background-tertiary1);
+  color: var(--background4-main);
   font-weight: 600;
   text-transform: uppercase;
-  background: var(--background-secondary1);
+  background: var(--background1-main);
   border: none;
   border-radius: 3px;
   outline: 0;
@@ -81,8 +81,11 @@ export const Button = styled.button`
   transition: all 0.3s ease-out;
   :hover {
     color: var(--background1-main);
-    background: var(--background-secondary2);
+    background: var(--background4-main);
     /* animation: ${jump} 0.2s ease-out forwards; */
+  }
+  :active {
+    background: var(--background3-main);
   }
 `
 
@@ -102,8 +105,9 @@ export const LoginLink = styled.div`
   max-width: fit-content;
   transition: 0.3s;
   font-weight: 500;
+  cursor: pointer;
   :hover {
-    color: var(--background-secondary3);
+    color: var(--background-secondary1);
   }
 `
 

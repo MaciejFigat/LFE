@@ -17,13 +17,13 @@ export const DropDownHeader = styled(motion.div)`
   /* box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15); */
   font-weight: 500;
   font-size: 1.1rem;
-  color: var(--background-secondary4);
-  border-bottom: 1px solid var(--background-secondary4);
+  color: var(--background5-main);
+  border-bottom: 1px solid var(--background5-main);
   /* background: var(--background1-main); */
   transition: all 0.3s ease-out;
   text-align: center;
   &:hover {
-    color: var(--background-secondary2);
+    color: var(--background3-main);
   }
 `
 export const DropDownListContainer = styled.div`
@@ -32,24 +32,25 @@ export const DropDownListContainer = styled.div`
 export const DropDownList = styled.div`
   //todo
   position: relative;
-  left: 10px;
+  /* left: 10px; */
+  top: -1px;
   padding: 0;
   margin: 0;
   padding-left: 1rem;
   padding-right: 0.5rem;
   /* background: var(--background2-main); */
-  background: var(--background-opaque1);
+  background: var(--background-blur1);
   /* background: var(--background-blur1); */
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
   /* background-color: rgba(240, 229, 207, 0.75); */
 
   /* border: 1px solid rgba(255, 255, 255, 0.125); */
 
-  border-top: 1px solid var(--background-secondary4);
-  border-bottom: 1px solid var(--background-secondary4);
+  border-top: 1px solid var(--background5-main);
+  border-bottom: 1px solid var(--background5-main);
   box-sizing: border-box;
-  color: var(--background-secondary2);
+  color: var(--background5-main);
   font-size: 1.1rem;
   font-weight: 500;
   min-width: fit-content;
@@ -62,7 +63,7 @@ export const ListItem = styled.li`
   margin-bottom: 0.8rem;
   cursor: pointer;
   &:hover {
-    color: var(--background-secondary4);
+    color: var(--background3-main);
   }
 `
 export const HorizontalButtonContainer = styled(motion.div)`

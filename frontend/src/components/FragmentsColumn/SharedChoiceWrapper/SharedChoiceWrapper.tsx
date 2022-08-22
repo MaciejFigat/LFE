@@ -1,4 +1,3 @@
-// import React, { useState, useEffect, useMemo } from 'react'
 import React, { useState } from 'react'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import VisitedLinks from '../../VisitedLinks/VisitedLinks'
@@ -21,12 +20,7 @@ interface SharedChoiceWrapperProps {}
 
 const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
   const dispatch = useAppDispatch()
-  // const showFragmentsState: boolean = useAppSelector(
-  //   (state) => state.preference.showFragments
-  // )
-  // const searchResultsPage: any = useAppSelector(
-  //   (state) => state.preference.searchResultsPage
-  // )
+
   const sortingOption: string = useAppSelector(
     (state) => state.preference.sortingOption
   )
@@ -49,7 +43,7 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
       label: 'Wyszukane',
       content: (
         <>
-          <SendButtonVerySmall variant='lightEmpty'>
+          <SendButtonVerySmall variant='primaryEmpty'>
             Displaying {numberOfResults && numberOfResults} search results
           </SendButtonVerySmall>{' '}
           <Pagination narrow />
@@ -59,9 +53,7 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
     { label: 'Przeglądane', content: <VisitedLinks /> },
   ]
 
-  // const [tabNr, setTabNr] = useState<number>()
   const [selectedTab, setSelectedTab] = useState(tabs[1])
-  // const [selectedTab, setSelectedTab] = useState(tabNr ? tabs[tabNr] : tabs[0])
 
   const tabHelper = (item: any) => {
     setSelectedTab(item)
@@ -72,14 +64,6 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
       dispatch(showFragments(false))
     }
   }
-
-  // useEffect(() => {
-  //   if (showFragmentsState) {
-  //     setTabNr(0)
-  //   } else if (showFragmentsState === false) {
-  //     setTabNr(1)
-  //   }
-  // }, [showFragmentsState, selectedTab])
 
   return (
     <>

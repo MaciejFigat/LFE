@@ -30,7 +30,7 @@ export const SideMenuButtonDiv = styled(motion.div)`
   top: 120px;
   width: 50px;
   height: 50px;
-  background: var(--background-secondary2);
+  background: var(--background3-main);
   z-index: 10;
 `
 export const MainWrapperResizableMenu = styled.div`

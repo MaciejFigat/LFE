@@ -105,7 +105,7 @@ const Home: React.FC = () => {
             {data && data?.length === 0 && (
               <>
                 {' '}
-                <HomeWelcome variant='primary' />
+                <HomeWelcome variant='secondary' />
               </>
             )}
 
@@ -125,7 +125,7 @@ const Home: React.FC = () => {
                   .map((fragmentArray: any) => (
                     <DataSection
                       highlightQuery={highlightQuery}
-                      variant='primary'
+                      variant='secondary'
                       key={fragmentArray['uuid']}
                       paddingTop='large'
                       imgStart
