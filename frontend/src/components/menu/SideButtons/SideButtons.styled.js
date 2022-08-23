@@ -14,7 +14,7 @@ export const SideButtonWrapper = styled.ul`
   border-radius: 10px;
   top: 120px;
   height: fit-content;
-  background: var(--background-blur2);
+  /* background: var(--background-blur1); */
   /* background: var(--background2-main); */
   z-index: 10;
 `

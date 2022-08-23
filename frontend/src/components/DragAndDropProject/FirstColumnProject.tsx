@@ -271,7 +271,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                   variant='primaryEmpty'
                   onClick={testHandler}
                 >
-                  <SvgIcon variant='add' toBottom contentAfter='eksportuj' />
+                  <SvgIcon variant='export' toBottom contentAfter='eksportuj' />
                 </SendButtonVerySmall>
               </AlignCenterContainer>
             </HorizontalButtonContainer>

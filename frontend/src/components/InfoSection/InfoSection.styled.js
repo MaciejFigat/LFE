@@ -173,7 +173,7 @@ export const TopLine = styled.div`
 export const TopLineSimple = styled(TopLine)`
   font-size: 0.85rem;
   line-height: 14px;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 1px;
 `
 export const Heading = styled.h1`
@@ -195,7 +195,7 @@ export const Subtitle = styled.p`
   font-size: 1.1rem;
   line-height: 1.2rem;
   letter-spacing: 0.025em;
-  font-weight: 400;
+  font-weight: 500;
   transition: 0.3s;
   /* subtitleColor */
   ${(props) => handleSectionColor(props).subtitleColor}
@@ -217,7 +217,7 @@ export const SubtitleSimple = styled(Subtitle)`
   font-size: 0.95rem;
   line-height: 1.15rem;
   letter-spacing: 0em;
-  font-weight: 300;
+  font-weight: 500;
 `
 
 export const HomeContentWrapper = styled.div`
@@ -236,7 +236,6 @@ export const CenterWrapperSimple = styled(CenterWrapper)`
   margin-bottom: 0.5rem;
   height: fit-content;
   /* align-self: flex-start; */
-
   width: 95%;
 `
 export const DataContainerSimple = styled.div`

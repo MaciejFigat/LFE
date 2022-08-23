@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 export const WrapperWindow = styled.div`
   min-width: 180px;
   /* width: 80%; */
-  margin: 0 1rem 0 1rem;
+  margin: 2.5rem 1rem 1.5rem 1rem;
   height: 260px;
   border-radius: 10px;
   background: var(--background-blur1);

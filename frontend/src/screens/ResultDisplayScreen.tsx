@@ -7,8 +7,7 @@ import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColu
 import ResultDisplay from '../components/ResultDisplay/ResultDisplay'
 import DataSectionSimple from '../components/InfoSection/DataSectionSimple'
 import UserFragmentsByKeyword from '../components/FragmentsColumn/UserFragmentsByKeyword'
-// import FragmentsPagination from '../components/Pagination/FragmentsPagination'
-// import Pagination from '../components/Pagination/Pagination'
+
 import { DataContainerSimple } from '../components/InfoSection/InfoSection.styled'
 import SharedChoiceWrapper from '../components/FragmentsColumn/SharedChoiceWrapper/SharedChoiceWrapper'
 
@@ -52,7 +51,7 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
                   data.length > 0 &&
                   data.slice(start, end + 1).map((fragmentArray: any) => (
                     <DataSectionSimple
-                      variant='blue'
+                      variant='primary'
                       // imgStart
                       key={fragmentArray['uuid']}
                       paddingTop='small'

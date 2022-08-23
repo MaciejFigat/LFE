@@ -10,12 +10,12 @@ interface SideButtonsProps {
 }
 
 const colors = [
-  'var(--background-neon10)',
-  'var(--background-neon2)',
-  'var(--background-neon3)',
-  'var(--background-neon4)',
-  'var(--background-neon5)',
-  'var(--background-neon6)',
+  'var(--background-secondary1)',
+  'var(--background-secondary2)',
+  'var(--background-secondary3)',
+  'var(--background-tertiary1)',
+  'var(--background-tertiary2)',
+  'var(--background-tertiary3)',
 ]
 
 const SideButtons: React.FC<SideButtonsProps> = ({ hashIds }) => {

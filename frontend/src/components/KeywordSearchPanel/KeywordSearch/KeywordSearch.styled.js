@@ -34,6 +34,8 @@ export const KeywordDivSimple = styled.b`
   flex-wrap: wrap;
 `
 export const FragmentParSmall = styled.p`
+  font-weight: 400;
+  color: var(--background5-main);
   margin: 0;
 `
 export const FragmentTitleRowSmall = styled.div`

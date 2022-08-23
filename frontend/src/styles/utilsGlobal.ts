@@ -98,7 +98,9 @@ const primaryStyle: GlobalStyle = {
 
 const secondaryStyle: GlobalStyle = {
     background1Main: '#F7F6F2;',
-    background2Main: '#EBFBFF;',
+    // background2Main: '#EBFBFF;',
+    // background2Main: '#FEE7C9;',
+    background2Main: '#C0BFBC;',
     background3Main: '#009DF8;',
     background4Main: '#3B5367;',
     background5Main: '#343a40;',
@@ -117,7 +119,8 @@ const secondaryStyle: GlobalStyle = {
     // background2Secondary: '#2188A9;',
     background2Secondary: '#2188A9;',
     // background3Secondary: '#d3d3d3;',
-    background3Secondary: '#d3d3d3;',
+    // background3Secondary: '#d3d3d3;',
+    background3Secondary: '#007560;',
     background4Secondary: '#02c39a;',
     background5Secondary: '#eb5e28;',
     background1Tertiary: '#3a86ff;',

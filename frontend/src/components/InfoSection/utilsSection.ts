@@ -14,8 +14,8 @@ interface StyleVariant {
 
 
 const primaryStyle: StyleVariant = {
-    sectionBackground: `var(--background-opaque1);`,
-    // sectionBackground: `var(--background-opaque6);`,
+    sectionBackground: `var(--background-blur1);`,
+    // sectionBackground: `var(--background-opaque1);`,
     color: `var(--background5-main);`,
     subtitleColor: 'var(--background5-main);',
     headingColor: 'var(--background5-main);',
@@ -23,7 +23,7 @@ const primaryStyle: StyleVariant = {
     buttonColor: 'var(--background-tertiary2);',
     buttonBackground: 'var(--background-secondary1);',
     buttonBackgroundHover: 'var(--background-secondary2);',
-    buttonColorHover: 'var(--background-secondary3);'
+    buttonColorHover: 'var(--background-secondary2);'
 }
 // const primaryStyle: StyleVariant = {
 //     sectionBackground: `var(--background-opaque6);`,

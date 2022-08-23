@@ -28,6 +28,7 @@ import {
   faPlusCircle,
   faArrowRight,
   faPaintBrush,
+  faFileExport,
 } from '@fortawesome/free-solid-svg-icons'
 interface SvgIconProps {
   variant:
@@ -57,6 +58,7 @@ interface SvgIconProps {
     | 'plus'
     | 'arrow'
     | 'paint'
+    | 'export'
 
   noMargin?: boolean
   contentAfter?: string
@@ -138,6 +140,8 @@ const SvgIcon: React.FC<SvgIconProps> = ({
         return faArrowRight
       case 'paint':
         return faPaintBrush
+      case 'export':
+        return faFileExport
 
       default:
         return faUser
