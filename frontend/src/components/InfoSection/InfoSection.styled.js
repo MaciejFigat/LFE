@@ -81,9 +81,6 @@ export const TextWrapper = styled.div`
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-  @media screen and (max-width: 770px) {
-    /* padding-bottom: 25px; */
-  }
 `
 export const TextWrapperSimple = styled(TextWrapper)`
   padding: 0.5rem;
@@ -156,7 +153,6 @@ export const ButtonLink = styled.a`
   /* ${(props) => handleSectionColor(props).buttonColor} */
   /* buttonColorHover */
   ${Button}:hover & {
-    /* transition: all 0.3s ease-out; */
     /* for some reason the props are not read in this instance REMIND ME to check for issues in styled-components */
     /* ${(props) => handleSectionColor(props).buttonColorHover} */
   }
