@@ -182,18 +182,19 @@ body {
     
     }
   .highlight{
-    color: var(--background-neon4);
+    // color: var(--background-neon4);
+    color: var(--background-secondary2);
     background: red;
   }
   .highlightQuery{
     border-radius: 4px;
-    // background: var(--background-neon1);
+    background: var(--background3-main);
     background: red;
-    color: var(--background-neon5);
+    color: var(--background-secondary2);
   }
   mark {
-    background-color: var(--background-neon1);
-    color: var(--background-neon5) !important;
+    background-color: var(--background2-main);;
+    color: var(--background-secondary2) !important;
   } 
   .dateFormat{
     input{

@@ -113,7 +113,7 @@ export const DropDownListContainer = styled.div`
   left: 10px;
   top: 15px;
   z-index: 10;
-  background: var(--background-blur2);
+  background: var(--background-blur1);
   width: 250px;
   padding: 0.5rem;
   backdrop-filter: blur(8px);
@@ -136,7 +136,7 @@ export const DropDownList = styled.div`
   width: 100%;
   box-sizing: border-box;
 
-  color: var(--background-tertiary1);
+  color: var(--background5-main);
   font-size: 1rem;
   font-weight: 400;
   min-width: fit-content;
@@ -180,7 +180,7 @@ export const SwitchDiv = styled.div`
   /* height: 15px; */
   height: 16px;
   background-color: ${({ isOn }) =>
-    isOn ? 'var(--background-tertiary1)' : 'var(--background-tertiary2)'};
+    isOn ? 'var(--background2-main)' : 'var(--background3-main)'};
   display: flex;
   border-radius: 10px;
   padding: 1px;
@@ -190,7 +190,7 @@ export const SwitchDiv = styled.div`
 `
 export const SwitchText = styled.b`
   color: ${({ isOn }) =>
-    isOn ? 'var(--background-tertiary2)' : 'var(--background-tertiary1)'};
+    isOn ? 'var(--background5-main)' : 'var(--background3-main)'};
 `
 export const SwitchHandle = styled(motion.div)`
   width: 14px;
@@ -198,7 +198,7 @@ export const SwitchHandle = styled(motion.div)`
   background-color: white;
   border-radius: 12px;
   background-color: ${({ isOn }) =>
-    isOn ? 'var(--background-tertiary2)' : 'var(--background-tertiary1)'};
+    isOn ? 'var(--background1-main)' : 'var(--background4-main)'};
 `
 export const SetTakeButton = styled.button`
   outline: none;
@@ -211,7 +211,7 @@ export const SetTakeButton = styled.button`
   border-radius: 8px;
   font-size: 0.7rem;
   background-color: ${({ buttonActive }) =>
-    buttonActive ? 'var(--background-tertiary2)' : 'transparent'};
+    buttonActive ? 'var(--background4-main)' : 'transparent'};
   /* margin-left: 0.5rem; */
   margin: 0 auto;
   &:hover {
@@ -219,9 +219,7 @@ export const SetTakeButton = styled.button`
     /* border: 1px solid var(--background-secondary2); */
     border: 1px solid;
     border-color: ${({ buttonActive }) =>
-      buttonActive
-        ? 'var(--background-tertiary4)'
-        : 'var(--background-secondary2)'};
+      buttonActive ? 'var(--background1-main)' : 'var(--background4-main)'};
   }
   &:active {
     border: 1px solid var(--background-secondary4);
