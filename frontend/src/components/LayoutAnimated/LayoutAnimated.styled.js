@@ -9,7 +9,7 @@ export const AnimationContainer = styled.div`
   place-items: end center;
   /* overflow: hidden; */
   position: relative;
-  background: var(--background4-main);
+  /* background: var(--background4-main); */
 `
 export const LayoutDivWrapper = styled.div`
   display: grid;

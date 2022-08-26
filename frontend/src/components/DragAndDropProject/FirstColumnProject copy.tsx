@@ -28,7 +28,6 @@ import {
 } from './LabelInput/LabelInput.styled'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
-import LayoutAnimated from '../LayoutAnimated/LayoutAnimated'
 
 interface FirstColumnProjectProps {
   state: any[]
@@ -276,7 +275,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                 </SendButtonVerySmall>
               </AlignCenterContainer>
             </HorizontalButtonContainer>
-            <LayoutAnimated />
+
             {state[0]
               .slice(start, end + 1)
               .map((fragment: any, index: number) => (
