@@ -1,4 +1,7 @@
 import React from 'react'
+import LayoutCardComponent from '../AaTryout/LayoutCards'
+import LayoutHorizontal from '../AaTryout/LayoutHorizontal'
+
 import {
   InfoSec,
   Container,
@@ -23,8 +26,11 @@ interface HomeWelcomeProps {
 const HomeWelcome: React.FC<HomeWelcomeProps> = ({ variant }) => {
   return (
     <HomeContentWrapper>
-      <>
-        <InfoSec variant={variant} paddingTop='large'>
+      {/* <LayoutCardComponent /> */}
+      <LayoutHorizontal />
+      {/* <> */}
+
+      {/* <InfoSec variant={variant} paddingTop='large'>
           <Container>
             <InfoRow imgStart={false}>
               <InfoColumnShort>
@@ -171,7 +177,7 @@ const HomeWelcome: React.FC<HomeWelcomeProps> = ({ variant }) => {
             </InfoRow>
           </Container>
         </InfoSec>
-      </>
+      </> */}
     </HomeContentWrapper>
   )
 }

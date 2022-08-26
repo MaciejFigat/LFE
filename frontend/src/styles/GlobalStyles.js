@@ -203,16 +203,16 @@ body {
       max-width: fit-content;
     }
     border-radius: 4px;
-    color: var(--background-neon10);
-    background-color: var(--background-neon4);
-    border: 1px solid var(--background-neon1);
+    color: var(--background4-main);
+    background-color: var(--background2-main);
+    border: 1px solid var(--background5-main);
     &:active{
-      border: 1px solid var(--background-neon3);
+      border: 1px solid var(--background2-main);
     }
   }
   .calendarFormat{
-    background-color: var(--background-neon2);
-    color: var(--background-neon2);
+    background-color: var(--background2-main);
+    color: var(--background3-main);
   }
  
   .highlightFrag0{

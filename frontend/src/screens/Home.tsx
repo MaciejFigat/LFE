@@ -12,6 +12,7 @@ import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
 import { SendButton } from '../components/Buttons/Buttons.styled'
 import HomeWelcome from '../components/InfoSection/HomeWelcome'
 import Pagination from '../components/Pagination/Pagination'
+
 // import SearchFilter from '../components/SearchFilter/SearchFilter'
 
 const Home: React.FC = () => {

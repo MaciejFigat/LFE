@@ -87,11 +87,11 @@ export const DragButton = styled.div`
   transition: 0.2s;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
-  border: 1.5px solid var(--background-secondary1);
+  border: 1.5px solid var(--background3-main);
   &:hover {
-    border-color: var(--background-secondary2);
+    border-color: var(--background3-main);
     /* background: var(--success2); */
-    background: var(--background-tertiary3);
+    background: var(--background2-main);
   }
   border-left: none;
   /* background: var(--background-secondary1); */
@@ -109,7 +109,7 @@ export const DragDiv = styled.div`
   }
   &:hover {
     /* opacity: 0.8; */
-    border-color: var(--background-secondary1);
+    border-color: var(--background3-main);
   }
 
   cursor: col-resize;
