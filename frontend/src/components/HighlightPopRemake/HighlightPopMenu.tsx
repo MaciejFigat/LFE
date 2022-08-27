@@ -27,6 +27,8 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
   const onMouseUp = useCallback(() => {
     const selection: Selection | null = window.getSelection()
     const selectedText = selection!.toString().trim()
+    // @ts-ignore
+    // const selectedText = window.getSelection().toString().trim()
 
     if (!selectedText) {
       hidePopover()
@@ -56,10 +58,10 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
       return
     }
 
-    if (startNode && !startNode.isSameNode(endNode)) {
-      hidePopover()
-      return
-    }
+    // if (startNode && !startNode.isSameNode(endNode)) {
+    //   hidePopover()
+    //   return
+    // }
 
     const { x, y, width } = selectionRange!.getBoundingClientRect()
     if (!width) {

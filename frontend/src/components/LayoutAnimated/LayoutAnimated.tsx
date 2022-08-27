@@ -15,7 +15,8 @@ interface LayoutAnimatedProps {
 
 const LayoutAnimated: React.FC<LayoutAnimatedProps> = ({ children }) => {
   const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
-  const [openedApp, setOpenedApp] = useState<null | number>(null)
+  // const [openedApp, setOpenedApp] = useState<null | number>(null)
+  const [openedApp, setOpenedApp] = useState<null | string>(null)
 
   const onClickCloseHelper = () => {
     setOpenedApp(null)
@@ -24,15 +25,24 @@ const LayoutAnimated: React.FC<LayoutAnimatedProps> = ({ children }) => {
       setCanOpenApp(true)
     }, 500)
   }
+
+  const testFrag = [
+    { id: '123d22123', title: 'one' },
+    { id: '12333123', title: 'two' },
+    { id: '123123233', title: 'three' },
+    { id: '1231fdf23', title: 'four' },
+  ]
+  // const openedFrag = testFrag.filter((testFrag.id) => id === openedApp)
   return (
     <AnimationContainer>
       <LayoutDivWrapper>
-        <AnimateSharedLayout>
-          {[1, 2, 3, 4].map((app, index) => (
+        <AnimateSharedLayout type='crossfade'>
+          {/* {[1, 2, 3, 4].map((app, index) => ( */}
+          {testFrag.map((app, index) => (
             // {children?.map((app: any, index: any) => (
-            <ClosedLayoutDiv key={app} layoutId={app.toString()}>
-              <OpenDivButton onClick={() => canOpenApp && setOpenedApp(app)}>
-                {index}
+            <ClosedLayoutDiv key={app.id} layoutId={app.id.toString()}>
+              <OpenDivButton onClick={() => canOpenApp && setOpenedApp(app.id)}>
+                {app.title}
               </OpenDivButton>
             </ClosedLayoutDiv>
           ))}
