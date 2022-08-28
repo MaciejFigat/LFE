@@ -9,6 +9,7 @@ export const AnimationContainer = styled.div`
   place-items: end center;
   /* overflow: hidden; */
   position: relative;
+  /* z-index: 0; */
   /* background: var(--background4-main); */
 `
 export const LayoutDivWrapper = styled.div`

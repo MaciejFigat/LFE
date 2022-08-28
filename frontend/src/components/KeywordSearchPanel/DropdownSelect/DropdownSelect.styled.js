@@ -32,6 +32,7 @@ export const DropDownListContainer = styled.div`
 export const DropDownList = styled.div`
   //todo
   position: relative;
+  z-index: 2;
   /* left: 10px; */
   top: -1px;
   padding: 0;

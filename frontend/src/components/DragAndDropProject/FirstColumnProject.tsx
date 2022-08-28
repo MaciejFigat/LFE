@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   FragmentB,
   FragmentDivSmall,
@@ -20,7 +20,6 @@ import {
   ExternalHyperlink,
 } from 'docx'
 import { saveAs } from 'file-saver'
-// import * as fs from 'fs'
 import SelectMainKeyword from '../KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
 import {
   AlignCenterContainer,
@@ -29,6 +28,15 @@ import {
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import LayoutAnimated from '../LayoutAnimated/LayoutAnimated'
+import {
+  AnimationContainer,
+  ClosedLayoutDiv,
+  ClosingDiv,
+  LayoutDivWrapper,
+  OpenDivButton,
+  OpenedLayoutDiv,
+} from '../LayoutAnimated/LayoutAnimated.styled'
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 
 interface FirstColumnProjectProps {
   state: any[]
@@ -64,6 +72,13 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
     (state) => state.preference.savedFragmentsPage
   )
   const { start, end } = savedFragmentsPage
+
+  // todo
+  const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
+
+  const [openedApp, setOpenedApp] = useState<null | string>(null)
+  const [title, setTitle] = useState<string>('')
+  //todo
 
   const testHandler = () => {
     Packer.toBlob(doc).then((blob) => {
@@ -253,6 +268,19 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
     ],
   })
 
+  const onClickCloseHelper = () => {
+    setOpenedApp(null)
+    setCanOpenApp(false)
+    setTimeout(() => {
+      setCanOpenApp(true)
+    }, 500)
+  }
+  const openWindowHandler = (id: string, title: string) => {
+    if (canOpenApp) {
+      setOpenedApp(id)
+      setTitle(title)
+    }
+  }
   return (
     <KeywordColumnContainer>
       <Droppable key={'0'} droppableId={`0`}>
@@ -276,47 +304,92 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                 </SendButtonVerySmall>
               </AlignCenterContainer>
             </HorizontalButtonContainer>
-            <LayoutAnimated />
-            {state[0]
-              .slice(start, end + 1)
-              .map((fragment: any, index: number) => (
-                <Draggable
-                  key={fragment.nanoId}
-                  draggableId={fragment.nanoId}
-                  index={index}
-                >
-                  {(provided, snapshot) => (
-                    <FragmentDivSmall
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      style={getItemStyle(
-                        snapshot.isDragging,
-                        provided.draggableProps.style
-                      )}
-                    >
-                      <FragmentParSmall>
-                        <FragmentB>T:</FragmentB> {fragment.title}
-                      </FragmentParSmall>
-                      <FragmentParSmall>
-                        <FragmentB>E:</FragmentB> {fragment.excerpt}
-                      </FragmentParSmall>
-                      <FragmentParSmall>
-                        <FragmentB>D:</FragmentB> {fragment.description}
-                      </FragmentParSmall>
-
-                      <KeywordDivSimple>
-                        <FragmentB>Keywords:&nbsp;</FragmentB>
-                        {fragment.keywords.map((keyword: string) => (
-                          <KeywordB key={Math.random()}>
-                            {keyword} &nbsp;
-                          </KeywordB>
-                        ))}
-                      </KeywordDivSimple>
-                    </FragmentDivSmall>
-                  )}
-                </Draggable>
-              ))}
+            {/* <LayoutAnimated /> */}
+            {/*  // todo here  */}
+            <AnimationContainer>
+              <LayoutDivWrapper>
+                <AnimateSharedLayout type='crossfade'>
+                  {state[0]
+                    .slice(start, end + 1)
+                    .map((fragment: any, index: number) => (
+                      <Draggable
+                        key={fragment.nanoId}
+                        draggableId={fragment.nanoId}
+                        index={index}
+                      >
+                        {(provided, snapshot) => (
+                          <FragmentDivSmall
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            style={getItemStyle(
+                              snapshot.isDragging,
+                              provided.draggableProps.style
+                            )}
+                          >
+                            {/*  // todo here  */}
+                            {/* <FragmentParSmall>
+                              <FragmentB>T:</FragmentB> {fragment.title}
+                            </FragmentParSmall>
+                            <FragmentParSmall>
+                              <FragmentB>E:</FragmentB> {fragment.excerpt}
+                            </FragmentParSmall>
+                            <FragmentParSmall>
+                              <FragmentB>D:</FragmentB> {fragment.description}
+                            </FragmentParSmall> */}
+                            <ClosedLayoutDiv
+                              key={fragment.id}
+                              layoutId={fragment._id.toString()}
+                            >
+                              <KeywordDivSimple>
+                                <FragmentB>Keywords:&nbsp;</FragmentB>
+                                {fragment.keywords.map((keyword: string) => (
+                                  <KeywordB key={Math.random()}>
+                                    {keyword} &nbsp;
+                                  </KeywordB>
+                                ))}
+                              </KeywordDivSimple>
+                              <OpenDivButton
+                                onClick={() =>
+                                  openWindowHandler(
+                                    fragment._id,
+                                    fragment.title
+                                  )
+                                }
+                              />
+                            </ClosedLayoutDiv>
+                            {/* <KeywordDivSimple>
+                              <FragmentB>Keywords:&nbsp;</FragmentB>
+                              {fragment.keywords.map((keyword: string) => (
+                                <KeywordB key={Math.random()}>
+                                  {keyword} &nbsp;
+                                </KeywordB>
+                              ))}
+                            </KeywordDivSimple> */}
+                          </FragmentDivSmall>
+                        )}
+                      </Draggable>
+                    ))}
+                  <AnimatePresence>
+                    {openedApp && (
+                      <>
+                        <ClosingDiv
+                          initial={{ y: 8, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          exit={{ y: 8, opacity: 0 }}
+                          // transition={{ ease: 'linear' }}
+                          onClick={() => onClickCloseHelper()}
+                        />
+                        <OpenedLayoutDiv layoutId={openedApp.toString()}>
+                          {title}
+                        </OpenedLayoutDiv>
+                      </>
+                    )}
+                  </AnimatePresence>
+                </AnimateSharedLayout>
+                {provided.placeholder}
+              </LayoutDivWrapper>
+            </AnimationContainer>
             {provided.placeholder}
           </KeywordSearchContainer>
         )}
