@@ -13,16 +13,14 @@ export const InfoSec = styled.div`
     paddingTop === 'small' ? 'padding: 30px 0;' : 'padding: 35px 0;'};
 
   ${(props) => handleSectionColor(props).sectionBackground}
-  /* opacity: 0.8; */
   ${(props) => handleSectionColor(props).sectionBackgroundGradient}
-  /* //! test*/
   
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 8px;
   border: solid 1px;
   border-color: ${(props) => handleSectionColor(props).color};
-  /* //! end  */
+
   @media (max-width: 880px) {
     ${({ paddingTop }) =>
       paddingTop === 'small' ? 'padding: 20px 0;' : 'padding: 25px 0;'};
