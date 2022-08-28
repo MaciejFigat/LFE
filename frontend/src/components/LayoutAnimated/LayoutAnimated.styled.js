@@ -28,9 +28,17 @@ export const ClosedLayoutDiv = styled(motion.div)`
   border-radius: 8px;
   display: grid;
   place-items: center center;
+  /* place-items: center; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  text-align: center;
+
   cursor: pointer;
   background: var(--background2-main);
   overflow: hidden;
+
+  /* color: var(--background4-main); */
 `
 export const OpenDivButton = styled.div`
   width: 55px;
@@ -39,6 +47,7 @@ export const OpenDivButton = styled.div`
   position: relative;
   top: -53%;
   left: 50%;
+
   background: var(--background4-main);
   transition: all 0.3s ease-in;
   &:after {

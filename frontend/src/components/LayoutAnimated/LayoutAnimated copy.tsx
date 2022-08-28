@@ -14,11 +14,6 @@ interface LayoutAnimatedProps {
 }
 
 const LayoutAnimated: React.FC<LayoutAnimatedProps> = ({ children }) => {
-  const [title, setTitle] = useState<string>('')
-  // const [description, setDescription] = useState<string>('')
-  // const [id, setId] = useState<string>('')
-  // const [set, setDescription] = useState<string>('')
-  // const [title, setTitle] = useState<string>('')
   const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
   // const [openedApp, setOpenedApp] = useState<null | number>(null)
   const [openedApp, setOpenedApp] = useState<null | string>(null)
@@ -38,23 +33,16 @@ const LayoutAnimated: React.FC<LayoutAnimatedProps> = ({ children }) => {
     { id: '1231fdf23', title: 'four' },
   ]
   // const openedFrag = testFrag.filter((testFrag.id) => id === openedApp)
-  const openWindowHandler = (id: string, title: string) => {
-    if (canOpenApp) {
-      setOpenedApp(id)
-      setTitle(title)
-    }
-  }
   return (
     <AnimationContainer>
       <LayoutDivWrapper>
         <AnimateSharedLayout type='crossfade'>
+          {/* {[1, 2, 3, 4].map((app, index) => ( */}
           {testFrag.map((app, index) => (
             // {children?.map((app: any, index: any) => (
             <ClosedLayoutDiv key={app.id} layoutId={app.id.toString()}>
-              {app.title}
-
               <OpenDivButton
-                onClick={() => openWindowHandler(app.id, app.title)}
+                onClick={() => canOpenApp && setOpenedApp(app.id)}
               />
             </ClosedLayoutDiv>
           ))}
@@ -68,9 +56,9 @@ const LayoutAnimated: React.FC<LayoutAnimatedProps> = ({ children }) => {
                   transition={{ ease: 'linear' }}
                   onClick={() => onClickCloseHelper()}
                 />
-                <OpenedLayoutDiv layoutId={openedApp.toString()}>
-                  {title}
-                </OpenedLayoutDiv>
+                <OpenedLayoutDiv
+                  layoutId={openedApp.toString()}
+                ></OpenedLayoutDiv>
               </>
             )}
           </AnimatePresence>
