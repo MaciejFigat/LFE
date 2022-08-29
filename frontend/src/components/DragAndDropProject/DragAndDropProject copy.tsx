@@ -5,11 +5,6 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import ResizableScrollSection from '../ScrollSection/ResizableScrollSection'
 import FirstColumnProject from './FirstColumnProject'
 import SecondAndThirdColProject from './SecondAndThirdColProject'
-import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
-import {
-  ClosingDivBig,
-  OpenedDivBig,
-} from '../LayoutAnimated/LayoutAnimated.styled'
 
 //? reordering the items within a list
 
@@ -71,12 +66,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   const fragmentsKeywordTwo: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordTwo
   )
-
-  const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
-
-  const [openedApp, setOpenedApp] = useState<null | string>(null)
-  const [title, setTitle] = useState<string>('')
-
   const [labelOneState, setLabelOneState] = useState<string | undefined>()
   const [labelTwoState, setLabelTwoState] = useState<string | undefined>()
   const [state, setState] = useState([
@@ -225,14 +214,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       setState(newState)
     }
   }
-  //* big layout window functions
-  const onClickCloseHelper = () => {
-    setOpenedApp(null)
-    setCanOpenApp(false)
-    setTimeout(() => {
-      setCanOpenApp(true)
-    }, 500)
-  }
 
   useEffect(() => {
     if (fragmentsKeywordMain) {
@@ -279,47 +260,22 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   }, [fragmentsKeywordMain, fragments, keywordMain])
 
   return (
-    <AnimateSharedLayout type='crossfade'>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <ResizableScrollSection
-          transparent
-          wideSection={
-            <FirstColumnProject
-              setOpenedApp={setOpenedApp}
-              setTitle={setTitle}
-              canOpenApp={canOpenApp}
-              openedApp={openedApp}
-              state={state}
-              keywordMain={keywordMain}
-            />
-          }
-          // ! 2nd 3rd columns
-          narrowSection={
-            <SecondAndThirdColProject
-              labelOne={labelOneState}
-              labelTwo={labelTwoState}
-              state={state}
-            />
-          }
-        />
-      </DragDropContext>
-      <AnimatePresence>
-        {openedApp && (
-          <>
-            <ClosingDivBig
-              initial={{ y: 8, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 8, opacity: 0 }}
-              transition={{ ease: 'linear' }}
-              onClick={() => onClickCloseHelper()}
-            />
-            {/* <OpenedLayoutDiv layoutId={openedApp.toString()}> */}
-            {/* <OpenedDivBig layoutId={openedApp.toString()}>{title}</OpenedDivBig> */}
-            <OpenedDivBig layoutId={openedApp.toString()}>{title}</OpenedDivBig>
-          </>
-        )}
-      </AnimatePresence>
-    </AnimateSharedLayout>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <ResizableScrollSection
+        transparent
+        wideSection={
+          <FirstColumnProject state={state} keywordMain={keywordMain} />
+        }
+        // ! 2nd 3rd columns
+        narrowSection={
+          <SecondAndThirdColProject
+            labelOne={labelOneState}
+            labelTwo={labelTwoState}
+            state={state}
+          />
+        }
+      />
+    </DragDropContext>
   )
 }
 export default DragAndDropProject

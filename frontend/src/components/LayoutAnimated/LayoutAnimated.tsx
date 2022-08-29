@@ -61,6 +61,10 @@ const LayoutAnimated: React.FC<LayoutAnimatedProps> = ({ children }) => {
           <AnimatePresence>
             {openedApp && (
               <>
+                {/* <OpenedLayoutDiv layoutId={openedApp.toString()}> */}
+                <OpenedLayoutDiv layoutId={openedApp.toString()}>
+                  {title}
+                </OpenedLayoutDiv>
                 <ClosingDiv
                   initial={{ y: 8, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
@@ -68,9 +72,6 @@ const LayoutAnimated: React.FC<LayoutAnimatedProps> = ({ children }) => {
                   transition={{ ease: 'linear' }}
                   onClick={() => onClickCloseHelper()}
                 />
-                <OpenedLayoutDiv layoutId={openedApp.toString()}>
-                  {title}
-                </OpenedLayoutDiv>
               </>
             )}
           </AnimatePresence>

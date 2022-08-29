@@ -44,10 +44,12 @@ export const FragmentTitleRowSmall = styled.div`
   max-height: 1.2rem;
 `
 export const FragmentDivSmall = styled(motion.div)`
+  /* position: absolute; */
   align-self: center;
   background: var(--background-blur1) !important;
   border-radius: 10px;
-  width: 95%;
+  /* width: 95%; */
   padding: 0.75rem;
   padding-right: 0.25rem;
+  overflow: hidden;
 `

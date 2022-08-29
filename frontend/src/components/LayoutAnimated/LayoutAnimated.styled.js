@@ -41,33 +41,41 @@ export const ClosedLayoutDiv = styled(motion.div)`
 
   /* color: var(--background4-main); */
 `
+export const OpenDivButtonWrapper = styled.div`
+  position: absolute;
+  width: 300px;
+  height: 1px;
+`
 export const OpenDivButton = styled.div`
-  width: 55px;
-  height: 55px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   position: relative;
-  top: -53%;
-  left: 50%;
+  top: -5px;
+  left: 134%;
 
   background: var(--background4-main);
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
   &:after {
     opacity: 0;
-    transition: all 0.3s ease-in;
-    position: relative;
-    top: 51%;
-    left: -87%;
+    min-width: 200% !important;
+    transition: all 0.2s ease-in;
+    /* position: relative; */
+    position: absolute;
+    top: 1%;
+    left: -50px;
     font-size: 0.75rem;
     content: 'otwórz';
     color: var(--background4-main);
   }
   &:hover {
-    transition: all 0.3s ease-in;
+    transition: all 0.2s ease-in;
     &:after {
       opacity: 1;
     }
   }
 `
+export const WrapperMotionDiv = styled(motion.div)``
 export const OpenedLayoutDiv = styled(motion.div)`
   height: 100%;
   width: calc(100% + 200px);
@@ -82,6 +90,14 @@ export const OpenedLayoutDiv = styled(motion.div)`
   background: var(--background2-main);
   border: 1px solid var(--background4-main);
 `
+export const OpenedDivBig = styled(OpenedLayoutDiv)`
+  height: 80vh;
+  width: 80vw;
+  /* top: 20vh; */
+  top: 15vh;
+  /* left: 20vw; */
+  left: 10vw;
+`
 
 export const ClosingDiv = styled(motion.div)`
   width: 35%;
@@ -90,9 +106,11 @@ export const ClosingDiv = styled(motion.div)`
   position: absolute;
   /* top: 97.5%; */
   top: -22.5%;
-  z-index: 20;
+  z-index: 10;
   background: var(--background5-main);
+
   color: var(--background5-main);
+
   display: grid;
   place-items: center center;
   &:after {
@@ -101,4 +119,10 @@ export const ClosingDiv = styled(motion.div)`
     position: relative;
     top: -20px;
   }
+`
+
+export const ClosingDivBig = styled(ClosingDiv)`
+  top: 10vh;
+  /* left: 20vw; */
+  left: 35vw;
 `

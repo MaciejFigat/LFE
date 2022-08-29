@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React, { useState } from 'react'
 import {
   FragmentB,
   FragmentDivSmall,
@@ -27,27 +27,23 @@ import {
 } from './LabelInput/LabelInput.styled'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
-// import LayoutAnimated from '../LayoutAnimated/LayoutAnimated'
+import LayoutAnimated from '../LayoutAnimated/LayoutAnimated'
 import {
-  // AnimationContainer,
-  // ClosedLayoutDiv,
-  // ClosingDiv,
-  // ClosingDivBig,
-  // LayoutDivWrapper,
+  AnimationContainer,
+  ClosedLayoutDiv,
+  ClosingDiv,
+  ClosingDivBig,
+  LayoutDivWrapper,
   OpenDivButton,
-  OpenDivButtonWrapper,
-  // OpenedDivBig,
-  // OpenedLayoutDiv,
+  OpenedDivBig,
+  OpenedLayoutDiv,
   WrapperMotionDiv,
 } from '../LayoutAnimated/LayoutAnimated.styled'
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 
 interface FirstColumnProjectProps {
   state: any[]
   keywordMain?: string
-  setOpenedApp?: Dispatch<SetStateAction<null | string>>
-  setTitle?: Dispatch<SetStateAction<string>>
-  canOpenApp?: boolean
-  openedApp?: string | null
 }
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   userSelect: 'none',
@@ -74,10 +70,6 @@ const getListStyle = (isDraggingOver: any) => ({
 const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
   state,
   keywordMain,
-  setOpenedApp,
-  setTitle,
-  canOpenApp,
-  openedApp,
 }) => {
   const savedFragmentsPage: any = useAppSelector(
     (state) => state.preference.savedFragmentsPage
@@ -85,10 +77,10 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
   const { start, end } = savedFragmentsPage
 
   // todo
-  // const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
+  const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
 
-  // const [openedApp, setOpenedApp] = useState<null | string>(null)
-  // const [title, setTitle] = useState<string>('')
+  const [openedApp, setOpenedApp] = useState<null | string>(null)
+  const [title, setTitle] = useState<string>('')
   //todo
 
   const testHandler = () => {
@@ -279,17 +271,15 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
     ],
   })
 
-  // const onClickCloseHelper = () => {
-  //   if (setOpenedApp && setTitle) {
-  //     setOpenedApp(null)
-  //     setCanOpenApp(false)
-  //     setTimeout(() => {
-  //       setCanOpenApp(true)
-  //     }, 500)
-  //   }
-  // }
+  const onClickCloseHelper = () => {
+    setOpenedApp(null)
+    setCanOpenApp(false)
+    setTimeout(() => {
+      setCanOpenApp(true)
+    }, 500)
+  }
   const openWindowHandler = (id: string, title: string) => {
-    if (canOpenApp && setOpenedApp && setTitle) {
+    if (canOpenApp) {
       setOpenedApp(id)
       setTitle(title)
     }
@@ -317,51 +307,50 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                 </SendButtonVerySmall>
               </AlignCenterContainer>
             </HorizontalButtonContainer>
-
+            {/* <LayoutAnimated /> */}
             {/*  // todo here  */}
+            {/* <AnimationContainer> */}
+            {/* <LayoutDivWrapper> */}
+            <AnimateSharedLayout type='crossfade'>
+              {state[0]
+                .slice(start, end + 1)
+                .map((fragment: any, index: number) => (
+                  <Draggable
+                    key={fragment.nanoId}
+                    draggableId={fragment.nanoId}
+                    index={index}
+                  >
+                    {(provided, snapshot) => (
+                      <FragmentDivSmall
+                        // layoutId={fragment._id.toString()}
 
-            {state[0]
-              .slice(start, end + 1)
-              .map((fragment: any, index: number) => (
-                <Draggable
-                  key={fragment.nanoId}
-                  draggableId={fragment.nanoId}
-                  index={index}
-                >
-                  {(provided, snapshot) => (
-                    <FragmentDivSmall
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      style={getItemStyle(
-                        snapshot.isDragging,
-                        provided.draggableProps.style
-                      )}
-                    >
-                      {/* <WrapperMotionDiv> */}
-                      <WrapperMotionDiv layoutId={fragment._id}>
-                        {' '}
-                      </WrapperMotionDiv>
-                      <OpenDivButtonWrapper>
-                        <OpenDivButton
-                          onClick={() =>
-                            openWindowHandler(fragment._id, fragment.title)
-                          }
-                        />
-                      </OpenDivButtonWrapper>
-                      {/*  // todo here  */}
-                      <FragmentParSmall>
-                        {' '}
-                        <FragmentB>T:</FragmentB> {fragment.title}
-                      </FragmentParSmall>
-                      <FragmentParSmall>
-                        <FragmentB>E:</FragmentB> {fragment.excerpt}
-                      </FragmentParSmall>
-                      <FragmentParSmall>
-                        <FragmentB>D:</FragmentB> {fragment.description}
-                      </FragmentParSmall>
-
-                      {/* <ClosedLayoutDiv
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        style={getItemStyle(
+                          snapshot.isDragging,
+                          provided.draggableProps.style
+                        )}
+                        // key={fragment._id}
+                        // layoutId={fragment._id.toString()}
+                      >
+                        <WrapperMotionDiv layoutId={fragment._id}>
+                          {/*  // todo here  */}
+                          <FragmentParSmall>
+                            <FragmentB>T:</FragmentB> {fragment.title}
+                          </FragmentParSmall>
+                          <FragmentParSmall>
+                            <FragmentB>E:</FragmentB> {fragment.excerpt}
+                          </FragmentParSmall>
+                          <FragmentParSmall>
+                            <FragmentB>D:</FragmentB> {fragment.description}
+                          </FragmentParSmall>
+                          <OpenDivButton
+                            onClick={() =>
+                              openWindowHandler(fragment._id, fragment.title)
+                            }
+                          />
+                          {/* <ClosedLayoutDiv
                               key={fragment.id}
                               layoutId={fragment._id.toString()}
                             >
@@ -382,7 +371,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                                 }
                               />
                             </ClosedLayoutDiv> */}
-                      {/* <KeywordDivSimple>
+                          {/* <KeywordDivSimple>
                               <FragmentB>Keywords:&nbsp;</FragmentB>
                               {fragment.keywords.map((keyword: string) => (
                                 <KeywordB key={Math.random()}>
@@ -390,13 +379,33 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                                 </KeywordB>
                               ))}
                             </KeywordDivSimple> */}
-                      {/* </WrapperMotionDiv> */}
-                    </FragmentDivSmall>
-                  )}
-                </Draggable>
-              ))}
-
+                        </WrapperMotionDiv>
+                      </FragmentDivSmall>
+                    )}
+                  </Draggable>
+                ))}
+              <AnimatePresence>
+                {openedApp && (
+                  <>
+                    <ClosingDivBig
+                      initial={{ y: 8, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: 8, opacity: 0 }}
+                      transition={{ ease: 'linear' }}
+                      onClick={() => onClickCloseHelper()}
+                    />
+                    {/* <OpenedLayoutDiv layoutId={openedApp.toString()}> */}
+                    <OpenedDivBig layoutId={openedApp.toString()}>
+                      {title}
+                    </OpenedDivBig>
+                  </>
+                )}
+              </AnimatePresence>
+            </AnimateSharedLayout>
             {provided.placeholder}
+            {/* </LayoutDivWrapper> */}
+            {/* </AnimationContainer> */}
+            {/* {provided.placeholder} */}
           </KeywordSearchContainer>
         )}
       </Droppable>
