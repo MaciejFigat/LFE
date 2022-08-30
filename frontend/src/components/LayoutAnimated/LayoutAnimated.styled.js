@@ -29,41 +29,30 @@ export const ClosedLayoutDiv = styled(motion.div)`
   border-radius: 8px;
   display: grid;
   place-items: center center;
-  /* place-items: center; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
   text-align: center;
-
   cursor: pointer;
   background: var(--background2-main);
   overflow: hidden;
-
-  /* color: var(--background4-main); */
 `
 export const OpenDivButtonWrapper = styled.div`
-  position: absolute;
-  width: 300px;
+  width: 100%;
   height: 1px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 `
 export const OpenDivButton = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
   position: relative;
-  top: -5px;
-  left: 134%;
-
+  top: 9px;
   background: var(--background4-main);
   transition: all 0.2s ease-in;
   &:after {
     opacity: 0;
     min-width: 200% !important;
     transition: all 0.2s ease-in;
-    /* position: relative; */
-    position: absolute;
-    top: 1%;
-    left: -50px;
     font-size: 0.75rem;
     content: 'otwórz';
     color: var(--background4-main);
@@ -73,6 +62,13 @@ export const OpenDivButton = styled.div`
     &:after {
       opacity: 1;
     }
+  }
+`
+export const OpenBigDivButton = styled(OpenDivButton)`
+  &:after {
+    position: absolute;
+    top: 3px;
+    left: -50px;
   }
 `
 export const WrapperMotionDiv = styled(motion.div)``

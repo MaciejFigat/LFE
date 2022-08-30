@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
 // import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 // import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import {
@@ -37,12 +37,18 @@ interface SecondAndThirdColProjectProps {
   state: any[]
   labelOne?: string
   labelTwo?: string
+  setOpenedApp?: Dispatch<SetStateAction<null | string>>
+  setTitle?: Dispatch<SetStateAction<string>>
+  canOpenApp?: boolean
 }
 
 const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
   state,
   labelOne,
   labelTwo,
+  setOpenedApp,
+  setTitle,
+  canOpenApp,
 }) => {
   //? part for saving changes in the db and redux
 

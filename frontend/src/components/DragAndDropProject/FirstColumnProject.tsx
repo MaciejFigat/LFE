@@ -27,17 +27,10 @@ import {
 } from './LabelInput/LabelInput.styled'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
-// import LayoutAnimated from '../LayoutAnimated/LayoutAnimated'
+
 import {
-  // AnimationContainer,
-  // ClosedLayoutDiv,
-  // ClosingDiv,
-  // ClosingDivBig,
-  // LayoutDivWrapper,
-  OpenDivButton,
+  OpenBigDivButton,
   OpenDivButtonWrapper,
-  // OpenedDivBig,
-  // OpenedLayoutDiv,
   WrapperMotionDiv,
 } from '../LayoutAnimated/LayoutAnimated.styled'
 
@@ -47,7 +40,6 @@ interface FirstColumnProjectProps {
   setOpenedApp?: Dispatch<SetStateAction<null | string>>
   setTitle?: Dispatch<SetStateAction<string>>
   canOpenApp?: boolean
-  openedApp?: string | null
 }
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   userSelect: 'none',
@@ -77,19 +69,11 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
   setOpenedApp,
   setTitle,
   canOpenApp,
-  openedApp,
 }) => {
   const savedFragmentsPage: any = useAppSelector(
     (state) => state.preference.savedFragmentsPage
   )
   const { start, end } = savedFragmentsPage
-
-  // todo
-  // const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
-
-  // const [openedApp, setOpenedApp] = useState<null | string>(null)
-  // const [title, setTitle] = useState<string>('')
-  //todo
 
   const testHandler = () => {
     Packer.toBlob(doc).then((blob) => {
@@ -343,7 +327,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                         {' '}
                       </WrapperMotionDiv>
                       <OpenDivButtonWrapper>
-                        <OpenDivButton
+                        <OpenBigDivButton
                           onClick={() =>
                             openWindowHandler(fragment._id, fragment.title)
                           }

@@ -65,13 +65,36 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   )
 
   const { keywordMain } = sortingKeywords
-  const fragmentsKeywordOne: any[] = useAppSelector(
-    (state) => state.fragment.fragmentsKeywordOne
-  )
-  const fragmentsKeywordTwo: any[] = useAppSelector(
-    (state) => state.fragment.fragmentsKeywordTwo
+
+  const fragmentsSkipTrueOne = fragmentsKeywordMain.filter((filteredFragment) =>
+    filteredFragment.keywordValue.find(
+      (keywordSearched: any) =>
+        keywordSearched.keyword === keywordMain &&
+        keywordSearched?.skip !== undefined &&
+        keywordSearched.skip === true
+    )
   )
 
+  const fragmentsValueTrueTwo = fragmentsKeywordMain.filter(
+    (filteredFragment) =>
+      filteredFragment.keywordValue.find(
+        (keywordSearched: any) =>
+          keywordSearched.keyword === keywordMain &&
+          keywordSearched?.skip !== undefined &&
+          keywordSearched.skip === false &&
+          keywordSearched.value === true
+      )
+  )
+  const fragmentsValueFalseThree = fragmentsKeywordMain.filter(
+    (filteredFragment) =>
+      filteredFragment.keywordValue.find(
+        (keywordSearched: any) =>
+          keywordSearched.keyword === keywordMain &&
+          keywordSearched?.skip !== undefined &&
+          keywordSearched.skip === false &&
+          keywordSearched.value === false
+      )
+  )
   const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
 
   const [openedApp, setOpenedApp] = useState<null | string>(null)
@@ -80,10 +103,9 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   const [labelOneState, setLabelOneState] = useState<string | undefined>()
   const [labelTwoState, setLabelTwoState] = useState<string | undefined>()
   const [state, setState] = useState([
-    fragments,
-    // fragmentsKeywordMain,
-    fragmentsKeywordOne,
-    fragmentsKeywordTwo,
+    fragmentsSkipTrueOne,
+    fragmentsValueTrueTwo,
+    fragmentsValueFalseThree,
   ])
 
   //? Behold the monster, onDragEnd with no end
@@ -263,7 +285,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
               keywordSearched.keyword === keywordMain &&
               keywordSearched?.skip !== undefined &&
               keywordSearched.skip === false &&
-              keywordSearched.value === true
+              keywordSearched.value === false
           )
       )
 
@@ -277,9 +299,12 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       setLabelTwoState(keywordValueFound?.labelTwo)
     }
   }, [fragmentsKeywordMain, fragments, keywordMain])
-
+  const testHelper = () => {
+    console.log(state)
+  }
   return (
     <AnimateSharedLayout type='crossfade'>
+      <button onClick={testHelper}> YTESTY</button>
       <DragDropContext onDragEnd={onDragEnd}>
         <ResizableScrollSection
           transparent
@@ -288,7 +313,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
               setOpenedApp={setOpenedApp}
               setTitle={setTitle}
               canOpenApp={canOpenApp}
-              openedApp={openedApp}
               state={state}
               keywordMain={keywordMain}
             />
@@ -296,6 +320,9 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
           // ! 2nd 3rd columns
           narrowSection={
             <SecondAndThirdColProject
+              setOpenedApp={setOpenedApp}
+              setTitle={setTitle}
+              canOpenApp={canOpenApp}
               labelOne={labelOneState}
               labelTwo={labelTwoState}
               state={state}
