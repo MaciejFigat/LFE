@@ -6,10 +6,11 @@ import ResizableScrollSection from '../ScrollSection/ResizableScrollSection'
 import FirstColumnProject from './FirstColumnProject'
 import SecondAndThirdColProject from './SecondAndThirdColProject'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
-import {
-  ClosingDivBig,
-  OpenedDivBig,
-} from '../LayoutAnimated/LayoutAnimated.styled'
+// import {
+//   ClosingDivBig,
+//   OpenedDivBig,
+// } from '../LayoutAnimated/LayoutAnimated.styled'
+import PupupEditWindow from './PopupEditWindow/PupupEditWindow'
 
 //? reordering the items within a list
 
@@ -99,6 +100,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
 
   const [openedApp, setOpenedApp] = useState<null | string>(null)
   const [title, setTitle] = useState<string>('')
+  const [idOpen, setIdOpen] = useState<string>('')
 
   const [labelOneState, setLabelOneState] = useState<string | undefined>()
   const [labelTwoState, setLabelTwoState] = useState<string | undefined>()
@@ -247,14 +249,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       setState(newState)
     }
   }
-  //* big layout window functions
-  const onClickCloseHelper = () => {
-    setOpenedApp(null)
-    setCanOpenApp(false)
-    setTimeout(() => {
-      setCanOpenApp(true)
-    }, 500)
-  }
 
   useEffect(() => {
     if (fragmentsKeywordMain) {
@@ -313,6 +307,8 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
               setOpenedApp={setOpenedApp}
               setTitle={setTitle}
               canOpenApp={canOpenApp}
+              setIdOpen={setIdOpen}
+              openedApp={openedApp}
               state={state}
               keywordMain={keywordMain}
             />
@@ -321,8 +317,10 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
           narrowSection={
             <SecondAndThirdColProject
               setOpenedApp={setOpenedApp}
+              setIdOpen={setIdOpen}
               setTitle={setTitle}
               canOpenApp={canOpenApp}
+              openedApp={openedApp}
               labelOne={labelOneState}
               labelTwo={labelTwoState}
               state={state}
@@ -332,18 +330,15 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       </DragDropContext>
       <AnimatePresence>
         {openedApp && (
-          <>
-            <ClosingDivBig
-              initial={{ y: 8, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 8, opacity: 0 }}
-              transition={{ ease: 'linear' }}
-              onClick={() => onClickCloseHelper()}
-            />
-            {/* <OpenedLayoutDiv layoutId={openedApp.toString()}> */}
-            {/* <OpenedDivBig layoutId={openedApp.toString()}>{title}</OpenedDivBig> */}
-            <OpenedDivBig layoutId={openedApp.toString()}>{title}</OpenedDivBig>
-          </>
+          <PupupEditWindow
+            title={title}
+            idOpen={idOpen}
+            setOpenedApp={setOpenedApp}
+            setCanOpenApp={setCanOpenApp}
+            // setIdOpen={setIdOpen}
+            canOpenApp={canOpenApp}
+            openedApp={openedApp}
+          />
         )}
       </AnimatePresence>
     </AnimateSharedLayout>

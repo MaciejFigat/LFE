@@ -39,7 +39,9 @@ interface FirstColumnProjectProps {
   keywordMain?: string
   setOpenedApp?: Dispatch<SetStateAction<null | string>>
   setTitle?: Dispatch<SetStateAction<string>>
+  setIdOpen?: Dispatch<SetStateAction<string>>
   canOpenApp?: boolean
+  openedApp?: string | null
 }
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   userSelect: 'none',
@@ -69,6 +71,8 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
   setOpenedApp,
   setTitle,
   canOpenApp,
+  openedApp,
+  setIdOpen,
 }) => {
   const savedFragmentsPage: any = useAppSelector(
     (state) => state.preference.savedFragmentsPage
@@ -263,19 +267,23 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
     ],
   })
 
-  // const onClickCloseHelper = () => {
-  //   if (setOpenedApp && setTitle) {
-  //     setOpenedApp(null)
-  //     setCanOpenApp(false)
-  //     setTimeout(() => {
-  //       setCanOpenApp(true)
-  //     }, 500)
+  // const openWindowHandler = (id: string, title: string) => {
+  //   if (canOpenApp && setOpenedApp && setTitle && openedApp === null) {
+  //     setOpenedApp(id)
+  //     setTitle(title)
   //   }
   // }
   const openWindowHandler = (id: string, title: string) => {
-    if (canOpenApp && setOpenedApp && setTitle) {
+    if (
+      canOpenApp &&
+      setOpenedApp &&
+      setTitle &&
+      setIdOpen &&
+      openedApp === null
+    ) {
       setOpenedApp(id)
       setTitle(title)
+      setIdOpen(id)
     }
   }
   return (

@@ -12,6 +12,11 @@ import {
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 import LabelInput from './LabelInput/LabelInput'
+import {
+  OpenBigDivButton,
+  OpenDivButtonWrapper,
+  WrapperMotionDiv,
+} from '../LayoutAnimated/LayoutAnimated.styled'
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   userSelect: 'none',
@@ -39,7 +44,9 @@ interface SecondAndThirdColProjectProps {
   labelTwo?: string
   setOpenedApp?: Dispatch<SetStateAction<null | string>>
   setTitle?: Dispatch<SetStateAction<string>>
+  setIdOpen?: Dispatch<SetStateAction<string>>
   canOpenApp?: boolean
+  openedApp?: string | null
 }
 
 const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
@@ -49,6 +56,8 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
   setOpenedApp,
   setTitle,
   canOpenApp,
+  openedApp,
+  setIdOpen,
 }) => {
   //? part for saving changes in the db and redux
 
@@ -67,6 +76,20 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
   const [inputTwoEditing, setInputTwoEditing] = useState(false)
   const [labelOneState, setLabelOneState] = useState(labelOne)
   const [labelTwoState, setLabelTwoState] = useState(labelTwo)
+
+  const openWindowHandler = (id: string, title: string) => {
+    if (
+      canOpenApp &&
+      setOpenedApp &&
+      setTitle &&
+      setIdOpen &&
+      openedApp === null
+    ) {
+      setOpenedApp(id)
+      setTitle(title)
+      setIdOpen(id)
+    }
+  }
 
   useEffect(() => {
     setLabelOneState(labelOne)
@@ -128,6 +151,16 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                         provided.draggableProps.style
                       )}
                     >
+                      <WrapperMotionDiv layoutId={fragment._id}>
+                        {' '}
+                      </WrapperMotionDiv>
+                      <OpenDivButtonWrapper>
+                        <OpenBigDivButton
+                          onClick={() =>
+                            openWindowHandler(fragment._id, fragment.title)
+                          }
+                        />
+                      </OpenDivButtonWrapper>
                       <FragmentParSmall>
                         <FragmentB>T:</FragmentB> {fragment.title}
                       </FragmentParSmall>
