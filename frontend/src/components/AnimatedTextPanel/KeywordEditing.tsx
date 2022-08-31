@@ -108,9 +108,6 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
     if (keywordArr?.length > 0 && keywords?.length > 0) {
       setSameContents(haveSameContents(keywordArr, keywords))
     }
-    // if (sameContents === false) {
-    //   dispatch(editSavedFragment(newKeywordList))
-    // }
   }, [keywordArr, keywords, sameContents, dispatch])
 
   //? helper function to compare 2 arrays pertaining elements regardless of the order
@@ -123,16 +120,16 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
 
   return (
     <>
-      <ListKeywordContainer as={motion.div} layout='size'>
+      <ListKeywordContainer>
         {!keywordEditing ? (
-          <ListTitle as={motion.h2} layout>
-            <TitleAnimated as={motion.div} layout>
+          <ListTitle>
+            <TitleAnimated>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <KeywordPar layout>
+                <KeywordPar>
                   <FragmentB>Keywords:&nbsp;</FragmentB>
                   {keywordArr &&
                     keywordArr.map((keyword, index) => (
@@ -149,11 +146,10 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
           </ListTitle>
         ) : (
           <ListTitle>
-            <TitleAnimated as={motion.div}>
+            <TitleAnimated>
               <TitleInput
                 type='keyword'
                 name='keyword'
-                layout
                 placeholder='new keyword'
                 value={keywordValue}
                 onChange={(e: any) => setKeywordValue(e.target.value)}
@@ -165,12 +161,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
           </ListTitle>
         )}
 
-        <ListButtonContainer
-          as={motion.div}
-          layout='position'
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
+        <ListButtonContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <AnimatePresence>
             <motion.div
               initial={{ opacity: 0 }}
@@ -187,7 +178,6 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                       <SendButtonVerySmall
                         variant='successEmpty'
                         onClick={saveKeywordArrHandler}
-                        as={motion.button}
                       >
                         <SvgIcon variant='save' toBottom contentAfter='save' />
                       </SendButtonVerySmall>
@@ -195,7 +185,6 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                       <SendButtonVerySmall
                         variant='successEmpty'
                         onClick={addKeywordHandler}
-                        as={motion.button}
                       >
                         <SvgIcon
                           variant='plus'
@@ -222,7 +211,6 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                     <SendButtonVerySmall
                       variant='secondaryEmpty'
                       onClick={deleteKeywordHandler}
-                      as={motion.button}
                     >
                       <SvgIcon
                         variant='remove'
@@ -233,7 +221,6 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                     <SendButtonVerySmall
                       variant='primaryEmpty'
                       onClick={() => setKeywordEditing(!keywordEditing)}
-                      as={motion.button}
                     >
                       <SvgIcon variant='back' toBottom contentAfter='back' />
                     </SendButtonVerySmall>
