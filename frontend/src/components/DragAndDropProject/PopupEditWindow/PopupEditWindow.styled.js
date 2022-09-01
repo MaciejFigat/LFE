@@ -122,7 +122,7 @@ export const PopupListRow = styled(motion.div)`
 export const PopupDescriptionAnimated = styled(motion.div)`
   min-width: 80%;
   min-height: 100px;
-  color: 'var(--background4-main);';
+  color: var(--background4-main);
   transition: all 0.3s ease-out;
 `
 export const DescriptionDiv = styled(motion.div)`
@@ -135,7 +135,7 @@ export const PopupDescriptionInput = styled(motion.textarea)`
   width: 100%;
   min-height: fit-content;
   height: 100%;
-  color: var(--background3-main);
+  color: var(--background5-main);
   transition: all 0.3s ease-out;
   background: none;
   cursor: text;
@@ -182,4 +182,17 @@ export const PopupListButtonContainer = styled(motion.div)`
   flex-direction: column;
   gap: 2rem;
   justify-content: flex-end;
+`
+export const PopupKeywordPar = styled(motion.div)`
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: var(--background4-main);
+`
+export const PopupKeywordDiv = styled(motion.div)`
+  min-width: fit-content;
+  transition: 0.2s;
+  &:hover {
+    color: color: var(--background3-main);
+  }
 `

@@ -12,7 +12,7 @@ import {
   editSavedFragment,
   getUserFragments,
 } from '../../../features/fragments/fragmentSlice'
-import KeywordEditing from '../../AnimatedTextPanel/KeywordEditing'
+import KeywordEditing from './KeywordEditing'
 import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
 import {
   ClosingDivBig,
@@ -90,47 +90,48 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
   const toggleEditing = () => setTitleEditing(!titleEditing)
 
   const toggleDescriptionEditing = () =>
-    setDescriptionEditing(!descriptionEditing)
+    setDescriptionEditing((descriptionEditing) => !descriptionEditing)
 
   const toggleDescriptionReset = () => {
-    setDescriptionEditing(!descriptionEditing)
+    setDescriptionEditing((descriptionEditing) => !descriptionEditing)
     setDescriptionValue(openedFragment.description)
   }
 
-  const toggleExcerptEditing = () => setExcerptEditing(!excerptEditing)
+  const toggleExcerptEditing = () =>
+    setExcerptEditing((excerptEditing) => !excerptEditing)
   const toggleExcerptReset = () => {
-    setExcerptEditing(!excerptEditing)
+    setExcerptEditing((excerptEditing) => !excerptEditing)
     setExcerptValue(openedFragment.excerpt)
   }
   const removeFragmentHandler = (id: string) => {
     dispatch(deleteSavedFragment(idOpen))
   }
   // Todo title editing
-  const newTitle = {
-    _id: idOpen,
-    title: titleValue,
-  }
+  // const newTitle = {
+  //   _id: idOpen,
+  //   title: titleValue,
+  // }
   const saveTitleHandler = () => {
-    dispatch(editSavedFragment(newTitle))
+    // dispatch(editSavedFragment(newTitle))
     setTitleEditing(!titleEditing)
   }
   // Todo description editing
-  const newDescription = {
-    _id: idOpen,
-    description: descriptionValue,
-  }
+  // const newDescription = {
+  //   _id: idOpen,
+  //   description: descriptionValue,
+  // }
   const saveDescriptionHandler = () => {
-    dispatch(editSavedFragment(newDescription))
-    setDescriptionEditing(!descriptionEditing)
+    // dispatch(editSavedFragment(newDescription))
+    setDescriptionEditing((descriptionEditing) => !descriptionEditing)
   }
   // Todo excerpt editing
-  const newExcerpt = {
-    _id: idOpen,
-    excerpt: excerptValue,
-  }
+  // const newExcerpt = {
+  //   _id: idOpen,
+  //   excerpt: excerptValue,
+  // }
   const saveExcerptHandler = () => {
-    dispatch(editSavedFragment(newExcerpt))
-    setExcerptEditing(!excerptEditing)
+    // dispatch(editSavedFragment(newExcerpt))
+    setExcerptEditing((excerptEditing) => !excerptEditing)
   }
   useMemo(() => {
     if (successUpdate === true) {
@@ -139,6 +140,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
       }
     }
   }, [dispatch, successUpdate, loadingUpdate])
+
   useEffect(() => {
     const fragment = fragments.find(
       (fragmentSearched: any) => fragmentSearched._id === idOpen
@@ -155,6 +157,92 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     setTimeout(() => {
       setCanOpenApp(true)
     }, 500)
+
+    if (
+      titleValue !== openedFragment.title &&
+      excerptValue === openedFragment.excerpt &&
+      descriptionValue === openedFragment.description
+    ) {
+      const newTitle = {
+        _id: idOpen,
+        title: titleValue,
+      }
+      dispatch(editSavedFragment(newTitle))
+    }
+    if (
+      excerptValue !== openedFragment.excerpt &&
+      titleValue === openedFragment.title &&
+      descriptionValue === openedFragment.description
+    ) {
+      const newExcerpt = {
+        _id: idOpen,
+        excerpt: excerptValue,
+      }
+      dispatch(editSavedFragment(newExcerpt))
+    }
+    if (
+      descriptionValue !== openedFragment.description &&
+      titleValue === openedFragment.title &&
+      excerptValue === openedFragment.excerpt
+    ) {
+      const newDescription = {
+        _id: idOpen,
+        description: descriptionValue,
+      }
+      dispatch(editSavedFragment(newDescription))
+    }
+    if (
+      descriptionValue !== openedFragment.description &&
+      titleValue !== openedFragment.title &&
+      excerptValue === openedFragment.excerpt
+    ) {
+      const newTitleDescription = {
+        _id: idOpen,
+        description: descriptionValue,
+        title: titleValue,
+      }
+      dispatch(editSavedFragment(newTitleDescription))
+    }
+    if (
+      descriptionValue === openedFragment.description &&
+      titleValue !== openedFragment.title &&
+      excerptValue !== openedFragment.excerpt
+    ) {
+      const newTitleExcerpt = {
+        _id: idOpen,
+        excerpt: excerptValue,
+        title: titleValue,
+      }
+      dispatch(editSavedFragment(newTitleExcerpt))
+    }
+    if (
+      descriptionValue !== openedFragment.description &&
+      titleValue === openedFragment.title &&
+      excerptValue !== openedFragment.excerpt
+    ) {
+      const newDescriptionExcerpt = {
+        _id: idOpen,
+        excerpt: excerptValue,
+        description: descriptionValue,
+      }
+      dispatch(editSavedFragment(newDescriptionExcerpt))
+    }
+    if (
+      descriptionValue !== openedFragment.description &&
+      titleValue !== openedFragment.title &&
+      excerptValue !== openedFragment.excerpt
+    ) {
+      const newEverything = {
+        _id: idOpen,
+        title: titleValue,
+        excerpt: excerptValue,
+        description: descriptionValue,
+      }
+      dispatch(editSavedFragment(newEverything))
+    }
+    console.log(titleValue, openedFragment.title)
+    console.log(descriptionValue, openedFragment.description)
+    console.log(excerptValue, openedFragment.excerpt)
   }
 
   return (
@@ -267,8 +355,8 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
             {openedFragment.source}
           </PopupDatePar>
           <KeywordEditing
-            keywords={openedFragment.keywords}
-            keywordValue={openedFragment.keywordValue}
+            // keywords={openedFragment.keywords}
+            // keywordValue={openedFragment.keywordValue}
             id={idOpen}
           />
           {/* //todo excerpt editing/display below */}
@@ -280,15 +368,8 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                   animate={{ opacity: 1 }}
                 >
                   <DescriptionDiv onClick={toggleExcerptEditing}>
-                    {' '}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                    >
-                      <PopupB>Excerpt: </PopupB>
-                      {excerptValue}
-                    </motion.div>
+                    <PopupB>Excerpt: </PopupB>
+                    {excerptValue}
                   </DescriptionDiv>
                 </PopupDescriptionAnimated>
               ) : (
@@ -296,22 +377,16 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                 >
-                  {' '}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                  >
-                    <PopupDescriptionInput
-                      type='excerpt'
-                      name='excerpt'
-                      // cols='35'
-                      // rows='3'
-                      placeholder='new excerpt'
-                      value={excerptValue}
-                      onChange={(e: any) => setExcerptValue(e.target.value)}
-                    />
-                  </motion.div>
+                  <PopupB>Excerpt: </PopupB>{' '}
+                  <PopupDescriptionInput
+                    type='excerpt'
+                    name='excerpt'
+                    // cols='35'
+                    // rows='3'
+                    placeholder='new excerpt'
+                    value={excerptValue}
+                    onChange={(e: any) => setExcerptValue(e.target.value)}
+                  />
                 </PopupDescriptionAnimated>
               )}
               <PopupHorizontalContainer>
@@ -357,15 +432,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                     transition={{ duration: 0.3 }}
                   >
                     <DescriptionDiv onClick={toggleDescriptionEditing}>
-                      {' '}
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                      >
-                        <PopupB>Description:</PopupB>{' '}
-                        {openedFragment.description}
-                      </motion.div>
+                      <PopupB>Description: </PopupB> {descriptionValue}
                     </DescriptionDiv>
                   </PopupDescriptionAnimated>
                 </AnimatePresence>
@@ -376,6 +443,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3 }}
                   >
+                    <PopupB>Description:</PopupB>{' '}
                     <PopupDescriptionInput
                       type='description'
                       name='description'

@@ -1,38 +1,48 @@
 import React, { useState, useEffect } from 'react'
-import {
-  KeywordPar,
-  KeywordDiv,
-  ListButtonContainer,
-  ListTitle,
-  TitleAnimated,
-  TitleInput,
-  HorizontalButtonContainer,
-  ListKeywordContainer,
-} from './AnimatedList.styled'
-import { useAppDispatch } from '../../app/reduxHooks'
-import { editSavedFragment } from '../../features/fragments/fragmentSlice'
+import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
+import { editSavedFragment } from '../../../features/fragments/fragmentSlice'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
-import SvgIcon from '../SvgIcon/SvgIcon'
-import { FragmentB } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
+import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
+import SvgIcon from '../../SvgIcon/SvgIcon'
+import {
+  PopupB,
+  PopupHorizontalContainer,
+  PopupKeywordDiv,
+  PopupKeywordPar,
+  PopupListButtonContainer,
+  PopupTitle,
+  PopupTitleAnimated,
+  PopupTitleContainer,
+  PopupTitleInput,
+} from './PopupEditWindow.styled'
+
 interface KeywordEditingProps {
-  keywords: string[]
+  // keywords: string[]
   id: string
-  keywordValue: {
-    keyword: string
-    value: boolean
-    labelOne: string
-    labelTwo: string
-    skip: boolean
-  }[]
+  // keywordValue: {
+  //   keyword: string
+  //   value: boolean
+  //   labelOne: string
+  //   labelTwo: string
+  //   skip: boolean
+  // }[]
 }
 
 const KeywordEditing: React.FC<KeywordEditingProps> = ({
-  keywords,
+  // keywords,
   id,
-  keywordValue: keywordValueProps,
+  // keywordValue: keywordValueProps,
 }) => {
   const dispatch: any = useAppDispatch()
+  const fragments: any[] = useAppSelector(
+    (state) => state.fragment.userFragments
+  )
+
+  const fragment = fragments.find(
+    (fragmentSearched: any) => fragmentSearched._id === id
+  )
+  const keywords = fragment.keywords
+  const keywordValueProps = fragment.keywordValue
 
   const [keywordEditing, setKeywordEditing] = useState(false)
   const [keywordValue, setKeywordValue] = useState<string>('')
@@ -41,7 +51,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
   >([])
   const [prevKeywordValue, setPrevKeywordValue] = useState<string>('')
   const [keywordArr, setKeywordArr] = useState<string[]>(keywords)
-  const [sameContents, setSameContents] = useState<boolean>(false)
+  const [sameContents, setSameContents] = useState<boolean>(true)
 
   const newKeywordList = {
     _id: id,
@@ -92,7 +102,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
     let filteredArr = keywordArr.filter((keyword) => keyword !== keywordValue)
     setKeywordValuePropsFiltered([
       ...keywordValueProps.filter(
-        (keywordObject) =>
+        (keywordObject: any) =>
           // keywordObject.keyword !== keywordValue || keywordObject.keyword === ''
           keywordObject.keyword !== keywordValue
       ),
@@ -120,34 +130,34 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
 
   return (
     <>
-      <ListKeywordContainer>
+      <PopupTitleContainer>
         {!keywordEditing ? (
-          <ListTitle>
-            <TitleAnimated>
+          <PopupTitle>
+            <PopupTitleAnimated>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <KeywordPar>
-                  <FragmentB>Keywords:&nbsp;</FragmentB>
+                <PopupKeywordPar>
+                  <PopupB>Keywords:&nbsp;</PopupB>
                   {keywordArr &&
                     keywordArr.map((keyword, index) => (
-                      <KeywordDiv
+                      <PopupKeywordDiv
                         key={index}
                         onClick={() => editKeywordHandler(keyword, index)}
                       >
                         {keywordArr.length > 1 ? `${keyword} \u00A0` : keyword}
-                      </KeywordDiv>
+                      </PopupKeywordDiv>
                     ))}
-                </KeywordPar>
+                </PopupKeywordPar>
               </motion.div>
-            </TitleAnimated>
-          </ListTitle>
+            </PopupTitleAnimated>
+          </PopupTitle>
         ) : (
-          <ListTitle>
-            <TitleAnimated>
-              <TitleInput
+          <PopupTitle>
+            <PopupTitleAnimated>
+              <PopupTitleInput
                 type='keyword'
                 name='keyword'
                 placeholder='new keyword'
@@ -157,11 +167,14 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               />
-            </TitleAnimated>
-          </ListTitle>
+            </PopupTitleAnimated>
+          </PopupTitle>
         )}
 
-        <ListButtonContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+        <PopupListButtonContainer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
           <AnimatePresence>
             <motion.div
               initial={{ opacity: 0 }}
@@ -171,7 +184,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
               }}
               exit={{ opacity: 0 }}
             >
-              <HorizontalButtonContainer>
+              <PopupHorizontalContainer>
                 {!keywordEditing ? (
                   <>
                     {!sameContents ? (
@@ -226,11 +239,11 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                     </SendButtonVerySmall>
                   </>
                 )}
-              </HorizontalButtonContainer>
+              </PopupHorizontalContainer>
             </motion.div>
           </AnimatePresence>
-        </ListButtonContainer>
-      </ListKeywordContainer>
+        </PopupListButtonContainer>
+      </PopupTitleContainer>
     </>
   )
 }

@@ -153,7 +153,7 @@ export const TitleInput = styled(motion.input)`
 export const DescriptionAnimated = styled(motion.div)`
   min-width: 80%;
   min-height: 100px;
-  color: 'var(--background4-main);';
+  color: var(--background4-main);
   transition: all 0.3s ease-out;
 `
 

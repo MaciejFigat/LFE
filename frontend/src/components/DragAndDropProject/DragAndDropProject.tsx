@@ -335,7 +335,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
             idOpen={idOpen}
             setOpenedApp={setOpenedApp}
             setCanOpenApp={setCanOpenApp}
-            // setIdOpen={setIdOpen}
             canOpenApp={canOpenApp}
             openedApp={openedApp}
           />
