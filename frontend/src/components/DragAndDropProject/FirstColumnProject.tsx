@@ -267,12 +267,6 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
     ],
   })
 
-  // const openWindowHandler = (id: string, title: string) => {
-  //   if (canOpenApp && setOpenedApp && setTitle && openedApp === null) {
-  //     setOpenedApp(id)
-  //     setTitle(title)
-  //   }
-  // }
   const openWindowHandler = (id: string, title: string) => {
     if (
       canOpenApp &&

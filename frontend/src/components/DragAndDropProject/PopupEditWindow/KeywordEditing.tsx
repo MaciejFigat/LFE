@@ -17,22 +17,10 @@ import {
 } from './PopupEditWindow.styled'
 
 interface KeywordEditingProps {
-  // keywords: string[]
   id: string
-  // keywordValue: {
-  //   keyword: string
-  //   value: boolean
-  //   labelOne: string
-  //   labelTwo: string
-  //   skip: boolean
-  // }[]
 }
 
-const KeywordEditing: React.FC<KeywordEditingProps> = ({
-  // keywords,
-  id,
-  // keywordValue: keywordValueProps,
-}) => {
+const KeywordEditing: React.FC<KeywordEditingProps> = ({ id }) => {
   const dispatch: any = useAppDispatch()
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
@@ -41,8 +29,9 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
   const fragment = fragments.find(
     (fragmentSearched: any) => fragmentSearched._id === id
   )
-  const keywords = fragment.keywords
-  const keywordValueProps = fragment.keywordValue
+
+  const keywords = fragment?.keywords
+  const keywordValueProps = fragment?.keywordValue
 
   const [keywordEditing, setKeywordEditing] = useState(false)
   const [keywordValue, setKeywordValue] = useState<string>('')
@@ -51,6 +40,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
   >([])
   const [prevKeywordValue, setPrevKeywordValue] = useState<string>('')
   const [keywordArr, setKeywordArr] = useState<string[]>(keywords)
+  // const [keywordArr, setKeywordArr] = useState<string[]>([''])
   const [sameContents, setSameContents] = useState<boolean>(true)
 
   const newKeywordList = {

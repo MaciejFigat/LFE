@@ -1,21 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { FragmentContainer } from './FragmentsColumn.styled'
-import { motion, AnimateSharedLayout } from 'framer-motion'
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 import {
   ListWrapper,
   ItemWrapper,
 } from '../AnimatedTextPanel/AnimatedList.styled'
 
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
-import AnimatedSavedItemWrapper from '../AnimatedTextPanel/AnimatedSavedItemWrapper'
+import AnimatedSavedItemSimple from '../AnimatedTextPanel/AnimatedSavedItemSimple'
 
-interface UserFragmentsByKeywordProps {}
+interface UserFragmentsByKeywordProps {
+  setOpenedApp?: Dispatch<SetStateAction<null | string>>
+  setTitle?: Dispatch<SetStateAction<string>>
+  setIdOpen?: Dispatch<SetStateAction<string>>
+  canOpenApp?: boolean
+  openedApp?: string | null
+}
 
-const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = () => {
+const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = ({
+  setOpenedApp,
+  setTitle,
+  canOpenApp,
+  openedApp,
+  setIdOpen,
+}) => {
   const dispatch: any = useAppDispatch()
 
-  const fragments: any[] = useAppSelector(
+  const fragmentsKeywordMain: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordMain
   )
 
@@ -31,15 +43,14 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = () => {
   }, [dispatch, fragmentSuccess])
 
   return (
-    <AnimateSharedLayout>
-      {fragments.length > 0 &&
-        fragments
-
+    // <AnimateSharedLayout>
+    <>
+      {fragmentsKeywordMain.length > 0 &&
+        fragmentsKeywordMain
           .map((fragment) => (
             <ListWrapper
               as={motion.ul}
               key={fragment._id}
-              // layout
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -47,8 +58,12 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = () => {
               {fragment.excerpt !== '' && (
                 <FragmentContainer key={fragment.title}>
                   <ItemWrapper>
-                    {' '}
-                    <AnimatedSavedItemWrapper
+                    <AnimatedSavedItemSimple
+                      setOpenedApp={setOpenedApp}
+                      setTitle={setTitle}
+                      canOpenApp={canOpenApp}
+                      setIdOpen={setIdOpen}
+                      openedApp={openedApp}
                       id={fragment._id}
                       title={fragment.title}
                       description={fragment.description}
@@ -65,7 +80,8 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = () => {
             </ListWrapper>
           ))
           .reverse()}{' '}
-    </AnimateSharedLayout>
+    </>
+    // </AnimateSharedLayout>
   )
 }
 export default UserFragmentsByKeyword

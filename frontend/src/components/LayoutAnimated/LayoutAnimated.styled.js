@@ -71,7 +71,10 @@ export const OpenBigDivButton = styled(OpenDivButton)`
     left: -50px;
   }
 `
-export const WrapperMotionDiv = styled(motion.div)``
+export const WrapperMotionDiv = styled(motion.div)`
+  position: relative;
+  min-height: 100%;
+`
 export const OpenedLayoutDiv = styled(motion.div)`
   height: 100%;
   width: calc(100% + 200px);
@@ -87,12 +90,14 @@ export const OpenedLayoutDiv = styled(motion.div)`
   border: 1px solid var(--background4-main);
 `
 export const OpenedDivBig = styled(OpenedLayoutDiv)`
+  /* position: sticky; */
   height: 80vh;
   width: 80vw;
   /* top: 20vh; */
   top: 15vh;
   /* left: 20vw; */
   left: 10vw;
+  z-index: 2;
 `
 
 export const ClosingDiv = styled(motion.div)`
@@ -119,6 +124,7 @@ export const ClosingDiv = styled(motion.div)`
 
 export const ClosingDivBig = styled(ClosingDiv)`
   top: 10vh;
+  /* position: sticky; */
   /* left: 20vw; */
   left: 35vw;
 `

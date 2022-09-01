@@ -28,11 +28,15 @@ const preferenceSlice = createSlice({
         fragmentScrolled: 1,
         highlightQuery: '',
         preferedScheme: 'secondary',
+        idOpenFragment: '',
 
 
     },
     reducers: {
 
+        editIdOpenFragment(state, action) {
+            state.idOpenFragment = action.payload
+        },
         showFragments(state, action) {
             state.showFragments = action.payload
         },
@@ -96,6 +100,6 @@ const preferenceSlice = createSlice({
 
 
 
-export const { sortFragmentsBySourceEditOne, sortFragmentsBySourceEditTwo, sortFragmentsBySourceEditThree, showFragments, preferredWidthSaved, searchResultsPageSaved, fragmentsPageSaved, linksPageSaved, preferredNarrowWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingKeywordMainEdit, sortingOptionEdit, highlightQueryEdit, fragmentScrolledEdit, preferedSchemeEdit } = preferenceSlice.actions
+export const { editIdOpenFragment, sortFragmentsBySourceEditOne, sortFragmentsBySourceEditTwo, sortFragmentsBySourceEditThree, showFragments, preferredWidthSaved, searchResultsPageSaved, fragmentsPageSaved, linksPageSaved, preferredNarrowWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingKeywordMainEdit, sortingOptionEdit, highlightQueryEdit, fragmentScrolledEdit, preferedSchemeEdit } = preferenceSlice.actions
 
 export default preferenceSlice.reducer

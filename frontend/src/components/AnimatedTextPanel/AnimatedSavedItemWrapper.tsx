@@ -38,6 +38,7 @@ const AnimatedSavedItemWrapper: React.FC<AnimatedSavedItemWrapperProps> = ({
     <>
       {simpleView ? (
         <AnimatedSavedItemSimple
+          id={id}
           title={title}
           description={description}
           source={source}

@@ -6,10 +6,6 @@ import ResizableScrollSection from '../ScrollSection/ResizableScrollSection'
 import FirstColumnProject from './FirstColumnProject'
 import SecondAndThirdColProject from './SecondAndThirdColProject'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
-// import {
-//   ClosingDivBig,
-//   OpenedDivBig,
-// } from '../LayoutAnimated/LayoutAnimated.styled'
 import PupupEditWindow from './PopupEditWindow/PupupEditWindow'
 
 //? reordering the items within a list
@@ -293,12 +289,9 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       setLabelTwoState(keywordValueFound?.labelTwo)
     }
   }, [fragmentsKeywordMain, fragments, keywordMain])
-  const testHelper = () => {
-    console.log(state)
-  }
+
   return (
     <AnimateSharedLayout type='crossfade'>
-      <button onClick={testHelper}> YTESTY</button>
       <DragDropContext onDragEnd={onDragEnd}>
         <ResizableScrollSection
           transparent

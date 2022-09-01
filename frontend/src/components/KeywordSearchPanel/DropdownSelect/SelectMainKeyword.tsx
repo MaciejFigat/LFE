@@ -6,7 +6,6 @@ import {
   DropDownList,
   DropDownListContainer,
   HeaderAndCogContainer,
-  // HorizontalButtonContainer,
   ListItem,
   Main,
   OptionsDropdownContainer,
@@ -15,7 +14,6 @@ import {
 import {
   deleteSavedFragment,
   editSavedFragment,
-  // getUserFragments,
 } from '../../../features/fragments/fragmentSlice'
 import { sortingKeywordMainEdit } from '../../../features/preferences/preferenceSlice'
 import { updateUserFragmentsKeywordMain } from '../../../features/fragments/fragmentSlice'

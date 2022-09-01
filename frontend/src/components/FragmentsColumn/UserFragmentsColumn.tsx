@@ -1,18 +1,37 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Dispatch, SetStateAction } from 'react'
+// import React, { useState, useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { FragmentContainer } from './FragmentsColumn.styled'
-import { motion, AnimateSharedLayout } from 'framer-motion'
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 import {
   ListWrapper,
   ItemWrapper,
 } from '../AnimatedTextPanel/AnimatedList.styled'
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
-import AnimatedSavedItemWrapper from '../AnimatedTextPanel/AnimatedSavedItemWrapper'
+import AnimatedSavedItemSimple from '../AnimatedTextPanel/AnimatedSavedItemSimple'
 
-interface UserFragmentsColumnProps {}
+interface UserFragmentsColumnProps {
+  setOpenedApp?: Dispatch<SetStateAction<null | string>>
+  setTitle?: Dispatch<SetStateAction<string>>
+  setIdOpen?: Dispatch<SetStateAction<string>>
+  canOpenApp?: boolean
+  openedApp?: string | null
+}
 
-const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
+const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
+  setOpenedApp,
+  setTitle,
+  canOpenApp,
+  openedApp,
+  setIdOpen,
+}) => {
   const dispatch: any = useAppDispatch()
+
+  // const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
+
+  // const [openedApp, setOpenedApp] = useState<null | string>(null)
+  // const [title, setTitle] = useState<string>('')
+  // const [idOpen, setIdOpen] = useState<string>('')
 
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
@@ -42,7 +61,8 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
   }, [dispatch, fragmentSuccess])
 
   return (
-    <AnimateSharedLayout>
+    // <AnimateSharedLayout>
+    <>
       {fragments.length > 0 &&
         fragments
           .filter((fragmentsSorted) =>
@@ -69,8 +89,12 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
               {fragment.excerpt !== '' && (
                 <FragmentContainer key={fragment.title}>
                   <ItemWrapper>
-                    {' '}
-                    <AnimatedSavedItemWrapper
+                    <AnimatedSavedItemSimple
+                      setOpenedApp={setOpenedApp}
+                      setTitle={setTitle}
+                      canOpenApp={canOpenApp}
+                      setIdOpen={setIdOpen}
+                      openedApp={openedApp}
                       id={fragment._id}
                       title={fragment.title}
                       description={fragment.description}
@@ -86,8 +110,9 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
               )}
             </ListWrapper>
           ))
-          .reverse()}{' '}
-    </AnimateSharedLayout>
+          .reverse()}
+    </>
+    //   </AnimateSharedLayout>
   )
 }
 export default UserFragmentsColumn

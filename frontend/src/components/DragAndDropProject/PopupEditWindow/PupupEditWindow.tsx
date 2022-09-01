@@ -36,9 +36,10 @@ import {
   PopupTitleContainer,
   PopupTitleInput,
 } from './PopupEditWindow.styled'
+import { editIdOpenFragment } from '../../../features/preferences/preferenceSlice'
 
 interface PupupEditWindowProps {
-  title: string
+  title?: string
   openedApp: string | null
   setOpenedApp: Dispatch<SetStateAction<null | string>>
   setCanOpenApp: Dispatch<SetStateAction<boolean>>
@@ -79,13 +80,13 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
 
   const [excerptEditing, setExcerptEditing] = useState(false)
 
-  const [titleValue, setTitleValue] = useState(openedFragment.title)
+  const [titleValue, setTitleValue] = useState(openedFragment?.title)
 
   const [descriptionValue, setDescriptionValue] = useState(
-    openedFragment.description
+    openedFragment?.description
   )
 
-  const [excerptValue, setExcerptValue] = useState(openedFragment.excerpt)
+  const [excerptValue, setExcerptValue] = useState(openedFragment?.excerpt)
 
   const toggleEditing = () => setTitleEditing(!titleEditing)
 
@@ -107,30 +108,18 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     dispatch(deleteSavedFragment(idOpen))
   }
   // Todo title editing
-  // const newTitle = {
-  //   _id: idOpen,
-  //   title: titleValue,
-  // }
+
   const saveTitleHandler = () => {
-    // dispatch(editSavedFragment(newTitle))
     setTitleEditing(!titleEditing)
   }
   // Todo description editing
-  // const newDescription = {
-  //   _id: idOpen,
-  //   description: descriptionValue,
-  // }
+
   const saveDescriptionHandler = () => {
-    // dispatch(editSavedFragment(newDescription))
     setDescriptionEditing((descriptionEditing) => !descriptionEditing)
   }
   // Todo excerpt editing
-  // const newExcerpt = {
-  //   _id: idOpen,
-  //   excerpt: excerptValue,
-  // }
+
   const saveExcerptHandler = () => {
-    // dispatch(editSavedFragment(newExcerpt))
     setExcerptEditing((excerptEditing) => !excerptEditing)
   }
   useMemo(() => {
@@ -146,9 +135,9 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
       (fragmentSearched: any) => fragmentSearched._id === idOpen
     )
     setOpenedFragment(fragment)
-    setTitleValue(fragment.title)
-    setExcerptValue(fragment.excerpt)
-    setDescriptionValue(fragment.description)
+    setTitleValue(fragment?.title)
+    setExcerptValue(fragment?.excerpt)
+    setDescriptionValue(fragment?.description)
   }, [fragments, idOpen])
 
   const onClickCloseHelper = () => {
@@ -157,7 +146,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     setTimeout(() => {
       setCanOpenApp(true)
     }, 500)
-
+    dispatch(editIdOpenFragment(''))
     if (
       titleValue !== openedFragment.title &&
       excerptValue === openedFragment.excerpt &&
@@ -240,9 +229,6 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
       }
       dispatch(editSavedFragment(newEverything))
     }
-    console.log(titleValue, openedFragment.title)
-    console.log(descriptionValue, openedFragment.description)
-    console.log(excerptValue, openedFragment.excerpt)
   }
 
   return (
@@ -347,12 +333,12 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
           </PopupTitleContainer>{' '}
           <PopupDatePar>
             <PopupB>updated:&nbsp;</PopupB>
-            {openedFragment.updatedAt.substring(0, 10)} at{' '}
-            {openedFragment.updatedAt.substring(12, 16)}
+            {openedFragment?.updatedAt.substring(0, 10)} at{' '}
+            {openedFragment?.updatedAt.substring(12, 16)}
           </PopupDatePar>
           <PopupDatePar>
             <PopupB>source:&nbsp;</PopupB>
-            {openedFragment.source}
+            {openedFragment?.source}
           </PopupDatePar>
           <KeywordEditing
             // keywords={openedFragment.keywords}
