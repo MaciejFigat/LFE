@@ -1,7 +1,7 @@
-import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
+import React, { useEffect, Dispatch, SetStateAction } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { FragmentContainer } from './FragmentsColumn.styled'
-import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   ListWrapper,
   ItemWrapper,
