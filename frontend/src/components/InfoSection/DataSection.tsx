@@ -105,6 +105,11 @@ const DataSection: React.FC<DataSectionProps> = ({
                 <TopLine variant={variant}>{metryka.syg}</TopLine>
                 <SubtitleShort variant={variant}>{metryka.organ}</SubtitleShort>
                 <TopLine variant={variant}>
+                  <SubtitleShort variant={variant}>
+                    {metryka.data}
+                  </SubtitleShort>
+                </TopLine>
+                <TopLine variant={variant}>
                   Forma:{' '}
                   <SubtitleShort variant={variant}>
                     {metryka.rodzaj_orzeczenia}

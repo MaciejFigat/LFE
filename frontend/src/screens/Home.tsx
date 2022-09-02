@@ -8,6 +8,7 @@ import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
 
 import HomeWelcome from '../components/InfoSection/HomeWelcome'
 import Pagination from '../components/Pagination/Pagination'
+import HeroSection from '../components/InfoSection/HeroSection'
 
 // import SearchFilter from '../components/SearchFilter/SearchFilter'
 
@@ -68,18 +69,17 @@ const Home: React.FC = () => {
   return (
     <>
       <Toast option='registerUser' />
-
-      <SideMenuSecondary
-        mainData={
-          <>
-            {data && data?.length === 0 && (
-              <>
-                {' '}
-                <HomeWelcome variant='secondary' />
-              </>
-            )}
-
-            {data && data?.length > 0 && (
+      {data && data?.length === 0 && (
+        <>
+          {' '}
+          {/* <HomeWelcome variant='secondary' /> */}
+          <HeroSection />
+        </>
+      )}
+      {data && data?.length > 0 && (
+        <SideMenuSecondary
+          mainData={
+            <>
               <>
                 <Pagination />
                 {/* //*slice method returns shallow copy of the part between start and end - end not included, hence +1 */}
@@ -106,12 +106,12 @@ const Home: React.FC = () => {
                     />
                   ))}
               </>
-            )}
-          </>
-        }
-      >
-        {Object.keys(userInfo).length > 0 ? <></> : <> </>}
-      </SideMenuSecondary>
+            </>
+          }
+        >
+          {Object.keys(userInfo).length > 0 ? <></> : <> </>}
+        </SideMenuSecondary>
+      )}
     </>
   )
 }
