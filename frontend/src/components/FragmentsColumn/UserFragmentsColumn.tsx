@@ -1,5 +1,4 @@
-import React, { useEffect, Dispatch, SetStateAction } from 'react'
-// import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { FragmentContainer } from './FragmentsColumn.styled'
 import { motion } from 'framer-motion'
@@ -10,28 +9,10 @@ import {
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import AnimatedSavedItemSimple from '../AnimatedTextPanel/AnimatedSavedItemSimple'
 
-interface UserFragmentsColumnProps {
-  setOpenedApp?: Dispatch<SetStateAction<null | string>>
-  setTitle?: Dispatch<SetStateAction<string>>
-  setIdOpen?: Dispatch<SetStateAction<string>>
-  canOpenApp?: boolean
-  openedApp?: string | null
-}
+interface UserFragmentsColumnProps {}
 
-const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
-  setOpenedApp,
-  setTitle,
-  canOpenApp,
-  openedApp,
-  setIdOpen,
-}) => {
+const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
   const dispatch: any = useAppDispatch()
-
-  // const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
-
-  // const [openedApp, setOpenedApp] = useState<null | string>(null)
-  // const [title, setTitle] = useState<string>('')
-  // const [idOpen, setIdOpen] = useState<string>('')
 
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
@@ -90,11 +71,6 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
                 <FragmentContainer key={fragment.title}>
                   <ItemWrapper>
                     <AnimatedSavedItemSimple
-                      setOpenedApp={setOpenedApp}
-                      setTitle={setTitle}
-                      canOpenApp={canOpenApp}
-                      setIdOpen={setIdOpen}
-                      openedApp={openedApp}
                       id={fragment._id}
                       title={fragment.title}
                       description={fragment.description}

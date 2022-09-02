@@ -39,10 +39,9 @@ import {
 import { editIdOpenFragment } from '../../../features/preferences/preferenceSlice'
 
 interface PupupEditWindowProps {
-  title?: string
-  openedApp: string | null
-  setOpenedApp: Dispatch<SetStateAction<null | string>>
-  setCanOpenApp: Dispatch<SetStateAction<boolean>>
+  openedApp?: string | null
+  setOpenedApp?: Dispatch<SetStateAction<null | string>>
+  setCanOpenApp?: Dispatch<SetStateAction<boolean>>
   idOpen: string
   canOpenApp?: boolean
 }
@@ -141,11 +140,16 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
   }, [fragments, idOpen])
 
   const onClickCloseHelper = () => {
-    setOpenedApp(null)
-    setCanOpenApp(false)
-    setTimeout(() => {
-      setCanOpenApp(true)
-    }, 500)
+    if (setOpenedApp) {
+      setOpenedApp(null)
+    }
+    if (setCanOpenApp) {
+      setCanOpenApp(false)
+      setTimeout(() => {
+        setCanOpenApp(true)
+      }, 500)
+    }
+
     dispatch(editIdOpenFragment(''))
     if (
       titleValue !== openedFragment.title &&

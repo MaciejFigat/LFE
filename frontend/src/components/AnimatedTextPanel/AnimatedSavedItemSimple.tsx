@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React from 'react'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import { motion } from 'framer-motion'
 import {
@@ -25,13 +25,6 @@ interface AnimatedSavedItemSimpleProps {
   updatedAt: string
   keywords: string[]
   keywordValue: { keyword: string; value: boolean }[]
-  simpleView?: boolean
-  setSimpleView?: Dispatch<SetStateAction<boolean>>
-  setOpenedApp?: Dispatch<SetStateAction<null | string>>
-  setTitle?: Dispatch<SetStateAction<string>>
-  setIdOpen?: Dispatch<SetStateAction<string>>
-  canOpenApp?: boolean
-  openedApp?: string | null
 }
 
 const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
@@ -42,14 +35,7 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
   excerpt,
   updatedAt,
   keywords,
-  // setSimpleView,
-  // simpleView,
   coordinates,
-  setOpenedApp,
-  setTitle,
-  canOpenApp,
-  openedApp,
-  setIdOpen,
 }) => {
   const dispatch: any = useAppDispatch()
   const idOpenFragment = useAppSelector(
@@ -57,17 +43,6 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
   )
 
   const openWindowHandler = () => {
-    if (
-      canOpenApp &&
-      setOpenedApp &&
-      setTitle &&
-      setIdOpen &&
-      openedApp === null
-    ) {
-      // setOpenedApp(id)
-      // setTitle(title)
-      // setIdOpen(id)
-    }
     if (idOpenFragment === '') {
       dispatch(editIdOpenFragment(id))
     }

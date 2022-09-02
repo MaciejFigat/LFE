@@ -93,9 +93,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       )
   )
   const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
-
   const [openedApp, setOpenedApp] = useState<null | string>(null)
-  const [title, setTitle] = useState<string>('')
   const [idOpen, setIdOpen] = useState<string>('')
 
   const [labelOneState, setLabelOneState] = useState<string | undefined>()
@@ -298,7 +296,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
           wideSection={
             <FirstColumnProject
               setOpenedApp={setOpenedApp}
-              setTitle={setTitle}
+              // setTitle={setTitle}
               canOpenApp={canOpenApp}
               setIdOpen={setIdOpen}
               openedApp={openedApp}
@@ -311,7 +309,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
             <SecondAndThirdColProject
               setOpenedApp={setOpenedApp}
               setIdOpen={setIdOpen}
-              setTitle={setTitle}
               canOpenApp={canOpenApp}
               openedApp={openedApp}
               labelOne={labelOneState}
@@ -324,7 +321,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       <AnimatePresence>
         {openedApp && (
           <PupupEditWindow
-            title={title}
             idOpen={idOpen}
             setOpenedApp={setOpenedApp}
             setCanOpenApp={setCanOpenApp}

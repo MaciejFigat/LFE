@@ -43,7 +43,6 @@ interface SecondAndThirdColProjectProps {
   labelOne?: string
   labelTwo?: string
   setOpenedApp?: Dispatch<SetStateAction<null | string>>
-  setTitle?: Dispatch<SetStateAction<string>>
   setIdOpen?: Dispatch<SetStateAction<string>>
   canOpenApp?: boolean
   openedApp?: string | null
@@ -54,39 +53,19 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
   labelOne,
   labelTwo,
   setOpenedApp,
-  setTitle,
   canOpenApp,
   openedApp,
   setIdOpen,
 }) => {
-  //? part for saving changes in the db and redux
-
-  // const dispatch: any = useAppDispatch()
-  // const fragments: any[] = useAppSelector(
-  //   (state) => state.fragment.userFragments
-  // )
-  // const sortingKeywords = useAppSelector(
-  //   (state) => state.preference.sortingKeywords
-  // )
-  // const { keywordMain } = sortingKeywords
-
-  //? end of db and redux part
-
   const [inputOneEditing, setInputOneEditing] = useState(false)
   const [inputTwoEditing, setInputTwoEditing] = useState(false)
   const [labelOneState, setLabelOneState] = useState(labelOne)
   const [labelTwoState, setLabelTwoState] = useState(labelTwo)
 
-  const openWindowHandler = (id: string, title: string) => {
-    if (
-      canOpenApp &&
-      setOpenedApp &&
-      setTitle &&
-      setIdOpen &&
-      openedApp === null
-    ) {
+  const openWindowHandler = (id: string) => {
+    if (canOpenApp && setOpenedApp && setIdOpen && openedApp === null) {
       setOpenedApp(id)
-      setTitle(title)
+
       setIdOpen(id)
     }
   }
@@ -156,9 +135,7 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                       </WrapperMotionDiv>
                       <OpenDivButtonWrapper>
                         <OpenBigDivButton
-                          onClick={() =>
-                            openWindowHandler(fragment._id, fragment.title)
-                          }
+                          onClick={() => openWindowHandler(fragment._id)}
                         />
                       </OpenDivButtonWrapper>
                       <FragmentParSmall>

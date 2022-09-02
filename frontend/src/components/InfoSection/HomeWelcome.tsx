@@ -1,16 +1,14 @@
 import React from 'react'
 
-import LayoutAnimated from '../LayoutAnimated/LayoutAnimated'
-
 import {
-  // InfoSec,
-  // Container,
-  // InfoRow,
-  // InfoColumn,
-  // TextWrapper,
-  // TopLine,
-  // Subtitle,
-  // InfoColumnShort,
+  InfoSec,
+  Container,
+  InfoRow,
+  InfoColumn,
+  TextWrapper,
+  TopLine,
+  Subtitle,
+  InfoColumnShort,
   HomeContentWrapper,
 } from './InfoSection.styled'
 interface HomeWelcomeProps {
@@ -26,9 +24,7 @@ interface HomeWelcomeProps {
 const HomeWelcome: React.FC<HomeWelcomeProps> = ({ variant }) => {
   return (
     <HomeContentWrapper>
-      <LayoutAnimated />
-
-      {/* <InfoSec variant={variant} paddingTop='large'>
+      <InfoSec variant={variant} paddingTop='large'>
         <Container>
           <InfoRow imgStart={false}>
             <InfoColumnShort>
@@ -75,7 +71,7 @@ const HomeWelcome: React.FC<HomeWelcomeProps> = ({ variant }) => {
             </InfoColumn>
           </InfoRow>
         </Container>
-      </InfoSec> */}
+      </InfoSec>
     </HomeContentWrapper>
   )
 }

@@ -2,21 +2,16 @@ import React from 'react'
 import Toast from '../components/Toast/Toast'
 import DataSection from '../components/InfoSection/DataSection'
 import { UserInfo } from '../interfaces'
-import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
-import {
-  getSearchResults,
-  getDocResult,
-  getDocByNr,
-} from '../features/searchResults/searchResultsSlice'
+import { useAppSelector } from '../app/reduxHooks'
+
 import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
-import { SendButton } from '../components/Buttons/Buttons.styled'
+
 import HomeWelcome from '../components/InfoSection/HomeWelcome'
 import Pagination from '../components/Pagination/Pagination'
 
 // import SearchFilter from '../components/SearchFilter/SearchFilter'
 
 const Home: React.FC = () => {
-  const dispatch = useAppDispatch()
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
@@ -36,33 +31,7 @@ const Home: React.FC = () => {
   const { KrajowaInformacjaSkarbowa, IzbaSkarbowa, MinisterFinansów } =
     FragmentsSource
   const queryTrimmed = encodeURIComponent(query?.trim())
-  const submitHandler = (e: any) => {
-    e.preventDefault()
 
-    const query = 'poczta'
-    //? the following is not accepted by the Api endpoint, what is the difference?
-    // dispatch(getSearchResults(query.replace(/ /g, '%20')))
-    //? this method works well
-    const queryTrimmed = encodeURIComponent(query.trim())
-    dispatch(getSearchResults(queryTrimmed))
-  }
-
-  const submitHandlerDoc = (e: any) => {
-    e.preventDefault()
-
-    const searchquery = {
-      query: 'sp%C3%B3%C5%82ki+skarbu+pa%C5%84stwa',
-      selectedDoc: 1,
-      docNumber: 85725494,
-    }
-
-    dispatch(getDocResult(searchquery))
-  }
-  const submitHandlerDocNr = (e: any) => {
-    e.preventDefault()
-    const nr = 85725494
-    dispatch(getDocByNr(nr))
-  }
   // KrajowaInformacjaSkarbowa: boolean, IzbaSkarbowa: boolean, MinisterFinansów: boolean
   const helperFragmentSourceFilter = () => {
     let numbers: number[]
@@ -141,28 +110,7 @@ const Home: React.FC = () => {
           </>
         }
       >
-        {Object.keys(userInfo).length > 0 ? (
-          <>
-            <SendButton onClick={submitHandler}>Search Test</SendButton>
-            <SendButton variant='success' onClick={submitHandlerDoc}>
-              get Doc test TEST TEST
-            </SendButton>
-            <SendButton variant='secondary' onClick={submitHandlerDocNr}>
-              get Doc nr test
-            </SendButton>
-          </>
-        ) : (
-          <>
-            {' '}
-            <SendButton onClick={submitHandler}>Search Test</SendButton>
-            <SendButton variant='success' onClick={submitHandlerDoc}>
-              get Doc test TEST TEST
-            </SendButton>
-            <SendButton variant='secondary' onClick={submitHandlerDocNr}>
-              get Doc nr test
-            </SendButton>
-          </>
-        )}
+        {Object.keys(userInfo).length > 0 ? <></> : <> </>}
       </SideMenuSecondary>
     </>
   )
