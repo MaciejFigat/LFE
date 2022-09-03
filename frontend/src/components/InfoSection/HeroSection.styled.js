@@ -53,6 +53,7 @@ export const HeroTextContainer = styled.div`
   /* background: var(--background-blur1); */
   /* margin-top: 1rem; */
   padding: 3rem;
+  padding-top: 2rem;
   min-width: 70vw;
   /* max-width: 60vw; 
   */
@@ -64,7 +65,7 @@ export const HeroTitle = styled.div`
   /* width: 30%; */
   font-weight: 700;
   font-size: 4.4375rem;
-
+  /* padding-bottom: 3rem; */
   color: var(--background5-main);
   svg > defs:nth-child(2) {
     /* stroke: var(--background3-main); */
@@ -87,7 +88,7 @@ export const HeroStory = styled.div`
   /* border-radius: 0px 20px 20px 20px; */
   /* width: 50%; */
   padding: 1rem;
-  height: 300px;
+  /* height: 300px; */
   font-weight: 700;
   font-size: 2rem;
   color: var(--background5-main);
