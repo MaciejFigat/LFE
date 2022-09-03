@@ -13,8 +13,8 @@ export const InfoSec = styled.div`
     paddingTop === 'small' ? 'padding: 30px 0;' : 'padding: 35px 0;'};
 
   ${(props) => handleSectionColor(props).sectionBackground}
-  ${(props) => handleSectionColor(props).sectionBackgroundGradient}
-  
+  /* ${(props) => handleSectionColor(props).sectionBackgroundGradient} */
+  /* background: red !important; */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 8px;
@@ -217,10 +217,13 @@ export const SubtitleSimple = styled(Subtitle)`
 export const HomeContentWrapper = styled.div`
   /* margin-top: -30vh; */
   display: grid;
+  z-index: 12;
+
   place-items: center;
 `
 export const CenterWrapper = styled.div`
   display: flex;
+  /* background: var(--background-blur1); */
 
   width: 100%;
 

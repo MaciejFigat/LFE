@@ -6,7 +6,7 @@ import { useAppSelector } from '../app/reduxHooks'
 
 import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
 
-import HomeWelcome from '../components/InfoSection/HomeWelcome'
+// import HomeWelcome from '../components/InfoSection/HomeWelcome'
 import Pagination from '../components/Pagination/Pagination'
 import HeroSection from '../components/InfoSection/HeroSection'
 
@@ -72,8 +72,8 @@ const Home: React.FC = () => {
       {data && data?.length === 0 && (
         <>
           {' '}
-          {/* <HomeWelcome variant='secondary' /> */}
           <HeroSection />
+          {/* <HomeWelcome variant='primary' /> */}
         </>
       )}
       {data && data?.length > 0 && (

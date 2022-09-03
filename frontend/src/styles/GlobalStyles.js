@@ -255,7 +255,8 @@ body {
   background: none;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--background-secondary2);
+  // background: var(--background-secondary2);
+  background: var(--background2-main);
 
   @media (max-width: 1020px) {
     // background: var(--background2-main);
