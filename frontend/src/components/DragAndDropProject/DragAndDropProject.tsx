@@ -146,9 +146,8 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
           ],
         }
         dispatch(editSavedFragment(destinationZero))
-        //! Here fragmentsSorted.keywordValue[0].skip: false
 
-        return
+        // return
       }
 
       //* HERE Begins section of adding keyword to fragment dragged

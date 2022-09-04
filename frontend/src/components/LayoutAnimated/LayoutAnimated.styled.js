@@ -73,7 +73,7 @@ export const OpenBigDivButton = styled(OpenDivButton)`
 `
 export const WrapperMotionDiv = styled(motion.div)`
   position: relative;
-  min-height: 100%;
+  /* min-height: 100%; */
 `
 export const OpenedLayoutDiv = styled(motion.div)`
   height: 100%;
