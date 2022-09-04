@@ -131,16 +131,20 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       const filteredKeywordValue = keywordValueDropped.filter(
         (keywordSearched: any) => keywordSearched.keyword !== keywordMain
       )
+
+      const mainKeywordObject = keywordValueDropped.find(
+        (keywordObject: any) => keywordObject.keyword === keywordMain
+      )
       if (destinationIndex === 0) {
         const destinationZero = {
           _id: _id,
           keywordValue: [
             ...filteredKeywordValue,
             {
-              keyword: keywordMain,
-              labelOne: 'pro',
-              labelTwo: 'contra',
-              value: true,
+              keyword: mainKeywordObject.keyword,
+              labelOne: mainKeywordObject.labelOne,
+              labelTwo: mainKeywordObject.labelTwo,
+              value: mainKeywordObject.value,
               skip: true,
             },
           ],
@@ -157,10 +161,10 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
         keywordValue: [
           ...filteredKeywordValue,
           {
-            keyword: keywordMain,
+            keyword: mainKeywordObject.keyword,
+            labelOne: mainKeywordObject.labelOne,
+            labelTwo: mainKeywordObject.labelTwo,
             value: true,
-            labelOne: 'pro',
-            labelTwo: 'contra',
             skip: false,
           },
         ],
@@ -170,9 +174,9 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
         keywordValue: [
           ...filteredKeywordValue,
           {
-            keyword: keywordMain,
-            labelOne: 'pro',
-            labelTwo: 'contra',
+            keyword: mainKeywordObject.keyword,
+            labelOne: mainKeywordObject.labelOne,
+            labelTwo: mainKeywordObject.labelTwo,
             value: false,
             skip: false,
           },
@@ -188,42 +192,14 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
         dispatch(editSavedFragment(newKeywordListTwo))
       }
 
-      //? if (sourceIndex ===1 || sourceIndex ===2 ) { remove }
-      const newKeywordListWithoutOne = {
-        _id: _id,
-
-        keywordValue: [
-          ...filteredKeywordValue,
-          {
-            keyword: keywordMain,
-            labelOne: 'pro',
-            labelTwo: 'contra',
-            value: false,
-            skip: false,
-          },
-        ],
-      }
-      const newKeywordListWithoutTwo = {
-        ...filteredKeywordValue,
-        _id: _id,
-        keywordValue: [
-          {
-            keyword: keywordMain,
-            labelOne: 'pro',
-            labelTwo: 'contra',
-            value: true,
-            skip: false,
-          },
-        ],
-      }
-
       if (sourceIndex === 1 && destinationIndex === 2) {
         //* from 1 to 2
-        dispatch(editSavedFragment(newKeywordListWithoutOne))
+
+        dispatch(editSavedFragment(newKeywordListTwo))
       } else if (sourceIndex === 2 && destinationIndex === 1) {
         //* from 2 to 1
 
-        dispatch(editSavedFragment(newKeywordListWithoutTwo))
+        dispatch(editSavedFragment(newKeywordListOne))
       }
 
       const result = move(
