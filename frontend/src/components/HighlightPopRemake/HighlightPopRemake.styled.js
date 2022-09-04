@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const HPopover = styled.div`
   padding: 6px 10px;
   background: var(--background1-main);
-  border-radius: 3px;
+  border-radius: 5px;
   position: absolute;
   top: 0;
   left: 0;
@@ -12,8 +12,9 @@ export const HPopover = styled.div`
   transition: 0.2s all;
   display: flex;
   align-items: center;
-  min-width: fit-content;
-
+  justify-content: space-around;
+  /* min-width: fit-content; */
+  min-width: 200px;
   &:after {
     content: '';
     position: absolute;
@@ -29,7 +30,10 @@ export const HPopover = styled.div`
 `
 
 export const HPopoverItem = styled.span`
+  display: flex;
+  justify-content: center;
   color: var(--background5-main);
+  min-width: 80px;
   cursor: pointer;
   padding: 0;
   display: flex;

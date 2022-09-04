@@ -97,7 +97,7 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
             <AddFragment highlightedText={selectedText} />
           </HPopoverItem>
 
-          <HPopoverItem role='button'>Storage</HPopoverItem>
+          {/* <HPopoverItem role='button'>Storage</HPopoverItem> */}
         </HPopover>
       )}
       {children}

@@ -38,7 +38,7 @@ const CopyText: React.FC<CopyTextProps> = ({ highlightedText }) => {
         onMouseEnter={() => hoverHelper()}
         onMouseLeave={() => leaveHelper()}
       >
-        Copy
+        Kopiuj
       </CopyHeading>{' '}
     </>
   )
