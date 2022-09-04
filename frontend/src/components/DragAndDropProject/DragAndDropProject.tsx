@@ -7,7 +7,7 @@ import FirstColumnProject from './FirstColumnProject'
 import SecondAndThirdColProject from './SecondAndThirdColProject'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import PupupEditWindow from './PopupEditWindow/PupupEditWindow'
-
+import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
 //? reordering the items within a list
 
 const reorder = (list: any, startIndex: any, endIndex: any) => {
@@ -262,6 +262,10 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       setLabelTwoState(keywordValueFound?.labelTwo)
     }
   }, [fragmentsKeywordMain, fragments, keywordMain])
+
+  useEffect(() => {
+    dispatch(editIdOpenFragment(''))
+  }, [dispatch])
 
   return (
     <AnimateSharedLayout type='crossfade'>

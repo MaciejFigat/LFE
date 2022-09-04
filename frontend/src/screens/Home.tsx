@@ -1,7 +1,6 @@
 import React from 'react'
 import Toast from '../components/Toast/Toast'
 import DataSection from '../components/InfoSection/DataSection'
-// import { UserInfo } from '../interfaces'
 import { useAppSelector } from '../app/reduxHooks'
 
 // import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
