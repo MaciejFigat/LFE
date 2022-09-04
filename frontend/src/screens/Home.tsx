@@ -1,10 +1,10 @@
 import React from 'react'
 import Toast from '../components/Toast/Toast'
 import DataSection from '../components/InfoSection/DataSection'
-import { UserInfo } from '../interfaces'
+// import { UserInfo } from '../interfaces'
 import { useAppSelector } from '../app/reduxHooks'
 
-import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
+// import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
 
 // import HomeWelcome from '../components/InfoSection/HomeWelcome'
 import Pagination from '../components/Pagination/Pagination'
@@ -13,7 +13,7 @@ import HeroSection from '../components/InfoSection/HeroSection'
 // import SearchFilter from '../components/SearchFilter/SearchFilter'
 
 const Home: React.FC = () => {
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  // const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
   )
@@ -67,52 +67,40 @@ const Home: React.FC = () => {
   }
 
   return (
-    <>
+    <div>
       <Toast option='registerUser' />
       {data && data?.length === 0 && (
         <>
-          {' '}
           <HeroSection />
           {/* <HomeWelcome variant='primary' /> */}
         </>
       )}
-      {data && data?.length > 0 && (
-        <SideMenuSecondary
-          mainData={
-            <>
-              <>
-                <Pagination />
-                {/* //*slice method returns shallow copy of the part between start and end - end not included, hence +1 */}
+      {/* {data && data?.length > 0 && ( */}
 
-                {data
-                  .slice(start, end + 1)
-                  //! todo
-                  .filter(
-                    (dataSliced: any) =>
-                      helperFragmentSourceFilter().indexOf(dataSliced.typSadu) >
-                      -1
-                  )
-                  .map((fragmentArray: any) => (
-                    <DataSection
-                      highlightQuery={highlightQuery}
-                      variant='secondary'
-                      key={fragmentArray['uuid']}
-                      paddingTop='large'
-                      imgStart
-                      fragmentsFound={fragmentArray.fragment}
-                      metryka={fragmentArray.metryka}
-                      istota_interpretacji={fragmentArray.istota_interpretacji}
-                      query={queryTrimmed}
-                    />
-                  ))}
-              </>
-            </>
-          }
-        >
-          {Object.keys(userInfo).length > 0 ? <></> : <> </>}
-        </SideMenuSecondary>
-      )}
-    </>
+      <Pagination />
+      {/* slice method returns shallow copy of the part between start and end - end not included, hence +1  */}
+
+      {data
+        .slice(start, end + 1)
+
+        .filter(
+          (dataSliced: any) =>
+            helperFragmentSourceFilter().indexOf(dataSliced.typSadu) > -1
+        )
+        .map((fragmentArray: any) => (
+          <DataSection
+            highlightQuery={highlightQuery}
+            variant='secondary'
+            key={fragmentArray['uuid']}
+            paddingTop='large'
+            imgStart
+            fragmentsFound={fragmentArray.fragment}
+            metryka={fragmentArray.metryka}
+            istota_interpretacji={fragmentArray.istota_interpretacji}
+            query={queryTrimmed}
+          />
+        ))}
+    </div>
   )
 }
 export default Home

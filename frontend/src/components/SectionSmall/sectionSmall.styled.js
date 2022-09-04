@@ -36,7 +36,6 @@ export const SectionTitle = styled.h1`
     border-bottom: 2px solid;
     /* animated border-image */
     ${(props) => handleSectionColor(props).gradient}
-    animation: 8s rotate linear infinite;
   }
 `
 export const SectionDescription = styled.p`

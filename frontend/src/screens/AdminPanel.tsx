@@ -22,11 +22,11 @@ const AdminPanel: React.FC<AdminPanelProps> = () => {
       />
       <AdminContainer>
         <SendButton variant='primary' large fontLarge>
-          <Link to='/admin/userlist'>User List</Link>
+          <Link to='/admin/userlist'>Lista użytkowników</Link>
         </SendButton>
 
-        <SendButton variant='danger' large fontLarge>
-          <Link to='/profile'>Edit Admin Account</Link>
+        <SendButton variant='secondary' large fontLarge>
+          <Link to='/profile'>Edytuj dane adninistratora</Link>
         </SendButton>
       </AdminContainer>
     </>

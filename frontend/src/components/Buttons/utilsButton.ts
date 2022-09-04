@@ -112,10 +112,10 @@ const dangerEmptyStyle: StyleVariant = {
     buttonBorderActive: 'var(--warning1);'
 }
 const dangerStyle: StyleVariant = {
-    buttonColor: 'var(--background-tertiary4);',
-    buttonBackground: 'var(--background-tertiary5);',
-    buttonBackgroundHover: 'var(--background-tertiary4);',
-    buttonColorHover: 'var(--background-tertiary1);'
+    buttonColor: 'var(--background1-main);',
+    buttonBackground: 'var(--warning1);',
+    buttonBackgroundHover: 'var(--danger1);',
+    buttonColorHover: 'var(--background1-main);'
 }
 const defaultStyle: StyleVariant = {
     buttonColor: 'var(--background-tertiary4);',

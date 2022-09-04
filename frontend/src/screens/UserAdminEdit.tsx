@@ -99,9 +99,9 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
       <Toast option='editUser' />
       <AdminContainer>
         <SendButton variant='info' large fontLarge>
-          <Link to='/admin/userlist'>Back to user list</Link>
+          <Link to='/admin/userlist'>Powrót do listy użytkowników</Link>
         </SendButton>
-        <h1>EDIT USER: {nameState}</h1>{' '}
+        <h1>Edytuj dane użytkownika: {nameState}</h1>{' '}
         {isAdmin === true ? (
           <p
             style={{
@@ -110,7 +110,7 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
               fontWeight: 700,
             }}
           >
-            {user.name} is an Admin
+            {user.name} ma uprawnienia administratora
           </p>
         ) : (
           <p
@@ -120,7 +120,7 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
               fontWeight: 700,
             }}
           >
-            {user.name} is not an Admin
+            {user.name} nie ma uprawnień administratora
           </p>
         )}
         {status === 'Active' ? (
@@ -132,10 +132,10 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
                 fontWeight: 700,
               }}
             >
-              {user.name}'s status is Active
+              {user.name} status aktywny
             </p>
             <SendButton onClick={activateHandler} variant='success'>
-              set as inactive
+              ustaw jako nieaktywny
             </SendButton>
           </>
         ) : (
@@ -147,23 +147,23 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
                 fontWeight: 700,
               }}
             >
-              {user.name}'s status is Pending
+              {user.name} oczekuje na potwierdzenie
             </p>{' '}
             <SendButton onClick={activateHandler} variant='info'>
-              activate
+              aktywuj
             </SendButton>
           </>
         )}
         <SendButton onClick={adminGiveHandler} variant='info'>
-          set as Admin
+          nadaj uprawnienia administratora
         </SendButton>
         <SendButton onClick={adminRemoveHandler} variant='danger'>
-          remove Admin rights
+          odbierz uprawnienia administratora
         </SendButton>
         <EditFormContainer>
           <EditForm>
             <ContactField>
-              <label>Name</label>
+              <label>Imię</label>
               <ContactFieldContent
                 type='text'
                 value={name}
@@ -184,7 +184,7 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
         </EditFormContainer>
         <div>
           <SendButton onClick={editHandler} variant='success'>
-            Save changes
+            Zapisz zmiany
           </SendButton>
         </div>
       </AdminContainer>

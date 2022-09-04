@@ -26,7 +26,7 @@ export const ContactField = styled.div`
   text-align: left;
 
   label {
-    color: var(--secondary2);
+    color: var(--background4-main);
     font-weight: 700;
     @media (max-width: 798px) {
       font-size: 15px;
@@ -49,7 +49,6 @@ export const ContactField = styled.div`
         var(--secondary3)
       )
       1;
-    animation: 8s rotate linear infinite;
   }
 `
 

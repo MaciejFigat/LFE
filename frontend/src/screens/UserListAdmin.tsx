@@ -41,7 +41,7 @@ const UserListAdmin: React.FC<UserListAdminProps> = () => {
     <AdminWrapper>
       <AdminContainer>
         <SendButton variant='primary' large fontLarge>
-          <Link to='/admin'>Back to admin panel</Link>
+          <Link to='/admin'>Powrót do panelu administracyjnego</Link>
         </SendButton>
         <TableWrapper>
           <Table>
@@ -68,7 +68,7 @@ const UserListAdmin: React.FC<UserListAdminProps> = () => {
                         variant='danger'
                         onClick={() => deleteUserHandler(user._id)}
                       >
-                        Delete
+                        Usuń
                       </SendButton>
                     </td>
                   </tr>
