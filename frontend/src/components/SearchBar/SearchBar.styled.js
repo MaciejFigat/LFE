@@ -16,12 +16,13 @@ export const SearchBarWrapper = styled.div`
     transition: 0.3s;
     /* opacity: 1; */
     //! here searchButton color is defined when panel is open
-    color: var(--background5-main);
+    color: var(--background3-main);
+    /* color: red; */
   }
   .hide {
     transition: 0.2s;
     /* opacity: 0; */
-    color: var(--background4-main);
+    color: var(--background5-main);
   }
   @media (max-width: 420px) {
     gap: 0.25rem;
@@ -35,16 +36,19 @@ export const SearchBarButton = styled.button`
   cursor: pointer;
   background: transparent;
   align-items: center;
-  color: var(--background-tertiary1);
+  font-size: 1rem;
+  font-weight: 700;
+  /* color: var(--background3-main); */
+  background: var(--background2-main);
   border: 1px solid transparent;
   border-radius: 10px;
   margin-left: 0.5rem;
   &:hover {
     /* transition: all 0.7s ease-out; */
-    border: 1px solid var(--background-secondary2);
+    border: 1px solid var(--background2-main);
   }
   &:active {
-    border: 1px solid var(--background-secondary4);
+    border: 1px solid var(--background3-main);
   }
   @media (max-width: 420px) {
     font-size: 0.7rem;

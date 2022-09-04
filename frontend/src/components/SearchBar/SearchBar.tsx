@@ -62,7 +62,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           <SearchInput
             type='search'
             name='search'
-            placeholder='Search'
+            placeholder='wpisz frazę'
             autoComplete='search'
             value={searchQuery}
             onChange={(e: any) => setSearchQuery(e.target.value)}
@@ -72,7 +72,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
           className={`${isOpen === true ? 'show' : 'hide'} `}
           type='submit'
         >
-          Search
+          {/* Szukaj */}
+          Znajdź
         </SearchBarButton>
       </SearchBarForm>
     </SearchBarWrapper>
