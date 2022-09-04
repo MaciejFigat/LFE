@@ -12,6 +12,7 @@ import {
   ListItem,
   Main,
 } from './NavDropdown.styled'
+import ColorDropdown from './ColorDropdown'
 
 interface NavDropdownProps {
   options?: any
@@ -94,40 +95,23 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                     </NavLink>
                   </ListItem>
                 )}{' '}
-                {
-                  Object.keys(userInfo).length > 0 && (
-                    <ListItem onClick={toggling}>
-                      <NavLink
-                        to='/'
-                        onClick={logoutHandler}
-                        className={(navData) =>
-                          'nav_link' + (navData.isActive ? ' activated' : '')
-                        }
-                      >
-                        {' '}
-                        <SvgIcon
-                          variant='logout'
-                          contentAfter='logout'
-                          toRight
-                        />
-                      </NavLink>
-                    </ListItem>
-                  )
-                  // : (
-                  //   <ListItem onClick={toggling}>
-                  //     {' '}
-                  //     <NavLink
-                  //       to='/login'
-                  //       className={(navData) =>
-                  //         'nav_link' + (navData.isActive ? ' activated' : '')
-                  //       }
-                  //     >
-                  //       {' '}
-                  //       <SvgIcon variant='login' contentAfter='login' />
-                  //     </NavLink>
-                  //   </ListItem>
-                  // )
-                }
+                {Object.keys(userInfo).length > 0 && (
+                  <ListItem onClick={toggling}>
+                    <NavLink
+                      to='/'
+                      onClick={logoutHandler}
+                      className={(navData) =>
+                        'nav_link' + (navData.isActive ? ' activated' : '')
+                      }
+                    >
+                      {' '}
+                      <SvgIcon variant='logout' contentAfter='logout' toRight />
+                    </NavLink>
+                  </ListItem>
+                )}
+                <ListItem>
+                  <ColorDropdown />
+                </ListItem>
               </DropDownList>
             </DropDownListContainer>
           )}
