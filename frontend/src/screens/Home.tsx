@@ -2,12 +2,11 @@ import React from 'react'
 import Toast from '../components/Toast/Toast'
 import DataSection from '../components/InfoSection/DataSection'
 import { useAppSelector } from '../app/reduxHooks'
-
-// import SideMenuSecondary from '../components/SideMenu/SideMenuSecondary'
-
-// import HomeWelcome from '../components/InfoSection/HomeWelcome'
+import HeroSection from '../components/HomePageComponents/HeroSection'
 import Pagination from '../components/Pagination/Pagination'
-import HeroSection from '../components/InfoSection/HeroSection'
+import HeroOne from '../components/HomePageComponents/HeroOne'
+import HeroTwo from '../components/HomePageComponents/HeroTwo'
+import HeroThree from '../components/HomePageComponents/HeroThree'
 
 // import SearchFilter from '../components/SearchFilter/SearchFilter'
 
@@ -71,7 +70,9 @@ const Home: React.FC = () => {
       {data && data?.length === 0 && (
         <>
           <HeroSection />
-          {/* <HomeWelcome variant='primary' /> */}
+          <HeroOne />
+          <HeroTwo />
+          <HeroThree />
         </>
       )}
       {/* {data && data?.length > 0 && ( */}

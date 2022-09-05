@@ -1,6 +1,4 @@
 import React from 'react'
-import HeroSection from './HeroSection'
-
 import {
   InfoSec,
   Container,
@@ -11,7 +9,7 @@ import {
   Subtitle,
   InfoColumnShort,
   HomeContentWrapper,
-} from './InfoSection.styled'
+} from './HomeSection.styled'
 interface HomeWelcomeProps {
   variant?:
     | 'primary'
@@ -25,7 +23,6 @@ interface HomeWelcomeProps {
 const HomeWelcome: React.FC<HomeWelcomeProps> = ({ variant }) => {
   return (
     <>
-      <HeroSection />
       <HomeContentWrapper>
         <InfoSec variant={variant} paddingTop='large'>
           <Container>
@@ -44,13 +41,13 @@ const HomeWelcome: React.FC<HomeWelcomeProps> = ({ variant }) => {
                 <TextWrapper>
                   {' '}
                   <TopLine variant={variant}>
-                    Krótki przewodnik po wyszukiwaniu:
+                    Jak uzyskujemy precyzję wyszukiwania?
                   </TopLine>
                   <Subtitle variant={variant}>
-                    Nasz system choć wykorzystuje AI daje pierwszeństwo wynikom,
-                    które najbardziej pokrywają się ze słowami kluczowymi.
-                    Natomiast każde wyszukiwanie jest w pewien sposób
-                    uogólniane, by w przypadku słabych wyników na słowach
+                    Nasz system wykorzystuje algorytmy AI. Daje on pierwszeństwo
+                    wynikom, które najbardziej pokrywają się ze słowami
+                    kluczowymi. Każde wyszukiwanie jest uogólniane, by w
+                    przypadku niewystarczającej liczby wyników na słowach
                     kluczowych pokazać te, które są jak najbardziej zbliżone do
                     rządanej frazy. W obecnej chwili wyszukiwarka daje dostęp do
                     100 najtrafniejszych odpowiedzi.

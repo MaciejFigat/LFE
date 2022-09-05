@@ -6,15 +6,21 @@ export const HeroSec = styled.div`
   align-items: center;
   justify-content: center;
   min-width: 100%;
+  margin-bottom: 25vh;
   overflow: hidden;
   /* min-width: 100vw; */
   max-width: 80%;
   /* background: red; */
   min-height: 400px;
+  /* position: absolute; */
+  /* position: relative; */
+  margin-bottom: -65vh;
   svg {
-    position: absolute;
-    top: 110px;
+    position: relative;
+
+    top: -65vh;
   }
+
   svg > path:nth-child(1) {
     fill: var(--background1-main);
   }
@@ -31,17 +37,33 @@ export const HeroSec = styled.div`
     fill: var(--background5-main);
   }
   svg > path:nth-child(6) {
-    fill: var(--background2-main);
+    fill: var(--background1-main);
   }
   svg > path:nth-child(7) {
+    fill: var(--background2-main);
+  }
+  svg > path:nth-child(8) {
+    fill: var(--background2-main);
+  }
+  svg > path:nth-child(8) {
+    fill: var(--background2-main);
+  }
+  svg > path:last-child {
+    fill: var(--background1-main);
+  }
+
+  /* svg > path:nth-child(8) {
     fill: var(--background3-main);
   }
-  svg > path:nth-child(4) {
-    fill: var(--background3-main);
+  svg > path:nth-child(9) {
+    fill: var(--background4-main);
   }
-  svg > path:nth-child(4) {
-    fill: var(--background3-main);
+  svg > path:nth-child(10) {
+    fill: var(--background5-main);
   }
+  svg > path:nth-child(11) {
+    fill: var(--background4-main);
+  } */
 `
 
 export const HeroTextContainer = styled.div`
@@ -55,7 +77,9 @@ export const HeroTextContainer = styled.div`
   padding: 3rem;
   padding-top: 2rem;
   min-width: 70vw;
+
   /* max-width: 60vw; 
+  background-position: center;
   */
   svg {
     position: static;
