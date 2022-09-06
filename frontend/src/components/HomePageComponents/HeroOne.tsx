@@ -22,7 +22,7 @@ import {
 interface HeroOneProps {}
 
 const HeroOne: React.FC<HeroOneProps> = () => {
-  const variant = 'primary'
+  const variant = 'secondary'
   return (
     <HeroSec>
       <HeroTextContainer>

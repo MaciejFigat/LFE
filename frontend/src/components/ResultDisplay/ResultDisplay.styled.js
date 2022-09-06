@@ -8,7 +8,7 @@ export const ArticleContainer = styled.div`
 export const ArticleWrapper = styled.div`
   display: flex;
   max-width: 1080px;
-  background: var(--background2-main);
+  background: var(--background1-main);
   flex-direction: column;
   align-items: center;
   padding-top: 2rem;
@@ -19,8 +19,8 @@ export const ArticleWrapper = styled.div`
 `
 
 export const ArticleTitle = styled.h2`
-  font-size: 3.4rem;
-  line-height: 1.2;
+  font-size: 2.4rem;
+  line-height: 1;
   //todo
   color: var(--background5-main);
   letter-spacing: -0.075rem;
@@ -31,22 +31,22 @@ export const ArticleTitle = styled.h2`
 
   color: var(--background3-main);
   @media (max-width: 880px) {
-    font-size: 2.4rem;
+    font-size: 2rem;
     padding: 1.5rem;
     margin: 0;
   }
 `
 export const ArticleTopline = styled.h4`
   letter-spacing: 0.75px;
-  font-size: 1.5rem;
-  margin: 1rem;
+  font-size: 1.2rem;
+  margin: 0.75rem;
   /* margin-bottom: 2rem; */
 `
 export const ArticleSection = styled.div`
   padding: var(--padding);
   padding-bottom: 0;
-  font-size: 1.3rem;
-  line-height: 1.9;
+  font-size: 1.1rem;
+  line-height: 1.5;
   @media (max-width: 880px) {
     padding: 1rem;
     padding-bottom: 0;
@@ -54,8 +54,8 @@ export const ArticleSection = styled.div`
   }
 `
 export const ArticleParagraph = styled.div`
-  font-size: 1.3rem;
-  line-height: 1.4;
+  font-size: 1.1rem;
+  line-height: 1.3;
   padding-top: 1rem;
   /* padding-bottom: 0; */
   font-weight: 500;

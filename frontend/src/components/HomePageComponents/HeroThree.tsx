@@ -4,25 +4,52 @@ import {
   HeroTitle,
   HeroStory,
   HeroTextContainer,
-  HeroP,
 } from './HeroSection.styled'
+import {
+  Container,
+  InfoColumn,
+  InfoColumnShort,
+  InfoRow,
+  InfoSec,
+  Subtitle,
+  TextWrapper,
+  TopLine,
+} from './HomeSection.styled'
 import { stepsBackgroundThree } from './HeroSectionSVGS/stepsBackground'
-import { subtitleOne } from './HeroSectionSVGS/SubtitleOne'
-import { subtitleThree } from './HeroSectionSVGS/SubtitleThree'
-import { subtitleTwo } from './HeroSectionSVGS/SubtitleTwo'
+
 import { titleThreeSvg } from './HeroSectionSVGS/Title'
 
 interface HeroThreeProps {}
 
 const HeroThree: React.FC<HeroThreeProps> = () => {
+  const variant = 'primary'
   return (
     <HeroSec>
       <HeroTextContainer>
         <HeroTitle>{titleThreeSvg}</HeroTitle>
         <HeroStory>
-          <HeroP>{subtitleOne}</HeroP>
-          <HeroP>{subtitleTwo}</HeroP>
-          <HeroP>{subtitleThree}</HeroP>
+          <InfoSec variant={variant} paddingTop='large'>
+            <Container>
+              <InfoRow imgStart>
+                <InfoColumnShort imgStart>
+                  <TextWrapper>
+                    {' '}
+                    <TopLine variant={variant}></TopLine>
+                    <Subtitle variant={variant}> </Subtitle>
+                  </TextWrapper>
+                </InfoColumnShort>
+                <InfoColumn>
+                  <TextWrapper>
+                    {' '}
+                    <TopLine variant={variant}>
+                      Jak wyeksportować projekt?
+                    </TopLine>
+                    <Subtitle variant={variant}></Subtitle>
+                  </TextWrapper>
+                </InfoColumn>
+              </InfoRow>
+            </Container>
+          </InfoSec>
         </HeroStory>
       </HeroTextContainer>
       {stepsBackgroundThree}

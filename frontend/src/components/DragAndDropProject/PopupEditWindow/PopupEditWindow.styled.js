@@ -128,6 +128,7 @@ export const PopupDescriptionAnimated = styled(motion.div)`
 export const DescriptionDiv = styled(motion.div)`
   max-width: 80%;
   min-height: fit-content;
+  height: 100%;
 `
 export const PopupDescriptionInput = styled(motion.textarea)`
   outline: none;
@@ -137,7 +138,9 @@ export const PopupDescriptionInput = styled(motion.textarea)`
   height: 100%;
   color: var(--background5-main);
   transition: all 0.3s ease-out;
-  background: none;
+  /* background: none; */
+  border-radius: 10px;
+  background: var(--background1-main);
   cursor: text;
   overflow-y: auto;
   line-height: 1.1;

@@ -82,11 +82,12 @@ export const OpenedLayoutDiv = styled(motion.div)`
   position: absolute;
   top: -10vh;
   left: -10vw;
-  padding: 3rem;
+  padding: 2rem;
+  padding-bottom: 1rem;
   box-sizing: border-box;
   overflow: hidden;
   border-radius: 8px;
-  background: var(--background2-main);
+  background: var(--background4-main);
   border: 1px solid var(--background4-main);
 `
 export const OpenedDivBig = styled(OpenedLayoutDiv)`
@@ -100,15 +101,23 @@ export const OpenedDivBig = styled(OpenedLayoutDiv)`
   z-index: 2;
 `
 
+export const BackgroundLayerBlur = styled(motion.div)`
+  /* position: absolute; */
+  /* top: 0; */
+  height: 100vh;
+  /* height: 100%; */
+  width: 100vw;
+  background: var(--background-blur1);
+`
 export const ClosingDiv = styled(motion.div)`
   width: 35%;
   height: 3px;
   border-radius: 100px;
-  position: absolute;
+  /* position: absolute; */
   /* top: 97.5%; */
   top: -22.5%;
   z-index: 10;
-  background: var(--background5-main);
+  background: var(--background1-main);
 
   color: var(--background5-main);
 
@@ -123,8 +132,12 @@ export const ClosingDiv = styled(motion.div)`
 `
 
 export const ClosingDivBig = styled(ClosingDiv)`
-  top: 10vh;
-  /* position: sticky; */
+  position: relative;
+  /* top: 13vh; */
+  color: var(--background1-main);
+  top: -0.5rem;
+  /* postion: sticky; */
   /* left: 20vw; */
-  left: 35vw;
+  /* left: 35vw; */
+  left: 35%;
 `

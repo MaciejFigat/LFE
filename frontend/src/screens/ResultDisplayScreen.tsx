@@ -40,9 +40,7 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
   const queryTrimmed = encodeURIComponent(query?.trim())
 
   useEffect(() => {
-    // if (idOpenFragment !== '') {
     dispatch(editIdOpenFragment(''))
-    // }
   }, [dispatch])
 
   return (

@@ -15,6 +15,7 @@ import {
 import KeywordEditing from './KeywordEditing'
 import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
 import {
+  BackgroundLayerBlur,
   ClosingDivBig,
   OpenedDivBig,
 } from '../../LayoutAnimated/LayoutAnimated.styled'
@@ -237,15 +238,21 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
 
   return (
     <>
-      <ClosingDivBig
+      {/* <BackgroundLayerBlur
         initial={{ y: 8, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 8, opacity: 0 }}
         transition={{ ease: 'linear' }}
-        onClick={() => onClickCloseHelper()}
-      />
+      ></BackgroundLayerBlur> */}
 
       <OpenedDivBig layoutId={openedApp!.toString()}>
+        <ClosingDivBig
+          initial={{ y: 8, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 8, opacity: 0 }}
+          transition={{ ease: 'linear' }}
+          onClick={() => onClickCloseHelper()}
+        />
         <FragmentDivPopup>
           <PopupTitleContainer>
             {!titleEditing ? (
@@ -371,8 +378,8 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                   <PopupDescriptionInput
                     type='excerpt'
                     name='excerpt'
-                    // cols='35'
-                    // rows='3'
+                    cols='35'
+                    rows='5'
                     placeholder='new excerpt'
                     value={excerptValue}
                     onChange={(e: any) => setExcerptValue(e.target.value)}
@@ -438,7 +445,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                       type='description'
                       name='description'
                       // cols='35'
-                      rows='3'
+                      rows='5'
                       placeholder='new description'
                       value={descriptionValue}
                       onChange={(e: any) => setDescriptionValue(e.target.value)}

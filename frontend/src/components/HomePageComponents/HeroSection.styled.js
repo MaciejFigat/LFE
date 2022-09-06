@@ -25,10 +25,10 @@ export const HeroSec = styled.div`
     fill: var(--background1-main);
   }
   svg > path:nth-child(2) {
-    fill: var(--background2-main);
+    fill: var(--background3-main);
   }
   svg > path:nth-child(3) {
-    fill: var(--background3-main);
+    fill: var(--background2-main);
   }
   svg > path:nth-child(4) {
     fill: var(--background4-main);
@@ -117,6 +117,7 @@ export const HeroStory = styled.div`
   font-size: 2rem;
   color: var(--background5-main);
   /* background: var(--background-blur1); */
+  /* height: min-content; */
   /* background: var(--background1-main); */
 `
 export const HeroP = styled.p`
