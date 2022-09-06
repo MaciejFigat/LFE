@@ -15,7 +15,7 @@ import {
 import KeywordEditing from './KeywordEditing'
 import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
 import {
-  BackgroundLayerBlur,
+  // BackgroundLayerBlur,
   ClosingDivBig,
   OpenedDivBig,
 } from '../../LayoutAnimated/LayoutAnimated.styled'

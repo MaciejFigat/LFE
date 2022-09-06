@@ -4,7 +4,7 @@ import {
   HeroTitle,
   HeroStory,
   HeroTextContainer,
-  HeroP,
+  // HeroP,
 } from './HeroSection.styled'
 import {
   Container,
