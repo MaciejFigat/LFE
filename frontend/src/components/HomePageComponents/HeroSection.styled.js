@@ -99,6 +99,7 @@ export const HeroTitle = styled.div`
 `
 export const HeroStory = styled.div`
   display: flex;
+  height: 200px;
   /* flex-direction: column; */
   flex-direction: row;
   /* align-items: flex-start; */
@@ -124,6 +125,18 @@ export const HeroP = styled.p`
   display: grid;
   /* padding: 1rem; */
   place-items: center;
+  background: var(--background1-main);
+  /* background-image: var(--background-blur2)  */
+  font-family: 'Raleway';
+  font-size: 1.4rem;
+  font-weight: 800;
+  width: 34vw;
+  height: 4.5rem;
+  border-left: 1px solid var(--background5-main);
+  border-length: 80%;
+  svg {
+    height: 150%;
+  }
   /* border-radius: 0px 20px 20px 20px; */
   /* height: 3rem; */
   /* border-radius: 5%; */
