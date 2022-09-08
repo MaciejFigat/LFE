@@ -29,7 +29,9 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
     <HeroSec>
       <HeroTextContainer>
         <HeroTitle>{titleTwoSvg}</HeroTitle>
-        <HeroStory>
+        {/* <HeroStory> */}
+        <HighlightPopMenuDemo>
+          {' '}
           <InfoSec variant={variant} paddingTop='large'>
             <Container>
               <InfoRow imgStart>
@@ -42,43 +44,33 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
                 </InfoColumnShort>
                 <InfoColumn>
                   <TextWrapper>
-                    {' '}
-                    <HighlightPopMenuDemo>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Repudiandae dolorem veniam nulla illo, inventore tenetur
-                      magnam qui obcaecati dolores eius?
-                    </HighlightPopMenuDemo>
-                    <TopLine variant={variant}>Zapisywanie fragmentów</TopLine>
+                    <TopLine variant={variant}>
+                      Zaznacz poniższy tekst lub jego część
+                    </TopLine>
+                    Zaznaczając tekst wyszukanej interpretacji bądź wyroku,
+                    możesz wybrać opcję Kopiuj lub Zapisz. Kopiowany fragment
+                    zawiera odpowiednie metadane tzw. metrykę, czyli datę
+                    wydania, sygnaturę dokumentu, rodzaj organu wydającego itp.
+                    W przypadku kopiowania procedura jest podobna, lecz w tym
+                    przypadku zapisujemy fragment w naszym systemie. Jeśli
+                    użytkownik jest zalogowany, może przeglącać uprzednio
+                    zapisane fragmenty i je edytować np. dodając własne uwagi.
+                    Następnie można owe fragmenty grupować w tzw. projekty i je
+                    eksportować np. jako 2 grupy wspierające odmienne
+                    argumentacje.
                     <Subtitle variant={variant}>
-                      <HighlightPopMenuDemo>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Incidunt explicabo enim, optio facere magni quae
-                        blanditiis sequi corporis reiciendis itaque.
-                      </HighlightPopMenuDemo>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Incidunt explicabo enim, optio facere magni quae
+                      blanditiis sequi corporis reiciendis itaque.
                     </Subtitle>
                   </TextWrapper>
                 </InfoColumn>
               </InfoRow>
             </Container>
           </InfoSec>
-        </HeroStory>
+        </HighlightPopMenuDemo>
       </HeroTextContainer>
-      {/* <HighlightPopMenuDemo>
-        <HeroP>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi
-          deleniti ea inventore reiciendis ullam incidunt. Quisquam, voluptatem
-          voluptatum! Veniam illum, sed ea quibusdam minima magnam maxime saepe
-          nulla corporis aut earum nam error quod quam ex? Odit obcaecati odio
-          esse amet voluptate assumenda maxime? Atque alias totam, iusto
-          asperiores et placeat similique adipisci blanditiis consequuntur minus
-          nesciunt tempora iure quisquam facere rem libero quaerat minima est
-          ullam dolorem odio molestias cupiditate! Officiis saepe, optio aperiam
-          commodi mollitia est accusantium culpa expedita dicta explicabo
-          deleniti facilis recusandae quis maxime porro vitae! Similique modi
-          ullam quisquam temporibus. Dignissimos nesciunt nisi aspernatur
-          inventore?
-        </HeroP>
-      </HighlightPopMenuDemo> */}
+
       {stepsBackgroundTwo}
     </HeroSec>
   )
