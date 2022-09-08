@@ -1,11 +1,9 @@
 import React from 'react'
 import {
-  HeroSec,
   HeroTitle,
-  HeroStory,
   HeroTextContainer,
+  HeroSecNoSvg,
 } from './HeroSection.styled'
-import { stepsBackgroundOne } from './HeroSectionSVGS/stepsBackground'
 
 import { titleOneSvg } from './HeroSectionSVGS/Title'
 import {
@@ -24,7 +22,7 @@ interface HeroOneProps {}
 const HeroOne: React.FC<HeroOneProps> = () => {
   const variant = 'secondary'
   return (
-    <HeroSec>
+    <HeroSecNoSvg>
       <HeroTextContainer>
         <HeroTitle>{titleOneSvg}</HeroTitle>
         {/* <HeroStory> */}
@@ -82,8 +80,8 @@ const HeroOne: React.FC<HeroOneProps> = () => {
           <HeroP>{subtitleThree}</HeroP> */}
         {/* </HeroStory> */}
       </HeroTextContainer>
-      {stepsBackgroundOne}
-    </HeroSec>
+      {/* {stepsBackgroundOne} */}
+    </HeroSecNoSvg>
   )
 }
 export default HeroOne

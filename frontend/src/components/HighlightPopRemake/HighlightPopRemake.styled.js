@@ -4,6 +4,7 @@ export const HPopover = styled.div`
   padding: 6px 10px;
   background: var(--background1-main);
   border-radius: 5px;
+  border: dotted 1px var(--background5-main);
   position: absolute;
   top: 0;
   left: 0;
@@ -25,7 +26,8 @@ export const HPopover = styled.div`
     height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 6px solid var(--background1-main);
+    /* border-top: 6px solid var(--background1-main); */
+    border-top: 6px solid var(--background5-main);
   }
 `
 

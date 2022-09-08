@@ -72,7 +72,7 @@ const Home: React.FC = () => {
           <HeroSection />
           <HeroOne />
           <HeroTwo />
-          <HeroThree />
+          {/* <HeroThree /> */}
         </>
       )}
       {/* {data && data?.length > 0 && ( */}

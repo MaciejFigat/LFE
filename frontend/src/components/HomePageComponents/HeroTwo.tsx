@@ -4,75 +4,67 @@ import {
   HeroTitle,
   HeroStory,
   HeroTextContainer,
+  HeroSecNoSvg,
+  HeroTwoContainer,
   // HeroP,
 } from './HeroSection.styled'
 import {
-  Container,
-  InfoColumn,
-  InfoColumnShort,
-  InfoRow,
-  InfoSec,
+  // Container,
+  HeroTextWrapper,
+  // InfoColumn,
+  // InfoColumnShort,
+  // InfoRow,
+  // InfoSec,
   Subtitle,
-  TextWrapper,
+  // TextWrapper,
   TopLine,
 } from './HomeSection.styled'
-import { stepsBackgroundTwo } from './HeroSectionSVGS/stepsBackground'
 
 import { titleTwoSvg } from './HeroSectionSVGS/Title'
 import HighlightPopMenuDemo from '../HighlightPopRemake/HighlightPopMenuDemo'
 
+import { PopupDescriptionInput } from '../DragAndDropProject/PopupEditWindow/PopupEditWindow.styled'
+import FragmentsColumn from '../FragmentsColumn/FragmentsColumn'
+
 interface HeroTwoProps {}
 
 const HeroTwo: React.FC<HeroTwoProps> = () => {
-  const variant = 'primary'
+  const variant = 'secondary'
   return (
-    <HeroSec>
-      <HeroTextContainer>
+    <HeroTwoContainer>
+      <div>
         <HeroTitle>{titleTwoSvg}</HeroTitle>
-        {/* <HeroStory> */}
         <HighlightPopMenuDemo>
-          {' '}
-          <InfoSec variant={variant} paddingTop='large'>
-            <Container>
-              <InfoRow imgStart>
-                <InfoColumnShort imgStart>
-                  <TextWrapper>
-                    {' '}
-                    <TopLine variant={variant}></TopLine>
-                    <Subtitle variant={variant}> </Subtitle>
-                  </TextWrapper>
-                </InfoColumnShort>
-                <InfoColumn>
-                  <TextWrapper>
-                    <TopLine variant={variant}>
-                      Zaznacz poniższy tekst lub jego część
-                    </TopLine>
-                    Zaznaczając tekst wyszukanej interpretacji bądź wyroku,
-                    możesz wybrać opcję Kopiuj lub Zapisz. Kopiowany fragment
-                    zawiera odpowiednie metadane tzw. metrykę, czyli datę
-                    wydania, sygnaturę dokumentu, rodzaj organu wydającego itp.
-                    W przypadku kopiowania procedura jest podobna, lecz w tym
-                    przypadku zapisujemy fragment w naszym systemie. Jeśli
-                    użytkownik jest zalogowany, może przeglącać uprzednio
-                    zapisane fragmenty i je edytować np. dodając własne uwagi.
-                    Następnie można owe fragmenty grupować w tzw. projekty i je
-                    eksportować np. jako 2 grupy wspierające odmienne
-                    argumentacje.
-                    <Subtitle variant={variant}>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Incidunt explicabo enim, optio facere magni quae
-                      blanditiis sequi corporis reiciendis itaque.
-                    </Subtitle>
-                  </TextWrapper>
-                </InfoColumn>
-              </InfoRow>
-            </Container>
-          </InfoSec>
-        </HighlightPopMenuDemo>
-      </HeroTextContainer>
+          <HeroTextWrapper>
+            <TopLine variant={variant}>
+              Zaznacz poniższy tekst lub jego część
+            </TopLine>
+            <p>
+              Zaznaczając tekst wyszukanej interpretacji bądź wyroku, możesz
+              wybrać opcję Kopiuj lub Zapisz. Kopiowany fragment zawiera
+              odpowiednie metadane tzw. metrykę, czyli datę wydania, sygnaturę
+              dokumentu, rodzaj organu wydającego itp.
+            </p>
+            <p>
+              W przypadku kopiowania procedura jest podobna, lecz w tym
+              przypadku zapisujemy fragment w naszym systemie. Jeśli użytkownik
+              jest zalogowany, może przeglącać uprzednio zapisane fragmenty i je
+              edytować np. dodając własne uwagi.
+            </p>
 
-      {stepsBackgroundTwo}
-    </HeroSec>
+            <Subtitle variant={variant}>
+              <PopupDescriptionInput
+                type='label'
+                name='label'
+                rows='4'
+                placeholder='kopiuj i wklej tutaj'
+              ></PopupDescriptionInput>
+            </Subtitle>
+          </HeroTextWrapper>
+        </HighlightPopMenuDemo>
+      </div>
+      <FragmentsColumn />
+    </HeroTwoContainer>
   )
 }
 export default HeroTwo
