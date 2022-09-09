@@ -146,7 +146,7 @@ const fragmentSlice = createSlice({
             {
                 id: '1',
                 source: '',
-                excerpt: '',
+                excerpt: 'W obecnej chwili wyszukiwarka daje dostęp do 100 najtrafniejszych odpowiedzi.',
                 coordinates: '',
                 title: '',
                 description: ''

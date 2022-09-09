@@ -136,11 +136,12 @@ export const PopupDescriptionInput = styled(motion.textarea)`
   width: 100%;
   min-height: fit-content;
   height: 100%;
+  text-align: center;
   color: var(--background5-main);
   transition: all 0.3s ease-out;
   /* background: none; */
   border-radius: 10px;
-  background: var(--background1-main);
+  background: var(--background2-main);
   cursor: text;
   overflow-y: auto;
   line-height: 1.1;

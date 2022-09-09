@@ -13,7 +13,7 @@ html {
 } 
 
 body {
-  
+    color: var(--background4-main);
     margin: 0;
     padding: 0;
     max-width: 100vw;

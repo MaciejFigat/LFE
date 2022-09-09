@@ -7,10 +7,12 @@ import {
 } from './FragmentsColumn.styled'
 import { motion, AnimateSharedLayout } from 'framer-motion'
 import {
-  ListWrapper,
+  // ListWrapper,
   ItemWrapper,
+  ListWrapperDemo,
 } from '../AnimatedTextPanel/AnimatedList.styled'
-import AnimatedItem from '../AnimatedTextPanel/AnimatedItem'
+
+// import AnimatedItem from '../AnimatedTextPanel/AnimatedItem'
 interface FragmentsColumnProps {}
 
 const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
@@ -20,8 +22,8 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
     <AnimateSharedLayout>
       {citations.length > 0 &&
         citations
-          .map((citation) => (
-            <ListWrapper
+          .map((citation, index) => (
+            <ListWrapperDemo
               as={motion.ul}
               key={citation.id}
               layout
@@ -33,22 +35,24 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
                 <FragmentContainer key={citation.title}>
                   <ItemWrapper>
                     {' '}
-                    <AnimatedItem
+                    {/* <AnimatedItem
                       id={citation.id}
                       title={citation.title}
                       description={citation.description}
                       source={citation.source}
                       excerpt={citation.excerpt}
                       coordinates={citation.coordinates}
-                    >
-                      <FragmentsP>created at: {citation.date}</FragmentsP>
-                      <FragmentsPExcerpt>{citation.excerpt}</FragmentsPExcerpt>
-                      {/* <FragmentsP>source: {citation.source}</FragmentsP> */}
-                    </AnimatedItem>
+                    ></AnimatedItem> */}
+                    <FragmentsP>Przykład nr {index + 1}</FragmentsP>
+                    <FragmentsPExcerpt>{citation.excerpt}</FragmentsPExcerpt>
+                    <FragmentsP>
+                      Interpretacja indywidualna, Dyrektora Izby Skarbowej w
+                      Warszawie, 9 marca 2016, IPPB6/4510-22/16-2/AM
+                    </FragmentsP>
                   </ItemWrapper>
                 </FragmentContainer>
               )}
-            </ListWrapper>
+            </ListWrapperDemo>
           ))
           .reverse()}{' '}
     </AnimateSharedLayout>

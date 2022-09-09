@@ -62,6 +62,7 @@ export const HeroTextContainer = styled.div`
   /* flex-direction: row; */
   flex-direction: column;
   justify-content: space-around;
+  /* align-items: center; */
   padding: 3rem;
   padding-top: 2rem;
   min-width: 70vw;
@@ -70,8 +71,6 @@ export const HeroTextContainer = styled.div`
   }
 `
 export const HeroTwoContainer = styled.div`
-  /* display: flex;
-  flex-direction: column; */
   display: grid;
   place-items: center;
 `
@@ -82,8 +81,6 @@ export const HeroTitle = styled.div`
   color: var(--background5-main);
   svg > defs:nth-child(2) {
     stroke: var(--background3-main);
-    /* stroke: red; */
-    /* stop-color: red; */
   }
 `
 export const HeroStory = styled.div`
@@ -99,17 +96,24 @@ export const HeroStory = styled.div`
 `
 export const HeroP = styled.p`
   display: grid;
-  /* padding: 1rem; */
+  position: relative;
   place-items: center;
   background: var(--background1-main);
-  /* background-image: var(--background-blur2)  */
   font-family: 'Raleway';
   font-size: 1.4rem;
   font-weight: 800;
   width: 34vw;
   height: 4.5rem;
-  border-left: 1px solid var(--background5-main);
-  border-length: 80%;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    /* top: 10px; */
+    top: 20%;
+    height: 60%;
+    width: 50%;
+    border-left: 2px solid var(--background5-main);
+  }
   svg {
     height: 150%;
   }

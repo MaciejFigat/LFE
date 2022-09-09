@@ -10,6 +10,7 @@ export const FragmentContainer = styled.div`
   border-bottom: 1px solid var(--background2-main);
 `
 export const FragmentsP = styled.p`
+  color: var(--background4-main);
   font-size: 0.75rem;
 `
 export const FragmentsPExcerpt = styled.p`

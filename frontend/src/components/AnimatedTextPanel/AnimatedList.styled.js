@@ -13,6 +13,9 @@ export const ListWrapper = styled(motion.ul)`
     /* margin-top: 20px; */
   }
 `
+export const ListWrapperDemo = styled(ListWrapper)`
+  padding: 1.5rem;
+`
 
 export const ListItem = styled(motion.li)`
   display: grid;

@@ -75,8 +75,20 @@ export const InfoColumnShortSimple = styled(InfoColumnShort)`
   padding-left: 0rem;
   padding-right: 0.5rem;
 `
+export const HeroWrapperColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+export const HeroWrapperRow = styled.div`
+  display: flex;
+  flex-direction: row;
+`
 export const HeroTextWrapper = styled.div`
-  /* width: 60%; */
+  width: 80%;
+
+  /* margin-left: 2rem; */
   /* max-width: 600px; */
   border: 1px solid var(--background5-main);
   padding: 1rem;

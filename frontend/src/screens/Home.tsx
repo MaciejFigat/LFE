@@ -6,7 +6,7 @@ import HeroSection from '../components/HomePageComponents/HeroSection'
 import Pagination from '../components/Pagination/Pagination'
 import HeroOne from '../components/HomePageComponents/HeroOne'
 import HeroTwo from '../components/HomePageComponents/HeroTwo'
-import HeroThree from '../components/HomePageComponents/HeroThree'
+// import HeroThree from '../components/HomePageComponents/HeroThree'
 
 // import SearchFilter from '../components/SearchFilter/SearchFilter'
 
