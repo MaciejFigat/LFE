@@ -24,6 +24,12 @@ export const DateCompareWrapper = styled.div`
   text-align: center;
   /* text-justify: center; */
 `
+export const HorizontalContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`
 export const DateCompareRow = styled.div`
   display: flex;
   flex-direction: row;

@@ -4,6 +4,7 @@ import {
   FragmentsP,
   FragmentContainer,
   FragmentsPExcerpt,
+  HorizontalContainer,
 } from './FragmentsColumn.styled'
 import { motion, AnimateSharedLayout } from 'framer-motion'
 import {
@@ -11,13 +12,19 @@ import {
   ItemWrapper,
   ListWrapperDemo,
 } from '../AnimatedTextPanel/AnimatedList.styled'
-
+import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
+import { useAppDispatch } from '../../app/reduxHooks'
+import { citationRemoved } from '../../features/fragments/fragmentSlice'
 // import AnimatedItem from '../AnimatedTextPanel/AnimatedItem'
 interface FragmentsColumnProps {}
 
 const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
-  const citations: any[] = useAppSelector((state) => state.fragment.citations)
+  const dispatch: any = useAppDispatch()
 
+  const citations: any[] = useAppSelector((state) => state.fragment.citations)
+  const removeCitationHandler = (id: string) => {
+    dispatch(citationRemoved(id))
+  }
   return (
     <AnimateSharedLayout>
       {citations.length > 0 &&
@@ -43,11 +50,18 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
                       excerpt={citation.excerpt}
                       coordinates={citation.coordinates}
                     ></AnimatedItem> */}
-                    <FragmentsP>Przykład nr {index + 1}</FragmentsP>
+                    <HorizontalContainer>
+                      <FragmentsP>Przykład nr {index + 1}</FragmentsP>
+                      <SendButtonVerySmall
+                        variant='secondaryEmpty'
+                        onClick={() => removeCitationHandler(citation.id)}
+                      >
+                        usuń
+                      </SendButtonVerySmall>
+                    </HorizontalContainer>
                     <FragmentsPExcerpt>{citation.excerpt}</FragmentsPExcerpt>
                     <FragmentsP>
-                      Interpretacja indywidualna, Dyrektora Izby Skarbowej w
-                      Warszawie, 9 marca 2016, IPPB6/4510-22/16-2/AM
+                      Zespół TurboLex, 29 sierpnia 2022, Warszawa
                     </FragmentsP>
                   </ItemWrapper>
                 </FragmentContainer>

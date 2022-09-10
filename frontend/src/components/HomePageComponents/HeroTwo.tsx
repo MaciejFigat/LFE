@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeroTitle, HeroTwoContainer } from './HeroSection.styled'
+import { HeroTitleCenter, HeroTwoContainer } from './HeroSection.styled'
 import {
   HeroTextWrapper,
   HeroWrapperColumn,
@@ -13,15 +13,16 @@ import HighlightPopMenuDemo from '../HighlightPopRemake/HighlightPopMenuDemo'
 
 import { PopupDescriptionInput } from '../DragAndDropProject/PopupEditWindow/PopupEditWindow.styled'
 import FragmentsColumn from '../FragmentsColumn/FragmentsColumn'
+import { AnimateSharedLayout } from 'framer-motion'
 
 interface HeroTwoProps {}
 
 const HeroTwo: React.FC<HeroTwoProps> = () => {
   const variant = 'secondary'
   return (
-    <>
+    <AnimateSharedLayout>
       {' '}
-      <HeroTitle>{titleTwoSvg}</HeroTitle>
+      <HeroTitleCenter>{titleTwoSvg}</HeroTitleCenter>
       <HeroWrapperRow>
         <HighlightPopMenuDemo>
           <HeroTwoContainer>
@@ -59,10 +60,11 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
           </HeroTwoContainer>
         </HighlightPopMenuDemo>
         <HeroWrapperColumn>
+          {/* <HeroP>Przykład zapisywania:</HeroP> */}
           <FragmentsColumn />
         </HeroWrapperColumn>
       </HeroWrapperRow>
-    </>
+    </AnimateSharedLayout>
   )
 }
 export default HeroTwo

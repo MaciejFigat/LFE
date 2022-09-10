@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-
-export const HeroSec = styled.div`
+import { motion } from 'framer-motion'
+export const HeroSec = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,6 +82,10 @@ export const HeroTitle = styled.div`
   svg > defs:nth-child(2) {
     stroke: var(--background3-main);
   }
+`
+export const HeroTitleCenter = styled(HeroTitle)`
+  display: flex;
+  justify-content: center;
 `
 export const HeroStory = styled.div`
   display: flex;

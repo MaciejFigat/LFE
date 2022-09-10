@@ -14,7 +14,11 @@ export const ListWrapper = styled(motion.ul)`
   }
 `
 export const ListWrapperDemo = styled(ListWrapper)`
-  padding: 1.5rem;
+  padding-right: 1rem;
+  padding: 0;
+  min-width: 90%;
+  max-width: 90%;
+  /* background: red; */
 `
 
 export const ListItem = styled(motion.li)`
@@ -210,6 +214,7 @@ export const ListRowShort = styled(ListRow)`
 `
 export const ItemWrapper = styled(motion.div)`
   margin-bottom: 10px;
+
   &:last-child {
     margin-bottom: 0px;
   }

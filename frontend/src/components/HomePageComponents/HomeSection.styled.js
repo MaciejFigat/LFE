@@ -47,6 +47,9 @@ export const InfoRow = styled.div`
   /* align-items: flex-start; */
   flex-direction: ${({ imgStart }) =>
     imgStart === true ? 'row-reverse' : 'row'};
+  border: ${({ border }) =>
+    border === true ? '1px solid var(--background4-main)' : 'none'};
+  padding: ${({ border }) => border === true && '1.5rem'};
   @media (max-width: 880px) {
     flex-direction: ${({ imgStart }) =>
       imgStart === true ? 'column-reverse' : 'column'};
@@ -80,6 +83,7 @@ export const HeroWrapperColumn = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 50%;
 `
 export const HeroWrapperRow = styled.div`
   display: flex;
@@ -87,7 +91,7 @@ export const HeroWrapperRow = styled.div`
 `
 export const HeroTextWrapper = styled.div`
   width: 80%;
-
+  /* font-weight: 400; */
   /* margin-left: 2rem; */
   /* max-width: 600px; */
   border: 1px solid var(--background5-main);
