@@ -19,7 +19,7 @@ export const ButtonBurger = styled.div`
 export const IconBurger = styled.div`
   transition-duration: 0.5s;
   position: absolute;
-  height: 3px;
+  height: 5px;
   width: 30px;
   top: 20px;
   cursor: pointer;
@@ -28,8 +28,8 @@ export const IconBurger = styled.div`
     transition-duration: 0.5s;
     position: absolute;
     width: 20px;
-    height: 3px;
-    background-color: var(--background4-main);
+    height: 5px;
+    background-color: var(--background2-main);
     content: '';
     top: -10px;
   }
@@ -37,8 +37,8 @@ export const IconBurger = styled.div`
     transition-duration: 0.5s;
     position: absolute;
     width: 20px;
-    height: 3px;
-    background-color: var(--background4-main);
+    height: 5px;
+    background-color: var(--background5-main);
     content: '';
     top: 10px;
   }
@@ -47,14 +47,17 @@ export const IconBurger = styled.div`
     transform: rotateZ(-180deg);
     width: 20px;
     height: 2px;
+    background-color: var(--background5-main);
     &:before {
       height: 2px;
       transform: rotateZ(-45deg) scaleX(0.75) translate(-10px, 0px);
+      background-color: var(--background5-main);
     }
 
     &:after {
       height: 2px;
       transform: rotateZ(45deg) scaleX(0.75) translate(-10px, 0px);
+      background-color: var(--background5-main);
     }
   }
 `

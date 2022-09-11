@@ -1,4 +1,5 @@
 import React from 'react'
+import SvgIcon from '../SvgIcon/SvgIcon'
 import {
   HeroTextContainer,
   HeroSecNoSvg,
@@ -12,6 +13,7 @@ import {
   InfoRow,
   Subtitle,
   TextWrapper,
+  TextWrapperParSimple,
   TopLine,
 } from './HomeSection.styled'
 
@@ -28,8 +30,10 @@ const HeroOne: React.FC<HeroOneProps> = () => {
           <InfoColumnShort imgStart>
             <TextWrapper>
               {' '}
-              <TopLine variant={variant}>Turbo Lex</TopLine>
-              <Subtitle variant={variant}> adam@turbo-lex.pl </Subtitle>
+              <TextWrapperParSimple>
+                Zaawansowane wyszukiwanie - panel obok paska wyszukiwania
+                <SvgIcon variant='searchPlus' noMargin noContent />
+              </TextWrapperParSimple>
             </TextWrapper>
           </InfoColumnShort>
           <InfoColumn>

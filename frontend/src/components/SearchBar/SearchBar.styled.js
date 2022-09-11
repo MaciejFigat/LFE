@@ -117,11 +117,13 @@ export const DropDownListContainer = styled.div`
   left: 10px;
   top: 15px;
   z-index: 10;
-  background: var(--background-blur1);
+  /* background: var(--background-blur1); */
+  background: var(--background1-main);
+  border: 1px solid var(--background5-main);
   width: 250px;
   padding: 0.5rem;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  /* backdrop-filter: blur(8px); */
+  /* -webkit-backdrop-filter: blur(8px); */
   border-radius: 10px;
   @media (min-width: 1400px) {
   }

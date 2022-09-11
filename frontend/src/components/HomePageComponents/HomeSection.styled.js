@@ -99,11 +99,19 @@ export const HeroTextWrapper = styled.div`
   /* padding-right: 15px; */
   /* padding-left: 15px; */
 `
+export const TextWrapperParSimple = styled.p`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
 export const TextWrapper = styled.div`
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: 1rem;
+  svg > path {
+    fill: var(--background4-main) !important;
+  }
 `
 export const TextWrapperSimple = styled(TextWrapper)`
   padding: 0.5rem;
@@ -188,6 +196,9 @@ export const TopLine = styled.div`
   font-weight: 700;
   letter-spacing: 1.4px;
   margin-bottom: 10px;
+  /* svg {
+    fill: red;
+  } */
 `
 export const TopLineSimple = styled(TopLine)`
   font-size: 0.85rem;
