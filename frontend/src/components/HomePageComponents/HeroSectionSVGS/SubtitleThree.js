@@ -10,7 +10,7 @@ export const subtitleThree = (
   >
     <defs>
       <filter id='editing-hover' x='-100%' y='-100%' width='300%' height='300%'>
-        <feFlood flood-color='#850d29' result='flood'></feFlood>
+        <feFlood floodColor='#850d29' result='flood'></feFlood>
         <feComposite
           operator='in'
           in2='SourceAlpha'

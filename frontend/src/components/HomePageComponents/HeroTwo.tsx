@@ -39,8 +39,8 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
               <p>
                 W przypadku kopiowania procedura jest podobna, lecz w tym
                 przypadku zapisujemy fragment w naszym systemie. Jeśli
-                użytkownik jest zalogowany, może przeglącać uprzednio zapisane
-                fragmenty i je edytować np. dodając własne uwagi.
+                użytkownik jest zalogowany, może przeglądać i edytować uprzednio
+                zapisane fragmenty, np. dodając własne uwagi.
               </p>
               <p>
                 By przetestować zapisywanie fragmentów, na prawdziwym

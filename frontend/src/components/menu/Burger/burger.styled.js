@@ -8,6 +8,56 @@ export const BurgerWrapper = styled.div`
 
   /* padding-top: 15px; */
 `
+export const ButtonBurger = styled.div`
+  position: absolute;
+  width: 80px;
+  height: 200px;
+  top: 0;
+  left: 5px;
+  transition-duration: 0.5s;
+`
+export const IconBurger = styled.div`
+  transition-duration: 0.5s;
+  position: absolute;
+  height: 3px;
+  width: 30px;
+  top: 20px;
+  cursor: pointer;
+  background-color: var(--background4-main);
+  &:before {
+    transition-duration: 0.5s;
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background-color: var(--background4-main);
+    content: '';
+    top: -10px;
+  }
+  &:after {
+    transition-duration: 0.5s;
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background-color: var(--background4-main);
+    content: '';
+    top: 10px;
+  }
+  &.true {
+    transition-duration: 0.5s;
+    transform: rotateZ(-180deg);
+    width: 20px;
+    height: 2px;
+    &:before {
+      height: 2px;
+      transform: rotateZ(-45deg) scaleX(0.75) translate(-10px, 0px);
+    }
+
+    &:after {
+      height: 2px;
+      transform: rotateZ(45deg) scaleX(0.75) translate(-10px, 0px);
+    }
+  }
+`
 
 export const BurgerContainer = styled.div`
   display: none;
@@ -19,48 +69,5 @@ export const BurgerContainer = styled.div`
     flex-direction: column;
     min-height: 50px;
     align-content: center;
-  }
-`
-
-export const BurgerLine = styled.div`
-  border-radius: 6%;
-
-  align-self: center;
-  transition: all 0.3s ease;
-
-  &.lineOne {
-    width: 25px;
-    height: 4px;
-    border-radius: 25%;
-    background-color: whitesmoke;
-
-    transition: all 0.3s ease;
-
-    &.true {
-      transform: rotate(-45deg) translate(-7.95px, 2.75px);
-    }
-  }
-  &.lineTwo {
-    width: 25px;
-    height: 4px;
-    border-radius: 25%;
-    background-color: whitesmoke;
-    margin: 5px;
-    transition: all 0.3s ease;
-    &.true {
-      opacity: 0;
-    }
-  }
-  &.lineThree {
-    width: 25px;
-    height: 4px;
-    border-radius: 25%;
-    background-color: whitesmoke;
-
-    transition: all 0.3s ease;
-
-    &.true {
-      transform: rotate(-135deg) translate(6.95px, 6.75px);
-    }
   }
 `

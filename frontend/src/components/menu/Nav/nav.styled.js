@@ -265,14 +265,8 @@ export const HeaderTitleDesktop = styled.h1`
   }
 `
 export const AnimatedWrapperMobile = styled(motion.div)`
-  //todo
-  /* background: var(--background1-main); */
   background: var(--background1-main);
-  border-radius: 10px;
-  /* background: var(--background-blur11); */
-  /* width: 18.75rem; */
   width: 100%;
-  /* height: calc(100vh + 50px); */
   height: 60px;
   display: none;
   position: absolute;
