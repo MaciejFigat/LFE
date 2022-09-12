@@ -4,9 +4,10 @@ import DataSection from '../components/InfoSection/DataSection'
 import { useAppSelector } from '../app/reduxHooks'
 import HeroSection from '../components/HomePageComponents/HeroSection'
 import Pagination from '../components/Pagination/Pagination'
-import HeroOne from '../components/HomePageComponents/HeroOne'
-import HeroTwo from '../components/HomePageComponents/HeroTwo'
-import HeroThree from '../components/HomePageComponents/HeroThree'
+// import HeroOne from '../components/HomePageComponents/HeroOne'
+// import HeroTwo from '../components/HomePageComponents/HeroTwo'
+// import HeroThree from '../components/HomePageComponents/HeroThree'
+import HomeChoiceWrapper from '../components/HomePageComponents/HomeChoiceWrapper/HomeChoiceWrapper'
 
 // import SearchFilter from '../components/SearchFilter/SearchFilter'
 
@@ -70,9 +71,10 @@ const Home: React.FC = () => {
       {data && data?.length === 0 && (
         <>
           <HeroSection />
-          <HeroOne />
+          <HomeChoiceWrapper />
+          {/* <HeroOne />
           <HeroTwo />
-          <HeroThree />
+          <HeroThree /> */}
         </>
       )}
       {/* {data && data?.length > 0 && ( */}
