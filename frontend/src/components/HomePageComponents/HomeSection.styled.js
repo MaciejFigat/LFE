@@ -84,6 +84,10 @@ export const HeroWrapperColumn = styled.div`
   justify-content: center;
   align-items: center;
   min-width: 50%;
+  /* overflow: hidden; */
+  overflow: scroll;
+  /* max-height: 100%; */
+  max-height: 60vh;
 `
 export const HeroWrapperRow = styled.div`
   display: flex;
@@ -91,13 +95,8 @@ export const HeroWrapperRow = styled.div`
 `
 export const HeroTextWrapper = styled.div`
   width: 80%;
-  /* font-weight: 400; */
-  /* margin-left: 2rem; */
-  /* max-width: 600px; */
   border: 1px solid var(--background5-main);
   padding: 1rem;
-  /* padding-right: 15px; */
-  /* padding-left: 15px; */
 `
 export const TextWrapperParSimple = styled.p`
   display: flex;

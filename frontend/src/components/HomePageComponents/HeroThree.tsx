@@ -1,12 +1,7 @@
 import React from 'react'
 import SvgIcon from '../SvgIcon/SvgIcon'
-import {
-  HeroTextContainer,
-  HeroSecNoSvg,
-  HeroTitleCenter,
-} from './HeroSection.styled'
+import { HeroTextContainer, HeroSecNoSvg } from './HeroSection.styled'
 
-import { titleThreeSvg } from './HeroSectionSVGS/Title'
 import {
   InfoColumn,
   InfoColumnShort,
@@ -24,8 +19,6 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
   return (
     <HeroSecNoSvg>
       <HeroTextContainer>
-        <HeroTitleCenter>{titleThreeSvg}</HeroTitleCenter>
-
         <InfoRow imgStart border>
           <InfoColumnShort imgStart>
             <TextWrapper>

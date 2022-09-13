@@ -2,7 +2,7 @@ export const titleSvg = (
   <svg
     // width='659.8249999999999px'
     width='max(30vw, 10rem, 200px)'
-    height='189.2px'
+    // height='189.2px'
     xmlns='http://www.w3.org/2000/svg'
     viewBox='-79.91249999999997 -19.599999999999994 659.8249999999999 189.2'
     preserveAspectRatio='xMidYMid'

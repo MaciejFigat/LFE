@@ -4,6 +4,7 @@ import {
   ChoiceItem,
   ChoiceList,
   ChoiceNav,
+  ChoiceTitleContainer,
   ChoiceUnderline,
   MainChoiceContainer,
   WrapperWindow,
@@ -11,56 +12,44 @@ import {
 import HeroOne from '../HeroOne'
 import HeroTwo from '../HeroTwo'
 import HeroThree from '../HeroThree'
+import { HeroTitle } from '../HeroSection.styled'
+import {
+  titleOneSvg,
+  titleSvg,
+  titleThreeSvg,
+  titleTwoSvg,
+} from '../HeroSectionSVGS/Title'
 
 interface HomeChoiceWrapperProps {}
 
 const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = () => {
   const tabs = [
     {
-      label: 'Precyzyjne wyszukiwanie',
+      label: 'Wyszukiwanie',
       content: <HeroOne />,
+      title: <>{titleOneSvg}</>,
     },
     {
-      label: 'Zapisywanie fragmentów',
+      label: 'Zapisywanie',
       content: <HeroTwo />,
+      title: <>{titleTwoSvg}</>,
     },
-    { label: 'Eksport projektów', content: <HeroThree /> },
+    {
+      label: 'Eksport',
+      content: <HeroThree />,
+      title: <>{titleThreeSvg}</>,
+    },
   ]
 
   const [selectedTab, setSelectedTab] = useState(tabs[1])
 
   const tabHelper = (item: any) => {
     setSelectedTab(item)
-    // if (item.label === 'Zapisane') {
-    //   dispatch(showFragments(true))
-    // }
-    // if (item.label === 'Wyszukane') {
-    //   dispatch(showFragments(false))
-    // }
   }
 
   return (
     <>
       <WrapperWindow>
-        <ChoiceNav>
-          <AnimateSharedLayout>
-            <ChoiceList>
-              {tabs.map((item) => (
-                <ChoiceItem
-                  key={item.label}
-                  className={item.label === selectedTab.label ? 'selected' : ''}
-                  onClick={() => tabHelper(item)}
-                >
-                  {`${item.label}`}
-
-                  {item.label === selectedTab.label && (
-                    <ChoiceUnderline layoutId='under' />
-                  )}
-                </ChoiceItem>
-              ))}
-            </ChoiceList>
-          </AnimateSharedLayout>
-        </ChoiceNav>
         <MainChoiceContainer>
           <AnimatePresence exitBeforeEnter>
             <motion.div
@@ -74,6 +63,40 @@ const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = () => {
             </motion.div>
           </AnimatePresence>
         </MainChoiceContainer>
+        <ChoiceNav>
+          <AnimateSharedLayout>
+            <ChoiceList>
+              {tabs.map((item) => (
+                <ChoiceItem
+                  key={item.label}
+                  className={item.label === selectedTab.label ? 'selected' : ''}
+                  onClick={() => tabHelper(item)}
+                >
+                  <b>{`${item.label}`}</b>
+
+                  {item.label === selectedTab.label && (
+                    <ChoiceUnderline layoutId='under' />
+                  )}
+                </ChoiceItem>
+              ))}
+            </ChoiceList>
+          </AnimateSharedLayout>
+        </ChoiceNav>
+        <ChoiceTitleContainer>
+          <HeroTitle>
+            {titleSvg}
+            <AnimatePresence exitBeforeEnter>
+              <motion.div
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                {selectedTab.title}
+              </motion.div>
+            </AnimatePresence>
+          </HeroTitle>
+        </ChoiceTitleContainer>
       </WrapperWindow>
     </>
   )

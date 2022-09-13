@@ -5,20 +5,22 @@ export const HeroSec = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 100%;
-  margin-bottom: 25vh;
-  overflow: hidden;
+  /* min-width: 100%; */
+  /* margin-bottom: 25vh; */
+  /* overflow: hidden; */
   /* min-width: 100vw; */
-  max-width: 80%;
+  /* max-width: 80%; */
   /* background: red; */
-  min-height: 400px;
+  /* min-height: 400px; */
+  /* min-height: 100vh; */
+  min-height: fit-content;
   /* position: absolute; */
   /* position: relative; */
-  margin-bottom: -65vh;
+  /* margin-bottom: -65vh; */
   svg {
     position: relative;
 
-    top: -65vh;
+    /* top: -65vh; */
   }
 
   svg > path:nth-child(1) {
@@ -63,8 +65,9 @@ export const HeroTextContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   /* align-items: center; */
-  padding: 3rem;
-  padding-top: 2rem;
+  padding: 2rem;
+  padding-top: 0;
+  padding-bottom: 0;
   min-width: 70vw;
   svg {
     position: static;
@@ -75,18 +78,22 @@ export const HeroTwoContainer = styled.div`
   place-items: center;
 `
 export const HeroTitle = styled.div`
+  display: flex;
+  flex-direction: row;
   font-weight: 700;
-  font-size: 4.4375rem;
-
+  /* font-size: 4.4375rem; */
+  width: 50%;
+  min-width: 600px;
   color: var(--background5-main);
   svg > defs:nth-child(2) {
     stroke: var(--background3-main);
   }
 `
-export const HeroTitleCenter = styled(HeroTitle)`
-  display: flex;
-  justify-content: center;
-`
+// export const HeroTitleCenter = styled(HeroTitle)`
+//   display: flex;
+//   justify-content: right;
+//   align-items: center;
+// `
 export const HeroStory = styled.div`
   display: flex;
   height: 200px;

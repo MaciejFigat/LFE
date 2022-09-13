@@ -1,12 +1,7 @@
 import React from 'react'
 import SvgIcon from '../SvgIcon/SvgIcon'
-import {
-  HeroTextContainer,
-  HeroSecNoSvg,
-  HeroTitleCenter,
-} from './HeroSection.styled'
+import { HeroTextContainer, HeroSecNoSvg } from './HeroSection.styled'
 
-import { titleOneSvg } from './HeroSectionSVGS/Title'
 import {
   InfoColumn,
   InfoColumnShort,
@@ -24,8 +19,6 @@ const HeroOne: React.FC<HeroOneProps> = () => {
   return (
     <HeroSecNoSvg>
       <HeroTextContainer>
-        <HeroTitleCenter>{titleOneSvg}</HeroTitleCenter>
-        {/* <HeroTextWrapper> */}
         <InfoRow imgStart border>
           <InfoColumnShort imgStart>
             <TextWrapper>
@@ -74,7 +67,6 @@ const HeroOne: React.FC<HeroOneProps> = () => {
             </TextWrapper>
           </InfoColumn>
         </InfoRow>
-        {/* </HeroTextWrapper> */}
       </HeroTextContainer>
       {/* {stepsBackgroundOne} */}
     </HeroSecNoSvg>

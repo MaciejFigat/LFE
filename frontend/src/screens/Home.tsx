@@ -7,7 +7,7 @@ import Pagination from '../components/Pagination/Pagination'
 // import HeroOne from '../components/HomePageComponents/HeroOne'
 // import HeroTwo from '../components/HomePageComponents/HeroTwo'
 // import HeroThree from '../components/HomePageComponents/HeroThree'
-import HomeChoiceWrapper from '../components/HomePageComponents/HomeChoiceWrapper/HomeChoiceWrapper'
+// import HomeChoiceWrapper from '../components/HomePageComponents/HomeChoiceWrapper/HomeChoiceWrapper'
 
 // import SearchFilter from '../components/SearchFilter/SearchFilter'
 
@@ -71,15 +71,14 @@ const Home: React.FC = () => {
       {data && data?.length === 0 && (
         <>
           <HeroSection />
-          <HomeChoiceWrapper />
+          {/* <HomeChoiceWrapper /> */}
           {/* <HeroOne />
           <HeroTwo />
           <HeroThree /> */}
         </>
       )}
-      {/* {data && data?.length > 0 && ( */}
+      {data && data?.length > 0 && <Pagination />}
 
-      <Pagination />
       {/* slice method returns shallow copy of the part between start and end - end not included, hence +1  */}
 
       {data
