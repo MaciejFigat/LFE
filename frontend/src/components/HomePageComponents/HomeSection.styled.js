@@ -95,7 +95,7 @@ export const HeroWrapperRow = styled.div`
 `
 export const HeroTextWrapper = styled.div`
   width: 80%;
-  border: 1px solid var(--background5-main);
+  /* border: 1px solid var(--background5-main); */
   padding: 1rem;
 `
 export const TextWrapperParSimple = styled.p`

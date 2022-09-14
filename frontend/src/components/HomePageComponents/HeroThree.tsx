@@ -1,6 +1,11 @@
 import React from 'react'
 import SvgIcon from '../SvgIcon/SvgIcon'
-import { HeroTextContainer, HeroSecNoSvg } from './HeroSection.styled'
+import {
+  HeroTextContainer,
+  HeroSecNoSvg,
+  HeroTitleLeft,
+} from './HeroSection.styled'
+import { titleThreeSvg } from './HeroSectionSVGS/Title'
 
 import {
   InfoColumn,
@@ -19,7 +24,8 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
   return (
     <HeroSecNoSvg>
       <HeroTextContainer>
-        <InfoRow imgStart border>
+        {/* <InfoRow imgStart border> */}
+        <InfoRow imgStart>
           <InfoColumnShort imgStart>
             <TextWrapper>
               {' '}
@@ -39,11 +45,15 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
                 3. Wybierz projekt i kliknij{' '}
                 <SvgIcon variant='export' noMargin noContent />
               </TextWrapperParSimple>{' '}
+              <TextWrapperParSimple>
+                4. Otwórz zapisany plik tekstowy
+              </TextWrapperParSimple>{' '}
             </TextWrapper>
           </InfoColumnShort>
           <InfoColumn>
             <TextWrapper>
               {' '}
+              <HeroTitleLeft>{titleThreeSvg}</HeroTitleLeft>
               <TopLine variant={variant}>Jak wyeksportować projekt?</TopLine>
               <p>
                 {' '}

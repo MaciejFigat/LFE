@@ -13,12 +13,7 @@ import HeroOne from '../HeroOne'
 import HeroTwo from '../HeroTwo'
 import HeroThree from '../HeroThree'
 import { HeroTitle } from '../HeroSection.styled'
-import {
-  titleOneSvg,
-  titleSvg,
-  titleThreeSvg,
-  titleTwoSvg,
-} from '../HeroSectionSVGS/Title'
+import { titleSvg } from '../HeroSectionSVGS/Title'
 
 interface HomeChoiceWrapperProps {}
 
@@ -27,17 +22,14 @@ const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = () => {
     {
       label: 'Wyszukiwanie',
       content: <HeroOne />,
-      title: <>{titleOneSvg}</>,
     },
     {
       label: 'Zapisywanie',
       content: <HeroTwo />,
-      title: <>{titleTwoSvg}</>,
     },
     {
       label: 'Eksport',
       content: <HeroThree />,
-      title: <>{titleThreeSvg}</>,
     },
   ]
 
@@ -83,19 +75,7 @@ const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = () => {
           </AnimateSharedLayout>
         </ChoiceNav>
         <ChoiceTitleContainer>
-          <HeroTitle>
-            {titleSvg}
-            <AnimatePresence exitBeforeEnter>
-              <motion.div
-                initial={{ y: 10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -10, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                {selectedTab.title}
-              </motion.div>
-            </AnimatePresence>
-          </HeroTitle>
+          <HeroTitle>{titleSvg}</HeroTitle>
         </ChoiceTitleContainer>
       </WrapperWindow>
     </>

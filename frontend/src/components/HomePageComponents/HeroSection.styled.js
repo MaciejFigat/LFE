@@ -81,19 +81,17 @@ export const HeroTitle = styled.div`
   display: flex;
   flex-direction: row;
   font-weight: 700;
-  /* font-size: 4.4375rem; */
-  width: 50%;
-  min-width: 600px;
-  color: var(--background5-main);
+  width: 100%;
+  /* color: var(--background5-main); */
   svg > defs:nth-child(2) {
     stroke: var(--background3-main);
   }
 `
-// export const HeroTitleCenter = styled(HeroTitle)`
-//   display: flex;
-//   justify-content: right;
-//   align-items: center;
-// `
+export const HeroTitleLeft = styled(HeroTitle)`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`
 export const HeroStory = styled.div`
   display: flex;
   height: 200px;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeroTwoContainer } from './HeroSection.styled'
+import { HeroTitleLeft, HeroTwoContainer } from './HeroSection.styled'
 import {
   HeroTextWrapper,
   HeroWrapperColumn,
@@ -13,6 +13,7 @@ import HighlightPopMenuDemo from '../HighlightPopRemake/HighlightPopMenuDemo'
 import { PopupDescriptionInput } from '../DragAndDropProject/PopupEditWindow/PopupEditWindow.styled'
 import FragmentsColumn from '../FragmentsColumn/FragmentsColumn'
 import { AnimateSharedLayout } from 'framer-motion'
+import { titleTwoSvg } from './HeroSectionSVGS/Title'
 
 interface HeroTwoProps {}
 
@@ -25,6 +26,7 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
         <HighlightPopMenuDemo>
           <HeroTwoContainer>
             <HeroTextWrapper>
+              <HeroTitleLeft>{titleTwoSvg}</HeroTitleLeft>
               <TopLine variant={variant}>
                 Zaznacz poniższy tekst lub jego część
               </TopLine>
@@ -39,11 +41,6 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
                 przypadku zapisujemy fragment w naszym systemie. Jeśli
                 użytkownik jest zalogowany, może przeglądać i edytować uprzednio
                 zapisane fragmenty, np. dodając własne uwagi.
-              </p>
-              <p>
-                By przetestować zapisywanie fragmentów, na prawdziwym
-                dokumencie. Wpisz frazę wyszukiwania w pasku menu, kliknij
-                przycisk Znajdź i kliknij na jeden z zaproponowanych wyników.
               </p>
 
               <Subtitle variant={variant}>

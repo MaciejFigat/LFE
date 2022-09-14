@@ -1,6 +1,11 @@
 import React from 'react'
 import SvgIcon from '../SvgIcon/SvgIcon'
-import { HeroTextContainer, HeroSecNoSvg } from './HeroSection.styled'
+import {
+  HeroTextContainer,
+  HeroSecNoSvg,
+  HeroTitleLeft,
+} from './HeroSection.styled'
+import { titleOneSvg } from './HeroSectionSVGS/Title'
 
 import {
   InfoColumn,
@@ -19,7 +24,8 @@ const HeroOne: React.FC<HeroOneProps> = () => {
   return (
     <HeroSecNoSvg>
       <HeroTextContainer>
-        <InfoRow imgStart border>
+        {/* <InfoRow imgStart border> */}
+        <InfoRow imgStart>
           <InfoColumnShort imgStart>
             <TextWrapper>
               {' '}
@@ -30,8 +36,9 @@ const HeroOne: React.FC<HeroOneProps> = () => {
             </TextWrapper>
           </InfoColumnShort>
           <InfoColumn>
+            {' '}
             <TextWrapper>
-              {' '}
+              <HeroTitleLeft>{titleOneSvg}</HeroTitleLeft>{' '}
               <TopLine variant={variant}>
                 Jak uzyskujemy precyzję wyszukiwania?
               </TopLine>
