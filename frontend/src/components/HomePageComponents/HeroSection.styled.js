@@ -5,22 +5,11 @@ export const HeroSec = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* min-width: 100%; */
-  /* margin-bottom: 25vh; */
-  /* overflow: hidden; */
-  /* min-width: 100vw; */
-  /* max-width: 80%; */
-  /* background: red; */
-  /* min-height: 400px; */
-  /* min-height: 100vh; */
+
   min-height: fit-content;
-  /* position: absolute; */
-  /* position: relative; */
-  /* margin-bottom: -65vh; */
+
   svg {
     position: relative;
-
-    /* top: -65vh; */
   }
 
   svg > path:nth-child(1) {
@@ -81,16 +70,33 @@ export const HeroTitle = styled.div`
   display: flex;
   flex-direction: row;
   font-weight: 700;
-  width: 100%;
+  width: 80%;
   /* color: var(--background5-main); */
-  svg > defs:nth-child(2) {
+  /* svg > defs:nth-child(2) {
     stroke: var(--background3-main);
+    fill: var(--background3-main);
+  } */
+  svg {
+    stroke: var(--background5-main);
+
+    fill: var(--background1-main);
+  }
+  @media screen and (max-width: 1051px) {
+    width: 60%;
+    /* svg {
+      stroke: var(--background1-main);
+      fill: var(--background1-main);
+    } */
   }
 `
-export const HeroTitleLeft = styled(HeroTitle)`
+export const HeroTitleLeft = styled.div`
   display: flex;
+  font-size: 2rem;
+  font-family: 'raleway';
+  font-weight: 700;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 0.5rem;
 `
 export const HeroStory = styled.div`
   display: flex;

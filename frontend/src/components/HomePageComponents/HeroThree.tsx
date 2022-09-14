@@ -5,7 +5,7 @@ import {
   HeroSecNoSvg,
   HeroTitleLeft,
 } from './HeroSection.styled'
-import { titleThreeSvg } from './HeroSectionSVGS/Title'
+// import { titleThreeSvg } from './HeroSectionSVGS/Title'
 
 import {
   InfoColumn,
@@ -53,7 +53,8 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
           <InfoColumn>
             <TextWrapper>
               {' '}
-              <HeroTitleLeft>{titleThreeSvg}</HeroTitleLeft>
+              {/* <HeroTitleLeft>{titleThreeSvg}</HeroTitleLeft> */}
+              <HeroTitleLeft>Eksport projektów</HeroTitleLeft>
               <TopLine variant={variant}>Jak wyeksportować projekt?</TopLine>
               <p>
                 {' '}

@@ -32,6 +32,7 @@ export const ChoiceNav = styled.nav`
   @media screen and (max-width: 991px) {
     top: 0rem;
     left: 0rem;
+    max-width: 90%;
     /* max-width: fit-content; */
   }
 `

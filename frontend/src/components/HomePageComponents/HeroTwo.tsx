@@ -13,7 +13,7 @@ import HighlightPopMenuDemo from '../HighlightPopRemake/HighlightPopMenuDemo'
 import { PopupDescriptionInput } from '../DragAndDropProject/PopupEditWindow/PopupEditWindow.styled'
 import FragmentsColumn from '../FragmentsColumn/FragmentsColumn'
 import { AnimateSharedLayout } from 'framer-motion'
-import { titleTwoSvg } from './HeroSectionSVGS/Title'
+// import { titleTwoSvg } from './HeroSectionSVGS/Title'
 
 interface HeroTwoProps {}
 
@@ -26,7 +26,8 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
         <HighlightPopMenuDemo>
           <HeroTwoContainer>
             <HeroTextWrapper>
-              <HeroTitleLeft>{titleTwoSvg}</HeroTitleLeft>
+              {/* <HeroTitleLeft>{titleTwoSvg}</HeroTitleLeft> */}
+              <HeroTitleLeft>Zapisywanie fragmentów</HeroTitleLeft>
               <TopLine variant={variant}>
                 Zaznacz poniższy tekst lub jego część
               </TopLine>
