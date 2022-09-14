@@ -65,6 +65,9 @@ export const HeroTextContainer = styled.div`
 export const HeroTwoContainer = styled.div`
   display: grid;
   place-items: center;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
 `
 export const HeroTitle = styled.div`
   display: flex;

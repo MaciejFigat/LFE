@@ -84,10 +84,8 @@ export const HeroWrapperColumn = styled.div`
   justify-content: center;
   align-items: center;
   min-width: 50%;
-  /* overflow: hidden; */
   overflow: scroll;
-  /* max-height: 100%; */
-  max-height: 60vh;
+  max-height: 50vh;
 `
 export const HeroWrapperRow = styled.div`
   display: flex;
@@ -257,10 +255,7 @@ export const HomeContentWrapper = styled.div`
 `
 export const CenterWrapper = styled.div`
   display: flex;
-  /* background: var(--background-blur1); */
-
   width: 100%;
-
   justify-content: center;
 `
 export const CenterWrapperSimple = styled(CenterWrapper)`
