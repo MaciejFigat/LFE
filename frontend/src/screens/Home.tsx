@@ -2,8 +2,9 @@ import React from 'react'
 import Toast from '../components/Toast/Toast'
 import DataSection from '../components/InfoSection/DataSection'
 import { useAppSelector } from '../app/reduxHooks'
-import HeroSection from '../components/HomePageComponents/HeroSection'
+
 import Pagination from '../components/Pagination/Pagination'
+import HomeChoiceWrapper from '../components/HomePageComponents/HomeChoiceWrapper/HomeChoiceWrapper'
 
 const Home: React.FC = () => {
   // const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
@@ -62,11 +63,7 @@ const Home: React.FC = () => {
   return (
     <div>
       <Toast option='registerUser' />
-      {data && data?.length === 0 && (
-        <>
-          <HeroSection />
-        </>
-      )}
+      {data && data?.length === 0 && <HomeChoiceWrapper />}
       {data && data?.length > 0 && <Pagination />}
 
       {/* slice method returns shallow copy of the part between start and end - end not included, hence +1  */}
