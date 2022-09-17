@@ -8,9 +8,11 @@ import HomeChoiceWrapper from '../components/HomePageComponents/HomeChoiceWrappe
 import HeroOne from '../components/HomePageComponents/HeroOne'
 import HeroTwo from '../components/HomePageComponents/HeroTwo'
 import HeroThree from '../components/HomePageComponents/HeroThree'
+import { UserInfo } from '../interfaces'
+import ProjectMenu from '../components/HomePageComponents/ProjectMenu'
 
 const Home: React.FC = () => {
-  // const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
   )
@@ -84,7 +86,7 @@ const Home: React.FC = () => {
     },
     {
       label: 'Projekty',
-      content: <h3>Projekty usera</h3>,
+      content: <ProjectMenu />,
     },
     {
       label: 'Zapisane fragmenty',
@@ -98,8 +100,14 @@ const Home: React.FC = () => {
   return (
     <div>
       <Toast option='registerUser' />
-      {data && data?.length === 0 && <HomeChoiceWrapper tabs={tabsTutorial} />}
-      {data && data?.length > 0 && <HomeChoiceWrapper tabs={tabsUser} />}
+      {Object.keys(userInfo).length === 0 && (
+        <HomeChoiceWrapper tabs={tabsTutorial} />
+      )}
+      {/* {data && data?.length === 0 && <HomeChoiceWrapper tabs={tabsTutorial} />} */}
+      {/* {data && data?.length > 0 && <HomeChoiceWrapper tabs={tabsUser} />} */}
+      {Object.keys(userInfo).length > 0 && (
+        <HomeChoiceWrapper tabs={tabsUser} />
+      )}
       {data && data?.length > 0 && <Pagination />}
 
       {/* slice method returns shallow copy of the part between start and end - end not included, hence +1  */}

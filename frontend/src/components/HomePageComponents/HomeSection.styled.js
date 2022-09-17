@@ -96,7 +96,7 @@ export const HeroTextWrapper = styled.div`
   /* border: 1px solid var(--background5-main); */
   padding: 1rem;
 `
-export const TextWrapperParSimple = styled.p`
+export const TextWrapperParSimple = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -61,8 +61,9 @@ export const ChoiceList = styled.ul`
     background: var(--background-blur2);
   }
 `
-export const ChoiceItem = styled.li`
-  list-style: none;
+// export const ChoiceItem = styled.li`
+export const ChoiceItem = styled.div`
+  /* list-style: none; */
   border-radius: 5px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;

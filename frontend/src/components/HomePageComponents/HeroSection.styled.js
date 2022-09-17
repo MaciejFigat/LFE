@@ -49,6 +49,8 @@ export const HeroSecNoSvg = styled(HeroSec)`
 `
 export const HeroTextContainer = styled.div`
   z-index: 11;
+  margin-right: 2rem;
+  margin-left: 5rem;
   display: flex;
   /* flex-direction: row; */
   flex-direction: column;
@@ -58,6 +60,10 @@ export const HeroTextContainer = styled.div`
   padding-top: 0;
   padding-bottom: 0;
   min-width: 70vw;
+  @media screen and (max-width: 771px) {
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
+  }
   svg {
     position: static;
   }
