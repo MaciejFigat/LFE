@@ -9,30 +9,15 @@ import {
   MainChoiceContainer,
   WrapperWindow,
 } from './HomeChoiceWrapper.styled'
-import HeroOne from '../HeroOne'
-import HeroTwo from '../HeroTwo'
-import HeroThree from '../HeroThree'
+
 import { HeroTitle } from '../HeroSection.styled'
 import { titleSvg } from '../HeroSectionSVGS/Title'
 
-interface HomeChoiceWrapperProps {}
+interface HomeChoiceWrapperProps {
+  tabs: { label: string; content: any }[]
+}
 
-const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = () => {
-  const tabs = [
-    {
-      label: 'Wyszukiwanie',
-      content: <HeroOne />,
-    },
-    {
-      label: 'Zapisywanie',
-      content: <HeroTwo />,
-    },
-    {
-      label: 'Eksport',
-      content: <HeroThree />,
-    },
-  ]
-
+const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = ({ tabs }) => {
   const [selectedTab, setSelectedTab] = useState(tabs[1])
 
   const tabHelper = (item: any) => {

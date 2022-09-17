@@ -9,7 +9,7 @@ export const titleSvg = (
   >
     <defs>
       <filter id='editing-hover' x='-100%' y='-100%' width='300%' height='300%'>
-        <feFlood flood-color='var(--background5-main)' result='flood'></feFlood>
+        <feFlood floodColor='var(--background5-main)' result='flood'></feFlood>
         <feComposite
           operator='in'
           in2='SourceAlpha'
@@ -111,10 +111,7 @@ export const titleTwoSvg = (
         width='300%'
         height='300%'
       >
-        <feFlood
-          result='color1'
-          flood-color='var(--background5-main)'
-        ></feFlood>
+        <feFlood result='color1' floodColor='var(--background5-main)'></feFlood>
         <feConvolveMatrix
           order='8,8'
           divisor='1'
@@ -167,10 +164,7 @@ export const titleThreeSvg = (
         width='300%'
         height='300%'
       >
-        <feFlood
-          result='color1'
-          flood-color='var(--background5-main)'
-        ></feFlood>
+        <feFlood result='color1' floodColor='var(--background5-main)'></feFlood>
         <feConvolveMatrix
           order='8,8'
           divisor='1'

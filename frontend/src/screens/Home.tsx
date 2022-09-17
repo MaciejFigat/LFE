@@ -5,6 +5,9 @@ import { useAppSelector } from '../app/reduxHooks'
 
 import Pagination from '../components/Pagination/Pagination'
 import HomeChoiceWrapper from '../components/HomePageComponents/HomeChoiceWrapper/HomeChoiceWrapper'
+import HeroOne from '../components/HomePageComponents/HeroOne'
+import HeroTwo from '../components/HomePageComponents/HeroTwo'
+import HeroThree from '../components/HomePageComponents/HeroThree'
 
 const Home: React.FC = () => {
   // const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
@@ -59,11 +62,44 @@ const Home: React.FC = () => {
     }
     return numbers
   }
-
+  //todo tabs used for unlogged user
+  const tabsTutorial = [
+    {
+      label: 'Wyszukiwanie',
+      content: <HeroOne />,
+    },
+    {
+      label: 'Zapisywanie',
+      content: <HeroTwo />,
+    },
+    {
+      label: 'Eksport',
+      content: <HeroThree />,
+    },
+  ]
+  const tabsUser = [
+    {
+      label: 'Wyszukane',
+      content: <h3>Zapisane fragmenty</h3>,
+    },
+    {
+      label: 'Projekty',
+      content: <h3>Projekty usera</h3>,
+    },
+    {
+      label: 'Zapisane fragmenty',
+      content: <h3>Zapisane fragmenty</h3>,
+    },
+    {
+      label: `Ostatnie wyniki`,
+      content: <h3>Ostatnie linki</h3>,
+    },
+  ]
   return (
     <div>
       <Toast option='registerUser' />
-      {data && data?.length === 0 && <HomeChoiceWrapper />}
+      {data && data?.length === 0 && <HomeChoiceWrapper tabs={tabsTutorial} />}
+      {data && data?.length > 0 && <HomeChoiceWrapper tabs={tabsUser} />}
       {data && data?.length > 0 && <Pagination />}
 
       {/* slice method returns shallow copy of the part between start and end - end not included, hence +1  */}
