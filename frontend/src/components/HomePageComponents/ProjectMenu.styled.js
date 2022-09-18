@@ -1,8 +1,15 @@
 import styled from 'styled-components'
-// import { motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 // export const HeroSec = styled(motion.div)``
-export const ProjectContainer = styled.div`
+export const ProjectMenuWrapper = styled(motion.div)`
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center center;
+  background: var(--background3-main);
+`
+export const ProjectMenuContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -22,7 +29,7 @@ export const ProjectContainer = styled.div`
         display: none;
     } */
 `
-export const ProjectCard = styled.div`
+export const ProjectCard = styled(motion.div)`
   position: relative;
   /* display: inline-block; */
   display: grid;
