@@ -6,6 +6,9 @@ import {
   ProjectMenuContainer,
   ProjectMenuWrapper,
 } from './ProjectMenu.styled'
+
+const cards = [1, 2, 3, 4, 5]
+
 interface ProjectMenuProps {}
 
 const ProjectMenu: React.FC<ProjectMenuProps> = () => {
@@ -48,7 +51,9 @@ const ProjectMenu: React.FC<ProjectMenuProps> = () => {
   }
 
   const [{ startX, startScrollLeft, isDragging }, setDragStart] = useState({
+    // startX: undefined,
     startX: 0,
+    // startScrollLeft: undefined,
     startScrollLeft: 0,
     isDragging: false,
   })
@@ -63,28 +68,36 @@ const ProjectMenu: React.FC<ProjectMenuProps> = () => {
       const halfScroll = (scrollWidth - clientWidth) / 2
       containerRef.current!.scrollLeft = halfScroll
     }
-  }, [containerRef.current])
+  }, [selectedCard])
+  // }, [containerRef.current])
+  // }, [])
 
   const handleMouseDown = (e: any) => {
-    if (startX! && containerRef) {
-      setDragStart({
-        startX: e.pageX - containerRef.current!.offsetLeft,
-        startScrollLeft: containerRef.current!.scrollLeft,
-        isDragging: true,
-      })
-    }
+    // if (startX && containerRef && startScrollLeft) {
+    setDragStart({
+      startX: e.pageX - containerRef.current!.offsetLeft!,
+
+      startScrollLeft: containerRef.current!.scrollLeft,
+      isDragging: true,
+    })
+    // }
   }
   const handleMouseMove = (e: any) => {
     if (!isDragging || selectedCard) return
     const x = e.pageX - containerRef.current!.offsetLeft
-    const walk = x - startX
-    containerRef.current!.scrollLeft = startScrollLeft - walk
+    if (startX && startScrollLeft) {
+      const walk = x - startX
+
+      containerRef.current!.scrollLeft = startScrollLeft - walk
+    }
   }
   const selectCard = (card: any) => {
     setSelectedCard(selectedCard ? null : card)
 
-    if (card && !selectedCard && cardRefs.current[card - 1]) {
-      cardRefs.current[card - 1].scrollIntoView({
+    // if (card && !selectedCard && cardRefs.current[card - 1]) {
+    if (card && !selectedCard && cardRefs.current[card]) {
+      // cardRefs.current[card - 1].scrollIntoView({
+      cardRefs.current[card].scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',
         inline: 'center',
@@ -94,6 +107,7 @@ const ProjectMenu: React.FC<ProjectMenuProps> = () => {
   const handleCardMouseUp = (e: any, card: any) => {
     if (isDragging && containerRef && startX) {
       const x = e.pageX - containerRef.current!.offsetLeft
+
       const walk = x - startX
       if (Math.abs(walk) < 5) selectCard(card)
     } else selectCard(card)
@@ -111,17 +125,19 @@ const ProjectMenu: React.FC<ProjectMenuProps> = () => {
       onMouseMove={handleMouseMove}
     >
       <ProjectMenuContainer ref={containerRef}>
-        {' '}
-        {uniqueKeywords?.map((keyword) => (
+        {uniqueKeywords?.map((keyword, index) => (
+          // {cards?.map((keyword, index) => (
           <ProjectCard
-            variant='primaryEmpty'
-            onClick={chooseKeywordHelper(keyword)}
+            // onClick={chooseKeywordHelper(keyword)}
             key={Math.random()}
             ref={(el: any) => cardRefs.current.push(el)}
-            onMouseUp={(e: any) => handleCardMouseUp(e, keyword)}
+            // onMouseUp={(e: any) => handleCardMouseUp(e, keyword)}
+            onMouseUp={(e: any) => handleCardMouseUp(e, index)}
             variants={cardVariants}
-            animate={selectedCard === keyword ? 'selected' : 'notSelected'}
-            // custom={selectedCard ? selectedCard - keyword : 0}
+            // animate={selectedCard === keyword ? 'selected' : 'notSelected'}
+            animate={selectedCard === index ? 'selected' : 'notSelected'}
+            // custom={selectedCard! ? selectedCard! - keyword : 0}
+            custom={selectedCard! ? selectedCard! - index : 0}
           >
             {keyword}
           </ProjectCard>

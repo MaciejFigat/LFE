@@ -22,17 +22,18 @@ export const ProjectMenuContainer = styled(motion.div)`
   /* perspective: 150px; */
   -ms-overflow-style: none;
   scrollbar-width: none !important;
-  ::-webkit-scrollbar {
-    width: 3.3em;
-  }
   /* ::-webkit-scrollbar {
-        display: none;
-    } */
+    width: 3.3em;
+  } */
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `
 export const ProjectCard = styled(motion.div)`
   position: relative;
   /* display: inline-block; */
   display: grid;
+  /* user-select: none; */
   place-items: center;
   height: 40px;
   width: 80px;
