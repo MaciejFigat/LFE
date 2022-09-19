@@ -31,7 +31,7 @@ const ProjectMenu: React.FC<ProjectMenuProps> = () => {
 
   const cardVariants = {
     selected: {
-      rotateY: 180,
+      // rotateY: 180,
       scale: 1.1,
       transition: { duration: 0.35 },
       zIndex: 10,
@@ -50,37 +50,45 @@ const ProjectMenu: React.FC<ProjectMenuProps> = () => {
     }),
   }
 
+  // startX: undefined,
+  // startScrollLeft: undefined,
   const [{ startX, startScrollLeft, isDragging }, setDragStart] = useState({
-    // startX: undefined,
     startX: 0,
-    // startScrollLeft: undefined,
     startScrollLeft: 0,
     isDragging: false,
   })
   const containerRef = useRef<HTMLDivElement>()
   const cardRefs = useRef(new Array())
-  useEffect(() => {
-    if (containerRef.current?.scrollLeft) {
-      const { scrollWidth, clientWidth } = containerRef.current ?? {
-        scrollWidth: 0,
-        clientWidth: 0,
-      }
-      const halfScroll = (scrollWidth - clientWidth) / 2
-      containerRef.current!.scrollLeft = halfScroll
-    }
-  }, [selectedCard])
+  // useEffect(() => {
+  //   if (containerRef.current?.scrollLeft) {
+  //     const { scrollWidth, clientWidth } = containerRef.current ?? {
+  //       scrollWidth: 0,
+  //       clientWidth: 0,
+  //     }
+  //     const halfScroll = (scrollWidth - clientWidth) / 2
+  //     containerRef.current!.scrollLeft = halfScroll
+  //   }
+  // }, [selectedCard])
   // }, [containerRef.current])
   // }, [])
 
   const handleMouseDown = (e: any) => {
     // if (startX && containerRef && startScrollLeft) {
     setDragStart({
+      // startScrollLeft: containerRef.current!.scrollLeft,
       startX: e.pageX - containerRef.current!.offsetLeft!,
-
       startScrollLeft: containerRef.current!.scrollLeft,
       isDragging: true,
     })
     // }
+  }
+  const handleMouseUpContainer = (e: any) => {
+    setDragStart({
+      // startScrollLeft: containerRef.current!.scrollLeft,
+      startX: e.pageX - containerRef.current!.offsetLeft!,
+      startScrollLeft: containerRef.current!.scrollLeft,
+      isDragging: false,
+    })
   }
   const handleMouseMove = (e: any) => {
     if (!isDragging || selectedCard) return
@@ -121,25 +129,30 @@ const ProjectMenu: React.FC<ProjectMenuProps> = () => {
   return (
     <ProjectMenuWrapper
       onMouseDown={handleMouseDown}
-      onMouseUp={() => setDragStart((prev) => ({ ...prev, isDragging: false }))}
+      // onMouseUp={() => setDragStart((prev) => ({ ...prev, isDragging: false }))}
+      onMouseUp={handleMouseUpContainer}
       onMouseMove={handleMouseMove}
     >
       <ProjectMenuContainer ref={containerRef}>
-        {uniqueKeywords?.map((keyword, index) => (
-          // {cards?.map((keyword, index) => (
+        {cards?.map((keyword, index) => (
+          // {uniqueKeywords?.map((keyword, index) => (
           <ProjectCard
             // onClick={chooseKeywordHelper(keyword)}
-            key={Math.random()}
-            ref={(el: any) => cardRefs.current.push(el)}
             // onMouseUp={(e: any) => handleCardMouseUp(e, keyword)}
-            onMouseUp={(e: any) => handleCardMouseUp(e, index)}
-            variants={cardVariants}
             // animate={selectedCard === keyword ? 'selected' : 'notSelected'}
-            animate={selectedCard === index ? 'selected' : 'notSelected'}
             // custom={selectedCard! ? selectedCard! - keyword : 0}
-            custom={selectedCard! ? selectedCard! - index : 0}
+            key={Math.random()}
+            // ref={(el: any) => cardRefs.current.push(el)}
+            // onMouseUp={(e: any) => handleCardMouseUp(e, index)}
+            // variants={cardVariants}
+            // animate={selectedCard === index ? 'selected' : 'notSelected'}
+            // custom={selectedCard! ? selectedCard! - index : 0}
+            onMouseUp={(e: any) => handleCardMouseUp(e, keyword)}
+            variants={cardVariants}
+            animate={selectedCard === keyword ? 'selected' : 'notSelected'}
+            custom={selectedCard! ? selectedCard! - keyword : 0}
           >
-            {keyword}
+            Test {keyword}
           </ProjectCard>
         ))}
       </ProjectMenuContainer>

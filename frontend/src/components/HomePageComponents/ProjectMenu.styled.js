@@ -11,16 +11,18 @@ export const ProjectMenuWrapper = styled(motion.div)`
 `
 export const ProjectMenuContainer = styled(motion.div)`
   display: flex;
+  background: lightblue;
   flex-direction: row;
   gap: 1rem;
   /* max-width: 100%; */
 
   width: 600px;
+  height: 200px;
   white-space: nowrap;
   /* overflow: hidden; */
   overflow-x: scroll;
   /* perspective: 150px; */
-  -ms-overflow-style: none;
+  /* -ms-overflow-style: none; */
   scrollbar-width: none !important;
   /* ::-webkit-scrollbar {
     width: 3.3em;
@@ -37,15 +39,16 @@ export const ProjectCard = styled(motion.div)`
   place-items: center;
   height: 40px;
   width: 80px;
-  min-width: fit-content;
+  /* min-width: fit-content; */
+  min-width: 100px;
   background: white;
   margin: 2rem 1rem;
   border-radius: 15px;
   cursor: pointer;
   &:first-of-type {
-    margin-left: 15rem;
+    /* margin-left: 15rem; */
   }
   &:last-of-type {
-    margin-right: 15rem;
+    /* margin-right: 15rem; */
   }
 `
