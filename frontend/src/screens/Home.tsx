@@ -10,6 +10,7 @@ import HeroTwo from '../components/HomePageComponents/HeroTwo'
 import HeroThree from '../components/HomePageComponents/HeroThree'
 import { UserInfo } from '../interfaces'
 import ProjectMenu from '../components/HomePageComponents/ProjectMenu'
+import ProjectMenuTwo from '../components/HomePageComponents/ProjectMenuTwo'
 
 const Home: React.FC = () => {
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
@@ -86,7 +87,12 @@ const Home: React.FC = () => {
     },
     {
       label: 'Projekty',
-      content: <ProjectMenu />,
+      content: (
+        <>
+          <ProjectMenu />
+          <ProjectMenuTwo />
+        </>
+      ),
     },
     {
       label: 'Zapisane fragmenty',

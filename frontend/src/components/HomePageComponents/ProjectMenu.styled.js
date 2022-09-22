@@ -3,8 +3,15 @@ import { motion } from 'framer-motion'
 
 // export const HeroSec = styled(motion.div)``
 export const ProjectMenuWrapper = styled(motion.div)`
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; */
   height: 100%;
-  width: 100%;
+  /* width: 100%; */
+  width: 400px;
+  overflow: hidden;
+  padding: 1rem;
   display: grid;
   place-items: center center;
   background: var(--background3-main);
@@ -51,4 +58,15 @@ export const ProjectCard = styled(motion.div)`
   &:last-of-type {
     /* margin-right: 15rem; */
   }
+`
+export const DragMenuButton = styled(motion.div)`
+  /* position: relative; */
+  background: var(--background4-main);
+  ${({ position }) => position === 'left' && 'left: 100px;'};
+  ${({ position }) => position === 'right' && 'right: 100px;'};
+  /* padding: ${({ large }) =>
+    large ? '12px 25px 33px' : '10px 20px 25px'}; */
+  position: sticky;
+  top: 0;
+  /* right: 100px; */
 `
