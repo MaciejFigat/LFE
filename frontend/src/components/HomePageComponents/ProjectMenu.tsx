@@ -134,8 +134,8 @@ const ProjectMenu: React.FC<ProjectMenuProps> = () => {
       onMouseMove={handleMouseMove}
     >
       <ProjectMenuContainer ref={containerRef}>
-        {cards?.map((keyword, index) => (
-          // {uniqueKeywords?.map((keyword, index) => (
+        {/* {cards?.map((keyword, index) => ( */}
+        {uniqueKeywords?.map((keyword, index) => (
           <ProjectCard
             // onClick={chooseKeywordHelper(keyword)}
             // onMouseUp={(e: any) => handleCardMouseUp(e, keyword)}

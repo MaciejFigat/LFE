@@ -3,52 +3,43 @@ import { motion } from 'framer-motion'
 
 // export const HeroSec = styled(motion.div)``
 export const ProjectMenuWrapper = styled(motion.div)`
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center; */
-  height: 100%;
-  /* width: 100%; */
+  /* height: 40px; */
   width: 400px;
+  /* //todo */
+  position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
   padding: 1rem;
-  display: grid;
-  place-items: center center;
-  background: var(--background3-main);
+
+  background: var(--background2-main);
 `
 export const ProjectMenuContainer = styled(motion.div)`
   display: flex;
-  background: lightblue;
   flex-direction: row;
+  /* padding: 0 14rem 0 10rem; */
+  background: var(--background2-main);
   gap: 1rem;
-  /* max-width: 100%; */
-
-  width: 600px;
-  height: 200px;
+  cursor: grab;
+  /* width: 600px; */
+  /* width: 'fit-content'; */
+  /* height: 200px; */
   white-space: nowrap;
-  /* overflow: hidden; */
-  overflow-x: scroll;
-  /* perspective: 150px; */
-  /* -ms-overflow-style: none; */
   scrollbar-width: none !important;
-  /* ::-webkit-scrollbar {
-    width: 3.3em;
-  } */
   ::-webkit-scrollbar {
     display: none;
   }
 `
 export const ProjectCard = styled(motion.div)`
-  position: relative;
-  /* display: inline-block; */
   display: grid;
   /* user-select: none; */
   place-items: center;
   height: 40px;
-  width: 80px;
-  /* min-width: fit-content; */
-  min-width: 100px;
-  background: white;
+  padding: 0 1rem 0 1rem;
+  /* width: 80px; */
+  min-width: fit-content;
+  /* min-width: 100px; */
+  background: var(--background3-main);
   margin: 2rem 1rem;
   border-radius: 15px;
   cursor: pointer;
@@ -60,13 +51,16 @@ export const ProjectCard = styled(motion.div)`
   }
 `
 export const DragMenuButton = styled(motion.div)`
-  /* position: relative; */
-  background: var(--background4-main);
-  ${({ position }) => position === 'left' && 'left: 100px;'};
-  ${({ position }) => position === 'right' && 'right: 100px;'};
-  /* padding: ${({ large }) =>
-    large ? '12px 25px 33px' : '10px 20px 25px'}; */
-  position: sticky;
-  top: 0;
-  /* right: 100px; */
+  display: grid;
+  place-items: center center;
+  position: relative;
+  width: 2rem;
+  /* font-size: 3rem !important; */
+  /* position: sticky; */
+  /* background: var(--background4-main); */
+  background: var(--background-blur1);
+  ${({ position }) => position === 'left' && 'right: -92%;'};
+  ${({ position }) => position === 'right' && 'right: 4%;'};
+
+  z-index: 11;
 `

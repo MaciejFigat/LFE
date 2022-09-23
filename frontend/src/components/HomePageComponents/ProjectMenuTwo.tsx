@@ -1,7 +1,9 @@
 import { useAnimation } from 'framer-motion'
-import React, { useRef, useEffect, useState } from 'react'
-import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
-import { sortingKeywordMainEdit } from '../../features/preferences/preferenceSlice'
+import React, { useRef, useState } from 'react'
+// import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
+import { useAppSelector } from '../../app/reduxHooks'
+// import { sortingKeywordMainEdit } from '../../features/preferences/preferenceSlice'
+import SvgIcon from '../SvgIcon/SvgIcon'
 import {
   DragMenuButton,
   ProjectCard,
@@ -9,85 +11,124 @@ import {
   ProjectMenuWrapper,
 } from './ProjectMenu.styled'
 
-const cards = [1, 2, 3, 4, 5]
+// const cards = [1, 2, 3, 4, 5]
 
 interface ProjectMenuTwoProps {}
 
 const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
-  const translateXForElement = (element: any) => {
-    const transform = element.style.transform
-
-    if (!transform || transform.indexOf('translateX(') < 0) {
-      return 0
-    }
-
-    const extractTranslateX = transform.match(/translateX\((-?\d+)/)
-
-    return extractTranslateX && extractTranslateX.length === 2
-      ? parseInt(extractTranslateX[1], 10)
-      : 0
-  }
-
+  const fragments: any[] = useAppSelector(
+    (state) => state.fragment.userFragments
+  )
+  const keywordsAll = fragments
+    ?.map((fragment) => fragment.keywords?.map((keyword: string) => keyword))
+    .flat()
+    .filter((keywordsFlattened) => keywordsFlattened !== '')
+  //todo .flat() flattens the arr ie. [a, b, [c, d]].flat()=>[a, b, c, d]
+  let uniqueKeywords = [...Array.from(new Set(keywordsAll))]
   const dragRef = useRef(null)
   const xPos = useRef(0)
   const animation = useAnimation()
-  // function onLeftClick() {
-  //   const xPos = translateXForElement(dragRef.current)
-  //   const newXPosition = xPos + 600
 
-  //   animation.start({
-  //     x: newXPosition > 0 ? 0 : newXPosition,
-  //   })
-  // }
-
-  // function onRightClick() {
-  //   const xPos = translateXForElement(dragRef.current)
-  //   const newXPosition = xPos - 600
-
-  //   animation.start({
-  //     x: newXPosition < -2000 ? -2000 : newXPosition,
-  //   })
   const onLeftClick = () => {
-    const newXPosition = xPos.current + 600
+    const newXPosition = xPos.current + 400
 
     animation.start({
       x: newXPosition > 0 ? 0 : newXPosition,
+      // x: newXPosition,
     })
+    console.log(xPos.current)
   }
+  // x: 0,
   const onRightClick = () => {
-    const newXPosition = xPos.current - 600
+    const newXPosition = xPos.current - 400
 
     animation.start({
-      x: newXPosition < -2000 ? -2000 : newXPosition,
+      // x: newXPosition < -1500 ? '-100%' : newXPosition,
+      x: newXPosition < -uniqueKeywords.length * 120 - 300 ? 0 : newXPosition,
+      // x: newXPosition,
     })
+    console.log(xPos.current)
   }
 
+  // x: '-80%',
   const onUpdate = (latest: any) => {
     xPos.current = latest.x
   }
-
+  // todo card animation part
+  const [selectedCard, setSelectedCard] = useState(null)
+  // const cardRefs = useRef(new Array())
+  const cardVariants = {
+    selected: {
+      // rotateY: 360,
+      scale: 1.2,
+      transition: {
+        duration: 0.35,
+        type: 'spring',
+        default: { ease: 'linear' },
+      },
+      zIndex: 10,
+      boxShadow:
+        'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
+    },
+    notSelected: (i: any) => ({
+      // rotateY: i * 15,
+      scale: 1 - Math.abs(i * 0.12),
+      // scale: 1,
+      // x: i ? i * 40 : 0,
+      opacity: 1 - Math.abs(i * 0.15),
+      zIndex: 10 - Math.abs(i),
+      boxShadow:
+        'rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px',
+      transition: { duration: 0.85, type: 'spring' },
+    }),
+  }
+  const selectCard = (card: any) => {
+    setSelectedCard(selectedCard === card ? null : card)
+  }
+  const handleCardMouseUp = (e: any, card: any) => {
+    selectCard(card)
+  }
   return (
     <ProjectMenuWrapper>
       {' '}
       <DragMenuButton position='right' onClick={onLeftClick}>
-        Left
+        <SvgIcon noContent variant='arrowLeft' />
+      </DragMenuButton>{' '}
+      <DragMenuButton position='right' onClick={onRightClick}>
+        <SvgIcon noContent variant='arrowRight' />
       </DragMenuButton>
       <ProjectMenuContainer
         drag='x'
-        dragConstraints={{ left: -1000, right: 0 }}
+        dragConstraints={{ left: -uniqueKeywords.length * 120, right: 0 }}
+        dragTransition={{ bounceStiffness: 1100, bounceDamping: 10 }}
+        transition={{ type: 'linear', stiffness: 100 }}
+        dragElastic={0.5}
         initial={false}
         onUpdate={onUpdate}
         animate={animation}
-        style={{ width: 1000, x: 0, opacity: 1 }}
+        style={{ x: 0, opacity: 1 }}
         ref={dragRef}
       >
-        {cards?.map((keyword, index) => (
-          <ProjectCard key={Math.random()}>{index + 1}</ProjectCard>
+        {' '}
+        {/* {cards?.map((keyword, index) => ( */}
+        {uniqueKeywords?.map((keyword) => (
+          <ProjectCard
+            key={Math.random()}
+            onMouseUp={(e: any) => handleCardMouseUp(e, keyword)}
+            variants={cardVariants}
+            // initial='notSelected'
+            // initial='notSelected'
+            animate={selectedCard === keyword ? 'selected' : 'notSelected'}
+            // animate={selectedCard === keyword && 'selected'}
+            custom={selectedCard! ? selectedCard! - keyword : 0}
+          >
+            {keyword}
+          </ProjectCard>
         ))}
       </ProjectMenuContainer>
-      <DragMenuButton position='right' onClick={onRightClick}>
-        Right
-      </DragMenuButton>
+      {/* <DragMenuButton position='left' onClick={onRightClick}>
+        <SvgIcon noContent variant='arrowRight' />
+      </DragMenuButton> */}
     </ProjectMenuWrapper>
   )
 }

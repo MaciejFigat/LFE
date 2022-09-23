@@ -9,7 +9,6 @@ import HeroOne from '../components/HomePageComponents/HeroOne'
 import HeroTwo from '../components/HomePageComponents/HeroTwo'
 import HeroThree from '../components/HomePageComponents/HeroThree'
 import { UserInfo } from '../interfaces'
-import ProjectMenu from '../components/HomePageComponents/ProjectMenu'
 import ProjectMenuTwo from '../components/HomePageComponents/ProjectMenuTwo'
 
 const Home: React.FC = () => {
@@ -89,7 +88,6 @@ const Home: React.FC = () => {
       label: 'Projekty',
       content: (
         <>
-          <ProjectMenu />
           <ProjectMenuTwo />
         </>
       ),
