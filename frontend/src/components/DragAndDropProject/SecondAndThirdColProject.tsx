@@ -1,6 +1,4 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
-// import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
-// import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import {
   FragmentB,
   FragmentDivSmall,

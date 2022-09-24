@@ -79,7 +79,7 @@ export const HeroTitle = styled.div`
   display: flex;
   flex-direction: row;
   font-weight: 700;
-  width: 80%;
+  width: 100%;
   /* color: var(--background5-main); */
   /* svg > defs:nth-child(2) {
     stroke: var(--background3-main);

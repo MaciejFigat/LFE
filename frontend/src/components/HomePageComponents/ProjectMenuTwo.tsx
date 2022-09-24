@@ -11,8 +11,6 @@ import {
   ProjectMenuWrapper,
 } from './ProjectMenu.styled'
 
-// const cards = [1, 2, 3, 4, 5]
-
 interface ProjectMenuTwoProps {}
 
 const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
@@ -38,19 +36,16 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
     })
     console.log(xPos.current)
   }
-  // x: 0,
+
   const onRightClick = () => {
     const newXPosition = xPos.current - 400
 
     animation.start({
-      // x: newXPosition < -1500 ? '-100%' : newXPosition,
       x: newXPosition < -uniqueKeywords.length * 120 - 300 ? 0 : newXPosition,
-      // x: newXPosition,
     })
     console.log(xPos.current)
   }
 
-  // x: '-80%',
   const onUpdate = (latest: any) => {
     xPos.current = latest.x
   }
@@ -94,13 +89,13 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
       <DragMenuButton position='right' onClick={onLeftClick}>
         <SvgIcon noContent variant='arrowLeft' />
       </DragMenuButton>{' '}
-      <DragMenuButton position='right' onClick={onRightClick}>
+      <DragMenuButton position='left' onClick={onRightClick}>
         <SvgIcon noContent variant='arrowRight' />
       </DragMenuButton>
       <ProjectMenuContainer
         drag='x'
         dragConstraints={{ left: -uniqueKeywords.length * 120, right: 0 }}
-        dragTransition={{ bounceStiffness: 1100, bounceDamping: 10 }}
+        dragTransition={{ bounceStiffness: 1100, bounceDamping: 110 }}
         transition={{ type: 'linear', stiffness: 100 }}
         dragElastic={0.5}
         initial={false}
@@ -110,7 +105,6 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
         ref={dragRef}
       >
         {' '}
-        {/* {cards?.map((keyword, index) => ( */}
         {uniqueKeywords?.map((keyword) => (
           <ProjectCard
             key={Math.random()}
@@ -126,9 +120,6 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
           </ProjectCard>
         ))}
       </ProjectMenuContainer>
-      {/* <DragMenuButton position='left' onClick={onRightClick}>
-        <SvgIcon noContent variant='arrowRight' />
-      </DragMenuButton> */}
     </ProjectMenuWrapper>
   )
 }

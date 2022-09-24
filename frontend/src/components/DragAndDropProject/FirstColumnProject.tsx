@@ -3,9 +3,7 @@ import {
   FragmentB,
   FragmentDivSmall,
   FragmentParSmall,
-  // KeywordB,
   KeywordColumnContainer,
-  // KeywordDivSimple,
   KeywordSearchContainer,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { useAppSelector } from '../../app/reduxHooks'
@@ -38,7 +36,7 @@ interface FirstColumnProjectProps {
   state: any[]
   keywordMain?: string
   setOpenedApp?: Dispatch<SetStateAction<null | string>>
-  setTitle?: Dispatch<SetStateAction<string>>
+  // setTitle?: Dispatch<SetStateAction<string>>
   setIdOpen?: Dispatch<SetStateAction<string>>
   canOpenApp?: boolean
   openedApp?: string | null
@@ -69,7 +67,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
   state,
   keywordMain,
   setOpenedApp,
-  setTitle,
+  // setTitle,
   canOpenApp,
   openedApp,
   setIdOpen,
@@ -79,10 +77,10 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
   )
   const { start, end } = savedFragmentsPage
 
-  const testHandler = () => {
+  const exportHandler = () => {
     Packer.toBlob(doc).then((blob) => {
       console.log(blob)
-      saveAs(blob, 'example.docx')
+      saveAs(blob, `${keywordMain}.docx`)
       console.log('Document created successfully')
     })
   }
@@ -271,12 +269,12 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
     if (
       canOpenApp &&
       setOpenedApp &&
-      setTitle &&
+      // setTitle &&
       setIdOpen &&
       openedApp === null
     ) {
       setOpenedApp(id)
-      setTitle(title)
+      // setTitle(title)
       setIdOpen(id)
     }
   }
@@ -297,7 +295,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   variant='primaryEmpty'
-                  onClick={testHandler}
+                  onClick={exportHandler}
                 >
                   <SvgIcon variant='export' toBottom contentAfter='eksportuj' />
                 </SendButtonVerySmall>

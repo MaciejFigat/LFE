@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Toast from '../components/Toast/Toast'
 import DataSection from '../components/InfoSection/DataSection'
-import { useAppSelector } from '../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 
 import Pagination from '../components/Pagination/Pagination'
 import HomeChoiceWrapper from '../components/HomePageComponents/HomeChoiceWrapper/HomeChoiceWrapper'
@@ -10,8 +10,10 @@ import HeroTwo from '../components/HomePageComponents/HeroTwo'
 import HeroThree from '../components/HomePageComponents/HeroThree'
 import { UserInfo } from '../interfaces'
 import ProjectMenuTwo from '../components/HomePageComponents/ProjectMenuTwo'
+import { getUserFragments } from '../features/fragments/fragmentSlice'
 
 const Home: React.FC = () => {
+  const dispatch: any = useAppDispatch()
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
@@ -101,6 +103,12 @@ const Home: React.FC = () => {
       content: <h3>Ostatnie linki</h3>,
     },
   ]
+
+  useEffect(() => {
+    if (Object.keys(userInfo).length > 0) {
+      dispatch(getUserFragments(1))
+    }
+  }, [dispatch, userInfo])
   return (
     <div>
       <Toast option='registerUser' />

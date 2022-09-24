@@ -54,13 +54,9 @@ export const DragMenuButton = styled(motion.div)`
   display: grid;
   place-items: center center;
   position: relative;
-  width: 2rem;
-  /* font-size: 3rem !important; */
-  /* position: sticky; */
-  /* background: var(--background4-main); */
+  min-width: 40px;
   background: var(--background-blur1);
-  ${({ position }) => position === 'left' && 'right: -92%;'};
+  ${({ position }) => position === 'left' && 'left: 85%;'};
   ${({ position }) => position === 'right' && 'right: 4%;'};
-
   z-index: 11;
 `

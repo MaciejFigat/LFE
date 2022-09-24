@@ -141,7 +141,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
       }
 
       dispatch(editSavedFragment(fragEdited))
-      console.log(fragmentsKeywordMain[i].keywords)
+      // console.log(fragmentsKeywordMain[i].keywords)
     }
   }
   const saveEditedKeywordHelper = () => {
