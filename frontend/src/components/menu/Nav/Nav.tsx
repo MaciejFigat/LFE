@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useAppDispatch } from '../../../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import Burger from '../Burger/Burger'
 import {
   TransitionWrapperMain,
@@ -18,11 +18,14 @@ import NavDropdown from './NavDropdown'
 
 import SearchDropdown from '../../SearchBar/SearchDropdown'
 import { preferedSchemeEdit } from '../../../features/preferences/preferenceSlice'
+
+import { getUserFragments } from '../../../features/fragments/fragmentSlice'
+import { UserInfo } from '../../../interfaces'
 interface NavProps {}
 
 const Nav: React.FC<NavProps> = () => {
   const dispatch = useAppDispatch()
-
+  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const [open, cycleOpen] = useCycle(false, true)
   const handleClickMenu = () => {
     cycleOpen()
@@ -65,7 +68,11 @@ const Nav: React.FC<NavProps> = () => {
       dispatch(preferedSchemeEdit('secondary'))
     }
   }, [dispatch])
-
+  useEffect(() => {
+    if (Object.keys(userInfo).length > 0) {
+      dispatch(getUserFragments(1))
+    }
+  }, [dispatch, userInfo])
   return (
     <TransitionWrapperMain>
       <TransitionWrapper

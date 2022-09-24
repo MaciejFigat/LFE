@@ -265,16 +265,10 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
     ],
   })
 
-  const openWindowHandler = (id: string, title: string) => {
-    if (
-      canOpenApp &&
-      setOpenedApp &&
-      // setTitle &&
-      setIdOpen &&
-      openedApp === null
-    ) {
+  const openWindowHandler = (id: string) => {
+    if (canOpenApp && setOpenedApp && setIdOpen && openedApp === null) {
       setOpenedApp(id)
-      // setTitle(title)
+
       setIdOpen(id)
     }
   }
@@ -328,9 +322,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                       </WrapperMotionDiv>
                       <OpenDivButtonWrapper>
                         <OpenBigDivButton
-                          onClick={() =>
-                            openWindowHandler(fragment._id, fragment.title)
-                          }
+                          onClick={() => openWindowHandler(fragment._id)}
                         />
                       </OpenDivButtonWrapper>
                       {/*  // todo here  */}

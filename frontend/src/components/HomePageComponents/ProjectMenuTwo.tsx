@@ -1,8 +1,8 @@
 import { useAnimation } from 'framer-motion'
 import React, { useRef, useState } from 'react'
-// import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
-import { useAppSelector } from '../../app/reduxHooks'
-// import { sortingKeywordMainEdit } from '../../features/preferences/preferenceSlice'
+import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
+// import { useAppSelector } from '../../app/reduxHooks'
+import { sortingKeywordMainEdit } from '../../features/preferences/preferenceSlice'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import {
   DragMenuButton,
@@ -14,6 +14,8 @@ import {
 interface ProjectMenuTwoProps {}
 
 const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
+  const dispatch: any = useAppDispatch()
+
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
   )
@@ -34,7 +36,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
       x: newXPosition > 0 ? 0 : newXPosition,
       // x: newXPosition,
     })
-    console.log(xPos.current)
+    // console.log(xPos.current)
   }
 
   const onRightClick = () => {
@@ -43,7 +45,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
     animation.start({
       x: newXPosition < -uniqueKeywords.length * 120 - 300 ? 0 : newXPosition,
     })
-    console.log(xPos.current)
+    // console.log(xPos.current)
   }
 
   const onUpdate = (latest: any) => {
@@ -82,7 +84,9 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
   }
   const handleCardMouseUp = (e: any, card: any) => {
     selectCard(card)
+    dispatch(sortingKeywordMainEdit(card))
   }
+
   return (
     <ProjectMenuWrapper>
       {' '}

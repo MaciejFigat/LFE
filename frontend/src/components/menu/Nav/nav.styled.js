@@ -166,6 +166,13 @@ export const MobileSvgDiv = styled.div`
   }
 `
 // export const ListItem = styled.li`
+export const ListItemStorage = styled(motion.div)`
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8rem;
+  gap: 0.25rem;
+  font-weight: 400;
+`
 export const ListItem = styled(motion.div)`
   margin-right: 1rem;
   font-size: 1.05rem;
