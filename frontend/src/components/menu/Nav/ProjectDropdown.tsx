@@ -6,10 +6,9 @@ import { UserInfo } from '../../../interfaces'
 import {
   DropDownContainer,
   DropDownHeader,
-  DropDownList,
   DropDownListContainer,
-  ListItem,
   Main,
+  ProjectDownList,
   ProjectDropDownWrapper,
 } from './NavDropdown.styled'
 
@@ -74,16 +73,18 @@ const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
           )}
           {isOpen && (
             <DropDownListContainer>
-              <DropDownList>
+              <ProjectDownList>
                 {Object.keys(userInfo).length > 0 &&
                 uniqueKeywords.length > 0 ? (
-                  <ListItem>
-                    <ProjectMenuTwo />
-                  </ListItem>
+                  // <ProjectListItem>
+                  //   <ProjectMenuTwo />
+                  // </ProjectListItem>
+
+                  <ProjectMenuTwo />
                 ) : (
                   <b>dodaj nowy projekt</b>
                 )}
-              </DropDownList>
+              </ProjectDownList>
             </DropDownListContainer>
           )}
         </DropDownContainer>

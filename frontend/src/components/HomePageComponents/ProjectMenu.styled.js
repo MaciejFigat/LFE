@@ -3,27 +3,24 @@ import { motion } from 'framer-motion'
 
 // export const HeroSec = styled(motion.div)``
 export const ProjectMenuWrapper = styled(motion.div)`
-  /* height: 40px; */
   width: 400px;
-  /* //todo */
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  padding: 1rem;
-
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 5px;
   background: var(--background2-main);
 `
 export const ProjectMenuContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
-  /* padding: 0 14rem 0 10rem; */
+  align-items: center;
   background: var(--background2-main);
   gap: 1rem;
   cursor: grab;
-  /* width: 600px; */
-  /* width: 'fit-content'; */
-  /* height: 200px; */
+  height: 70px;
+  min-height: fit-content;
   white-space: nowrap;
   scrollbar-width: none !important;
   ::-webkit-scrollbar {
@@ -34,13 +31,11 @@ export const ProjectCard = styled(motion.div)`
   display: grid;
   /* user-select: none; */
   place-items: center;
-  height: 40px;
-  padding: 0 1rem 0 1rem;
+  height: 30px;
+  padding: 0 0.5rem 0 0.5rem;
   /* width: 80px; */
   min-width: fit-content;
-  /* min-width: 100px; */
-  background: var(--background3-main);
-  margin: 2rem 1rem;
+  background: var(--background1-main);
   border-radius: 15px;
   cursor: pointer;
   &:first-of-type {

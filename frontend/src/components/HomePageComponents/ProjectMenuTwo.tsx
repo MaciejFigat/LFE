@@ -41,7 +41,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
     const newXPosition = xPos.current - 400
 
     animation.start({
-      x: newXPosition < -uniqueKeywords.length * 120 - 300 ? 0 : newXPosition,
+      x: newXPosition < -uniqueKeywords.length * 100 - 300 ? 0 : newXPosition,
     })
   }
 
@@ -54,7 +54,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
   const cardVariants = {
     selected: {
       // rotateY: 360,
-      scale: 1.2,
+      scale: 1.15,
       transition: {
         duration: 0.35,
         type: 'spring',
@@ -95,7 +95,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
       </DragMenuButton>
       <ProjectMenuContainer
         drag='x'
-        dragConstraints={{ left: -uniqueKeywords.length * 120, right: 0 }}
+        dragConstraints={{ left: -uniqueKeywords.length * 90, right: 0 }}
         dragTransition={{ bounceStiffness: 1100, bounceDamping: 110 }}
         transition={{ type: 'linear', stiffness: 100 }}
         dragElastic={0.5}
@@ -106,6 +106,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
         ref={dragRef}
       >
         {' '}
+        <>Wybierz projekt:</>
         {uniqueKeywords?.map((keyword) => (
           <ProjectCard
             key={Math.random()}

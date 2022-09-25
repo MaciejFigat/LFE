@@ -38,17 +38,34 @@ export const DropDownHeader = styled.div`
 `
 export const DropDownListContainer = styled.div`
   position: absolute;
+  display: grid;
+  place-items: center;
   z-index: 10;
   background: var(--background-blur1);
+  /* background: none; */
+  padding: 0;
   width: 120px;
   min-width: fit-content;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  /* backdrop-filter: blur(8px); */
+  /* -webkit-backdrop-filter: blur(8px); */
   border-radius: 10px;
+  right: 20%;
+
   @media (max-width: 1020px) {
     width: 110px;
     right: 50px;
   }
+`
+
+export const ProjectDownList = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* box-sizing: border-box; */
+  font-size: 0.75rem;
+  width: fit-content;
+  color: var(--background5-main);
+  background: none;
+  padding: 0.5rem;
 `
 export const DropDownList = styled.div`
   display: flex;
@@ -77,4 +94,7 @@ export const ListItem = styled.li`
   &:last-child {
     /* margin-bottom: 0.5rem; */
   }
+`
+export const ProjectListItem = styled(ListItem)`
+  padding-left: 0.75rem;
 `
