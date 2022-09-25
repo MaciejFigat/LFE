@@ -34,9 +34,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
 
     animation.start({
       x: newXPosition > 0 ? 0 : newXPosition,
-      // x: newXPosition,
     })
-    // console.log(xPos.current)
   }
 
   const onRightClick = () => {
@@ -45,7 +43,6 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
     animation.start({
       x: newXPosition < -uniqueKeywords.length * 120 - 300 ? 0 : newXPosition,
     })
-    // console.log(xPos.current)
   }
 
   const onUpdate = (latest: any) => {
@@ -114,7 +111,6 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
             key={Math.random()}
             onMouseUp={(e: any) => handleCardMouseUp(e, keyword)}
             variants={cardVariants}
-            // initial='notSelected'
             // initial='notSelected'
             animate={selectedCard === keyword ? 'selected' : 'notSelected'}
             // animate={selectedCard === keyword && 'selected'}

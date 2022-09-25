@@ -9,6 +9,14 @@ export const DropDownContainer = styled.div`
   margin: 0 auto;
 `
 
+export const ProjectDropDownWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  width: 120px;
+  /* align-items: center; */
+  font-size: 0.75rem;
+`
 export const DropDownHeader = styled.div`
   /* padding: 0.2rem 0.4rem 0.2rem 0.5rem; */
   font-weight: 500;
@@ -30,13 +38,10 @@ export const DropDownHeader = styled.div`
 `
 export const DropDownListContainer = styled.div`
   position: absolute;
-
-  /* position: relative; */
   z-index: 10;
   background: var(--background-blur1);
   width: 120px;
   min-width: fit-content;
-  /* box-shadow: 0 8px 24px 0 var(--background1-main); */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
@@ -48,10 +53,6 @@ export const DropDownListContainer = styled.div`
 export const DropDownList = styled.div`
   display: flex;
   flex-direction: column;
-  /* padding: 0.5rem; */
-
-  /* background: var(--background1-main); */
-
   box-sizing: border-box;
   color: var(--background-secondary2);
   font-size: 1rem;

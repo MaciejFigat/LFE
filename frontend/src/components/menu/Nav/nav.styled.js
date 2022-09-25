@@ -166,22 +166,23 @@ export const MobileSvgDiv = styled.div`
   }
 `
 // export const ListItem = styled.li`
-export const ListItemStorage = styled(motion.div)`
-  display: flex;
-  flex-direction: row;
-  font-size: 0.8rem;
-  gap: 0.25rem;
-  font-weight: 400;
-`
+// export const ListItemStorage = styled(motion.div)`
+//   display: flex;
+//   flex-direction: row;
+//   font-size: 0.8rem;
+//   gap: 0.25rem;
+//   font-weight: 400;
+// `
 export const ListItem = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: row; */
   margin-right: 1rem;
   font-size: 1.05rem;
   letter-spacing: 0.075em;
   font-weight: 700;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* align-items: center; */
+
   text-transform: uppercase;
   /* color: var(--background5-main); */
   @media (max-width: 1020px) {
