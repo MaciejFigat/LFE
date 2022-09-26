@@ -207,11 +207,14 @@ export const ListItemMobile = styled.div`
   color: var(--background5-main);
   margin: 0;
   flex-direction: column;
+  text-transform: uppercase;
   gap: 2rem;
   padding: 0.5rem;
   @media (max-width: 1020px) {
-    align-items: left;
+    /* align-items: left; */
     display: flex;
+    align-items: center;
+    justify-content: center;
     margin-left: 0.5rem;
   }
 `

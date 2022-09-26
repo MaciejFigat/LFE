@@ -10,8 +10,10 @@ import {
 import { NavLink } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import SvgIcon from '../../SvgIcon/SvgIcon'
+import ProjectDropdown from './ProjectDropdown'
 interface NavListMobileProps {
   open: boolean
+  scrollDirection?: 'up' | 'down' | 'top' | undefined | null
 }
 
 const itemVariants = {
@@ -65,10 +67,12 @@ const links: LinkData[] = [
     to: '/search/result',
     id: '2',
   },
-  { name: 'Storage', iconVariant: 'store', to: '/storage', id: '3' },
 ]
 
-const NavListMobile: React.FC<NavListMobileProps> = ({ open }) => {
+const NavListMobile: React.FC<NavListMobileProps> = ({
+  open,
+  scrollDirection,
+}) => {
   return (
     <AnimatePresence>
       {open && (
@@ -110,6 +114,14 @@ const NavListMobile: React.FC<NavListMobileProps> = ({ open }) => {
                   </motion.div>
                 </ListItem>
               ))}
+
+              <ListItemMobile>
+                {' '}
+                <motion.div variants={itemVariants}>
+                  {' '}
+                  <ProjectDropdown scrollDirection={scrollDirection} />
+                </motion.div>
+              </ListItemMobile>
             </MobileNavList>{' '}
           </motion.div>
         </AnimatedWrapperMobile>

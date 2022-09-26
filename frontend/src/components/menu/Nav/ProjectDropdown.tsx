@@ -22,7 +22,6 @@ interface ProjectDropdownProps {
 const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
   scrollDirection,
 }) => {
-  //   const dispatch = useAppDispatch()
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
   )
@@ -76,10 +75,6 @@ const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
               <ProjectDownList>
                 {Object.keys(userInfo).length > 0 &&
                 uniqueKeywords.length > 0 ? (
-                  // <ProjectListItem>
-                  //   <ProjectMenuTwo />
-                  // </ProjectListItem>
-
                   <ProjectMenuTwo />
                 ) : (
                   <b>dodaj nowy projekt</b>

@@ -30,11 +30,11 @@ const Nav: React.FC<NavProps> = () => {
   const handleClickMenu = () => {
     cycleOpen()
   }
-  const handleCloseMenu = () => {
-    if (open === true) {
-      cycleOpen()
-    }
-  }
+  // const handleCloseMenu = () => {
+  //   if (open === true) {
+  //     cycleOpen()
+  //   }
+  // }
 
   const [scrollDirection, setScrollDirection] = useState<
     'up' | 'down' | 'top' | undefined | null
@@ -98,8 +98,9 @@ const Nav: React.FC<NavProps> = () => {
           </HeaderTitleMobile>
         </MobileViewContainer>
 
-        <MobileNavContainer onClick={handleCloseMenu}>
-          <NavListMobile open={open} />
+        {/* <MobileNavContainer onClick={handleCloseMenu}> */}
+        <MobileNavContainer>
+          <NavListMobile open={open} scrollDirection={scrollDirection} />
         </MobileNavContainer>
         <NavListDesktop scrollDirection={scrollDirection} />
       </TransitionWrapper>

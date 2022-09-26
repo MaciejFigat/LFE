@@ -16,8 +16,15 @@ export const ProjectDropDownWrapper = styled.div`
   width: 120px;
   /* align-items: center; */
   font-size: 0.75rem;
+  @media (max-width: 1020px) {
+    font-size: 1.15rem;
+    font-weight: 400;
+  }
 `
 export const DropDownHeader = styled.div`
+  display: grid;
+  place-items: center center;
+
   /* padding: 0.2rem 0.4rem 0.2rem 0.5rem; */
   font-weight: 500;
   font-size: 0.9rem;

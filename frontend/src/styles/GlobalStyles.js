@@ -160,6 +160,8 @@ body {
    
     .nav_link {
       display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--background4-main);
     }
     .nav_link_desktop{
