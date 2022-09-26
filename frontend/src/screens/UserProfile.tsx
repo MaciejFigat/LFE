@@ -10,12 +10,9 @@ import {
   EditForm,
   ContactField,
   ContactFieldContent,
-} from '../components/ArticleTable/UserEdit.styled'
+} from '../styles/UserEdit.styled'
 import { SendButton } from '../components/Miscellaneous/Buttons/Buttons.styled'
-import {
-  AdminContainer,
-  AdminWrapper,
-} from '../components/ArticleTable/ArticleTable.styled'
+import { AdminContainer, AdminWrapper } from '../styles/ArticleTable.styled'
 import { useNavigate } from 'react-router-dom'
 
 interface UserProfileProps {}

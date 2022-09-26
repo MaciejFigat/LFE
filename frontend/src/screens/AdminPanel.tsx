@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { SendButton } from '../components/Miscellaneous/Buttons/Buttons.styled'
-import { AdminContainer } from '../components/ArticleTable/ArticleTable.styled'
+import { AdminContainer } from '../styles/ArticleTable.styled'
 import SmallSection from '../components/Miscellaneous/SectionSmall/SmallSection'
 import { useAppSelector } from '../app/reduxHooks'
 import { UserInfo } from '../interfaces'

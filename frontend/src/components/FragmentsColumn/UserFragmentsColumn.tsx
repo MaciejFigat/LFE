@@ -5,9 +5,9 @@ import { motion } from 'framer-motion'
 import {
   ListWrapper,
   ItemWrapper,
-} from '../AnimatedTextPanel/AnimatedList.styled'
+} from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
-import AnimatedSavedItemSimple from '../AnimatedTextPanel/AnimatedSavedItemSimple'
+import AnimatedSavedItemSimple from '../Miscellaneous/AnimatedTextPanel/AnimatedSavedItemSimple'
 
 interface UserFragmentsColumnProps {}
 

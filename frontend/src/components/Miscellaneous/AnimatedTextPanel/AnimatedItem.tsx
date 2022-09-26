@@ -12,13 +12,13 @@ import {
   DescriptionInput,
   DescriptionDiv,
 } from './AnimatedList.styled'
-import { useAppDispatch } from '../../app/reduxHooks'
+import { useAppDispatch } from '../../../app/reduxHooks'
 import {
   citationRemoved,
   citationTitleEdit,
   citationDescriptionEdit,
-} from '../../features/fragments/fragmentSlice'
-import { SendButtonSmall } from '../Miscellaneous/Buttons/Buttons.styled'
+} from '../../../features/fragments/fragmentSlice'
+import { SendButtonSmall } from '../Buttons/Buttons.styled'
 
 interface AnimatedItemProps {
   title: string

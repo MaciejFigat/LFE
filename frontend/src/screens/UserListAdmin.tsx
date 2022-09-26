@@ -9,7 +9,7 @@ import {
   AdminWrapper,
   Table,
   TableWrapper,
-} from '../components/ArticleTable/ArticleTable.styled'
+} from '../styles/ArticleTable.styled'
 import { useNavigate } from 'react-router-dom'
 
 interface UserListAdminProps {}
