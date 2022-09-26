@@ -18,7 +18,7 @@ import {
   citationTitleEdit,
   citationDescriptionEdit,
 } from '../../features/fragments/fragmentSlice'
-import { SendButtonSmall } from '../Buttons/Buttons.styled'
+import { SendButtonSmall } from '../Miscellaneous/Buttons/Buttons.styled'
 
 interface AnimatedItemProps {
   title: string

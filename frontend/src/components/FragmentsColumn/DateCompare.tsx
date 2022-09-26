@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { sortingDateEdit } from '../../features/preferences/preferenceSlice'
-import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import { DateCompareRow, DateCompareWrapper } from './FragmentsColumn.styled'
 
 interface DateCompareProps {}

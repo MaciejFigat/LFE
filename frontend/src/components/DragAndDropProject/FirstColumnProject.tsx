@@ -5,7 +5,7 @@ import {
   FragmentParSmall,
   KeywordColumnContainer,
   KeywordSearchContainer,
-} from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
+} from '../Miscellaneous/KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { useAppSelector } from '../../app/reduxHooks'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 import {
@@ -18,19 +18,19 @@ import {
   ExternalHyperlink,
 } from 'docx'
 import { saveAs } from 'file-saver'
-import SelectMainKeyword from '../KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
+import SelectMainKeyword from '../Miscellaneous/KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
 import {
   AlignCenterContainer,
   HorizontalButtonContainer,
 } from './LabelInput/LabelInput.styled'
-import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
-import SvgIcon from '../SvgIcon/SvgIcon'
+import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
+import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
 
 import {
   OpenBigDivButton,
   OpenDivButtonWrapper,
   WrapperMotionDiv,
-} from '../LayoutAnimated/LayoutAnimated.styled'
+} from '../../styles/misc.styled'
 
 interface FirstColumnProjectProps {
   state: any[]

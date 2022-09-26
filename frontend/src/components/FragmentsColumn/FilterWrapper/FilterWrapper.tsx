@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
-import SelectMainKeyword from '../../KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
+import SelectMainKeyword from '../../Miscellaneous/KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
 import DateCompare from '../DateCompare'
 import DropdownFilter from './DropdownFilter/DropdownFilter'
 import { FilterOptionsWrapper } from './FilterWrapper.styled'

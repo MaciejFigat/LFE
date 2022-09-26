@@ -1,15 +1,13 @@
 import React from 'react'
-import Toast from '../components/Toast/Toast'
-import DataSection from '../components/InfoSection/DataSection'
+import Toast from '../components/Miscellaneous/Toast/Toast'
+import DataSection from '../components/Miscellaneous/InfoSection/DataSection'
 import { useAppSelector } from '../app/reduxHooks'
-
-import Pagination from '../components/Pagination/Pagination'
+import Pagination from '../components/Miscellaneous/Pagination/Pagination'
 import HomeChoiceWrapper from '../components/HomePageComponents/HomeChoiceWrapper/HomeChoiceWrapper'
 import HeroOne from '../components/HomePageComponents/HeroOne'
 import HeroTwo from '../components/HomePageComponents/HeroTwo'
 import HeroThree from '../components/HomePageComponents/HeroThree'
 import { UserInfo } from '../interfaces'
-import ProjectMenuTwo from '../components/HomePageComponents/ProjectMenuTwo'
 
 const Home: React.FC = () => {
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
@@ -86,11 +84,7 @@ const Home: React.FC = () => {
     },
     {
       label: 'Projekty',
-      content: (
-        <>
-          <ProjectMenuTwo />
-        </>
-      ),
+      content: <></>,
     },
     {
       label: 'Zapisane fragmenty',

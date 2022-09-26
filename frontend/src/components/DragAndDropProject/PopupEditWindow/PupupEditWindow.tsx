@@ -13,13 +13,9 @@ import {
   getUserFragments,
 } from '../../../features/fragments/fragmentSlice'
 import KeywordEditing from './KeywordEditing'
-import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
-import {
-  // BackgroundLayerBlur,
-  ClosingDivBig,
-  OpenedDivBig,
-} from '../../LayoutAnimated/LayoutAnimated.styled'
-import SvgIcon from '../../SvgIcon/SvgIcon'
+import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
+import { ClosingDivBig, OpenedDivBig } from '../../../styles/misc.styled'
+import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 import {
   DescriptionDiv,
   FragmentDivPopup,

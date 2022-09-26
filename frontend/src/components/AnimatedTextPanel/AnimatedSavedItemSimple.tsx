@@ -1,5 +1,5 @@
 import React from 'react'
-import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import { motion } from 'framer-motion'
 import {
   FragmentB,
@@ -8,11 +8,11 @@ import {
   FragmentTitleRowSmall,
   KeywordB,
   KeywordDivSimple,
-} from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
+} from '../Miscellaneous/KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
-import SvgIcon from '../SvgIcon/SvgIcon'
+import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
+import { WrapperMotionDiv } from '../../styles/misc.styled'
 import { ListItemSimple } from './AnimatedList.styled'
-import { WrapperMotionDiv } from '../LayoutAnimated/LayoutAnimated.styled'
 import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
 
 interface AnimatedSavedItemSimpleProps {

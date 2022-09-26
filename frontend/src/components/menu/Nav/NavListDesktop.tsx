@@ -1,10 +1,10 @@
 import React from 'react'
 import { NavList, ListItem, NavListDesktopWrapper } from './nav.styled'
 import { NavLink } from 'react-router-dom'
-import StaggerChildrenWrapper from '../../AnimationWrappers/StaggerChildrenWrapper'
-import SvgIcon from '../../SvgIcon/SvgIcon'
-import NavDropdown from './NavDropdown'
-import ProjectDropdown from './ProjectDropdown'
+import StaggerChildrenWrapper from '../../Miscellaneous/AnimationWrappers/StaggerChildrenWrapper'
+import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
+import NavDropdown from '../Dropdowns/NavDropdown'
+import ProjectDropdown from '../Dropdowns/ProjectDropdown'
 
 interface NavListMobileProps {
   scrollDirection?: 'up' | 'down' | 'top' | undefined | null
@@ -54,7 +54,7 @@ const NavListDesktop: React.FC<NavListMobileProps> = ({ scrollDirection }) => {
             </ListItem>
           ))}{' '}
           <ListItem>
-            <ProjectDropdown />
+            <ProjectDropdown scrollDirection={scrollDirection} />
           </ListItem>
           <ListItem>
             <NavDropdown scrollDirection={scrollDirection} />

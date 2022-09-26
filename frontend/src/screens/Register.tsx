@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Wrapper, Form, Input, Button, LoginContainer } from '../styles/login'
 import { useAppDispatch } from '../app/reduxHooks'
 import { createUser } from '../features/users/userSlice'
-import Toast from '../components/Toast/Toast'
+import Toast from '../components/Miscellaneous/Toast/Toast'
 
 import useRedirectLoggedListener from '../hooks/useRedirectListenerLogged'
 interface RegisterProps {}

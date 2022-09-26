@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
-import VisitedLinks from '../../VisitedLinks/VisitedLinks'
+import VisitedLinks from '../../Miscellaneous/VisitedLinks/VisitedLinks'
 import FilterWrapper from '../FilterWrapper/FilterWrapper'
 import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 import { showFragments } from '../../../features/preferences/preferenceSlice'
@@ -12,9 +12,9 @@ import {
   MainChoiceContainer,
   WrapperWindow,
 } from './SharedChoiceWrapper.styled'
-import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
-import FragmentsPagination from '../../Pagination/FragmentsPagination'
-import Pagination from '../../Pagination/Pagination'
+import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
+import FragmentsPagination from '../../Miscellaneous/Pagination/FragmentsPagination'
+import Pagination from '../../Miscellaneous/Pagination/Pagination'
 
 interface SharedChoiceWrapperProps {}
 

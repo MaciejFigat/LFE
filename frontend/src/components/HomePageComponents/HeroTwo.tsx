@@ -8,7 +8,7 @@ import {
   TopLine,
 } from './HomeSection.styled'
 
-import HighlightPopMenuDemo from '../HighlightPopRemake/HighlightPopMenuDemo'
+import HighlightPopMenuDemo from '../Miscellaneous/HighlightPopRemake/HighlightPopMenuDemo'
 
 import { PopupDescriptionInput } from '../DragAndDropProject/PopupEditWindow/PopupEditWindow.styled'
 import FragmentsColumn from '../FragmentsColumn/FragmentsColumn'

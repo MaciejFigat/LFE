@@ -1,5 +1,5 @@
 import React from 'react'
-import SvgIcon from '../SvgIcon/SvgIcon'
+import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
 import {
   HeroTextContainer,
   HeroSecNoSvg,

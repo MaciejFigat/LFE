@@ -1,8 +1,8 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { editSavedFragment } from '../../../features/fragments/fragmentSlice'
-import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
-import SvgIcon from '../../SvgIcon/SvgIcon'
+import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
+import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 import {
   HorizontalButtonContainer,
   TitleAnimated,

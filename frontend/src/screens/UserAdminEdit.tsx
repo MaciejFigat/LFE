@@ -3,14 +3,14 @@ import { getUserById, updateUser } from '../features/users/userSlice'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { UserInfo } from '../interfaces'
 import { Link } from 'react-router-dom'
-import Toast from '../components/Toast/Toast'
+import Toast from '../components/Miscellaneous/Toast/Toast'
 import {
   EditFormContainer,
   EditForm,
   ContactField,
   ContactFieldContent,
 } from '../components/ArticleTable/UserEdit.styled'
-import { SendButton } from '../components/Buttons/Buttons.styled'
+import { SendButton } from '../components/Miscellaneous/Buttons/Buttons.styled'
 import {
   AdminContainer,
   AdminWrapper,

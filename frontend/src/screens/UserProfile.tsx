@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { UserInfo } from '../interfaces'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { updateUserProfile, getUserDetails } from '../features/users/userSlice'
-import Toast from '../components/Toast/Toast'
-import SmallSection from '../components/SectionSmall/SmallSection'
+import Toast from '../components/Miscellaneous/Toast/Toast'
+import SmallSection from '../components/Miscellaneous/SectionSmall/SmallSection'
 
 import {
   EditFormContainer,
@@ -11,7 +11,7 @@ import {
   ContactField,
   ContactFieldContent,
 } from '../components/ArticleTable/UserEdit.styled'
-import { SendButton } from '../components/Buttons/Buttons.styled'
+import { SendButton } from '../components/Miscellaneous/Buttons/Buttons.styled'
 import {
   AdminContainer,
   AdminWrapper,

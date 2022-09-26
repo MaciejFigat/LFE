@@ -12,9 +12,9 @@ import {
 import { useAppDispatch } from '../../app/reduxHooks'
 import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
-import SvgIcon from '../SvgIcon/SvgIcon'
-import { FragmentB } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
+import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
+import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
+import { FragmentB } from '../Miscellaneous/KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 interface KeywordEditingProps {
   keywords: string[]
   id: string

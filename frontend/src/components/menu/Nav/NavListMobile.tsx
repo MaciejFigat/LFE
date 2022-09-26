@@ -9,8 +9,8 @@ import {
 } from './nav.styled'
 import { NavLink } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import SvgIcon from '../../SvgIcon/SvgIcon'
-import ProjectDropdown from './ProjectDropdown'
+import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
+import ProjectDropdown from '../Dropdowns/ProjectDropdown'
 interface NavListMobileProps {
   open: boolean
   scrollDirection?: 'up' | 'down' | 'top' | undefined | null

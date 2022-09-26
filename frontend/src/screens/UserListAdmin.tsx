@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { UserInfo } from '../interfaces'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { getUsers, deleteUser } from '../features/users/userSlice'
-import { SendButton } from '../components/Buttons/Buttons.styled'
+import { SendButton } from '../components/Miscellaneous/Buttons/Buttons.styled'
 import {
   AdminContainer,
   AdminWrapper,

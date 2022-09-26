@@ -12,7 +12,7 @@ import {
   ItemWrapper,
   ListWrapperDemo,
 } from '../AnimatedTextPanel/AnimatedList.styled'
-import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { citationRemoved } from '../../features/fragments/fragmentSlice'
 // import AnimatedItem from '../AnimatedTextPanel/AnimatedItem'

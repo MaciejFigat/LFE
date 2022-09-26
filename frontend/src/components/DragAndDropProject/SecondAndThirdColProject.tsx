@@ -7,14 +7,14 @@ import {
   KeywordColumnContainer,
   KeywordDivSimple,
   KeywordSearchContainer,
-} from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
+} from '../Miscellaneous/KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 import LabelInput from './LabelInput/LabelInput'
 import {
   OpenBigDivButton,
   OpenDivButtonWrapper,
   WrapperMotionDiv,
-} from '../LayoutAnimated/LayoutAnimated.styled'
+} from '../../styles/misc.styled'
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   userSelect: 'none',
