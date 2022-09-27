@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../../app/reduxHooks'
 import {
   DropDownContainer,
@@ -72,6 +72,10 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
   useEffect(() => {
     dispatch(sortingKeywordMainEdit(selectedMainKeyword))
   }, [dispatch, selectedMainKeyword])
+  // whenever keywordMain changes ie. nav dropdownProject component, it changes selectedKeyword
+  useMemo(() => {
+    if (selectedMainKeyword !== keywordMain) setSelectedMainKeyword(keywordMain)
+  }, [keywordMain, selectedMainKeyword])
 
   useEffect(() => {
     const fragmentsMatching = fragments
