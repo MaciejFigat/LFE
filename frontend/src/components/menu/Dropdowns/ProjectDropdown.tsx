@@ -12,7 +12,7 @@ import {
   ProjectDropDownWrapper,
 } from './NavDropdown.styled'
 
-import ProjectMenuTwo from '../../HomePageComponents/ProjectMenuTwo'
+import ProjectMenuTwo from './ProjectMenuTwo'
 
 interface ProjectDropdownProps {
   options?: any

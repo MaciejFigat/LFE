@@ -1,9 +1,8 @@
 import { useAnimation } from 'framer-motion'
 import React, { useRef, useState } from 'react'
-import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
-// import { useAppSelector } from '../../app/reduxHooks'
-import { sortingKeywordMainEdit } from '../../features/preferences/preferenceSlice'
-import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
+import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
+import { sortingKeywordMainEdit } from '../../../features/preferences/preferenceSlice'
+import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 import {
   DragMenuButton,
   ProjectCard,

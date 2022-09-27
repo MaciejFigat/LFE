@@ -15,10 +15,14 @@ import { titleSvg } from '../HeroSectionSVGS/Title'
 
 interface HomeChoiceWrapperProps {
   tabs: { label: string; content: any }[]
+  navTop?: boolean
 }
 
-const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = ({ tabs }) => {
-  const [selectedTab, setSelectedTab] = useState(tabs[1])
+const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = ({
+  tabs,
+  navTop,
+}) => {
+  const [selectedTab, setSelectedTab] = useState(tabs[0])
 
   const tabHelper = (item: any) => {
     setSelectedTab(item)
@@ -27,7 +31,7 @@ const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = ({ tabs }) => {
   return (
     <>
       <WrapperWindow>
-        <MainChoiceContainer>
+        <MainChoiceContainer navTop={navTop}>
           <AnimatePresence exitBeforeEnter>
             <motion.div
               key={selectedTab ? selectedTab.label : 'empty'}
@@ -40,7 +44,7 @@ const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = ({ tabs }) => {
             </motion.div>
           </AnimatePresence>
         </MainChoiceContainer>
-        <ChoiceNav>
+        <ChoiceNav navTop={navTop}>
           <AnimateSharedLayout>
             <ChoiceList>
               {tabs.map((item) => (

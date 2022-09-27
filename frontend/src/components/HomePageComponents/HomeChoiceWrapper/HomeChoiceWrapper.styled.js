@@ -18,21 +18,29 @@ export const ChoiceTitleContainer = styled.div`
   left: 2rem;
 `
 export const ChoiceNav = styled.nav`
-  position: relative;
-  top: -1rem;
+  ${({ navTop }) => (navTop ? 'position: absolute;' : 'position: relative;')};
+  ${({ navTop }) => (navTop ? 'top: 200px;' : 'top: -1rem;')};
+
   left: 6rem;
   border-radius: 10px;
-  max-width: 40%;
   min-width: fit-content;
+  min-width: 60%;
+  max-width: 80%;
   height: 3rem;
   font-size: 1.2rem;
   border-top-left-radius: 0;
   /* border-bottom-right-radius: 0; */
   background: var(--background-blur1);
-  @media screen and (max-width: 991px) {
-    top: 0rem;
-    left: 0rem;
+  @media screen and (max-width: 1391px) {
+    font-size: 1.1rem;
     max-width: 90%;
+  }
+  @media screen and (max-width: 991px) {
+    ${({ navTop }) => (navTop ? 'position: absolute;' : 'position: relative;')};
+    ${({ navTop }) => (navTop ? 'top: 150px;' : 'top: 0rem;')};
+    font-size: 1.05rem;
+    left: 1rem;
+    min-width: 95%;
     /* max-width: fit-content; */
   }
 `
@@ -41,8 +49,8 @@ export const MainChoiceContainer = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* align-items: flex-start; */
-
+  position: relative;
+  ${({ navTop }) => (navTop ? 'top: 200px;' : 'top: 0;')};
   flex-grow: 1;
 `
 export const MainChoiceBackground = styled.div`

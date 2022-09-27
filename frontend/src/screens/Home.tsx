@@ -80,7 +80,34 @@ const Home: React.FC = () => {
   const tabsUser = [
     {
       label: 'Wyszukane',
-      content: <h3>Zapisane fragmenty</h3>,
+      content: (
+        <>
+          {data && data?.length > 0 && <Pagination />}
+
+          {/* slice method returns shallow copy of the part between start and end - end not included, hence +1  */}
+
+          {data
+            .slice(start, end + 1)
+
+            .filter(
+              (dataSliced: any) =>
+                helperFragmentSourceFilter().indexOf(dataSliced.typSadu) > -1
+            )
+            .map((fragmentArray: any) => (
+              <DataSection
+                highlightQuery={highlightQuery}
+                variant='secondary'
+                key={fragmentArray['uuid']}
+                paddingTop='large'
+                imgStart
+                fragmentsFound={fragmentArray.fragment}
+                metryka={fragmentArray.metryka}
+                istota_interpretacji={fragmentArray.istota_interpretacji}
+                query={queryTrimmed}
+              />
+            ))}
+        </>
+      ),
     },
     {
       label: 'Projekty',
@@ -105,32 +132,8 @@ const Home: React.FC = () => {
       {/* {data && data?.length === 0 && <HomeChoiceWrapper tabs={tabsTutorial} />} */}
       {/* {data && data?.length > 0 && <HomeChoiceWrapper tabs={tabsUser} />} */}
       {Object.keys(userInfo).length > 0 && (
-        <HomeChoiceWrapper tabs={tabsUser} />
+        <HomeChoiceWrapper navTop tabs={tabsUser} />
       )}
-      {data && data?.length > 0 && <Pagination />}
-
-      {/* slice method returns shallow copy of the part between start and end - end not included, hence +1  */}
-
-      {data
-        .slice(start, end + 1)
-
-        .filter(
-          (dataSliced: any) =>
-            helperFragmentSourceFilter().indexOf(dataSliced.typSadu) > -1
-        )
-        .map((fragmentArray: any) => (
-          <DataSection
-            highlightQuery={highlightQuery}
-            variant='secondary'
-            key={fragmentArray['uuid']}
-            paddingTop='large'
-            imgStart
-            fragmentsFound={fragmentArray.fragment}
-            metryka={fragmentArray.metryka}
-            istota_interpretacji={fragmentArray.istota_interpretacji}
-            query={queryTrimmed}
-          />
-        ))}
     </div>
   )
 }
