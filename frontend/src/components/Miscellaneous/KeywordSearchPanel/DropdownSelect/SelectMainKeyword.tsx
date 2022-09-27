@@ -74,8 +74,8 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
   }, [dispatch, selectedMainKeyword])
   // whenever keywordMain changes ie. nav dropdownProject component, it changes selectedKeyword
   useMemo(() => {
-    if (selectedMainKeyword !== keywordMain) setSelectedMainKeyword(keywordMain)
-  }, [keywordMain, selectedMainKeyword])
+    setSelectedMainKeyword(keywordMain)
+  }, [keywordMain])
 
   useEffect(() => {
     const fragmentsMatching = fragments
