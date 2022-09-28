@@ -39,21 +39,30 @@ const Nav: React.FC<NavProps> = () => {
 
   const scroll = useScrollListener()
 
-  // on scroll I update scrollDirection
   useEffect(() => {
-    if (scroll.y > 200 && scroll.y - scroll.lastY > 0) {
+    if (
+      scroll.y > 200 &&
+      scroll.y - scroll.lastY > 0 &&
+      scrollDirection !== 'down'
+    ) {
       setScrollDirection('down')
       if (open === true) {
         cycleOpen()
       }
-    } else if (scroll.y <= 200) {
+    } else if (scroll.y <= 200 && scrollDirection !== 'top') {
       setScrollDirection('top')
-    } else if (scroll.y > 700 && scroll.y - scroll.lastY < 0) {
+      // console.log('top ')
+    } else if (
+      scroll.y > 700 &&
+      scroll.y - scroll.lastY < 0 &&
+      scrollDirection !== 'up'
+    ) {
       setScrollDirection('up')
+      // console.log('up scrolling')
     }
 
     //todo if (scroll.y <= 300)
-  }, [scroll.y, scroll.lastY, open, cycleOpen])
+  }, [scroll.y, scroll.lastY, open, cycleOpen, scrollDirection])
 
   useEffect(() => {
     const isDark = window.matchMedia('(prefers-color-scheme: dark)')
@@ -65,11 +74,13 @@ const Nav: React.FC<NavProps> = () => {
       dispatch(preferedSchemeEdit('secondary'))
     }
   }, [dispatch])
+
   useEffect(() => {
     if (Object.keys(userInfo).length > 0) {
       dispatch(getUserFragments(1))
     }
   }, [dispatch, userInfo])
+
   return (
     <TransitionWrapperMain>
       <TransitionWrapper

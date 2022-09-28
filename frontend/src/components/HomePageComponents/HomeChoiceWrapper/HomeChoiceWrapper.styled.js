@@ -18,14 +18,12 @@ export const ChoiceTitleContainer = styled.div`
   left: 2rem;
 `
 export const ChoiceNav = styled.nav`
-  ${({ navTop }) => (navTop ? 'position: absolute;' : 'position: relative;')};
-  ${({ navTop }) => (navTop ? 'top: 200px;' : 'top: -1rem;')};
-
+  ${({ navTop }) => (navTop ? 'position: absolute;' : 'position: relative;')}
+  ${({ navTop }) => (navTop ? 'top: 200px;' : 'top: -1rem;')}
+  ${({ navTop }) => (navTop ? 'min-width: 60%;' : 'min-width: 40%;')}
+  ${({ navTop }) => (navTop ? 'max-width: 80%;' : 'max-width: 40%;')}
   left: 6rem;
   border-radius: 10px;
-  min-width: fit-content;
-  min-width: 60%;
-  max-width: 80%;
   height: 3rem;
   font-size: 1.2rem;
   border-top-left-radius: 0;
@@ -33,7 +31,8 @@ export const ChoiceNav = styled.nav`
   background: var(--background-blur1);
   @media screen and (max-width: 1391px) {
     font-size: 1.1rem;
-    max-width: 90%;
+
+    /* ${({ navTop }) => (navTop ? 'max-width: 90%;' : 'max-width: 60%;')}; */
   }
   @media screen and (max-width: 991px) {
     ${({ navTop }) => (navTop ? 'position: absolute;' : 'position: relative;')};

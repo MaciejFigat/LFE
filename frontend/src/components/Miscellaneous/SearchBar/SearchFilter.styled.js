@@ -52,24 +52,29 @@ export const SearchBarButton = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
-  background: var(--background5-main);
+  background: var(--background2-main);
   align-items: center;
   /* color: var(--background-secondary2); */
-  color: var(--background3-main);
-  border: 1px solid var(--background3-main);
+  color: var(--background4-main);
+  border: 1px solid var(--background4-main);
   border-radius: 10px;
   margin-left: 0.5rem;
   &:hover {
     /* transition: all 0.7s ease-out; */
-    border: 1px solid var(--background-secondary2);
+    border: 1px solid var(--background3-main);
   }
   &:active {
-    border: 1px solid var(--background-secondary4);
+    border: 1px solid var(--background5-main);
   }
   @media (max-width: 420px) {
     font-size: 0.7rem;
     padding: none;
   }
+`
+export const HighlightButton = styled(SearchBarButton)`
+  padding: 0.25rem;
+  font-size: 1.1rem;
+  margin-right: 1rem;
 `
 export const SearchBarForm = styled.form`
   display: flex;
@@ -91,7 +96,11 @@ export const SearchInput = styled.input`
   padding: 0.25rem;
   width: 120px;
   border: none;
-  background: var(--background2-main);
+  /* border-radius-top: 5px; */
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: var(--background-blur1);
   border-bottom: 1px solid var(--background5-main);
   &:focus {
     outline: none;
@@ -118,6 +127,9 @@ export const SearchInput = styled.input`
     font-size: 0.8rem;
     padding: 5px 7px;
   } */
+`
+export const SearchInputResultDisplay = styled(SearchInput)`
+  font-size: 1.1rem;
 `
 export const NumberInput = styled(SearchInput)`
   width: 25px;

@@ -150,6 +150,17 @@ export const DropDownList = styled.div`
     padding-top: 1.2rem;
   }
 `
+export const SwitchButtonWrapper = styled.div`
+  display: grid;
+  place-items: center;
+  width: 100%;
+  list-style: none;
+  max-width: fit-content;
+  padding-bottom: 0.75rem;
+  b {
+    font-size: 1.2rem;
+  }
+`
 export const ListItem = styled.li`
   display: grid;
   place-items: center;
@@ -171,7 +182,18 @@ export const SwitchSectionWrapper = styled.div`
   /* padding-left: 1.5rem; */
   margin-left: 2rem;
 `
+export const SwitchResultWrapper = styled(SwitchSectionWrapper)`
+  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;
+`
 export const SwitchDivContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+`
+export const SwitchResultContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
