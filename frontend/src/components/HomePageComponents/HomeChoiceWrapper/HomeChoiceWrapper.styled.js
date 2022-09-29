@@ -47,10 +47,13 @@ export const ChoiceNav = styled.nav`
 export const MainChoiceContainer = styled.main`
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  ${({ navTop }) =>
+    navTop ? 'align-items: flex-start;' : 'align-items: center;'};
+
   position: relative;
   ${({ navTop }) => (navTop ? 'top: 200px;' : 'top: 0;')};
-  min
+  /* top: 10px; */
+  /* background: red; */
   flex-grow: 1;
 `
 export const MainChoiceBackground = styled.div`
