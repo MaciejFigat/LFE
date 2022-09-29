@@ -6,7 +6,8 @@ export const SearchResultsSectionWrapper = styled.div`
   border-radius: 10px;
   /* width: 100%; */
   /* width: 90vw; */
-  min-width: fit-content;
+  min-width: min(950px, 95vw);
+  /* min-width: fit-content; */
   /* display: flex;
   flex-direction: column;
   justify-content: flex-start; */

@@ -188,6 +188,11 @@ export const SwitchResultWrapper = styled(SwitchSectionWrapper)`
   flex-direction: row;
   color: var(--background4-main);
   gap: 1rem;
+  margin: 0;
+  @media screen and (max-width: 990px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 export const SwitchDivContainer = styled.div`
   display: flex;
