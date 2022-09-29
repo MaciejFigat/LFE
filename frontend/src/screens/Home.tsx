@@ -46,7 +46,7 @@ const Home: React.FC = () => {
   ]
 
   return (
-    <div>
+    <>
       <Toast option='registerUser' />
       {Object.keys(userInfo).length === 0 && (
         <HomeChoiceWrapper tabs={tabsTutorial} />
@@ -56,7 +56,7 @@ const Home: React.FC = () => {
       {Object.keys(userInfo).length > 0 && (
         <HomeChoiceWrapper navTop tabs={tabsUser} />
       )}
-    </div>
+    </>
   )
 }
 export default Home

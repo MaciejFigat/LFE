@@ -3,7 +3,7 @@ import { handleSectionColor } from './utilsSection'
 import { Marker } from 'react-mark.js'
 
 export const InfoSec = styled.div`
-  max-width: 80%;
+  max-width: 90%;
   @media (min-width: 1180px) {
     max-width: 1084px;
   }
@@ -30,7 +30,7 @@ export const InfoSec = styled.div`
   }
 
   margin-bottom: 1rem;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
 `
 export const InfoSecSimple = styled(InfoSec)`
   padding: 0.25rem;
@@ -92,7 +92,6 @@ export const Container = styled.div`
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-
   padding-right: 20px;
   padding-left: 20px;
   @media screen and (max-width: 991px) {

@@ -184,6 +184,7 @@ export const SwitchSectionWrapper = styled.div`
 `
 export const SwitchResultWrapper = styled(SwitchSectionWrapper)`
   justify-content: center;
+  /* justify-content: flex-start; */
   flex-direction: row;
   gap: 1rem;
 `
@@ -208,7 +209,7 @@ export const SwitchDiv = styled.div`
   /* height: 15px; */
   height: 16px;
   background-color: ${({ isOn }) =>
-    isOn ? 'var(--background2-main)' : 'var(--background3-main)'};
+    isOn ? 'var(--background2-main)' : 'var(--background4-main)'};
   display: flex;
   border-radius: 10px;
   padding: 1px;
@@ -218,7 +219,7 @@ export const SwitchDiv = styled.div`
 `
 export const SwitchText = styled.b`
   color: ${({ isOn }) =>
-    isOn ? 'var(--background5-main)' : 'var(--background3-main)'};
+    isOn ? 'var(--background2-main)' : 'var(--background5-main)'};
 `
 export const SwitchHandle = styled(motion.div)`
   width: 14px;
@@ -226,7 +227,7 @@ export const SwitchHandle = styled(motion.div)`
   background-color: white;
   border-radius: 12px;
   background-color: ${({ isOn }) =>
-    isOn ? 'var(--background1-main)' : 'var(--background4-main)'};
+    isOn ? 'var(--background4-main)' : 'var(--background1-main)'};
 `
 export const SetTakeButton = styled.button`
   outline: none;

@@ -9,7 +9,7 @@ export const WrapperWindow = styled.div`
   /* background: var(--background-blur1); */
   /* background: var(--background2-main); */
   color: var(--background5-main);
-  width: 94vw;
+  width: 100%;
 `
 export const ChoiceTitleContainer = styled.div`
   /* position: relative; */
@@ -47,9 +47,10 @@ export const ChoiceNav = styled.nav`
 export const MainChoiceContainer = styled.main`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   ${({ navTop }) => (navTop ? 'top: 200px;' : 'top: 0;')};
+  min
   flex-grow: 1;
 `
 export const MainChoiceBackground = styled.div`

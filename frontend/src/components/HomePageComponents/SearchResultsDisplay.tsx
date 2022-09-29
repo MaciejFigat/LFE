@@ -15,6 +15,7 @@ import {
   SearchInputResultDisplay,
 } from '../Miscellaneous/SearchBar/SearchFilter.styled'
 import SwitchButton from '../Miscellaneous/SearchBar/SwitchButton'
+import { SearchResultsSectionWrapper } from './SearchResultsDisplay.styled'
 interface SearchResultsDisplayProps {}
 
 const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
@@ -85,27 +86,30 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
     <>
       {' '}
       {data && data?.length > 0 && (
-        <>
+        <SearchResultsSectionWrapper>
           {' '}
           <SwitchResultWrapper>
+            <h2>Wyniki wyszukiwania</h2>
+          </SwitchResultWrapper>
+          <SwitchResultWrapper>
+            <SearchBarForm onSubmit={highlightHandler}>
+              <HighlightButton type='submit'>Zaznacz dodatkowo</HighlightButton>{' '}
+              <SearchInputResultDisplay
+                type='highlight'
+                name='highlight'
+                placeholder='wpisz frazę'
+                autoComplete='highlight'
+                value={highlightQueryLocal}
+                onChange={(e: any) => setHighlightQuery(e.target.value)}
+              />{' '}
+            </SearchBarForm>
+          </SwitchResultWrapper>
+          <SwitchResultWrapper>
             <SwitchButtonWrapper>
-              <h3>Wyniki wyszukiwania: {query}</h3>{' '}
+              <h3>Wyszukiwana fraza: {query}</h3>{' '}
             </SwitchButtonWrapper>
             <SwitchButtonWrapper>
               <h3>Ilość wyników: {data.length}</h3>{' '}
-            </SwitchButtonWrapper>
-            <SwitchButtonWrapper>
-              <SearchBarForm onSubmit={highlightHandler}>
-                <HighlightButton type='submit'>Podświetl frazę</HighlightButton>{' '}
-                <SearchInputResultDisplay
-                  type='highlight'
-                  name='highlight'
-                  placeholder='highlight'
-                  autoComplete='highlight'
-                  value={highlightQueryLocal}
-                  onChange={(e: any) => setHighlightQuery(e.target.value)}
-                />{' '}
-              </SearchBarForm>
             </SwitchButtonWrapper>
           </SwitchResultWrapper>
           <SwitchResultWrapper>
@@ -166,7 +170,7 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
             </SwitchButtonWrapper>
           </SwitchResultWrapper>
           <Pagination />
-        </>
+        </SearchResultsSectionWrapper>
       )}
       {/* slice method returns shallow copy of the part between start and end - end not included, hence +1  */}
       {data
