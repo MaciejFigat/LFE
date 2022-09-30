@@ -63,7 +63,7 @@ const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = ({
             </ChoiceList>
           </AnimateSharedLayout>
         </ChoiceNav>
-        <ChoiceTitleContainer>
+        <ChoiceTitleContainer navTop={navTop}>
           <HeroTitle>{titleSvg}</HeroTitle>
         </ChoiceTitleContainer>
       </WrapperWindow>
