@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 export const SearchResultsSectionWrapper = styled.div`
   display: grid;
-
   place-items: center;
   /* border: 1px solid var(--background4-main); */
   border-radius: 10px;

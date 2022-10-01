@@ -10,9 +10,11 @@ import {
   ProjectMenuWrapper,
 } from './ProjectMenu.styled'
 
-interface ProjectMenuTwoProps {}
+interface ProjectMenuTwoProps {
+  wide?: boolean
+}
 
-const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
+const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = ({ wide }) => {
   const dispatch: any = useAppDispatch()
 
   const fragments: any[] = useAppSelector(
@@ -78,18 +80,18 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
   const selectCard = (card: any) => {
     setSelectedCard(selectedCard === card ? null : card)
   }
-  const handleCardMouseUp = (e: any, card: any) => {
+  const handleCardMouseUp = (card: any) => {
     selectCard(card)
     dispatch(sortingKeywordMainEdit(card))
   }
 
   return (
-    <ProjectMenuWrapper>
+    <ProjectMenuWrapper wide={wide}>
       {' '}
-      <DragMenuButton position='right' onClick={onLeftClick}>
+      <DragMenuButton position='right' wide={wide} onClick={onLeftClick}>
         <SvgIcon noContent variant='arrowLeft' />
       </DragMenuButton>{' '}
-      <DragMenuButton position='left' onClick={onRightClick}>
+      <DragMenuButton position='left' wide={wide} onClick={onRightClick}>
         <SvgIcon noContent variant='arrowRight' />
       </DragMenuButton>
       <ProjectMenuContainer
@@ -109,7 +111,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = () => {
         {uniqueKeywords?.map((keyword) => (
           <ProjectCard
             key={Math.random()}
-            onMouseUp={(e: any) => handleCardMouseUp(e, keyword)}
+            onMouseUp={() => handleCardMouseUp(keyword)}
             variants={cardVariants}
             // initial='notSelected'
             animate={selectedCard === keyword ? 'selected' : 'notSelected'}

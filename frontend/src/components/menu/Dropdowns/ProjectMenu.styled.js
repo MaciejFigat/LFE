@@ -3,7 +3,8 @@ import { motion } from 'framer-motion'
 
 // export const HeroSec = styled(motion.div)``
 export const ProjectMenuWrapper = styled(motion.div)`
-  width: 400px;
+  ${({ wide }) => (wide ? 'width: min(650px, 70vw);' : 'width: 400px;')}
+
   position: relative;
   overflow: hidden;
   display: flex;
@@ -52,6 +53,8 @@ export const DragMenuButton = styled(motion.div)`
   min-width: 40px;
   background: var(--background-blur1);
   ${({ position }) => position === 'left' && 'left: 85%;'};
+  ${({ position, wide }) => position === 'left' && wide && 'left: 90.5%;'};
   ${({ position }) => position === 'right' && 'right: 4%;'};
+  ${({ position, wide }) => position === 'right' && wide && 'right: 2.5%;'};
   z-index: 11;
 `
