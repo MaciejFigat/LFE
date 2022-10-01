@@ -195,6 +195,11 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
 
   const togglingOptions = () => {
     setOptionsOpen((optionsOpen) => !optionsOpen)
+    if (keywordEditing === true && optionsOpen === true)
+      setKeywordEditing((keywordEditing) => !keywordEditing)
+    if (keywordCreation === true && optionsOpen === true)
+      setKeywordCreation((keywordCreation) => !keywordCreation)
+    // console.log(optionsOpen)
   }
   return (
     <>

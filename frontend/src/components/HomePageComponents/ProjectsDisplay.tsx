@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAppSelector } from '../../app/reduxHooks'
+import { SwitchResultWrapper } from '../Miscellaneous/SearchBar/SearchBar.styled'
 // import { NavLink } from 'react-router-dom'
 import {
   MainProjectDetails,
@@ -30,6 +31,9 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
   return (
     <SearchResultsSectionWrapper>
       {' '}
+      <SwitchResultWrapper>
+        <h2>Dostępne projekty</h2>
+      </SwitchResultWrapper>
       <ProjectsDisplayWrapper>
         {' '}
         {uniqueKeywords?.map((keyword) => (
@@ -38,12 +42,17 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
       </ProjectsDisplayWrapper>
       <MainProjectWrapper>
         {' '}
-        <ProjectDiv>{projectName}</ProjectDiv>
-        <MainProjectDetails>
-          {fragmentsKeywordMain?.map((fragment) => (
-            <ProjectDiv key={Math.random()}>{fragment.title}</ProjectDiv>
-          ))}
-        </MainProjectDetails>
+        <SwitchResultWrapper>
+          <h2>Fragmenty przypisane do wybranego projektu</h2>
+        </SwitchResultWrapper>
+        {projectName !== '' && <ProjectDiv>{projectName}</ProjectDiv>}
+        {fragmentsKeywordMain.length > 0 && (
+          <MainProjectDetails>
+            {fragmentsKeywordMain?.map((fragment) => (
+              <ProjectDiv key={Math.random()}>{fragment.title}</ProjectDiv>
+            ))}
+          </MainProjectDetails>
+        )}
       </MainProjectWrapper>
     </SearchResultsSectionWrapper>
   )
