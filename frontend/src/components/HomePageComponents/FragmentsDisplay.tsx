@@ -29,7 +29,7 @@ const FragmentsDisplay: React.FC<FragmentsDisplayProps> = () => {
         {' '}
         <FilterWrapper />
         <FragmentsPagination />
-        <UserFragmentsColumn />
+        <UserFragmentsColumn moreColumns />
       </SearchResultsSectionWrapper>
     </AnimateSharedLayout>
   )

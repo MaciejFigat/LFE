@@ -9,7 +9,6 @@ import {
   MainProjectWrapper,
   ProjectDiv,
   ProjectDivSecondary,
-  ProjectsDisplayWrapper,
   SearchResultsSectionWrapper,
 } from './SearchResultsDisplay.styled'
 import ProjectMenuTwo from '../menu/Dropdowns/ProjectMenuTwo'
@@ -41,16 +40,8 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
   return (
     <SearchResultsSectionWrapper>
       {' '}
-      <SwitchResultWrapper>
-        {/* <h2>Dostępne projekty</h2> */}
-      </SwitchResultWrapper>
+      <SwitchResultWrapper></SwitchResultWrapper>
       <ProjectMenuTwo wide />
-      <ProjectsDisplayWrapper>
-        {' '}
-        {/* {uniqueKeywords?.map((keyword) => (
-          <ProjectDiv key={Math.random()}>{keyword}</ProjectDiv>
-        ))} */}
-      </ProjectsDisplayWrapper>
       <MainProjectWrapper>
         {projectName !== '' && (
           <SwitchResultWrapper>

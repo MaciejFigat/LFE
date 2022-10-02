@@ -5,13 +5,18 @@ import { motion } from 'framer-motion'
 import {
   ListWrapper,
   ItemWrapper,
+  FragmentsWrapper,
 } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import AnimatedSavedItemSimple from '../Miscellaneous/AnimatedTextPanel/AnimatedSavedItemSimple'
 
-interface UserFragmentsColumnProps {}
+interface UserFragmentsColumnProps {
+  moreColumns?: boolean
+}
 
-const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
+const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
+  moreColumns,
+}) => {
   const dispatch: any = useAppDispatch()
 
   const fragments: any[] = useAppSelector(
@@ -43,7 +48,7 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
 
   return (
     // <AnimateSharedLayout>
-    <>
+    <FragmentsWrapper moreColumns={moreColumns}>
       {fragments.length > 0 &&
         fragments
           .filter((fragmentsSorted) =>
@@ -68,9 +73,13 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
               exit={{ opacity: 0 }}
             >
               {fragment.excerpt !== '' && (
-                <FragmentContainer key={fragment.title}>
+                <FragmentContainer
+                  key={fragment.title}
+                  moreColumns={moreColumns}
+                >
                   <ItemWrapper>
                     <AnimatedSavedItemSimple
+                      moreColumns={moreColumns}
                       id={fragment._id}
                       title={fragment.title}
                       description={fragment.description}
@@ -87,7 +96,7 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = () => {
             </ListWrapper>
           ))
           .reverse()}
-    </>
+    </FragmentsWrapper>
     //   </AnimateSharedLayout>
   )
 }

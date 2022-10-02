@@ -1,8 +1,23 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
+export const FragmentsWrapper = styled(motion.div)`
+  display: grid;
+  place-items: flex-start;
+  /* width: 90vw; */
+  width: 95%;
+  ${({ moreColumns }) => moreColumns && 'display: grid;'};
+  ${({ moreColumns }) =>
+    moreColumns && 'grid-template-columns: repeat(3, 1fr);'};
+  ${({ moreColumns }) =>
+    moreColumns && 'grid-template-rows: fit-content(40%);'};
+  /* moreColumns && 'grid-template-rows: repeat(auto-fill, 300px);'}; */
+  ${({ moreColumns }) => moreColumns && 'grid-row-gap: 1.75em;'};
+  ${({ moreColumns }) => moreColumns && 'grid-column-gap: 1rem;'};
+`
 export const ListWrapper = styled(motion.ul)`
   display: flex;
+
   margin: 0;
   flex-direction: column;
   /* margin-top: 16px; */
@@ -33,7 +48,7 @@ export const ListItem = styled(motion.li)`
   // ! border radius passed as proprerty of ListItem in order to animate propre
 
   list-style: none;
-  overflow: hidden;
+  /* overflow: hidden; */
   background: var(--background1-main);
   /* cursor: pointer; */
   &:last-child {
@@ -64,27 +79,19 @@ export const HorizontalButtonContainer = styled(ListTitleContainer)`
 `
 export const TextAreaContainer = styled(motion.div)`
   display: flex;
-  /* display: grid; */
-  /* flex-direction: row; */
   align-items: flex-start;
-  /* justify-content: space-between; */
-  /* min-height: min-content; */
-
-  /* flex-wrap: wrap; */
 `
 export const DatePar = styled(motion.p)`
   font-size: 0.75rem;
   margin: 0;
   padding: 0rem 0.75rem 0rem 0.5rem;
-  /* padding-bottom: 0; */
-  /* margin-right: 2.25rem; */
   color: var(--background4-main);
 `
 export const KeywordDiv = styled(motion.div)`
   min-width: fit-content;
   transition: 0.2s;
   &:hover {
-    color: color: var(--background3-main);
+    color: var(--background3-main);
   }
 `
 export const KeywordPar = styled(motion.div)`
@@ -97,7 +104,6 @@ export const ListTitle = styled(motion.h2)`
   display: grid;
   place-items: center;
   margin: 0;
-
   word-break: break-all;
   margin-left: 0.5rem;
   font-size: 1.1rem;
@@ -109,7 +115,6 @@ export const ListTitle = styled(motion.h2)`
 export const ListButtonContainer = styled(motion.div)`
   display: flex;
   max-width: 200px;
-  /* flex-direction: row; */
   flex-direction: column;
   gap: 2rem;
   justify-content: flex-end;
@@ -126,13 +131,10 @@ export const TitleAnimated = styled(motion.div)`
   word-break: break-all;
   justify-content: flex-start;
   width: 100%;
-
   min-width: 250px;
-  /* font-weight: 400; */
   @media (max-width: 1020px) {
     min-width: 100px;
   }
-  /* color: var(--background-secondary2); */
   transition: all 0.3s ease-out;
   &:hover {
     color: var(--background3-main);
@@ -218,7 +220,7 @@ export const ListRowShort = styled(ListRow)`
 `
 export const ItemWrapper = styled(motion.div)`
   margin-bottom: 10px;
-
+  width: 100%;
   &:last-child {
     margin-bottom: 0px;
   }

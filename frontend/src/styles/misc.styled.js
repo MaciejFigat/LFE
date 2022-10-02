@@ -40,6 +40,7 @@ export const OpenBigDivButton = styled(OpenDivButton)`
 `
 export const WrapperMotionDiv = styled(motion.div)`
   position: relative;
+  width: 100%;
 `
 export const ClosingDiv = styled(motion.div)`
   width: 35%;

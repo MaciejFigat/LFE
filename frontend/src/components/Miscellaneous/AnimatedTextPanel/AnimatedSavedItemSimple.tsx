@@ -25,6 +25,7 @@ interface AnimatedSavedItemSimpleProps {
   updatedAt: string
   keywords: string[]
   keywordValue: { keyword: string; value: boolean }[]
+  moreColumns?: boolean
 }
 
 const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
@@ -36,6 +37,7 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
   updatedAt,
   keywords,
   coordinates,
+  moreColumns,
 }) => {
   const dispatch: any = useAppDispatch()
   const idOpenFragment = useAppSelector(
@@ -48,58 +50,57 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
     }
   }
   return (
-    <>
-      <WrapperMotionDiv layoutId={id}>
-        <ListItemSimple
-          as={motion.li}
-          initial={{ opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.4 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <FragmentDivSmall>
-            <FragmentTitleRowSmall>
-              <FragmentParSmall>
-                {' '}
-                <FragmentB>Title:</FragmentB> {title}{' '}
-              </FragmentParSmall>
-              <SendButtonVerySmall
-                variant='primaryEmpty'
-                onClick={openWindowHandler}
-                // onClick={openWindowHandler('6310d693cbf3fcda37beff9c')}
-              >
-                <SvgIcon variant='edit' toBottom contentAfter='edit' />
-              </SendButtonVerySmall>
-            </FragmentTitleRowSmall>
+    <WrapperMotionDiv layoutId={id}>
+      <ListItemSimple
+        moreColumns={moreColumns}
+        as={motion.li}
+        initial={{ opacity: 0, scale: 0.9 }}
+        transition={{ duration: 0.4 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <FragmentDivSmall moreColumns={moreColumns}>
+          <FragmentTitleRowSmall>
             <FragmentParSmall>
-              <FragmentB>Source:</FragmentB> {source}
+              {' '}
+              <FragmentB>Title:</FragmentB> {title}{' '}
             </FragmentParSmall>
-            <FragmentParSmall>
-              <FragmentB>Syg:</FragmentB> {coordinates}
-            </FragmentParSmall>
-            <FragmentParSmall>
-              <FragmentB>Excerpt:</FragmentB> {excerpt}
-            </FragmentParSmall>
-            <FragmentParSmall>
-              <FragmentB>Desc:</FragmentB> {description}
-            </FragmentParSmall>
-            <FragmentParSmall>
-              <FragmentB>Updated:</FragmentB> {updatedAt.substring(0, 10)} at{' '}
-              {updatedAt.substring(12, 16)}
-            </FragmentParSmall>
+            <SendButtonVerySmall
+              variant='primaryEmpty'
+              onClick={openWindowHandler}
+              // onClick={openWindowHandler('6310d693cbf3fcda37beff9c')}
+            >
+              <SvgIcon variant='edit' toBottom contentAfter='edit' />
+            </SendButtonVerySmall>
+          </FragmentTitleRowSmall>
+          <FragmentParSmall>
+            <FragmentB>Source:</FragmentB> {source}
+          </FragmentParSmall>
+          <FragmentParSmall>
+            <FragmentB>Syg:</FragmentB> {coordinates}
+          </FragmentParSmall>
+          <FragmentParSmall>
+            <FragmentB>Excerpt:</FragmentB> {excerpt}
+          </FragmentParSmall>
+          <FragmentParSmall>
+            <FragmentB>Desc:</FragmentB> {description}
+          </FragmentParSmall>
+          <FragmentParSmall>
+            <FragmentB>Updated:</FragmentB> {updatedAt.substring(0, 10)} at{' '}
+            {updatedAt.substring(12, 16)}
+          </FragmentParSmall>
 
-            {(keywords.length > 1 || keywords[0] !== '') && (
-              <KeywordDivSimple>
-                <FragmentB>Keywords:&nbsp;</FragmentB>
-                {keywords.map((keyword) => (
-                  <KeywordB key={Math.random()}>{keyword} &nbsp;</KeywordB>
-                ))}
-              </KeywordDivSimple>
-            )}
-          </FragmentDivSmall>
-        </ListItemSimple>
-      </WrapperMotionDiv>
-    </>
+          {(keywords.length > 1 || keywords[0] !== '') && (
+            <KeywordDivSimple>
+              <FragmentB>Keywords:&nbsp;</FragmentB>
+              {keywords.map((keyword) => (
+                <KeywordB key={Math.random()}>{keyword} &nbsp;</KeywordB>
+              ))}
+            </KeywordDivSimple>
+          )}
+        </FragmentDivSmall>
+      </ListItemSimple>
+    </WrapperMotionDiv>
   )
 }
 export default AnimatedSavedItemSimple

@@ -46,8 +46,17 @@ export const FragmentTitleRowSmall = styled.div`
 export const FragmentDivSmall = styled(motion.div)`
   /* position: absolute; */
   align-self: center;
-  background: var(--background-blur1) !important;
-  border-radius: 10px;
+  ${({ moreColumns }) =>
+    moreColumns ? 'background: none;' : 'background: var(--background-blur1);'};
+  ${({ moreColumns }) =>
+    moreColumns
+      ? 'border: 1px solid var(--background4-main);'
+      : 'border: none;'};
+
+  border-radius: 15px;
+  /* background: red; */
+  width: 98%;
+  min-width: 98%;
   /* width: 95%; */
   padding: 0.75rem;
   padding-right: 0.25rem;
