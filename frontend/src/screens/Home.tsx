@@ -8,6 +8,7 @@ import HeroThree from '../components/HomePageComponents/HeroThree'
 import { UserInfo } from '../interfaces'
 import SearchResultsDisplay from '../components/HomePageComponents/SearchResultsDisplay'
 import ProjectsDisplay from '../components/HomePageComponents/ProjectsDisplay'
+import ProjectsHomeDisplay from '../components/HomePageComponents/FragmentsDisplay'
 
 const Home: React.FC = () => {
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
@@ -38,7 +39,7 @@ const Home: React.FC = () => {
     },
     {
       label: 'Zapisane fragmenty',
-      content: <h3>Zapisane fragmenty</h3>,
+      content: <ProjectsHomeDisplay />,
     },
     {
       label: `Ostatnie wyniki`,
