@@ -2,12 +2,13 @@ import React, { useMemo } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { SwitchResultWrapper } from '../Miscellaneous/SearchBar/SearchBar.styled'
 import { updateUserFragmentsKeywordMain } from '../../features/fragments/fragmentSlice'
-// import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import {
   MainProjectDetails,
   MainProjectWrapper,
   ProjectDiv,
+  ProjectDivSecondary,
   ProjectsDisplayWrapper,
   SearchResultsSectionWrapper,
 } from './SearchResultsDisplay.styled'
@@ -41,7 +42,7 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
     <SearchResultsSectionWrapper>
       {' '}
       <SwitchResultWrapper>
-        <h2>Dostępne projekty</h2>
+        {/* <h2>Dostępne projekty</h2> */}
       </SwitchResultWrapper>
       <ProjectMenuTwo wide />
       <ProjectsDisplayWrapper>
@@ -51,15 +52,13 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
         ))} */}
       </ProjectsDisplayWrapper>
       <MainProjectWrapper>
-        {' '}
         {projectName !== '' && (
-          <>
-            {' '}
-            <SwitchResultWrapper>
-              <h2>Fragmenty przypisane do projektu</h2>
-            </SwitchResultWrapper>
-            <ProjectDiv>{projectName}</ProjectDiv>
-          </>
+          <SwitchResultWrapper>
+            <h2>Fragmenty przypisane do projektu</h2>
+            <NavLink to='/storage'>
+              <ProjectDivSecondary>{projectName}</ProjectDivSecondary>
+            </NavLink>
+          </SwitchResultWrapper>
         )}
         {fragmentsKeywordMain.length > 0 && (
           <MainProjectDetails>

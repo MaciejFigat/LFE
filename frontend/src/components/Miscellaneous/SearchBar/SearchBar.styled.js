@@ -184,6 +184,7 @@ export const SwitchSectionWrapper = styled.div`
 `
 export const SwitchResultWrapper = styled(SwitchSectionWrapper)`
   justify-content: center;
+  align-items: center;
   /* justify-content: flex-start; */
   flex-direction: row;
   color: var(--background4-main);

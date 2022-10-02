@@ -4,20 +4,23 @@ import { motion } from 'framer-motion'
 // export const HeroSec = styled(motion.div)``
 export const ProjectMenuWrapper = styled(motion.div)`
   ${({ wide }) => (wide ? 'width: min(650px, 70vw);' : 'width: 400px;')}
-
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 5px;
-  background: var(--background2-main);
+  ${({ wide }) =>
+    wide
+      ? 'background: var(--background1-main);'
+      : 'background: var(--background2-main);'}
 `
 export const ProjectMenuContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
   align-items: center;
   background: var(--background2-main);
+  ${({ wide }) => wide && 'background: var(--background1-main);'};
   gap: 1rem;
   cursor: grab;
   height: 70px;
@@ -37,6 +40,8 @@ export const ProjectCard = styled(motion.div)`
   /* width: 80px; */
   min-width: fit-content;
   background: var(--background1-main);
+  ${({ wide }) => wide && 'background: var(--background4-main);'};
+  ${({ wide }) => wide && 'color: var(--background2-main);'};
   border-radius: 15px;
   cursor: pointer;
   &:first-of-type {

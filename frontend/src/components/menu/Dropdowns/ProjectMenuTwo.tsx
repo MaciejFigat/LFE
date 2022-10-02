@@ -95,6 +95,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = ({ wide }) => {
         <SvgIcon noContent variant='arrowRight' />
       </DragMenuButton>
       <ProjectMenuContainer
+        wide={wide}
         drag='x'
         dragConstraints={{ left: -uniqueKeywords.length * 90, right: 0 }}
         dragTransition={{ bounceStiffness: 1100, bounceDamping: 110 }}
@@ -113,6 +114,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = ({ wide }) => {
             key={Math.random()}
             onMouseUp={() => handleCardMouseUp(keyword)}
             variants={cardVariants}
+            wide={wide}
             // initial='notSelected'
             animate={selectedCard === keyword ? 'selected' : 'notSelected'}
             // animate={selectedCard === keyword && 'selected'}
