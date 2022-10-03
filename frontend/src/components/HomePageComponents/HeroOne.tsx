@@ -5,7 +5,6 @@ import {
   HeroSecNoSvg,
   HeroTitleLeft,
 } from './HeroSection.styled'
-// import { titleOneSvg } from './HeroSectionSVGS/Title'
 
 import {
   InfoColumn,
@@ -24,8 +23,8 @@ const HeroOne: React.FC<HeroOneProps> = () => {
   return (
     <HeroSecNoSvg>
       <HeroTextContainer>
-        {/* <InfoRow imgStart border> */}
-        <InfoRow imgStart>
+        <InfoRow imgStart border>
+          {/* <InfoRow imgStart> */}
           <InfoColumnShort imgStart>
             <TextWrapper>
               {' '}

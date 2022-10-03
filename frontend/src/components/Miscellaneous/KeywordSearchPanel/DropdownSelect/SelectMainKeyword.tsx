@@ -199,7 +199,6 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
       setKeywordEditing((keywordEditing) => !keywordEditing)
     if (keywordCreation === true && optionsOpen === true)
       setKeywordCreation((keywordCreation) => !keywordCreation)
-    // console.log(optionsOpen)
   }
   return (
     <>

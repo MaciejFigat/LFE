@@ -21,16 +21,15 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
   const variant = 'secondary'
   return (
     <AnimateSharedLayout>
-      {' '}
       <HeroWrapperRow>
-        <HighlightPopMenuDemo>
-          <HeroTwoContainer>
-            <HeroTextWrapper>
-              {/* <HeroTitleLeft>{titleTwoSvg}</HeroTitleLeft> */}
-              <HeroTitleLeft>Zapisywanie fragmentów</HeroTitleLeft>
-              <TopLine variant={variant}>
-                Zaznacz poniższy tekst lub jego część
-              </TopLine>
+        <HeroTwoContainer>
+          <HeroTextWrapper>
+            {/* <HeroTitleLeft>{titleTwoSvg}</HeroTitleLeft> */}
+            <HeroTitleLeft>Zapisywanie fragmentów</HeroTitleLeft>
+            <TopLine variant={variant}>
+              Zaznacz poniższy tekst lub jego część
+            </TopLine>
+            <HighlightPopMenuDemo>
               <p>
                 Zaznaczając tekst wyszukanej interpretacji bądź wyroku, możesz
                 wybrać opcję Kopiuj lub Zapisz. Kopiowany fragment zawiera
@@ -43,18 +42,18 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
                 użytkownik jest zalogowany, może przeglądać i edytować uprzednio
                 zapisane fragmenty, np. dodając własne uwagi.
               </p>
+            </HighlightPopMenuDemo>
 
-              <Subtitle variant={variant}>
-                <PopupDescriptionInput
-                  type='label'
-                  name='label'
-                  rows='4'
-                  placeholder='kopiuj i wklej tutaj'
-                ></PopupDescriptionInput>
-              </Subtitle>
-            </HeroTextWrapper>
-          </HeroTwoContainer>
-        </HighlightPopMenuDemo>
+            <Subtitle variant={variant}>
+              <PopupDescriptionInput
+                type='label'
+                name='label'
+                rows='4'
+                placeholder='kopiuj i wklej tutaj'
+              ></PopupDescriptionInput>
+            </Subtitle>
+          </HeroTextWrapper>
+        </HeroTwoContainer>
         <HeroWrapperColumn>
           <FragmentsColumn />
         </HeroWrapperColumn>

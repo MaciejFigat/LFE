@@ -8,7 +8,7 @@ export const HeroSec = styled(motion.div)`
 
   min-height: fit-content;
 
-  svg {
+  /* svg {
     position: relative;
   }
 
@@ -41,10 +41,11 @@ export const HeroSec = styled(motion.div)`
   }
   svg > path:last-child {
     fill: var(--background1-main);
-  }
+  } */
 `
 
 export const HeroSecNoSvg = styled(HeroSec)`
+  margin-top: 2rem;
   margin-bottom: 0;
 `
 export const HeroTextContainer = styled.div`
@@ -71,20 +72,13 @@ export const HeroTextContainer = styled.div`
 export const HeroTwoContainer = styled.div`
   display: grid;
   place-items: center;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 `
 export const HeroTitle = styled.div`
   display: flex;
   flex-direction: row;
   font-weight: 700;
   width: 100%;
-  /* color: var(--background5-main); */
-  /* svg > defs:nth-child(2) {
-    stroke: var(--background3-main);
-    fill: var(--background3-main);
-  } */
+
   svg {
     stroke: var(--background5-main);
 
@@ -92,10 +86,6 @@ export const HeroTitle = styled.div`
   }
   @media screen and (max-width: 1051px) {
     width: 60%;
-    /* svg {
-      stroke: var(--background1-main);
-      fill: var(--background1-main);
-    } */
   }
 `
 export const HeroTitleLeft = styled.div`

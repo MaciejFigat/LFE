@@ -268,7 +268,6 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
   const openWindowHandler = (id: string) => {
     if (canOpenApp && setOpenedApp && setIdOpen && openedApp === null) {
       setOpenedApp(id)
-
       setIdOpen(id)
     }
   }

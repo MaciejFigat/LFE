@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import VisitedLinks from '../../Miscellaneous/VisitedLinks/VisitedLinks'
 import FilterWrapper from '../FilterWrapper/FilterWrapper'
-import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 import { showFragments } from '../../../features/preferences/preferenceSlice'
 import {
   ChoiceItem,
@@ -13,7 +13,6 @@ import {
   WrapperWindow,
 } from './SharedChoiceWrapper.styled'
 import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
-import FragmentsPagination from '../../Miscellaneous/Pagination/FragmentsPagination'
 import Pagination from '../../Miscellaneous/Pagination/Pagination'
 
 interface SharedChoiceWrapperProps {}
@@ -21,9 +20,6 @@ interface SharedChoiceWrapperProps {}
 const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
   const dispatch = useAppDispatch()
 
-  const sortingOption: string = useAppSelector(
-    (state) => state.preference.sortingOption
-  )
   const numberOfResults: number | undefined = useAppSelector(
     (state) => state.searchResult.searchResults.data.length
   )
@@ -35,7 +31,6 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
         <>
           {' '}
           <FilterWrapper />
-          {sortingOption === 'all' && <FragmentsPagination narrow />}
         </>
       ),
     },

@@ -53,7 +53,6 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
         fragments
           .filter((fragmentsSorted) =>
             // todo here is filtering function comparing the date
-
             sortingOption === 'all'
               ? fragmentsSorted
               : fragmentsSorted.createdAt.substring(0, 10) === sortingDateString

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
 import SelectMainKeyword from '../../Miscellaneous/KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
+import FragmentsPagination from '../../Miscellaneous/Pagination/FragmentsPagination'
 import DateCompare from '../DateCompare'
 import DropdownFilter from './DropdownFilter/DropdownFilter'
 import { FilterOptionsWrapper } from './FilterWrapper.styled'
@@ -16,7 +17,7 @@ const FilterWrapper: React.FC<FilterWrapperProps> = () => {
       <DropdownFilter options={optionsTest} />
       {sortingOption === 'date' && <DateCompare />}
       {sortingOption === 'keyword' && <SelectMainKeyword />}
-      {/* {sortingOption === 'all' && 'else sorting'} */}
+      {sortingOption === 'all' && <FragmentsPagination narrow />}
     </FilterOptionsWrapper>
   )
 }

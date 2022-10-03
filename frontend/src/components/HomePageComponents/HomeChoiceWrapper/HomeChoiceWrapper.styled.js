@@ -6,31 +6,39 @@ export const WrapperWindow = styled.div`
   flex-direction: column;
   height: 90vh;
   border-radius: 10px;
-  /* background: var(--background-blur1); */
-  /* background: var(--background2-main); */
   color: var(--background5-main);
   width: 100%;
 `
 export const ChoiceTitleContainer = styled.div`
-  /* position: relative; */
-  position: absolute;
+  position: relative;
+  max-width: fit-content;
   /* top: -90%; */
-  ${({ navTop }) => (navTop ? 'left:35%;' : 'left: 2rem;')}
+  /* ${({ navTop }) => (navTop ? 'left:35%;' : 'left: 2rem;')} */
+  left: 35%;
 `
 export const ChoiceNav = styled.nav`
-  ${({ navTop }) => (navTop ? 'position: absolute;' : 'position: relative;')}
+  /* ${({ navTop }) => (navTop ? 'position: absolute;' : 'position: relative;')}
   ${({ navTop }) => (navTop ? 'top: 200px;' : 'top: -1rem;')}
   ${({ navTop }) => (navTop ? 'min-width: 60%;' : 'min-width: 40%;')}
   ${({ navTop }) => (navTop ? 'max-width: 80%;' : 'max-width: 40%;')}
-  ${({ navTop }) => (navTop ? 'left:20%;' : 'left: 6rem;')}
-  
+  ${({ navTop }) => (navTop ? 'left:20%;' : 'left: 6rem;')} */
+  position: absolute;
+  top: 200px;
+  min-width: 60%;
+  max-width: 80%;
+  z-index: 11;
+  left: 20%;
   border-radius: 10px;
   height: 3rem;
   font-size: 1.2rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   /* border-bottom-right-radius: 0; */
-  background: var(--background-blur1);
+  ${({ navTop }) =>
+    navTop ? 'background: none;' : 'background: var(--background-blur1);'}
+  ${({ navTop }) =>
+    navTop ? 'border: 1px solid var(--background4-main);' : 'border: none;'}
+  /* border-bottom: none; */
   @media screen and (max-width: 1391px) {
     font-size: 1.1rem;
 
@@ -42,7 +50,6 @@ export const ChoiceNav = styled.nav`
     font-size: 1.05rem;
     left: 1rem;
     min-width: 95%;
-    /* max-width: fit-content; */
   }
 `
 
@@ -53,9 +60,7 @@ export const MainChoiceContainer = styled.main`
     navTop ? 'align-items: flex-start;' : 'align-items: center;'};
 
   position: relative;
-  ${({ navTop }) => (navTop ? 'top: 200px;' : 'top: 0;')};
-  /* top: 10px; */
-  /* background: red; */
+  ${({ navTop }) => (navTop ? 'top: 80px;' : 'top: 0;')};
   flex-grow: 1;
 `
 export const MainChoiceBackground = styled.div`
@@ -113,10 +118,10 @@ export const ChoiceItem = styled.div`
 
 export const ChoiceUnderline = styled(motion.div)`
   position: absolute;
-  bottom: -1px;
+  bottom: -5px;
   border-radius: 5px;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 5px;
   background: var(--background-secondary3);
 `

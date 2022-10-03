@@ -1,17 +1,23 @@
-import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
 import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWindow'
 import FilterWrapper from '../FragmentsColumn/FilterWrapper/FilterWrapper'
 import UserFragmentsColumn from '../FragmentsColumn/UserFragmentsColumn'
-import FragmentsPagination from '../Miscellaneous/Pagination/FragmentsPagination'
 import { SearchResultsSectionWrapper } from './SearchResultsDisplay.styled'
+import UserFragmentsByKeyword from '../FragmentsColumn/UserFragmentsByKeyword'
 
 interface FragmentsDisplayProps {}
 
 const FragmentsDisplay: React.FC<FragmentsDisplayProps> = () => {
   const dispatch: any = useAppDispatch()
+  const sortingOption: string = useAppSelector(
+    (state) => state.preference.sortingOption
+  )
+  const showFragmentsState: boolean = useAppSelector(
+    (state) => state.preference.showFragments
+  )
   const idOpenFragment = useAppSelector(
     (state) => state.preference.idOpenFragment
   )
@@ -28,8 +34,12 @@ const FragmentsDisplay: React.FC<FragmentsDisplayProps> = () => {
       <SearchResultsSectionWrapper>
         {' '}
         <FilterWrapper />
-        <FragmentsPagination />
-        <UserFragmentsColumn moreColumns />
+        {showFragmentsState && sortingOption !== 'keyword' && (
+          <UserFragmentsColumn moreColumns />
+        )}
+        {showFragmentsState && sortingOption === 'keyword' && (
+          <UserFragmentsByKeyword />
+        )}
       </SearchResultsSectionWrapper>
     </AnimateSharedLayout>
   )

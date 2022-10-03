@@ -9,6 +9,7 @@ export const FilterOptionsWrapper = styled.div`
   border-radius: 10px;
   max-width: fit-content;
   min-width: 200px;
+  min-height: 94px;
   padding-top: 0.25rem;
 `
 export const OptionsWrapper = styled.div`

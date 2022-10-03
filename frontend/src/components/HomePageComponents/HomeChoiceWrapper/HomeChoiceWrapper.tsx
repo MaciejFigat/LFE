@@ -31,19 +31,9 @@ const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = ({
   return (
     <>
       <WrapperWindow>
-        <MainChoiceContainer navTop={navTop}>
-          <AnimatePresence exitBeforeEnter>
-            <motion.div
-              key={selectedTab ? selectedTab.label : 'empty'}
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              {selectedTab ? selectedTab.content : ''}
-            </motion.div>
-          </AnimatePresence>
-        </MainChoiceContainer>
+        <ChoiceTitleContainer navTop={navTop}>
+          <HeroTitle>{titleSvg}</HeroTitle>
+        </ChoiceTitleContainer>
         <ChoiceNav navTop={navTop}>
           <AnimateSharedLayout>
             <ChoiceList>
@@ -63,9 +53,19 @@ const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = ({
             </ChoiceList>
           </AnimateSharedLayout>
         </ChoiceNav>
-        <ChoiceTitleContainer navTop={navTop}>
-          <HeroTitle>{titleSvg}</HeroTitle>
-        </ChoiceTitleContainer>
+        <MainChoiceContainer navTop={navTop}>
+          <AnimatePresence exitBeforeEnter>
+            <motion.div
+              key={selectedTab ? selectedTab.label : 'empty'}
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              {selectedTab ? selectedTab.content : ''}
+            </motion.div>
+          </AnimatePresence>
+        </MainChoiceContainer>
       </WrapperWindow>
     </>
   )

@@ -46,17 +46,19 @@ export const FragmentTitleRowSmall = styled.div`
 export const FragmentDivSmall = styled(motion.div)`
   /* position: absolute; */
   align-self: center;
-  ${({ moreColumns }) =>
-    moreColumns ? 'background: none;' : 'background: var(--background-blur1);'};
+  /* background: var(--background1-main) !important; */
+  /* ${({ moreColumns }) =>
+    moreColumns ? 'background: none;' : 'background: var(--background1-main);'};
   ${({ moreColumns }) =>
     moreColumns
       ? 'border: 1px solid var(--background4-main);'
-      : 'border: none;'};
-
+      : 'border: 1px solid var(--background4-main);'}; */
+  border: 1px solid var(--background4-main);
+  background: var(--background-blur1) !important;
   border-radius: 15px;
-  /* background: red; */
-  width: 98%;
-  min-width: 98%;
+  /* background: red !important; */
+  /* width: 98%; */
+  /* min-width: 98%; */
   /* width: 95%; */
   padding: 0.75rem;
   padding-right: 0.25rem;

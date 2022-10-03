@@ -25,7 +25,7 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
     <HeroSecNoSvg>
       <HeroTextContainer>
         {/* <InfoRow imgStart border> */}
-        <InfoRow imgStart>
+        <InfoRow border imgStart>
           <InfoColumnShort imgStart>
             <TextWrapper>
               {' '}

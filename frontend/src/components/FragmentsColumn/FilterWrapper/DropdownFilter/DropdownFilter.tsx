@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../../app/reduxHooks'
 import { sortingOptionEdit } from '../../../../features/preferences/preferenceSlice'
-
 import {
   DropDownContainer,
   DropDownHeader,

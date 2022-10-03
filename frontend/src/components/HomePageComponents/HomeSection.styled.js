@@ -90,10 +90,11 @@ export const HeroWrapperColumn = styled.div`
 export const HeroWrapperRow = styled.div`
   display: flex;
   flex-direction: row;
+  margin-top: 4rem;
 `
 export const HeroTextWrapper = styled.div`
   width: 80%;
-  /* border: 1px solid var(--background5-main); */
+  border: 1px solid var(--background5-main);
   padding: 1rem;
 `
 export const TextWrapperParSimple = styled.div`

@@ -40,7 +40,7 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
   return (
     <SearchResultsSectionWrapper>
       {' '}
-      <SwitchResultWrapper></SwitchResultWrapper>
+      {/* <SwitchResultWrapper></SwitchResultWrapper> */}
       <ProjectMenuTwo wide />
       <MainProjectWrapper>
         {projectName !== '' && (
