@@ -85,7 +85,12 @@ export const HeroTitle = styled.div`
     fill: var(--background1-main);
   }
   @media screen and (max-width: 1051px) {
-    width: 60%;
+    width: 70%;
+    svg {
+      position: relative;
+      top: 20px;
+      left: 70px;
+    }
   }
 `
 export const HeroTitleLeft = styled.div`

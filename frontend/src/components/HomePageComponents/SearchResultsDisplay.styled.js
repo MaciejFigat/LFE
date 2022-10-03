@@ -1,18 +1,36 @@
 import styled from 'styled-components'
 // import { motion } from 'framer-motion'
 
+export const FragmentsTopWrapper = styled.div`
+  position: absolute;
+  display: grid;
+  place-items: center;
+  top: 150px;
+  /* background: lime; */
+`
+export const SearchResultsWrapper = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 250px;
+`
 export const SearchResultsSectionWrapper = styled.div`
+  /* position: relative;
+  top: 200px; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   /* border: 1px solid var(--background4-main); */
   border-radius: 10px;
-  min-width: min(950px, 90vw);
+  min-width: max(950px, 90vw);
   margin-top: 2rem;
   margin-bottom: 2rem;
   min-height: 40vh;
-  @media screen and (min-width: 990px) {
+  @media screen and (max-width: 990px) {
+    /* justify-content: center; */
+    min-width: min(950px, 90vw);
   }
 `
 

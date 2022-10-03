@@ -8,7 +8,7 @@ import HeroThree from '../components/HomePageComponents/HeroThree'
 import { UserInfo } from '../interfaces'
 import SearchResultsDisplay from '../components/HomePageComponents/SearchResultsDisplay'
 import ProjectsDisplay from '../components/HomePageComponents/ProjectsDisplay'
-import ProjectsHomeDisplay from '../components/HomePageComponents/FragmentsDisplay'
+import FragmentsDisplay from '../components/HomePageComponents/FragmentsDisplay'
 
 const Home: React.FC = () => {
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
     },
     {
       label: 'Zapisane fragmenty',
-      content: <ProjectsHomeDisplay />,
+      content: <FragmentsDisplay />,
     },
     {
       label: `Ostatnie wyniki`,
@@ -53,8 +53,7 @@ const Home: React.FC = () => {
       {Object.keys(userInfo).length === 0 && (
         <HomeChoiceWrapper tabs={tabsTutorial} />
       )}
-      {/* {data && data?.length === 0 && <HomeChoiceWrapper tabs={tabsTutorial} />} */}
-      {/* {data && data?.length > 0 && <HomeChoiceWrapper tabs={tabsUser} />} */}
+
       {Object.keys(userInfo).length > 0 && (
         <HomeChoiceWrapper navTop tabs={tabsUser} />
       )}

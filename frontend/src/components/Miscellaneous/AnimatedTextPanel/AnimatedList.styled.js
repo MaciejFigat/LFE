@@ -8,12 +8,25 @@ export const FragmentsWrapper = styled(motion.div)`
   width: 95%;
   ${({ moreColumns }) => moreColumns && 'display: grid;'};
   ${({ moreColumns }) =>
-    moreColumns && 'grid-template-columns: repeat(3, 1fr);'};
+    moreColumns && 'grid-template-columns: repeat(4, 1fr);'};
   ${({ moreColumns }) =>
     moreColumns && 'grid-template-rows: fit-content(40%);'};
   /* moreColumns && 'grid-template-rows: repeat(auto-fill, 300px);'}; */
   ${({ moreColumns }) => moreColumns && 'grid-row-gap: 1.75em;'};
   ${({ moreColumns }) => moreColumns && 'grid-column-gap: 1rem;'};
+  @media (max-width: 1420px) {
+    ${({ moreColumns }) =>
+      moreColumns && 'grid-template-columns: repeat(3, 1fr);'};
+  }
+  @media (max-width: 1220px) {
+    ${({ moreColumns }) =>
+      moreColumns && 'grid-template-columns: repeat(2, 1fr);'};
+  }
+  @media (max-width: 950px) {
+    ${({ moreColumns }) =>
+      moreColumns && 'grid-template-columns: repeat(1, 1fr);'};
+    /* width: 75%; */
+  }
 `
 export const ListWrapper = styled(motion.ul)`
   display: flex;

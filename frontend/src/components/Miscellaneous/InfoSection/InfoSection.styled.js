@@ -223,9 +223,7 @@ export const HomeContentWrapper = styled.div`
 export const CenterWrapper = styled.div`
   display: flex;
   /* background: var(--background-blur1); */
-
   width: 100%;
-
   justify-content: center;
 `
 export const CenterWrapperSimple = styled(CenterWrapper)`

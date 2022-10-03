@@ -15,7 +15,10 @@ import {
   SearchInputResultDisplay,
 } from '../Miscellaneous/SearchBar/SearchFilter.styled'
 import SwitchButton from '../Miscellaneous/SearchBar/SwitchButton'
-import { SearchResultsSectionWrapper } from './SearchResultsDisplay.styled'
+import {
+  SearchResultsSectionWrapper,
+  SearchResultsWrapper,
+} from './SearchResultsDisplay.styled'
 interface SearchResultsDisplayProps {}
 
 const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
@@ -169,30 +172,33 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
               </SwitchResultContainer>
             </SwitchButtonWrapper>
           </SwitchResultWrapper>
-          <Pagination />
+          {/* <SearchResultsWrapper> */}
+          <SearchResultsWrapper>
+            <Pagination />
+            {data
+              .slice(start, end + 1)
+
+              .filter(
+                (dataSliced: any) =>
+                  helperFragmentSourceFilter().indexOf(dataSliced.typSadu) > -1
+              )
+              .map((fragmentArray: any) => (
+                <DataSection
+                  highlightQuery={highlightQuery}
+                  variant='secondary'
+                  key={fragmentArray['uuid']}
+                  paddingTop='small'
+                  imgStart
+                  fragmentsFound={fragmentArray.fragment}
+                  metryka={fragmentArray.metryka}
+                  istota_interpretacji={fragmentArray.istota_interpretacji}
+                  query={queryTrimmed}
+                />
+              ))}
+          </SearchResultsWrapper>
         </SearchResultsSectionWrapper>
       )}
       {/* slice method returns shallow copy of the part between start and end - end not included, hence +1  */}
-      {data
-        .slice(start, end + 1)
-
-        .filter(
-          (dataSliced: any) =>
-            helperFragmentSourceFilter().indexOf(dataSliced.typSadu) > -1
-        )
-        .map((fragmentArray: any) => (
-          <DataSection
-            highlightQuery={highlightQuery}
-            variant='secondary'
-            key={fragmentArray['uuid']}
-            paddingTop='large'
-            imgStart
-            fragmentsFound={fragmentArray.fragment}
-            metryka={fragmentArray.metryka}
-            istota_interpretacji={fragmentArray.istota_interpretacji}
-            query={queryTrimmed}
-          />
-        ))}
     </>
   )
 }

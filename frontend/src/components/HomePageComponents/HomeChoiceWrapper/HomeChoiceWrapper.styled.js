@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 export const WrapperWindow = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 90vh;
   border-radius: 10px;
   color: var(--background5-main);
@@ -14,7 +16,7 @@ export const ChoiceTitleContainer = styled.div`
   max-width: fit-content;
   /* top: -90%; */
   /* ${({ navTop }) => (navTop ? 'left:35%;' : 'left: 2rem;')} */
-  left: 35%;
+  /* left: 35%; */
 `
 export const ChoiceNav = styled.nav`
   /* ${({ navTop }) => (navTop ? 'position: absolute;' : 'position: relative;')}
@@ -55,13 +57,12 @@ export const ChoiceNav = styled.nav`
 `
 
 export const MainChoiceContainer = styled.main`
+  position: relative;
   display: flex;
   justify-content: center;
   ${({ navTop }) =>
     navTop ? 'align-items: flex-start;' : 'align-items: center;'};
-
-  position: relative;
-  ${({ navTop }) => (navTop ? 'top: 80px;' : 'top: 0;')};
+  ${({ navTop }) => (navTop ? 'top: 100px;' : 'top: 0;')};
   flex-grow: 1;
 `
 export const MainChoiceBackground = styled.div`
