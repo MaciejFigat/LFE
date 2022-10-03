@@ -31,13 +31,14 @@ export const ChoiceNav = styled.nav`
   border-radius: 10px;
   height: 3rem;
   font-size: 1.2rem;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  /* border-bottom-left-radius: 0; */
   /* border-bottom-right-radius: 0; */
-  ${({ navTop }) =>
-    navTop ? 'background: none;' : 'background: var(--background-blur1);'}
-  ${({ navTop }) =>
-    navTop ? 'border: 1px solid var(--background4-main);' : 'border: none;'}
+  /* border-bottom-right-radius: 0; */
+  /* ${({ navTop }) =>
+    navTop ? 'background: none;' : 'background: var(--background-blur1);'} */
+  background: var(--background-blur1);
+  /* ${({ navTop }) =>
+    navTop ? 'border: 1px solid var(--background4-main);' : 'border: none;'} */
   /* border-bottom: none; */
   @media screen and (max-width: 1391px) {
     font-size: 1.1rem;
@@ -76,7 +77,8 @@ export const ChoiceList = styled.ul`
   padding: 0;
   margin: 0;
   .selected {
-    background: var(--background-blur2);
+    transition: 0.3s;
+    background: var(--background-blur1);
   }
 `
 // export const ChoiceItem = styled.li`
@@ -100,13 +102,14 @@ export const ChoiceItem = styled.div`
   user-select: none;
   padding: 0;
   margin: 0;
+  transition: 0.3s;
   .underOn {
     position: absolute;
     bottom: -1px;
     left: 0;
     right: 0;
     height: 2px;
-    background: var(--background-secondary3);
+    background: var(--background3-main);
   }
   .underOff {
     position: absolute;
@@ -123,5 +126,5 @@ export const ChoiceUnderline = styled(motion.div)`
   left: 0;
   right: 0;
   height: 5px;
-  background: var(--background-secondary3);
+  background: var(--background4-main);
 `
