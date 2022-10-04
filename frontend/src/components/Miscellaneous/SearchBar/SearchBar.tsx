@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
-import { useAppDispatch } from '../../../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
 import {
   getSearchResults,
@@ -12,7 +12,10 @@ import {
   SearchBarForm,
   SearchBarWrapper,
   SearchInput,
+  SpinnerWrapperSearch,
 } from './SearchBar.styled'
+import SvgIcon from '../SvgIcon/SvgIcon'
+import { ThreeDots } from 'react-loader-spinner'
 
 interface SearchBarProps {
   isOpen: boolean
@@ -32,6 +35,10 @@ const SearchBar: React.FC<SearchBarProps> = ({
   take,
 }) => {
   const dispatch = useAppDispatch()
+
+  const loadingResults: any = useAppSelector(
+    (state) => state.searchResult.loading
+  )
   let navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState<string>('')
 
@@ -58,6 +65,31 @@ const SearchBar: React.FC<SearchBarProps> = ({
   return (
     <SearchBarWrapper>
       <SearchBarForm onSubmit={submitHandler}>
+        <SearchBarButton
+          className={`${isOpen === true ? 'show' : 'hide'} `}
+          type='submit'
+        >
+          {loadingResults === false ? (
+            <SvgIcon
+              variant={isOpen ? 'searchPlus' : 'search'}
+              toBottom
+              contentAfter={'wyszukaj'}
+              // contentAfter={
+              //   isOpen ? 'zaawansowane wyszukiwanie' : 'wyszukiwanie'
+              // }
+              // showContent={isOpen ? true : false}
+            />
+          ) : (
+            <SpinnerWrapperSearch>
+              <ThreeDots
+                height='22'
+                width='22'
+                color='var(--background3-main)'
+                ariaLabel='loading'
+              />
+            </SpinnerWrapperSearch>
+          )}
+        </SearchBarButton>
         <SearchBarContainer>
           <SearchInput
             type='search'
@@ -68,13 +100,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
             onChange={(e: any) => setSearchQuery(e.target.value)}
           />
         </SearchBarContainer>
-        <SearchBarButton
-          className={`${isOpen === true ? 'show' : 'hide'} `}
-          type='submit'
-        >
-          {/* Szukaj */}
-          Znajdź
-        </SearchBarButton>
       </SearchBarForm>
     </SearchBarWrapper>
   )

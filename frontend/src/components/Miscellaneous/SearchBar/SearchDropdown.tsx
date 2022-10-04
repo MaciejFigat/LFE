@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
-import { ThreeDots } from 'react-loader-spinner'
+import { useAppDispatch } from '../../../app/reduxHooks'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import { highlightQueryEdit } from '../../../features/preferences/preferenceSlice'
 import DatePicker, { registerLocale } from 'react-datepicker'
@@ -9,7 +8,6 @@ import 'react-datepicker/dist/react-datepicker.css'
 import {
   DropDownDateContainer,
   SetTakeButton,
-  SpinnerWrapperSearch,
   SwitchDivContainer,
   SwitchDivContainerNarrow,
   SwitchSectionWrapper,
@@ -43,9 +41,6 @@ interface NavDropdownProps {
 const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   const dispatch = useAppDispatch()
 
-  const loadingResults: any = useAppSelector(
-    (state) => state.searchResult.loading
-  )
   const [searchQuery, setSearchQuery] = useState<string>('')
 
   //todo
@@ -83,25 +78,6 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
       <DropDownContainer>
         <DropDownHeader>
           {' '}
-          {loadingResults === false ? (
-            <DropdownIconWrapper onClick={toggling}>
-              <SvgIcon
-                variant={isOpen ? 'search' : 'searchPlus'}
-                toBottom
-                contentAfter={isOpen ? 'close' : 'advanced'}
-                showContent={isOpen ? true : false}
-              />
-            </DropdownIconWrapper>
-          ) : (
-            <SpinnerWrapperSearch>
-              <ThreeDots
-                height='22'
-                width='22'
-                color='var(--background-neon5)'
-                ariaLabel='loading'
-              />
-            </SpinnerWrapperSearch>
-          )}
           <SearchBar
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
@@ -111,6 +87,15 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
             skip={skip}
             take={take}
           />
+          <DropdownIconWrapper onClick={toggling}>
+            <SvgIcon
+              variant={isOpen ? 'minus' : 'moreOptions'}
+              toBottom
+              // contentAfter={isOpen ? 'close' : 'advanced'}
+              contentAfter={isOpen ? 'zamknij' : 'opcje'}
+              showContent={isOpen ? true : false}
+            />
+          </DropdownIconWrapper>
         </DropDownHeader>
 
         {isOpen && (

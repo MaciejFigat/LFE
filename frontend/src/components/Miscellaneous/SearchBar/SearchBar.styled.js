@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 export const SearchBarWrapper = styled.div`
   display: flex;
   align-self: center;
-  color: var(--background5-main);
+  /* color: var(--background5-main); */
   z-index: 10;
   gap: 0.75rem;
   background: transparent;
@@ -31,24 +31,26 @@ export const SearchBarWrapper = styled.div`
 `
 
 export const SearchBarButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   outline: none;
   border: none;
   cursor: pointer;
   background: transparent;
-  align-items: center;
   font-size: 1rem;
   font-weight: 700;
   /* color: var(--background3-main); */
-  background: var(--background2-main);
+  /* background: var(--background2-main); */
   border: 1px solid transparent;
   border-radius: 10px;
   margin-left: 0.5rem;
   &:hover {
     /* transition: all 0.7s ease-out; */
-    border: 1px solid var(--background2-main);
+    /* border: 1px solid var(--background2-main); */
   }
   &:active {
-    border: 1px solid var(--background3-main);
+    /* border: 1px solid var(--background3-main); */
   }
   @media (max-width: 420px) {
     font-size: 0.7rem;
@@ -99,6 +101,14 @@ export const DropDownContainer = styled.div`
 export const DropdownIconWrapper = styled.div`
   display: grid;
   place-items: center;
+
+  svg {
+    color: var(--background2-main);
+
+    &:hover {
+      color: var(--background3-main);
+    }
+  }
 `
 export const DropDownHeader = styled.div`
   display: flex;
@@ -114,7 +124,7 @@ export const DropDownHeader = styled.div`
 `
 export const DropDownListContainer = styled.div`
   position: relative;
-  left: 10px;
+  left: 70px;
   top: 15px;
   z-index: 10;
   /* background: var(--background-blur1); */

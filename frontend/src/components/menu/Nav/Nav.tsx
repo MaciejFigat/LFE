@@ -51,14 +51,12 @@ const Nav: React.FC<NavProps> = () => {
       }
     } else if (scroll.y <= 200 && scrollDirection !== 'top') {
       setScrollDirection('top')
-      // console.log('top ')
     } else if (
       scroll.y > 700 &&
       scroll.y - scroll.lastY < 0 &&
       scrollDirection !== 'up'
     ) {
       setScrollDirection('up')
-      // console.log('up scrolling')
     }
 
     //todo if (scroll.y <= 300)
