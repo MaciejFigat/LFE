@@ -65,8 +65,8 @@ const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
                   <>projekty</>
                 )}
               </NavLink>
-              <DropDownHeader onClick={toggling}>
-                <SvgIcon variant='arrow' noContent />
+              <DropDownHeader grey onClick={toggling}>
+                <SvgIcon variant={isOpen ? 'minus' : 'moreOptions'} noContent />
               </DropDownHeader>
             </ProjectDropDownWrapper>
           )}

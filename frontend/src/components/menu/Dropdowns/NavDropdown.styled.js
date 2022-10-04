@@ -33,7 +33,16 @@ export const DropDownHeader = styled.div`
   /* background: var(--background1-main); */
   transition: all 0.3s ease-out;
   text-align: center;
-  border: 1px solid var(--background1-main);
+  /* border: 1px solid var(--background1-main); */
+  svg {
+    ${({ grey }) =>
+      grey
+        ? ' color: var(--background2-main);'
+        : 'color: var(--background5-main);'}
+    &:hover {
+      ${({ grey }) => grey && 'color: var(--background3-main);'}
+    }
+  }
   /* &:hover {
     color: var(--background-secondary2);
   } */
