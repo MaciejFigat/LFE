@@ -7,10 +7,10 @@ export const FragmentsContainerSimple = styled.div`
   min-height: 100vh;
 `
 export const FragmentContainer = styled.div`
-  ${({ moreColumns }) =>
-    moreColumns
-      ? 'border: none;'
-      : 'border-bottom: 1px solid var(--background2-main);'};
+  ${({ borderBottom }) =>
+    borderBottom
+      ? 'border-bottom: 1px solid var(--background2-main);'
+      : 'border: none;'};
 `
 export const FragmentsP = styled.p`
   color: var(--background4-main);

@@ -5,14 +5,19 @@ import { motion } from 'framer-motion'
 import {
   ListWrapper,
   ItemWrapper,
+  FragmentsWrapper,
 } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
 
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import AnimatedSavedItemSimple from '../Miscellaneous/AnimatedTextPanel/AnimatedSavedItemSimple'
 
-interface UserFragmentsByKeywordProps {}
+interface UserFragmentsByKeywordProps {
+  moreColumns?: boolean
+}
 
-const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = () => {
+const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = ({
+  moreColumns,
+}) => {
   const dispatch: any = useAppDispatch()
 
   const fragmentsKeywordMain: any[] = useAppSelector(
@@ -31,7 +36,7 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = () => {
   }, [dispatch, fragmentSuccess])
 
   return (
-    <>
+    <FragmentsWrapper moreColumns={moreColumns}>
       {fragmentsKeywordMain.length > 0 &&
         fragmentsKeywordMain
           .map((fragment) => (
@@ -43,7 +48,10 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = () => {
               exit={{ opacity: 0 }}
             >
               {fragment.excerpt !== '' && (
-                <FragmentContainer key={fragment.title}>
+                <FragmentContainer
+                  key={fragment.title}
+                  moreColumns={moreColumns}
+                >
                   <ItemWrapper>
                     <AnimatedSavedItemSimple
                       id={fragment._id}
@@ -62,7 +70,7 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = () => {
             </ListWrapper>
           ))
           .reverse()}{' '}
-    </>
+    </FragmentsWrapper>
   )
 }
 export default UserFragmentsByKeyword

@@ -44,7 +44,7 @@ const FragmentsDisplay: React.FC<FragmentsDisplayProps> = () => {
         )}
         {showFragmentsState && sortingOption === 'keyword' && (
           <FragmentsTopWrapper>
-            <UserFragmentsByKeyword />
+            <UserFragmentsByKeyword moreColumns />
           </FragmentsTopWrapper>
         )}
       </SearchResultsSectionWrapper>

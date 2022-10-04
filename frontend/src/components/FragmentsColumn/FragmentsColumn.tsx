@@ -39,17 +39,9 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
               exit={{ opacity: 0 }}
             >
               {citation.excerpt !== '' && (
-                <FragmentContainer key={citation.title}>
+                <FragmentContainer key={citation.title} borderBottom>
                   <ItemWrapper>
                     {' '}
-                    {/* <AnimatedItem
-                      id={citation.id}
-                      title={citation.title}
-                      description={citation.description}
-                      source={citation.source}
-                      excerpt={citation.excerpt}
-                      coordinates={citation.coordinates}
-                    ></AnimatedItem> */}
                     <HorizontalContainer>
                       <FragmentsP>Przykład nr {index + 1}</FragmentsP>
                       <SendButtonVerySmall
