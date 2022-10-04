@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react'
-import { useAppDispatch } from '../../../app/reduxHooks'
+// import { useAppDispatch } from '../../../app/reduxHooks'
 import SvgIcon from '../SvgIcon/SvgIcon'
-import { highlightQueryEdit } from '../../../features/preferences/preferenceSlice'
+// import { highlightQueryEdit } from '../../../features/preferences/preferenceSlice'
 import DatePicker, { registerLocale } from 'react-datepicker'
 import pl from 'date-fns/locale/pl'
 import 'react-datepicker/dist/react-datepicker.css'
 import {
   DropDownDateContainer,
   SetTakeButton,
-  SwitchDivContainer,
+  // SwitchDivContainer,
   SwitchDivContainerNarrow,
   SwitchSectionWrapper,
-  SwitchText,
+  // SwitchText,
 } from './SearchBar.styled'
-import {
-  SearchBarButton,
-  SearchBarForm,
-  SearchInput,
-} from './SearchFilter.styled'
+// import {
+//   SearchBarButton,
+//   SearchBarForm,
+//   SearchInput,
+// } from './SearchFilter.styled'
 import {
   DropDownContainer,
   DropDownHeader,
@@ -29,7 +29,7 @@ import {
 } from './SearchBar.styled'
 import SearchBar from './SearchBar'
 import { DatePickerButton } from './DatePicker.styled'
-import SwitchButton from './SwitchButton'
+// import SwitchButton from './SwitchButton'
 
 registerLocale('pl', pl) //* registers locale for me to use it with DatePicker
 
@@ -39,7 +39,7 @@ interface NavDropdownProps {
 }
 
 const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
-  const dispatch = useAppDispatch()
+  // const dispatch = useAppDispatch()
 
   const [searchQuery, setSearchQuery] = useState<string>('')
 
@@ -47,11 +47,11 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
   const [isOpen, setIsOpen] = useState(false)
-  const [isOnOne, setIsOnOne] = useState(false)
-  const [isOnTwo, setIsOnTwo] = useState(false)
-  const [isOnThree, setIsOnThree] = useState(false)
+  // const [isOnOne, setIsOnOne] = useState(false)
+  // const [isOnTwo, setIsOnTwo] = useState(false)
+  // const [isOnThree, setIsOnThree] = useState(false)
 
-  const [highlightQuery, setHighlightQuery] = useState<string>('')
+  // const [highlightQuery, setHighlightQuery] = useState<string>('')
 
   const skip: number = 1
   const [take, setTake] = useState<number>(30)
@@ -63,10 +63,10 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
     setIsOpen(!isOpen)
   }
 
-  const highlightHandler = (e: any) => {
-    e.preventDefault()
-    dispatch(highlightQueryEdit(highlightQuery))
-  }
+  // const highlightHandler = (e: any) => {
+  //   e.preventDefault()
+  //   dispatch(highlightQueryEdit(highlightQuery))
+  // }
   useEffect(() => {
     if (scrollDirection === 'down') {
       setIsOpen(false)
@@ -93,7 +93,7 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
               toBottom
               // contentAfter={isOpen ? 'close' : 'advanced'}
               contentAfter={isOpen ? 'zamknij' : 'opcje'}
-              showContent={isOpen ? true : false}
+              // showContent={isOpen ? true : false}
             />
           </DropdownIconWrapper>
         </DropDownHeader>
@@ -127,7 +127,7 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                 </DropDownDateContainer>
               </ListItem>
               <SwitchSectionWrapper>
-                <ListItem>
+                {/* <ListItem>
                   <SearchBarForm onSubmit={highlightHandler}>
                     <SearchInput
                       type='highlight'
@@ -139,7 +139,7 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                     />{' '}
                     <SearchBarButton type='submit'>Highlight</SearchBarButton>
                   </SearchBarForm>
-                </ListItem>
+                </ListItem> */}
                 <ListItem>
                   <SwitchDivContainerNarrow>
                     <b>Ilość wyników:</b>
@@ -195,7 +195,7 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                   </SwitchDivContainerNarrow>
                 </ListItem>
               </SwitchSectionWrapper>
-              <SwitchSectionWrapper>
+              {/* <SwitchSectionWrapper>
                 <ListItem>
                   <SwitchDivContainer>
                     <SwitchButton
@@ -229,7 +229,7 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                     <SwitchText isOn={isOnThree}>Minister Finansów</SwitchText>
                   </SwitchDivContainer>
                 </ListItem>
-              </SwitchSectionWrapper>
+              </SwitchSectionWrapper> */}
             </DropDownList>
           </DropDownListContainer>
         )}

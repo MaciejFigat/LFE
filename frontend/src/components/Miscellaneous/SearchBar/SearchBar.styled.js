@@ -126,6 +126,7 @@ export const DropDownListContainer = styled.div`
   position: relative;
   left: 70px;
   top: 15px;
+  user-select: none;
   z-index: 10;
   /* background: var(--background-blur1); */
   background: var(--background1-main);

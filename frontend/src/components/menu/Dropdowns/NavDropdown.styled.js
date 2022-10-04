@@ -13,7 +13,7 @@ export const ProjectDropDownWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
-  width: 120px;
+  /* width: 120px; */
   /* align-items: center; */
   font-size: 0.75rem;
   @media (max-width: 1020px) {
