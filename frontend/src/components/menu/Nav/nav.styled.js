@@ -245,11 +245,8 @@ export const HeaderTitleMobile = styled.h1`
 `
 
 export const WrapperDesktopOnly = styled.div`
-  /* //!brute forcing position for searchDropdown*/
-  margin-top: 0.85rem;
-
-  justify-content: center;
-
+  display: grid;
+  place-items: center;
   @media (max-width: 1020px) {
     display: none;
     font-size: 1.25rem;

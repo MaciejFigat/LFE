@@ -88,7 +88,7 @@ const Nav: React.FC<NavProps> = () => {
           scrollDirection === 'top' ? 'top' : ''
         } ${open === true ? 'open' : ''}`}
       >
-        <WrapperDesktopOnly>
+        <WrapperDesktopOnly className='testing'>
           <SearchDropdown scrollDirection={scrollDirection} />
         </WrapperDesktopOnly>
 

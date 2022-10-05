@@ -89,13 +89,14 @@ export const SpinnerWrapperSearch = styled.div`
 /*//! SearchDropdown */
 
 export const Main = styled.div`
+  max-height: 38px;
   @media (max-width: 1020px) {
     font-size: 1.25rem;
   }
 `
 export const DropDownContainer = styled.div`
   min-width: min-content;
-  margin: 0 auto;
+  margin: 0;
 `
 
 export const DropdownIconWrapper = styled.div`
@@ -114,10 +115,11 @@ export const DropDownHeader = styled.div`
   display: flex;
   font-weight: 500;
   font-size: 0.9rem;
-  color: var(--background5-main);
+  color: var(--background4-main);
   transition: all 0.3s ease-out;
   text-align: center;
-  border: 1px solid var(--background1-main);
+
+  padding: 4px 0px 4px;
   &:hover {
     color: var(--background-secondary2);
   }
@@ -130,7 +132,7 @@ export const DropDownListContainer = styled.div`
   z-index: 10;
   /* background: var(--background-blur1); */
   background: var(--background1-main);
-  border: 1px solid var(--background5-main);
+  border: 1px solid var(--background2-main);
   width: 250px;
   padding: 0.5rem;
   /* backdrop-filter: blur(8px); */
@@ -260,7 +262,8 @@ export const SetTakeButton = styled.button`
   background-color: ${({ buttonActive }) =>
     buttonActive ? 'var(--background4-main)' : 'transparent'};
   /* margin-left: 0.5rem; */
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin: 0;
   &:hover {
     /* transition: all 0.7s ease-out; */
     /* border: 1px solid var(--background-secondary2); */

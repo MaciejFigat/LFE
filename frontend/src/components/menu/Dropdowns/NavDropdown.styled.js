@@ -54,10 +54,13 @@ export const DropDownHeader = styled.div`
 `
 export const DropDownListContainer = styled.div`
   position: absolute;
+  /* position: relative; */
   display: grid;
   place-items: center;
   z-index: 10;
-  background: var(--background-blur1);
+  /* background: var(--background-blur1); */
+  background: var(--background1-main);
+  border: 1px solid var(--background2-main);
   /* background: none; */
   padding: 0;
   width: 120px;
@@ -65,8 +68,9 @@ export const DropDownListContainer = styled.div`
   /* backdrop-filter: blur(8px); */
   /* -webkit-backdrop-filter: blur(8px); */
   border-radius: 10px;
+  top: 60px;
   right: 20%;
-
+  /* background: none; */
   @media (max-width: 1020px) {
     width: 110px;
     right: 50px;
