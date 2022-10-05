@@ -12,6 +12,8 @@ export const DropDownContainer = styled.div`
 export const ProjectDropDownWrapper = styled.div`
   display: flex;
   flex-direction: row;
+
+  width: 154px;
   gap: 0.5rem;
   /* width: 120px; */
   /* align-items: center; */

@@ -32,18 +32,20 @@ export const ChoiceNav = styled.nav`
   left: 20%;
   border-radius: 10px;
   height: 3rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   /* border-bottom-left-radius: 0; */
   /* border-bottom-right-radius: 0; */
   /* border-bottom-right-radius: 0; */
   /* ${({ navTop }) =>
     navTop ? 'background: none;' : 'background: var(--background-blur1);'} */
-  background: var(--background-blur1);
+  /* background: var(--background-blur1); */
+  /* background: red; */
+  border: 1px solid var(--background2-main);
   /* ${({ navTop }) =>
     navTop ? 'border: 1px solid var(--background4-main);' : 'border: none;'} */
   /* border-bottom: none; */
   @media screen and (max-width: 1391px) {
-    font-size: 1.1rem;
+    font-size: 1rem;
 
     /* ${({ navTop }) => (navTop ? 'max-width: 90%;' : 'max-width: 60%;')}; */
   }
