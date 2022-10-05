@@ -8,17 +8,17 @@ export const DropDownContainer = styled.div`
 `
 
 export const DropDownHeader = styled(motion.div)`
-  /* margin-bottom: 0.8em; */
   cursor: pointer;
-  /* min-width: 80%; */
-  max-width: 80%;
+  user-select: none;
+  min-width: 129px;
+  min-height: 20.5px;
   /* margin: 0; */
-  padding: 0.4rem 1rem 0.4rem 1rem;
-  /* box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15); */
+  padding: 0.48rem 1rem 0.48rem 1rem;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--background5-main);
-  border-bottom: 1px solid var(--background5-main);
+  /* border-bottom: 1px solid var(--background5-main); */
   /* background: var(--background1-main); */
   transition: all 0.3s ease-out;
   text-align: center;
@@ -32,9 +32,10 @@ export const DropDownListContainer = styled.div`
 export const DropDownList = styled.div`
   //todo
   position: relative;
+  top: -1px;
+  user-select: none;
   z-index: 2;
   /* left: 10px; */
-  top: -1px;
   padding: 0;
   margin: 0;
   padding-left: 1rem;
@@ -79,23 +80,25 @@ export const HorizontalButtonContainer = styled(motion.div)`
   margin-bottom: 0;
 `
 export const HeaderAndCogContainer = styled(HorizontalButtonContainer)`
-  min-width: 280px;
-  width: 80%;
-  justify-content: space-between;
+  min-width: 232px;
+  /* background: red; */
+  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 `
 export const TitleInputMainKeyword = styled(motion.input)`
   color: var(--background4-main);
   text-align: center;
   height: 22px;
-  padding: 0.4rem 1rem 0.4rem 1rem;
+  padding: 0.4rem 0.25rem 0.4rem 0.25rem;
   margin: 0;
   line-height: normal;
   background: transparent;
   outline: 0;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid var(--background3-main);
+  max-width: 153px;
+  border-bottom: 1px solid var(--background4-main);
   &:focus {
     border: none;
     outline: 0;
@@ -107,16 +110,17 @@ export const OptionsDropdownContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
+  user-select: none;
   padding-right: 1rem;
   padding-left: 1rem;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  height: 3.3rem;
+  height: 3.7rem;
   left: 10px;
   top: 15px;
   z-index: 10;
-  background: var(--background2-main);
+  background: var(--background1-main);
   width: 250px;
   border: 1px solid var(--background4-main);
 

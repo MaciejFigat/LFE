@@ -8,6 +8,8 @@ export const IconsItem = styled.div`
   padding: 0;
   font-size: 1em;
   display: flex;
+  ${({ lowerPosition }) => lowerPosition && 'position: relative;'}
+  ${({ lowerPosition }) => lowerPosition && 'top: 4px;'}
   justify-content: center;
   align-items: center;
   flex-direction: column;

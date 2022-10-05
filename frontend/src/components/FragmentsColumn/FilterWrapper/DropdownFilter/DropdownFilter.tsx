@@ -39,9 +39,9 @@ const DropdownFilter: React.FC<DropdownFilterProps> = ({ options }) => {
       <Main>
         <DropDownContainer>
           <DropDownHeader onClick={toggling}>
-            {sortingOption === 'all'
-              ? `Show ${selectedOption}`
-              : `Sort by: ${selectedOption}`}
+            {sortingOption === 'wszystkie'
+              ? `Pokaż ${selectedOption}`
+              : `Sortowanie: ${selectedOption}`}
           </DropDownHeader>
           {isOpen && (
             <DropDownListContainer>

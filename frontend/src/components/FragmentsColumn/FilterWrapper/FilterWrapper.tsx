@@ -7,7 +7,7 @@ import DropdownFilter from './DropdownFilter/DropdownFilter'
 import { FilterOptionsWrapper } from './FilterWrapper.styled'
 
 interface FilterWrapperProps {}
-const optionsTest = ['date', 'keyword', 'all']
+const optionsTest = ['data', 'projekt', 'wszystkie']
 const FilterWrapper: React.FC<FilterWrapperProps> = () => {
   const sortingOption: string = useAppSelector(
     (state) => state.preference.sortingOption
@@ -15,9 +15,9 @@ const FilterWrapper: React.FC<FilterWrapperProps> = () => {
   return (
     <FilterOptionsWrapper>
       <DropdownFilter options={optionsTest} />
-      {sortingOption === 'date' && <DateCompare />}
-      {sortingOption === 'keyword' && <SelectMainKeyword />}
-      {sortingOption === 'all' && <FragmentsPagination narrow />}
+      {sortingOption === 'data' && <DateCompare />}
+      {sortingOption === 'projekt' && <SelectMainKeyword />}
+      {sortingOption === 'wszystkie' && <FragmentsPagination narrow />}
     </FilterOptionsWrapper>
   )
 }

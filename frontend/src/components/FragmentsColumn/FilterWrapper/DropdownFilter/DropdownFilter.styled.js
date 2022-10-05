@@ -11,6 +11,7 @@ export const DropDownContainer = styled.div`
 
 export const DropDownHeader = styled.div`
   margin-bottom: 0.25em;
+  user-select: none;
   padding: 0.2rem 0.4rem 0.2rem 0.5rem;
   font-weight: 500;
   font-size: 0.9rem;

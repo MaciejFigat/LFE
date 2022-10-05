@@ -41,6 +41,7 @@ export const ChoiceNav = styled.nav`
   /* background: var(--background-blur1); */
   /* background: red; */
   border: 1px solid var(--background2-main);
+  color: var(--background2-main);
   /* ${({ navTop }) =>
     navTop ? 'border: 1px solid var(--background4-main);' : 'border: none;'} */
   /* border-bottom: none; */
@@ -82,6 +83,7 @@ export const ChoiceList = styled.ul`
   .selected {
     transition: 0.3s;
     background: var(--background-blur1);
+    color: var(--background5-main);
   }
 `
 // export const ChoiceItem = styled.li`

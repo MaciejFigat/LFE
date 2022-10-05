@@ -213,7 +213,6 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                 type='mainLabel'
                 name='main label'
                 placeholder='new project'
-                // placeholder={newKeyword}
                 value={newKeyword}
                 onChange={(e: any) => setNewKeyword(e.target.value)}
               />
@@ -232,39 +231,33 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               variant='secondaryEmpty'
-              // onClick={editingHandler}
               onClick={togglingOptions}
             >
-              <SvgIcon variant='cog' toBottom contentAfter='opcje' />
+              <SvgIcon
+                variant='cog'
+                toBottom
+                contentAfter='opcje'
+                lowerPosition
+              />
             </SendButtonVerySmall>
           </HeaderAndCogContainer>
           <DropDownListContainer>
             {optionsOpen && !keywordEditing && !keywordCreation && (
               <OptionsDropdownContainer>
                 <SendButtonVerySmall
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
                   variant='successEmpty'
                   onClick={editingNewHandler}
                 >
                   <SvgIcon variant='plus' toBottom contentAfter='dodaj nowy' />
                 </SendButtonVerySmall>
-                {/* {selectedMainKeyword && ( */}
                 <SendButtonVerySmall
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
                   variant='primaryEmpty'
                   onClick={editingHandler}
                 >
                   <SvgIcon variant='edit' toBottom contentAfter='edytuj' />
                 </SendButtonVerySmall>
-                {/* )} */}
+
                 <SendButtonVerySmall
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
                   variant='dangerEmpty'
                   onClick={removeKeywordHelperUltimate}
                 >
@@ -307,12 +300,6 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
               </OptionsDropdownContainer>
             )}
           </DropDownListContainer>
-          {/* <button onClick={removeKeywordHelper}>
-            Remove fragment (k === 2)
-          </button>
-          <button onClick={removeKeywordHelperTwo}>
-            Remove keyword from keyword:[]
-          </button> */}
 
           {isOpen && (
             <DropDownListContainer>
@@ -325,9 +312,6 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                     {keyword}
                   </ListItem>
                 ))}
-                {/* <ListItem onClick={onOptionClicked('')} key={Math.random()}>
-                  new project
-                </ListItem> */}
               </DropDownList>
             </DropDownListContainer>
           )}

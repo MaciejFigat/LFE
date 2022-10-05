@@ -239,14 +239,14 @@ const DateCompare: React.FC<DateCompareProps> = () => {
           sortingMonth !== new Date().getMonth() + 1 ||
           sortingDay !== new Date().getDate()) && (
           <SendButtonVerySmall variant='primaryEmpty' onClick={handleSetToday}>
-            Today
+            Dzisiejsza sesja
           </SendButtonVerySmall>
         )}
         <SendButtonVerySmall
           variant='primaryEmpty'
           onClick={handleSetLastSession}
         >
-          Last session
+          Ostatnia sesja
         </SendButtonVerySmall>
       </DateCompareRow>
     </DateCompareWrapper>

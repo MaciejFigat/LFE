@@ -3,12 +3,13 @@ import styled from 'styled-components'
 export const FilterOptionsWrapper = styled.div`
   /* background: rgba(60, 59, 61, 0.35); */
   /* background: var(--background-blur1); */
-  background: var(--background2-main);
+  background: var(--background1-main);
+  border: 1px solid var(--background2-main);
   /* backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px); */
   border-radius: 10px;
   max-width: fit-content;
-  min-width: 200px;
+  min-width: 250px;
   min-height: 94px;
   padding-top: 0.25rem;
 `
