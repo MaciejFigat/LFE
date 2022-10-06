@@ -13,7 +13,7 @@ import {
   Subtitle,
   TextWrapper,
   TextWrapperParSimple,
-  TopLine,
+  // TopLine,
 } from './HomeSection.styled'
 
 interface HeroOneProps {}
@@ -38,10 +38,13 @@ const HeroOne: React.FC<HeroOneProps> = () => {
             {' '}
             <TextWrapper>
               {/* <HeroTitleLeft>{titleOneSvg}</HeroTitleLeft>{' '} */}
-              <HeroTitleLeft>Precyzyjne wyszukiwanie</HeroTitleLeft>{' '}
-              <TopLine variant={variant}>
+              <HeroTitleLeft>
+                {' '}
                 Jak uzyskujemy precyzję wyszukiwania?
-              </TopLine>
+              </HeroTitleLeft>{' '}
+              {/* <TopLine variant={variant}>
+              
+              </TopLine> */}
               <p>
                 {' '}
                 Nasz system wykorzystuje algorytmy AI. Daje on pierwszeństwo
