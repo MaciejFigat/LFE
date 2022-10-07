@@ -2,22 +2,24 @@ import styled from 'styled-components'
 // import { motion } from 'framer-motion'
 
 export const FragmentsTopWrapper = styled.div`
-  position: absolute;
+  /* position: absolute; */
   display: grid;
   place-items: center;
-  top: 150px;
+  /* top: 150px; */
   /* background: lime; */
 `
 export const SearchResultsWrapper = styled.div`
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: 250px;
+  /* top: 250px; */
+  /* background: lime; */
 `
 export const SearchResultsSectionWrapper = styled.div`
   /* position: relative;
   top: 200px; */
+  background: lime;
   display: flex;
   flex-direction: column;
   align-items: center;

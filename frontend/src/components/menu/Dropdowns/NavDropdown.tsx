@@ -48,7 +48,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
           {Object.keys(userInfo).length > 0 ? (
             <DropDownHeader onClick={toggling}>
               {' '}
-              <SvgIcon variant='cog' contentAfter='settings' />
+              <SvgIcon variant='cog' contentAfter='ustawienia' toBottom />
             </DropDownHeader>
           ) : (
             <DropDownHeader>
@@ -60,7 +60,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                 }
               >
                 {' '}
-                <SvgIcon variant='login' contentAfter='login' />
+                <SvgIcon variant='login' contentAfter='login' toBottom />
               </NavLink>
             </DropDownHeader>
           )}

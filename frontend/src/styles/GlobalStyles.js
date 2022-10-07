@@ -9,10 +9,13 @@ const GlobalStyle = createGlobalStyle`
 }
 html {
   font-size: 100%;
-
+  height: 100%;
+  box-sizing: border-box;
 } 
 
 body {
+    position:relative;
+    min-height: 100%;
     color: var(--background4-main);
     margin: 0;
     padding: 0;
@@ -23,12 +26,11 @@ body {
       // font-family: 'Playfair Display', serif;
       // font-family: 'Atkinson Hyperlegible', sans-serif;
     
-      font-family: 'Quicksand', sans-serif; 
+    font-family: 'Quicksand', sans-serif; 
 }
 
 :root {
-  
-   --padding: 3rem;
+  --padding: 3rem;
  
   
   --background1-main: ${(props) =>
@@ -163,6 +165,12 @@ body {
       align-items: center;
       justify-content: center;
       color: var(--background4-main);
+      @media screen and (max-width: 770px) {
+        font-size: 0.75rem;
+        svg{
+          font-size: 0.75rem;
+        }
+      }
     }
     .nav_link_desktop{
       color: var(--background4-main);

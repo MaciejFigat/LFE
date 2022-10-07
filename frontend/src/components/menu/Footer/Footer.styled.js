@@ -3,6 +3,11 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const FooterContainer = styled.div`
+  /* position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0; */
+
   display: flex;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -39,8 +44,11 @@ export const FooterSectionHeading = styled.p`
 `
 export const FooterSectionText = styled.div`
   color: var(--background4-main);
-  /* margin-bottom: 1.1rem; */
   font-size: 1rem;
+  @media screen and (max-width: 770px) {
+    margin-bottom: 0.75rem;
+    font-size: 0.75rem;
+  }
 `
 
 export const FooterForm = styled.form`
@@ -78,6 +86,7 @@ export const FooterRights = styled.div`
   color: var(--background4-main);
   @media screen and (max-width: 770px) {
     margin-bottom: 18px;
+    font-size: 0.75rem;
   }
 `
 export const SocialIcons = styled.div`
@@ -92,5 +101,8 @@ export const SocialIconLink = styled.a`
   &:hover {
     transition: all 0.3s ease-out;
     color: var(--background3-main);
+  }
+  @media screen and (max-width: 770px) {
+    font-size: 0.95rem;
   }
 `

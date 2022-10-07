@@ -1,8 +1,8 @@
 import React from 'react'
 import {
   FooterContainer,
-  FooterSection,
-  FooterSectionHeading,
+  //   FooterSection,
+  //   FooterSectionHeading,
   FooterSectionText,
   FooterMedia,
   FooterMediaWrapper,
@@ -25,16 +25,17 @@ interface FooterProps {}
 const Footer: React.FC<FooterProps> = () => {
   return (
     <FooterContainer>
-      <FooterSection>
+      {/* <FooterSection>
         <FooterSectionHeading>
           Dokładamy wszelkich starań, aby baza była jak najbardziej aktualna.{' '}
         </FooterSectionHeading>
         <FooterSectionText>Kontakt: adam@turbo-lex.pl</FooterSectionText>
-      </FooterSection>
+      </FooterSection> */}
 
       <FooterMedia>
         <FooterMediaWrapper>
           <FooterRights>TurboLex &copy; 2022</FooterRights>
+          <FooterSectionText>Kontakt: adam@turbo-lex.pl</FooterSectionText>
           <SocialIcons>
             <SocialIconLink
               href='https://www.poetryfoundation.org/play/75764'

@@ -32,6 +32,7 @@ const Home: React.FC = () => {
     {
       label: 'Wyszukane',
       content: <SearchResultsDisplay />,
+      // content: '',
     },
     {
       label: 'Projekty',
@@ -40,6 +41,7 @@ const Home: React.FC = () => {
     {
       label: 'Zapisane fragmenty',
       content: <FragmentsDisplay />,
+      // content: '',
     },
     {
       label: `Ostatnie wyniki`,
@@ -49,14 +51,15 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Toast option='registerUser' />
+      {/* <Toast option='registerUser' />
       {Object.keys(userInfo).length === 0 && (
         <HomeChoiceWrapper tabs={tabsTutorial} />
       )}
 
       {Object.keys(userInfo).length > 0 && (
         <HomeChoiceWrapper navTop tabs={tabsUser} />
-      )}
+      )} */}
+      <SearchResultsDisplay />
     </>
   )
 }

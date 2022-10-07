@@ -88,7 +88,7 @@ const Nav: React.FC<NavProps> = () => {
           scrollDirection === 'top' ? 'top' : ''
         } ${open === true ? 'open' : ''}`}
       >
-        <WrapperDesktopOnly className='testing'>
+        <WrapperDesktopOnly>
           <SearchDropdown scrollDirection={scrollDirection} />
         </WrapperDesktopOnly>
 
@@ -96,7 +96,7 @@ const Nav: React.FC<NavProps> = () => {
           <div onClick={handleClickMenu}>
             <Burger menuOpen={open} />
           </div>
-          <HeaderTitleMobile>
+          <HeaderTitleMobile wide>
             <SearchDropdown scrollDirection={scrollDirection} />
           </HeaderTitleMobile>
           <HeaderTitleMobile>

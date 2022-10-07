@@ -87,6 +87,7 @@ export const NavList = styled.ul`
   height: 100%;
   margin: 0;
   justify-content: space-around;
+  align-items: center;
   padding: 0;
   min-width: 50vw;
   @media (min-width: 1820px) {
@@ -111,6 +112,10 @@ export const NavList = styled.ul`
     margin-top: 1rem;
     padding-bottom: 1.75rem;
     gap: 0.75rem;
+  }
+  @media (max-width: 550px) {
+    justify-content: center;
+    background: red !important;
   }
   @media (max-width: 400px) {
     margin-top: 0rem;
@@ -144,6 +149,9 @@ export const MobileNavList = styled.ul`
   /* min-width: fit-content; */
   /* padding-bottom: 3rem; */
   gap: 0.55rem;
+  @media (max-width: 520px) {
+    gap: 0rem;
+  }
 `
 export const HeaderLoginWrapper = styled.div`
   display: flex;
@@ -196,6 +204,9 @@ export const ListItem = styled(motion.div)`
     @media (max-width: 700px) and (orientation: landscape) {
       font-size: 1.55rem;
     }
+    @media (max-width: 500px) {
+      font-size: 1.15rem;
+    }
   }
 `
 
@@ -216,6 +227,10 @@ export const ListItemMobile = styled.div`
     align-items: center;
     justify-content: center;
     margin-left: 0.5rem;
+  }
+  @media screen and (max-width: 770px) {
+    padding: 0;
+    gap: 0.25rem;
   }
 `
 // TODO here lies the background property of the holy grail. Meaning the container that shows when scrolling top.
@@ -238,9 +253,16 @@ export const HeaderTitleMobile = styled.h1`
   display: none;
 
   max-width: fit-content;
+
   @media (max-width: 1020px) {
-    display: block;
+    /* display: block; */
+    display: grid;
+    place-items: center;
+
     font-size: 1.25rem;
+  }
+  @media (max-width: 600px) {
+    /* ${({ wide }) => (wide ? 'max-width: 100px;' : 'max-width: 40px;')}; */
   }
 `
 
@@ -283,6 +305,9 @@ export const AnimatedWrapperMobile = styled(motion.div)`
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  @media (max-width: 520px) {
+    justify-content: flex-start;
   }
 `
 export const NavListDesktopWrapper = styled.div`

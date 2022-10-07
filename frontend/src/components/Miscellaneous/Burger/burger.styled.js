@@ -11,8 +11,8 @@ export const BurgerWrapper = styled.div`
 export const ButtonBurger = styled.div`
   position: absolute;
   width: 80px;
-  height: 200px;
-  top: 0;
+  height: 55px;
+  top: 8px;
   left: 5px;
   transition-duration: 0.5s;
 `
@@ -24,6 +24,7 @@ export const IconBurger = styled.div`
   top: 20px;
   cursor: pointer;
   background-color: var(--background4-main);
+
   &:before {
     transition-duration: 0.5s;
     position: absolute;

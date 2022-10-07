@@ -4,15 +4,19 @@ import { motion } from 'framer-motion'
 export const WrapperWindow = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  height: 90vh;
+  height: 100vh;
+  /* height: fit-content; */
+  /* min-height: 100vh; */
+  /* max-height: fit-content; */
   border-radius: 10px;
   color: var(--background5-main);
   width: 100%;
+  /* background: lime; */
 `
 export const ChoiceTitleContainer = styled.div`
-  position: relative;
+  /* position: relative; */
   max-width: fit-content;
   /* top: -90%; */
   /* ${({ navTop }) => (navTop ? 'left:35%;' : 'left: 2rem;')} */
@@ -24,8 +28,8 @@ export const ChoiceNav = styled.nav`
   ${({ navTop }) => (navTop ? 'min-width: 60%;' : 'min-width: 40%;')}
   ${({ navTop }) => (navTop ? 'max-width: 80%;' : 'max-width: 40%;')}
   ${({ navTop }) => (navTop ? 'left:20%;' : 'left: 6rem;')} */
-  position: absolute;
-  top: 200px;
+  /* position: absolute; */
+  /* top: 200px; */
   min-width: 60%;
   max-width: 80%;
   z-index: 11;
@@ -60,13 +64,18 @@ export const ChoiceNav = styled.nav`
 `
 
 export const MainChoiceContainer = styled.main`
-  position: relative;
+  /* position: relative; */
   display: flex;
   justify-content: center;
-  ${({ navTop }) =>
+  /* ${({ navTop }) =>
     navTop ? 'align-items: flex-start;' : 'align-items: center;'};
-  ${({ navTop }) => (navTop ? 'top: 100px;' : 'top: 0;')};
+  ${({ navTop }) => (navTop ? 'top: 100px;' : 'top: 0;')}; */
   flex-grow: 1;
+  /* height: 200vh; */
+  min-height: fit-content;
+  /* height: fit-content; */
+  /* background: red; */
+  /* max-height: 60vh; */
 `
 export const MainChoiceBackground = styled.div`
   position: absolute;

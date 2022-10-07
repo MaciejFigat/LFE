@@ -22,6 +22,13 @@ export const ProjectDropDownWrapper = styled.div`
     font-size: 1.15rem;
     font-weight: 400;
   }
+  @media screen and (max-width: 770px) {
+    width: 100px;
+    /* justify-content: flex-start; */
+  }
+  @media screen and (max-width: 400px) {
+    width: 70px;
+  }
 `
 export const DropDownHeader = styled.div`
   display: grid;
