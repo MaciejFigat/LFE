@@ -86,6 +86,7 @@ export const HeroTitle = styled.div`
   }
   @media screen and (max-width: 1051px) {
     width: 70%;
+    margin-bottom: 1rem;
     svg {
       position: relative;
       top: 20px;

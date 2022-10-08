@@ -55,11 +55,22 @@ export const ChoiceNav = styled.nav`
     /* ${({ navTop }) => (navTop ? 'max-width: 90%;' : 'max-width: 60%;')}; */
   }
   @media screen and (max-width: 991px) {
-    ${({ navTop }) => (navTop ? 'position: absolute;' : 'position: relative;')};
-    ${({ navTop }) => (navTop ? 'top: 150px;' : 'top: 0rem;')};
-    font-size: 1.05rem;
+    /* ${({ navTop }) =>
+      navTop ? 'position: absolute;' : 'position: relative;'}; */
+    /* ${({ navTop }) => (navTop ? 'top: 150px;' : 'top: 0rem;')}; */
+    font-size: 0.95rem;
     left: 1rem;
-    min-width: 95%;
+    min-width: 85%;
+    max-width: 95%;
+    /* min-width: 95%; */
+  }
+  @media screen and (max-width: 601px) {
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr); */
+    min-height: fit-content;
+    height: 6rem;
+    border: 1px solid var(--background3-main);
   }
 `
 
@@ -93,6 +104,11 @@ export const ChoiceList = styled.ul`
     transition: 0.3s;
     background: var(--background-blur1);
     color: var(--background5-main);
+  }
+  @media screen and (max-width: 601px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 `
 // export const ChoiceItem = styled.li`
