@@ -51,15 +51,15 @@ const Home: React.FC = () => {
 
   return (
     <>
-      {/* <Toast option='registerUser' />
+      <Toast option='registerUser' />
       {Object.keys(userInfo).length === 0 && (
         <HomeChoiceWrapper tabs={tabsTutorial} />
       )}
 
       {Object.keys(userInfo).length > 0 && (
         <HomeChoiceWrapper navTop tabs={tabsUser} />
-      )} */}
-      <SearchResultsDisplay />
+      )}
+      {/* <SearchResultsDisplay /> */}
     </>
   )
 }

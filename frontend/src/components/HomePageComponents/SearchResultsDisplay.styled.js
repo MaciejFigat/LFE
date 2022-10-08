@@ -19,7 +19,7 @@ export const SearchResultsWrapper = styled.div`
 export const SearchResultsSectionWrapper = styled.div`
   /* position: relative;
   top: 200px; */
-  background: lime;
+  /* background: lime; */
   display: flex;
   flex-direction: column;
   align-items: center;

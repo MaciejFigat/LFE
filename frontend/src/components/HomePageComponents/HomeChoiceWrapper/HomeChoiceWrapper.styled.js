@@ -6,9 +6,9 @@ export const WrapperWindow = styled.div`
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   /* height: fit-content; */
-  /* min-height: 100vh; */
+  min-height: 100vh;
   /* max-height: fit-content; */
   border-radius: 10px;
   color: var(--background5-main);
