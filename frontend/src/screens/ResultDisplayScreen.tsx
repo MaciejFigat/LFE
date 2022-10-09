@@ -62,13 +62,13 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
               <>
                 <SharedChoiceWrapper />
 
-                {showFragmentsState && sortingOption === 'date' && (
+                {showFragmentsState && sortingOption === 'data' && (
                   <UserFragmentsColumn />
                 )}
-                {showFragmentsState && sortingOption === 'all' && (
+                {showFragmentsState && sortingOption === 'wszystkie' && (
                   <UserFragmentsColumn />
                 )}
-                {showFragmentsState && sortingOption === 'keyword' && (
+                {showFragmentsState && sortingOption === 'projekt' && (
                   <UserFragmentsByKeyword />
                 )}
 

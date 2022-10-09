@@ -69,7 +69,7 @@ export const ChoiceNav = styled.nav`
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr); */
     min-height: fit-content;
-    height: 6rem;
+    height: 5.75rem;
     border: 1px solid var(--background3-main);
   }
 `
