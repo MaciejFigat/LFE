@@ -37,12 +37,12 @@ const FragmentsDisplay: React.FC<FragmentsDisplayProps> = () => {
       <SearchResultsSectionWrapper>
         {' '}
         <FilterWrapper />
-        {showFragmentsState && sortingOption !== 'keyword' && (
+        {showFragmentsState && sortingOption !== 'projekt' && (
           <FragmentsTopWrapper>
             <UserFragmentsColumn moreColumns />
           </FragmentsTopWrapper>
         )}
-        {showFragmentsState && sortingOption === 'keyword' && (
+        {showFragmentsState && sortingOption === 'projekt' && (
           <FragmentsTopWrapper>
             <UserFragmentsByKeyword moreColumns />
           </FragmentsTopWrapper>
