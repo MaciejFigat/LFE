@@ -130,7 +130,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({ id }) => {
                 exit={{ opacity: 0 }}
               >
                 <PopupKeywordPar>
-                  <PopupB>Keywords:&nbsp;</PopupB>
+                  <PopupB>Projekty:&nbsp;</PopupB>
                   {keywordArr &&
                     keywordArr.map((keyword, index) => (
                       <PopupKeywordDiv

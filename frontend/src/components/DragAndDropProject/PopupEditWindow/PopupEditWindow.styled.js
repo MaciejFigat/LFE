@@ -1,21 +1,10 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
-// export const ListItemPopup = styled(motion.li)`
-//   display: grid;
-//   place-items: center;
-//   list-style: none;
-//   overflow: hidden;
-//   background: var(--background1-main);
-
-//   @media (max-width: 740px) {
-//     padding: 12px;
-//   }
-// `
 export const FragmentDivPopup = styled(motion.div)`
   /* position: absolute; */
   align-self: center;
-  background: var(--background1-main) !important;
+  background: var(--background1-main);
   border-radius: 10px;
   /* width: 95%; */
   padding: 0.75rem;
@@ -112,7 +101,7 @@ export const PopupListRow = styled(motion.div)`
   font-size: 1.2rem;
   font-weight: 400;
   border-radius: 10px;
-  background: var(--background2-main);
+  background: var(--background-blur1);
   max-width: 100%;
   @media (max-width: 740px) {
     padding: 0.55rem;
@@ -141,7 +130,7 @@ export const PopupDescriptionInput = styled(motion.textarea)`
   transition: all 0.3s ease-out;
   /* background: none; */
   border-radius: 10px;
-  background: var(--background2-main);
+  background: var(--background-blur1);
   cursor: text;
   overflow-y: auto;
   line-height: 1.1;
@@ -164,7 +153,7 @@ export const ListRow = styled(motion.div)`
   font-size: 1.2rem;
   font-weight: 400;
   border-radius: 10px;
-  background: var(--background2-main);
+  background: var(--background-blur1);
   max-width: 100%;
   @media (max-width: 740px) {
     padding: 0.55rem;

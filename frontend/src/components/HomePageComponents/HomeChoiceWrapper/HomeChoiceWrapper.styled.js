@@ -32,7 +32,7 @@ export const ChoiceNav = styled.nav`
   /* top: 200px; */
   min-width: 60%;
   max-width: 80%;
-  z-index: 11;
+  /* z-index: 8; */
   left: 20%;
   border-radius: 10px;
   height: 3rem;
@@ -133,20 +133,6 @@ export const ChoiceItem = styled.div`
   padding: 0;
   margin: 0;
   transition: 0.3s;
-  /* .underOn {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--background3-main);
-  }
-  .underOff {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-  } */
 `
 
 export const ChoiceUnderline = styled(motion.div)`

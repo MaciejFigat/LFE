@@ -5,6 +5,7 @@ export const FragmentsTopWrapper = styled.div`
   /* position: absolute; */
   display: grid;
   place-items: center;
+  margin-top: 1rem;
   /* top: 150px; */
   /* background: lime; */
 `
@@ -47,10 +48,12 @@ export const ProjectDiv = styled(motion.div)`
   place-items: center;
   height: 40px;
   font-size: 1rem;
-  padding: 0 0.5rem 0 0.5rem;
-  /* width: 80px; */
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  width: 150px;
   min-width: fit-content;
-  border: 1px solid var(--background4-main);
+  color: var(--background4-main);
+  border: 1px solid var(--background2-main);
+
   /* background: var(--background1-main); */
   border-radius: 15px;
 `

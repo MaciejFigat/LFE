@@ -44,25 +44,27 @@ export const WrapperMotionDiv = styled(motion.div)`
 `
 export const ClosingDiv = styled(motion.div)`
   width: 35%;
-  height: 3px;
+  /* height: 32px; */
   border-radius: 100px;
-  top: -22.5%;
+  /* top: -22.5%; */
+  /* top: 10px; */
   z-index: 10;
   background: var(--background1-main);
   color: var(--background5-main);
   display: grid;
   place-items: center center;
   &:after {
+    font-weight: 700;
     content: 'Zamknij';
     text-transform: uppercase;
     position: relative;
-    top: -20px;
+    top: 1px;
   }
 `
 
 export const ClosingDivBig = styled(ClosingDiv)`
   position: relative;
-  color: var(--background1-main);
+  color: var(--background4-main);
   top: -0.5rem;
   left: 35%;
 `
@@ -78,8 +80,8 @@ export const OpenedLayoutDiv = styled(motion.div)`
   box-sizing: border-box;
   overflow: hidden;
   border-radius: 8px;
-  background: var(--background4-main);
-  border: 1px solid var(--background4-main);
+  background: var(--background-blur2);
+  /* border: 1px solid var(--background4-main); */
 `
 export const OpenedDivBig = styled(OpenedLayoutDiv)`
   height: 80vh;

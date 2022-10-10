@@ -47,7 +47,6 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
   }, [dispatch, fragmentSuccess])
 
   return (
-    // <AnimateSharedLayout>
     <FragmentsWrapper moreColumns={moreColumns}>
       {fragments.length > 0 &&
         fragments
@@ -96,7 +95,6 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
           ))
           .reverse()}
     </FragmentsWrapper>
-    //   </AnimateSharedLayout>
   )
 }
 export default UserFragmentsColumn

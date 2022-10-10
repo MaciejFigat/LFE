@@ -234,13 +234,6 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
 
   return (
     <>
-      {/* <BackgroundLayerBlur
-        initial={{ y: 8, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 8, opacity: 0 }}
-        transition={{ ease: 'linear' }}
-      ></BackgroundLayerBlur> */}
-
       <OpenedDivBig layoutId={openedApp!.toString()}>
         <ClosingDivBig
           initial={{ y: 8, opacity: 0 }}
@@ -259,14 +252,14 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <PopupB>Title: &nbsp;</PopupB> {titleValue}
+                    <PopupB>Tytuł: &nbsp;</PopupB> {titleValue}
                   </motion.div>
                 </PopupTitleAnimated>
               </PopupTitle>
             ) : (
               <PopupTitle>
                 <PopupTitleAnimated>
-                  <PopupB>Title: &nbsp;</PopupB>{' '}
+                  <PopupB>Tytuł: &nbsp;</PopupB>{' '}
                   <PopupTitleInput
                     type='title'
                     name='title'
@@ -339,19 +332,15 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
             </AnimatePresence>
           </PopupTitleContainer>{' '}
           <PopupDatePar>
-            <PopupB>updated:&nbsp;</PopupB>
+            <PopupB>aktualizacja:&nbsp;</PopupB>
             {openedFragment?.updatedAt.substring(0, 10)} at{' '}
             {openedFragment?.updatedAt.substring(12, 16)}
           </PopupDatePar>
           <PopupDatePar>
-            <PopupB>source:&nbsp;</PopupB>
+            <PopupB>źródło:&nbsp;</PopupB>
             {openedFragment?.source}
           </PopupDatePar>
-          <KeywordEditing
-            // keywords={openedFragment.keywords}
-            // keywordValue={openedFragment.keywordValue}
-            id={idOpen}
-          />
+          <KeywordEditing id={idOpen} />
           {/* //todo excerpt editing/display below */}
           <PopupListRow>
             <PopupTitleContainer>
@@ -361,7 +350,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                   animate={{ opacity: 1 }}
                 >
                   <DescriptionDiv onClick={toggleExcerptEditing}>
-                    <PopupB>Excerpt: </PopupB>
+                    <PopupB>Cytat: </PopupB>
                     {excerptValue}
                   </DescriptionDiv>
                 </PopupDescriptionAnimated>
