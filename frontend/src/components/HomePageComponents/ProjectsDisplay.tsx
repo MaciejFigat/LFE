@@ -11,7 +11,8 @@ import {
   ProjectDivSecondary,
   SearchResultsSectionWrapper,
 } from './SearchResultsDisplay.styled'
-import ProjectMenuTwo from '../menu/Dropdowns/ProjectMenuTwo'
+
+import ProjectsEnumeration from './ProjectsEnumeration'
 
 interface ProjectsDisplayProps {}
 
@@ -40,8 +41,7 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
   return (
     <SearchResultsSectionWrapper>
       {' '}
-      {/* <SwitchResultWrapper></SwitchResultWrapper> */}
-      <ProjectMenuTwo wide />
+      <ProjectsEnumeration />
       <MainProjectWrapper>
         {projectName !== '' && (
           <SwitchResultWrapper>
