@@ -50,8 +50,10 @@ const defaultStyle: GlobalStyle = {
 }
 const primaryStyle: GlobalStyle = {
     background1Main: '#1E1E1F;',
-    background2Main: '#3C3B3D;',
+    // background2Main: '#3C3B3D;',
+    background2Main: '#7D7C7F;',
     background3Main: '#6D6C70;',
+    // background3Main: '#7D7C7F;',
     background4Main: '#A2A1A6;',
     background5Main: '#CBC9CF;',
     background1Secondary: '#f4a261;',

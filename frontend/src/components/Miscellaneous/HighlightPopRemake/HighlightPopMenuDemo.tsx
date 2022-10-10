@@ -65,7 +65,7 @@ const HighlightPopMenuDemo: React.FC<HighlightPopProps> = ({ children }) => {
 
     setXPosition(x + width / 2)
     // todo slight correction in Y axis, for the home view component
-    setYPosition(y + window.scrollY - 180)
+    setYPosition(y + window.scrollY - 10)
     setSelectedText(selectedText)
     setShowPopover(true)
   }, [])
