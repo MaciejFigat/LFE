@@ -14,7 +14,7 @@ const preferenceSlice = createSlice({
             keywordOne: '',
             keywordTwo: ''
         },
-        sortingOption: 'date',
+        sortingOption: 'data',
         showFragments: true,
         sortFragmentsBySource: {
             KrajowaInformacjaSkarbowa: true,

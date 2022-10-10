@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-// import { motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 export const FragmentsTopWrapper = styled.div`
   /* position: absolute; */
@@ -42,7 +42,7 @@ export const ProjectsDisplayWrapper = styled.div`
   align-items: center;
   gap: 0.5rem;
 `
-export const ProjectDiv = styled.div`
+export const ProjectDiv = styled(motion.div)`
   display: grid;
   place-items: center;
   height: 40px;
@@ -67,7 +67,7 @@ export const MainProjectWrapper = styled.div`
   align-items: center;
   /* gap: 0.5rem; */
 `
-export const MainProjectDetails = styled.div`
+export const MainProjectDetails = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(auto-fill, 60px);

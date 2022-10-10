@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { sortingKeywordMainEdit } from '../../features/preferences/preferenceSlice'
 import {
   ProjectCardHome,
+  ProjectH2,
   ProjectMenuContainerHome,
 } from './ProjectsComponents.styled'
 
@@ -10,6 +13,10 @@ interface ProjectsEnumerationProps {}
 
 const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
   const dispatch: any = useAppDispatch()
+
+  const keywordMain = useAppSelector(
+    (state) => state.preference.sortingKeywords.keywordMain
+  )
 
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
@@ -20,61 +27,61 @@ const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
     .filter((keywordsFlattened) => keywordsFlattened !== '')
   //todo .flat() flattens the arr ie. [a, b, [c, d]].flat()=>[a, b, c, d]
   let uniqueKeywords = [...Array.from(new Set(keywordsAll))]
-  const [selectedCard, setSelectedCard] = useState(null)
 
-  const cardVariants = {
-    selected: {
-      scale: 1.1,
-      transition: {
-        duration: 0.3,
-      },
-      opacity: 1,
-      //   transition: {
-      //     duration: 2,
-      //     type: 'spring',
-      //     default: { ease: 'linear' },
-      //   },
-
-      zIndex: 10,
-    },
-    notSelected: () => ({
-      scale: 1,
-      //   transition: { duration: 0.2 },
-      //   transition: {
-      //     duration: 0.15,
-      //     type: 'spring',
-      //     default: { ease: 'linear' },
-      //   },
-      opacity: 0.8,
-      //   zIndex: 10 - Math.abs(i),
-    }),
-  }
-  const selectCard = (card: any) => {
-    setSelectedCard(selectedCard === card ? null : card)
-  }
   const handleCardMouseUp = (card: any) => {
-    selectCard(card)
     dispatch(sortingKeywordMainEdit(card))
   }
 
   return (
     <>
       {' '}
-      <h2>Wybierz projekt:</h2>
-      <ProjectMenuContainerHome>
-        {' '}
-        {uniqueKeywords?.map((keyword) => (
-          <ProjectCardHome
-            initial={{ opacity: 0.8, scale: 1 }}
-            key={Math.random()}
-            onClick={() => handleCardMouseUp(keyword)}
-            variants={cardVariants}
-            animate={selectedCard === keyword ? 'selected' : 'notSelected'}
-            // custom={selectedCard! ? selectedCard! - keyword : 0}
+      <AnimatePresence>
+        {keywordMain !== '' && (
+          <NavLink to='/storage'>
+            <ProjectH2
+              key={keywordMain}
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {keywordMain}
+            </ProjectH2>
+          </NavLink>
+        )}
+        {keywordMain === '' && (
+          <ProjectH2
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.2 }}
           >
-            {keyword.substring(0, 20)}
-          </ProjectCardHome>
-        ))}
+            Wybierz projekt:
+          </ProjectH2>
+        )}
+      </AnimatePresence>
+      <ProjectMenuContainerHome>
+        {uniqueKeywords
+          // ?.filter((keyword) => keyword !== keywordMain)
+          .map((keyword: string) => (
+            <>
+              <ProjectCardHome
+                initial={{ opacity: 0.8, scale: 1 }}
+                key={Math.random()}
+                onMouseUp={() => handleCardMouseUp(keyword)}
+                animate={{
+                  opacity: keywordMain === keyword ? 1 : 0.8,
+                  scale: keywordMain === keyword ? 1.1 : 1,
+                  transition: {
+                    duration: 0.3,
+                  },
+                }}
+                selected={keywordMain === keyword ? true : false}
+              >
+                {keyword.substring(0, 20)}
+              </ProjectCardHome>
+            </>
+          ))}
       </ProjectMenuContainerHome>
     </>
   )

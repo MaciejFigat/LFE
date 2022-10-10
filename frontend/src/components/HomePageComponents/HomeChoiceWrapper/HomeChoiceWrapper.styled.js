@@ -114,13 +114,14 @@ export const ChoiceList = styled.ul`
 // export const ChoiceItem = styled.li`
 export const ChoiceItem = styled.div`
   /* list-style: none; */
+  position: relative;
   border-radius: 5px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   width: 100%;
   min-width: fit-content;
   padding: 10px 15px;
-  position: relative;
+
   cursor: pointer;
   height: 44px;
   display: flex;
@@ -128,12 +129,11 @@ export const ChoiceItem = styled.div`
   align-items: center;
   flex: 1;
   /* min-width: 0; */
-  position: relative;
   user-select: none;
   padding: 0;
   margin: 0;
   transition: 0.3s;
-  .underOn {
+  /* .underOn {
     position: absolute;
     bottom: -1px;
     left: 0;
@@ -146,7 +146,7 @@ export const ChoiceItem = styled.div`
     bottom: -1px;
     left: 0;
     right: 0;
-  }
+  } */
 `
 
 export const ChoiceUnderline = styled(motion.div)`

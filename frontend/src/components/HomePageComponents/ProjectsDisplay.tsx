@@ -2,19 +2,44 @@ import React, { useMemo } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { SwitchResultWrapper } from '../Miscellaneous/SearchBar/SearchBar.styled'
 import { updateUserFragmentsKeywordMain } from '../../features/fragments/fragmentSlice'
-import { NavLink } from 'react-router-dom'
-
 import {
   MainProjectDetails,
   MainProjectWrapper,
   ProjectDiv,
-  ProjectDivSecondary,
   SearchResultsSectionWrapper,
 } from './SearchResultsDisplay.styled'
-
 import ProjectsEnumeration from './ProjectsEnumeration'
+import { AnimatePresence } from 'framer-motion'
 
 interface ProjectsDisplayProps {}
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0, // this will set a delay before the children start animating
+      staggerChildren: 0.3, // this will set the time inbetween children animation
+    },
+  },
+}
+const dropUpVariants = {
+  hidden: {
+    y: -10,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+      mass: 0.3,
+    },
+  },
+}
 
 const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
   const dispatch: any = useAppDispatch()
@@ -45,19 +70,25 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
       <MainProjectWrapper>
         {projectName !== '' && (
           <SwitchResultWrapper>
-            <h2>Fragmenty przypisane do projektu</h2>
-            <NavLink to='/storage'>
-              <ProjectDivSecondary>{projectName}</ProjectDivSecondary>
-            </NavLink>
+            <h2>Przypisane fragmenty:</h2>
           </SwitchResultWrapper>
         )}
-        {fragmentsKeywordMain.length > 0 && (
-          <MainProjectDetails>
-            {fragmentsKeywordMain?.map((fragment) => (
-              <ProjectDiv key={Math.random()}>{fragment.title}</ProjectDiv>
-            ))}
-          </MainProjectDetails>
-        )}
+        <AnimatePresence>
+          {fragmentsKeywordMain.length > 0 && (
+            <MainProjectDetails
+              variants={containerVariants}
+              key={projectName}
+              initial='hidden'
+              animate='visible'
+            >
+              {fragmentsKeywordMain?.map((fragment) => (
+                <ProjectDiv variants={dropUpVariants} key={Math.random()}>
+                  {fragment.title}
+                </ProjectDiv>
+              ))}
+            </MainProjectDetails>
+          )}
+        </AnimatePresence>
       </MainProjectWrapper>
     </SearchResultsSectionWrapper>
   )
