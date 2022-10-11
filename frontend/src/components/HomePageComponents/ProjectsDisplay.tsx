@@ -9,22 +9,11 @@ import {
   SearchResultsSectionWrapper,
 } from './SearchResultsDisplay.styled'
 import ProjectsEnumeration from './ProjectsEnumeration'
-import { AnimatePresence } from 'framer-motion'
+import { ProjectH2NoHover } from './ProjectsComponents.styled'
+import StaggerChildrenWrapperSecondary from '../Miscellaneous/AnimationWrappers/StaggerChildrenWrapperSecondary'
 
 interface ProjectsDisplayProps {}
 
-const containerVariants = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      delayChildren: 0, // this will set a delay before the children start animating
-      staggerChildren: 0.3, // this will set the time inbetween children animation
-    },
-  },
-}
 const dropUpVariants = {
   hidden: {
     y: -10,
@@ -70,25 +59,21 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
       <MainProjectWrapper>
         {projectName !== '' && (
           <SwitchResultWrapper>
-            <h2>Przypisane fragmenty:</h2>
+            <ProjectH2NoHover>Przypisane fragmenty</ProjectH2NoHover>
           </SwitchResultWrapper>
         )}
-        <AnimatePresence>
-          {fragmentsKeywordMain.length > 0 && (
-            <MainProjectDetails
-              variants={containerVariants}
-              key={projectName}
-              initial='hidden'
-              animate='visible'
-            >
+        {fragmentsKeywordMain.length > 0 && (
+          <StaggerChildrenWrapperSecondary key={projectName}>
+            {' '}
+            <MainProjectDetails>
               {fragmentsKeywordMain?.map((fragment) => (
                 <ProjectDiv variants={dropUpVariants} key={Math.random()}>
                   {fragment.title}
                 </ProjectDiv>
               ))}
             </MainProjectDetails>
-          )}
-        </AnimatePresence>
+          </StaggerChildrenWrapperSecondary>
+        )}
       </MainProjectWrapper>
     </SearchResultsSectionWrapper>
   )

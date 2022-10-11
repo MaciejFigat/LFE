@@ -41,9 +41,15 @@ export const ProjectH2 = styled(motion.h2)`
   border-bottom: 1px solid var(--background2-main);
   padding-bottom: 0.5rem;
   color: var(--background4-main);
+  user-select: none;
   &:hover {
     transition: 0.3s;
     color: var(--background3-main);
+  }
+`
+export const ProjectH2NoHover = styled(ProjectH2)`
+  &:hover {
+    color: var(--background4-main);
   }
 `
 export const ProjectMenuContainerHome = styled(motion.div)`

@@ -52,20 +52,19 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
         fragments
           .filter((fragmentsSorted) =>
             // todo here is filtering function comparing the date
-            sortingOption === 'all'
+            sortingOption === 'wszystkie'
               ? fragmentsSorted
               : fragmentsSorted.createdAt.substring(0, 10) === sortingDateString
           )
           .slice(
-            sortingOption === 'all' ? start : 0,
-            sortingOption === 'all' ? end + 1 : fragments.length - 1
+            sortingOption === 'wszystkie' ? start : 0,
+            sortingOption === 'wszystkie' ? end + 1 : fragments.length - 1
           )
 
           .map((fragment) => (
             <ListWrapper
               as={motion.ul}
               key={fragment._id}
-              // layout
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

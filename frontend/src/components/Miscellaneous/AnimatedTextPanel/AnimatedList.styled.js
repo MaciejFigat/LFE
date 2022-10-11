@@ -30,7 +30,6 @@ export const FragmentsWrapper = styled(motion.div)`
 `
 export const ListWrapper = styled(motion.ul)`
   display: flex;
-
   margin: 0;
   flex-direction: column;
   /* margin-top: 16px; */
