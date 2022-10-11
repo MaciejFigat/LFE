@@ -64,23 +64,21 @@ const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
         {uniqueKeywords
           // ?.filter((keyword) => keyword !== keywordMain)
           .map((keyword: string) => (
-            <>
-              <ProjectCardHome
-                initial={{ opacity: 0.8, scale: 1 }}
-                key={Math.random()}
-                onMouseUp={() => handleCardMouseUp(keyword)}
-                animate={{
-                  opacity: keywordMain === keyword ? 1 : 0.8,
-                  scale: keywordMain === keyword ? 1.1 : 1,
-                  transition: {
-                    duration: 0.3,
-                  },
-                }}
-                selected={keywordMain === keyword ? true : false}
-              >
-                {keyword.substring(0, 20)}
-              </ProjectCardHome>
-            </>
+            <ProjectCardHome
+              initial={{ opacity: 0.8, scale: 1 }}
+              key={Math.random()}
+              onMouseUp={() => handleCardMouseUp(keyword)}
+              animate={{
+                opacity: keywordMain === keyword ? 1 : 0.8,
+                scale: keywordMain === keyword ? 1.1 : 1,
+                transition: {
+                  duration: 0.3,
+                },
+              }}
+              selected={keywordMain === keyword ? true : false}
+            >
+              {keyword.substring(0, 20)}
+            </ProjectCardHome>
           ))}
       </ProjectMenuContainerHome>
     </>
