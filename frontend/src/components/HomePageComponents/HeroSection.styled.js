@@ -45,7 +45,7 @@ export const HeroSec = styled(motion.div)`
 `
 
 export const HeroSecNoSvg = styled(HeroSec)`
-  margin-top: 2rem;
+  margin-top: 4rem;
   margin-bottom: 0;
 `
 export const HeroTextContainer = styled.div`
@@ -101,7 +101,8 @@ export const HeroTitleLeft = styled.div`
   font-weight: 700;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--background4-main);
 `
 export const HeroStory = styled.div`
   display: flex;
@@ -112,7 +113,7 @@ export const HeroStory = styled.div`
   padding: 1rem;
   font-weight: 700;
   font-size: 2rem;
-  color: var(--background5-main);
+  color: var(--background4-main);
 `
 export const HeroP = styled.p`
   display: grid;

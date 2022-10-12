@@ -13,6 +13,8 @@ import HighlightPopMenuDemo from '../Miscellaneous/HighlightPopRemake/HighlightP
 import { PopupDescriptionInput } from '../DragAndDropProject/PopupEditWindow/PopupEditWindow.styled'
 import FragmentsColumn from '../FragmentsColumn/FragmentsColumn'
 import { AnimateSharedLayout } from 'framer-motion'
+import { TwoColumnsWrapper } from '../../styles/misc.styled'
+import { titleTwoSvg } from './HeroSectionSVGS/Title'
 // import { titleTwoSvg } from './HeroSectionSVGS/Title'
 
 interface HeroTwoProps {}
@@ -24,24 +26,24 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
       <HeroWrapperRow>
         <HeroTwoContainer>
           <HeroTextWrapper>
-            {/* <HeroTitleLeft>{titleTwoSvg}</HeroTitleLeft> */}
-            <HeroTitleLeft>Zapisywanie fragmentów</HeroTitleLeft>
-            <TopLine variant={variant}>
-              Zaznacz poniższy tekst lub jego część
-            </TopLine>
+            <HeroTitleLeft>{titleTwoSvg}</HeroTitleLeft>
+            {/* <HeroTitleLeft>Zaznacz poniższy tekst</HeroTitleLeft> */}
+
             <HighlightPopMenuDemo>
-              <p>
-                Zaznaczając tekst wyszukanej interpretacji bądź wyroku, możesz
-                wybrać opcję Kopiuj lub Zapisz. Kopiowany fragment zawiera
-                odpowiednie metadane tzw. metrykę, czyli datę wydania, sygnaturę
-                dokumentu, rodzaj organu wydającego itp.
-              </p>
-              <p>
-                W przypadku kopiowania procedura jest podobna, lecz w tym
-                przypadku zapisujemy fragment w naszym systemie. Jeśli
-                użytkownik jest zalogowany, może przeglądać i edytować uprzednio
-                zapisane fragmenty, np. dodając własne uwagi.
-              </p>
+              <TwoColumnsWrapper>
+                <TopLine variant={variant}>
+                  Zaznaczając tekst wyszukanej interpretacji bądź wyroku, możesz
+                  wybrać opcję Kopiuj lub Zapisz. Kopiowany fragment zawiera
+                  odpowiednie metadane tzw. metrykę, czyli datę wydania,
+                  sygnaturę dokumentu, rodzaj organu wydającego itp.
+                </TopLine>
+                <TopLine variant={variant}>
+                  W przypadku kopiowania procedura jest podobna, lecz w tym
+                  przypadku zapisujemy fragment w naszym systemie. Jeśli
+                  użytkownik jest zalogowany, może przeglądać i edytować
+                  uprzednio zapisane fragmenty, np. dodając własne uwagi.
+                </TopLine>
+              </TwoColumnsWrapper>
             </HighlightPopMenuDemo>
 
             <Subtitle variant={variant}>

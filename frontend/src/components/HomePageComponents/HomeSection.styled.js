@@ -48,8 +48,9 @@ export const InfoRow = styled.div`
   flex-direction: ${({ imgStart }) =>
     imgStart === true ? 'row-reverse' : 'row'};
   border: ${({ border }) =>
-    border === true ? '1px solid var(--background4-main)' : 'none'};
+    border === true ? '1px solid var(--background2-main)' : 'none'};
   padding: ${({ border }) => border === true && '1.5rem'};
+  border-radius: 10px;
   @media (max-width: 880px) {
     flex-direction: ${({ imgStart }) =>
       imgStart === true ? 'column-reverse' : 'column'};
@@ -73,6 +74,9 @@ export const InfoColumnShort = styled(InfoColumn)`
   border-color: ${(props) => handleSectionColor(props).color};
   ${({ imgStart }) =>
     imgStart ? 'border-left: 1px solid' : 'border-right: 1px solid'};
+  @media screen and (max-width: 901px) {
+    border: none;
+  }
 `
 export const InfoColumnShortSimple = styled(InfoColumnShort)`
   padding-left: 0rem;
@@ -94,15 +98,25 @@ export const HeroWrapperRow = styled.div`
 `
 export const HeroTextWrapper = styled.div`
   width: 80%;
-  border: 1px solid var(--background5-main);
-  padding: 1rem;
+  border: 1px solid var(--background4-main);
+  border-radius: 10px;
+  padding: 1.5rem;
+  @media screen and (max-width: 991px) {
+    padding: 1rem;
+  }
 `
 export const TextWrapperParSimple = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
 `
 export const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -186,17 +200,21 @@ export const ButtonLink = styled.a`
     /* ${(props) => handleSectionColor(props).buttonColorHover} */
   }
 `
+
 export const TopLine = styled.div`
   /* toplineColor */
   ${(props) => handleSectionColor(props).toplineColor}
-  font-size: 18px;
-  line-height: 16px;
-  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.2rem;
+  font-weight: 500;
   letter-spacing: 1.4px;
   margin-bottom: 10px;
   /* svg {
     fill: red;
   } */
+  a {
+    color: var(--background2-main);
+  }
 `
 export const TopLineSimple = styled(TopLine)`
   font-size: 0.85rem;

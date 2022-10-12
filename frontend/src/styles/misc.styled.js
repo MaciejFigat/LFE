@@ -90,3 +90,8 @@ export const OpenedDivBig = styled(OpenedLayoutDiv)`
   left: 10vw;
   z-index: 2;
 `
+export const TwoColumnsWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+`

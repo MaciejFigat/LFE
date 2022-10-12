@@ -5,6 +5,7 @@ import {
   HeroSecNoSvg,
   HeroTitleLeft,
 } from './HeroSection.styled'
+import { titleThreeSvg } from './HeroSectionSVGS/Title'
 
 import {
   InfoColumn,
@@ -29,7 +30,7 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
             <TextWrapper>
               {' '}
               <TextWrapperParSimple>
-                1. Zaloguj się{' '}
+                1. Zaloguj się &nbsp;
                 <SvgIcon
                   variant='login'
                   noMargin
@@ -38,10 +39,11 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
                 />
               </TextWrapperParSimple>
               <TextWrapperParSimple>
-                2. Kliknij w menu <SvgIcon variant='store' noMargin noContent />
+                2. Kliknij w menu &nbsp;
+                <SvgIcon variant='store' noMargin noContent />
               </TextWrapperParSimple>{' '}
               <TextWrapperParSimple>
-                3. Wybierz projekt i kliknij{' '}
+                3. Wybierz projekt i kliknij &nbsp;
                 <SvgIcon variant='export' noMargin noContent />
               </TextWrapperParSimple>{' '}
               <TextWrapperParSimple>
@@ -51,18 +53,18 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
           </InfoColumnShort>
           <InfoColumn>
             <TextWrapper>
-              <HeroTitleLeft>Eksport projektów</HeroTitleLeft>
-              <TopLine variant={variant}>Jak wyeksportować projekt?</TopLine>
-              <p>
+              {/* <HeroTitleLeft>Eksport projektów</HeroTitleLeft> */}
+              <HeroTitleLeft>{titleThreeSvg}</HeroTitleLeft>{' '}
+              <TopLine variant={variant}>
                 {' '}
                 Obecnie umożliwiamy zapisanie zebranych fragmentów i ich eksport
                 do pliku doc.
-              </p>
+              </TopLine>
               <Subtitle variant={variant}></Subtitle>
-              <p>
+              <TopLine variant={variant}>
                 {' '}
                 Funkcjonalność jest dostępna dla zalogowanych użytkowników.
-              </p>
+              </TopLine>
               <Subtitle variant={variant}></Subtitle>
             </TextWrapper>
           </InfoColumn>

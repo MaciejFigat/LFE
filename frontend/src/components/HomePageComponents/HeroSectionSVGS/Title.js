@@ -104,38 +104,40 @@ export const titleTwoSvg = (
     preserveAspectRatio='xMidYMid'
   >
     <defs>
-      <filter
-        id='editing-extrusion'
-        x='-100%'
-        y='-100%'
-        width='300%'
-        height='300%'
-      >
-        <feFlood result='color1' floodColor='var(--background5-main)'></feFlood>
-        <feConvolveMatrix
-          order='8,8'
-          divisor='1'
-          kernelMatrix='1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1'
-          in='SourceAlpha'
-          result='extrude'
-        ></feConvolveMatrix>
-        <feComposite
-          in='color1'
-          in2='extrude'
-          result='comp-extrude'
-          operator='in'
-        ></feComposite>
-        <feOffset
-          dx='4'
-          dy='4'
-          in='comp-extrude'
-          result='offset-extrude'
-        ></feOffset>
-        <feMerge>
-          <feMergeNode in='offset-extrude'></feMergeNode>
-          <feMergeNode in='SourceGraphic'></feMergeNode>
-        </feMerge>
-      </filter>
+      <defs>
+        <filter
+          id='editing-extrusion'
+          x='-100%'
+          y='-100%'
+          width='300%'
+          height='300%'
+        >
+          <feFlood result='color1'></feFlood>
+          <feConvolveMatrix
+            order='8,8'
+            divisor='1'
+            kernelMatrix='1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1'
+            in='SourceAlpha'
+            result='extrude'
+          ></feConvolveMatrix>
+          <feComposite
+            in='color1'
+            in2='extrude'
+            result='comp-extrude'
+            operator='in'
+          ></feComposite>
+          <feOffset
+            dx='4'
+            dy='4'
+            in='comp-extrude'
+            result='offset-extrude'
+          ></feOffset>
+          <feMerge>
+            <feMergeNode in='offset-extrude'></feMergeNode>
+            <feMergeNode in='SourceGraphic'></feMergeNode>
+          </feMerge>
+        </filter>
+      </defs>
     </defs>
     <g filter='url(#editing-extrusion)'>
       <g transform='translate(-74.26500886678696, 99.67500305175781)'>
@@ -150,45 +152,48 @@ export const titleTwoSvg = (
 
 export const titleThreeSvg = (
   <svg
-    width='max(29rem, 50%, 300px)'
-    // height='108.8px'
+    width='max(24rem, 40%, 230px)'
+    // width='367.5124999999999px'
+    // height='3rem'
     xmlns='http://www.w3.org/2000/svg'
-    viewBox='13.75624999999997 30.6 667.5124999999999 108.8'
+    viewBox='4.75624999999997 20.6 667.5124999999999 108.8'
     preserveAspectRatio='xMidYMid'
   >
     <defs>
-      <filter
-        id='editing-extrusion'
-        x='-100%'
-        y='-100%'
-        width='300%'
-        height='300%'
-      >
-        <feFlood result='color1' floodColor='var(--background5-main)'></feFlood>
-        <feConvolveMatrix
-          order='8,8'
-          divisor='1'
-          kernelMatrix='1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1'
-          in='SourceAlpha'
-          result='extrude'
-        ></feConvolveMatrix>
-        <feComposite
-          in='color1'
-          in2='extrude'
-          result='comp-extrude'
-          operator='in'
-        ></feComposite>
-        <feOffset
-          dx='4'
-          dy='4'
-          in='comp-extrude'
-          result='offset-extrude'
-        ></feOffset>
-        <feMerge>
-          <feMergeNode in='offset-extrude'></feMergeNode>
-          <feMergeNode in='SourceGraphic'></feMergeNode>
-        </feMerge>
-      </filter>
+      <defs>
+        <filter
+          id='editing-extrusion'
+          x='-100%'
+          y='-100%'
+          width='300%'
+          height='300%'
+        >
+          <feFlood result='color1'></feFlood>
+          <feConvolveMatrix
+            order='8,8'
+            divisor='1'
+            kernelMatrix='1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1'
+            in='SourceAlpha'
+            result='extrude'
+          ></feConvolveMatrix>
+          <feComposite
+            in='color1'
+            in2='extrude'
+            result='comp-extrude'
+            operator='in'
+          ></feComposite>
+          <feOffset
+            dx='4'
+            dy='4'
+            in='comp-extrude'
+            result='offset-extrude'
+          ></feOffset>
+          <feMerge>
+            <feMergeNode in='offset-extrude'></feMergeNode>
+            <feMergeNode in='SourceGraphic'></feMergeNode>
+          </feMerge>
+        </filter>
+      </defs>
     </defs>
     <g filter='url(#editing-extrusion)'>
       <g transform='translate(11.704970359802246, 99.45500564575195)'>
