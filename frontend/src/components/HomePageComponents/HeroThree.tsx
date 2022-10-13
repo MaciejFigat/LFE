@@ -39,8 +39,8 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
                 />
               </TextWrapperParSimple>
               <TextWrapperParSimple>
-                2. Kliknij w menu &nbsp;
-                <SvgIcon variant='store' noMargin noContent />
+                2. Kliknij w menu Projekty&nbsp;
+                <SvgIcon variant='moreOptions' noMargin noContent />
               </TextWrapperParSimple>{' '}
               <TextWrapperParSimple>
                 3. Wybierz projekt i kliknij &nbsp;

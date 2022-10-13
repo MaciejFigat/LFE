@@ -15,6 +15,7 @@ import {
   deleteSavedFragment,
   editSavedFragment,
 } from '../../../../features/fragments/fragmentSlice'
+import { getUserFragments } from '../../../../features/fragments/fragmentSlice'
 import { sortingKeywordMainEdit } from '../../../../features/preferences/preferenceSlice'
 import { updateUserFragmentsKeywordMain } from '../../../../features/fragments/fragmentSlice'
 import { nanoid } from '@reduxjs/toolkit'
@@ -31,6 +32,12 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
   )
   const fragmentsKeywordMain: any[] = useAppSelector(
     (state) => state.fragment.fragmentsKeywordMain
+  )
+  const fragmentLoadingUpdate: boolean = useAppSelector(
+    (state) => state.fragment.loadingUpdate
+  )
+  const fragmentSuccessUpdate: boolean = useAppSelector(
+    (state) => state.fragment.successUpdate
   )
 
   const fragments: any[] = useAppSelector(
@@ -76,6 +83,15 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
   useMemo(() => {
     setSelectedMainKeyword(keywordMain)
   }, [keywordMain])
+
+  // whenever loading prompted by saving new or editing keyword values I want to update the list of keywords and the main one
+  // fragmentLoadingUpdate false-> true -> false
+  // fragmentSuccessUpdate true -> false -> true
+  useMemo(() => {
+    if (fragmentLoadingUpdate === false && fragmentSuccessUpdate === true) {
+      dispatch(getUserFragments(1))
+    }
+  }, [fragmentLoadingUpdate, fragmentSuccessUpdate, dispatch])
 
   useEffect(() => {
     const fragmentsMatching = fragments
@@ -156,14 +172,21 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
     // also keywords: [] needs ..., newkeyword
     // also no duplicates
     for (let i = 0; i < fragmentsKeywordMain.length; i++) {
-      //  todo 1
+      //! HERE - array of {}
       const kvalueNoKewordMain = fragmentsKeywordMain[i].keywordValue.filter(
-        (keywordSearched: any) => keywordSearched.keyword !== keywordMain
+        (keywordSearched: any) => keywordSearched.keyword === keywordMain
       )
-      const kvalueWithKewordMain = fragmentsKeywordMain[i].keywordValue.filter(
+      //todo this is an object within keywordValue
+      const kvalueWithKewordMain = fragmentsKeywordMain[i].keywordValue.find(
         (keywordSearched: any) => keywordSearched.keyword === keywordMain
       )
 
+      // const fragmentsValueTest = fragmentsKeywordMain.filter(
+      //   (filteredFragment) =>
+      //     filteredFragment.keywordValue.find(
+      //       (keywordSearched: any) => keywordSearched.keyword === keywordMain
+      //     )
+      // )
       //  todo 2
 
       //* no duplicates edited in
@@ -171,9 +194,12 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
         const fragEdited = {
           _id: fragmentsKeywordMain[i]._id,
           keywords: [
-            ...fragmentsKeywordMain[i].keywords.filter(
+            fragmentsKeywordMain[i].keywords.filter(
               (keyword: string) => keyword !== keywordMain
             ),
+            // ...fragmentsKeywordMain[i].keywords.filter(
+            //   (keyword: string) => keyword !== keywordMain
+            // ),
             newKeyword,
           ],
           keywordValue: [
@@ -184,22 +210,31 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
               labelTwo: kvalueWithKewordMain.labelTwo,
               value: kvalueWithKewordMain.value,
               skip: kvalueWithKewordMain.skip,
+              // value: true,
+              // skip: true,
             },
           ],
         }
-
-        dispatch(editSavedFragment(fragEdited))
+        // console.log(fragEdited)
+        console.log(kvalueNoKewordMain)
+        // dispatch(editSavedFragment(fragEdited))
       }
     }
   }
 
   const togglingOptions = () => {
     setOptionsOpen((optionsOpen) => !optionsOpen)
+    if (optionsOpen === false) {
+      setNewKeyword(keywordMain)
+    }
     if (keywordEditing === true && optionsOpen === true)
       setKeywordEditing((keywordEditing) => !keywordEditing)
+    // setNewKeyword(keywordMain)
     if (keywordCreation === true && optionsOpen === true)
       setKeywordCreation((keywordCreation) => !keywordCreation)
+    // setNewKeyword(keywordMain)
   }
+
   return (
     <>
       <Main>
@@ -212,7 +247,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                 exit={{ opacity: 0 }}
                 type='mainLabel'
                 name='main label'
-                placeholder='new project'
+                placeholder={keywordMain}
                 value={newKeyword}
                 onChange={(e: any) => setNewKeyword(e.target.value)}
               />
@@ -223,7 +258,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                 exit={{ opacity: 0 }}
                 onClick={toggling}
               >
-                {selectedMainKeyword || 'Select a project'}
+                {selectedMainKeyword || 'Wybierz projekt'}
               </DropDownHeader>
             )}{' '}
             <SendButtonVerySmall

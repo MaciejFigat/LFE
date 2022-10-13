@@ -139,6 +139,8 @@ export const ChoiceUnderline = styled(motion.div)`
   position: absolute;
   bottom: -5px;
   border-radius: 5px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   left: 0;
   right: 0;
   height: 5px;
