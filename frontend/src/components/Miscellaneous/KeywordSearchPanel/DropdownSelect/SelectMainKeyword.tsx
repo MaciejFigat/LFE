@@ -79,6 +79,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
   useEffect(() => {
     dispatch(sortingKeywordMainEdit(selectedMainKeyword))
   }, [dispatch, selectedMainKeyword])
+
   // whenever keywordMain changes ie. nav dropdownProject component, it changes selectedKeyword
   useMemo(() => {
     setSelectedMainKeyword(keywordMain)
@@ -89,9 +90,14 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
   // fragmentSuccessUpdate true -> false -> true
   useMemo(() => {
     if (fragmentLoadingUpdate === false && fragmentSuccessUpdate === true) {
-      dispatch(getUserFragments(1))
+      const timer = setTimeout(
+        () => dispatch(getUserFragments(1)),
+        dispatch(sortingKeywordMainEdit(newKeyword)),
+        3000
+      )
+      return () => clearTimeout(timer)
     }
-  }, [fragmentLoadingUpdate, fragmentSuccessUpdate, dispatch])
+  }, [fragmentLoadingUpdate, fragmentSuccessUpdate, dispatch, newKeyword])
 
   useEffect(() => {
     const fragmentsMatching = fragments
@@ -172,52 +178,38 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
     // also keywords: [] needs ..., newkeyword
     // also no duplicates
     for (let i = 0; i < fragmentsKeywordMain.length; i++) {
-      //! HERE - array of {}
-      const kvalueNoKewordMain = fragmentsKeywordMain[i].keywordValue.filter(
-        (keywordSearched: any) => keywordSearched.keyword === keywordMain
+      //* HERE
+      const filteredArr = fragmentsKeywordMain[i].keywordValue.filter(
+        (keywordSearched: any) => keywordSearched.keyword !== keywordMain
       )
-      //todo this is an object within keywordValue
-      const kvalueWithKewordMain = fragmentsKeywordMain[i].keywordValue.find(
+
+      const foundObject = fragmentsKeywordMain[i].keywordValue.find(
         (keywordSearched: any) => keywordSearched.keyword === keywordMain
       )
 
-      // const fragmentsValueTest = fragmentsKeywordMain.filter(
-      //   (filteredFragment) =>
-      //     filteredFragment.keywordValue.find(
-      //       (keywordSearched: any) => keywordSearched.keyword === keywordMain
-      //     )
-      // )
-      //  todo 2
+      const simpleKeywordArr = fragmentsKeywordMain[i].keywords.filter(
+        (keyword: string) => keyword !== keywordMain
+      )
+      //* HERE
 
       //* no duplicates edited in
       if (!fragmentsKeywordMain[i].keywords.includes(newKeyword)) {
         const fragEdited = {
           _id: fragmentsKeywordMain[i]._id,
-          keywords: [
-            fragmentsKeywordMain[i].keywords.filter(
-              (keyword: string) => keyword !== keywordMain
-            ),
-            // ...fragmentsKeywordMain[i].keywords.filter(
-            //   (keyword: string) => keyword !== keywordMain
-            // ),
-            newKeyword,
-          ],
+          keywords: [...simpleKeywordArr, newKeyword],
           keywordValue: [
-            ...kvalueNoKewordMain,
+            ...filteredArr,
             {
               keyword: newKeyword,
-              labelOne: kvalueWithKewordMain.labelOne,
-              labelTwo: kvalueWithKewordMain.labelTwo,
-              value: kvalueWithKewordMain.value,
-              skip: kvalueWithKewordMain.skip,
-              // value: true,
-              // skip: true,
+              labelOne: foundObject.labelOne,
+              labelTwo: foundObject.labelTwo,
+              value: foundObject.value,
+              skip: foundObject.skip,
             },
           ],
         }
-        // console.log(fragEdited)
-        console.log(kvalueNoKewordMain)
-        // dispatch(editSavedFragment(fragEdited))
+
+        dispatch(editSavedFragment(fragEdited))
       }
     }
   }

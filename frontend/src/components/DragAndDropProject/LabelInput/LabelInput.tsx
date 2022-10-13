@@ -60,9 +60,9 @@ const LabelInput: React.FC<LabelInputProps> = ({
     }
 
     for (let i = 0; i < fragmentsKeywordMain.length; i++) {
-      if (fragmentsKeywordMain[i].keywordValue.keyword === keywordMain) {
-      }
-      console.log(fragmentsKeywordMain[i].keywordValue)
+      // if (fragmentsKeywordMain[i].keywordValue.keyword === keywordMain) {
+      // }
+      // console.log(fragmentsKeywordMain[i].keywordValue)
       const foundArr = fragmentsKeywordMain[i].keywordValue.find(
         (keywordSearched: any) => keywordSearched.keyword === keywordMain
       )
