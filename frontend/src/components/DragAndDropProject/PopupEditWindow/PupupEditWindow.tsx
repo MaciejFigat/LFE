@@ -102,6 +102,17 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
   }
   const removeFragmentHandler = (id: string) => {
     dispatch(deleteSavedFragment(idOpen))
+    if (setOpenedApp) {
+      setOpenedApp(null)
+    }
+    // if (setCanOpenApp) {
+    //   setCanOpenApp(false)
+    //   setTimeout(() => {
+    //     setCanOpenApp(true)
+    //   }, 500)
+    // }
+
+    // dispatch(editIdOpenFragment(''))
   }
   // Todo title editing
 
@@ -340,7 +351,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
             <PopupB>źródło:&nbsp;</PopupB>
             {openedFragment?.source}
           </PopupDatePar>
-          <KeywordEditing id={idOpen} />
+          <KeywordEditing id={idOpen} setOpenedApp={setOpenedApp} />
           {/* //todo excerpt editing/display below */}
           <PopupListRow>
             <PopupTitleContainer>

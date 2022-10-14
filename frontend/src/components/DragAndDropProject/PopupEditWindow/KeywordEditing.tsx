@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { editSavedFragment } from '../../../features/fragments/fragmentSlice'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -18,9 +18,13 @@ import {
 
 interface KeywordEditingProps {
   id: string
+  setOpenedApp?: Dispatch<SetStateAction<null | string>>
 }
 
-const KeywordEditing: React.FC<KeywordEditingProps> = ({ id }) => {
+const KeywordEditing: React.FC<KeywordEditingProps> = ({
+  id,
+  setOpenedApp,
+}) => {
   const dispatch: any = useAppDispatch()
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
@@ -102,6 +106,9 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({ id }) => {
   }
   const saveKeywordArrHandler = () => {
     dispatch(editSavedFragment(newKeywordList))
+    if (setOpenedApp) {
+      setOpenedApp(null)
+    }
   }
 
   useEffect(() => {

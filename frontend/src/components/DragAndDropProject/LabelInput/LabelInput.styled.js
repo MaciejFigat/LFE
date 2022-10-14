@@ -62,7 +62,8 @@ export const HorizontalButtonContainer = styled(motion.div)`
   align-items: center;
   min-width: 250px;
   min-height: min-content;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  align-items: center;
   justify-content: flex-end;
   margin-bottom: 0;
 `

@@ -42,7 +42,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = ({ wide }) => {
     const newXPosition = xPos.current - 400
 
     animation.start({
-      x: newXPosition < -uniqueKeywords.length * 100 - 300 ? 0 : newXPosition,
+      x: newXPosition < -uniqueKeywords.length * 140 - 300 ? 0 : newXPosition,
     })
   }
 
@@ -97,7 +97,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = ({ wide }) => {
       <ProjectMenuContainer
         wide={wide}
         drag='x'
-        dragConstraints={{ left: -uniqueKeywords.length * 90, right: 0 }}
+        dragConstraints={{ left: -uniqueKeywords.length * 155, right: 0 }}
         dragTransition={{ bounceStiffness: 1100, bounceDamping: 110 }}
         transition={{ type: 'linear', stiffness: 100 }}
         dragElastic={0.5}
@@ -120,7 +120,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = ({ wide }) => {
             // animate={selectedCard === keyword && 'selected'}
             custom={selectedCard! ? selectedCard! - keyword : 0}
           >
-            {keyword}
+            {keyword.substring(0, 15)}
           </ProjectCard>
         ))}
       </ProjectMenuContainer>

@@ -41,7 +41,7 @@ export const ProjectCard = styled(motion.div)`
   height: 30px;
   padding: 0 0.5rem 0 0.5rem;
   /* width: 80px; */
-  min-width: fit-content;
+  min-width: 135px;
   color: var(--background1-main);
   background: var(--background4-main);
   /* ${({ wide }) => wide && 'background: var(--background4-main);'};

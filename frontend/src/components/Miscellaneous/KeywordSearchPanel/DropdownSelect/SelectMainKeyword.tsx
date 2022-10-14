@@ -90,14 +90,12 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
   // fragmentSuccessUpdate true -> false -> true
   useMemo(() => {
     if (fragmentLoadingUpdate === false && fragmentSuccessUpdate === true) {
-      const timer = setTimeout(
-        () => dispatch(getUserFragments(1)),
-        dispatch(sortingKeywordMainEdit(newKeyword)),
-        3000
-      )
+      //! HERE it's commented for it's the cause of keywordMain change on every update or delete - since they use the same successUpdate etc
+      //! setSelectedMainKeyword(newKeyword)
+      const timer = setTimeout(() => dispatch(getUserFragments(1)), 3000)
       return () => clearTimeout(timer)
     }
-  }, [fragmentLoadingUpdate, fragmentSuccessUpdate, dispatch, newKeyword])
+  }, [fragmentLoadingUpdate, fragmentSuccessUpdate, dispatch])
 
   useEffect(() => {
     const fragmentsMatching = fragments
@@ -172,6 +170,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
   }
   const saveEditedKeywordHelper = () => {
     setKeywordEditing((keywordEditing) => !keywordEditing)
+    setSelectedMainKeyword(newKeyword)
     // todo loop through fragmentsKeywordMain ->
     // for each fragment looped i will change an object in keywordValue that contains keywordMain
     // only keyword: '' will change, rest of the {} will remain intact

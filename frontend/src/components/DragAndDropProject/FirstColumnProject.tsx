@@ -36,7 +36,6 @@ interface FirstColumnProjectProps {
   state: any[]
   keywordMain?: string
   setOpenedApp?: Dispatch<SetStateAction<null | string>>
-  // setTitle?: Dispatch<SetStateAction<string>>
   setIdOpen?: Dispatch<SetStateAction<string>>
   canOpenApp?: boolean
   openedApp?: string | null
@@ -295,8 +294,6 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
               </AlignCenterContainer>
             </HorizontalButtonContainer>
 
-            {/*  // todo here  */}
-
             {state[0]
               .slice(start, end + 1)
               .map((fragment: any, index: number) => (
@@ -315,7 +312,6 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                         provided.draggableProps.style
                       )}
                     >
-                      {/* <WrapperMotionDiv> */}
                       <WrapperMotionDiv layoutId={fragment._id}>
                         {' '}
                       </WrapperMotionDiv>
@@ -324,7 +320,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                           onClick={() => openWindowHandler(fragment._id)}
                         />
                       </OpenDivButtonWrapper>
-                      {/*  // todo here  */}
+
                       <FragmentParSmall>
                         {' '}
                         <FragmentB>T:</FragmentB> {fragment.title}
@@ -335,37 +331,6 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                       <FragmentParSmall>
                         <FragmentB>D:</FragmentB> {fragment.description}
                       </FragmentParSmall>
-
-                      {/* <ClosedLayoutDiv
-                              key={fragment.id}
-                              layoutId={fragment._id.toString()}
-                            >
-                              <KeywordDivSimple>
-                                <FragmentB>Keywords:&nbsp;</FragmentB>
-                                {fragment.keywords.map((keyword: string) => (
-                                  <KeywordB key={Math.random()}>
-                                    {keyword} &nbsp;
-                                  </KeywordB>
-                                ))}
-                              </KeywordDivSimple>
-                              <OpenDivButton
-                                onClick={() =>
-                                  openWindowHandler(
-                                    fragment._id,
-                                    fragment.title
-                                  )
-                                }
-                              />
-                            </ClosedLayoutDiv> */}
-                      {/* <KeywordDivSimple>
-                              <FragmentB>Keywords:&nbsp;</FragmentB>
-                              {fragment.keywords.map((keyword: string) => (
-                                <KeywordB key={Math.random()}>
-                                  {keyword} &nbsp;
-                                </KeywordB>
-                              ))}
-                            </KeywordDivSimple> */}
-                      {/* </WrapperMotionDiv> */}
                     </FragmentDivSmall>
                   )}
                 </Draggable>
