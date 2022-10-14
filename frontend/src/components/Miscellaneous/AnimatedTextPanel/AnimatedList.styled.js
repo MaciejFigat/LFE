@@ -11,7 +11,9 @@ export const FragmentsWrapper = styled(motion.div)`
     moreColumns && 'grid-template-columns: repeat(4, 1fr);'};
   ${({ moreColumns }) =>
     moreColumns && 'grid-template-rows: fit-content(40%);'};
-  /* moreColumns && 'grid-template-rows: repeat(auto-fill, 300px);'}; */
+  ${({ moreColumns }) =>
+    moreColumns && 'grid-template-rows: repeat(auto-fill, 300px);'};
+
   ${({ moreColumns }) => moreColumns && 'grid-row-gap: 1.75em;'};
   ${({ moreColumns }) => moreColumns && 'grid-column-gap: 1rem;'};
   @media (max-width: 1420px) {
@@ -28,12 +30,12 @@ export const FragmentsWrapper = styled(motion.div)`
     /* width: 75%; */
   }
 `
-export const ListWrapper = styled(motion.ul)`
+export const ListWrapper = styled(motion.div)`
   display: flex;
   margin: 0;
   flex-direction: column;
   /* margin-top: 16px; */
-  height: fit-content;
+
   padding: 0.5rem;
 
   @media (max-width: 1140px) {
@@ -52,14 +54,13 @@ export const ListWrapperDemo = styled(ListWrapper)`
   /* background: red; */
 `
 
-export const ListItem = styled(motion.li)`
+export const ListItem = styled(motion.div)`
   display: grid;
   place-items: center;
   /* padding-bottom: 12px; */
 
   // ! border radius passed as proprerty of ListItem in order to animate propre
 
-  list-style: none;
   /* overflow: hidden; */
   background: var(--background1-main);
   /* cursor: pointer; */

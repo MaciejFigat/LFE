@@ -12,7 +12,7 @@ export const ArticleWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 2rem;
-  color: var(--background5-main);
+  color: var(--background4-main);
   @media (max-width: 880px) {
     padding-top: 1rem;
   }
@@ -22,14 +22,14 @@ export const ArticleTitle = styled.h2`
   font-size: 2.4rem;
   line-height: 1;
   //todo
-  color: var(--background5-main);
+  color: var(--background4-main);
   letter-spacing: -0.075rem;
   text-align: center;
   width: 80%;
   margin: 0rem auto 0.5rem;
   font-weight: 800;
 
-  color: var(--background3-main);
+  /* color: var(--background3-main); */
   @media (max-width: 880px) {
     font-size: 2rem;
     padding: 1.5rem;

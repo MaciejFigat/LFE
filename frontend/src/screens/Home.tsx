@@ -17,7 +17,12 @@ const Home: React.FC = () => {
   const tabsTutorial = [
     {
       label: 'Wyszukiwanie',
-      content: <HeroOne />,
+      content: (
+        <>
+          <HeroOne />
+          <SearchResultsDisplay />,
+        </>
+      ),
     },
     {
       label: 'Zapisywanie',
@@ -32,7 +37,6 @@ const Home: React.FC = () => {
     {
       label: 'Wyszukane',
       content: <SearchResultsDisplay />,
-      // content: '',
     },
     {
       label: 'Projekty',
@@ -41,7 +45,6 @@ const Home: React.FC = () => {
     {
       label: 'Zapisane fragmenty',
       content: <FragmentsDisplay />,
-      // content: '',
     },
     {
       label: `Ostatnie wyniki`,

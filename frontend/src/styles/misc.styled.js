@@ -95,3 +95,8 @@ export const TwoColumnsWrapper = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
 `
+
+export const RelativeRightSvgWrapper = styled.div`
+  position: relative;
+  right: -10px;
+`

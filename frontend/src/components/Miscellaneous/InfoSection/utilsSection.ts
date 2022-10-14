@@ -16,10 +16,10 @@ interface StyleVariant {
 const primaryStyle: StyleVariant = {
     sectionBackground: `var(--background-blur1);`,
     // sectionBackground: `var(--background-opaque1);`,
-    color: `var(--background5-main);`,
-    subtitleColor: 'var(--background5-main);',
-    headingColor: 'var(--background5-main);',
-    toplineColor: 'var(--background5-main);',
+    color: `var(--background4-main);`,
+    subtitleColor: 'var(--background4-main);',
+    headingColor: 'var(--background4-main);',
+    toplineColor: 'var(--background4-main);',
     buttonColor: 'var(--background-tertiary2);',
     buttonBackground: 'var(--background-secondary1);',
     buttonBackgroundHover: 'var(--background-secondary2);',
@@ -40,13 +40,13 @@ const primaryStyle: StyleVariant = {
 
 const secondaryStyle: StyleVariant = {
     sectionBackground: `var(--background1-main);`,
-    color: `var(--background5-main);`,
-    subtitleColor: 'var(--background5-main);',
+    color: `var(--background4-main);`,
+    subtitleColor: 'var(--background4-main);',
     headingColor: 'var(--background4-main);',
     toplineColor: 'var(--background4-main);',
-    buttonColor: 'var(--background3-main);',
+    buttonColor: 'var(--background4-main);',
     buttonBackground: 'var(--background4-main);',
-    buttonBackgroundHover: 'var(--background4-main);',
+    buttonBackgroundHover: 'var(--background3-main);',
     buttonColorHover: 'var(--background3-main);'
 
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { FragmentContainer } from './FragmentsColumn.styled'
-import { motion } from 'framer-motion'
+
 import {
   ListWrapper,
   ItemWrapper,
@@ -63,7 +63,6 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
 
           .map((fragment) => (
             <ListWrapper
-              as={motion.ul}
               key={fragment._id}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

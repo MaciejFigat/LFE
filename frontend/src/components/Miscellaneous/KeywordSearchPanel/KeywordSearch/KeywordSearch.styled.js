@@ -36,6 +36,7 @@ export const FragmentParSmall = styled.p`
   font-weight: 400;
   color: var(--background5-main);
   margin: 0;
+  margin-bottom: 0.25rem;
 `
 export const FragmentTitleRowSmall = styled.div`
   display: flex;
@@ -44,6 +45,10 @@ export const FragmentTitleRowSmall = styled.div`
   max-height: 1.2rem;
 `
 export const FragmentDivSmall = styled(motion.div)`
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column; */
   /* position: absolute; */
   align-self: center;
   /* background: var(--background1-main) !important; */
@@ -54,13 +59,36 @@ export const FragmentDivSmall = styled(motion.div)`
       ? 'border: 1px solid var(--background4-main);'
       : 'border: 1px solid var(--background4-main);'}; */
   border: 1px solid var(--background4-main);
-  /* background: var(--background-blur1) !important; */
+  background: var(--background-blur1) !important;
   border-radius: 15px;
-  /* background: red !important; */
   /* width: 98%; */
   /* min-width: 98%; */
   /* width: 95%; */
   padding: 0.95rem;
   padding-right: 0.75rem;
-  overflow: hidden;
+  padding-bottom: 0rem;
+  /* overflow: hidden; */
+  overflow: scroll;
+  /* height: fit-content; */
+  /* min-height: 300px; */
+  height: 240px;
+  /* background: lime; */
+  ::-webkit-scrollbar {
+    width: 0.2em;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      var(--background-blur1),
+      var(--background3-main),
+      var(--background-blur1)
+    );
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 2px;
+  }
 `

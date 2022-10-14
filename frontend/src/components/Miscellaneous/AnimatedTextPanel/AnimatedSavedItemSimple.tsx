@@ -11,7 +11,10 @@ import {
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import SvgIcon from '../SvgIcon/SvgIcon'
-import { WrapperMotionDiv } from '../../../styles/misc.styled'
+import {
+  RelativeRightSvgWrapper,
+  WrapperMotionDiv,
+} from '../../../styles/misc.styled'
 import { ListItemSimple } from './AnimatedList.styled'
 import { editIdOpenFragment } from '../../../features/preferences/preferenceSlice'
 
@@ -63,36 +66,38 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
           <FragmentTitleRowSmall>
             <FragmentParSmall>
               {' '}
-              <FragmentB>Title:</FragmentB> {title}{' '}
+              <FragmentB>Tytuł:</FragmentB> {title}{' '}
             </FragmentParSmall>
-            <SendButtonVerySmall
-              variant='primaryEmpty'
-              onClick={openWindowHandler}
-              // onClick={openWindowHandler('6310d693cbf3fcda37beff9c')}
-            >
-              <SvgIcon variant='edit' toBottom contentAfter='edit' />
-            </SendButtonVerySmall>
+            <RelativeRightSvgWrapper>
+              <SendButtonVerySmall
+                variant='primaryEmpty'
+                onClick={openWindowHandler}
+                // onClick={openWindowHandler('6310d693cbf3fcda37beff9c')}
+              >
+                <SvgIcon variant='dotCircle' contentAfter='Edytuj' toLeft />
+              </SendButtonVerySmall>
+            </RelativeRightSvgWrapper>
           </FragmentTitleRowSmall>
           <FragmentParSmall>
-            <FragmentB>Source:</FragmentB> {source}
+            <FragmentB>Źródło:</FragmentB> {source}
           </FragmentParSmall>
           <FragmentParSmall>
             <FragmentB>Syg:</FragmentB> {coordinates}
           </FragmentParSmall>
           <FragmentParSmall>
-            <FragmentB>Excerpt:</FragmentB> {excerpt}
+            <FragmentB>Cytat:</FragmentB> {excerpt}
           </FragmentParSmall>
           <FragmentParSmall>
-            <FragmentB>Desc:</FragmentB> {description}
+            <FragmentB>Opis:</FragmentB> {description}
           </FragmentParSmall>
           <FragmentParSmall>
-            <FragmentB>Updated:</FragmentB> {updatedAt.substring(0, 10)} at{' '}
+            <FragmentB>Aktualizacja:</FragmentB> {updatedAt.substring(0, 10)} at{' '}
             {updatedAt.substring(12, 16)}
           </FragmentParSmall>
 
           {(keywords.length > 1 || keywords[0] !== '') && (
             <KeywordDivSimple>
-              <FragmentB>Keywords:&nbsp;</FragmentB>
+              <FragmentB>Projekty:&nbsp;</FragmentB>
               {keywords.map((keyword) => (
                 <KeywordB key={Math.random()}>{keyword} &nbsp;</KeywordB>
               ))}

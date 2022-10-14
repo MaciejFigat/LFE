@@ -22,13 +22,13 @@ const itemVariants = {
 }
 const links = [
   {
-    name: <SvgIcon variant='home' noMargin contentAfter='home' toRight />,
+    name: <SvgIcon variant='home' noMargin contentAfter='start' toRight />,
     to: '/',
     id: '1',
   },
   {
     name: (
-      <SvgIcon variant='textLeft' noMargin contentAfter='display' toRight />
+      <SvgIcon variant='textLeft' noMargin contentAfter='dokument' toRight />
     ),
     to: '/search/result',
     id: '2',
