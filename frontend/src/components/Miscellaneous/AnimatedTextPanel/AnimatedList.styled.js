@@ -159,7 +159,7 @@ export const TitleAnimated = styled(motion.div)`
 // export const TitleContainer = styled(motion.div)``
 /* export const TitleInput = styled(motion.textarea)` */
 export const TitleInput = styled(motion.input)`
-  color: var(--background-tertiary3);
+  color: var(--background-secondary3);
   width: 100%;
   min-width: 250px;
   padding: 0;

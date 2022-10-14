@@ -74,7 +74,11 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
                 onClick={openWindowHandler}
                 // onClick={openWindowHandler('6310d693cbf3fcda37beff9c')}
               >
-                <SvgIcon variant='dotCircle' contentAfter='Edytuj' toLeft />
+                <SvgIcon
+                  variant='dotCircle'
+                  contentAfter={moreColumns ? 'Edytuj' : ''}
+                  toLeft
+                />
               </SendButtonVerySmall>
             </RelativeRightSvgWrapper>
           </FragmentTitleRowSmall>
