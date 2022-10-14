@@ -87,7 +87,7 @@ export const FragmentDivSmall = styled(motion.div)`
   }
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(
-      var(--background-blur1),
+      transparent,
       var(--background3-main),
       var(--background-blur1)
     );
