@@ -21,6 +21,10 @@ export const ChoiceTitleContainer = styled.div`
   /* top: -90%; */
   /* ${({ navTop }) => (navTop ? 'left:35%;' : 'left: 2rem;')} */
   /* left: 35%; */
+  @media screen and (max-width: 601px) {
+    width: 90%;
+    margin-bottom: 1rem;
+  }
 `
 export const ChoiceNav = styled.nav`
   /* ${({ navTop }) => (navTop ? 'position: absolute;' : 'position: relative;')}

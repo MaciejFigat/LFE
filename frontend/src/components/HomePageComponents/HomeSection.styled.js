@@ -54,16 +54,18 @@ export const InfoRow = styled.div`
   @media (max-width: 880px) {
     flex-direction: ${({ imgStart }) =>
       imgStart === true ? 'column-reverse' : 'column'};
+    margin: 0;
+    padding: 0;
   }
 `
 export const InfoColumn = styled.div`
   padding-left: 0.5rem;
   flex-basis: 70%;
-
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
   @media screen and (min-width: 770px) {
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
+    padding: 0;
   }
 `
 export const InfoColumnShort = styled(InfoColumn)`
@@ -113,6 +115,7 @@ export const TextWrapperParSimple = styled.div`
   font-weight: 500;
 `
 export const TextWrapper = styled.div`
+  /* background: brown; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;

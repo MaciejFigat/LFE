@@ -18,6 +18,7 @@ import {
   CenterWrapper,
   SubtitleShort,
   HighlightMarker,
+  TextWrapperShort,
 } from './InfoSection.styled'
 import parse from 'html-react-parser'
 //! problem solved with parse - html-react-parser - prarses string to html in React
@@ -101,7 +102,7 @@ const DataSection: React.FC<DataSectionProps> = ({
         <Container>
           <InfoRow imgStart={imgStart}>
             <InfoColumnShort imgStart={imgStart}>
-              <TextWrapper>
+              <TextWrapperShort>
                 <TopLine variant={variant}>{metryka.syg}</TopLine>
                 <SubtitleShort variant={variant}>{metryka.organ}</SubtitleShort>
                 <TopLine variant={variant}>
@@ -144,7 +145,7 @@ const DataSection: React.FC<DataSectionProps> = ({
                     Nie
                   </ButtonLink>
                 </Button>{' '}
-              </TextWrapper>
+              </TextWrapperShort>
             </InfoColumnShort>
             <InfoColumn>
               <TextWrapper>

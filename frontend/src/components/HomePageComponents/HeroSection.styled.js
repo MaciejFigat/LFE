@@ -47,11 +47,19 @@ export const HeroSec = styled(motion.div)`
 export const HeroSecNoSvg = styled(HeroSec)`
   margin-top: 4rem;
   margin-bottom: 0;
+  display: flex;
+  /* flex-direction: row; */
+  /* background: brown; */
+  justify-content: center;
+  @media screen and (max-width: 601px) {
+    /* width: 100%; */
+    /* background: brown; */
+  }
 `
 export const HeroTextContainer = styled.div`
   z-index: 11;
   margin-right: 2rem;
-  margin-left: 5rem;
+  margin-left: 2rem;
   display: flex;
   /* flex-direction: row; */
   flex-direction: column;
@@ -60,10 +68,19 @@ export const HeroTextContainer = styled.div`
   padding: 2rem;
   padding-top: 0;
   padding-bottom: 0;
-  min-width: 70vw;
+  /* min-width: 70vw; */
+  width: 70vw;
+  @media screen and (max-width: 1210px) {
+    width: 75vw;
+  }
+  @media screen and (max-width: 1010px) {
+    width: 80vw;
+  }
   @media screen and (max-width: 771px) {
-    margin-right: 0.25rem;
-    margin-left: 0.25rem;
+    margin-right: 0rem;
+    margin-left: 0rem;
+    padding: 0rem;
+    width: 90vw;
   }
   svg {
     position: static;
@@ -92,6 +109,9 @@ export const HeroTitle = styled.div`
       top: 20px;
       left: 70px;
     }
+  }
+  @media screen and (max-width: 440px) {
+    width: 50%;
   }
 `
 export const HeroTitleLeft = styled.div`

@@ -40,6 +40,7 @@ export const IconsItem = styled.div`
 
     @media (max-width: 620px) {
       width: ${(props) => (props.noContent ? `0px` : '60px')};
+      left: ${({ toBottom }) => toBottom && '-5px; '};
       font-size: 0.55rem;
       padding: 0;
     }
