@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 
+export const AdminWrapperHeight = styled.div`
+  height: 90vh;
+`
 export const AdminWrapper = styled.div`
   overflow: hidden;
 `

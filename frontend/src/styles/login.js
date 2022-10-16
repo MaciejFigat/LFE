@@ -9,10 +9,12 @@ const jump = keyframes`
   }
 `
 
+export const LoginWrapper = styled.div``
 export const LoginContainer = styled.div`
   display: grid;
   place-items: center;
-  background: var(--background2-main);
+  height: 89vh;
+  background: var(--background1-main);
   color: var(--background4-main);
   @media screen and (max-width: 760px) {
     /* max-width: 90%; */
@@ -102,7 +104,7 @@ export const Title = styled.div`
 `
 export const LoginLink = styled.div`
   color: var(--background-secondary2);
-  max-width: fit-content;
+  min-width: fit-content;
   transition: 0.3s;
   font-weight: 500;
   cursor: pointer;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useAppDispatch } from '../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { logout, sendUserId } from '../features/users/userSlice'
 import {
   Wrapper,
@@ -14,13 +14,17 @@ import {
 } from '../styles/login'
 import useRedirectLoggedListener from '../hooks/useRedirectListenerLogged'
 import { sendEmailToResetPassword } from '../features/users/userSlice'
+import { UserInfo } from '../interfaces'
 
 interface LoginProps {}
 
 const Login: React.FC<LoginProps> = () => {
   const dispatch = useAppDispatch()
 
+  const userInfoRedux: UserInfo = useAppSelector((state) => state.user.userInfo)
+
   useRedirectLoggedListener()
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -45,12 +49,12 @@ const Login: React.FC<LoginProps> = () => {
   return (
     <LoginContainer>
       <Wrapper>
-        <h3>Welcome back</h3>
+        <h3>Zapraszamy</h3>
         <Form onSubmit={submitHandler}>
           <Input
             type='email'
             name='email'
-            placeholder='Enter your email'
+            placeholder='Wpisz swój email'
             autoComplete='email'
             value={email}
             onChange={(e: any) => setEmail(e.target.value)}
@@ -59,27 +63,29 @@ const Login: React.FC<LoginProps> = () => {
           <Input
             type='password'
             autoComplete='current-password'
-            placeholder='Enter your password'
+            placeholder='Wpisz hasło'
             value={password}
             onChange={(e: any) => setPassword(e.target.value)}
           />
 
-          <Button>Login</Button>
+          <Button>Zaloguj się</Button>
         </Form>
-
-        <Button onClick={logoutHandler}>Logout</Button>
+        {Object.keys(userInfoRedux).length > 0 && (
+          <Button onClick={logoutHandler}>Wyloguj się</Button>
+        )}
       </Wrapper>
       <LoginTextWrapper>
         <Title>
-          Please feel free to{' '}
+          Jeśli nie masz konta,{' '}
           <Link to='/register'>
-            <LoginLink>&nbsp;register.</LoginLink>
+            <LoginLink>&nbsp;zarejestruj się.</LoginLink>
           </Link>
         </Title>
         <Title>
-          Forgot the password - please type the email and click
+          Możesz zresetować hasło. Wpisz swój email w pole email powyżej i
+          kliknij -
           <LoginLink onClick={resetPasswordHandler}>
-            &nbsp;reset password.
+            &nbsp;resetuj hasło.
           </LoginLink>
         </Title>
       </LoginTextWrapper>

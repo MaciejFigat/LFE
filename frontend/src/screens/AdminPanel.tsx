@@ -1,7 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { SendButton } from '../components/Miscellaneous/Buttons/Buttons.styled'
-import { AdminContainer } from '../styles/ArticleTable.styled'
+import {
+  SendButton,
+  SendButtonSmall,
+} from '../components/Miscellaneous/Buttons/Buttons.styled'
+import {
+  AdminContainer,
+  AdminWrapperHeight,
+} from '../styles/ArticleTable.styled'
 import SmallSection from '../components/Miscellaneous/SectionSmall/SmallSection'
 import { useAppSelector } from '../app/reduxHooks'
 import { UserInfo } from '../interfaces'
@@ -14,22 +20,22 @@ const AdminPanel: React.FC<AdminPanelProps> = () => {
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const { name } = userInfo
   return (
-    <>
+    <AdminWrapperHeight>
       <SmallSection
-        title='Admin Panel'
+        title='Panel administratora'
         description={name ? `${name}` : 'Hello'}
-        variant='tertiary'
+        variant='primary'
       />
       <AdminContainer>
-        <SendButton variant='primary' large fontLarge>
+        <SendButton variant='infoEmpty' large fontLarge>
           <Link to='/admin/userlist'>Lista użytkowników</Link>
         </SendButton>
 
-        <SendButton variant='secondary' large fontLarge>
+        <SendButton variant='primary' large fontLarge>
           <Link to='/profile'>Edytuj dane adninistratora</Link>
         </SendButton>
       </AdminContainer>
-    </>
+    </AdminWrapperHeight>
   )
 }
 export default AdminPanel
