@@ -25,6 +25,7 @@ interface SearchBarProps {
   endDate: any
   skip: number
   take: number
+  large?: boolean
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({
@@ -33,6 +34,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   endDate,
   skip,
   take,
+  large,
 }) => {
   const dispatch = useAppDispatch()
 
@@ -63,9 +65,10 @@ const SearchBar: React.FC<SearchBarProps> = ({
     }
   }
   return (
-    <SearchBarWrapper>
+    <SearchBarWrapper large={large}>
       <SearchBarForm onSubmit={submitHandler}>
         <SearchBarButton
+          large={large}
           className={`${isOpen === true ? 'show' : 'hide'} `}
           type='submit'
         >
@@ -82,9 +85,9 @@ const SearchBar: React.FC<SearchBarProps> = ({
           ) : (
             <SpinnerWrapperSearch>
               <ThreeDots
-                height='22'
-                width='22'
-                color='var(--background3-main)'
+                height={large ? '44' : '22'}
+                width={large ? '44' : '22'}
+                color='var(--background4-main)'
                 ariaLabel='loading'
               />
             </SpinnerWrapperSearch>
@@ -92,6 +95,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         </SearchBarButton>
         <SearchBarContainer>
           <SearchInput
+            large={large}
             type='search'
             name='search'
             placeholder='wpisz frazę'

@@ -7,41 +7,6 @@ export const HeroSec = styled(motion.div)`
   justify-content: center;
 
   min-height: fit-content;
-
-  /* svg {
-    position: relative;
-  }
-
-  svg > path:nth-child(1) {
-    fill: var(--background1-main);
-  }
-  svg > path:nth-child(2) {
-    fill: var(--background3-main);
-  }
-  svg > path:nth-child(3) {
-    fill: var(--background2-main);
-  }
-  svg > path:nth-child(4) {
-    fill: var(--background4-main);
-  }
-  svg > path:nth-child(5) {
-    fill: var(--background5-main);
-  }
-  svg > path:nth-child(6) {
-    fill: var(--background1-main);
-  }
-  svg > path:nth-child(7) {
-    fill: var(--background2-main);
-  }
-  svg > path:nth-child(8) {
-    fill: var(--background2-main);
-  }
-  svg > path:nth-child(8) {
-    fill: var(--background2-main);
-  }
-  svg > path:last-child {
-    fill: var(--background1-main);
-  } */
 `
 
 export const HeroSecNoSvg = styled(HeroSec)`
@@ -51,8 +16,8 @@ export const HeroSecNoSvg = styled(HeroSec)`
   /* flex-direction: row; */
   /* background: brown; */
   justify-content: center;
-  @media screen and (max-width: 601px) {
-    /* width: 100%; */
+  @media screen and (max-width: 410px) {
+    /* max-width: 90%; */
     /* background: brown; */
   }
 `

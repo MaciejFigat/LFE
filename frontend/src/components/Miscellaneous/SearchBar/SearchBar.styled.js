@@ -1,14 +1,27 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+
+export const HomeSearchWrapper = styled.div`
+  display: grid;
+  place-items: center;
+  margin: 0;
+  margin-top: 4rem;
+  width: 100%;
+  @media (max-width: 620px) {
+    margin-top: 2rem;
+    width: 80vw;
+  }
+`
 export const SearchBarWrapper = styled.div`
   display: flex;
   align-self: center;
-  /* color: var(--background5-main); */
+
+  height: ${({ large }) => (large ? '50px' : '30px')};
+  min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
   z-index: 10;
   gap: 0.75rem;
   background: transparent;
-  height: 30px;
-  min-width: fit-content;
+
   min-height: fit-content;
   font-size: 1.55rem;
   font-weight: 400;
@@ -24,9 +37,13 @@ export const SearchBarWrapper = styled.div`
     /* opacity: 0; */
     color: var(--background5-main);
   }
+  @media (max-width: 620px) {
+    height: ${({ large }) => (large ? '40px' : '30px')};
+    min-width: fit-content;
+  }
   @media (max-width: 420px) {
     gap: 0.25rem;
-    height: 25px;
+    height: ${({ large }) => (large ? '30px' : '25px')};
   }
 `
 
@@ -38,7 +55,7 @@ export const SearchBarButton = styled.button`
   border: none;
   cursor: pointer;
   background: transparent;
-  font-size: 1rem;
+  font-size: ${({ large }) => (large ? '1.75rem' : '1rem')};
   font-weight: 700;
   /* color: var(--background3-main); */
   /* background: var(--background2-main); */
@@ -69,13 +86,21 @@ export const SearchInput = styled.input`
   height: 100%;
   padding: 11px 13px;
   color: var(--background4-main);
-  border-radius: 12px;
+  border-radius: 
   outline: 0;
   border: 1px solid rgba(245, 245, 245, 0.7);
-  font-size: 1rem;
+  font-size: ${({ large }) => (large ? '1.5rem' : '1rem')};
   transition: all 0.3s ease-out;
-
+  min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
+  border-radius: ${({ large }) => (large ? '20px' : '12px')};
+  @media (max-width: 620px) {
+    font-size: ${({ large }) => (large ? '1rem' : '0.85rem')};
+  
+  min-width: ${({ large }) => (large ? '270px' : 'fit-content')};
+  border-radius: ${({ large }) => (large ? '14px' : '12px')};
+  }
   @media (max-width: 420px) {
+    min-width: ${({ large }) => (large ? '200px' : 'fit-content')};
     font-size: 0.8rem;
     padding: 5px 7px;
   }
@@ -192,13 +217,11 @@ export const SwitchSectionWrapper = styled.div`
   width: 100%;
   flex-direction: column;
   justify-content: flex-start;
-  /* padding-left: 1.5rem; */
   margin-left: 2rem;
 `
 export const SwitchResultWrapper = styled(SwitchSectionWrapper)`
   justify-content: center;
   align-items: center;
-  /* justify-content: flex-start; */
   flex-direction: row;
   color: var(--background4-main);
   gap: 1rem;
@@ -224,9 +247,7 @@ export const SwitchDivContainerNarrow = styled(SwitchDivContainer)`
   gap: 0.15rem;
 `
 export const SwitchDiv = styled.div`
-  /* width: 24px; */
   width: 28px;
-  /* height: 15px; */
   height: 16px;
   background-color: ${({ isOn }) =>
     isOn ? 'var(--background2-main)' : 'var(--background4-main)'};
@@ -261,12 +282,8 @@ export const SetTakeButton = styled.button`
   font-size: 0.7rem;
   background-color: ${({ buttonActive }) =>
     buttonActive ? 'var(--background4-main)' : 'transparent'};
-  /* margin-left: 0.5rem; */
-  /* margin: 0 auto; */
   margin: 0;
   &:hover {
-    /* transition: all 0.7s ease-out; */
-    /* border: 1px solid var(--background-secondary2); */
     border: 1px solid;
     border-color: ${({ buttonActive }) =>
       buttonActive ? 'var(--background1-main)' : 'var(--background4-main)'};

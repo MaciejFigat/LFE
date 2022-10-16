@@ -59,7 +59,7 @@ const HeroOne: React.FC<HeroOneProps> = () => {
                 {' '}
                 W bazie dokumentów znajdują się aktualne interpretacje
                 podatkowe. Interpretacje nieaktualne są z niej usuwane. Źródłem
-                danych dla naszej bazy jest{' '}
+                danych dla naszej bazy jest
                 <a href='https://sip.mf.gov.pl'>SIP</a>
               </TopLine>
             </TextWrapper>

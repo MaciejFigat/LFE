@@ -9,6 +9,7 @@ import { UserInfo } from '../interfaces'
 import SearchResultsDisplay from '../components/HomePageComponents/SearchResultsDisplay'
 import ProjectsDisplay from '../components/HomePageComponents/ProjectsDisplay'
 import FragmentsDisplay from '../components/HomePageComponents/FragmentsDisplay'
+import HomeSearch from '../components/HomePageComponents/HomeSearch'
 
 const Home: React.FC = () => {
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
@@ -19,8 +20,9 @@ const Home: React.FC = () => {
       label: 'Wyszukiwanie',
       content: (
         <>
+          <HomeSearch />
           <HeroOne />
-          <SearchResultsDisplay />,
+          <SearchResultsDisplay />
         </>
       ),
     },
@@ -36,7 +38,12 @@ const Home: React.FC = () => {
   const tabsUser = [
     {
       label: 'Wyszukane',
-      content: <SearchResultsDisplay />,
+      content: (
+        <>
+          <HomeSearch />
+          <SearchResultsDisplay />
+        </>
+      ),
     },
     {
       label: 'Projekty',

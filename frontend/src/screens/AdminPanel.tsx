@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {
-  SendButton,
-  SendButtonSmall,
-} from '../components/Miscellaneous/Buttons/Buttons.styled'
+import { SendButton } from '../components/Miscellaneous/Buttons/Buttons.styled'
 import {
   AdminContainer,
   AdminWrapperHeight,

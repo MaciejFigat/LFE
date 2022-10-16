@@ -9,7 +9,6 @@ const jump = keyframes`
   }
 `
 
-export const LoginWrapper = styled.div``
 export const LoginContainer = styled.div`
   display: grid;
   place-items: center;

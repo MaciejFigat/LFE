@@ -44,10 +44,7 @@ export const WrapperMotionDiv = styled(motion.div)`
 `
 export const ClosingDiv = styled(motion.div)`
   width: 35%;
-  /* height: 32px; */
   border-radius: 100px;
-  /* top: -22.5%; */
-  /* top: 10px; */
   z-index: 10;
   background: var(--background1-main);
   color: var(--background5-main);
