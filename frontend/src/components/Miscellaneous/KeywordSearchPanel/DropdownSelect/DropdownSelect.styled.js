@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 export const Main = styled.div``
 export const DropDownContainer = styled.div`
   width: 12rem;
+
   min-width: min-content;
   margin: 0 auto;
 `
@@ -14,12 +15,14 @@ export const DropDownHeader = styled(motion.div)`
   min-height: 20.5px;
   /* margin: 0; */
   padding: 0.48rem 1rem 0.48rem 1rem;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  border-right: 1px solid var(--background2-main);
+  border-top: 1px solid var(--background2-main);
+  border-radius: 5px;
+  box-shadow: var(--boxShadowInset1);
   font-weight: 500;
   font-size: 1rem;
   color: var(--background5-main);
-  /* border-bottom: 1px solid var(--background5-main); */
-  /* background: var(--background1-main); */
+  background: var(--background-blur1);
   transition: all 0.3s ease-out;
   text-align: center;
   &:hover {
@@ -40,18 +43,21 @@ export const DropDownList = styled.div`
   margin: 0;
   padding-left: 1rem;
   padding-right: 0.5rem;
-  /* background: var(--background2-main); */
-  background: var(--background-blur1);
+  box-shadow: var(--boxShadow1);
+  background: var(--background1-main);
   /* background: var(--background-blur1); */
-  backdrop-filter: blur(8px) saturate(180%);
-  -webkit-backdrop-filter: blur(8px) saturate(180%);
-  /* background-color: rgba(240, 229, 207, 0.75); */
+  /* background: var(--background-blur1); */
+  /* backdrop-filter: blur(8px) saturate(180%); */
+  /* -webkit-backdrop-filter: blur(8px) saturate(180%); */
 
-  /* border: 1px solid rgba(255, 255, 255, 0.125); */
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main);
+  box-shadow: var(--boxShadow3);
 
-  border-top: 1px solid var(--background5-main);
-  border-bottom: 1px solid var(--background5-main);
   box-sizing: border-box;
+
   color: var(--background5-main);
   font-size: 1.1rem;
   font-weight: 500;
@@ -122,9 +128,12 @@ export const OptionsDropdownContainer = styled.div`
   z-index: 10;
   background: var(--background1-main);
   width: 250px;
-  border: 1px solid var(--background4-main);
 
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 10px;
+  border-radius: 5px;
+
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main);
+  box-shadow: var(--boxShadow3);
 `

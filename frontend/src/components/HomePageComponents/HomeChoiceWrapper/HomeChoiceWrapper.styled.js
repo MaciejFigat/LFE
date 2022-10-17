@@ -76,7 +76,8 @@ export const ChoiceList = styled.ul`
   .selected {
     transition: 0.3s;
     /* background: var(--background-blur1); */
-    box-shadow: var(--boxShadowInset1);
+    /* box-shadow: var(--boxShadowInset1); */
+    box-shadow: var(--boxShadow2);
     color: var(--background5-main);
   }
 

@@ -16,14 +16,15 @@ export const DropDownHeader = styled.div`
   font-weight: 500;
   font-size: 0.9rem;
   /* color: var(--background-secondary4); */
-  color: var(--background4-main);
+  color: var(--background2-main);
   transition: all 0.3s ease-out;
   text-align: center;
   cursor: pointer;
   /* border-bottom: 1px solid transparent; */
-  border-bottom: 1px solid var(--background2-main);
+  /* border-bottom: 1px solid var(--background2-main); */
   &:hover {
-    border-bottom: 1px solid var(--background4-main);
+    /* border-bottom: 1px solid var(--background4-main); */
+    color: var(--background4-main);
   }
 `
 export const DropDownListContainer = styled.div`
@@ -41,8 +42,13 @@ export const DropDownList = styled.div`
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   background: var(--background1-main);
-  border-top: 1px solid var(--background2-main);
+
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background2-main);
   border-bottom: 1px solid var(--background2-main);
+
+  box-shadow: var(--boxShadow1);
   box-sizing: border-box;
   color: var(--background4-main);
   font-size: 1rem;
