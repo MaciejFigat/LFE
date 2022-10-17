@@ -172,7 +172,6 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
               </SwitchResultContainer>
             </SwitchButtonWrapper>
           </SwitchResultWrapper>
-          {/* <SearchResultsWrapper> */}
           <SearchResultsWrapper>
             <Pagination />
             {data

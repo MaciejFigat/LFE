@@ -12,7 +12,12 @@ export const InfoSec = styled.div`
   ${({ paddingTop }) =>
     paddingTop === 'small' ? 'padding: 30px 0;' : 'padding: 35px 0;'};
 
-  ${(props) => handleSectionColor(props).sectionBackground}
+  /* ${(props) => handleSectionColor(props).sectionBackground} */
+  background: linear-gradient(
+    var(--background-blur1) 15%,
+    var(--background1-main) 70%,
+    var(--background-blur1)
+  );
   /* ${(props) => handleSectionColor(props).sectionBackgroundGradient} */
   /* background: red !important; */
   backdrop-filter: blur(8px);

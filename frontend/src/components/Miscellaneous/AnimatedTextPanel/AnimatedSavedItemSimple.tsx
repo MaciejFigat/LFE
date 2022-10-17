@@ -65,8 +65,11 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
         <FragmentDivSmall moreColumns={moreColumns}>
           <FragmentTitleRowSmall>
             <FragmentParSmall>
-              {' '}
-              <FragmentB>Tytuł:</FragmentB> {title}{' '}
+              {title !== excerpt.substring(0, 22) ? (
+                <>{title}</>
+              ) : (
+                <>{source}</>
+              )}
             </FragmentParSmall>
             <RelativeRightSvgWrapper>
               <SendButtonVerySmall
@@ -82,26 +85,23 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
               </SendButtonVerySmall>
             </RelativeRightSvgWrapper>
           </FragmentTitleRowSmall>
+          {title !== excerpt.substring(0, 22) && (
+            <FragmentParSmall>{source}</FragmentParSmall>
+          )}
+
           <FragmentParSmall>
-            <FragmentB>Źródło:</FragmentB> {source}
+            <FragmentB> {excerpt}</FragmentB>
           </FragmentParSmall>
+          {description.substring(0, 12) !== source.substring(0, 12) && (
+            <FragmentParSmall>{description}</FragmentParSmall>
+          )}
           <FragmentParSmall>
-            <FragmentB>Syg:</FragmentB> {coordinates}
-          </FragmentParSmall>
-          <FragmentParSmall>
-            <FragmentB>Cytat:</FragmentB> {excerpt}
-          </FragmentParSmall>
-          <FragmentParSmall>
-            <FragmentB>Opis:</FragmentB> {description}
-          </FragmentParSmall>
-          <FragmentParSmall>
-            <FragmentB>Aktualizacja:</FragmentB> {updatedAt.substring(0, 10)} at{' '}
+            Aktualizacja: {updatedAt.substring(0, 10)} o godzinie{' '}
             {updatedAt.substring(12, 16)}
           </FragmentParSmall>
-
+          <FragmentParSmall>{coordinates}</FragmentParSmall>
           {(keywords.length > 1 || keywords[0] !== '') && (
             <KeywordDivSimple>
-              <FragmentB>Projekty:&nbsp;</FragmentB>
               {keywords.map((keyword) => (
                 <KeywordB key={Math.random()}>{keyword} &nbsp;</KeywordB>
               ))}

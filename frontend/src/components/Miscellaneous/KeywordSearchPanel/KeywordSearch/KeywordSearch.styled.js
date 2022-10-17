@@ -22,10 +22,17 @@ export const KeywordColumnContainer = styled.div`
 // ? test styling
 
 export const FragmentB = styled.b`
-  color: var(--background-secondary2);
+  color: var(--background4-main);
+  font-size: 0.9rem;
 `
 export const KeywordB = styled.b`
   color: var(--background4-main);
+  box-shadow: var(--boxShadowInset1);
+  border-bottom: 1px solid var(--background2-main);
+  border-left: 1px solid var(--background2-main);
+  border-radius: 5px;
+  font-size: 0.8rem;
+  padding: 0.25rem;
 `
 export const KeywordDivSimple = styled.b`
   display: flex;
@@ -34,9 +41,13 @@ export const KeywordDivSimple = styled.b`
 `
 export const FragmentParSmall = styled.p`
   font-weight: 400;
-  color: var(--background5-main);
+  font-size: 0.8rem;
+  color: var(--background4-main);
   margin: 0;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.55rem;
+  &:first-of-type {
+    margin-top: 1.75rem;
+  }
 `
 export const FragmentTitleRowSmall = styled.div`
   display: flex;
@@ -45,40 +56,27 @@ export const FragmentTitleRowSmall = styled.div`
   max-height: 1.2rem;
 `
 export const FragmentDivSmall = styled(motion.div)`
-  /* display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column; */
-  /* position: absolute; */
-  align-self: center;
-  /* background: var(--background1-main) !important; */
+  /* align-self: center; */
   /* ${({ moreColumns }) =>
-    moreColumns ? 'background: none;' : 'background: var(--background1-main);'};
-  ${({ moreColumns }) =>
     moreColumns
-      ? 'border: 1px solid var(--background4-main);'
-      : 'border: 1px solid var(--background4-main);'}; */
+      ? 'background: none;'
+      : 'background: var(--background1-main);'}; */
 
-  /* border: 1px solid var(--background4-main); */
-  box-shadow: var(--boxShadow2);
+  border-right: 1px solid var(--background4-main);
+  border-bottom: 1px solid var(--background4-main);
+  box-shadow: var(--boxShadow1);
   background: linear-gradient(
-    var(--background-blur2) 10%,
-    var(--background1-main) 85%,
-    var(--background-blur2)
+    var(--background-blur1) 10%,
+    var(--background1-main) 90%,
+    var(--background-blur1)
   );
   border-radius: 5px;
-  /* width: 98%; */
-  /* min-width: 98%; */
-  /* width: 95%; */
+
   padding: 0.95rem;
   padding-right: 0.75rem;
   padding-bottom: 0rem;
-  /* overflow: hidden; */
   overflow: scroll;
-  /* height: fit-content; */
-  /* min-height: 300px; */
-  height: 240px;
-  /* background: lime; */
+  height: 220px;
   ::-webkit-scrollbar {
     width: 0.2em;
   }
