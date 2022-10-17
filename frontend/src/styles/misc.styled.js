@@ -77,8 +77,13 @@ export const OpenedLayoutDiv = styled(motion.div)`
   box-sizing: border-box;
   overflow: hidden;
   border-radius: 8px;
-  background: var(--background2-main);
-  border: 1px solid var(--background1-main);
+  background: var(--background1-main);
+  border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main);
+
+  color: var(--background2-main);
+  box-shadow: var(--boxShadow5);
+  /* border: 1px solid var(--background1-main); */
 `
 export const OpenedDivBig = styled(OpenedLayoutDiv)`
   height: 80vh;

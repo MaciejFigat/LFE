@@ -90,7 +90,7 @@ const primaryStyle: GlobalStyle = {
     warning2: '#ee9b00;',
     danger1: '#D22730;',
 
-    boxShadow1: '-5px 5px 10px #151515, 5px -5px 10px #202021;',
+    boxShadow1: '-5px 5px 10px #151515, 3px -3px 10px #272729;',
     // boxShadow1: '-5px 5px 10px #151515, 5px -5px 10px #272729;',
     boxShadow2: '-11px 11px 22px #151515, 4px -5px 22px #272729;',
     boxShadow3: '-27px 27px 54px #151515, 27px -27px 54px #272729;',
@@ -201,6 +201,17 @@ const tertiaryStyle: GlobalStyle = {
     background3Tertiary: '#a8dadc;',
     background4Tertiary: '#f1faee;',
     background5Tertiary: '#e63946;',
+    boxShadow1: '-5px 5px 10px #151515, 3px -3px 10px #272729;',
+    boxShadow2: '-11px 11px 22px #151515, 4px -5px 22px #272729;',
+    boxShadow3: '-27px 27px 54px #151515, 27px -27px 54px #272729;',
+    boxShadow4: '-41px 41px 82px #151515, 41px -41px 82px #272729;',
+    boxShadow5: ' -50px 50px 100px #151515, 50px -50px 100px #272729;',
+    boxShadowInset1: 'inset -5px 5px 10px #19191a, inset 5px -5px 10px #232324;',
+
+    boxShadowInset2: ' inset -10px 10px 20px #161617, inset 10px -10px 20px #262627;',
+    boxShadowInset3: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
+    boxShadowInset4: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
+    boxShadowInset5: 'inset -5px 5px 10px #8d8c8a, inset 5px -5px 10px #ffffff;',
 }
 const quaternaryStyle: GlobalStyle = {
     background1Main: '#540d6e;',
@@ -218,6 +229,17 @@ const quaternaryStyle: GlobalStyle = {
     background3Tertiary: '#a8dadc;',
     background4Tertiary: '#f1faee;',
     background5Tertiary: '#e63946;',
+    boxShadow1: '-5px 5px 10px #151515, 3px -3px 10px #272729;',
+    boxShadow2: '-11px 11px 22px #151515, 4px -5px 22px #272729;',
+    boxShadow3: '-27px 27px 54px #151515, 27px -27px 54px #272729;',
+    boxShadow4: '-41px 41px 82px #151515, 41px -41px 82px #272729;',
+    boxShadow5: '-50px 50px 100px #151515, 50px -50px 100px #272729;',
+    boxShadowInset1: 'inset -5px 5px 10px #19191a, inset 5px -5px 10px #232324;',
+
+    boxShadowInset2: 'inset -10px 10px 20px #161617, inset 10px -10px 20px #262627;',
+    boxShadowInset3: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
+    boxShadowInset4: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
+    boxShadowInset5: 'inset -5px 5px 10px #8d8c8a, inset 5px -5px 10px #ffffff;',
 }
 //?  senary, septenary, octonary, nonary, and denary 
 const quinaryStyle: GlobalStyle = {
@@ -228,7 +250,7 @@ const quinaryStyle: GlobalStyle = {
     background5Main: '#dad7cd;',
     background1Secondary: '#f4f1de;',
     background2Secondary: '#e07a5f;',
-    // background3Secondary: '#3d405b;',
+
     background3Secondary: '#BB5A41;',
     background4Secondary: '#81b29a;',
     background5Secondary: '#F9F871;',
@@ -237,6 +259,17 @@ const quinaryStyle: GlobalStyle = {
     background3Tertiary: '#a8dadc;',
     background4Tertiary: '#f1faee;',
     background5Tertiary: '#e63946;',
+    boxShadow1: '-5px 5px 10px #151515, 3px -3px 10px #272729;',
+    boxShadow2: '-11px 11px 22px #151515, 4px -5px 22px #272729;',
+    boxShadow3: '-27px 27px 54px #151515, 27px -27px 54px #272729;',
+    boxShadow4: '-41px 41px 82px #151515, 41px -41px 82px #272729;',
+    boxShadow5: '-50px 50px 100px #151515, 50px -50px 100px #272729;',
+    boxShadowInset1: 'inset -5px 5px 10px #19191a, inset 5px -5px 10px #232324;',
+
+    boxShadowInset2: ' inset -10px 10px 20px #161617, inset 10px -10px 20px #262627;',
+    boxShadowInset3: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
+    boxShadowInset4: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
+    boxShadowInset5: 'inset -5px 5px 10px #8d8c8a, inset 5px -5px 10px #ffffff;',
 }
 export const handleGlobalScheme: (props: any) => {} = (props: any) => {
     let style

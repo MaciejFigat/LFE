@@ -343,14 +343,10 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
             </AnimatePresence>
           </PopupTitleContainer>{' '}
           <PopupDatePar>
-            <PopupB>aktualizacja:&nbsp;</PopupB>
             {openedFragment?.updatedAt.substring(0, 10)} at{' '}
             {openedFragment?.updatedAt.substring(12, 16)}
           </PopupDatePar>
-          <PopupDatePar>
-            <PopupB>źródło:&nbsp;</PopupB>
-            {openedFragment?.source}
-          </PopupDatePar>
+          <PopupDatePar>{openedFragment?.source}</PopupDatePar>
           <KeywordEditing id={idOpen} setOpenedApp={setOpenedApp} />
           {/* //todo excerpt editing/display below */}
           <PopupListRow>
@@ -425,7 +421,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                     transition={{ duration: 0.3 }}
                   >
                     <DescriptionDiv onClick={toggleDescriptionEditing}>
-                      <PopupB>Description: </PopupB> {descriptionValue}
+                      <PopupB>Opis: </PopupB> {descriptionValue}
                     </DescriptionDiv>
                   </PopupDescriptionAnimated>
                 </AnimatePresence>

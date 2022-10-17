@@ -4,7 +4,12 @@ export const FilterOptionsWrapper = styled.div`
   /* background: rgba(60, 59, 61, 0.35); */
   /* background: var(--background-blur1); */
   background: var(--background1-main);
-  border: 1px solid var(--background2-main);
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main);
+  box-shadow: var(--boxShadow1);
+  /* border: 1px solid var(--background2-main); */
   /* backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px); */
   border-radius: 10px;

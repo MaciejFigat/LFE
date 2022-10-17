@@ -103,6 +103,10 @@ export const PopupListRow = styled(motion.div)`
   border-radius: 10px;
   background: var(--background-blur1);
   max-width: 100%;
+  border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main);
+
+  box-shadow: var(--boxShadowInset1);
   @media (max-width: 740px) {
     padding: 0.55rem;
     font-size: 1rem;
@@ -163,6 +167,10 @@ export const ListRow = styled(motion.div)`
 export const PopupListRowShort = styled(ListRow)`
   align-items: flex-start;
   justify-items: flex-start;
+  border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main);
+
+  box-shadow: var(--boxShadowInset1);
 `
 export const PopupTextAreaContainer = styled(motion.div)`
   display: flex;
