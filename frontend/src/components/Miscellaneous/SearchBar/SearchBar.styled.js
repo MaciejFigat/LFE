@@ -93,6 +93,7 @@ export const SearchInput = styled.input`
   transition: all 0.3s ease-out;
   min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
   border-radius: ${({ large }) => (large ? '20px' : '12px')};
+  box-shadow: var(--boxShadowInset5);
   @media (max-width: 620px) {
     font-size: ${({ large }) => (large ? '1rem' : '0.85rem')};
   

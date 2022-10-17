@@ -220,6 +220,7 @@ export const ListRow = styled(motion.div)`
   font-weight: 400;
   border-radius: 10px;
   background: var(--background2-main);
+
   max-width: 100%;
   @media (max-width: 740px) {
     padding: 0.55rem;

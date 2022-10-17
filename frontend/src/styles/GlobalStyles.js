@@ -70,6 +70,8 @@ body {
     handleGlobalScheme(props.globalScheme).background6Tertiary}
   --background-tertiary7: ${(props) =>
     handleGlobalScheme(props.globalScheme).background7Tertiary}
+  
+  
 
     
   // --background-tertiary15:  rgba( 29, 53, 87, 0.4 );
@@ -88,6 +90,24 @@ body {
   // --background-blur11: rgba(60, 59, 61, 0.85);
   // --background-blur21: rgba(42, 157, 143, 0.75);
 
+
+  --boxShadow1: ${(props) => handleGlobalScheme(props.globalScheme).boxShadow1}
+  --boxShadow2: ${(props) => handleGlobalScheme(props.globalScheme).boxShadow2}
+  --boxShadow3: ${(props) => handleGlobalScheme(props.globalScheme).boxShadow3}
+  --boxShadow4: ${(props) => handleGlobalScheme(props.globalScheme).boxShadow4}
+  --boxShadow5: ${(props) => handleGlobalScheme(props.globalScheme).boxShadow5}
+
+
+  --boxShadowInset1: ${(props) =>
+    handleGlobalScheme(props.globalScheme).boxShadowInset1}
+  --boxShadowInset2: ${(props) =>
+    handleGlobalScheme(props.globalScheme).boxShadowInset2}
+  --boxShadowInset3: ${(props) =>
+    handleGlobalScheme(props.globalScheme).boxShadowInset3}
+  --boxShadowInset4: ${(props) =>
+    handleGlobalScheme(props.globalScheme).boxShadowInset4}
+  --boxShadowInset5: ${(props) =>
+    handleGlobalScheme(props.globalScheme).boxShadowInset5}
 
 
    --bluegreen1:#A4DBE4;

@@ -17,9 +17,11 @@ export const InfoSec = styled.div`
   /* background: red !important; */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-radius: 8px;
-  border: solid 1px;
-  border-color: ${(props) => handleSectionColor(props).color};
+  border-radius: 5px;
+  /* border: solid 1px;
+  border-color: ${(props) => handleSectionColor(props).color}; */
+
+  box-shadow: var(--boxShadow1);
 
   @media (max-width: 880px) {
     ${({ paddingTop }) =>

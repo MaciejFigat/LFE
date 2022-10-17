@@ -28,6 +28,17 @@ interface GlobalStyle {
     danger2?: string
     info1?: string
     info2?: string
+    boxShadow1?: string,
+    boxShadow2?: string,
+    boxShadow3?: string,
+    boxShadow4?: string,
+    boxShadow5?: string,
+    boxShadowInset1?: string,
+    boxShadowInset2?: string,
+    boxShadowInset3?: string,
+    boxShadowInset4?: string,
+    boxShadowInset5?: string,
+
 }
 
 
@@ -77,11 +88,20 @@ const primaryStyle: GlobalStyle = {
     success2: '#C8FB91;',
     warning1: '#ca6702;',
     warning2: '#ee9b00;',
-    // warning2:
-    // info1:
-    // info2:
-    danger1: '#D22730;'
-    // danger2:
+    danger1: '#D22730;',
+
+    boxShadow1: '-5px 5px 10px #1c1c1d, 5px -5px 10px #202021;',
+    // boxShadow1: '-5px 5px 10px #151515, 5px -5px 10px #272729;',
+    boxShadow2: '-11px 11px 22px #151515, 11px -11px 22px #272729;',
+    boxShadow3: '-27px 27px 54px #151515, 27px -27px 54px #272729;',
+    boxShadow4: '-41px 41px 82px #151515, 41px -41px 82px #272729;',
+    boxShadow5: ' -50px 50px 100px #151515, 50px -50px 100px #272729;',
+    boxShadowInset1: 'inset -5px 5px 10px #19191a, inset 5px -5px 10px #232324;',
+    // boxShadowInset1: 'inset -5px 5px 10px #191919, inset 5px -5px 10px #232325;',
+    boxShadowInset2: ' inset -10px 10px 20px #161617, inset 10px -10px 20px #262627;',
+    boxShadowInset3: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
+    boxShadowInset4: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
+    boxShadowInset5: 'inset -5px 5px 10px #8d8c8a, inset 5px -5px 10px #ffffff;',
 
 }
 // backgroundNeon5: '#54bea8;', 1
@@ -147,6 +167,21 @@ const secondaryStyle: GlobalStyle = {
     // warning1: '#eb5e28;',
     warning1: '#fca311;',
     danger1: '#e63946;',
+    boxShadow1: '-5px 5px 10px #aaaaa7, 5px -5px 10px #ffffff;',
+    boxShadow2: '-11px 11px 22px #8d8c8a, 11px -11px 22px #ffffff;',
+    boxShadow3: '-27px 27px 54px #a8a7a5, 27px -27px 54px #ffffff;',
+    boxShadow4: '-41px 41px 82px #999996, 41px -41px 82px #ffffff;',
+    boxShadow5: '-50px 50px 100px #6f6f6d, 50px -50px 100px #ffffff;',
+    boxShadowInset1: 'inset -5px 5px 10px #d2d1ce, inset 5px -5px 10px #ffffff;',
+    boxShadowInset2: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff',
+    boxShadowInset3: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff',
+    boxShadowInset4: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
+    boxShadowInset5: 'inset -5px 5px 10px #d2d1ce, inset 5px -5px 10px #ffffff;',
+    // boxShadow1: '0 1px 3px hsla(0, 0%, 0.2)',
+    // boxShadow2: '0 4px 6px hsla(0, 0%, 0.2)',
+    // boxShadow3: '0 5px 15px hsla(0, 0%, 0.2)',
+    // boxShadow4: '0 10px 24px hsla(0, 0%, 0.2)',
+    // boxShadow5: '0 15px 35px hsla(0, 0%, 0.2)',
 
 }
 const tertiaryStyle: GlobalStyle = {
@@ -254,14 +289,30 @@ export const handleGlobalScheme: (props: any) => {} = (props: any) => {
 
         backgroundBlur1: `${style.backgroundBlur1}`,
         backgroundBlur2: `${style.backgroundBlur2}`,
+
         success1: `${style.success1}`,
         success2: `${style.success2}`,
+
         info1: `${style.info1}`,
         info2: `${style.info2}`,
+
         warning1: `${style.warning1}`,
         warning2: `${style.warning2}`,
+
         danger1: `${style.danger1}`,
         danger2: `${style.danger2}`,
+
+        boxShadow1: `${style.boxShadow1}`,
+        boxShadow2: `${style.boxShadow2}`,
+        boxShadow3: `${style.boxShadow3}`,
+        boxShadow4: `${style.boxShadow4}`,
+        boxShadow5: `${style.boxShadow5}`,
+        boxShadowInset1: `${style.boxShadowInset1}`,
+        boxShadowInset2: `${style.boxShadowInset2}`,
+        boxShadowInset3: `${style.boxShadowInset3}`,
+        boxShadowInset4: `${style.boxShadowInset4}`,
+        boxShadowInset5: `${style.boxShadowInset5}`,
+
 
     }
 }
