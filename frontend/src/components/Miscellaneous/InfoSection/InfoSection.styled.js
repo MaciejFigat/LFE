@@ -13,20 +13,22 @@ export const InfoSec = styled.div`
     paddingTop === 'small' ? 'padding: 30px 0;' : 'padding: 35px 0;'};
 
   /* ${(props) => handleSectionColor(props).sectionBackground} */
-  background: linear-gradient(
+  /* background: linear-gradient(
     var(--background-blur1) 15%,
     var(--background1-main) 70%,
     var(--background-blur1)
-  );
+  ); */
   /* ${(props) => handleSectionColor(props).sectionBackgroundGradient} */
   /* background: red !important; */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  /* backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); */
   border-radius: 5px;
+  border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main);
   /* border: solid 1px;
   border-color: ${(props) => handleSectionColor(props).color}; */
 
-  box-shadow: var(--boxShadow1);
+  box-shadow: var(--boxShadow2);
 
   @media (max-width: 880px) {
     ${({ paddingTop }) =>

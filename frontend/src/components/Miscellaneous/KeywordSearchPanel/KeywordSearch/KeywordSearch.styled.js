@@ -26,6 +26,8 @@ export const FragmentB = styled.b`
   font-size: 0.9rem;
 `
 export const KeywordB = styled.b`
+  display: grid;
+  place-items: center;
   color: var(--background4-main);
   box-shadow: var(--boxShadowInset1);
   border-bottom: 1px solid var(--background2-main);
@@ -62,9 +64,9 @@ export const FragmentDivSmall = styled(motion.div)`
       ? 'background: none;'
       : 'background: var(--background1-main);'}; */
 
-  border-right: 1px solid var(--background4-main);
+  border-left: 1px solid var(--background4-main);
   border-bottom: 1px solid var(--background4-main);
-  box-shadow: var(--boxShadow1);
+  box-shadow: var(--boxShadow2);
   background: linear-gradient(
     var(--background-blur1) 10%,
     var(--background1-main) 90%,
