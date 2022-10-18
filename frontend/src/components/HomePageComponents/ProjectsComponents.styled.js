@@ -66,8 +66,8 @@ export const ProjectMenuContainerHome = styled(motion.div)`
   gap: 1.25rem;
   cursor: grab;
   white-space: nowrap;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
+  /* margin-top: 1rem; */
+  margin-bottom: 1rem;
 
   @media screen and (max-width: 940px) {
     grid-template-columns: repeat(3, 1fr);

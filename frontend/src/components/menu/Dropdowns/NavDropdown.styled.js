@@ -107,10 +107,12 @@ export const DropDownList = styled.div`
     padding-right: 1.2rem;
   } */
 `
-export const ListItem = styled.li`
+// export const ListItem = styled.li`
+
+export const ListItem = styled.div`
   display: grid;
   place-items: center;
-  list-style: none;
+  /* list-style: none; */
   max-width: fit-content;
   padding-left: 0.75rem;
   padding-bottom: 0.75rem;

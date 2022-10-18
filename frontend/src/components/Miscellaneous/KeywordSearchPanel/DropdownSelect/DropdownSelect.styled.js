@@ -23,12 +23,12 @@ export const DropDownHeader = styled(motion.div)`
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background4-main);
   border-bottom: 1px solid var(--background4-main);
-  /* box-shadow: var(--boxShadow1); */
+  box-shadow: var(--boxShadowInset1);
   border-radius: 5px;
   font-weight: 500;
   font-size: 1rem;
   color: var(--background5-main);
-  background: var(--background-blur1);
+  /* background: var(--background-blur1); */
   transition: all 0.3s ease-out;
   text-align: center;
   &:hover {

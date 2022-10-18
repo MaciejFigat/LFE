@@ -33,6 +33,10 @@ export const ChoiceNav = styled.nav`
   border-radius: 5px;
   height: 3rem;
   font-size: 1.1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
 
   border-left: 1px solid var(--background2-main);
   border-bottom: 1px solid var(--background2-main);

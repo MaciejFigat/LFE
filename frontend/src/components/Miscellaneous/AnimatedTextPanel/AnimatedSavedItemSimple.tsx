@@ -10,7 +10,7 @@ import {
   KeywordDivSimple,
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
-import SvgIcon from '../SvgIcon/SvgIcon'
+// import SvgIcon from '../SvgIcon/SvgIcon'
 import {
   DotButton,
   RelativeRightSvgWrapper,
