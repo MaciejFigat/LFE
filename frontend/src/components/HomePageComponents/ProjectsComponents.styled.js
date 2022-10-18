@@ -14,11 +14,17 @@ export const ProjectCardHome = styled(motion.div)`
   font-weight: 500;
   min-width: fit-content;
   color: var(--background4-main);
-  border: 1px solid var(--background2-main);
+  /* border: 1px solid var(--background2-main); */
   /* background: var(--background-blur1); */
-  /* box-shadow: var(--background2-main) 0px 3px 4px -1px,
-    var(--background2-main) 0px 2px 4px -1px; */
-  border-radius: 15px;
+
+  border-radius: 5px;
+  border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
+  border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main);
+  box-shadow: ${({ selected }) =>
+    selected ? 'var(--boxShadow2)' : 'var(--boxShadow1)'};
+
   /* transition: 0.3s; */
   cursor: pointer;
   ${({ selected }) =>
@@ -38,7 +44,8 @@ export const ProjectCardHome = styled(motion.div)`
 //   background: var(--background4-main);
 // `
 export const ProjectH2 = styled(motion.h2)`
-  border-bottom: 1px solid var(--background2-main);
+  /* border-bottom: 1px solid var(--background2-main); */
+
   padding-bottom: 0.5rem;
   color: var(--background4-main);
   user-select: none;
@@ -59,8 +66,7 @@ export const ProjectMenuContainerHome = styled(motion.div)`
   gap: 1.25rem;
   cursor: grab;
   white-space: nowrap;
-
-  margin-top: 1rem;
+  margin-top: 4rem;
   margin-bottom: 2rem;
 
   @media screen and (max-width: 940px) {

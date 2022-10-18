@@ -48,14 +48,21 @@ export const ProjectDiv = styled(motion.div)`
   place-items: center;
   height: 40px;
   font-size: 1rem;
-  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  padding: 0.55rem 0.75rem 0.55rem 0.75rem;
   width: 150px;
   min-width: fit-content;
   color: var(--background4-main);
-  border: 1px solid var(--background2-main);
+  /* border: 1px solid var(--background2-main); */
+  border-radius: 5px;
+  border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
+  border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main);
+  /* box-shadow: ${({ selected }) =>
+    selected ? 'var(--boxShadow2)' : 'var(--boxShadow1)'}; */
 
   /* background: var(--background1-main); */
-  border-radius: 15px;
+  border-radius: 5px;
 `
 export const ProjectDivSecondary = styled(ProjectDiv)`
   background: var(--background4-main);

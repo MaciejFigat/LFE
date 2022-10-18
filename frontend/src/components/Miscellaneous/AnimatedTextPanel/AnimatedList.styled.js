@@ -50,15 +50,6 @@ export const ListWrapperDemo = styled(ListWrapper)`
   padding-right: 1rem;
   padding: 0;
   min-width: 90%;
-  /* border-left: 1px solid var(--background2-main); */
-  /* border-bottom: 1px solid var(--background2-main); */
-  /* border: 1px solid var(--background2-main); */
-  /* color: var(--background2-main); */
-  /* padding: 1rem; */
-  /* box-shadow: var(--boxShadow1); */
-  /* &:first-of-type {
-    margin-top: 3rem;
-  } */
 `
 
 export const ListItem = styled(motion.div)`
