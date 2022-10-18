@@ -14,8 +14,6 @@ import { PopupDescriptionInput } from '../DragAndDropProject/PopupEditWindow/Pop
 import FragmentsColumn from '../FragmentsColumn/FragmentsColumn'
 import { AnimateSharedLayout } from 'framer-motion'
 import { TwoColumnsWrapper } from '../../styles/misc.styled'
-import { titleTwoSvg } from './HeroSectionSVGS/Title'
-// import { titleTwoSvg } from './HeroSectionSVGS/Title'
 
 interface HeroTwoProps {}
 
@@ -26,7 +24,7 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
       <HeroWrapperRow>
         <HeroTwoContainer>
           <HeroTextWrapper>
-            <HeroTitleLeft>{titleTwoSvg}</HeroTitleLeft>
+            <HeroTitleLeft>Zapisywanie fragmentów</HeroTitleLeft>
             {/* <HeroTitleLeft>Zaznacz poniższy tekst</HeroTitleLeft> */}
 
             <HighlightPopMenuDemo>

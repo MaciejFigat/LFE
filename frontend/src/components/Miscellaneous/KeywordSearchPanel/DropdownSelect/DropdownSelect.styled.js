@@ -43,7 +43,6 @@ export const DropDownList = styled.div`
   margin: 0;
   padding-left: 1rem;
   padding-right: 0.5rem;
-  box-shadow: var(--boxShadow1);
   background: var(--background1-main);
   /* background: var(--background-blur1); */
   /* background: var(--background-blur1); */
@@ -54,7 +53,7 @@ export const DropDownList = styled.div`
   border-right: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background2-main);
   border-bottom: 1px solid var(--background2-main);
-  box-shadow: var(--boxShadow3);
+  box-shadow: var(--boxShadow2);
 
   box-sizing: border-box;
 
@@ -135,5 +134,5 @@ export const OptionsDropdownContainer = styled.div`
   border-right: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background2-main);
   border-bottom: 1px solid var(--background2-main);
-  box-shadow: var(--boxShadow3);
+  /* box-shadow: var(--boxShadow3); */
 `

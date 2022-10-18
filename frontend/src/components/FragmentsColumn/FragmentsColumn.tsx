@@ -29,7 +29,7 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
     <AnimateSharedLayout>
       {citations.length > 0 &&
         citations
-          .map((citation, index) => (
+          .map((citation) => (
             <ListWrapperDemo
               as={motion.ul}
               key={citation.id}
@@ -43,7 +43,7 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
                   <ItemWrapper>
                     {' '}
                     <HorizontalContainer>
-                      <FragmentsP>Przykład nr {index + 1}</FragmentsP>
+                      <FragmentsP>Zapraszamy do zalogowania się</FragmentsP>
                       <SendButtonVerySmall
                         variant='secondaryEmpty'
                         onClick={() => removeCitationHandler(citation.id)}

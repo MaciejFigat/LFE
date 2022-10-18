@@ -158,7 +158,12 @@ export const DropDownListContainer = styled.div`
   z-index: 10;
   /* background: var(--background-blur1); */
   background: var(--background1-main);
-  border: 1px solid var(--background2-main);
+  /* border: 1px solid var(--background2-main); */
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main);
+  /* box-shadow: var(--boxShadow1); */
   width: 250px;
   padding: 0.5rem;
   /* backdrop-filter: blur(8px); */
@@ -277,12 +282,12 @@ export const SetTakeButton = styled.button`
   cursor: pointer;
   background: transparent;
   align-items: center;
-  color: var(--background-tertiary1);
+  color: var(--background4-main);
   border: 1px solid transparent;
   border-radius: 8px;
   font-size: 0.7rem;
   background-color: ${({ buttonActive }) =>
-    buttonActive ? 'var(--background4-main)' : 'transparent'};
+    buttonActive ? 'var(--background2-main)' : 'transparent'};
   margin: 0;
   &:hover {
     border: 1px solid;

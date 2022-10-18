@@ -5,7 +5,6 @@ import {
   HeroSecNoSvg,
   HeroTitleLeft,
 } from './HeroSection.styled'
-import { titleOneSvg } from './HeroSectionSVGS/Title'
 
 import {
   InfoColumn,
@@ -37,7 +36,7 @@ const HeroOne: React.FC<HeroOneProps> = () => {
           <InfoColumn>
             {' '}
             <TextWrapper>
-              <HeroTitleLeft>{titleOneSvg}</HeroTitleLeft>{' '}
+              <HeroTitleLeft>Precyzyjne wyszukiwanie</HeroTitleLeft>{' '}
               {/* <HeroTitleLeft>
                 {' '}
                 Jak uzyskujemy precyzję wyszukiwania?

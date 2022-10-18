@@ -8,7 +8,7 @@ export const FilterOptionsWrapper = styled.div`
   border-right: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background2-main);
   border-bottom: 1px solid var(--background2-main);
-  box-shadow: var(--boxShadow2);
+  /* box-shadow: var(--boxShadow1); */
   /* border: 1px solid var(--background2-main); */
   /* backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px); */

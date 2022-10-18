@@ -38,7 +38,7 @@ export const ChoiceNav = styled.nav`
   border-bottom: 1px solid var(--background2-main);
   /* border: 1px solid var(--background2-main); */
   color: var(--background2-main);
-  box-shadow: var(--boxShadow1);
+  /* box-shadow: var(--boxShadow1); */
   @media screen and (max-width: 1391px) {
     font-size: 1rem;
   }

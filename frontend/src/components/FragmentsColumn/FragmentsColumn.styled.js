@@ -11,6 +11,12 @@ export const FragmentContainer = styled.div`
     borderBottom
       ? 'border-bottom: 1px solid var(--background2-main);'
       : 'border: none;'};
+  /* border-left: 1px solid var(--background2-main); */
+  /* border-bottom: 1px solid var(--background2-main); */
+  /* border: 1px solid var(--background2-main); */
+  /* color: var(--background2-main); */
+  /* padding: 1rem; */
+  /* box-shadow: var(--boxShadow1); */
 `
 export const FragmentsP = styled.p`
   color: var(--background4-main);

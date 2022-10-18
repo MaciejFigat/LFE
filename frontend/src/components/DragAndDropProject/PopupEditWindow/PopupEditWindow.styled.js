@@ -127,6 +127,7 @@ export const PopupDescriptionInput = styled(motion.textarea)`
   outline: none;
   border: none;
   width: 100%;
+  box-shadow: var(--boxShadowInset1);
   min-height: fit-content;
   height: 100%;
   text-align: center;

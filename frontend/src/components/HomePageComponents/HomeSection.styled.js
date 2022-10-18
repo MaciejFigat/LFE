@@ -47,10 +47,15 @@ export const InfoRow = styled.div`
   /* align-items: flex-start; */
   flex-direction: ${({ imgStart }) =>
     imgStart === true ? 'row-reverse' : 'row'};
-  border: ${({ border }) =>
-    border === true ? '1px solid var(--background2-main)' : 'none'};
+  /* border: ${({ border }) =>
+    border === true ? '1px solid var(--background2-main)' : 'none'}; */
+  /* border-left: 1px solid var(--background2-main); */
+  /* border-bottom: 1px solid var(--background2-main); */
+  /* border: 1px solid var(--background2-main); */
+  color: var(--background2-main);
+  box-shadow: var(--boxShadow1);
   padding: ${({ border }) => border === true && '1.5rem'};
-  border-radius: 10px;
+  border-radius: 5px;
   @media (max-width: 880px) {
     flex-direction: ${({ imgStart }) =>
       imgStart === true ? 'column-reverse' : 'column'};
@@ -73,7 +78,12 @@ export const InfoColumnShort = styled(InfoColumn)`
   flex-basis: 30%;
   min-height: 120%;
   text-align: left;
-  border-color: ${(props) => handleSectionColor(props).color};
+  /* border-color: ${(props) => handleSectionColor(props).color}; */
+  border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main);
+  border-radius: 5px;
+  color: var(--background2-main);
+  /* box-shadow: var(--boxShadow1); */
   ${({ imgStart }) =>
     imgStart ? 'border-left: 1px solid' : 'border-right: 1px solid'};
   @media screen and (max-width: 901px) {
@@ -91,17 +101,22 @@ export const HeroWrapperColumn = styled.div`
   align-items: center;
   min-width: 50%;
   overflow: scroll;
-  max-height: 50vh;
+  max-height: 80vh;
 `
 export const HeroWrapperRow = styled.div`
   display: flex;
   flex-direction: row;
+
   margin-top: 4rem;
 `
 export const HeroTextWrapper = styled.div`
   width: 80%;
-  border: 1px solid var(--background4-main);
-  border-radius: 10px;
+  /* border: 1px solid var(--background4-main); */
+  border-left: 1px solid var(--background1-main);
+  border-bottom: 1px solid var(--background1-main);
+  color: var(--background2-main);
+  box-shadow: var(--boxShadow1);
+  border-radius: 5px;
   padding: 1.5rem;
   @media screen and (max-width: 991px) {
     padding: 1rem;

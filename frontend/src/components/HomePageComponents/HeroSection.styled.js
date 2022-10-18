@@ -87,7 +87,7 @@ export const HeroTitleLeft = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 1.5rem;
-  color: var(--background4-main);
+  color: var(--background2-main);
 `
 export const HeroStory = styled.div`
   display: flex;

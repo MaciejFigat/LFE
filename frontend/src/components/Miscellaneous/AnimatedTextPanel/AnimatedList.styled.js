@@ -50,8 +50,15 @@ export const ListWrapperDemo = styled(ListWrapper)`
   padding-right: 1rem;
   padding: 0;
   min-width: 90%;
-  max-width: 90%;
-  /* background: red; */
+  /* border-left: 1px solid var(--background2-main); */
+  /* border-bottom: 1px solid var(--background2-main); */
+  /* border: 1px solid var(--background2-main); */
+  /* color: var(--background2-main); */
+  /* padding: 1rem; */
+  /* box-shadow: var(--boxShadow1); */
+  /* &:first-of-type {
+    margin-top: 3rem;
+  } */
 `
 
 export const ListItem = styled(motion.div)`
@@ -193,7 +200,7 @@ export const DescriptionInput = styled(motion.textarea)`
   transition: all 0.3s ease-out;
   background: none;
   cursor: text;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   line-height: 1.1;
   font-size: inherit;
   font-family: inherit;

@@ -5,7 +5,6 @@ import {
   HeroSecNoSvg,
   HeroTitleLeft,
 } from './HeroSection.styled'
-import { titleThreeSvg } from './HeroSectionSVGS/Title'
 
 import {
   InfoColumn,
@@ -54,7 +53,7 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
           <InfoColumn>
             <TextWrapper>
               {/* <HeroTitleLeft>Eksport projektów</HeroTitleLeft> */}
-              <HeroTitleLeft>{titleThreeSvg}</HeroTitleLeft>{' '}
+              <HeroTitleLeft>Eksport projektów</HeroTitleLeft>{' '}
               <TopLine variant={variant}>
                 {' '}
                 Obecnie umożliwiamy zapisanie zebranych fragmentów i ich eksport

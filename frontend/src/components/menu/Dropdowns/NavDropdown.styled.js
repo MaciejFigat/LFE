@@ -52,34 +52,29 @@ export const DropDownHeader = styled.div`
       ${({ grey }) => grey && 'color: var(--background3-main);'}
     }
   }
-  /* &:hover {
-    color: var(--background-secondary2);
-  } */
-  /* &:active {
-    color: var(--background-secondary4);
-  } */
+
   //? fixing width for svg icon inside
   /* max-width: 50px; */
 `
 export const DropDownListContainer = styled.div`
   position: absolute;
-  /* position: relative; */
   display: grid;
   place-items: center;
   z-index: 10;
-  /* background: var(--background-blur1); */
   background: var(--background1-main);
-  border: 1px solid var(--background2-main);
-  /* background: none; */
+
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main);
+  /* box-shadow: var(--boxShadow1); */
+
   padding: 0;
   width: 120px;
   min-width: fit-content;
-  /* backdrop-filter: blur(8px); */
-  /* -webkit-backdrop-filter: blur(8px); */
   border-radius: 10px;
   top: 60px;
   right: 20%;
-  /* background: none; */
   @media (max-width: 1020px) {
     width: 110px;
     right: 50px;
