@@ -75,10 +75,14 @@ export const ChoiceList = styled.ul`
   margin: 0;
   .selected {
     transition: 0.3s;
+    border-top: 2px solid var(--background-blur1);
+    border-right: 2px solid var(--background-blur1);
+    border-left: 2px solid var(--background2-main);
+    border-bottom: 1px solid var(--background2-main);
     /* background: var(--background-blur1); */
     /* background: linear-gradient(225deg, #202021, #1b1b1c); */
     /* box-shadow: var(--boxShadowInset1); */
-    box-shadow: var(--boxShadow2);
+    box-shadow: var(--boxShadow1);
     color: var(--background5-main);
   }
 
@@ -94,6 +98,8 @@ export const ChoiceItem = styled.div`
   top: 0px;
   left: 0px;
   border-radius: 5px;
+  border: 2px solid transparent;
+
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   min-width: fit-content;

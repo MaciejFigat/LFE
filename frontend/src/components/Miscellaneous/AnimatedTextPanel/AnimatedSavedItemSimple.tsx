@@ -12,6 +12,7 @@ import {
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import {
+  DotButton,
   RelativeRightSvgWrapper,
   WrapperMotionDiv,
 } from '../../../styles/misc.styled'
@@ -77,11 +78,12 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
                 onClick={openWindowHandler}
                 // onClick={openWindowHandler('6310d693cbf3fcda37beff9c')}
               >
-                <SvgIcon
+                {/* <SvgIcon
                   variant='dotCircle'
                   contentAfter={moreColumns ? 'Edytuj' : ''}
                   toLeft
-                />
+                /> */}
+                <DotButton />
               </SendButtonVerySmall>
             </RelativeRightSvgWrapper>
           </FragmentTitleRowSmall>

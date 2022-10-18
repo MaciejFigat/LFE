@@ -22,9 +22,11 @@ import { nanoid } from '@reduxjs/toolkit'
 import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
 import SvgIcon from '../../SvgIcon/SvgIcon'
 
-interface SelectMainKeywordProps {}
+interface SelectMainKeywordProps {
+  wide?: boolean
+}
 
-const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
+const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
   const dispatch: any = useAppDispatch()
 
   const keywordMain = useAppSelector(
@@ -252,23 +254,52 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = () => {
                 {selectedMainKeyword || 'Wybierz projekt'}
               </DropDownHeader>
             )}{' '}
-            <SendButtonVerySmall
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              variant='secondaryEmpty'
-              onClick={togglingOptions}
-            >
-              <SvgIcon
-                variant='cog'
-                toBottom
-                contentAfter='opcje'
-                lowerPosition
-              />
-            </SendButtonVerySmall>
+            {!wide && (
+              <SendButtonVerySmall
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                variant='secondaryEmpty'
+                onClick={togglingOptions}
+              >
+                <SvgIcon
+                  variant='cog'
+                  toBottom
+                  contentAfter='opcje'
+                  lowerPosition
+                />
+              </SendButtonVerySmall>
+            )}
+            {wide && (
+              <>
+                <SendButtonVerySmall
+                  variant='successEmpty'
+                  onClick={editingNewHandler}
+                >
+                  <SvgIcon variant='plus' toBottom contentAfter='dodaj' />
+                </SendButtonVerySmall>
+                <SendButtonVerySmall
+                  variant='primaryEmpty'
+                  onClick={editingHandler}
+                >
+                  <SvgIcon variant='edit' toBottom contentAfter='edytuj' />
+                </SendButtonVerySmall>
+
+                <SendButtonVerySmall
+                  variant='dangerEmpty'
+                  onClick={removeKeywordHelperUltimate}
+                >
+                  <SvgIcon
+                    variant='remove'
+                    toBottom
+                    contentAfter='usuń powiązane'
+                  />
+                </SendButtonVerySmall>
+              </>
+            )}
           </HeaderAndCogContainer>
           <DropDownListContainer>
-            {optionsOpen && !keywordEditing && !keywordCreation && (
+            {!wide && optionsOpen && !keywordEditing && !keywordCreation && (
               <OptionsDropdownContainer>
                 <SendButtonVerySmall
                   variant='successEmpty'

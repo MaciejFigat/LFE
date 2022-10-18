@@ -15,10 +15,16 @@ export const DropDownHeader = styled(motion.div)`
   min-height: 20.5px;
   /* margin: 0; */
   padding: 0.48rem 1rem 0.48rem 1rem;
-  border-right: 1px solid var(--background2-main);
+  /* border-right: 1px solid var(--background2-main);
   border-top: 1px solid var(--background2-main);
+  box-shadow: var(--boxShadowInset1); */
+
+  border-right: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
+  border-left: 1px solid var(--background4-main);
+  border-bottom: 1px solid var(--background4-main);
+  /* box-shadow: var(--boxShadow1); */
   border-radius: 5px;
-  box-shadow: var(--boxShadowInset1);
   font-weight: 500;
   font-size: 1rem;
   color: var(--background5-main);
@@ -49,8 +55,8 @@ export const DropDownList = styled.div`
   /* backdrop-filter: blur(8px) saturate(180%); */
   /* -webkit-backdrop-filter: blur(8px) saturate(180%); */
 
-  border-top: 1px solid var(--background-blur1);
-  border-right: 1px solid var(--background-blur1);
+  border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background2-main);
   border-bottom: 1px solid var(--background2-main);
   box-shadow: var(--boxShadow2);

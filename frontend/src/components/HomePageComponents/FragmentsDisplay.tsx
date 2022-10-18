@@ -36,7 +36,7 @@ const FragmentsDisplay: React.FC<FragmentsDisplayProps> = () => {
       </AnimatePresence>
       <SearchResultsSectionWrapper>
         {' '}
-        <FilterWrapper />
+        <FilterWrapper wide />
         {showFragmentsState && sortingOption !== 'projekt' && (
           <FragmentsTopWrapper>
             <UserFragmentsColumn moreColumns />

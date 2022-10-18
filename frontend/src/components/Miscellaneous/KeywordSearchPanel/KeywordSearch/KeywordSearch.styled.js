@@ -41,6 +41,13 @@ export const KeywordDivSimple = styled.b`
   flex-direction: row;
   flex-wrap: wrap;
 `
+export const FragmentParSmallExcerpt = styled.p`
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--background4-main);
+  margin: 0;
+  margin-bottom: 0.55rem;
+`
 export const FragmentParSmall = styled.p`
   font-weight: 400;
   font-size: 0.8rem;
@@ -64,14 +71,17 @@ export const FragmentDivSmall = styled(motion.div)`
       ? 'background: none;'
       : 'background: var(--background1-main);'}; */
 
+  border-right: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background4-main);
   border-bottom: 1px solid var(--background4-main);
-  box-shadow: var(--boxShadow2);
-  background: linear-gradient(
+  box-shadow: var(--boxShadow1);
+  /* background: linear-gradient(
     var(--background-blur1) 10%,
-    var(--background1-main) 90%,
+    transparent 90%,
     var(--background-blur1)
-  );
+  ); */
+
   border-radius: 5px;
 
   padding: 0.95rem;

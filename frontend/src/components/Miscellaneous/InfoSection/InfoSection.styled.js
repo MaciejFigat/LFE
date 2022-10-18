@@ -28,7 +28,7 @@ export const InfoSec = styled.div`
   /* border: solid 1px;
   border-color: ${(props) => handleSectionColor(props).color}; */
 
-  box-shadow: var(--boxShadow2);
+  box-shadow: var(--boxShadow1);
 
   @media (max-width: 880px) {
     ${({ paddingTop }) =>
@@ -70,11 +70,6 @@ export const InfoColumn = styled.div`
   max-width: 100%;
   display: flex;
   justify-content: center;
-  /* @media screen and (min-width: 770px) {
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-  } */
 `
 export const InfoColumnShort = styled(InfoColumn)`
   /* display: flex; */
@@ -88,11 +83,6 @@ export const InfoColumnShort = styled(InfoColumn)`
   @media screen and (max-width: 991px) {
     border-left: none;
     border-right: none;
-    /* display: grid; */
-    /* grid-template: auto 1fr / auto 1fr; */
-    /* text-align: center; */
-    /* justify-content: center; */
-    /* background: brown; */
   }
 `
 export const InfoColumnShortSimple = styled(InfoColumnShort)`
@@ -101,8 +91,7 @@ export const InfoColumnShortSimple = styled(InfoColumnShort)`
 `
 export const TextWrapper = styled.div`
   width: 100%;
-  /* background: brown; */
-  /* text-align: left; */
+
   padding-right: 1rem;
   padding-left: 1rem;
   @media screen and (max-width: 991px) {

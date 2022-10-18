@@ -1,22 +1,21 @@
 import styled from 'styled-components'
 
 export const FilterOptionsWrapper = styled.div`
-  /* background: rgba(60, 59, 61, 0.35); */
-  /* background: var(--background-blur1); */
   background: var(--background1-main);
-  border-top: 1px solid var(--background-blur1);
-  border-right: 1px solid var(--background-blur1);
+  border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background2-main);
   border-bottom: 1px solid var(--background2-main);
-  /* box-shadow: var(--boxShadow1); */
-  /* border: 1px solid var(--background2-main); */
-  /* backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); */
+  box-shadow: var(--boxShadow1);
+
+  min-width: ${({ wide }) => (wide ? 'min(450px, 80vw)' : '250px')};
+  height: ${({ wide }) => wide && '120px'};
+  padding: ${({ wide }) => (wide ? '2rem' : '0.25rem')};
+  margin: ${({ wide }) => (wide ? '2rem' : '0.25rem')};
   border-radius: 5px;
   max-width: fit-content;
-  min-width: 250px;
+
   min-height: 94px;
-  padding-top: 0.25rem;
 `
 export const OptionsWrapper = styled.div`
   display: flex;

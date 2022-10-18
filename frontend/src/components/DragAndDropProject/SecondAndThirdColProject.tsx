@@ -3,6 +3,7 @@ import {
   FragmentB,
   FragmentDivSmall,
   FragmentParSmall,
+  FragmentParSmallExcerpt,
   KeywordB,
   KeywordColumnContainer,
   KeywordDivSimple,
@@ -11,6 +12,7 @@ import {
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 import LabelInput from './LabelInput/LabelInput'
 import {
+  DotButton,
   OpenBigDivButton,
   OpenDivButtonWrapper,
   WrapperMotionDiv,
@@ -134,19 +136,21 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                       <OpenDivButtonWrapper>
                         <OpenBigDivButton
                           onClick={() => openWindowHandler(fragment._id)}
-                        />
+                        >
+                          {' '}
+                          <DotButton left />
+                        </OpenBigDivButton>
                       </OpenDivButtonWrapper>
+                      {fragment.title !== fragment.excerpt.substring(0, 22) && (
+                        <FragmentParSmall>{fragment.title}</FragmentParSmall>
+                      )}
+                      <FragmentParSmallExcerpt>
+                        {fragment.excerpt}
+                      </FragmentParSmallExcerpt>
                       <FragmentParSmall>
-                        <FragmentB>T:</FragmentB> {fragment.title}
-                      </FragmentParSmall>
-                      <FragmentParSmall>
-                        <FragmentB>E:</FragmentB> {fragment.excerpt}
-                      </FragmentParSmall>
-                      <FragmentParSmall>
-                        <FragmentB>D:</FragmentB> {fragment.description}
+                        {fragment.description}
                       </FragmentParSmall>
                       <KeywordDivSimple>
-                        <FragmentB>Keywords:&nbsp;</FragmentB>
                         {fragment.keywords.map((keyword: string) => (
                           <KeywordB key={keyword}>{keyword} &nbsp;</KeywordB>
                         ))}

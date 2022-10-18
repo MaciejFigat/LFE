@@ -12,9 +12,10 @@ import {
 
 interface DropdownFilterProps {
   options: string[]
+  wide?: boolean
 }
 
-const DropdownFilter: React.FC<DropdownFilterProps> = ({ options }) => {
+const DropdownFilter: React.FC<DropdownFilterProps> = ({ options, wide }) => {
   const dispatch: any = useAppDispatch()
   const sortingOption: string = useAppSelector(
     (state) => state.preference.sortingOption
@@ -38,14 +39,14 @@ const DropdownFilter: React.FC<DropdownFilterProps> = ({ options }) => {
     <>
       <Main>
         <DropDownContainer>
-          <DropDownHeader onClick={toggling}>
+          <DropDownHeader onClick={toggling} wide={wide}>
             {sortingOption === 'wszystkie'
               ? `Pokaż ${selectedOption}`
               : `Sortowanie: ${selectedOption}`}
           </DropDownHeader>
           {isOpen && (
             <DropDownListContainer>
-              <DropDownList>
+              <DropDownList wide={wide}>
                 {options?.map((option) => (
                   <ListItem
                     onClick={onOptionClicked(option)}

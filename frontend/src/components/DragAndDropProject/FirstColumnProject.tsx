@@ -280,7 +280,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
             {...provided.droppableProps}
           >
             <HorizontalButtonContainer>
-              <SelectMainKeyword />
+              <SelectMainKeyword wide />
               <AlignCenterContainer>
                 <SendButtonVerySmall
                   initial={{ opacity: 0 }}
@@ -289,7 +289,12 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                   variant='primaryEmpty'
                   onClick={exportHandler}
                 >
-                  <SvgIcon variant='export' toBottom contentAfter='eksportuj' />
+                  <SvgIcon
+                    variant='export'
+                    toBottom
+                    showContent
+                    contentAfter='eksportuj'
+                  />
                 </SendButtonVerySmall>
               </AlignCenterContainer>
             </HorizontalButtonContainer>
