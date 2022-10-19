@@ -38,7 +38,7 @@ export const ChoiceNav = styled.nav`
   border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
 
-  border-left: 1px solid var(--background2-main);
+  border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background2-main);
   /* border: 1px solid var(--background2-main); */
   color: var(--background2-main);
@@ -81,7 +81,7 @@ export const ChoiceList = styled.ul`
     transition: 0.3s;
     border-top: 2px solid var(--background-blur1);
     border-right: 2px solid var(--background-blur1);
-    border-left: 2px solid var(--background2-main);
+    /* border-left: 2px solid var(--background2-main); */
     border-bottom: 1px solid var(--background2-main);
     /* background: var(--background-blur1); */
     /* background: linear-gradient(225deg, #202021, #1b1b1c); */
@@ -132,12 +132,23 @@ export const ChoiceItem = styled.div`
 
 export const ChoiceUnderline = styled(motion.div)`
   position: absolute;
-  bottom: -5px;
-  border-radius: 5px;
+  bottom: -3px;
+  border-radius: 0px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  left: 0;
+  left: -1px;
   right: 0;
-  height: 5px;
-  background: var(--background4-main);
+  height: 3px;
+  /* background: linear-gradient(
+    var(--background-blur1) 20%,
+    var(--background2-main) 80%,
+    var(--background-blur1)
+  ); */
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--background3-main),
+    var(--background-blur1)
+  );
+  /* background: var(--background4-main); */
 `
