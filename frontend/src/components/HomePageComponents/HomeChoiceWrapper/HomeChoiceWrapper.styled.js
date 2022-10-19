@@ -41,8 +41,8 @@ export const ChoiceNav = styled.nav`
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background2-main);
   /* border: 1px solid var(--background2-main); */
-  color: var(--background2-main);
-  /* box-shadow: var(--boxShadow1); */
+  color: var(--background4-main);
+  box-shadow: var(--boxShadow1);
   @media screen and (max-width: 1391px) {
     font-size: 1rem;
   }
@@ -78,6 +78,7 @@ export const ChoiceList = styled.ul`
   padding: 0;
   margin: 0;
   .selected {
+    /* top: -2px; */
     transition: 0.3s;
     border-top: 2px solid var(--background-blur1);
     border-right: 2px solid var(--background-blur1);
@@ -86,8 +87,12 @@ export const ChoiceList = styled.ul`
     /* background: var(--background-blur1); */
     /* background: linear-gradient(225deg, #202021, #1b1b1c); */
     /* box-shadow: var(--boxShadowInset1); */
-    box-shadow: var(--boxShadow1);
-    color: var(--background5-main);
+    /* box-shadow: var(--boxShadowInset1); */
+    /* color: var(--background3-main); */
+    color: var(--background-secondary1);
+    @media screen and (min-width: 1101px) {
+      /* top: -2px; */
+    }
   }
 
   @media screen and (max-width: 601px) {

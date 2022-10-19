@@ -4,8 +4,8 @@ export const FilterOptionsWrapper = styled.div`
   background: var(--background1-main);
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background2-main);
-  border-bottom: 1px solid var(--background2-main);
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
   box-shadow: var(--boxShadow1);
 
   min-width: ${({ wide }) => (wide ? 'min(450px, 80vw)' : '250px')};

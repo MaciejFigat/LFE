@@ -73,8 +73,8 @@ export const FragmentDivSmall = styled(motion.div)`
 
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background4-main);
-  border-bottom: 1px solid var(--background4-main);
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
   box-shadow: var(--boxShadow1);
   /* background: linear-gradient(
     var(--background-blur1) 10%,

@@ -8,6 +8,11 @@ export const DropDownContainer = styled.div`
   margin: 0 auto;
 `
 
+export const DropDownHeaderInside = styled(motion.div)`
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease-out;
+`
 export const DropDownHeader = styled(motion.div)`
   cursor: pointer;
   user-select: none;
@@ -21,20 +26,33 @@ export const DropDownHeader = styled(motion.div)`
 
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background4-main);
-  border-bottom: 1px solid var(--background4-main);
-  box-shadow: var(--boxShadowInset1);
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
+  box-shadow: var(--boxShadow1);
   border-radius: 5px;
   font-weight: 500;
   font-size: 1rem;
   color: var(--background5-main);
   /* background: var(--background-blur1); */
-  transition: all 0.3s ease-out;
+  transition: all 0.1s ease-out;
   text-align: center;
   &:hover {
+    transition: all 0.1s ease-out;
     color: var(--background3-main);
+
+    border-right: 1px solid var(--background-blur1);
+    border-top: 1px solid var(--background-blur1);
+    border-left: 1px solid var(--background-blur1);
+    border-bottom: 1px solid var(--background-blur1);
+    box-shadow: var(--boxShadowInset1);
+  }
+  .activeButton {
+    scale: 0.99;
+    color: var(--background-secondary1);
+    /* color: var(--background2-main); */
   }
 `
+
 export const DropDownListContainer = styled.div`
   position: absolute;
 `
@@ -96,6 +114,15 @@ export const HeaderAndCogContainer = styled(HorizontalButtonContainer)`
   justify-content: space-around;
   justify-content: center;
   align-items: center;
+  .active {
+    /* color: var(--background3-main); */
+    transition: all 0.1s ease-out;
+    border-right: 1px solid var(--background-blur1);
+    border-top: 1px solid var(--background-blur1);
+    border-left: 1px solid var(--background-blur1);
+    border-bottom: 1px solid var(--background-blur1);
+    box-shadow: var(--boxShadowInset2);
+  }
 `
 export const TitleInputMainKeyword = styled(motion.input)`
   color: var(--background4-main);

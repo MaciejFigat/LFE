@@ -13,25 +13,27 @@ export const ProjectCardHome = styled(motion.div)`
   font-size: 1.1rem;
   font-weight: 500;
   min-width: fit-content;
-  color: var(--background4-main);
+
   /* border: 1px solid var(--background2-main); */
   /* background: var(--background-blur1); */
 
   border-radius: 5px;
-  border-top: 1px solid var(--background-blur2);
-  border-right: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background2-main);
-  border-bottom: 1px solid var(--background2-main);
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
   box-shadow: ${({ selected }) =>
-    selected ? 'var(--boxShadow2)' : 'var(--boxShadow1)'};
+    selected ? 'var(--boxShadowInset1)' : 'var(--boxShadow1)'};
+  color: ${({ selected }) =>
+    selected ? 'var(--background-secondary1)' : 'var(--background4-main)'};
 
   /* transition: 0.3s; */
   cursor: pointer;
-  ${({ selected }) =>
+  /* ${({ selected }) =>
     selected
       ? 'background: var(--background-blur1);'
-      : 'background: var(--background1-main);'}/* ${({ selected }) =>
-    selected ? ' scale: 1.4;' : 'scale: 1;'} */
+      : 'background: var(--background1-main);'} */
+  /* ${({ selected }) => (selected ? ' scale: 1.4;' : 'scale: 1;')} */
 `
 
 // export const ProjectBorderHighlight = styled(motion.div)`

@@ -70,7 +70,7 @@ const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
               onMouseUp={() => handleCardMouseUp(keyword)}
               animate={{
                 opacity: keywordMain === keyword ? 1 : 0.8,
-                scale: keywordMain === keyword ? 1.1 : 1,
+                // scale: keywordMain === keyword ? 1.1 : 1,
                 transition: {
                   duration: 0.3,
                 },

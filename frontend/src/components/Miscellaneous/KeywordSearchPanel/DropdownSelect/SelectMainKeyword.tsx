@@ -3,6 +3,7 @@ import { useAppSelector, useAppDispatch } from '../../../../app/reduxHooks'
 import {
   DropDownContainer,
   DropDownHeader,
+  DropDownHeaderInside,
   DropDownList,
   DropDownListContainer,
   HeaderAndCogContainer,
@@ -250,8 +251,13 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={toggling}
+                className={isOpen ? 'active' : 'inactive'}
               >
-                {selectedMainKeyword || 'Wybierz projekt'}
+                <DropDownHeaderInside
+                  className={isOpen ? 'activeButton' : 'inactiveButton'}
+                >
+                  {selectedMainKeyword || 'Wybierz projekt'}
+                </DropDownHeaderInside>
               </DropDownHeader>
             )}{' '}
             {!wide && (
