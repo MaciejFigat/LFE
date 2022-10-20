@@ -302,6 +302,30 @@ body {
   
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  // font-size: 1rem; //*it doesn't work at all
+  border: 1px solid var(--background-blur2);
+  box-shadow: var(--boxShadowInset1);
+  -webkit-text-fill-color: var(--background4-main);
+  // -webkit-box-shadow: 0 0 0px 1000px var(--background4-main) inset;
+  transition: background-color 5000s ease-in-out 0s;
+  
+}
+//* gets rid of the X cancel button in search inputs, can't change the color or anyting else actually
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+
 `
 
 export { GlobalStyle }

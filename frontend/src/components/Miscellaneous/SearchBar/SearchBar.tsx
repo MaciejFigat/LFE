@@ -15,7 +15,8 @@ import {
   SpinnerWrapperSearch,
 } from './SearchBar.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
-import { ThreeDots } from 'react-loader-spinner'
+import { ProgressBar, ThreeDots } from 'react-loader-spinner'
+import { relative } from 'path'
 
 interface SearchBarProps {
   isOpen: boolean
@@ -84,12 +85,24 @@ const SearchBar: React.FC<SearchBarProps> = ({
             />
           ) : (
             <SpinnerWrapperSearch>
-              <ThreeDots
-                height={large ? '44' : '22'}
-                width={large ? '44' : '22'}
-                color='var(--background4-main)'
-                ariaLabel='loading'
-              />
+              {large ? (
+                <ProgressBar
+                  height='140'
+                  width='50'
+                  ariaLabel='progress-bar-loading'
+                  // wrapperStyle={{ position: 'relative;', left: '120px;' }}
+                  wrapperClass='progress-bar-wrapper'
+                  borderColor='var(--background4-main)'
+                  barColor='var(--background-secondary1)'
+                />
+              ) : (
+                <ThreeDots
+                  height={large ? '44' : '22'}
+                  width={large ? '44' : '22'}
+                  color='var(--background4-main)'
+                  ariaLabel='loading'
+                />
+              )}
             </SpinnerWrapperSearch>
           )}
         </SearchBarButton>
@@ -98,7 +111,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
             large={large}
             type='search'
             name='search'
-            placeholder='wpisz frazę'
+            placeholder={large ? '...' : 'wpisz frazę'}
             autoComplete='search'
             value={searchQuery}
             onChange={(e: any) => setSearchQuery(e.target.value)}

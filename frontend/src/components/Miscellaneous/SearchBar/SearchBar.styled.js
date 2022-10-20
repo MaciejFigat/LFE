@@ -55,7 +55,8 @@ export const SearchBarButton = styled.button`
   border: none;
   cursor: pointer;
   background: transparent;
-  font-size: ${({ large }) => (large ? '1.75rem' : '1rem')};
+  color: var(--background-blur2) !important;
+  font-size: ${({ large }) => (large ? '1.55rem' : '1rem')};
   font-weight: 700;
   /* color: var(--background3-main); */
   /* background: var(--background2-main); */
@@ -63,6 +64,7 @@ export const SearchBarButton = styled.button`
   border-radius: 10px;
   margin-left: 0.5rem;
   &:hover {
+    color: var(--background4-main) !important;
     /* transition: all 0.7s ease-out; */
     /* border: 1px solid var(--background2-main); */
   }
@@ -86,25 +88,35 @@ export const SearchInput = styled.input`
   height: 100%;
   padding: 11px 13px;
   color: var(--background4-main);
-  border-radius: 
+  background: none;
   outline: 0;
-  border: 1px solid rgba(245, 245, 245, 0.7);
+  border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background-blur1);
+  box-shadow: ${({ large }) =>
+    large ? 'var(--boxShadowInset1)' : 'var(--boxShadowInset1)'};
   font-size: ${({ large }) => (large ? '1.5rem' : '1rem')};
   transition: all 0.3s ease-out;
   min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
   border-radius: ${({ large }) => (large ? '20px' : '12px')};
-  box-shadow: var(--boxShadowInset5);
   @media (max-width: 620px) {
     font-size: ${({ large }) => (large ? '1rem' : '0.85rem')};
-  
-  min-width: ${({ large }) => (large ? '270px' : 'fit-content')};
-  border-radius: ${({ large }) => (large ? '14px' : '12px')};
+
+    min-width: ${({ large }) => (large ? '270px' : 'fit-content')};
+    border-radius: ${({ large }) => (large ? '14px' : '12px')};
   }
   @media (max-width: 420px) {
     min-width: ${({ large }) => (large ? '200px' : 'fit-content')};
     font-size: 0.8rem;
     padding: 5px 7px;
   }
+  &::placeholder {
+    color: var(--background2-main);
+  }
+  /* &:active {
+    border: 1px solid var(--background-blur2);
+  } */
 `
 
 export const SpinnerWrapperSearch = styled.div`
@@ -133,7 +145,7 @@ export const DropdownIconWrapper = styled.div`
     color: var(--background2-main);
 
     &:hover {
-      color: var(--background3-main);
+      color: var(--background4-main);
     }
   }
 `
@@ -141,13 +153,13 @@ export const DropDownHeader = styled.div`
   display: flex;
   font-weight: 500;
   font-size: 0.9rem;
-  color: var(--background4-main);
+  /* color: var(--background1-main); */
   transition: all 0.3s ease-out;
   text-align: center;
 
   padding: 4px 0px 4px;
   &:hover {
-    color: var(--background-secondary2);
+    /* color: var(--background3-main); */
   }
 `
 export const DropDownListContainer = styled.div`

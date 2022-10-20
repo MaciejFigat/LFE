@@ -15,7 +15,7 @@ import ConfirmAccount from './screens/ConfirmAccount'
 // import Contact from './screens/Contact'
 import StoredFragments from './screens/StoredFragments'
 import ResultDisplayScreen from './screens/ResultDisplayScreen'
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
+// import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import ResultDisplayIdQueryScreen from './screens/ResultDisplayIdQueryScreen'
 import Footer from './components/menu/Footer/Footer'
 

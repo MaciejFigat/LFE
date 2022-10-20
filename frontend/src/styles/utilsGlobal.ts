@@ -180,14 +180,10 @@ const secondaryStyle: GlobalStyle = {
     boxShadow5: '-50px 50px 100px #6f6f6d, 50px -50px 100px #ffffff;',
     boxShadowInset1: 'inset -5px 5px 10px #d2d1ce, inset 5px -5px 10px #ffffff, 0px 0px 0px #ebeae6, 0px 0px 0px #fffffe;',
     boxShadowInset2: 'inset -5px 5px 10px #adaca9, inset 5px -5px 10px #ffffff;',
-    boxShadowInset3: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff',
-    boxShadowInset4: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff',
+    boxShadowInset3: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff;',
+    boxShadowInset4: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff;',
     boxShadowInset5: 'inset -5px 5px 10px #d2d1ce, inset 5px -5px 10px #ffffff;',
-    // boxShadow1: '0 1px 3px hsla(0, 0%, 0.2)',
-    // boxShadow2: '0 4px 6px hsla(0, 0%, 0.2)',
-    // boxShadow3: '0 5px 15px hsla(0, 0%, 0.2)',
-    // boxShadow4: '0 10px 24px hsla(0, 0%, 0.2)',
-    // boxShadow5: '0 15px 35px hsla(0, 0%, 0.2)',
+
 
 }
 const tertiaryStyle: GlobalStyle = {
@@ -235,18 +231,20 @@ const quaternaryStyle: GlobalStyle = {
     background3Tertiary: '#a8dadc;',
     background4Tertiary: '#f1faee;',
     background5Tertiary: '#e63946;',
+    boxShadowInset5: 'inset -5px 5px 10px #19191a, inset 5px -5px 10px #232324;',
     boxShadow1: '-5px 5px 10px #151515, 3px -3px 10px #272729;',
     boxShadow2: '-11px 11px 22px #151515, 4px -5px 22px #272729;',
     boxShadow3: '-27px 27px 54px #151515, 27px -27px 54px #272729;',
     boxShadow4: '-41px 41px 82px #151515, 41px -41px 82px #272729;',
     boxShadow5: '-50px 50px 100px #151515, 50px -50px 100px #272729;',
     boxShadowInset1: 'inset -5px 5px 10px #19191a, inset 5px -5px 10px #232324;',
-
     boxShadowInset2: 'inset -10px 10px 20px #161617, inset 10px -10px 20px #262627;',
     boxShadowInset3: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
-    boxShadowInset4: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
-    boxShadowInset5: 'inset -5px 5px 10px #8d8c8a, inset 5px -5px 10px #ffffff;',
+    boxShadowInset4: 'inset -5px 5px 10px #8d8c8a, inset 5px -5px 10px #ffffff;',
+
 }
+// boxShadowInset5: 'inset 20px 20px 60px #d9d9d9, inset -20px -20px 60px #ffffff;',
+// boxShadowInset5: 'inset 20px 20px 60px #d9d9d9, inset -20px -20px 60px #ffffff;',
 //?  senary, septenary, octonary, nonary, and denary 
 const quinaryStyle: GlobalStyle = {
     background1Main: '#344e41;',
