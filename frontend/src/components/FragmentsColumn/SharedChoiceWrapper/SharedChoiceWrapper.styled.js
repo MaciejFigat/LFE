@@ -7,7 +7,7 @@ export const WrapperWindow = styled.div`
   margin: 2.5rem 1rem 1.5rem 1rem;
   height: 260px;
   border-radius: 10px;
-  background: var(--background-blur1);
+  /* background: var(--background-blur1); */
   /* background: var(--background3-main); */
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@ export const ChoiceNav = styled.nav`
   border-radius: 10px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-bottom: 1px solid var(--background3-main);
+  border-bottom: 1px solid var(--background-blur2);
 `
 
 export const MainChoiceContainer = styled.main`
@@ -40,7 +40,7 @@ export const ChoiceList = styled.ul`
   padding: 0;
   margin: 0;
   .selected {
-    background: var(--background-blur2);
+    /* background: var(--background-blur1); */
   }
 `
 export const ChoiceItem = styled.li`
@@ -49,10 +49,10 @@ export const ChoiceItem = styled.li`
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   width: 100%;
-  padding: 10px 15px;
+  padding: 5px 3px;
   position: relative;
   cursor: pointer;
-  height: 24px;
+  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,9 +60,9 @@ export const ChoiceItem = styled.li`
   min-width: 0;
   position: relative;
   user-select: none;
-  padding: 0;
+  /* padding: 0; */
   margin: 0;
-  .underOn {
+  /* .underOn {
     position: absolute;
     bottom: -1px;
     left: 0;
@@ -75,7 +75,7 @@ export const ChoiceItem = styled.li`
     bottom: -1px;
     left: 0;
     right: 0;
-  }
+  } */
 `
 
 export const ChoiceUnderline = styled(motion.div)`
@@ -83,6 +83,11 @@ export const ChoiceUnderline = styled(motion.div)`
   bottom: -1px;
   left: 0;
   right: 0;
-  height: 4px;
-  background: var(--background-secondary3);
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--background-secondary1),
+    transparent
+  );
 `

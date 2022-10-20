@@ -39,7 +39,7 @@ export const ChoiceNav = styled.nav`
   border-right: 1px solid var(--background-blur1);
 
   border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background-blur1);
   /* border: 1px solid var(--background2-main); */
   color: var(--background4-main);
   box-shadow: var(--boxShadow1);
@@ -80,16 +80,16 @@ export const ChoiceList = styled.ul`
   .selected {
     /* top: -2px; */
     transition: 0.3s;
-    border-top: 2px solid var(--background-blur1);
-    border-right: 2px solid var(--background-blur1);
+    /* border-top: 2px solid var(--background-blur1); */
+    /* border-right: 2px solid var(--background-blur1); */
     /* border-left: 2px solid var(--background2-main); */
-    border-bottom: 1px solid var(--background2-main);
+    /* border-bottom: 1px solid var(--background2-main); */
     /* background: var(--background-blur1); */
     /* background: linear-gradient(225deg, #202021, #1b1b1c); */
-    /* box-shadow: var(--boxShadowInset1); */
-    /* box-shadow: var(--boxShadowInset1); */
+
     /* color: var(--background3-main); */
     color: var(--background-secondary1);
+    box-shadow: var(--boxShadowInset1);
     @media screen and (min-width: 1101px) {
       /* top: -2px; */
     }
@@ -129,6 +129,9 @@ export const ChoiceItem = styled.div`
   }
   &:last-of-type {
     left: 0.5px;
+  }
+  &:hover {
+    box-shadow: var(--boxShadowInset1);
   }
   @media screen and (min-width: 1050px) {
     /* top: -1px; */

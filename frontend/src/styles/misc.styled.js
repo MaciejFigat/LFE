@@ -111,12 +111,12 @@ export const DotButton = styled.div`
   border-radius: 50%;
   border-right: 1px solid var(--background-blur1);
   border-top: 1px solid var(--background-blur1);
-  /* border-left: 1px solid var(--background-blur2); */
-  /* border-bottom: 1px solid var(--background2-blur2); */
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
   box-shadow: var(--boxShadow1);
   font-weight: 700;
-  transition: 0.2s;
-  color: var(--background-secondary1);
+  transition: 0.1s;
+
   &:before {
     position: relative;
     top: -2px;
@@ -126,9 +126,11 @@ export const DotButton = styled.div`
   }
   &:hover {
     box-shadow: var(--boxShadowInset1);
-    /* border-left: 1px solid var(--background-blur2); */
-    /* border-bottom: 1px solid var(--background-blur2); */
-    /* background: var(--background-blur1); */
+    color: var(--background-secondary1);
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+    border-left: 1px solid var(--background-blur1);
+    border-bottom: 1px solid var(--background-blur1);
   }
   &:active {
     /* background: var(--background2-main); */

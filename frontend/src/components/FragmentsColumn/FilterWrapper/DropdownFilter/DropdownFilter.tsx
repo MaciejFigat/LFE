@@ -41,8 +41,8 @@ const DropdownFilter: React.FC<DropdownFilterProps> = ({ options, wide }) => {
         <DropDownContainer>
           <DropDownHeader onClick={toggling} wide={wide}>
             {sortingOption === 'wszystkie'
-              ? `Pokaż ${selectedOption}`
-              : `Sortowanie: ${selectedOption}`}
+              ? `Pokaż ${sortingOption}`
+              : `Sortowanie: ${sortingOption}`}
           </DropDownHeader>
           {isOpen && (
             <DropDownListContainer>

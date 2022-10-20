@@ -51,8 +51,8 @@ export const DropDownList = styled.div`
 
   border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
-  border-left: 1px solid var(--background2-main);
-  border-bottom: 1px solid var(--background2-main);
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
 
   box-shadow: var(--boxShadow2);
 

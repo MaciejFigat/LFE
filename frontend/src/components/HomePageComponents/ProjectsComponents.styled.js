@@ -18,10 +18,21 @@ export const ProjectCardHome = styled(motion.div)`
   /* background: var(--background-blur1); */
 
   border-radius: 5px;
-  border-top: 1px solid var(--background-blur1);
-  border-right: 1px solid var(--background-blur1);
-  border-left: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur2);
+  border-top: ${({ selected }) =>
+    selected ? '1px solid transparent' : '1px solid var(--background-blur1)'};
+
+  border-right: ${({ selected }) =>
+    selected ? '1px solid transparent' : '1px solid var(--background-blur1)'};
+
+  border-left: ${({ selected }) =>
+    selected
+      ? '1px solid var(--background-blur2)'
+      : '1px solid var(--background-blur1)'};
+  border-bottom: ${({ selected }) =>
+    selected
+      ? '1px solid var(--background-blur2)'
+      : '1px solid var(--background-blur1)'};
+
   box-shadow: ${({ selected }) =>
     selected ? 'var(--boxShadowInset1)' : 'var(--boxShadow1)'};
   color: ${({ selected }) =>
@@ -34,6 +45,15 @@ export const ProjectCardHome = styled(motion.div)`
       ? 'background: var(--background-blur1);'
       : 'background: var(--background1-main);'} */
   /* ${({ selected }) => (selected ? ' scale: 1.4;' : 'scale: 1;')} */
+  transition: 0.3s;
+  &:hover {
+    box-shadow: var(--boxShadowInset1);
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-left: 1px solid var(--background-blur1);
+    border-bottom: 1px solid var(--background-blur1);
+    /* color: var(--background-secondary1); */
+  }
 `
 
 // export const ProjectBorderHighlight = styled(motion.div)`

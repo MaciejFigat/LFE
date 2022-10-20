@@ -177,10 +177,11 @@ const DateCompare: React.FC<DateCompareProps> = () => {
       sortingYear: maxDate.getFullYear(),
       sortingMonth: maxDate.getMonth() + 1,
       //! HERE seems to be the bug (below)
-      sortingDay: maxDate.getDate() - 1,
+      // sortingDay: maxDate.getDate() - 1,
+      sortingDay: maxDate.getDate(),
     }
 
-    console.log(date)
+    // console.log(date)
     dispatch(sortingDateEdit(date))
   }
   return (

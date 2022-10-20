@@ -32,6 +32,7 @@ import {
   faPlus,
   faMinus,
   faDotCircle,
+  faEye,
 } from '@fortawesome/free-solid-svg-icons'
 interface SvgIconProps {
   variant:
@@ -65,6 +66,7 @@ interface SvgIconProps {
     | 'moreOptions'
     | 'minus'
     | 'dotCircle'
+    | 'eye'
 
   noMargin?: boolean
   contentAfter?: string
@@ -156,6 +158,8 @@ const SvgIcon: React.FC<SvgIconProps> = ({
         return faMinus
       case 'dotCircle':
         return faDotCircle
+      case 'eye':
+        return faEye
 
       default:
         return faUser

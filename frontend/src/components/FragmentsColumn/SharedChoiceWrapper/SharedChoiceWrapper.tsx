@@ -14,6 +14,7 @@ import {
 } from './SharedChoiceWrapper.styled'
 import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
 import Pagination from '../../Miscellaneous/Pagination/Pagination'
+import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 
 interface SharedChoiceWrapperProps {}
 
@@ -27,6 +28,8 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
   const tabs = [
     {
       label: 'Zapisane',
+      icon: <SvgIcon variant='save' noContent />,
+      // icon: <SvgIcon variant='save' contentAfter='zapisane' toBottom />,
       content: (
         <>
           {' '}
@@ -36,6 +39,8 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
     },
     {
       label: 'Wyszukane',
+      icon: <SvgIcon variant='search' noContent />,
+      // icon: <SvgIcon variant='search' contentAfter='wyszukane' toBottom />,
       content: (
         <>
           <SendButtonVerySmall variant='primaryEmpty'>
@@ -45,7 +50,12 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
         </>
       ),
     },
-    { label: 'Przeglądane', content: <VisitedLinks /> },
+    {
+      label: 'Przeglądane',
+      icon: <SvgIcon variant='eye' noContent />,
+      // icon: <SvgIcon variant='eye' contentAfter='przeglądane' toBottom />,
+      content: <VisitedLinks />,
+    },
   ]
 
   const [selectedTab, setSelectedTab] = useState(tabs[1])
@@ -72,8 +82,8 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
                   className={item.label === selectedTab.label ? 'selected' : ''}
                   onClick={() => tabHelper(item)}
                 >
-                  {`${item.label}`}
-
+                  {/* {`${item.label}`} */}
+                  {item.icon}
                   {item.label === selectedTab.label && (
                     <ChoiceUnderline layoutId='under' />
                   )}
