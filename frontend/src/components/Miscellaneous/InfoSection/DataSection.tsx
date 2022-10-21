@@ -12,15 +12,19 @@ import {
   TextWrapper,
   TopLine,
   Subtitle,
-  Button,
   ButtonLink,
   InfoColumnShort,
   CenterWrapper,
   SubtitleShort,
   HighlightMarker,
   TextWrapperShort,
+  Button,
+  SubtitleShortLonger,
+  TopLineShort,
 } from './InfoSection.styled'
 import parse from 'html-react-parser'
+import { SendButtonSmall } from '../Buttons/Buttons.styled'
+import { HorizontalWrapper } from '../../../styles/misc.styled'
 //! problem solved with parse - html-react-parser - prarses string to html in React
 
 interface InfoData {
@@ -103,64 +107,73 @@ const DataSection: React.FC<DataSectionProps> = ({
           <InfoRow imgStart={imgStart}>
             <InfoColumnShort imgStart={imgStart}>
               <TextWrapperShort>
-                <TopLine variant={variant}>{metryka.syg}</TopLine>
-                <SubtitleShort variant={variant}>{metryka.organ}</SubtitleShort>
                 <TopLine variant={variant}>
-                  <SubtitleShort variant={variant}>
-                    {metryka.data}
-                  </SubtitleShort>
-                </TopLine>
-                <TopLine variant={variant}>
-                  Forma:{' '}
                   <SubtitleShort variant={variant}>
                     {metryka.rodzaj_orzeczenia}
                   </SubtitleShort>
+                  <TopLine variant={variant}>
+                    <SubtitleShort variant={variant}>
+                      {metryka.data}
+                    </SubtitleShort>
+                  </TopLine>
                 </TopLine>
-                <TopLine variant={variant}>
-                  Numer Dokumentu:
+                <SubtitleShort variant={variant}>{metryka.organ}</SubtitleShort>
+                <TopLine variant={variant}>{metryka.syg}</TopLine>
+                {/* <TopLine variant={variant}>
                   <SubtitleShort variant={variant}>
                     {metryka.numer_dokumentu}
                   </SubtitleShort>
-                </TopLine>
-                <TopLine variant={variant}></TopLine>
+                </TopLine> */}
+                {/* <TopLine variant={variant}></TopLine>
+                 */}
+                <TopLineShort variant={variant}>
+                  Istota interpretacji:
+                </TopLineShort>
+                <SubtitleShortLonger
+                  variant={variant}
+                  onClick={() => submitHandlerDocNr(0)}
+                >
+                  {istota_interpretacji}
+                </SubtitleShortLonger>
                 <SubtitleShort variant={variant}>
                   {' '}
                   Wynik przydatny?
                 </SubtitleShort>
-                <Button variant={variant}>
-                  <ButtonLink
-                    variant={variant}
-                    href={buttonLink}
-                    target='_blank'
-                  >
-                    Tak
-                  </ButtonLink>
-                </Button>
-                <Button variant={variant}>
-                  <ButtonLink
-                    variant={variant}
-                    href={buttonLink}
-                    target='_blank'
-                  >
-                    Nie
-                  </ButtonLink>
-                </Button>{' '}
+                <HorizontalWrapper>
+                  <Button variant='secondary'>
+                    <ButtonLink
+                      variant={variant}
+                      href={buttonLink}
+                      target='_blank'
+                    >
+                      Tak
+                    </ButtonLink>
+                  </Button>
+                  <Button variant='secondary'>
+                    <ButtonLink
+                      variant={variant}
+                      href={buttonLink}
+                      target='_blank'
+                    >
+                      Nie
+                    </ButtonLink>
+                  </Button>{' '}
+                </HorizontalWrapper>
               </TextWrapperShort>
             </InfoColumnShort>
             <InfoColumn>
               <TextWrapper>
-                {/* //? I filter fragments that start with ISTOTA INTERPRETACJI string. Since they are not 100% guaranteed they won't be always displayed, afterwards said string needs to be removed, here replaced with '' */}
                 <div>
-                  <TopLine variant={variant}>ISTOTA INTERPRETACJI:</TopLine>
+                  {/* <TopLine variant={variant}>Istota interpretacji:</TopLine>
                   <Subtitle
                     variant={variant}
                     onClick={() => submitHandlerDocNr(0)}
                   >
                     {istota_interpretacji}
-                  </Subtitle>
+                  </Subtitle> */}
                 </div>
 
-                <TopLine variant={variant}>ZNALEZIONE FRAGMENTY:</TopLine>
+                <TopLine variant={variant}>Znalezione fragmenty:</TopLine>
                 {fragmentsFound.length > 0 &&
                   fragmentsFound.map((fragment, index) => (
                     <HighlightMarker
@@ -183,7 +196,11 @@ const DataSection: React.FC<DataSectionProps> = ({
                         {/* (...) */}
                         {/* {parse(fragment)} */}
                         &bull;
-                        {parse(fragment.replace('ISTOTA INTERPRETACJI', ''))}
+                        {parse(
+                          fragment
+                            .replace('ISTOTA INTERPRETACJI', '')
+                            .replace('INTERPRETACJA INDYWIDUALNA', '')
+                        )}
                       </Subtitle>
                     </HighlightMarker>
                   ))}

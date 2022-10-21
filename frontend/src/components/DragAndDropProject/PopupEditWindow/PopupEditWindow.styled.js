@@ -101,11 +101,14 @@ export const PopupListRow = styled(motion.div)`
   font-size: 1.2rem;
   font-weight: 400;
   border-radius: 10px;
-  background: var(--background-blur1);
+  /* background: var(--background-blur1); */
   max-width: 100%;
-  border-left: 1px solid var(--background2-main);
-  border-bottom: 1px solid var(--background2-main);
-
+  /* border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main); */
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
   box-shadow: var(--boxShadowInset1);
   @media (max-width: 740px) {
     padding: 0.55rem;
@@ -127,7 +130,7 @@ export const PopupDescriptionInput = styled(motion.textarea)`
   outline: none;
   border: none;
   width: 100%;
-  box-shadow: var(--boxShadowInset1);
+  /* box-shadow: var(--boxShadowInset1); */
   min-height: fit-content;
   height: 100%;
   text-align: center;
@@ -137,7 +140,8 @@ export const PopupDescriptionInput = styled(motion.textarea)`
   /* background: none; */
   padding-top: 2rem;
   border-radius: 5px;
-  background: var(--background-blur1);
+  /* background: var(--background-blur1); */
+  background: transparent;
   cursor: text;
   overflow-y: auto;
   line-height: 1.1;
@@ -160,7 +164,7 @@ export const ListRow = styled(motion.div)`
   font-size: 1.2rem;
   font-weight: 400;
   border-radius: 10px;
-  background: var(--background-blur1);
+  /* background: var(--background-blur1); */
   max-width: 100%;
   @media (max-width: 740px) {
     padding: 0.55rem;
@@ -170,9 +174,12 @@ export const ListRow = styled(motion.div)`
 export const PopupListRowShort = styled(ListRow)`
   align-items: flex-start;
   justify-items: flex-start;
-  border-left: 1px solid var(--background2-main);
-  border-bottom: 1px solid var(--background2-main);
-
+  /* border-left: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main); */
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
   box-shadow: var(--boxShadowInset1);
 `
 export const PopupTextAreaContainer = styled(motion.div)`

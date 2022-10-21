@@ -163,9 +163,9 @@ export const OptionsDropdownContainer = styled.div`
 
   border-radius: 5px;
 
-  border-top: 1px solid var(--background-blur1);
-  border-right: 1px solid var(--background-blur1);
-  border-left: 1px solid var(--background2-main);
-  border-bottom: 1px solid var(--background2-main);
+  border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
   /* box-shadow: var(--boxShadow3); */
 `

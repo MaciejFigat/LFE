@@ -87,8 +87,8 @@ export const ChoiceList = styled.ul`
     /* background: var(--background-blur1); */
     /* background: linear-gradient(225deg, #202021, #1b1b1c); */
 
-    /* color: var(--background3-main); */
-    color: var(--background-secondary1);
+    color: var(--background5-main);
+    /* color: var(--background-secondary1); */
     box-shadow: var(--boxShadowInset1);
     @media screen and (min-width: 1101px) {
       /* top: -2px; */
@@ -104,7 +104,7 @@ export const ChoiceList = styled.ul`
 
 export const ChoiceItem = styled.div`
   position: relative;
-  top: 0px;
+  top: -2px;
   left: 0px;
   border-radius: 5px;
   border: 2px solid transparent;
@@ -115,6 +115,7 @@ export const ChoiceItem = styled.div`
   padding: 10px 15px;
   cursor: pointer;
   height: 44px;
+  /* height: 3rem; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,6 +123,7 @@ export const ChoiceItem = styled.div`
   user-select: none;
   padding: 0;
   margin: 0;
+  /* margin-top: -0.5rem; */
   transition: 0.3s;
   width: 100%;
   &:first-of-type {
@@ -140,7 +142,7 @@ export const ChoiceItem = styled.div`
 
 export const ChoiceUnderline = styled(motion.div)`
   position: absolute;
-  bottom: -3px;
+  bottom: -4px;
   border-radius: 0px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;

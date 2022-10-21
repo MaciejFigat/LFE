@@ -47,11 +47,21 @@ export const WrapperMotionDiv = styled(motion.div)`
 export const ClosingDiv = styled(motion.div)`
   width: 35%;
   border-radius: 100px;
+  height: 2rem;
   z-index: 10;
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
   background: var(--background1-main);
   color: var(--background5-main);
   display: grid;
   place-items: center center;
+  transition: 0.2s;
+  &:hover {
+    box-shadow: var(--boxShadowInset1);
+    /* box-shadow: var(--boxShadow1); */
+  }
   &:after {
     font-weight: 700;
     content: 'Zamknij';
@@ -80,14 +90,20 @@ export const OpenedLayoutDiv = styled(motion.div)`
   overflow: hidden;
   border-radius: 8px;
   background: var(--background1-main);
-  border-left: 1px solid var(--background2-main);
-  border-bottom: 1px solid var(--background2-main);
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
 
   color: var(--background2-main);
   box-shadow: var(--boxShadow5);
   /* border: 1px solid var(--background1-main); */
 `
 export const OpenedDivBig = styled(OpenedLayoutDiv)`
+  /* display: flex;
+  background: red;
+  justify-content: center;
+  align-items: center; */
   height: 80vh;
   width: 80vw;
   top: 15vh;
@@ -98,6 +114,11 @@ export const TwoColumnsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
+`
+export const HorizontalWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 `
 
 export const RelativeRightSvgWrapper = styled.div`
@@ -125,7 +146,7 @@ export const DotButton = styled.div`
     content: 'e';
   }
   &:hover {
-    box-shadow: var(--boxShadowInset1);
+    box-shadow: var(--boxShadowInset4);
     color: var(--background-secondary1);
     border-right: 1px solid transparent;
     border-top: 1px solid transparent;

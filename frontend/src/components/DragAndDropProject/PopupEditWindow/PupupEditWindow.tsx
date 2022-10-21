@@ -243,6 +243,8 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     }
   }
 
+  useMemo(() => window.scrollTo(0, 0), [])
+
   return (
     <>
       <OpenedDivBig layoutId={openedApp!.toString()}>
@@ -263,14 +265,13 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <PopupB>Tytuł: &nbsp;</PopupB> {titleValue}
+                    <PopupB>{titleValue}</PopupB>
                   </motion.div>
                 </PopupTitleAnimated>
               </PopupTitle>
             ) : (
               <PopupTitle>
                 <PopupTitleAnimated>
-                  <PopupB>Tytuł: &nbsp;</PopupB>{' '}
                   <PopupTitleInput
                     type='title'
                     name='title'
@@ -291,7 +292,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                         <SvgIcon
                           variant='back'
                           toBottom
-                          contentAfter='reset title'
+                          contentAfter='anuluj zmiany'
                         />
                       </SendButtonVerySmall>{' '}
                       <SendButtonVerySmall
@@ -301,7 +302,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                         <SvgIcon
                           variant='save'
                           toBottom
-                          contentAfter='save title'
+                          contentAfter='zapisz'
                         />
                       </SendButtonVerySmall>
                     </PopupHorizontalContainer>
@@ -314,7 +315,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                       <SvgIcon
                         variant='back'
                         toBottom
-                        contentAfter='reset title'
+                        contentAfter='anuluj zmiany'
                       />
                     </SendButtonVerySmall>
                   )}
@@ -336,7 +337,11 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                     variant='secondaryEmpty'
                     onClick={() => removeFragmentHandler(idOpen)}
                   >
-                    <SvgIcon variant='remove' toBottom contentAfter='delete' />
+                    <SvgIcon
+                      variant='remove'
+                      toBottom
+                      contentAfter='usuń fragment'
+                    />
                   </SendButtonVerySmall>{' '}
                 </PopupHorizontalContainer>
               </motion.div>{' '}
@@ -366,13 +371,13 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                 >
-                  <PopupB>Excerpt: </PopupB>{' '}
+                  <PopupB>Cytat: </PopupB>{' '}
                   <PopupDescriptionInput
                     type='excerpt'
                     name='excerpt'
                     cols='35'
                     rows='5'
-                    placeholder='new excerpt'
+                    placeholder='nowy cytat'
                     value={excerptValue}
                     onChange={(e: any) => setExcerptValue(e.target.value)}
                   />
@@ -388,14 +393,14 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                       <SvgIcon
                         variant='back'
                         toBottom
-                        contentAfter='reset changes'
+                        contentAfter='anuluj zmiany'
                       />
                     </SendButtonVerySmall>
                     <SendButtonVerySmall
                       variant='successEmpty'
                       onClick={saveExcerptHandler}
                     >
-                      <SvgIcon variant='save' toBottom contentAfter='save' />
+                      <SvgIcon variant='save' toBottom contentAfter='zapisz' />
                     </SendButtonVerySmall>
                   </>
                 )}
@@ -404,7 +409,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                     variant='primaryEmpty'
                     onClick={toggleExcerptEditing}
                   >
-                    <SvgIcon variant='back' toBottom contentAfter='back' />
+                    <SvgIcon variant='back' toBottom contentAfter='powrót' />
                   </SendButtonVerySmall>
                 )}
               </PopupHorizontalContainer>
@@ -432,13 +437,13 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <PopupB>Description:</PopupB>{' '}
+                    <PopupB>Opis:</PopupB>{' '}
                     <PopupDescriptionInput
                       type='description'
                       name='description'
                       // cols='35'
                       rows='5'
-                      placeholder='new description'
+                      placeholder='nowy opis'
                       value={descriptionValue}
                       onChange={(e: any) => setDescriptionValue(e.target.value)}
                     />
@@ -453,13 +458,21 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                         variant='primaryEmpty'
                         onClick={toggleDescriptionReset}
                       >
-                        <SvgIcon variant='back' toBottom contentAfter='back' />
+                        <SvgIcon
+                          variant='back'
+                          toBottom
+                          contentAfter='powrót'
+                        />
                       </SendButtonVerySmall>
                       <SendButtonVerySmall
                         variant='successEmpty'
                         onClick={saveDescriptionHandler}
                       >
-                        <SvgIcon variant='save' toBottom contentAfter='save' />
+                        <SvgIcon
+                          variant='save'
+                          toBottom
+                          contentAfter='zapisz'
+                        />
                       </SendButtonVerySmall>
                     </PopupHorizontalContainer>
                   )}
@@ -469,7 +482,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                       variant='primaryEmpty'
                       onClick={toggleDescriptionEditing}
                     >
-                      <SvgIcon variant='back' toBottom contentAfter='back' />
+                      <SvgIcon variant='back' toBottom contentAfter='powrót' />
                     </SendButtonVerySmall>
                   )}
               </PopupListButtonContainer>

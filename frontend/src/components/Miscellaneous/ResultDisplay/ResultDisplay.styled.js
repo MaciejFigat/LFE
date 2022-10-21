@@ -8,6 +8,7 @@ export const ArticleContainer = styled.div`
 export const ArticleWrapper = styled.div`
   display: flex;
   max-width: 1080px;
+  /* background: var(--background1-main); */
   background: var(--background1-main);
   flex-direction: column;
   align-items: center;
@@ -37,7 +38,7 @@ export const ArticleTitle = styled.h2`
   }
 `
 export const ArticleTopline = styled.h4`
-  letter-spacing: 0.75px;
+  letter-spacing: 0.25px;
   font-size: 1.2rem;
   margin: 0.75rem;
   /* margin-bottom: 2rem; */
@@ -45,8 +46,8 @@ export const ArticleTopline = styled.h4`
 export const ArticleSection = styled.div`
   padding: var(--padding);
   padding-bottom: 0;
-  font-size: 1.1rem;
-  line-height: 1.5;
+  /* font-size: 1.1rem;
+  line-height: 1.5; */
   @media (max-width: 880px) {
     padding: 1rem;
     padding-bottom: 0;
@@ -54,10 +55,11 @@ export const ArticleSection = styled.div`
   }
 `
 export const ArticleParagraph = styled.div`
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 1.3;
   padding-top: 1rem;
   /* padding-bottom: 0; */
+  max-width: 47rem;
   font-weight: 500;
   text-align: justify;
 `

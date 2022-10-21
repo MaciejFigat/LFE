@@ -213,18 +213,18 @@ body {
     }
   .highlight{
     // color: var(--background-neon4);
-    color: var(--background-secondary2);
-    background: red;
+    // color: var(--background-secondary2);
+    // background: red;
   }
   .highlightQuery{
     border-radius: 4px;
-    background: var(--background3-main);
-    background: red;
+    // background: var(--background3-main);
+    // background: red;
     color: var(--background-secondary2);
   }
   mark {
-    background-color: var(--background2-main);;
-    color: var(--background-secondary2) !important;
+    background-color: transparent;
+    color: var(--background-secondary1) !important;
   } 
   .dateFormat{
     input{

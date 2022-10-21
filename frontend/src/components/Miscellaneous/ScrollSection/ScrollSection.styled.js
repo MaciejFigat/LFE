@@ -123,10 +123,10 @@ export const DragDiv = styled.div`
 export const SectionColumnScrollResize = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  justify-content: flex-start;
+  justify-content: center;
+  /* justify-content: flex-start; */
   /* align-items: center; */
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 15px;
   padding-left: 15px;
   //* the following sets width depending on whether it's narrowOption (used in DocResult display) or regular

@@ -90,19 +90,21 @@ const primaryStyle: GlobalStyle = {
     warning2: '#ee9b00;',
     danger1: '#D22730;',
 
-    boxShadow1: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -5px 5px 10px #151515, 3px -3px 10px #272729;',
+    boxShadow1: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -2px 2px 5px #151515, 1px -1px 7px #272729;',
+    boxShadow2: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -5px 5px 10px #151515, 3px -3px 10px #272729;',
     // boxShadow1: ' -35px 35px 70px #0c0c0c, 35px -35px 70px #303032;',
     // boxShadow1: '-5px 5px 10px #151515, 5px -5px 10px #272729;',
-    boxShadow2: '-11px 11px 22px #151515, 4px -5px 22px #272729;',
+    // boxShadow2: '-11px 11px 22px #151515, 4px -5px 22px #272729;',
     boxShadow3: '-27px 27px 54px #151515, 4px -5px 22px #272729;',
     boxShadow4: '-41px 41px 82px #151515, 41px -41px 82px #272729;',
     boxShadow5: '-35px 35px 70px #0c0c0c, 35px -35px 70px #303032;',
     // boxShadow5: ' -50px 50px 100px #151515, 50px -50px 100px #272729;',
     boxShadowInset1: 'inset -10px 10px 20px #161617, inset 10px -10px 20px #262627, 0px 0px 0px #272729, 0px 0px 0px #272729;',
+    boxShadowInset4: 'inset -3px 3px 5px #161617, inset 3px -3px 5px #262627, 0px 0px 0px #272729, 0px 0px 0px #272729;',
     boxShadowInset2: 'inset -18px 18px 23px #131314, inset 18px -18px 23px #29292a;',
     // boxShadowInset1: 'inset -5px 5px 10px #191919, inset 5px -5px 10px #232325;',
     boxShadowInset3: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
-    boxShadowInset4: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
+    // boxShadowInset4: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
     boxShadowInset5: 'inset -5px 5px 10px #8d8c8a, inset 5px -5px 10px #ffffff;',
 
 }
@@ -179,9 +181,10 @@ const secondaryStyle: GlobalStyle = {
     boxShadow4: '-41px 41px 82px #999996, 41px -41px 82px #ffffff;',
     boxShadow5: '-50px 50px 100px #6f6f6d, 50px -50px 100px #ffffff;',
     boxShadowInset1: 'inset -5px 5px 10px #d2d1ce, inset 5px -5px 10px #ffffff, 0px 0px 0px #ebeae6, 0px 0px 0px #fffffe;',
+    boxShadowInset4: 'inset -2px 2px 4px #d2d1ce, inset 2px -2px 4px #ffffff, 0px 0px 0px #ebeae6, 0px 0px 0px #fffffe;',
     boxShadowInset2: 'inset -5px 5px 10px #adaca9, inset 5px -5px 10px #ffffff;',
     boxShadowInset3: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff;',
-    boxShadowInset4: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff;',
+    // boxShadowInset4: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff;',
     boxShadowInset5: 'inset -5px 5px 10px #d2d1ce, inset 5px -5px 10px #ffffff;',
 
 
