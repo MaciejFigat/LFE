@@ -136,6 +136,7 @@ export const DotButton = styled.div`
   border-bottom: 1px solid var(--background-blur2);
   box-shadow: var(--boxShadow1);
   font-weight: 700;
+  cursor: help;
   transition: 0.1s;
 
   &:before {

@@ -7,7 +7,6 @@ import {
 } from '../../../features/searchResults/searchResultsSlice'
 import {
   Container,
-  InfoRow,
   InfoColumn,
   InfoSecSimple,
   TopLineSimple,
@@ -16,6 +15,8 @@ import {
   CenterWrapperSimple,
   InfoColumnShortSimple,
   TextWrapperSimpleShort,
+  InfoRowSimple,
+  SubtitleShortLonger,
 } from './InfoSection.styled'
 import parse from 'html-react-parser'
 
@@ -45,8 +46,8 @@ interface DataSectionSimpleProps {
     | 'bluegreen'
     | 'transparent'
   imgStart?: boolean
-
   paddingTop?: 'large' | 'small' | undefined
+  istota_interpretacji: string
 }
 
 const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
@@ -56,6 +57,7 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
   variant,
   imgStart,
   paddingTop,
+  istota_interpretacji,
 }) => {
   const dispatch = useAppDispatch()
 
@@ -91,7 +93,7 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
     <CenterWrapperSimple>
       <InfoSecSimple variant={variant} paddingTop={paddingTop}>
         <Container>
-          <InfoRow imgStart={imgStart}>
+          <InfoRowSimple imgStart={imgStart}>
             <InfoColumnShortSimple>
               <TextWrapperSimpleShort imgStart={imgStart}>
                 <TopLineSimple variant={variant}>
@@ -99,6 +101,12 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
                 </TopLineSimple>{' '}
                 <TopLineSimple variant={variant}>{metryka.data}</TopLineSimple>{' '}
                 <TopLineSimple variant={variant}>{metryka.organ}</TopLineSimple>
+                <SubtitleShortLonger
+                  variant={variant}
+                  // onClick={() => submitHandlerDocNr(0)}
+                >
+                  {istota_interpretacji}
+                </SubtitleShortLonger>
               </TextWrapperSimpleShort>
             </InfoColumnShortSimple>
             <InfoColumn>
@@ -120,7 +128,7 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
                     ))}
               </TextWrapperSimple>
             </InfoColumn>
-          </InfoRow>
+          </InfoRowSimple>
         </Container>
       </InfoSecSimple>
     </CenterWrapperSimple>

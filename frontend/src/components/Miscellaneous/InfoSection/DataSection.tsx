@@ -23,7 +23,7 @@ import {
   TopLineShort,
 } from './InfoSection.styled'
 import parse from 'html-react-parser'
-import { SendButtonSmall } from '../Buttons/Buttons.styled'
+// import { SendButtonSmall } from '../Buttons/Buttons.styled'
 import { HorizontalWrapper } from '../../../styles/misc.styled'
 //! problem solved with parse - html-react-parser - prarses string to html in React
 

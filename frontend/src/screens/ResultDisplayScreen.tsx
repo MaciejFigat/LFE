@@ -79,6 +79,9 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
                       <DataSectionSimple
                         variant='primary'
                         // imgStart
+                        istota_interpretacji={
+                          fragmentArray.istota_interpretacji
+                        }
                         key={fragmentArray['uuid']}
                         paddingTop='small'
                         fragmentsFound={fragmentArray.fragment}

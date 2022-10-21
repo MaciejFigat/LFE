@@ -44,7 +44,7 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
       content: (
         <>
           <SendButtonVerySmall variant='primaryEmpty'>
-            Displaying {numberOfResults && numberOfResults} search results
+            Ilość wyników wyszukiwania: {numberOfResults && numberOfResults}
           </SendButtonVerySmall>{' '}
           <Pagination narrow />
         </>

@@ -74,6 +74,7 @@ const ResultDisplayIdQueryScreen: React.FC<
                   data.slice(start, end + 1).map((fragmentArray: any) => (
                     <DataSectionSimple
                       variant='blue'
+                      istota_interpretacji={fragmentArray.istota_interpretacji}
                       // imgStart
                       key={fragmentArray['uuid']}
                       paddingTop='small'

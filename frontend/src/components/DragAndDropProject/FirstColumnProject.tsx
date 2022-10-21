@@ -27,6 +27,7 @@ import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
 
 import {
+  DotButton,
   OpenBigDivButton,
   OpenDivButtonWrapper,
   WrapperMotionDiv,
@@ -323,7 +324,9 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                       <OpenDivButtonWrapper>
                         <OpenBigDivButton
                           onClick={() => openWindowHandler(fragment._id)}
-                        />
+                        >
+                          <DotButton left />
+                        </OpenBigDivButton>
                       </OpenDivButtonWrapper>
 
                       <FragmentParSmall>

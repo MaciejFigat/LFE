@@ -71,6 +71,9 @@ export const InfoRow = styled.div`
       imgStart === true ? 'column' : 'column-reverse'};
   }
 `
+export const InfoRowSimple = styled(InfoRow)`
+  flex-direction: column;
+`
 export const InfoColumn = styled.div`
   padding-left: 0.5rem;
   flex-basis: 60%;
@@ -228,7 +231,7 @@ export const TopLine = styled.div`
   margin-bottom: 1rem;
 `
 export const TopLineShort = styled(TopLine)`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 0rem;
   margin-top: 2rem;
   letter-spacing: 1.2px;
@@ -317,6 +320,7 @@ export const CenterWrapperSimple = styled(CenterWrapper)`
   margin-bottom: 0.5rem;
   height: fit-content;
   /* align-self: flex-start; */
+
   width: 95%;
 `
 export const DataContainerSimple = styled.div`

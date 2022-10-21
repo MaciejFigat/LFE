@@ -16,7 +16,6 @@ import {
 } from './SearchBar.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import { ProgressBar, ThreeDots } from 'react-loader-spinner'
-import { relative } from 'path'
 
 interface SearchBarProps {
   isOpen: boolean
