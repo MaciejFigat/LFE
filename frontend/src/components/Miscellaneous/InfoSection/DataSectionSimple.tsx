@@ -7,7 +7,6 @@ import {
 } from '../../../features/searchResults/searchResultsSlice'
 import {
   Container,
-  InfoColumn,
   InfoSecSimple,
   TopLineSimple,
   TextWrapperSimple,
@@ -16,7 +15,7 @@ import {
   InfoColumnShortSimple,
   TextWrapperSimpleShort,
   InfoRowSimple,
-  SubtitleShortLonger,
+  InfoColumnSimple,
 } from './InfoSection.styled'
 import parse from 'html-react-parser'
 
@@ -101,15 +100,15 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
                 </TopLineSimple>{' '}
                 <TopLineSimple variant={variant}>{metryka.data}</TopLineSimple>{' '}
                 <TopLineSimple variant={variant}>{metryka.organ}</TopLineSimple>
-                <SubtitleShortLonger
+                <SubtitleSimple
                   variant={variant}
-                  // onClick={() => submitHandlerDocNr(0)}
+                  onClick={() => submitHandlerDocNr(0)}
                 >
                   {istota_interpretacji}
-                </SubtitleShortLonger>
+                </SubtitleSimple>
               </TextWrapperSimpleShort>
             </InfoColumnShortSimple>
-            <InfoColumn>
+            <InfoColumnSimple>
               <TextWrapperSimple>
                 {fragmentsFound.length > 0 &&
                   fragmentsFound
@@ -127,7 +126,7 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
                       </SubtitleSimple>
                     ))}
               </TextWrapperSimple>
-            </InfoColumn>
+            </InfoColumnSimple>
           </InfoRowSimple>
         </Container>
       </InfoSecSimple>

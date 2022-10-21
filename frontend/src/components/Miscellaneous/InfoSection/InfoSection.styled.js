@@ -4,33 +4,23 @@ import { Marker } from 'react-mark.js'
 
 export const InfoSec = styled.div`
   max-width: 90%;
-  @media (min-width: 1180px) {
-    max-width: 1086px;
-  }
   align-self: flex-end;
   ${(props) => handleSectionColor(props).color}
   ${({ paddingTop }) =>
     paddingTop === 'small' ? 'padding: 30px 0;' : 'padding: 35px 0;'};
 
-  /* ${(props) => handleSectionColor(props).sectionBackground} */
-  /* background: linear-gradient(
-    var(--background-blur1) 15%,
-    var(--background1-main) 70%,
-    var(--background-blur1)
-  ); */
-  /* ${(props) => handleSectionColor(props).sectionBackgroundGradient} */
-  /* backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); */
   border-radius: 5px;
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
-  /* border: solid 1px;
-  border-color: ${(props) => handleSectionColor(props).color}; */
 
   box-shadow: var(--boxShadow1);
 
+  margin-bottom: 1rem;
+  @media (min-width: 1180px) {
+    max-width: 1086px;
+  }
   @media (max-width: 880px) {
     ${({ paddingTop }) =>
       paddingTop === 'small' ? 'padding: 20px 0;' : 'padding: 25px 0;'};
@@ -38,18 +28,28 @@ export const InfoSec = styled.div`
   @media (max-width: 380px) {
     padding: 10px 0;
   }
-
-  margin-bottom: 1rem;
-  /* margin-left: 1rem; */
 `
 export const InfoSecSimple = styled(InfoSec)`
   padding: 0.25rem;
   padding-top: 0.5rem;
 
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, transparent, transparent);
+
   padding-bottom: 1.5rem;
   margin: 0;
+  margin-bottom: 2rem;
   min-height: min-content;
   max-width: 650px;
+  transition: 0.2s;
+  &:hover {
+    border-image-source: linear-gradient(
+      to left,
+      var(--background-blur1),
+      var(--background-secondary1)
+    );
+  }
 `
 export const InfoRow = styled.div`
   display: flex;
@@ -73,6 +73,7 @@ export const InfoRow = styled.div`
 `
 export const InfoRowSimple = styled(InfoRow)`
   flex-direction: column;
+  min-width: fit-content;
 `
 export const InfoColumn = styled.div`
   padding-left: 0.5rem;
@@ -84,6 +85,10 @@ export const InfoColumn = styled.div`
   @media screen and (max-width: 1220px) {
     padding-top: 2rem;
   }
+`
+export const InfoColumnSimple = styled(InfoColumn)`
+  padding-top: 0.5rem;
+  padding: 0rem;
 `
 export const InfoColumnShort = styled(InfoColumn)`
   /* display: flex; */
@@ -110,6 +115,7 @@ export const InfoColumnShort = styled(InfoColumn)`
 export const InfoColumnShortSimple = styled(InfoColumnShort)`
   padding-left: 0rem;
   padding-right: 0.5rem;
+  border: none;
 `
 export const TextWrapper = styled.div`
   width: 100%;
@@ -137,7 +143,8 @@ export const TextWrapperShort = styled(TextWrapper)`
 `
 export const TextWrapperSimple = styled(TextWrapper)`
   padding: 0.5rem;
-  padding-right: 0;
+  padding-right: 0.25rem;
+  margin: 0;
 `
 export const TextWrapperSimpleShort = styled(TextWrapperSimple)`
   text-align: left;
@@ -298,9 +305,17 @@ export const SubtitleSimple = styled(Subtitle)`
   /* flex-direction: row; */
   text-align: left;
   font-size: 0.95rem;
-  line-height: 1.15rem;
-  letter-spacing: 0em;
+  line-height: 1.25rem;
+  letter-spacing: 0.025em;
   font-weight: 500;
+  margin-bottom: 0.5rem;
+  &:last-of-type {
+    margin-bottom: 0rem;
+  }
+  @media screen and (min-width: 1220px) {
+    font-size: 1rem;
+    line-height: 1.4rem;
+  }
 `
 
 export const HomeContentWrapper = styled.div`
