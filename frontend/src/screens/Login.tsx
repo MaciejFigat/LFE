@@ -54,7 +54,7 @@ const Login: React.FC<LoginProps> = () => {
           <Input
             type='email'
             name='email'
-            placeholder='Wpisz swój email'
+            placeholder='Wpisz email'
             autoComplete='email'
             value={email}
             onChange={(e: any) => setEmail(e.target.value)}

@@ -42,21 +42,21 @@ const Register: React.FC<RegisterProps> = () => {
           <Input
             type='name'
             name='name'
-            placeholder='Wpisz swoje imię'
+            placeholder='Wpisz imię'
             value={name}
             onChange={(e: any) => setName(e.target.value)}
           />
           <Input
             type='email'
             name='email'
-            placeholder='Wpisz swój email'
+            placeholder='Wpisz email'
             value={email}
             onChange={(e: any) => setEmail(e.target.value)}
           />
           <Input
             type='password'
             name='password'
-            placeholder='Wpisz swoje hasło'
+            placeholder='Wpisz hasło'
             value={password}
             onChange={(e: any) => setPassword(e.target.value)}
           />

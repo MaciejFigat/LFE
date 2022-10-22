@@ -1,13 +1,13 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
-const jump = keyframes`
-  from{
-    transform: translateY(0)
-  }
-  to{
-    transform: translateY(-2px)
-  }
-`
+// const jump = keyframes`
+//   from{
+//     transform: translateY(0)
+//   }
+//   to{
+//     transform: translateY(-2px)
+//   }
+// `
 
 export const LoginContainer = styled.div`
   display: grid;
@@ -50,18 +50,30 @@ export const Form = styled.form`
 export const Input = styled.input`
   max-width: 100%;
   padding: 11px 13px;
-  background: #f9f9fa;
+  background: var(--background1-main) !important;
   color: var(--background4-main);
   margin-bottom: 0.9rem;
-  border-radius: 4px;
+  border-radius: 5px;
   outline: 0;
-  border: 1px solid rgba(245, 245, 245, 0.7);
   font-size: 14px;
-  transition: all 0.3s ease-out;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
-  :focus,
-  :hover {
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15), 0 1px 5px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background-blur1);
+  box-shadow: none !important;
+  /* background: red !important; */
+  &:focus,
+  &:hover {
+    transition: all 0.2s ease-out !important;
+    box-shadow: var(--boxShadowInset4) !important;
+    border-bottom: 1px solid var(--background-blur1);
+    border-left: 1px solid var(--background-blur1);
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+  }
+
+  &::placeholder {
+    color: var(--background2-main);
   }
 `
 
@@ -69,21 +81,22 @@ export const Button = styled.button`
   max-width: 100%;
   padding: 11px 13px;
   color: var(--background4-main);
-  font-weight: 600;
-  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1rem;
+
   background: var(--background1-main);
   border: none;
   border-radius: 3px;
   outline: 0;
   cursor: pointer;
-  /* margin-top: 0.6rem; */
+
   margin-bottom: 0.6rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-out;
+  box-shadow: var(--boxShadow1);
+  transition: all 0.2s ease-out;
   :hover {
-    color: var(--background1-main);
-    background: var(--background4-main);
-    /* animation: ${jump} 0.2s ease-out forwards; */
+    color: var(--background-secondary1);
+
+    box-shadow: var(--boxShadowInset1);
   }
   :active {
     background: var(--background3-main);

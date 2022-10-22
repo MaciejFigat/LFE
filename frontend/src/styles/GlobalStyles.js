@@ -302,22 +302,34 @@ body {
   
 }
 
+// font-size: 1rem; //*it doesn't work at all
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  // font-size: 1rem; //*it doesn't work at all
+  background: var(--background1-main) !important;
   border: 1px solid var(--background-blur2);
   box-shadow: var(--boxShadowInset1);
   -webkit-text-fill-color: var(--background4-main);
-  // -webkit-box-shadow: 0 0 0px 1000px var(--background4-main) inset;
-  transition: background-color 5000s ease-in-out 0s;
   
+  transition: background-color 5000s !important;
+  -webkit-text-fill-color: var(--background4-main) !important;
+ 
+
+
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+ 
 }
 //* gets rid of the X cancel button in search inputs, can't change the color or anyting else actually
 input[type="search"]::-webkit-search-decoration,

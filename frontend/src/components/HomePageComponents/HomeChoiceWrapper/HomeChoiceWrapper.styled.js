@@ -13,6 +13,7 @@ export const WrapperWindow = styled.div`
   /* border-radius: 5px; */
   color: var(--background5-main);
   width: 100%;
+
   /* background: lime; */
 `
 export const ChoiceTitleContainer = styled.div`
@@ -27,7 +28,7 @@ export const ChoiceTitleContainer = styled.div`
   }
 `
 export const ChoiceNav = styled.nav`
-  min-width: 70%;
+  /* min-width: 70%; */
   max-width: 80%;
   left: 20%;
   border-radius: 5px;
@@ -43,6 +44,8 @@ export const ChoiceNav = styled.nav`
   /* border: 1px solid var(--background2-main); */
   color: var(--background4-main);
   box-shadow: var(--boxShadow1);
+  /* background: red; */
+  width: 900px;
   @media screen and (max-width: 1391px) {
     font-size: 1rem;
   }
@@ -51,6 +54,7 @@ export const ChoiceNav = styled.nav`
     left: 1rem;
     min-width: 85%;
     max-width: 95%;
+    width: 500px;
   }
   @media screen and (max-width: 601px) {
     min-height: fit-content;
@@ -77,6 +81,7 @@ export const ChoiceList = styled.ul`
   display: flex;
   padding: 0;
   margin: 0;
+
   .selected {
     /* top: -2px; */
     transition: 0.3s;
@@ -89,7 +94,7 @@ export const ChoiceList = styled.ul`
 
     color: var(--background5-main);
     /* color: var(--background-secondary1); */
-    box-shadow: var(--boxShadowInset1);
+    /* box-shadow: var(--boxShadowInset1); */
     @media screen and (min-width: 1101px) {
       /* top: -2px; */
     }
@@ -133,6 +138,9 @@ export const ChoiceItem = styled.div`
     left: 0.5px;
   }
   &:hover {
+    box-shadow: var(--boxShadowInset4);
+  }
+  &:active {
     box-shadow: var(--boxShadowInset1);
   }
   @media screen and (min-width: 1050px) {

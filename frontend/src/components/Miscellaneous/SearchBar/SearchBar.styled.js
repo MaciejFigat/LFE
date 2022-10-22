@@ -88,14 +88,15 @@ export const SearchInput = styled.input`
   height: 100%;
   padding: 11px 13px;
   color: var(--background4-main);
-  background: none;
+  /* background: none; */
+  background: var(--background1-main) !important;
   outline: 0;
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background-blur1);
-  box-shadow: ${({ large }) =>
-    large ? 'var(--boxShadowInset1)' : 'var(--boxShadowInset1)'};
+  /* box-shadow: ${({ large }) =>
+    large ? 'var(--boxShadowInset1)' : 'var(--boxShadowInset1)'}; */
   font-size: ${({ large }) => (large ? '1.5rem' : '1rem')};
   transition: all 0.3s ease-out;
   min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
@@ -111,6 +112,20 @@ export const SearchInput = styled.input`
     font-size: 0.8rem;
     padding: 5px 7px;
   }
+
+  box-shadow: none !important;
+
+  &:focus,
+  &:hover {
+    scale: 0.99;
+    transition: all 0.2s ease-out !important;
+    box-shadow: var(--boxShadowInset1) !important;
+    border-bottom: 1px solid var(--background-blur1);
+    border-left: 1px solid var(--background-blur1);
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+  }
+
   &::placeholder {
     color: var(--background2-main);
   }
