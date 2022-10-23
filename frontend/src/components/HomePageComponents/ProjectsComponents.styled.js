@@ -16,13 +16,20 @@ export const ProjectCardHome = styled(motion.div)`
 
   /* border: 1px solid var(--background2-main); */
   /* background: var(--background-blur1); */
-
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
   border-radius: 5px;
-  border-top: ${({ selected }) =>
-    selected ? '1px solid transparent' : '1px solid var(--background-blur1)'};
+  /* border-top: ${({ selected }) =>
+    selected
+      ? '1px solid var(--background-blur1)'
+      : '1px solid var(--background-blur2)'};
 
   border-right: ${({ selected }) =>
-    selected ? '1px solid transparent' : '1px solid var(--background-blur1)'};
+    selected
+      ? '1px solid var(--background-blur1)'
+      : '1px solid var(--background-blur2)'};
 
   border-left: ${({ selected }) =>
     selected
@@ -31,10 +38,10 @@ export const ProjectCardHome = styled(motion.div)`
   border-bottom: ${({ selected }) =>
     selected
       ? '1px solid var(--background-blur2)'
-      : '1px solid var(--background-blur1)'};
+      : '1px solid var(--background-blur1)'}; */
 
-  box-shadow: ${({ selected }) =>
-    selected ? 'var(--boxShadowInset1)' : 'var(--boxShadow1)'};
+  /* box-shadow: ${({ selected }) =>
+    selected ? 'var(--boxShadow1)' : 'var(--boxShadow2)'}; */
   color: ${({ selected }) =>
     selected ? 'var(--background-secondary1)' : 'var(--background4-main)'};
 
@@ -45,11 +52,18 @@ export const ProjectCardHome = styled(motion.div)`
       ? 'background: var(--background-blur1);'
       : 'background: var(--background1-main);'} */
   /* ${({ selected }) => (selected ? ' scale: 1.4;' : 'scale: 1;')} */
+  box-shadow: var(--boxShadowNone);
   transition: 0.3s;
+  &:active {
+    /* background: red; */
+    opacity: 0.9;
+    box-shadow: var(--boxShadowInset2);
+  }
   &:hover {
-    box-shadow: var(--boxShadowInset1);
-    border-top: 1px solid transparent;
-    border-right: 1px solid transparent;
+    /* box-shadow: var(--boxShadowInset1); */
+    color: var(--background-secondary1);
+    border-top: 1px solid var(--background-blur2);
+    border-right: 1px solid var(--background-blur2);
     border-left: 1px solid var(--background-blur1);
     border-bottom: 1px solid var(--background-blur1);
     /* color: var(--background-secondary1); */

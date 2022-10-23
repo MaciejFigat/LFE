@@ -106,7 +106,7 @@ export const ChoiceItem = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* background: brown; */
+
   /* flex: 1; */
   user-select: none;
   padding: 0;
@@ -121,11 +121,11 @@ export const ChoiceItem = styled.div`
     left: 0.5px;
   }
   &:hover {
-    box-shadow: var(--boxShadowInset4);
+    box-shadow: var(--boxShadowInset1);
     opacity: 0.9;
   }
   &:active {
-    box-shadow: var(--boxShadowInset1);
+    box-shadow: var(--boxShadowInset2);
 
     opacity: 0.85;
   }
@@ -144,8 +144,6 @@ export const ChoiceList = styled.ul`
   border-radius: 5px;
 
   transition: 0.2s;
-  &:active {
-
 
   .selected {
     /* top: -2px; */
@@ -155,10 +153,16 @@ export const ChoiceList = styled.ul`
     border-left: 1px solid var(--background-blur1);
     border-bottom: 1px solid var(--background-blur1);
 
-    box-shadow: var(--boxShadow1);
+    /* box-shadow: var(--boxShadow2); */
 
     color: var(--background5-main);
-  
+    &:active {
+      /* box-shadow: var(--boxShadowInset2); */
+    }
+    &:hover {
+      transition: 0.3s;
+      /* box-shadow: var(--boxShadowInset1); */
+    }
   }
 
   @media screen and (max-width: 601px) {

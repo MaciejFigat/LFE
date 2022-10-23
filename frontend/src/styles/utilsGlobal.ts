@@ -38,7 +38,7 @@ interface GlobalStyle {
     boxShadowInset3?: string,
     boxShadowInset4?: string,
     boxShadowInset5?: string,
-
+    boxShadowNone?: string
 }
 
 
@@ -108,7 +108,7 @@ const primaryStyle: GlobalStyle = {
     boxShadowInset3: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
     // boxShadowInset4: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
     boxShadowInset5: 'inset -5px 5px 10px #8d8c8a, inset 5px -5px 10px #ffffff;',
-
+    boxShadowNone: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, 0px 0px 0px #d2d1ce, 0px 0px 0px #fffffe;',
 }
 // backgroundNeon5: '#54bea8;', 1
 // backgroundNeon6: '#DB3EB1;   2
@@ -178,18 +178,18 @@ const secondaryStyle: GlobalStyle = {
     //todo in order for box-shadow have transition between outward and inset shadow it needs both inset shadow value normal shadow value set
     boxShadow1: 'inset 0px 0px 0px #d2d1ce, inset 0px 0px 0px #ffffff, -3px 3px 4px #ebeae6, 3px -3px 4px #fffffe;',
     // boxShadow1: '-2px 2px 4px #aaaaa7, 2px -2px 4px #ffffff;',
-    boxShadow2: '-7px 7px 17px #8d8c8a, 9px -9px 17px #ffffff;',
+    boxShadow2: '-3px 3px 7px #8d8c8a, 7px -7px 10px #ffffff;',
     boxShadow3: '-27px 27px 54px #a8a7a5, 27px -27px 54px #ffffff;',
     boxShadow4: '-41px 41px 82px #999996, 41px -41px 82px #ffffff;',
     // boxShadow5: '-50px 50px 100px #6f6f6d, 50px -50px 100px #ffffff;',
-    boxShadow5: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -1px 1px 2px var(--background-secondary1), 1px -1px 1px #fffffe;',
-    boxShadowInset4: 'inset -1px 1px 2px #d2d1ce, inset 1px -1px 2px #ffffff, 0px 0px 0px #ebeae6, 0px 0px 0px #fffffe;',
+    boxShadow5: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -1px 1px 2px #d2d1ce, 1px -1px 1px #fffffe;',
     boxShadowInset1: 'inset -2px 2px 4px #d2d1ce, inset 2px -2px 4px #ffffff, 0px 0px 0px #ebeae6, 0px 0px 0px #fffffe;',
-    boxShadowInset2: 'inset -5px 5px 10px #adaca9, inset 5px -5px 10px #ffffff;',
-    boxShadowInset3: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff;',
+    boxShadowInset2: 'inset -5px 5px 10px #adaca9, inset 5px -5px 10px #ffffff, 0px 0px 0px #ebeae6, 0px 0px 0px #fffffe;',
+    boxShadowInset3: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff, 0px 0px 0px #ebeae6, 0px 0px 0px #fffffe;',
+    boxShadowInset4: 'inset -1px 1px 2px #d2d1ce, inset 1px -1px 2px #ffffff, 0px 0px 0px #ebeae6, 0px 0px 0px #fffffe;',
     // boxShadowInset4: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff;',
     boxShadowInset5: 'inset -5px 5px 10px #d2d1ce, inset 5px -5px 10px #ffffff;',
-
+    boxShadowNone: 'inset 0px 0px 0px #b7b6b3, inset 0px 0px 0px #ffffff, 0px 0px 0px #ebeae6, 0px 0px 0px #fffffe;',
 }
 const tertiaryStyle: GlobalStyle = {
     background1Main: '#264653;',
@@ -354,6 +354,7 @@ export const handleGlobalScheme: (props: any) => {} = (props: any) => {
         boxShadowInset3: `${style.boxShadowInset3}`,
         boxShadowInset4: `${style.boxShadowInset4}`,
         boxShadowInset5: `${style.boxShadowInset5}`,
+        boxShadowNone: `${style.boxShadowNone}`,
 
 
     }

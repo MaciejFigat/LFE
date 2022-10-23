@@ -91,12 +91,12 @@ body {
   // --background-blur21: rgba(42, 157, 143, 0.75);
 
 
+
   --boxShadow1: ${(props) => handleGlobalScheme(props.globalScheme).boxShadow1}
   --boxShadow2: ${(props) => handleGlobalScheme(props.globalScheme).boxShadow2}
   --boxShadow3: ${(props) => handleGlobalScheme(props.globalScheme).boxShadow3}
   --boxShadow4: ${(props) => handleGlobalScheme(props.globalScheme).boxShadow4}
   --boxShadow5: ${(props) => handleGlobalScheme(props.globalScheme).boxShadow5}
-
 
   --boxShadowInset1: ${(props) =>
     handleGlobalScheme(props.globalScheme).boxShadowInset1}
@@ -108,6 +108,12 @@ body {
     handleGlobalScheme(props.globalScheme).boxShadowInset4}
   --boxShadowInset5: ${(props) =>
     handleGlobalScheme(props.globalScheme).boxShadowInset5}
+  --boxShadowNone: ${(props) =>
+    handleGlobalScheme(props.globalScheme).boxShadowNone}
+
+
+  // --boxShadowNone: inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, 0px 0px 0px #d2d1ce, 0px 0px 0px #fffffe;
+
 
 
    --bluegreen1:#A4DBE4;

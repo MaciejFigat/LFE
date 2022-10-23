@@ -29,7 +29,11 @@ const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
   let uniqueKeywords = [...Array.from(new Set(keywordsAll))]
 
   const handleCardMouseUp = (card: any) => {
-    dispatch(sortingKeywordMainEdit(card))
+    //* for animations between redux changes
+    const timeout = setTimeout(() => {
+      dispatch(sortingKeywordMainEdit(card))
+    }, 300)
+    clearTimeout(timeout)
   }
 
   return (
