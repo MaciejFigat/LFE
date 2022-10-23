@@ -53,13 +53,14 @@ export const ProjectCardHome = styled(motion.div)`
       : 'background: var(--background1-main);'} */
   /* ${({ selected }) => (selected ? ' scale: 1.4;' : 'scale: 1;')} */
   box-shadow: var(--boxShadowNone);
-  transition: 0.3s;
-  &:active {
-    /* background: red; */
-    opacity: 0.9;
-    box-shadow: var(--boxShadowInset2);
-  }
+  transition: 0.2s;
+
+  /* box-shadow: ${({ selected }) =>
+    selected ? 'var(--boxShadowInset1)' : 'var(--boxShadowNone)'}; */
   &:hover {
+    opacity: 0.9;
+    box-shadow: ${({ selected }) =>
+      selected ? 'var(--boxShadowNone)' : 'var(--boxShadowInset1)'};
     /* box-shadow: var(--boxShadowInset1); */
     color: var(--background-secondary1);
     border-top: 1px solid var(--background-blur2);
@@ -67,6 +68,10 @@ export const ProjectCardHome = styled(motion.div)`
     border-left: 1px solid var(--background-blur1);
     border-bottom: 1px solid var(--background-blur1);
     /* color: var(--background-secondary1); */
+  }
+  &:active {
+    opacity: 0.8;
+    box-shadow: var(--boxShadowInset2);
   }
 `
 

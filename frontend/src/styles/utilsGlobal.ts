@@ -101,7 +101,7 @@ const primaryStyle: GlobalStyle = {
     // boxShadow5: '-35px 35px 70px #0c0c0c, 35px -35px 70px #303032;',
     // boxShadow5: ' -50px 50px 100px #151515, 50px -50px 100px #272729;',
     boxShadowInset1: 'inset -3px 3px 5px #161617, inset 3px -3px 5px #262627, 0px 0px 0px #272729, 0px 0px 0px #272729;',
-    boxShadowInset2: 'inset -3px 3px 10px #161617, inset 3px -3px 10px #262627, 0px 0px 0px #272729, 0px 0px 0px #272729;',
+    boxShadowInset2: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627, 0px 0px 0px #272729, 0px 0px 0px #272729;',
     // boxShadowInset4: 'inset -18px 18px 23px #131314, inset 18px -18px 23px #29292a;',
     boxShadowInset4: 'inset -1px 1px 2px #131314, inset 1px -1px 2px #29292a;',
     // boxShadowInset1: 'inset -5px 5px 10px #191919, inset 5px -5px 10px #232325;',
