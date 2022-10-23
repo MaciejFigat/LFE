@@ -87,7 +87,7 @@ export const SearchInput = styled.input`
   max-width: 100%;
   height: 100%;
   padding: 11px 13px;
-  color: var(--background4-main);
+  color: var(--background3-main);
   /* background: none; */
   background: var(--background1-main) !important;
   outline: 0;
@@ -117,7 +117,8 @@ export const SearchInput = styled.input`
 
   &:focus,
   &:hover {
-    scale: 0.99;
+    /* scale: 0.99; */
+    color: var(--background4-main);
     transition: all 0.2s ease-out !important;
     box-shadow: var(--boxShadowInset1) !important;
     border-bottom: 1px solid var(--background-blur1);

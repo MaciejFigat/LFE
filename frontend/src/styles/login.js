@@ -1,14 +1,5 @@
 import styled from 'styled-components'
 
-// const jump = keyframes`
-//   from{
-//     transform: translateY(0)
-//   }
-//   to{
-//     transform: translateY(-2px)
-//   }
-// `
-
 export const LoginContainer = styled.div`
   display: grid;
   place-items: center;
@@ -61,11 +52,11 @@ export const Input = styled.input`
   border-bottom: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background-blur1);
   box-shadow: none !important;
-  /* background: red !important; */
+  transition: all 0.3s ease-out;
   &:focus,
   &:hover {
-    transition: all 0.2s ease-out !important;
-    box-shadow: var(--boxShadowInset4) !important;
+    /* transition: all 1.2s ease-out !important; */
+    box-shadow: var(--boxShadowInset1) !important;
     border-bottom: 1px solid var(--background-blur1);
     border-left: 1px solid var(--background-blur1);
     border-top: 1px solid transparent;
@@ -99,7 +90,9 @@ export const Button = styled.button`
     box-shadow: var(--boxShadowInset1);
   }
   :active {
-    background: var(--background3-main);
+    box-shadow: var(--boxShadowInset4);
+    background: var(--background1-main);
+    /* box-shadow: none; */
   }
 `
 
