@@ -85,55 +85,15 @@ export const MainChoiceBackground = styled.div`
   bottom: 0;
   width: 300px;
 `
-export const ChoiceList = styled.ul`
-  list-style: none;
-  display: flex;
-  padding: 0;
-  margin: 0;
-
-  border-radius: 5px;
-  border-top: 1px solid var(--background-blur1);
-  border-right: 1px solid var(--background-blur1);
-
-  border-left: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur2);
-
-  .selected {
-    /* top: -2px; */
-    transition: 0.3s;
-    /* border-top: 2px solid var(--background-blur1); */
-    /* border-right: 2px solid var(--background-blur1); */
-    /* border-left: 2px solid var(--background2-main); */
-    /* border-bottom: 1px solid var(--background2-main); */
-    /* background: var(--background-blur1); */
-    /* background: linear-gradient(225deg, #202021, #1b1b1c); */
-
-    box-shadow: var(--boxShadow1);
-
-    color: var(--background5-main);
-    /* color: var(--background-secondary1); */
-    /* box-shadow: var(--boxShadowInset1); */
-    @media screen and (min-width: 1101px) {
-      /* top: -2px; */
-    }
-  }
-
-  @media screen and (max-width: 601px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-`
-
 export const ChoiceItem = styled.div`
   position: relative;
   top: 0px;
   left: 0px;
   border-radius: 5px;
   /* border: 2px solid red; */
-  /* border-top: 1px solid transparent;
+  border-top: 1px solid transparent;
   border-right: 1px solid transparent;
-  border-left: 1px solid transparent; */
+  border-left: 1px solid transparent;
   /* border-bottom-left-radius: 0; */
   /* border-bottom-right-radius: 0; */
   min-width: fit-content;
@@ -226,24 +186,85 @@ export const ChoiceItem = styled.div`
   }
 `
 
+export const ChoiceList = styled.ul`
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+
+  border-radius: 5px;
+  /* border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
+
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1); */
+  transition: 0.2s;
+  &:active {
+    /* border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid transparent; */
+  }
+
+  .selected {
+    /* top: -2px; */
+    transition: 0.3s;
+    /* border-top: 2px solid var(--background-blur1); */
+    /* border-right: 2px solid var(--background-blur1); */
+    /* border-left: 2px solid var(--background2-main); */
+    /* border-bottom: 1px solid var(--background2-main); */
+    /* background: var(--background-blur1); */
+    /* background: linear-gradient(225deg, #202021, #1b1b1c); */
+
+    box-shadow: var(--boxShadow5);
+
+    color: var(--background5-main);
+    /* color: var(--background-secondary1); */
+    /* box-shadow: var(--boxShadowInset1); */
+    @media screen and (min-width: 1101px) {
+      /* top: -2px; */
+    }
+  }
+
+  @media screen and (max-width: 601px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+`
+
 export const ChoiceUnderline = styled(motion.div)`
   position: absolute;
   bottom: 0px;
   border-radius: 5px;
   /* border-top-left-radius: 0; */
   /* border-top-right-radius: 0; */
-  left: -1px;
+  left: 0px;
   right: 0;
   height: 44px;
+  border-top: 1px solid;
+  /* border-right: 1px solid; */
+  /* border-left: 1px solid; */
+  border-bottom: 1px solid;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(
+    to left,
+    transparent 20%,
+    var(--background-secondary1) 80%,
+    transparent 100%
+  );
   /* background: linear-gradient(
     var(--background-blur1) 20%,
-    var(--background2-main) 80%,
+    var(--background-secondary1) 80%,
     var(--background-blur1)
   ); */
-  box-shadow: inset -1px 0px 0px var(--background-secondary1),
-    inset 1px 0px 0px var(--background-secondary2),
+  /* box-shadow: var(--boxShadow1); */
+  /* box-shadow: inset -1px 0px 0px var(--background-blur1),
+    inset 1px 0px 0px var(--background-blur1),
     0px -0px 0px var(--background-secondary1),
-    0px -0px 0px var(--background-secondary1);
+    0px -0px 0px var(--background-secondary1); */
   /* background: linear-gradient(
     90deg,
     transparent 0%,
