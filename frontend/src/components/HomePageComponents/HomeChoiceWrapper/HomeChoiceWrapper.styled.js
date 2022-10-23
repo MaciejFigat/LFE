@@ -90,12 +90,12 @@ export const ChoiceItem = styled.div`
   top: 0px;
   left: 0px;
   border-radius: 5px;
-  /* border: 2px solid red; */
-  border-top: 1px solid transparent;
-  border-right: 1px solid transparent;
-  border-left: 1px solid transparent;
-  /* border-bottom-left-radius: 0; */
-  /* border-bottom-right-radius: 0; */
+  border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
+
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
+
   min-width: fit-content;
   padding: 10px 15px;
   cursor: pointer;
@@ -121,65 +121,14 @@ export const ChoiceItem = styled.div`
     left: 0.5px;
   }
   &:hover {
-    /* border-top: 1px solid transparent;
-    border-right: 1px solid transparent;
-    border-left: 1px solid transparent; */
-    /* border-top: 1px solid var(--background-secondary1);
-    border-right: 1px solid var(--background-secondary1);
-    border-left: 1px solid var(--background-secondary1); */
-    /* box-shadow: var(--boxShadowInset1); */
-    /* box-shadow: inset -0px 0px 1px lime, inset -0px 0px 0px lime; */
-    /* &:after {
-      content: '';
-      position: absolute;
-      bottom: 0px;
-      width: 100%;
-      height: 0px;
-      box-shadow: -1px 1px 3px lime;
-      background: transparent;
-    } */
+    box-shadow: var(--boxShadowInset4);
+    opacity: 0.9;
   }
   &:active {
-    /* border-top: 1px solid transparent;
-    border-right: 1px solid transparent;
-    border-left: 1px solid transparent; */
-    box-shadow: var(--boxShadowInset4);
-    /* color: var(--background4-main); */
-    opacity: 0.9;
-    /* &:after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      width: 100%;
-      height: 0px;
-   
-      background: linear-gradient(
-        90deg,
-        transparent 0%,
-        var(--background-blur1) 5%,
-        var(--background-secondary2) 45%,
-        var(--background-blur1) 95%,
-        transparent 100%
-      );
-    } */
-  }
-  /* &:after {
-    content: '';
-    position: absolute;
-    transition: 0.3s;
-    bottom: -4px;
-    width: 100%;
-    height: 0px;
+    box-shadow: var(--boxShadowInset1);
 
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      var(--background-blur1) 5%,
-      var(--background-secondary1) 45%,
-      var(--background-blur1) 95%,
-      transparent 100%
-    );
-  } */
+    opacity: 0.85;
+  }
 
   @media screen and (min-width: 1050px) {
     /* top: -1px; */
@@ -191,40 +140,25 @@ export const ChoiceList = styled.ul`
   display: flex;
   padding: 0;
   margin: 0;
-
+  gap: 0.5rem;
   border-radius: 5px;
-  /* border-top: 1px solid var(--background-blur2);
-  border-right: 1px solid var(--background-blur2);
 
-  border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background-blur1); */
   transition: 0.2s;
   &:active {
-    /* border-top: 1px solid transparent;
-    border-right: 1px solid transparent;
 
-    border-left: 1px solid transparent;
-    border-bottom: 1px solid transparent; */
-  }
 
   .selected {
     /* top: -2px; */
     transition: 0.3s;
-    /* border-top: 2px solid var(--background-blur1); */
-    /* border-right: 2px solid var(--background-blur1); */
-    /* border-left: 2px solid var(--background2-main); */
-    /* border-bottom: 1px solid var(--background2-main); */
-    /* background: var(--background-blur1); */
-    /* background: linear-gradient(225deg, #202021, #1b1b1c); */
+    border-top: 1px solid var(--background-blur2);
+    border-right: 1px solid var(--background-blur2);
+    border-left: 1px solid var(--background-blur1);
+    border-bottom: 1px solid var(--background-blur1);
 
-    box-shadow: var(--boxShadow5);
+    box-shadow: var(--boxShadow1);
 
     color: var(--background5-main);
-    /* color: var(--background-secondary1); */
-    /* box-shadow: var(--boxShadowInset1); */
-    @media screen and (min-width: 1101px) {
-      /* top: -2px; */
-    }
+  
   }
 
   @media screen and (max-width: 601px) {
@@ -236,47 +170,23 @@ export const ChoiceList = styled.ul`
 
 export const ChoiceUnderline = styled(motion.div)`
   position: absolute;
-  bottom: 0px;
+  bottom: -2px;
   border-radius: 5px;
-  /* border-top-left-radius: 0; */
-  /* border-top-right-radius: 0; */
+
   left: 0px;
   right: 0;
-  height: 44px;
+  height: 46px;
   border-top: 1px solid;
-  /* border-right: 1px solid; */
-  /* border-left: 1px solid; */
+
   border-bottom: 1px solid;
   border-image-slice: 1;
   border-width: 1px;
   border-image-source: linear-gradient(
     to left,
     transparent 20%,
-    var(--background-secondary1) 80%,
+    var(--background-secondary1) 70%,
     transparent 100%
   );
-  /* background: linear-gradient(
-    var(--background-blur1) 20%,
-    var(--background-secondary1) 80%,
-    var(--background-blur1)
-  ); */
-  /* box-shadow: var(--boxShadow1); */
-  /* box-shadow: inset -1px 0px 0px var(--background-blur1),
-    inset 1px 0px 0px var(--background-blur1),
-    0px -0px 0px var(--background-secondary1),
-    0px -0px 0px var(--background-secondary1); */
-  /* background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--background-blur1) 5%,
-    var(--background-secondary1) 45%,
-    var(--background-blur1) 95%,
-    transparent 100%
-  ); */
+
   background: transparent;
-  @media screen and (min-width: 1220px) {
-    /* height: 44px; */
-    /* bottom: -2px; */
-  }
-  /* background: var(--background4-main); */
 `
