@@ -120,6 +120,11 @@ export const HorizontalWrapper = styled.div`
   justify-content: center;
   flex-direction: row;
 `
+export const HorizontalWrapperTight = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+`
 
 export const RelativeRightSvgWrapper = styled.div`
   position: relative;
@@ -157,4 +162,29 @@ export const DotButton = styled.div`
   &:active {
     /* background: var(--background2-main); */
   }
+`
+export const SwitchDivMisc = styled.div`
+  width: 28px;
+  height: 16px;
+  background-color: ${({ isOn }) =>
+    isOn ? 'var(--background2-main)' : 'var(--background4-main)'};
+  display: flex;
+  border-radius: 10px;
+  padding: 1px;
+  cursor: pointer;
+  justify-content: ${({ isOn }) => (isOn ? 'flex-end' : 'flex-start')};
+  align-items: center;
+`
+export const SwitchTextMisc = styled.b`
+  font-size: 0.85rem;
+  color: ${({ isOn }) =>
+    isOn ? 'var(--background2-main)' : 'var(--background5-main)'};
+`
+export const SwitchHandleMisc = styled(motion.div)`
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border-radius: 12px;
+  background-color: ${({ isOn }) =>
+    isOn ? 'var(--background4-main)' : 'var(--background1-main)'};
 `

@@ -59,8 +59,7 @@ export const ProjectCardHome = styled(motion.div)`
     selected ? 'var(--boxShadowInset1)' : 'var(--boxShadowNone)'}; */
   &:hover {
     opacity: 0.9;
-    box-shadow: ${({ selected }) =>
-      selected ? 'var(--boxShadowNone)' : 'var(--boxShadowInset1)'};
+    box-shadow: ${({ selected }) => (selected ? 'var(--boxShadowNone)' : ' ')};
     /* box-shadow: var(--boxShadowInset1); */
     color: var(--background-secondary1);
     border-top: 1px solid var(--background-blur2);

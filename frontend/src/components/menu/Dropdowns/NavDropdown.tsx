@@ -12,7 +12,7 @@ import {
   ListItem,
   Main,
 } from './NavDropdown.styled'
-import ColorDropdown from './ColorDropdown'
+// import ColorDropdown from './ColorDropdown'
 
 interface NavDropdownProps {
   options?: any
@@ -109,9 +109,9 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                     </NavLink>
                   </ListItem>
                 )}
-                <ListItem>
+                {/* <ListItem>
                   <ColorDropdown />
-                </ListItem>
+                </ListItem> */}
               </DropDownList>
             </DropDownListContainer>
           )}

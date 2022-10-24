@@ -16,7 +16,7 @@ export const FooterContainer = styled.div`
     transparent 0%,
     var(--background-blur1) 100%
   );
-  border-top: 1px solid var(--background2-main);
+  border-top: 1px solid var(--background-blur1);
   padding: 0rem 0 1rem 0;
   justify-content: center;
   align-items: center;
