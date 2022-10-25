@@ -6,10 +6,12 @@ export const InfoSec = styled.div`
   max-width: 90%;
   align-self: flex-end;
   ${(props) => handleSectionColor(props).color}
-  ${({ paddingTop }) =>
-    paddingTop === 'small' ? 'padding: 30px 0;' : 'padding: 35px 0;'};
+  /* ${({ paddingTop }) =>
+    paddingTop === 'small' ? 'padding: 30px 0;' : 'padding: 35px 0;'}; */
+  padding: 3rem;
+  padding-top: 4rem;
 
-  border-radius: 5px;
+  border-radius: 20px;
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
@@ -21,9 +23,14 @@ export const InfoSec = styled.div`
   @media (min-width: 1180px) {
     max-width: 1086px;
   }
+  @media (max-width: 1180px) {
+    padding: 2rem;
+    padding-top: 3rem;
+  }
   @media (max-width: 880px) {
-    ${({ paddingTop }) =>
-      paddingTop === 'small' ? 'padding: 20px 0;' : 'padding: 25px 0;'};
+    /* ${({ paddingTop }) =>
+      paddingTop === 'small' ? 'padding: 20px 0;' : 'padding: 25px 0;'}; */
+    padding: 1rem;
   }
   @media (max-width: 380px) {
     padding: 10px 0;

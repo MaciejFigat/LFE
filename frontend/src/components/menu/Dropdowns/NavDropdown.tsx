@@ -6,12 +6,20 @@ import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 import { UserInfo } from '../../../interfaces'
 import {
   DropDownContainer,
-  DropDownHeader,
   DropDownList,
   DropDownListContainer,
   ListItem,
   Main,
 } from './NavDropdown.styled'
+import {
+  DropDownHeaderMini,
+  DropDownHeaderMisc,
+  RelativeSvgWrapper,
+  SpaceAroundWrapper,
+  SpaceAroundWrapperDropdown,
+  SvgWrapperMisc,
+  SvgWrapperMiscSmall,
+} from '../../../styles/misc.styled'
 // import ColorDropdown from './ColorDropdown'
 
 interface NavDropdownProps {
@@ -46,23 +54,38 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
       <Main>
         <DropDownContainer>
           {Object.keys(userInfo).length > 0 ? (
-            <DropDownHeader onClick={toggling}>
-              {' '}
-              <SvgIcon variant='cog' contentAfter='ustawienia' toBottom />
-            </DropDownHeader>
+            <DropDownHeaderMini onClick={toggling}>
+              <SpaceAroundWrapper>
+                <SvgWrapperMiscSmall>
+                  <SvgIcon variant='cog' noContent />
+                </SvgWrapperMiscSmall>
+              </SpaceAroundWrapper>
+              {/* <SvgIcon variant='cog' contentAfter='ustawienia' toBottom /> */}
+            </DropDownHeaderMini>
           ) : (
-            <DropDownHeader>
-              {' '}
+            <DropDownHeaderMisc>
               <NavLink
                 to='/login'
                 className={(navData) =>
                   'nav_link' + (navData.isActive ? ' activated' : '')
                 }
               >
-                {' '}
-                <SvgIcon variant='login' contentAfter='login' toBottom />
+                <SpaceAroundWrapper>
+                  Logowanie
+                  <SvgWrapperMisc>
+                    <SvgIcon variant='login' noContent />
+                  </SvgWrapperMisc>
+                </SpaceAroundWrapper>
+
+                {/* <SpaceAroundWrapper>
+                  Logowanie
+                  <SvgWrapperColor>
+                    <SvgIcon variant='login' noContent />
+                  </SvgWrapperColor>
+                </SpaceAroundWrapper> */}
+                {/* <SvgIcon variant='login' contentAfter='login' toBottom /> */}
               </NavLink>
-            </DropDownHeader>
+            </DropDownHeaderMisc>
           )}
           {isOpen && (
             <DropDownListContainer>
@@ -77,7 +100,12 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                       }
                     >
                       {' '}
-                      <SvgIcon variant='admin' contentAfter='admin' toRight />
+                      <SpaceAroundWrapperDropdown>
+                        Admin
+                        <RelativeSvgWrapper>
+                          <SvgIcon variant='admin' noContent />
+                        </RelativeSvgWrapper>
+                      </SpaceAroundWrapperDropdown>
                     </NavLink>
                   </ListItem>
                 )}
@@ -90,8 +118,12 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                         'nav_link' + (navData.isActive ? ' activated' : '')
                       }
                     >
-                      {' '}
-                      <SvgIcon variant='user' contentAfter='profile' toRight />
+                      <SpaceAroundWrapperDropdown>
+                        Profil
+                        <RelativeSvgWrapper>
+                          <SvgIcon variant='user' noContent />
+                        </RelativeSvgWrapper>
+                      </SpaceAroundWrapperDropdown>
                     </NavLink>
                   </ListItem>
                 )}{' '}
@@ -105,7 +137,12 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                       }
                     >
                       {' '}
-                      <SvgIcon variant='logout' contentAfter='logout' toRight />
+                      <SpaceAroundWrapperDropdown>
+                        Wyloguj
+                        <RelativeSvgWrapper left='2px'>
+                          <SvgIcon variant='logout' noContent />
+                        </RelativeSvgWrapper>
+                      </SpaceAroundWrapperDropdown>
                     </NavLink>
                   </ListItem>
                 )}

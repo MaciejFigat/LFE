@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import SearchBar from '../Miscellaneous/SearchBar/SearchBar'
-import { HomeSearchWrapper } from '../Miscellaneous/SearchBar/SearchBar.styled'
+import {
+  HomeSearchContainer,
+  HomeSearchWrapper,
+} from '../Miscellaneous/SearchBar/SearchBar.styled'
 interface HomeSearchProps {}
 
 const HomeSearch: React.FC<HomeSearchProps> = () => {
@@ -10,16 +13,18 @@ const HomeSearch: React.FC<HomeSearchProps> = () => {
     <>
       {' '}
       <HomeSearchWrapper>
-        <SearchBar
-          large
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          isOpen={false}
-          startDate={new Date()}
-          endDate={new Date()}
-          skip={1}
-          take={30}
-        />
+        <HomeSearchContainer>
+          <SearchBar
+            large
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            isOpen={false}
+            startDate={new Date()}
+            endDate={new Date()}
+            skip={1}
+            take={30}
+          />
+        </HomeSearchContainer>
       </HomeSearchWrapper>
     </>
   )

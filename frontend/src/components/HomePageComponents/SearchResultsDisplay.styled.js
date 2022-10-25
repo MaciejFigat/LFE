@@ -17,6 +17,14 @@ export const SearchResultsWrapper = styled.div`
   /* top: 250px; */
   /* background: lime; */
 `
+export const SearchResultsDashboardDiv = styled.div`
+  padding: 2rem;
+  box-shadow: var(--boxShadow1);
+  min-width: fit-content;
+  width: 900px;
+  border-radius: 20px;
+  max-width: 90vw;
+`
 export const SearchResultsSectionWrapper = styled.div`
   /* position: relative;
   top: 200px; */
@@ -25,6 +33,7 @@ export const SearchResultsSectionWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
   /* border: 1px solid var(--background4-main); */
   border-radius: 10px;
   min-width: max(950px, 90vw);

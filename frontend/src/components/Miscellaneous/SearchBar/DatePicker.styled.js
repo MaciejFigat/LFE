@@ -8,23 +8,25 @@ export const DatePickerButton = styled.input`
   /* background: var(--background-blur2); */
   border-radius: 4px;
   padding: 0.25rem;
-  width: 70px;
-  border-top: 1px solid var(--background-blur1);
+  width: 90px;
+  font-size: 1rem;
+  margin-left: 0.25rem;
+  /* border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background2-main);
-  border-bottom: 1px solid var(--background2-main);
+  border-bottom: 1px solid var(--background2-main); */
   /* box-shadow: var(--boxShadow1); */
   /* border: 1px solid var(--background-tertiary1); */
-  box-shadow: var(--boxShadowInset1);
+  /* box-shadow: var(--boxShadowInset1); */
   &:focus {
     outline: none;
   }
   &:active {
-    border: 1px solid var(--background-tertiary2);
+    /* border: 1px solid var(--background-tertiary2); */
   }
 
   &:hover {
-    color: var(--background-tertiary7);
-    background: var(--background-blur1);
+    /* color: var(--background-tertiary7); */
+    /* background: var(--background-blur1); */
   }
 `

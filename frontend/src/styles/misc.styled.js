@@ -120,15 +120,152 @@ export const HorizontalWrapper = styled.div`
   justify-content: center;
   flex-direction: row;
 `
+export const DropDownHeaderMisc = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  user-select: none;
+  height: 30px;
+  /* text-transform: lowercase; */
+  border-radius: 12px;
+  width: 150px;
+  border: 1px solid var(--background-blur1);
+  padding: 0.2rem 0.4rem 0.2rem 0.5rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--background1-main);
+  background: var(--background4-main);
+  transition: all 0.3s ease-out;
+  text-align: center;
+  &:hover {
+    color: var(--background4-main);
+    box-shadow: var(--boxShadow1);
+    background: transparent;
+    /* svg {
+      color: var(--background4-main) ;
+    } */
+  }
+  &:active {
+    color: var(--background4-main);
+    box-shadow: var(--boxShadowNone);
+    background: transparent;
+  }
+`
+export const DropDownHeaderMenu = styled(DropDownHeaderMisc)`
+  width: 130px;
+  box-shadow: var(--boxShadowNone);
+  color: var(--background4-main);
+  background: transparent;
+  &:hover {
+    color: var(--background4-main);
+    box-shadow: var(--boxShadow1);
+    background: transparent;
+    svg {
+      color: var(--background4-main);
+    }
+  }
+  &:active {
+    background: transparent;
+    box-shadow: var(--boxShadowNone);
+    color: var(--background-secondary1);
+    svg {
+      color: var(--background-secondary1);
+    }
+  }
+`
+export const DropDownHeaderMini = styled(DropDownHeaderMisc)`
+  width: fit-content;
+  padding: 0.5rem;
+  height: fit-content;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: var(--boxShadowNone);
+  &:hover {
+    box-shadow: var(--boxShadow1);
+    background: transparent;
+    svg {
+      color: var(--background4-main);
+    }
+  }
+  &:active {
+    background: transparent;
+    box-shadow: var(--boxShadow2);
+    svg {
+      color: var(--background4-main);
+    }
+  }
+`
+export const SpaceAroundWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: var(--background1-main);
+  transition: 0.2s;
+  ${DropDownHeaderMisc}:hover & {
+    color: var(--background-secondary1);
+  }
+
+  width: 100%;
+`
+export const SpaceAroundWrapperDropdown = styled(SpaceAroundWrapper)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--background4-main);
+  svg {
+    color: var(--background4-main);
+  }
+  ${DropDownHeaderMisc}:hover & {
+    color: var(--background-secondary1);
+  }
+`
+export const SvgWrapperMisc = styled.div`
+  position: relative;
+  top: 2px;
+  font-size: 0.95rem;
+  svg {
+    transition: 0.2s !important;
+    color: var(--background1-main);
+  }
+  ${DropDownHeaderMisc}:hover & {
+    svg {
+      /* color: var(--background1-main); */
+      color: var(--background-secondary1);
+    }
+  }
+`
+export const SvgWrapperMiscSmall = styled(SvgWrapperMisc)`
+  svg {
+    color: var(--background4-main);
+  }
+`
+
 export const HorizontalWrapperTight = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: row;
 `
+export const HorizontalWrapperBaseLine = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  /* flex-direction: row; */
+`
 
 export const RelativeRightSvgWrapper = styled.div`
   position: relative;
   right: -10px;
+`
+export const RelativeSvgWrapper = styled.div`
+  position: relative;
+  top: ${({ top }) => (top ? top : '2px')};
+  /* right: ${({ right }) => (right ? right : '0px')}; */
+  left: ${({ left }) => (left ? left : '0px')};
 `
 
 export const DotButton = styled.div`

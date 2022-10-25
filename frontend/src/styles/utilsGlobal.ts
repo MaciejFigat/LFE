@@ -90,7 +90,7 @@ const primaryStyle: GlobalStyle = {
     warning2: '#ee9b00;',
     danger1: '#D22730;',
 
-    boxShadow1: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -1px 1px 3px #151515, 1px -1px 2px #272729;',
+    boxShadow1: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -4px 4px 6px #151515, 2px -2px 4px #272729;',
     boxShadow2: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -5px 5px 10px #151515, 3px -3px 10px #272729;',
     // boxShadow1: ' -35px 35px 70px #0c0c0c, 35px -35px 70px #303032;',
     // boxShadow1: '-5px 5px 10px #151515, 5px -5px 10px #272729;',
@@ -108,7 +108,8 @@ const primaryStyle: GlobalStyle = {
     boxShadowInset3: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
     // boxShadowInset4: 'inset -5px 5px 10px #161617, inset 5px -5px 10px #262627;',
     boxShadowInset5: 'inset -5px 5px 10px #8d8c8a, inset 5px -5px 10px #ffffff;',
-    boxShadowNone: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, 0px 0px 0px #d2d1ce, 0px 0px 0px #fffffe;',
+    // boxShadowNone: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, 0px 0px 0px #d2d1ce, 0px 0px 0px #fffffe;',
+    boxShadowNone: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, 0px 0px 0px #262627, 0px 0px 0px #262627;',
 }
 // backgroundNeon5: '#54bea8;', 1
 // backgroundNeon6: '#DB3EB1;   2
@@ -176,9 +177,11 @@ const secondaryStyle: GlobalStyle = {
     danger1: '#e63946;',
     // boxShadow1: '-5px 5px 10px #aaaaa7, 5px -5px 10px #ffffff;',
     //todo in order for box-shadow have transition between outward and inset shadow it needs both inset shadow value normal shadow value set
-    boxShadow1: 'inset 0px 0px 0px #d2d1ce, inset 0px 0px 0px #ffffff, -3px 3px 4px #ebeae6, 3px -3px 4px #fffffe;',
+    // boxShadow1: 'inset 0px 0px 0px #d2d1ce, inset 0px 0px 0px #ffffff, -8px 8px 10px #ebeae6, 5px -5px 8px #fffffe;',
+    boxShadow1: 'inset 0px 0px 0px #d2d1ce, inset 0px 0px 0px #ffffff, -1px 2px 4px #a8a7a5, 5px -5px 8px #fffffe;',
+    boxShadow2: 'inset 0px 0px 0px #d2d1ce, inset 0px 0px 0px #ffffff, -3px 3px 7px #8d8c8a, 7px -7px 10px #ffffff;',
     // boxShadow1: '-2px 2px 4px #aaaaa7, 2px -2px 4px #ffffff;',
-    boxShadow2: '-3px 3px 7px #8d8c8a, 7px -7px 10px #ffffff;',
+    // boxShadow2: '-3px 3px 7px #8d8c8a, 7px -7px 10px #ffffff;',
     boxShadow3: '-27px 27px 54px #a8a7a5, 27px -27px 54px #ffffff;',
     boxShadow4: '-41px 41px 82px #999996, 41px -41px 82px #ffffff;',
     // boxShadow5: '-50px 50px 100px #6f6f6d, 50px -50px 100px #ffffff;',

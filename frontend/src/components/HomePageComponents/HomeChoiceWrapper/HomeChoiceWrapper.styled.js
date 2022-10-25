@@ -44,7 +44,9 @@ export const ChoiceNav = styled.nav`
   border-bottom: 1px solid var(--background-blur2); */
 
   color: var(--background4-main);
-  /* box-shadow: var(--boxShadow1); */
+  box-shadow: var(--boxShadow1);
+  padding: 2rem;
+  border-radius: 20px;
   /* box-shadow: var(--boxShadowInset4); */
   /* background: linear-gradient(
     90deg,
@@ -69,6 +71,10 @@ export const ChoiceNav = styled.nav`
     min-height: fit-content;
     height: 5.75rem;
     /* border: 1px solid var(--background2-main); */
+  }
+  @media screen and (max-width: 780px) {
+    padding: 0;
+    box-shadow: none;
   }
 `
 

@@ -5,6 +5,7 @@ import StaggerChildrenWrapper from '../../Miscellaneous/AnimationWrappers/Stagge
 import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 import NavDropdown from '../Dropdowns/NavDropdown'
 import ProjectDropdown from '../Dropdowns/ProjectDropdown'
+import { DropDownHeaderMenu } from '../../../styles/misc.styled'
 
 interface NavListMobileProps {
   scrollDirection?: 'up' | 'down' | 'top' | undefined | null
@@ -22,13 +23,22 @@ const itemVariants = {
 }
 const links = [
   {
-    name: <SvgIcon variant='home' noMargin contentAfter='start' toRight />,
+    // name: <SvgIcon variant='home' noMargin contentAfter='start' toRight />,
+    name: (
+      <>
+        Start
+        <SvgIcon variant='home' noMargin noContent />
+      </>
+    ),
     to: '/',
     id: '1',
   },
   {
     name: (
-      <SvgIcon variant='textLeft' noMargin contentAfter='dokument' toRight />
+      <>
+        Dokument <SvgIcon variant='textLeft' noMargin noContent />
+      </>
+      // <SvgIcon variant='textLeft' noMargin contentAfter='dokument' toRight />
     ),
     to: '/search/result',
     id: '2',
@@ -49,7 +59,7 @@ const NavListDesktop: React.FC<NavListMobileProps> = ({ scrollDirection }) => {
                 }
               >
                 {' '}
-                {name}
+                <DropDownHeaderMenu>{name}</DropDownHeaderMenu>
               </NavLink>
             </ListItem>
           ))}{' '}

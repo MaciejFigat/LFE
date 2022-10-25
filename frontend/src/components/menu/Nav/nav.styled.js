@@ -102,6 +102,7 @@ export const NavList = styled.ul`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
     min-height: 85vh;
     max-width: 50vw;
     min-width: fit-content;
@@ -231,12 +232,16 @@ export const ListItemMobile = styled.div`
 export const MobileViewContainer = styled.div`
   display: none;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 0 1.5rem 0 1rem;
+  justify-content: space-around;
+  /* padding: 0 1.5rem 0 1rem; */
   /* this below fixes the irritating gap in nav when you scroll it down */
   /* margin-top: -1px !important; */
   @media (max-width: 1020px) {
     display: flex;
+  }
+  @media (max-width: 680px) {
+    max-width: 98%;
+    /* justify-content: center; */
   }
 `
 export const HeaderTitleMobile = styled.h1`

@@ -1,12 +1,34 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
+export const HomeSearchContainer = styled.div`
+  display: grid;
+  place-items: center;
+  width: fit-content;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 3rem;
+  max-width: 90vw;
+  height: 100px;
+  /* background: linear-gradient(225deg, #deddda, #ffffff);
+  box-shadow: -5px 5px 10px #c6c5c2, 5px -5px 10px #ffffff; */
+  /* box-shadow: -5px 5px 10px #cbcac6, 5px -5px 10px #ffffff; */
+  border-radius: 20px;
+  box-shadow: var(--boxShadow1);
+  border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background-blur1);
+  /* border: 1px solid var(--background2-main); */
+`
+
 export const HomeSearchWrapper = styled.div`
   display: grid;
   place-items: center;
   margin: 0;
   margin-top: 4rem;
   width: 100%;
+
   @media (max-width: 620px) {
     margin-top: 2rem;
     width: 80vw;
@@ -55,16 +77,19 @@ export const SearchBarButton = styled.button`
   border: none;
   cursor: pointer;
   background: transparent;
-  color: var(--background-blur2) !important;
+  /* color: var(--background-blur2) !important; */
+  color: var(--background4-main) !important;
   font-size: ${({ large }) => (large ? '1.55rem' : '1rem')};
   font-weight: 700;
   /* color: var(--background3-main); */
   /* background: var(--background2-main); */
   border: 1px solid transparent;
   border-radius: 10px;
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
+  margin-left: ${({ large }) => (large ? '1rem' : '0.5rem')};
+  margin-right: ${({ large }) => (large ? '1rem' : '0rem')};
   &:hover {
-    color: var(--background4-main) !important;
+    color: var(--background-secondary1) !important;
     /* transition: all 0.7s ease-out; */
     /* border: 1px solid var(--background2-main); */
   }
@@ -144,6 +169,10 @@ export const SpinnerWrapperSearch = styled.div`
 
 export const Main = styled.div`
   max-height: 38px;
+  /* max-width: 330px; */
+  /* max-width: 330px; */
+  width: 330px;
+  /* background: red; */
   @media (max-width: 1020px) {
     font-size: 1.25rem;
   }
@@ -157,6 +186,7 @@ export const DropdownIconWrapper = styled.div`
   display: grid;
   place-items: center;
 
+  margin-left: 1rem;
   svg {
     color: var(--background2-main);
 
@@ -180,7 +210,7 @@ export const DropDownHeader = styled.div`
 `
 export const DropDownListContainer = styled.div`
   position: relative;
-  left: 70px;
+  left: 0px;
   top: 15px;
   user-select: none;
   z-index: 10;
@@ -189,10 +219,10 @@ export const DropDownListContainer = styled.div`
   /* border: 1px solid var(--background2-main); */
   border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
-  border-left: 1px solid var(--background2-main);
-  border-bottom: 1px solid var(--background2-main);
-  /* box-shadow: var(--boxShadow1); */
-  width: 250px;
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
+  box-shadow: var(--boxShadow1);
+  width: 350px;
   padding: 0.5rem;
   /* backdrop-filter: blur(8px); */
   /* -webkit-backdrop-filter: blur(8px); */
@@ -205,8 +235,13 @@ export const DropDownDateContainer = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  justify-content: flex-start;
-  gap: 0.25rem;
+  min-width: 248px;
+  justify-content: space-between;
+  gap: 0.55rem;
+
+  input {
+    background: var(--background1-main);
+  }
 `
 export const DropDownList = styled.div`
   display: grid;
@@ -239,9 +274,10 @@ export const ListItem = styled.li`
   width: 100%;
   list-style: none;
   max-width: fit-content;
+
   padding-bottom: 0.75rem;
   b {
-    font-size: 0.75rem;
+    font-size: 0.95rem;
   }
 `
 
@@ -250,8 +286,8 @@ export const SwitchSectionWrapper = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
-  justify-content: flex-start;
-  margin-left: 2rem;
+  justify-content: center;
+  align-items: center;
 `
 export const SwitchResultWrapper = styled(SwitchSectionWrapper)`
   justify-content: center;
@@ -278,7 +314,10 @@ export const SwitchResultContainer = styled.div`
   gap: 0.5rem;
 `
 export const SwitchDivContainerNarrow = styled(SwitchDivContainer)`
-  gap: 0.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
 `
 export const SwitchDiv = styled.div`
   width: 28px;
@@ -313,7 +352,7 @@ export const SetTakeButton = styled.button`
   color: var(--background4-main);
   border: 1px solid transparent;
   border-radius: 8px;
-  font-size: 0.7rem;
+  font-size: 0.95rem;
   background-color: ${({ buttonActive }) =>
     buttonActive ? 'var(--background2-main)' : 'transparent'};
   margin: 0;

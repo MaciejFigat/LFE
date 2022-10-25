@@ -23,6 +23,7 @@ import {
 } from './SearchBar.styled'
 import SearchBar from './SearchBar'
 import { DatePickerButton } from './DatePicker.styled'
+import { HorizontalWrapperBaseLine } from '../../../styles/misc.styled'
 
 registerLocale('pl', pl) //* registers locale for me to use it with DatePicker
 
@@ -72,9 +73,10 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
           <DropdownIconWrapper onClick={toggling}>
             <SvgIcon
               variant={isOpen ? 'minus' : 'moreOptions'}
-              toBottom
+              noContent
+              // toBottom
               // contentAfter={isOpen ? 'close' : 'advanced'}
-              contentAfter={isOpen ? 'zamknij' : 'opcje'}
+              // contentAfter={isOpen ? 'zamknij' : 'opcje'}
               // showContent={isOpen ? true : false}
             />
           </DropdownIconWrapper>
@@ -88,24 +90,30 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
               </ListItem>
               <ListItem>
                 <DropDownDateContainer>
-                  Od:{' '}
-                  <DatePicker
-                    selected={startDate}
-                    locale='pl'
-                    dateFormat='dd/MM/yyyy'
-                    calendarClassName='calendarFormat'
-                    onChange={(date: Date) => setStartDate(date)}
-                    customInput={<DatePickerButton />}
-                  />
-                  Do:{' '}
-                  <DatePicker
-                    selected={endDate}
-                    locale='pl'
-                    dateFormat='dd/MM/yyyy'
-                    calendarClassName='calendarFormat'
-                    onChange={(date: Date) => setEndDate(date)}
-                    customInput={<DatePickerButton />}
-                  />
+                  <HorizontalWrapperBaseLine>
+                    {' '}
+                    Od:{' '}
+                    <DatePicker
+                      selected={startDate}
+                      locale='pl'
+                      dateFormat='dd/MM/yyyy'
+                      calendarClassName='calendarFormat'
+                      onChange={(date: Date) => setStartDate(date)}
+                      customInput={<DatePickerButton />}
+                    />
+                  </HorizontalWrapperBaseLine>
+
+                  <HorizontalWrapperBaseLine>
+                    Do:{' '}
+                    <DatePicker
+                      selected={endDate}
+                      locale='pl'
+                      dateFormat='dd/MM/yyyy'
+                      calendarClassName='calendarFormat'
+                      onChange={(date: Date) => setEndDate(date)}
+                      customInput={<DatePickerButton />}
+                    />
+                  </HorizontalWrapperBaseLine>
                 </DropDownDateContainer>
               </ListItem>
               <SwitchSectionWrapper>

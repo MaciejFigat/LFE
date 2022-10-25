@@ -190,7 +190,8 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--background4-main);
+      // color: var(--background4-main);
+      width: 100%;
       @media screen and (max-width: 770px) {
         font-size: 0.75rem;
         svg{
@@ -239,7 +240,7 @@ body {
       max-width: fit-content;
     }
     border-radius: 4px;
-    color: var(--background4-main);
+    // color: var(--background4-main);
     background-color: var(--background2-main);
     border: 1px solid var(--background5-main);
     &:active{
@@ -248,7 +249,7 @@ body {
   }
   .calendarFormat{
     background-color: var(--background2-main);
-    color: var(--background3-main);
+    color: var(--background4-main);
   }
  
   .highlightFrag0{

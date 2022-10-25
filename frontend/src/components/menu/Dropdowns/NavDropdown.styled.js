@@ -42,7 +42,6 @@ export const DropDownHeader = styled.div`
   /* background: var(--background1-main); */
   transition: all 0.3s ease-out;
   text-align: center;
-  /* border: 1px solid var(--background1-main); */
   svg {
     ${({ grey }) =>
       grey
@@ -52,32 +51,87 @@ export const DropDownHeader = styled.div`
       ${({ grey }) => grey && 'color: var(--background3-main);'}
     }
   }
-
-  //? fixing width for svg icon inside
-  /* max-width: 50px; */
 `
+export const DropDownHeaderBig = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  user-select: none;
+  height: 30px;
+  /* text-transform: lowercase; */
+  border-radius: 12px;
+  width: 150px;
+  border: 1px solid var(--background-blur1);
+  padding: 0.2rem 0.4rem 0.2rem 0.5rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--background4-main) !important;
+  /* color: var(--background-secondary2); */
+  /* background: var(--background1-main); */
+  transition: all 0.3s ease-out;
+  text-align: center;
+
+  &:hover {
+    background: var(--background4-main);
+    color: var(--background1-main) !important;
+  }
+`
+export const SvgWrapperColor = styled.div`
+  position: relative;
+  top: 2px;
+  font-size: 0.95rem;
+  svg {
+    transition: 0.2s !important;
+    color: var(--background3-main);
+  }
+  ${DropDownHeaderBig}:hover & {
+    svg {
+      color: var(--background1-main);
+    }
+  }
+`
+
 export const DropDownListContainer = styled.div`
   position: absolute;
+  /* position: relative; */
   display: grid;
   place-items: center;
   z-index: 10;
-  background: var(--background1-main);
 
   border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
-  border-left: 1px solid var(--background2-main);
-  border-bottom: 1px solid var(--background2-main);
-  /* box-shadow: var(--boxShadow1); */
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
+  box-shadow: var(--boxShadow1);
 
   padding: 0;
-  width: 120px;
+  width: 166px;
   min-width: fit-content;
-  border-radius: 10px;
+  border-radius: 12px;
   top: 60px;
-  right: 20%;
-  @media (max-width: 1020px) {
-    width: 110px;
-    right: 50px;
+  /* top: 60px;
+  right: 0%; */
+  /* right: 140px; */
+  transition: all 0.3s ease-out;
+  text-align: center;
+  background: var(--background1-main);
+  svg {
+    color: var(--background2-main);
+  }
+  @media screen and (max-width: 1440px) {
+    right: 140px;
+  }
+  @media screen and (max-width: 1440px) {
+    right: 120px;
+  }
+  @media screen and (max-width: 1090px) {
+    right: 90px;
+  }
+  @media screen and (max-width: 780px) {
+    right: 40px;
+  }
+  @media screen and (max-width: 590px) {
+    right: 30px;
   }
 `
 
@@ -100,22 +154,25 @@ export const DropDownList = styled.div`
   font-weight: 400;
   min-width: fit-content;
   &:first-child {
-    padding-top: 1.2rem;
+    padding-top: 0.5rem;
   }
-
-  /* &:nth-child(2) {
-    padding-right: 1.2rem;
-  } */
+  &:last-child {
+    padding-bottom: 0.25rem;
+  }
 `
 // export const ListItem = styled.li`
 
 export const ListItem = styled.div`
   display: grid;
   place-items: center;
+  width: 100%;
+  min-width: 100px;
+
   /* list-style: none; */
-  max-width: fit-content;
-  padding-left: 0.75rem;
-  padding-bottom: 0.75rem;
+  /* min-width: fit-content; */
+  /* padding-left: 0.75rem;  */
+  padding-bottom: 0.25rem;
+
   /* margin-bottom: 1rem; */
   &:last-child {
     /* margin-bottom: 0.5rem; */

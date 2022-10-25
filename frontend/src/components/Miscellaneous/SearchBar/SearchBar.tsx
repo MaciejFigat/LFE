@@ -75,8 +75,9 @@ const SearchBar: React.FC<SearchBarProps> = ({
           {loadingResults === false ? (
             <SvgIcon
               variant={isOpen ? 'searchPlus' : 'search'}
-              toBottom
-              contentAfter={'wyszukaj'}
+              noContent
+              // toBottom
+              // contentAfter={'wyszukaj'}
               // contentAfter={
               //   isOpen ? 'zaawansowane wyszukiwanie' : 'wyszukiwanie'
               // }
