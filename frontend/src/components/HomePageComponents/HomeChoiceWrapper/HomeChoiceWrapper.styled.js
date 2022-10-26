@@ -36,15 +36,22 @@ export const ChoiceNav = styled.nav`
   font-size: 1.1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  /* border-radius: 5px;
-  border-top: 1px solid var(--background-blur1);
+  /* border-radius: 5px; */
+  /* border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
 
   border-left: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur2); */
-
+  /* border: 1px solid var(--background3-main); */
+  background: linear-gradient(
+    120deg,
+    var(--background-blur1) 0%,
+    transparent 30%,
+    transparent 70%,
+    var(--background-blur1)
+  );
   color: var(--background4-main);
-  box-shadow: var(--boxShadow1);
+  box-shadow: var(--boxShadowInset1);
   padding: 2rem;
   border-radius: 20px;
   /* box-shadow: var(--boxShadowInset4); */

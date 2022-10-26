@@ -3,6 +3,7 @@ import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { highlightQueryEdit } from '../../features/preferences/preferenceSlice'
 import DataSection from '../Miscellaneous/InfoSection/DataSection'
 import Pagination from '../Miscellaneous/Pagination/Pagination'
+import SearchBar from '../Miscellaneous/SearchBar/SearchBar'
 import {
   SwitchButtonWrapper,
   SwitchResultContainer,
@@ -15,8 +16,12 @@ import {
   SearchInputResultDisplay,
 } from '../Miscellaneous/SearchBar/SearchFilter.styled'
 import SwitchButton from '../Miscellaneous/SearchBar/SwitchButton'
+import HomeSearch from './HomeSearch'
+// import HomeSearch from './HomeSearch'
 import {
+  SearchResultsDashboardColumn,
   SearchResultsDashboardDiv,
+  SearchResultsHorizontalWrapper,
   SearchResultsSectionWrapper,
   SearchResultsWrapper,
 } from './SearchResultsDisplay.styled'
@@ -42,6 +47,8 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
   const { KrajowaInformacjaSkarbowa, IzbaSkarbowa, MinisterFinansów } =
     FragmentsSource
   const queryTrimmed = encodeURIComponent(query?.trim())
+
+  const [searchQuery, setSearchQuery] = useState<string>('')
 
   const [isOnOne, setIsOnOne] = useState(false)
   const [isOnTwo, setIsOnTwo] = useState(false)
@@ -89,95 +96,108 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
   return (
     <>
       {' '}
+      {data && data?.length === 0 && <HomeSearch />}
       {data && data?.length > 0 && (
         <SearchResultsSectionWrapper>
           <SearchResultsDashboardDiv>
+            {' '}
             <SwitchResultWrapper>
-              <h2>Wyniki wyszukiwania</h2>
+              <h3>
+                {query} - {data.length} wyników
+              </h3>
             </SwitchResultWrapper>
-            <SwitchResultWrapper>
-              <SearchBarForm onSubmit={highlightHandler}>
-                <HighlightButton type='submit'>
-                  Zaznacz dodatkowo
-                </HighlightButton>{' '}
-                <SearchInputResultDisplay
-                  type='highlight'
-                  name='highlight'
-                  placeholder='wpisz frazę'
-                  autoComplete='highlight'
-                  value={highlightQueryLocal}
-                  onChange={(e: any) => setHighlightQuery(e.target.value)}
-                />
-              </SearchBarForm>
-            </SwitchResultWrapper>
-            <SwitchResultWrapper>
-              <SwitchButtonWrapper>
-                <h3>Wyszukiwana fraza: {query}</h3>{' '}
-              </SwitchButtonWrapper>
-              <SwitchButtonWrapper>
-                <h3>Ilość wyników: {data.length}</h3>{' '}
-              </SwitchButtonWrapper>
-            </SwitchResultWrapper>
-            <SwitchResultWrapper>
-              <SwitchButtonWrapper>
-                <SwitchResultContainer>
-                  <SwitchButton
-                    isOn={isOnOne}
-                    setIsOn={setIsOnOne}
-                    sortingOption='one'
+            <SearchResultsHorizontalWrapper>
+              <SearchResultsDashboardColumn>
+                <SwitchResultWrapper>
+                  {/* <SwitchButtonWrapper> */}
+                  <SearchBar
+                    searchQuery={searchQuery}
+                    setSearchQuery={setSearchQuery}
+                    isOpen={false}
+                    startDate={new Date()}
+                    endDate={new Date()}
+                    skip={1}
+                    take={30}
                   />
-                  <SwitchText isOn={isOnOne}>
-                    Krajowa Informacja Skarbowa ({' '}
-                    {
-                      data.filter(
-                        (dataFiltered: any) => dataFiltered.typSadu === 7
-                      ).length
-                    }{' '}
-                    )
-                  </SwitchText>
-                </SwitchResultContainer>
-              </SwitchButtonWrapper>
-              <SwitchButtonWrapper>
-                <SwitchResultContainer>
-                  <SwitchButton
-                    isOn={isOnTwo}
-                    setIsOn={setIsOnTwo}
-                    sortingOption='two'
-                  />
-                  <SwitchText isOn={isOnTwo}>
-                    Izba Skarbowa ({' '}
-                    {
-                      data.filter(
-                        (dataFiltered: any) => dataFiltered.typSadu === 8
-                      ).length
-                    }{' '}
-                    )
-                  </SwitchText>
-                </SwitchResultContainer>
-              </SwitchButtonWrapper>
-              <SwitchButtonWrapper>
-                {' '}
-                <SwitchResultContainer>
-                  <SwitchButton
-                    isOn={isOnThree}
-                    setIsOn={setIsOnThree}
-                    sortingOption='three'
-                  />
-                  <SwitchText isOn={isOnThree}>
-                    Minister Finansów ({' '}
-                    {
-                      data.filter(
-                        (dataFiltered: any) => dataFiltered.typSadu === 9
-                      ).length
-                    }{' '}
-                    )
-                  </SwitchText>
-                </SwitchResultContainer>
-              </SwitchButtonWrapper>
-            </SwitchResultWrapper>
-          </SearchResultsDashboardDiv>
-          <SearchResultsWrapper>
+                </SwitchResultWrapper>
+                <SwitchResultWrapper>
+                  <SearchBarForm onSubmit={highlightHandler}>
+                    <HighlightButton type='submit'>Zaznacz</HighlightButton>{' '}
+                    <SearchInputResultDisplay
+                      type='highlight'
+                      name='highlight'
+                      placeholder='podświetl'
+                      autoComplete='highlight'
+                      value={highlightQueryLocal}
+                      onChange={(e: any) => setHighlightQuery(e.target.value)}
+                    />
+                  </SearchBarForm>
+                </SwitchResultWrapper>
+              </SearchResultsDashboardColumn>
+              <SearchResultsDashboardColumn>
+                <SwitchResultWrapper>
+                  <SwitchButtonWrapper>
+                    <SwitchResultContainer>
+                      <SwitchButton
+                        isOn={isOnOne}
+                        setIsOn={setIsOnOne}
+                        sortingOption='one'
+                      />
+                      <SwitchText isOn={isOnOne}>
+                        Krajowa Informacja Skarbowa ({' '}
+                        {
+                          data.filter(
+                            (dataFiltered: any) => dataFiltered.typSadu === 7
+                          ).length
+                        }{' '}
+                        )
+                      </SwitchText>
+                    </SwitchResultContainer>
+                  </SwitchButtonWrapper>
+                  <SwitchButtonWrapper>
+                    <SwitchResultContainer>
+                      <SwitchButton
+                        isOn={isOnTwo}
+                        setIsOn={setIsOnTwo}
+                        sortingOption='two'
+                      />
+                      <SwitchText isOn={isOnTwo}>
+                        Izba Skarbowa ({' '}
+                        {
+                          data.filter(
+                            (dataFiltered: any) => dataFiltered.typSadu === 8
+                          ).length
+                        }{' '}
+                        )
+                      </SwitchText>
+                    </SwitchResultContainer>
+                  </SwitchButtonWrapper>
+                  <SwitchButtonWrapper>
+                    {' '}
+                    <SwitchResultContainer>
+                      <SwitchButton
+                        isOn={isOnThree}
+                        setIsOn={setIsOnThree}
+                        sortingOption='three'
+                      />
+                      <SwitchText isOn={isOnThree}>
+                        Minister Finansów ({' '}
+                        {
+                          data.filter(
+                            (dataFiltered: any) => dataFiltered.typSadu === 9
+                          ).length
+                        }{' '}
+                        )
+                      </SwitchText>
+                    </SwitchResultContainer>
+                  </SwitchButtonWrapper>
+                </SwitchResultWrapper>
+              </SearchResultsDashboardColumn>
+            </SearchResultsHorizontalWrapper>
             <Pagination />
+          </SearchResultsDashboardDiv>
+
+          <SearchResultsWrapper>
             {data
               .slice(start, end + 1)
 

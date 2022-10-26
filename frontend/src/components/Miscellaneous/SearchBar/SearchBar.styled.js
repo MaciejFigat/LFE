@@ -14,11 +14,25 @@ export const HomeSearchContainer = styled.div`
   box-shadow: -5px 5px 10px #c6c5c2, 5px -5px 10px #ffffff; */
   /* box-shadow: -5px 5px 10px #cbcac6, 5px -5px 10px #ffffff; */
   border-radius: 20px;
-  box-shadow: var(--boxShadow1);
-  border-top: 1px solid var(--background-blur2);
+  box-shadow: var(--boxShadowInset1);
+  background: linear-gradient(
+    120deg,
+    var(--background-blur1) 10%,
+    transparent 30%,
+    transparent 70%,
+    var(--background-blur1)
+  );
+  /* background: linear-gradient(
+    var(--background-blur1) 20%,
+    transparent 30%,
+    transparent 80%,
+    var(--background5-main)
+  ); */
+  /* box-shadow: var(--boxShadow1); */
+  /* border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur1);
-  border-left: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background-blur1); */
   /* border: 1px solid var(--background2-main); */
 `
 
@@ -258,12 +272,16 @@ export const DropDownList = styled.div`
   }
 `
 export const SwitchButtonWrapper = styled.div`
-  display: grid;
-  place-items: center;
+  /* display: grid;
+  place-items: center; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
   list-style: none;
-  max-width: fit-content;
-  padding-bottom: 0.75rem;
+  /* max-width: fit-content; */
+  /* padding-bottom: 0.75rem; */
+
   b {
     font-size: 1.2rem;
   }
@@ -292,13 +310,17 @@ export const SwitchSectionWrapper = styled.div`
 export const SwitchResultWrapper = styled(SwitchSectionWrapper)`
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
+
   color: var(--background4-main);
   gap: 1rem;
   margin: 0;
-  @media screen and (max-width: 990px) {
-    flex-direction: column;
-    align-items: center;
+  margin-bottom: 0.75rem;
+  @media screen and (max-width: 690px) {
+    margin-bottom: 0;
+    &:first-of-type {
+      margin-bottom: 1rem;
+    }
   }
 `
 export const SwitchDivContainer = styled.div`
@@ -332,8 +354,9 @@ export const SwitchDiv = styled.div`
   align-items: center;
 `
 export const SwitchText = styled.b`
+  font-size: 0.9rem !important;
   color: ${({ isOn }) =>
-    isOn ? 'var(--background2-main)' : 'var(--background5-main)'};
+    isOn ? 'var(--background2-main)' : 'var(--background4-main)'};
 `
 export const SwitchHandle = styled(motion.div)`
   width: 14px;
@@ -353,6 +376,7 @@ export const SetTakeButton = styled.button`
   border: 1px solid transparent;
   border-radius: 8px;
   font-size: 0.95rem;
+
   background-color: ${({ buttonActive }) =>
     buttonActive ? 'var(--background2-main)' : 'transparent'};
   margin: 0;

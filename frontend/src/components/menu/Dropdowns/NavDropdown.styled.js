@@ -104,7 +104,7 @@ export const DropDownListContainer = styled.div`
   border-bottom: 1px solid var(--background-blur1);
   box-shadow: var(--boxShadow1);
 
-  padding: 0;
+  padding: 0.75rem;
   width: 166px;
   min-width: fit-content;
   border-radius: 12px;
@@ -156,9 +156,9 @@ export const DropDownList = styled.div`
   &:first-child {
     padding-top: 0.5rem;
   }
-  &:last-child {
+  /* &:last-child {
     padding-bottom: 0.25rem;
-  }
+  } */
 `
 // export const ListItem = styled.li`
 
@@ -171,7 +171,7 @@ export const ListItem = styled.div`
   /* list-style: none; */
   /* min-width: fit-content; */
   /* padding-left: 0.75rem;  */
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.5rem;
 
   /* margin-bottom: 1rem; */
   &:last-child {

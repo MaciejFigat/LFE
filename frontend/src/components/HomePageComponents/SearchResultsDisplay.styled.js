@@ -17,13 +17,56 @@ export const SearchResultsWrapper = styled.div`
   /* top: 250px; */
   /* background: lime; */
 `
+export const SearchResultsDashboardColumn = styled.div`
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-direction: column;
+  min-width: 30vw;
+  max-width: 330px;
+  padding: 1rem;
+  &:last-of-type {
+    align-items: flex-start;
+  }
+  /* &:first-of-type {
+    align-items: flex-start;
+    background: red;
+  } */
+`
+export const SearchResultsHorizontalWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  @media screen and (max-width: 690px) {
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
+  }
+`
 export const SearchResultsDashboardDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-around;
   padding: 2rem;
-  box-shadow: var(--boxShadow1);
-  min-width: fit-content;
-  width: 900px;
+  background: linear-gradient(
+    120deg,
+    var(--background-blur1) 0%,
+    transparent 30%,
+    transparent 70%,
+    var(--background-blur1)
+  );
+  box-shadow: var(--boxShadowInset1);
+  /* min-width: fit-content; */
+  /* width: 900px; */
   border-radius: 20px;
-  max-width: 90vw;
+  max-width: 700px;
+  /* width: 600px; */
+  margin-bottom: 2rem;
+  @media screen and (max-width: 890px) {
+    /* justify-content: center; */
+    max-width: 90vw;
+  }
 `
 export const SearchResultsSectionWrapper = styled.div`
   /* position: relative;

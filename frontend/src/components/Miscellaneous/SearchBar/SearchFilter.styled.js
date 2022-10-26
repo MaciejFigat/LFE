@@ -52,19 +52,31 @@ export const SearchBarButton = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
-  background: var(--background2-main);
   align-items: center;
+  background: var(--background1-main);
   /* color: var(--background-secondary2); */
   color: var(--background4-main);
-  border: 1px solid var(--background4-main);
-  border-radius: 10px;
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
+  border-radius: 15px;
+  padding: 0.5rem;
+  /* border-bottom-right-radius: 0; */
   margin-left: 0.5rem;
+  transition: 0.2s;
+
   &:hover {
-    /* transition: all 0.7s ease-out; */
-    border: 1px solid var(--background3-main);
+    box-shadow: var(--boxShadow1);
+
+    color: var(--background-secondary2);
+    border-top: 1px solid var(--background-blur1);
+    border-right: 1px solid var(--background-blur1);
+    border-left: 1px solid var(--background-blur1);
+    border-bottom: 1px solid var(--background-blur1);
   }
   &:active {
-    border: 1px solid var(--background5-main);
+    box-shadow: var(--boxShadowInset1);
   }
   @media (max-width: 420px) {
     font-size: 0.7rem;
@@ -72,7 +84,7 @@ export const SearchBarButton = styled.button`
   }
 `
 export const HighlightButton = styled(SearchBarButton)`
-  padding: 0.25rem;
+  padding: 0.65rem;
   font-size: 1.1rem;
   margin-right: 1rem;
 `
@@ -98,21 +110,21 @@ export const SearchInput = styled.input`
   border: none;
   /* border-radius-top: 5px; */
   border-radius: 5px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  /* border-bottom-left-radius: 0; */
+  /* border-bottom-right-radius: 0; */
   background: var(--background-blur1);
-  border-bottom: 1px solid var(--background5-main);
+  /* border-bottom: 1px solid var(--background5-main); */
   &:focus {
     outline: none;
   }
   &:active {
-    background: var(--background3-main);
+    /* background: var(--background3-main); */
 
-    border-bottom: 1px solid var(--background3-main);
+    /* border-bottom: 1px solid var(--background3-main); */
   }
 
   &:hover {
-    border-bottom: 1px solid var(--background5-main);
+    /* border-bottom: 1px solid var(--background5-main); */
   }
 
   ::-webkit-inner-spin-button {
