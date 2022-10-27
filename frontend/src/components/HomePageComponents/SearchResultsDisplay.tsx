@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { highlightQueryEdit } from '../../features/preferences/preferenceSlice'
+import { HeroTitleMisc } from '../../styles/misc.styled'
 import DataSection from '../Miscellaneous/InfoSection/DataSection'
 import Pagination from '../Miscellaneous/Pagination/Pagination'
 import SearchBar from '../Miscellaneous/SearchBar/SearchBar'
@@ -17,7 +18,6 @@ import {
 } from '../Miscellaneous/SearchBar/SearchFilter.styled'
 import SwitchButton from '../Miscellaneous/SearchBar/SwitchButton'
 import HomeSearch from './HomeSearch'
-// import HomeSearch from './HomeSearch'
 import {
   SearchResultsDashboardColumn,
   SearchResultsDashboardDiv,
@@ -102,9 +102,9 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
           <SearchResultsDashboardDiv>
             {' '}
             <SwitchResultWrapper>
-              <h3>
+              <HeroTitleMisc>
                 {query} - {data.length} wyników
-              </h3>
+              </HeroTitleMisc>
             </SwitchResultWrapper>
             <SearchResultsHorizontalWrapper>
               <SearchResultsDashboardColumn>

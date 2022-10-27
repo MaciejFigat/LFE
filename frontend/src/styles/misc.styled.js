@@ -325,3 +325,10 @@ export const SwitchHandleMisc = styled(motion.div)`
   background-color: ${({ isOn }) =>
     isOn ? 'var(--background4-main)' : 'var(--background1-main)'};
 `
+
+export const HeroTitleMisc = styled.h3`
+  font-size: 2.2rem;
+  font-weight: 700;
+  /* color: red; */
+  color: var(--background4-main);
+`

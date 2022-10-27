@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
 import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 import { AnimateSharedLayout } from 'framer-motion'
@@ -19,10 +20,16 @@ const colors = [
 ]
 
 const SideButtons: React.FC<SideButtonsProps> = ({ hashIds }) => {
+  const location = useLocation()
   const dispatch: any = useAppDispatch()
   const fragmentScrolled = useAppSelector(
     (state) => state.preference.fragmentScrolled
   )
+  useEffect(() => {
+    const hashIndex = location.hash.substring(6)
+    dispatch(fragmentScrolledEdit(hashIndex))
+    console.log(hashIndex)
+  }, [dispatch, location.hash])
 
   const colorChangeHelper = (index: number) => {
     dispatch(fragmentScrolledEdit(index))
@@ -39,7 +46,7 @@ const SideButtons: React.FC<SideButtonsProps> = ({ hashIds }) => {
                 isSelected={colors[fragmentScrolled] === colors[index]}
                 key={index}
                 onMouseOver={() => colorChangeHelper(index)}
-              ></ButtonComponent>
+              />
             </HashLink>
           ))}
       </AnimateSharedLayout>

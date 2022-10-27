@@ -14,7 +14,7 @@ export const HomeSearchContainer = styled.div`
   box-shadow: -5px 5px 10px #c6c5c2, 5px -5px 10px #ffffff; */
   /* box-shadow: -5px 5px 10px #cbcac6, 5px -5px 10px #ffffff; */
   border-radius: 20px;
-  box-shadow: var(--boxShadowInset1);
+  /* box-shadow: var(--boxShadowInset1); */
   background: linear-gradient(
     120deg,
     var(--background-blur1) 10%,
@@ -29,10 +29,10 @@ export const HomeSearchContainer = styled.div`
     var(--background5-main)
   ); */
   /* box-shadow: var(--boxShadow1); */
-  /* border-top: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur1);
-  border-left: 1px solid var(--background-blur1); */
+  border-left: 1px solid var(--background-blur1);
   /* border: 1px solid var(--background2-main); */
 `
 

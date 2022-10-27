@@ -25,8 +25,8 @@ body {
     background: var(--background1-main);
       // font-family: 'Playfair Display', serif;
       // font-family: 'Atkinson Hyperlegible', sans-serif;
-    
-    font-family: 'Quicksand', sans-serif; 
+      font-family: 'Open Sans', sans-serif;
+    // font-family: 'Quicksand', sans-serif; 
 }
 
 :root {

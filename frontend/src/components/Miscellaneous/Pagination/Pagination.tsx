@@ -40,7 +40,7 @@ const Pagination: React.FC<PaginationProps> = ({ narrow }) => {
             (_, i) => (
               <PaginateBorderWrapper key={i} narrow={narrow}>
                 <SendButtonVerySmall
-                  variant='secondaryEmpty'
+                  variant='lightEmpty'
                   onClick={() => buttonHelper(i)}
                 >
                   <PaginateActive

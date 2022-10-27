@@ -11,6 +11,7 @@ import {
   ArticleContainer,
 } from './ResultDisplay.styled'
 import SideButtons from '../SideButtons/SideButtons'
+import ScrollToElementHelper from '../../customHooks/ScrollToElementHelper'
 
 interface ResultDisplayProps {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'blue'
@@ -35,6 +36,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
 
   return (
     <ArticleContainer>
+      <ScrollToElementHelper />
       <SideButtons hashIds={hashIds} />
 
       <ArticleWrapper>

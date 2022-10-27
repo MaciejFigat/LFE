@@ -37,11 +37,11 @@ export const ChoiceNav = styled.nav`
   margin-top: 1rem;
   margin-bottom: 1rem;
   /* border-radius: 5px; */
-  /* border-top: 1px solid var(--background-blur1);
+  border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
 
   border-left: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur2); */
+  border-bottom: 1px solid var(--background-blur2);
   /* border: 1px solid var(--background3-main); */
   background: linear-gradient(
     120deg,
@@ -51,7 +51,7 @@ export const ChoiceNav = styled.nav`
     var(--background-blur1)
   );
   color: var(--background4-main);
-  box-shadow: var(--boxShadowInset1);
+  /* box-shadow: var(--boxShadowInset1); */
   padding: 2rem;
   border-radius: 20px;
   /* box-shadow: var(--boxShadowInset4); */

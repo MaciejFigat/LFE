@@ -22,7 +22,7 @@ export const SearchResultsDashboardColumn = styled.div`
   justify-content: center;
   /* align-items: center; */
   flex-direction: column;
-  min-width: 30vw;
+  /* min-width: 30vw; */
   max-width: 330px;
   padding: 1rem;
   &:last-of-type {
@@ -56,7 +56,12 @@ export const SearchResultsDashboardDiv = styled.div`
     transparent 70%,
     var(--background-blur1)
   );
-  box-shadow: var(--boxShadowInset1);
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
+  /* box-shadow: var(--boxShadowInset1); */
   /* min-width: fit-content; */
   /* width: 900px; */
   border-radius: 20px;

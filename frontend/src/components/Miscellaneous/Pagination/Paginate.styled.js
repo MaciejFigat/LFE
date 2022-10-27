@@ -23,7 +23,7 @@ export const PaginateBorderWrapper = styled.div`
 `
 export const PaginateActive = styled.div`
   color: ${({ pageActive }) =>
-    pageActive ? 'var(--background3-main)' : 'var(--background4-main)'};
+    pageActive ? 'var(--background-secondary1)' : 'var(--background4-main)'};
   font-size: 0.75rem;
   ${({ miniVersion }) => miniVersion && 'font-size: 0.65rem;'};
 `

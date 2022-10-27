@@ -97,7 +97,7 @@ const DataSection: React.FC<DataSectionProps> = ({
       (visitedLinks) => visitedLinks.doc_link === fragData.doc_link
     )
     if (!existingLink) dispatch(addVisitedLink(fragData))
-    navigate('/search/result')
+    navigate(`/search/result#frag-${index}`)
   }
 
   return (

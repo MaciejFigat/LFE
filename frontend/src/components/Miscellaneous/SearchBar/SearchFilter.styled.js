@@ -84,8 +84,9 @@ export const SearchBarButton = styled.button`
   }
 `
 export const HighlightButton = styled(SearchBarButton)`
-  padding: 0.65rem;
-  font-size: 1.1rem;
+  border-radius: 10px;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  font-size: 1rem;
   margin-right: 1rem;
 `
 export const SearchBarForm = styled.form`
@@ -142,6 +143,7 @@ export const SearchInput = styled.input`
 `
 export const SearchInputResultDisplay = styled(SearchInput)`
   font-size: 1.1rem;
+  width: 137px;
 `
 export const NumberInput = styled(SearchInput)`
   width: 25px;
