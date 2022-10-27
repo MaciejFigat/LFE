@@ -53,9 +53,9 @@ export const InfoRow = styled.div`
   /* border-bottom: 1px solid var(--background2-main); */
   /* border: 1px solid var(--background2-main); */
   color: var(--background2-main);
-  box-shadow: var(--boxShadow1);
+  box-shadow: var(--boxShadowInset1);
   padding: ${({ border }) => border === true && '1.5rem'};
-  border-radius: 5px;
+  border-radius: 20px;
   @media (max-width: 880px) {
     flex-direction: ${({ imgStart }) =>
       imgStart === true ? 'column-reverse' : 'column'};
@@ -101,22 +101,22 @@ export const HeroWrapperColumn = styled.div`
   align-items: center;
   min-width: 50%;
   overflow: scroll;
-  max-height: 80vh;
+  /* max-height: 80vh; */
 `
 export const HeroWrapperRow = styled.div`
   display: flex;
   flex-direction: row;
-
+  align-items: flex-start;
   margin-top: 4rem;
 `
 export const HeroTextWrapper = styled.div`
   width: 80%;
   /* border: 1px solid var(--background4-main); */
-  border-left: 1px solid var(--background1-main);
-  border-bottom: 1px solid var(--background1-main);
+  /* border-left: 1px solid var(--background1-main);
+  border-bottom: 1px solid var(--background1-main); */
   color: var(--background2-main);
-  box-shadow: var(--boxShadow1);
-  border-radius: 5px;
+  box-shadow: var(--boxShadowInset1);
+  border-radius: 20px;
   padding: 1.5rem;
   @media screen and (max-width: 991px) {
     padding: 1rem;

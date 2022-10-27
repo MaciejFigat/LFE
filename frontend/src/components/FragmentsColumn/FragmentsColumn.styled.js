@@ -11,6 +11,10 @@ export const FragmentContainer = styled.div`
     borderBottom
       ? 'border-bottom: 1px solid var(--background2-main);'
       : 'border: none;'};
+  /* background: lime; */
+  width: 480px;
+  max-width: 40vw;
+
   /* border-left: 1px solid var(--background2-main); */
   /* border-bottom: 1px solid var(--background2-main); */
   /* border: 1px solid var(--background2-main); */

@@ -25,11 +25,18 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
   const removeCitationHandler = (id: string) => {
     dispatch(citationRemoved(id))
   }
+  const date = new Date()
+
+  let day = date.getDate()
+  let month = date.getMonth() + 1
+  let year = date.getFullYear()
+
+  let currentDate = `${day}-${month}-${year}`
   return (
     <AnimateSharedLayout>
       {citations.length > 0 &&
         citations
-          .map((citation) => (
+          .map((citation, index) => (
             <ListWrapperDemo
               as={motion.ul}
               key={citation.id}
@@ -43,7 +50,11 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
                   <ItemWrapper>
                     {' '}
                     <HorizontalContainer>
-                      <FragmentsP>Zapraszamy do zalogowania się</FragmentsP>
+                      {index === 0 ? (
+                        <FragmentsP>{citation.title}</FragmentsP>
+                      ) : (
+                        <FragmentsP>Przykład nr {index + 1}</FragmentsP>
+                      )}
                       <SendButtonVerySmall
                         variant='secondaryEmpty'
                         onClick={() => removeCitationHandler(citation.id)}
@@ -52,9 +63,13 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
                       </SendButtonVerySmall>
                     </HorizontalContainer>
                     <FragmentsPExcerpt>{citation.excerpt}</FragmentsPExcerpt>
-                    <FragmentsP>
-                      Zespół TurboLex, 29 sierpnia 2022, Warszawa
-                    </FragmentsP>
+                    {citation.source !== 'source' ? (
+                      <FragmentsP>{citation.source}</FragmentsP>
+                    ) : (
+                      <FragmentsP>
+                        Zespół TurboLex, {currentDate}, Warszawa
+                      </FragmentsP>
+                    )}
                   </ItemWrapper>
                 </FragmentContainer>
               )}

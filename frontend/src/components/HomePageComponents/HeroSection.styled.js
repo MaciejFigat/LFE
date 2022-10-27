@@ -81,8 +81,7 @@ export const HeroTitle = styled.div`
 `
 export const HeroTitleLeft = styled.div`
   display: flex;
-  font-size: 2rem;
-  font-family: 'raleway';
+  font-size: 1.8rem;
   font-weight: 700;
   justify-content: flex-start;
   align-items: center;

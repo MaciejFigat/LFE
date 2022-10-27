@@ -320,4 +320,6 @@ export const NavListDesktopWrapper = styled.div`
 export const MobileLinkText = styled.div`
   display: flex;
   align-items: center;
+  font-size: 0.75rem;
+  font-weight: 800;
 `

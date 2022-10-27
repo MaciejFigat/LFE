@@ -60,9 +60,9 @@ type LinkData = {
 }
 
 const links: LinkData[] = [
-  { name: 'Home', iconVariant: 'home', to: '/', id: '1' },
+  { name: 'Start', iconVariant: 'home', to: '/', id: '1' },
   {
-    name: 'Display',
+    name: 'Dokument',
     iconVariant: 'textLeft',
     to: '/search/result',
     id: '2',

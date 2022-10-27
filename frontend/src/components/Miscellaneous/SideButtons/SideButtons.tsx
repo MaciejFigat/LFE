@@ -28,7 +28,6 @@ const SideButtons: React.FC<SideButtonsProps> = ({ hashIds }) => {
   useEffect(() => {
     const hashIndex = location.hash.substring(6)
     dispatch(fragmentScrolledEdit(hashIndex))
-    console.log(hashIndex)
   }, [dispatch, location.hash])
 
   const colorChangeHelper = (index: number) => {
