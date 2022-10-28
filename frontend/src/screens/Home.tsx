@@ -9,6 +9,7 @@ import { UserInfo } from '../interfaces'
 import SearchResultsDisplay from '../components/HomePageComponents/SearchResultsDisplay'
 import ProjectsDisplay from '../components/HomePageComponents/ProjectsDisplay'
 import FragmentsDisplay from '../components/HomePageComponents/FragmentsDisplay'
+import VisitedLinks from '../components/Miscellaneous/VisitedLinks/VisitedLinks'
 // import HomeSearch from '../components/HomePageComponents/HomeSearch'
 
 const Home: React.FC = () => {
@@ -53,7 +54,11 @@ const Home: React.FC = () => {
     },
     {
       label: `Ostatnie wyniki`,
-      content: <h3>Ostatnie linki</h3>,
+      content: (
+        <>
+          <VisitedLinks large />
+        </>
+      ),
     },
   ]
 

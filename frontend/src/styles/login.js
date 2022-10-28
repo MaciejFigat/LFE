@@ -1,5 +1,26 @@
 import styled from 'styled-components'
 
+export const LoginWrapper = styled.div`
+  display: grid;
+  place-items: center;
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
+  width: 600px;
+  padding: 2rem;
+  border-radius: 20px;
+  background: linear-gradient(
+    120deg,
+    var(--background-blur1) 0%,
+    transparent 30%,
+    transparent 70%,
+    var(--background-blur1)
+  );
+  @media screen and (max-width: 960px) {
+    max-width: 80vw;
+  }
+`
 export const LoginContainer = styled.div`
   display: grid;
   place-items: center;
@@ -103,15 +124,16 @@ export const Title = styled.div`
   text-align: center;
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   margin-top: 1rem;
+  width: 50%;
 `
 export const LoginLink = styled.div`
   color: var(--background-secondary2);
   min-width: fit-content;
   transition: 0.3s;
-  font-weight: 500;
+  /* font-weight: 500; */
   cursor: pointer;
   :hover {
     color: var(--background-secondary1);
@@ -121,6 +143,7 @@ export const LoginLink = styled.div`
 export const LoginTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   min-width: fit-content;
   width: 100%;

@@ -31,7 +31,7 @@ export const SendButton = styled(motion.button)`
       ${(props) => handleButtonColor(props).buttonColorHover}
     }
   }
-  font-family: 'Quicksand', sans-serif;
+  /* font-family: 'Quicksand', sans-serif; */
   outline: none;
   border: none;
   ${(props) => handleButtonColor(props).buttonBorder};

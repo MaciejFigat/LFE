@@ -12,7 +12,7 @@ export const FilterOptionsWrapper = styled.div`
   height: ${({ wide }) => wide && '120px'};
   padding: ${({ wide }) => (wide ? '2rem' : '0.25rem')};
   margin: ${({ wide }) => (wide ? '2rem' : '0.25rem')};
-  border-radius: 5px;
+  border-radius: 20px;
   max-width: fit-content;
 
   min-height: 94px;

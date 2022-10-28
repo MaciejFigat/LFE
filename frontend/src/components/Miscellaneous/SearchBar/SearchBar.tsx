@@ -15,7 +15,7 @@ import {
   SpinnerWrapperSearch,
 } from './SearchBar.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
-import { ProgressBar, ThreeDots } from 'react-loader-spinner'
+import { ThreeDots, RotatingLines } from 'react-loader-spinner'
 
 interface SearchBarProps {
   isOpen: boolean
@@ -86,14 +86,13 @@ const SearchBar: React.FC<SearchBarProps> = ({
           ) : (
             <SpinnerWrapperSearch>
               {large ? (
-                <ProgressBar
-                  height='140'
-                  width='50'
+                <RotatingLines
+                  strokeColor='var(--background-secondary1)'
+                  strokeWidth='5'
+                  animationDuration='0.75'
                   ariaLabel='progress-bar-loading'
-                  // wrapperStyle={{ position: 'relative;', left: '120px;' }}
-                  wrapperClass='progress-bar-wrapper'
-                  borderColor='var(--background4-main)'
-                  barColor='var(--background-secondary1)'
+                  width='50'
+                  visible={true}
                 />
               ) : (
                 <ThreeDots

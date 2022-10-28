@@ -96,7 +96,7 @@ export const OpenedLayoutDiv = styled(motion.div)`
   border-top: 1px solid var(--background-blur2);
 
   color: var(--background2-main);
-  box-shadow: var(--boxShadow5);
+  box-shadow: var(--boxShadow4);
   /* border: 1px solid var(--background1-main); */
 `
 export const OpenedDivBig = styled(OpenedLayoutDiv)`

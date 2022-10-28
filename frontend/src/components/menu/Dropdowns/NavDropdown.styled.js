@@ -9,11 +9,37 @@ export const DropDownContainer = styled.div`
   margin: 0 auto;
 `
 
+export const ProjectNameDiv = styled.div`
+  display: grid;
+  place-items: center;
+  user-select: none;
+  padding-right: 0.5rem;
+  border-right: 1px solid var(--background-blur2);
+  min-width: 92px;
+`
 export const ProjectDropDownWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background-blur1);
+  border-radius: 12px;
+  padding: 0.2rem 0.4rem 0.2rem 0.5rem;
+  box-shadow: var(--boxShadowNone);
+  /* color: var(--background4-main);
+  background: transparent; */
+  &:hover {
+    color: var(--background4-main);
+    box-shadow: var(--boxShadow1);
+    /* background: transparent; */
+    svg {
+      color: var(--background-secondary1);
+    }
+  }
 
-  width: 154px;
+  width: 130px;
   gap: 0.5rem;
   /* width: 120px; */
   /* align-items: center; */
@@ -33,10 +59,10 @@ export const ProjectDropDownWrapper = styled.div`
 export const DropDownHeader = styled.div`
   display: grid;
   place-items: center center;
-
+  min-width: 15px;
   /* padding: 0.2rem 0.4rem 0.2rem 0.5rem; */
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   color: var(--background4-main);
   /* color: var(--background-secondary2); */
   /* background: var(--background1-main); */
@@ -46,7 +72,7 @@ export const DropDownHeader = styled.div`
     ${({ grey }) =>
       grey
         ? ' color: var(--background2-main);'
-        : 'color: var(--background5-main);'}
+        : 'color: var(--background4-main);'}
     &:hover {
       ${({ grey }) => grey && 'color: var(--background3-main);'}
     }

@@ -10,6 +10,7 @@ import {
   Main,
   ProjectDownList,
   ProjectDropDownWrapper,
+  ProjectNameDiv,
 } from './NavDropdown.styled'
 
 import ProjectMenuTwo from './ProjectMenuTwo'
@@ -53,23 +54,26 @@ const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
         <DropDownContainer>
           {Object.keys(userInfo).length > 0 && (
             <ProjectDropDownWrapper>
-              <NavLink
-                to='/storage'
-                className={(navData) =>
-                  'nav_link' + (navData.isActive ? ' activated' : '')
-                }
-              >
-                {projectName !== '' ? (
-                  projectName.substring(0, 10)
-                ) : (
-                  <>projekty</>
-                )}
-              </NavLink>
-              <DropDownHeader grey onClick={toggling}>
+              <ProjectNameDiv>
+                <NavLink
+                  to='/storage'
+                  className={(navData) =>
+                    'nav_link' + (navData.isActive ? ' activated' : '')
+                  }
+                >
+                  {projectName !== '' ? (
+                    projectName.substring(0, 10)
+                  ) : (
+                    <>projekty</>
+                  )}
+                </NavLink>
+              </ProjectNameDiv>
+              <DropDownHeader onClick={toggling}>
                 <SvgIcon
-                  variant={isOpen ? 'minus' : 'moreOptions'}
-                  contentAfter={isOpen ? 'zamknij' : 'wybierz projekt'}
-                  toBottom={isOpen ? false : true}
+                  variant={isOpen ? 'downPoint' : 'rightPoint'}
+                  noContent
+                  // contentAfter={isOpen ? 'zamknij' : 'wybierz projekt'}
+                  // toBottom={isOpen ? false : true}
                 />
               </DropDownHeader>
             </ProjectDropDownWrapper>

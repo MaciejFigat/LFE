@@ -3,11 +3,11 @@ import {
   Wrapper,
   Form,
   Input,
-  Button,
   LoginContainer,
   LoginTextWrapper,
   Title,
   LoginLink,
+  LoginWrapper,
 } from '../styles/login'
 import { useAppDispatch } from '../app/reduxHooks'
 import { createUser } from '../features/users/userSlice'
@@ -15,6 +15,10 @@ import Toast from '../components/Miscellaneous/Toast/Toast'
 
 import useRedirectLoggedListener from '../hooks/useRedirectListenerLogged'
 import { Link } from 'react-router-dom'
+import {
+  ButtonBig,
+  ButtonSmall,
+} from '../components/Miscellaneous/Buttons/BigButton.styled'
 interface RegisterProps {}
 
 const Register: React.FC<RegisterProps> = () => {
@@ -37,47 +41,50 @@ const Register: React.FC<RegisterProps> = () => {
     <LoginContainer>
       <Toast option='registerUser' />
       <Wrapper>
-        <h3>Witamy!</h3>
-        <Form onSubmit={submitHandler}>
-          <Input
-            type='name'
-            name='name'
-            placeholder='Wpisz imię'
-            value={name}
-            onChange={(e: any) => setName(e.target.value)}
-          />
-          <Input
-            type='email'
-            name='email'
-            placeholder='Wpisz email'
-            value={email}
-            onChange={(e: any) => setEmail(e.target.value)}
-          />
-          <Input
-            type='password'
-            name='password'
-            placeholder='Wpisz hasło'
-            value={password}
-            onChange={(e: any) => setPassword(e.target.value)}
-          />
-          <Button>Zarejestruj się</Button>
-        </Form>
-      </Wrapper>
-      <LoginTextWrapper>
-        <Title>
-          Powrót do ekranu{' '}
-          <Link to='/login'>
-            <LoginLink>&nbsp;logowania.</LoginLink>
-          </Link>
-        </Title>
-        <Title>
-          Po wypełnieniu powyższego formularza, zostanie wysłany email z
-          instrukcjami aktywowania konta.
-          {/* <LoginLink >
+        <LoginWrapper>
+          <h3>Witamy!</h3>
+          <Form onSubmit={submitHandler}>
+            <Input
+              type='name'
+              name='name'
+              placeholder='Wpisz imię'
+              value={name}
+              onChange={(e: any) => setName(e.target.value)}
+            />
+            <Input
+              type='email'
+              name='email'
+              placeholder='Wpisz email'
+              value={email}
+              onChange={(e: any) => setEmail(e.target.value)}
+            />
+            <Input
+              type='password'
+              name='password'
+              placeholder='Wpisz hasło'
+              value={password}
+              onChange={(e: any) => setPassword(e.target.value)}
+            />
+            <ButtonBig variant='primary'>Zarejestruj się</ButtonBig>
+          </Form>
+          <LoginTextWrapper>
+            <Title>
+              <ButtonSmall variant='secondary'>
+                <Link to='/login'>
+                  <LoginLink>Powrót do ekranu logowania</LoginLink>
+                </Link>{' '}
+              </ButtonSmall>
+            </Title>
+            <Title>
+              Po wypełnieniu powyższego formularza, zostanie wysłany email z
+              instrukcjami aktywowania konta.
+              {/* <LoginLink >
             &nbsp;resetuj hasło.
           </LoginLink> */}
-        </Title>
-      </LoginTextWrapper>
+            </Title>
+          </LoginTextWrapper>
+        </LoginWrapper>
+      </Wrapper>
     </LoginContainer>
   )
 }

@@ -8,13 +8,17 @@ import {
   Input,
   Button,
   Title,
-  LoginLink,
   LoginContainer,
   LoginTextWrapper,
+  LoginWrapper,
 } from '../styles/login'
 import useRedirectLoggedListener from '../hooks/useRedirectListenerLogged'
 import { sendEmailToResetPassword } from '../features/users/userSlice'
 import { UserInfo } from '../interfaces'
+import {
+  ButtonBig,
+  ButtonSmall,
+} from '../components/Miscellaneous/Buttons/BigButton.styled'
 
 interface LoginProps {}
 
@@ -49,46 +53,51 @@ const Login: React.FC<LoginProps> = () => {
   return (
     <LoginContainer>
       <Wrapper>
-        <h3>Zapraszamy</h3>
-        <Form onSubmit={submitHandler}>
-          <Input
-            type='email'
-            name='email'
-            placeholder='Wpisz email'
-            autoComplete='email'
-            value={email}
-            onChange={(e: any) => setEmail(e.target.value)}
-          />
+        <LoginWrapper>
+          <h3>Zapraszamy</h3>
+          <Form onSubmit={submitHandler}>
+            <Input
+              type='email'
+              name='email'
+              placeholder='Wpisz email'
+              autoComplete='email'
+              value={email}
+              onChange={(e: any) => setEmail(e.target.value)}
+            />
 
-          <Input
-            type='password'
-            autoComplete='current-password'
-            placeholder='Wpisz hasło'
-            value={password}
-            onChange={(e: any) => setPassword(e.target.value)}
-          />
+            <Input
+              type='password'
+              autoComplete='current-password'
+              placeholder='Wpisz hasło'
+              value={password}
+              onChange={(e: any) => setPassword(e.target.value)}
+            />
 
-          <Button>Zaloguj się</Button>
-        </Form>
-        {Object.keys(userInfoRedux).length > 0 && (
-          <Button onClick={logoutHandler}>Wyloguj się</Button>
-        )}
+            <ButtonBig variant='primary'>Logowanie</ButtonBig>
+          </Form>
+          {Object.keys(userInfoRedux).length > 0 && (
+            <Button onClick={logoutHandler}>Wylogowanie</Button>
+          )}
+          <LoginTextWrapper>
+            <ButtonBig variant='secondary'>
+              <Link to='/register'>Rejestracja</Link>
+            </ButtonBig>
+            {/* <Title>
+        
+              <Link to='/register'>
+                <LoginLink>&nbsp;rejestracja</LoginLink>
+              </Link>
+            </Title> */}
+            <Title>
+              Możesz zresetować hasło. Wpisz swój email w pole email powyżej i
+              kliknij
+              <ButtonSmall variant='secondary'>
+                <div onClick={resetPasswordHandler}>&nbsp;reset hasła</div>
+              </ButtonSmall>
+            </Title>
+          </LoginTextWrapper>
+        </LoginWrapper>
       </Wrapper>
-      <LoginTextWrapper>
-        <Title>
-          Jeśli nie masz konta,{' '}
-          <Link to='/register'>
-            <LoginLink>&nbsp;zarejestruj się.</LoginLink>
-          </Link>
-        </Title>
-        <Title>
-          Możesz zresetować hasło. Wpisz swój email w pole email powyżej i
-          kliknij -
-          <LoginLink onClick={resetPasswordHandler}>
-            &nbsp;resetuj hasło.
-          </LoginLink>
-        </Title>
-      </LoginTextWrapper>
     </LoginContainer>
   )
 }

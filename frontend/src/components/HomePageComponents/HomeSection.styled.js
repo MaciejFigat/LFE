@@ -49,18 +49,21 @@ export const InfoRow = styled.div`
     imgStart === true ? 'row-reverse' : 'row'};
   /* border: ${({ border }) =>
     border === true ? '1px solid var(--background2-main)' : 'none'}; */
-  /* border-left: 1px solid var(--background2-main); */
-  /* border-bottom: 1px solid var(--background2-main); */
-  /* border: 1px solid var(--background2-main); */
-  color: var(--background2-main);
-  box-shadow: var(--boxShadowInset1);
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
+  color: var(--background4-main);
+  /* box-shadow: var(--boxShadowInset1); */
   padding: ${({ border }) => border === true && '1.5rem'};
   border-radius: 20px;
   @media (max-width: 880px) {
     flex-direction: ${({ imgStart }) =>
       imgStart === true ? 'column-reverse' : 'column'};
     margin: 0;
-    padding: 0;
+    padding: 1rem 0.75rem;
+    /* padding-top: 1rem; */
+    /* padding-bottom: 1rem; */
   }
 `
 export const InfoColumn = styled.div`
@@ -79,15 +82,21 @@ export const InfoColumnShort = styled(InfoColumn)`
   min-height: 120%;
   text-align: left;
   /* border-color: ${(props) => handleSectionColor(props).color}; */
-  border-left: 1px solid var(--background2-main);
-  border-bottom: 1px solid var(--background2-main);
-  border-radius: 5px;
-  color: var(--background2-main);
+  box-shadow: var(--boxShadowInset1);
+  border-radius: 20px;
+  color: var(--background4-main);
   /* box-shadow: var(--boxShadow1); */
-  ${({ imgStart }) =>
-    imgStart ? 'border-left: 1px solid' : 'border-right: 1px solid'};
+  /* ${({ imgStart }) =>
+    imgStart
+      ? 'border: 1px solid var(--background-blur1)'
+      : 'border: 1px solid var(--background-blur1)'}; */
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur1);
+  border-top: 1px solid var(--background-blur1);
   @media screen and (max-width: 901px) {
     border: none;
+    box-shadow: none;
   }
 `
 export const InfoColumnShortSimple = styled(InfoColumnShort)`
@@ -114,8 +123,12 @@ export const HeroTextWrapper = styled.div`
   /* border: 1px solid var(--background4-main); */
   /* border-left: 1px solid var(--background1-main);
   border-bottom: 1px solid var(--background1-main); */
-  color: var(--background2-main);
-  box-shadow: var(--boxShadowInset1);
+  color: var(--background4-main);
+  /* box-shadow: var(--boxShadowInset1); */
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
   border-radius: 20px;
   padding: 1.5rem;
   @media screen and (max-width: 991px) {
@@ -128,6 +141,7 @@ export const TextWrapperParSimple = styled.div`
   justify-content: space-between;
   margin-bottom: 0.6rem;
   font-weight: 500;
+  color: var(--background4-main);
 `
 export const TextWrapper = styled.div`
   /* background: brown; */

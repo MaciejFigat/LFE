@@ -1,5 +1,5 @@
 import React from 'react'
-import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
+
 import { useAppSelector } from '../../../app/reduxHooks'
 import {
   VisitedLinkPar,
@@ -8,10 +8,13 @@ import {
 } from './VisitedLinks.styled'
 import LinksPagination from '../Pagination/LinksPagination'
 import { NavLink } from 'react-router-dom'
+import { ButtonSmall, ButtonVerySmall } from '../Buttons/BigButton.styled'
 
-interface VisitedLinksProps {}
+interface VisitedLinksProps {
+  large?: boolean
+}
 
-const VisitedLinks: React.FC<VisitedLinksProps> = () => {
+const VisitedLinks: React.FC<VisitedLinksProps> = ({ large }) => {
   const visitedLinks: any[] = useAppSelector(
     (state) => state.searchResult.visitedLinks
   )
@@ -43,21 +46,31 @@ const VisitedLinks: React.FC<VisitedLinksProps> = () => {
           .filter((linkSorted) => linkSorted.test === false || !linkSorted.test)
           .slice(start, end + 1)
           .map((link: any) => (
-            <VisitedLinkWrapper key={Math.random()}>
-              <VisitedLinkRow>
+            <VisitedLinkWrapper key={Math.random()} large={large}>
+              <VisitedLinkRow large={large}>
                 <NavLink to={`/search/result/${link.id}/${link.query}`}>
                   <VisitedLinkPar>
                     {link.query.replace('%20', ' ')} | {link.data} |{' '}
                     {link.rodzaj_orzeczenia}
                   </VisitedLinkPar>
                 </NavLink>
-                <SendButtonVerySmall
-                  variant='lightEmpty'
-                  // onClick={() => copyHandler(link.doc_link)}
-                  onClick={() => copyHandler(link.id, link.query)}
-                >
-                  kopiuj link
-                </SendButtonVerySmall>
+
+                {large ? (
+                  <ButtonSmall
+                    variant='secondary'
+                    onClick={() => copyHandler(link.id, link.query)}
+                  >
+                    {' '}
+                    kopiuj link
+                  </ButtonSmall>
+                ) : (
+                  <ButtonVerySmall
+                    variant='secondary'
+                    onClick={() => copyHandler(link.id, link.query)}
+                  >
+                    kopiuj link
+                  </ButtonVerySmall>
+                )}
               </VisitedLinkRow>
             </VisitedLinkWrapper>
           ))}

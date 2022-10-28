@@ -10,6 +10,7 @@ interface FilterWrapperProps {
   wide?: boolean
 }
 const optionsTest = ['data', 'projekt', 'wszystkie']
+
 const FilterWrapper: React.FC<FilterWrapperProps> = ({ wide }) => {
   const sortingOption: string = useAppSelector(
     (state) => state.preference.sortingOption
