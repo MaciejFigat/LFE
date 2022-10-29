@@ -10,7 +10,7 @@ export const IconsItem = styled.div`
   display: flex;
 
   ${({ lowerPosition }) => lowerPosition && 'position: relative;'}
-  ${({ lowerPosition }) => lowerPosition && 'top: 4px;'}
+  top: ${({ lowerPosition }) => lowerPosition && lowerPosition};
   justify-content: center;
   align-items: center;
   flex-direction: column;

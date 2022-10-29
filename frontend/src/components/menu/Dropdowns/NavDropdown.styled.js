@@ -28,7 +28,8 @@ export const ProjectDropDownWrapper = styled.div`
   border-radius: 12px;
   padding: 0.2rem 0.4rem 0.2rem 0.5rem;
   box-shadow: var(--boxShadowNone);
-  /* color: var(--background4-main);
+  /* color: var(--background4-main); */
+  /* 
   background: transparent; */
   &:hover {
     color: var(--background4-main);
@@ -45,8 +46,8 @@ export const ProjectDropDownWrapper = styled.div`
   /* align-items: center; */
   font-size: 0.75rem;
   @media (max-width: 1020px) {
-    font-size: 1.15rem;
-    font-weight: 400;
+    font-size: 0.75rem;
+    font-weight: 800;
   }
   @media screen and (max-width: 770px) {
     width: 100px;

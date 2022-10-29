@@ -133,8 +133,8 @@ export const DropDownHeaderMisc = styled.div`
   padding: 0.2rem 0.4rem 0.2rem 0.5rem;
   font-weight: 700;
   font-size: 0.75rem;
-  color: var(--background1-main);
-  background: var(--background4-main);
+  color: var(--background4-main);
+  background: var(--background1-main);
   transition: all 0.3s ease-out;
   text-align: center;
   &:hover {
@@ -153,9 +153,14 @@ export const DropDownHeaderMisc = styled.div`
 `
 export const DropDownHeaderMenu = styled(DropDownHeaderMisc)`
   width: 130px;
+  max-width: fit-content;
   box-shadow: var(--boxShadowNone);
   color: var(--background4-main);
   background: transparent;
+  height: 32px;
+  max-height: 34px;
+  /* padding-right: 0.5rem; */
+  padding: 0 1.25rem;
   &:hover {
     color: var(--background4-main);
     box-shadow: var(--boxShadow1);
@@ -201,7 +206,7 @@ export const SpaceAroundWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  color: var(--background1-main);
+  color: var(--background4-main);
   transition: 0.2s;
   ${DropDownHeaderMisc}:hover & {
     color: var(--background-secondary1);
@@ -229,8 +234,8 @@ export const SvgWrapperMisc = styled.div`
   top: 2px;
   font-size: 0.95rem;
   svg {
-    transition: 0.2s !important;
-    color: var(--background1-main);
+    transition: 0.2s;
+    color: var(--background4-main);
   }
   ${DropDownHeaderMisc}:hover & {
     svg {

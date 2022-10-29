@@ -272,7 +272,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                   variant='cog'
                   toBottom
                   contentAfter='opcje'
-                  lowerPosition
+                  lowerPosition='3px'
                 />
               </SendButtonVerySmall>
             )}

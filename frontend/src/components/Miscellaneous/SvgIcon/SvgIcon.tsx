@@ -79,7 +79,7 @@ interface SvgIconProps {
   noContent?: boolean
   showContent?: boolean
   toBottom?: boolean
-  lowerPosition?: boolean
+  lowerPosition?: string
 }
 
 const SvgIcon: React.FC<SvgIconProps> = ({

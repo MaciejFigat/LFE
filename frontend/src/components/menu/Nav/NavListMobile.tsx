@@ -11,6 +11,7 @@ import { NavLink } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 import ProjectDropdown from '../Dropdowns/ProjectDropdown'
+import { DropDownHeaderMenu } from '../../../styles/misc.styled'
 interface NavListMobileProps {
   open: boolean
   scrollDirection?: 'up' | 'down' | 'top' | undefined | null
@@ -96,21 +97,29 @@ const NavListMobile: React.FC<NavListMobileProps> = ({
               {links.map(({ name, to, id, iconVariant }) => (
                 <ListItem key={id}>
                   <motion.div variants={itemVariants}>
-                    <NavLink
-                      to={to}
-                      className={(navData) =>
-                        'nav_link' + (navData.isActive ? ' activated' : '')
-                      }
-                    >
+                    {' '}
+                    <DropDownHeaderMenu>
                       {' '}
-                      <ListItemMobile>
-                        {' '}
-                        <MobileSvgDiv>
-                          <SvgIcon variant={iconVariant} noMargin />
-                        </MobileSvgDiv>
-                      </ListItemMobile>
-                      <MobileLinkText>{name}</MobileLinkText>
-                    </NavLink>
+                      <NavLink
+                        to={to}
+                        className={(navData) =>
+                          'nav_link' + (navData.isActive ? ' activated' : '')
+                        }
+                      >
+                        <MobileLinkText>{name}</MobileLinkText>
+                        <ListItemMobile>
+                          {' '}
+                          <MobileSvgDiv>
+                            <SvgIcon
+                              variant={iconVariant}
+                              noMargin
+                              noContent
+                              lowerPosition='2px'
+                            />
+                          </MobileSvgDiv>
+                        </ListItemMobile>{' '}
+                      </NavLink>
+                    </DropDownHeaderMenu>
                   </motion.div>
                 </ListItem>
               ))}

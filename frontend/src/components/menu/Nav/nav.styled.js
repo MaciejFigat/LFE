@@ -24,7 +24,7 @@ export const TransitionWrapperMain = styled.div`
 
     background: var(--background1-main);
     .nav_link {
-      color: var(--background5-main);
+      /* color: var(--background4-main); */
     }
   }
   .active {
@@ -55,7 +55,7 @@ export const TransitionWrapperMain = styled.div`
     transform: translateY(-130%);
     //todo where is the violet color ?
 
-    color: var(--background5-main);
+    color: var(--background4-main);
   }
 `
 export const TransitionWrapper = styled.div`
@@ -163,8 +163,9 @@ export const HeaderLoginWrapper = styled.div`
 `
 
 export const MobileSvgDiv = styled.div`
-  min-height: 100%;
-
+  /* min-height: 100%; */
+  margin: 0;
+  padding: 0;
   li {
     color: var(--background5-main) !important;
     transition: color 300ms ease-out;
@@ -193,10 +194,10 @@ export const ListItem = styled(motion.div)`
     font-size: 1.15rem;
     margin-right: 0.25rem;
     margin-left: 1.25rem;
-    font-weight: 400;
+    /* font-weight: 400; */
     /* @media screen and (orientation: landscape) { */
     @media (max-width: 700px) and (orientation: landscape) {
-      font-size: 1.55rem;
+      font-size: 1.15rem;
     }
     @media (max-width: 500px) {
       font-size: 1.15rem;
@@ -209,18 +210,16 @@ export const ListItemMobile = styled.div`
   display: none;
   font-size: 1.25rem;
   margin-right: 0.25rem;
-  color: var(--background5-main);
+  color: var(--background4-main);
   margin: 0;
   flex-direction: column;
   text-transform: uppercase;
   gap: 2rem;
-  padding: 0.5rem;
+
   @media (max-width: 1020px) {
-    /* align-items: left; */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 0.5rem;
   }
   @media screen and (max-width: 770px) {
     padding: 0;
@@ -245,9 +244,9 @@ export const MobileViewContainer = styled.div`
   }
 `
 export const HeaderTitleMobile = styled.h1`
-  color: var(--background1-main);
-  font-size: 1.75rem;
-  font-weight: 400;
+  /* color: var(--background1-main); */
+  /* font-size: 1.75rem; */
+  /* font-weight: 400; */
   display: none;
 
   max-width: fit-content;
