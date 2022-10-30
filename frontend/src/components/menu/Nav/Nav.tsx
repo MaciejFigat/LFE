@@ -96,7 +96,7 @@ const Nav: React.FC<NavProps> = () => {
           <div onClick={handleClickMenu}>
             <Burger menuOpen={open} />
           </div>
-          <HeaderTitleMobile wide>
+          <HeaderTitleMobile>
             <SearchDropdown scrollDirection={scrollDirection} />
           </HeaderTitleMobile>
           <HeaderTitleMobile>

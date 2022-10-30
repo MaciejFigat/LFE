@@ -78,12 +78,21 @@ const NavListMobile: React.FC<NavListMobileProps> = ({
     <AnimatePresence>
       {open && (
         <AnimatedWrapperMobile
-          initial={{ height: 0 }}
-          animate={{
-            height: '50px',
-          }}
-          exit={{
+          initial={{
+            opacity: 0,
             height: 0,
+            borderColor: 'var(--background-blur1)',
+          }}
+          // initial={{ width: 0, height: 0 }}
+          animate={{
+            height: '62px',
+            opacity: 1,
+            borderColor: 'var(--background-blur2)',
+            // width: '40vw',
+          }}
+          transition={{ type: 'default' }}
+          exit={{
+            height: '5px',
             transition: { delay: 0.7, duration: 0.3 },
           }}
         >

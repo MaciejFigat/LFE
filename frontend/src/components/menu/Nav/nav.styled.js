@@ -29,7 +29,7 @@ export const TransitionWrapperMain = styled.div`
   }
   .active {
     transition: all 600ms ease-in;
-
+    border-bottom: 1px solid var(--background-blur2);
     background: var(--background1-main);
   }
   .active.open {
@@ -63,7 +63,10 @@ export const TransitionWrapper = styled.div`
   top: 0;
   /* //! irritating gap holy grail no 2 */
   /* max-height: 3.4rem; */
-  height: 57px;
+  /* height: 57px; */
+  //todo
+  border-bottom: 1px solid var(--background1-main);
+  height: 67px;
   @media (min-width: 1020px) {
     display: flex;
     justify-content: center;
@@ -116,7 +119,7 @@ export const NavList = styled.ul`
   }
   @media (max-width: 550px) {
     justify-content: center;
-    background: red !important;
+    /* background: red !important; */
   }
   @media (max-width: 400px) {
     margin-top: 0rem;
@@ -130,25 +133,13 @@ export const ListLoginWrapper = styled.div`
 export const MobileNavList = styled.ul`
   display: flex;
   flex-direction: row;
-  /* justify-content: space-around; */
   justify-content: center;
-  /* align-items: flex-start; */
   align-items: center;
   list-style: none;
-  /* height: 100%; */
   margin: 0;
   padding: 0;
-  /* min-width: 30vw; */
-  /* width: 30%; */
   width: 100%;
-  /* position: sticky; */
-  /* position: absolute; */
   top: 110px;
-  /* height: calc(100vh - 50px); */
-  /* min-height: 35vh; */
-  /* max-width: 50vw; */
-  /* min-width: fit-content; */
-  /* padding-bottom: 3rem; */
   gap: 0.55rem;
   @media (max-width: 520px) {
     gap: 0rem;
@@ -163,7 +154,6 @@ export const HeaderLoginWrapper = styled.div`
 `
 
 export const MobileSvgDiv = styled.div`
-  /* min-height: 100%; */
   margin: 0;
   padding: 0;
   li {
@@ -297,8 +287,11 @@ export const AnimatedWrapperMobile = styled(motion.div)`
   height: 60px;
   display: none;
   position: absolute;
-  top: 50px;
-  @media (max-width: 1020px) {
+  //todo
+  /* background: brown; */
+  border-bottom: 1px solid var(--background-blur1);
+  top: 62px;
+  @media (max-width: 1019px) {
     display: flex;
     align-items: center;
     justify-content: center;
