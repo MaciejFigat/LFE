@@ -16,6 +16,7 @@ export const ProjectNameDiv = styled.div`
   padding-right: 0.5rem;
   border-right: 1px solid var(--background-blur2);
   min-width: 92px;
+  letter-spacing: 0.075em;
 `
 export const ProjectDropDownWrapper = styled.div`
   display: flex;
@@ -51,11 +52,11 @@ export const ProjectDropDownWrapper = styled.div`
     font-weight: 800;
   }
   @media screen and (max-width: 770px) {
-    width: 100px;
+    /* width: 100px; */
     /* justify-content: flex-start; */
   }
-  @media screen and (max-width: 400px) {
-    width: 70px;
+  @media screen and (max-width: 500px) {
+    /* width: 70px; */
   }
 `
 export const DropDownHeader = styled.div`
@@ -161,6 +162,15 @@ export const DropDownListContainer = styled.div`
   @media screen and (max-width: 590px) {
     right: 30px;
   }
+  @media (max-width: 520px) {
+    width: 270px;
+    right: 30px;
+    /* max-width: 300px; */
+    min-width: 0;
+  }
+  @media (max-width: 520px) {
+    right: 10px;
+  }
 `
 
 export const ProjectDownList = styled.div`
@@ -171,6 +181,7 @@ export const ProjectDownList = styled.div`
   width: fit-content;
   color: var(--background5-main);
   background: none;
+
   padding: 0.5rem;
 `
 export const DropDownList = styled.div`

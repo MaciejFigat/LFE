@@ -54,9 +54,9 @@ export const IconsItem = styled.div`
       left: ${({ toLeft }) => (toLeft ? '-45px; ' : '-40px;')};
       left: ${({ toBottom }) => toBottom && '0px;'}; */
     }
-    @media (max-width: 380px) {
+    /* @media (max-width: 380px) {
       display: none;
-    }
+    } */
     height: 5px;
   }
 `

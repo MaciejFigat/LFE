@@ -119,7 +119,7 @@ export const NavList = styled.ul`
   }
   @media (max-width: 550px) {
     justify-content: center;
-    /* background: red !important; */
+    background: red !important;
   }
   @media (max-width: 400px) {
     margin-top: 0rem;
@@ -141,7 +141,9 @@ export const MobileNavList = styled.ul`
   width: 100%;
   top: 110px;
   gap: 0.55rem;
+
   @media (max-width: 520px) {
+    width: 90%;
     gap: 0rem;
   }
 `
@@ -175,7 +177,6 @@ export const ListItem = styled(motion.div)`
   font-size: 1.05rem;
   letter-spacing: 0.075em;
   font-weight: 700;
-
   text-transform: uppercase;
   /* color: var(--background5-main); */
   @media (max-width: 1020px) {
@@ -208,12 +209,19 @@ export const ListItemMobile = styled.div`
 
   @media (max-width: 1020px) {
     display: flex;
+    margin-left: 1.1rem;
     align-items: center;
     justify-content: center;
   }
   @media screen and (max-width: 770px) {
     padding: 0;
     gap: 0.25rem;
+  }
+  @media (max-width: 360px) {
+    display: flex;
+    margin-left: 0rem;
+    align-items: center;
+    justify-content: center;
   }
 `
 // TODO here lies the background property of the holy grail. Meaning the container that shows when scrolling top.
@@ -231,6 +239,9 @@ export const MobileViewContainer = styled.div`
   @media (max-width: 680px) {
     max-width: 98%;
     /* justify-content: center; */
+  }
+  @media (max-width: 540px) {
+    justify-content: space-around;
   }
 `
 export const HeaderTitleMobile = styled.h1`
@@ -298,6 +309,9 @@ export const AnimatedWrapperMobile = styled(motion.div)`
   }
   @media (max-width: 520px) {
     justify-content: flex-start;
+    /* flex-direction: row; */
+    /* align-items: center; */
+    /* justify-content: center; */
   }
 `
 export const NavListDesktopWrapper = styled.div`
@@ -314,4 +328,7 @@ export const MobileLinkText = styled.div`
   align-items: center;
   font-size: 0.75rem;
   font-weight: 800;
+  @media screen and (max-width: 520px) {
+    display: none;
+  }
 `

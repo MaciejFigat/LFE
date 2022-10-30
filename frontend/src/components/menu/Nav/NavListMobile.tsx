@@ -116,17 +116,16 @@ const NavListMobile: React.FC<NavListMobileProps> = ({
                         }
                       >
                         <MobileLinkText>{name}</MobileLinkText>
-                        <ListItemMobile>
-                          {' '}
-                          <MobileSvgDiv>
-                            <SvgIcon
-                              variant={iconVariant}
-                              noMargin
-                              noContent
-                              lowerPosition='2px'
-                            />
-                          </MobileSvgDiv>
-                        </ListItemMobile>{' '}
+                        {/* <ListItemMobile> */}{' '}
+                        <MobileSvgDiv>
+                          <SvgIcon
+                            variant={iconVariant}
+                            noMargin
+                            noContent
+                            lowerPosition='2px'
+                          />
+                        </MobileSvgDiv>
+                        {/* </ListItemMobile>{' '} */}
                       </NavLink>
                     </DropDownHeaderMenu>
                   </motion.div>

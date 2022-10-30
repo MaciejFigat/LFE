@@ -15,6 +15,10 @@ export const ProjectMenuWrapper = styled(motion.div)`
       ? 'background: var(--background1-main);'
       : 'background: var(--background1-main);'} */
   background: var(--background1-main);
+  @media (max-width: 520px) {
+    width: 220px;
+    min-width: 0;
+  }
 `
 export const ProjectMenuContainer = styled(motion.div)`
   display: flex;
@@ -82,4 +86,8 @@ export const DragMenuButton = styled(motion.div)`
   ${({ position }) => position === 'right' && 'right: 4%;'};
   ${({ position, wide }) => position === 'right' && wide && 'right: 2.5%;'};
   z-index: 11;
+  @media (max-width: 520px) {
+    ${({ position }) => position === 'left' && 'left: 75%;'};
+    ${({ position }) => position === 'right' && 'right: 8%;'};
+  }
 `

@@ -190,6 +190,10 @@ export const Main = styled.div`
   @media (max-width: 1020px) {
     font-size: 1.25rem;
   }
+  @media (max-width: 520px) {
+    font-size: 1.25rem;
+    width: fit-content;
+  }
 `
 export const DropDownContainer = styled.div`
   min-width: min-content;
