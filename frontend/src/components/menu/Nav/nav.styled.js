@@ -219,7 +219,7 @@ export const ListItemMobile = styled.div`
   }
   @media (max-width: 360px) {
     display: flex;
-    margin-left: 0rem;
+    margin-left: 0.5rem;
     align-items: center;
     justify-content: center;
   }
@@ -308,7 +308,7 @@ export const AnimatedWrapperMobile = styled(motion.div)`
     justify-content: center;
   }
   @media (max-width: 520px) {
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     /* flex-direction: row; */
     /* align-items: center; */
     /* justify-content: center; */

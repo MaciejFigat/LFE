@@ -77,6 +77,13 @@ export const SearchBarWrapper = styled.div`
     height: ${({ large }) => (large ? '40px' : '30px')};
     min-width: fit-content;
   }
+
+  /* @media (max-width: 320px) {
+    max-width: ${({ large }) => (large ? '370px' : '150px')};
+    min-width: ${({ large }) => (large ? '0' : 'fit-content')};
+    width: ${({ large }) => (large ? '370px' : '150px')};
+    background: brown;
+  } */
   @media (max-width: 420px) {
     gap: 0.25rem;
     height: ${({ large }) => (large ? '30px' : '25px')};
@@ -146,6 +153,9 @@ export const SearchInput = styled.input`
     min-width: ${({ large }) => (large ? '270px' : 'fit-content')};
     border-radius: ${({ large }) => (large ? '14px' : '12px')};
   }
+  /* @media (max-width: 320px) {
+    max-width: ${({ large }) => (large ? '200px' : '100px')};
+  } */
   @media (max-width: 420px) {
     min-width: ${({ large }) => (large ? '200px' : 'fit-content')};
     font-size: 0.8rem;

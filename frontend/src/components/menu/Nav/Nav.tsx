@@ -7,7 +7,7 @@ import {
   MobileViewContainer,
   HeaderTitleMobile,
   WrapperDesktopOnly,
-  MobileNavContainer,
+  // MobileNavContainer,
 } from './nav.styled'
 import NavListDesktop from './NavListDesktop'
 import NavListMobile from './NavListMobile'
@@ -105,9 +105,9 @@ const Nav: React.FC<NavProps> = () => {
         </MobileViewContainer>
 
         {/* <MobileNavContainer onClick={handleCloseMenu}> */}
-        <MobileNavContainer>
-          <NavListMobile open={open} scrollDirection={scrollDirection} />
-        </MobileNavContainer>
+        {/* <MobileNavContainer> */}
+        <NavListMobile open={open} scrollDirection={scrollDirection} />
+        {/* </MobileNavContainer> */}
         <NavListDesktop scrollDirection={scrollDirection} />
       </TransitionWrapper>
     </TransitionWrapperMain>

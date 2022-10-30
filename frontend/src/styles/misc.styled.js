@@ -177,11 +177,19 @@ export const DropDownHeaderMenu = styled(DropDownHeaderMisc)`
       color: var(--background-secondary1);
     }
   }
+  @media (max-width: 520px) {
+    border-radius: 50%;
+    max-height: 32px;
+    min-width: 32px;
+    padding: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
 `
 export const DropDownHeaderMini = styled(DropDownHeaderMisc)`
-  width: fit-content;
+  /* width: fit-content; */
   padding: 0.5rem;
-  height: fit-content;
+  /* height: fit-content; */
   height: 25px;
   width: 25px;
   border-radius: 50%;
@@ -200,6 +208,12 @@ export const DropDownHeaderMini = styled(DropDownHeaderMisc)`
     svg {
       color: var(--background4-main);
     }
+  }
+  @media (max-width: 520px) {
+    padding: 0.25rem;
+    height: fit-content;
+    height: 20px;
+    width: 20px;
   }
 `
 export const SpaceAroundWrapper = styled.div`
@@ -242,6 +256,9 @@ export const SvgWrapperMisc = styled.div`
       /* color: var(--background1-main); */
       color: var(--background-secondary1);
     }
+  }
+  @media (max-width: 520px) {
+    font-size: 0.85rem;
   }
 `
 export const SvgWrapperMiscSmall = styled(SvgWrapperMisc)`

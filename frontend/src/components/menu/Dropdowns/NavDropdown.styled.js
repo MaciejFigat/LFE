@@ -55,7 +55,7 @@ export const ProjectDropDownWrapper = styled.div`
     /* width: 100px; */
     /* justify-content: flex-start; */
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 520px) {
     /* width: 70px; */
   }
 `
