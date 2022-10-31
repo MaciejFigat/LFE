@@ -49,7 +49,7 @@ const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
               exit={{ y: -10, opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
-              {keywordMain}
+              Przejdź do: {keywordMain}
             </ProjectH2>
           </NavLink>
         )}

@@ -101,8 +101,8 @@ export const ProjectH2NoHover = styled(ProjectH2)`
 `
 export const ProjectMenuContainerHome = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: var(--background1-main);
+  grid-template-columns: repeat(3, 1fr);
+  /* background: var(--background1-main); */
   gap: 1.25rem;
   cursor: grab;
   white-space: nowrap;
@@ -110,10 +110,10 @@ export const ProjectMenuContainerHome = styled(motion.div)`
   margin-bottom: 1rem;
 
   @media screen and (max-width: 940px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   @media screen and (max-width: 700px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   @media screen and (max-width: 470px) {
     grid-template-columns: repeat(1, 1fr);

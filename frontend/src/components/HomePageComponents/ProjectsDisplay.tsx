@@ -11,6 +11,8 @@ import {
 import ProjectsEnumeration from './ProjectsEnumeration'
 import { ProjectH2NoHover } from './ProjectsComponents.styled'
 import StaggerChildrenWrapperSecondary from '../Miscellaneous/AnimationWrappers/StaggerChildrenWrapperSecondary'
+// import ResizableScrollSection from '../Miscellaneous/ScrollSection/ResizableScrollSection'
+import ScrollSection from '../Miscellaneous/ScrollSection/ScrollSection'
 
 interface ProjectsDisplayProps {}
 
@@ -42,6 +44,8 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
   const projectName = useAppSelector(
     (state) => state.preference.sortingKeywords.keywordMain
   )
+  //todo
+  // const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
 
   useMemo(() => {
     if (projectName !== '') {
@@ -55,26 +59,32 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
   return (
     <SearchResultsSectionWrapper>
       {' '}
-      <ProjectsEnumeration />
-      <MainProjectWrapper>
-        {projectName !== '' && (
-          <SwitchResultWrapper>
-            <ProjectH2NoHover>Przypisane fragmenty</ProjectH2NoHover>
-          </SwitchResultWrapper>
-        )}
-        {fragmentsKeywordMain.length > 0 && (
-          <StaggerChildrenWrapperSecondary key={projectName}>
-            {' '}
-            <MainProjectDetails>
-              {fragmentsKeywordMain?.map((fragment) => (
-                <ProjectDiv variants={dropUpVariants} key={Math.random()}>
-                  {fragment.title}
-                </ProjectDiv>
-              ))}
-            </MainProjectDetails>
-          </StaggerChildrenWrapperSecondary>
-        )}
-      </MainProjectWrapper>
+      <ScrollSection
+        // widthBig='200px'
+        // widthSmall='100px'
+        wideSection={<ProjectsEnumeration />}
+        narrowSection={
+          <MainProjectWrapper>
+            {projectName !== '' && (
+              <SwitchResultWrapper>
+                <ProjectH2NoHover>Przypisane fragmenty</ProjectH2NoHover>
+              </SwitchResultWrapper>
+            )}
+            {fragmentsKeywordMain.length > 0 && (
+              <StaggerChildrenWrapperSecondary key={projectName}>
+                {' '}
+                <MainProjectDetails>
+                  {fragmentsKeywordMain?.map((fragment) => (
+                    <ProjectDiv variants={dropUpVariants} key={Math.random()}>
+                      {fragment.title}
+                    </ProjectDiv>
+                  ))}
+                </MainProjectDetails>
+              </StaggerChildrenWrapperSecondary>
+            )}
+          </MainProjectWrapper>
+        }
+      />
     </SearchResultsSectionWrapper>
   )
 }

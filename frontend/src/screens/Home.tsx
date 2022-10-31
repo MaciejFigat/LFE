@@ -18,7 +18,7 @@ const Home: React.FC = () => {
   //todo tabs used for unlogged user
   const tabsTutorial = [
     {
-      label: 'Wyszukiwanie',
+      label: 'Wyszukaj',
       content: (
         <>
           <SearchResultsDisplay />
@@ -26,11 +26,11 @@ const Home: React.FC = () => {
       ),
     },
     {
-      label: 'Zapisywanie',
+      label: 'Zapisz',
       content: <HeroTwo />,
     },
     {
-      label: 'Eksport',
+      label: 'Eksportuj',
       content: <HeroThree />,
     },
   ]

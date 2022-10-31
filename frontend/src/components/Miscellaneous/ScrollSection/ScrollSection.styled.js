@@ -2,9 +2,10 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const ScrollSec = styled.div`
-  background: var(--background1-main);
+  /* background: var(--background1-main); */
   color: var(--background4-main);
   min-height: fit-content;
+  /* width: 90vw; */
   @media (max-width: 880px) {
     padding: 0;
   }
@@ -12,6 +13,8 @@ export const ScrollSec = styled.div`
 export const ScrollSectionRow = styled.div`
   display: flex;
   min-height: fit-content;
+  justify-content: center;
+  width: 100%;
   flex-direction: ${({ imgStart }) =>
     imgStart === true ? 'row-reverse' : 'row'};
 `
@@ -24,8 +27,8 @@ export const SectionColumn = styled.div`
   padding-left: 15px;
   max-height: 100vh;
   min-height: fit-content;
-  flex-basis: ${({ width }) => (width ? `${width}` : '15%')};
-
+  flex-basis: ${({ width }) => (width ? `${width}` : '40%')};
+  /* background: red; */
   overflow: scroll;
   @media (max-width: 1020px) {
     flex-basis: 65%;
@@ -50,7 +53,8 @@ export const SectionColumnScroll = styled.div`
   align-items: center;
   margin-bottom: 15px;
   padding-left: 15px;
-  flex-basis: ${({ width }) => (width ? `${width}` : '80%')};
+  /* background: brown; */
+  flex-basis: ${({ width }) => (width ? `${width}` : '60%')};
   @media (max-width: 1020px) {
     flex-basis: 35%;
   }
@@ -123,10 +127,11 @@ export const DragDiv = styled.div`
 export const SectionColumnScrollResize = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  /* justify-content: flex-start; */
+  /* justify-content: center; */
+  justify-content: flex-start;
   /* align-items: center; */
   align-items: center;
+  /* background: red; */
   margin-bottom: 15px;
   padding-left: 15px;
   //* the following sets width depending on whether it's narrowOption (used in DocResult display) or regular
@@ -139,7 +144,8 @@ export const SectionColumnScrollResize = styled(motion.div)`
 `
 // ? this encloses {narrowSection}
 export const SectionColumnResize = styled.div`
-  background: none;
+  /* background: none; */
+  background: var(--background1-main);
   position: sticky;
   top: 0;
   margin-bottom: 15px;

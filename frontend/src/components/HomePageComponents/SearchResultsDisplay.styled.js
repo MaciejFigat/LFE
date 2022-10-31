@@ -68,24 +68,32 @@ export const SearchResultsDashboardDiv = styled.div`
   max-width: 700px;
   /* width: 600px; */
   margin-bottom: 2rem;
+  margin-top: 4rem;
   @media screen and (max-width: 890px) {
     /* justify-content: center; */
     max-width: 90vw;
   }
 `
 export const SearchResultsSectionWrapper = styled.div`
+  /* border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2); */
   /* position: relative;
   top: 200px; */
-  /* background: lime; */
+  /* background: var(--background-gradient1); */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-
+  width: 90vw;
   /* border: 1px solid var(--background4-main); */
-  border-radius: 10px;
+  border-radius: 20px;
   min-width: max(950px, 90vw);
   margin-top: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   margin-bottom: 2rem;
   min-height: 40vh;
   @media screen and (max-width: 990px) {
@@ -136,7 +144,7 @@ export const MainProjectWrapper = styled.div`
 `
 export const MainProjectDetails = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(auto-fill, 60px);
   grid-row-gap: 0.25em;
   grid-column-gap: 1em;
