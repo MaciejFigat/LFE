@@ -4,7 +4,6 @@ import {
   FooterContainer,
   //   FooterSection,
   //   FooterSectionHeading,
-  FooterSectionText,
   FooterMedia,
   FooterMediaWrapper,
   FooterIcon,
@@ -14,8 +13,8 @@ import {
 } from './Footer.styled'
 
 import {
-  faFacebook,
-  faInstagram,
+  // faFacebook,
+  // faInstagram,
   faLinkedin,
   faTwitter,
   faYoutube,
@@ -62,56 +61,53 @@ const Footer: React.FC<FooterProps> = () => {
   }
   return (
     <FooterContainer>
-      {/* <FooterSection>
-        <FooterSectionHeading>
-          Dokładamy wszelkich starań, aby baza była jak najbardziej aktualna.{' '}
-        </FooterSectionHeading>
-        <FooterSectionText>Kontakt: adam@turbo-lex.pl</FooterSectionText>
-      </FooterSection> */}
-
       <FooterMedia>
         <FooterMediaWrapper>
           <FooterRights>TurboLex &copy; 2022</FooterRights>
-          <FooterSectionText>Kontakt: adam@turbo-lex.pl</FooterSectionText>
-          <SocialIcons>
-            <SocialIconLink
-              href='https://www.poetryfoundation.org/play/75764'
-              target='_blank'
-              aria-label='Twitter'
-            >
-              <FooterIcon icon={faTwitter} />
-            </SocialIconLink>
-            <SocialIconLink
-              href='https://www.poetryfoundation.org/play/75764'
-              target='_blank'
-              aria-label='LinkedIn'
-            >
-              <FooterIcon icon={faLinkedin} />
-            </SocialIconLink>
-            <SocialIconLink
-              href='https://www.poetryfoundation.org/play/75764'
-              target='_blank'
-              aria-label='Youtube'
-              rel='noopener noreferrer'
-            >
-              <FooterIcon icon={faYoutube} />
-            </SocialIconLink>
-            <SocialIconLink
+          {/* <FooterSectionText>adam@turbo-lex.pl </FooterSectionText> */}
+
+          <HorizontalWrapperTight>
+            <SocialIcons>
+              <SocialIconLink
+                href='https://www.poetryfoundation.org/play/75764'
+                target='_blank'
+                aria-label='Twitter'
+              >
+                <FooterIcon icon={faTwitter} />
+              </SocialIconLink>
+              <SocialIconLink
+                href='https://www.poetryfoundation.org/play/75764'
+                target='_blank'
+                aria-label='LinkedIn'
+              >
+                <FooterIcon icon={faLinkedin} />
+              </SocialIconLink>
+              <SocialIconLink
+                href='https://www.poetryfoundation.org/play/75764'
+                target='_blank'
+                aria-label='Youtube'
+                rel='noopener noreferrer'
+              >
+                <FooterIcon icon={faYoutube} />
+              </SocialIconLink>
+              {/* <SocialIconLink
               href='https://www.poetryfoundation.org/play/75764'
               target='_blank'
               aria-label='Instagram'
             >
               <FooterIcon icon={faInstagram} />
-            </SocialIconLink>
-            <SocialIconLink
+            </SocialIconLink> */}
+              {/* <SocialIconLink
               href='https://www.poetryfoundation.org/play/75764'
               target='_blank'
               aria-label='Facebook'
             >
               <FooterIcon icon={faFacebook} />
-            </SocialIconLink>
-          </SocialIcons>
+            </SocialIconLink> */}
+            </SocialIcons>
+          </HorizontalWrapperTight>
           <HorizontalWrapperTight>
+            {' '}
             <SwitchTextMisc isOn={isDark}>
               {preferedScheme === 'primary' ? (
                 <FooterIcon icon={faSun} />

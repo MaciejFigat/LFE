@@ -255,7 +255,11 @@ export const DropDownListContainer = styled.div`
   /* backdrop-filter: blur(8px); */
   /* -webkit-backdrop-filter: blur(8px); */
   border-radius: 10px;
-  @media (min-width: 1400px) {
+  @media (max-width: 680px) {
+    width: 220px;
+  }
+  @media (max-width: 420px) {
+    width: 180px;
   }
 `
 export const DropDownDateContainer = styled.div`
@@ -270,6 +274,9 @@ export const DropDownDateContainer = styled.div`
   input {
     background: var(--background1-main);
   }
+  @media (max-width: 680px) {
+    min-width: fit-content;
+  }
 `
 export const DropDownList = styled.div`
   display: grid;
@@ -283,6 +290,9 @@ export const DropDownList = styled.div`
   min-width: fit-content;
   &:first-child {
     padding-top: 1.2rem;
+  }
+  @media (max-width: 620px) {
+    font-size: 0.75rem;
   }
 `
 export const SwitchButtonWrapper = styled.div`
@@ -310,6 +320,11 @@ export const ListItem = styled.li`
   padding-bottom: 0.75rem;
   b {
     font-size: 0.95rem;
+  }
+  @media (max-width: 680px) {
+    b {
+      font-size: 0.75rem;
+    }
   }
 `
 
@@ -368,7 +383,7 @@ export const SwitchDiv = styled.div`
   align-items: center;
 `
 export const SwitchText = styled.b`
-  font-size: 0.9rem !important;
+  /* font-size: 0.9rem !important; */
   color: ${({ isOn }) =>
     isOn ? 'var(--background2-main)' : 'var(--background4-main)'};
 `
@@ -402,7 +417,7 @@ export const SetTakeButton = styled.button`
   &:active {
     border: 1px solid var(--background-secondary4);
   }
-  @media (max-width: 420px) {
+  @media (max-width: 620px) {
     font-size: 0.7rem;
     padding: none;
   }

@@ -82,15 +82,26 @@ body {
   --secondary3: #e9c46a;
   --secondary4: #f4a261; 
   --secondary5: #e76f51;
+  
  
+
+
   --background-blur1: ${(props) =>
     handleGlobalScheme(props.globalScheme).backgroundBlur1}
   --background-blur2: ${(props) =>
     handleGlobalScheme(props.globalScheme).backgroundBlur2}
-  // --background-blur11: rgba(60, 59, 61, 0.85);
-  // --background-blur21: rgba(42, 157, 143, 0.75);
+
+    // * BACKGROUND GRADIENT 
+  --background-gradient1: linear-gradient(
+      120deg,
+      var(--background-blur1) 0%,
+      transparent 30%,
+      transparent 70%,
+      var(--background-blur1)
+    );
 
 
+  
 
   --boxShadow1: ${(props) => handleGlobalScheme(props.globalScheme).boxShadow1}
   --boxShadow2: ${(props) => handleGlobalScheme(props.globalScheme).boxShadow2}
@@ -114,7 +125,7 @@ body {
 
   // --boxShadowNone: inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, 0px 0px 0px #d2d1ce, 0px 0px 0px #fffffe;
 
-
+  
 
    --bluegreen1:#A4DBE4;
    --bluegreen2:#FA990E;

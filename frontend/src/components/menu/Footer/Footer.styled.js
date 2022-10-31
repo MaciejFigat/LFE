@@ -68,7 +68,7 @@ export const FooterMedia = styled.div`
 
 export const FooterMediaWrapper = styled.section`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 90%;
   max-width: 1000px;
@@ -91,7 +91,8 @@ export const FooterRights = styled.div`
 `
 export const SocialIcons = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  /* justify-content: center; */
   align-items: center;
   width: 260px;
 `

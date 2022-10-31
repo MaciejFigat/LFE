@@ -28,28 +28,37 @@ export const DropDownHeader = styled(motion.div)`
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
-  box-shadow: var(--boxShadow1);
   border-radius: 5px;
   font-weight: 500;
   font-size: 1rem;
-  color: var(--background5-main);
+  color: var(--background4-main);
   /* background: var(--background-blur1); */
   transition: all 0.1s ease-out;
   text-align: center;
+
   &:hover {
+    box-shadow: var(--boxShadow1);
     transition: all 0.1s ease-out;
-    color: var(--background3-main);
+    color: var(--background-secondary1);
 
     border-right: 1px solid var(--background-blur1);
     border-top: 1px solid var(--background-blur1);
     border-left: 1px solid var(--background-blur1);
     border-bottom: 1px solid var(--background-blur1);
+  }
+  &:active {
     box-shadow: var(--boxShadowInset1);
   }
   .activeButton {
-    scale: 0.99;
+    /* scale: 0.99; */
     color: var(--background-secondary1);
     /* color: var(--background2-main); */
+  }
+  @media screen and (max-width: 620px) {
+    font-size: 0.9rem;
+    min-width: 100px;
+
+    padding: 0.5rem 0;
   }
 `
 

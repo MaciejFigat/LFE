@@ -7,9 +7,9 @@ import { UserInfo } from '../../../interfaces'
 import {
   DropDownContainer,
   DropDownList,
-  DropDownListContainer,
   ListItem,
   Main,
+  NavDropDownListContainer,
 } from './NavDropdown.styled'
 import {
   DropDownHeaderMini,
@@ -20,6 +20,7 @@ import {
   SvgWrapperMisc,
   SvgWrapperMiscSmall,
 } from '../../../styles/misc.styled'
+import { MobileLinkText } from '../Nav/nav.styled'
 // import ColorDropdown from './ColorDropdown'
 
 interface NavDropdownProps {
@@ -71,7 +72,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                 }
               >
                 <SpaceAroundWrapper>
-                  Logowanie
+                  <MobileLinkText> Logowanie</MobileLinkText>
                   <SvgWrapperMisc>
                     <SvgIcon variant='login' noContent />
                   </SvgWrapperMisc>
@@ -88,7 +89,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
             </DropDownHeaderMisc>
           )}
           {isOpen && (
-            <DropDownListContainer>
+            <NavDropDownListContainer>
               <DropDownList>
                 {' '}
                 {Object.keys(userInfo).length > 0 && isAdmin && (
@@ -150,7 +151,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                   <ColorDropdown />
                 </ListItem> */}
               </DropDownList>
-            </DropDownListContainer>
+            </NavDropDownListContainer>
           )}
         </DropDownContainer>
       </Main>{' '}

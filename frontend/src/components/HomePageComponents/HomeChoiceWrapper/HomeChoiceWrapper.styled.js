@@ -42,27 +42,14 @@ export const ChoiceNav = styled.nav`
 
   border-left: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur2);
-  /* border: 1px solid var(--background3-main); */
-  background: linear-gradient(
-    120deg,
-    var(--background-blur1) 0%,
-    transparent 30%,
-    transparent 70%,
-    var(--background-blur1)
-  );
+
+  background: var(--background-gradient1);
+
   color: var(--background4-main);
-  /* box-shadow: var(--boxShadowInset1); */
+
   padding: 2rem;
   border-radius: 20px;
-  /* box-shadow: var(--boxShadowInset4); */
-  /* background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--background-blur1) 5%,
-    var(--background-blur2) 45%,
-    var(--background-blur1) 95%,
-    transparent 100%
-  ); */
+
   width: 900px;
   @media screen and (max-width: 1391px) {
     font-size: 1rem;
@@ -80,8 +67,16 @@ export const ChoiceNav = styled.nav`
     /* border: 1px solid var(--background2-main); */
   }
   @media screen and (max-width: 780px) {
-    padding: 0;
+    /* padding: 0; */
     box-shadow: none;
+  }
+  @media screen and (max-width: 600px) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    width: 90vw;
+    height: fit-content;
+    padding: 2.5rem 0.5rem;
   }
 `
 
@@ -105,7 +100,6 @@ export const ChoiceItem = styled.div`
   border-radius: 5px;
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
-
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
 
@@ -143,14 +137,15 @@ export const ChoiceItem = styled.div`
     opacity: 0.85;
   }
 
-  @media screen and (min-width: 1050px) {
-    /* top: -1px; */
+  @media screen and (max-width: 600px) {
+    width: 60vw;
   }
 `
 
 export const ChoiceList = styled.ul`
   list-style: none;
   display: flex;
+
   padding: 0;
   margin: 0;
   gap: 0.5rem;
@@ -178,10 +173,16 @@ export const ChoiceList = styled.ul`
     }
   }
 
-  @media screen and (max-width: 601px) {
+  @media screen and (max-width: 780px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 600px) {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
   }
 `
 
@@ -206,4 +207,18 @@ export const ChoiceUnderline = styled(motion.div)`
   );
 
   background: transparent;
+  @media screen and (max-width: 600px) {
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    bottom: -3px;
+
+    border-image-source: linear-gradient(
+      to top,
+      transparent 20%,
+      var(--background-secondary1) 70%,
+      transparent 100%
+    );
+  }
 `

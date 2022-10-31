@@ -150,6 +150,13 @@ export const DropDownHeaderMisc = styled.div`
     box-shadow: var(--boxShadowNone);
     background: transparent;
   }
+  @media screen and (max-width: 520px) {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+
+    padding: 0.25rem;
+  }
 `
 export const DropDownHeaderMenu = styled(DropDownHeaderMisc)`
   width: 130px;
@@ -211,7 +218,7 @@ export const DropDownHeaderMini = styled(DropDownHeaderMisc)`
   }
   @media (max-width: 520px) {
     padding: 0.25rem;
-    height: fit-content;
+    /* height: fit-content; */
     height: 20px;
     width: 20px;
   }
@@ -276,7 +283,10 @@ export const HorizontalWrapperBaseLine = styled.div`
   display: flex;
   justify-content: center;
   align-items: baseline;
-  /* flex-direction: row; */
+  @media (max-width: 420px) {
+    flex-direction: column;
+    /* width: 180px; */
+  }
 `
 
 export const RelativeRightSvgWrapper = styled.div`

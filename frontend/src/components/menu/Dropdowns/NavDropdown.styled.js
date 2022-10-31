@@ -172,7 +172,14 @@ export const DropDownListContainer = styled.div`
     right: 10px;
   }
 `
-
+export const NavDropDownListContainer = styled(DropDownListContainer)`
+  @media (max-width: 520px) {
+    width: 100px;
+    right: 30px;
+    padding: 0.15rem 0.5rem;
+    min-width: 0;
+  }
+`
 export const ProjectDownList = styled.div`
   display: flex;
   flex-direction: column;

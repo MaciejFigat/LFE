@@ -16,7 +16,7 @@ export const DropDownHeader = styled.div`
   user-select: none;
   padding: 0.2rem 0.4rem 0.2rem 0.5rem;
   font-weight: 500;
-  font-size: 0.9rem;
+
   /* color: var(--background-secondary4); */
   color: var(--background2-main);
   transition: all 0.3s ease-out;
@@ -30,6 +30,9 @@ export const DropDownHeader = styled.div`
     /* border-bottom: 1px solid var(--background4-main); */
     color: var(--background2-main);
   }
+  @media screen and (max-width: 620px) {
+    font-size: 0.9rem;
+  }
 `
 export const DropDownListContainer = styled.div`
   position: absolute;
@@ -38,7 +41,7 @@ export const DropDownListContainer = styled.div`
 export const DropDownList = styled.div`
   position: relative;
   cursor: pointer;
-  top: -33px;
+  top: -53px;
   /* right: -110px; */
   right: ${({ wide }) => (wide ? '-250px' : '-110px')};
   font-size: ${({ wide }) => (wide ? '1.5rem' : '1rem')};
@@ -55,7 +58,7 @@ export const DropDownList = styled.div`
   border-bottom: 1px solid var(--background-blur2);
 
   box-shadow: var(--boxShadow2);
-
+  border-radius: 15px;
   box-sizing: border-box;
   color: var(--background4-main);
   /* font-size: 1rem; */
@@ -63,6 +66,11 @@ export const DropDownList = styled.div`
   min-width: fit-content;
   &:first-child {
     padding-top: 0.8rem;
+  }
+  @media screen and (max-width: 620px) {
+    top: -62px;
+    right: ${({ wide }) => (wide ? '-150px' : '-110px')};
+    font-size: 0.9rem;
   }
 `
 export const ListItem = styled.li`

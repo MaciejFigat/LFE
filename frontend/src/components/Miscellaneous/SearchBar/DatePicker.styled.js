@@ -29,4 +29,12 @@ export const DatePickerButton = styled.input`
     /* color: var(--background-tertiary7); */
     /* background: var(--background-blur1); */
   }
+  @media (max-width: 680px) {
+    font-size: 0.75rem;
+    width: 60px;
+  }
+  @media (max-width: 420px) {
+    font-size: 0.7rem;
+    width: 55px;
+  }
 `
