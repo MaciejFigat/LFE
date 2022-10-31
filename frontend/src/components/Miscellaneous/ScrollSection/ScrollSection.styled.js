@@ -3,9 +3,11 @@ import { motion } from 'framer-motion'
 
 export const ScrollSec = styled.div`
   /* background: var(--background1-main); */
+  /* background: lime; */
   color: var(--background4-main);
   min-height: fit-content;
-  /* width: 90vw; */
+  width: 100%;
+  /* background: brown; */
   @media (max-width: 880px) {
     padding: 0;
   }
@@ -20,14 +22,19 @@ export const ScrollSectionRow = styled.div`
 `
 
 export const SectionColumn = styled.div`
-  background: none;
+  /* background: none; */
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: sticky;
   top: 0;
   margin-bottom: 15px;
   padding-left: 15px;
   max-height: 100vh;
   min-height: fit-content;
-  flex-basis: ${({ width }) => (width ? `${width}` : '40%')};
+  /* min-width: ${({ width }) => (width ? `${width}` : '40%')}; */
+  flex-basis: ${({ width }) => (width ? `${width}` : '50%')};
   /* background: red; */
   overflow: scroll;
   @media (max-width: 1020px) {
@@ -38,8 +45,6 @@ export const SectionColumn = styled.div`
     margin: 0;
     padding-left: 0px;
   }
-  flex-direction: column;
-  display: flex;
 
   @media screen and (min-width: 770px) {
     max-width: 100%;
@@ -49,12 +54,15 @@ export const SectionColumn = styled.div`
 export const SectionColumnScroll = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  justify-content: flex-start;
+  /* align-items: center; */
+  /* align-items: flex-start; */
+
   margin-bottom: 15px;
   padding-left: 15px;
-  /* background: brown; */
-  flex-basis: ${({ width }) => (width ? `${width}` : '60%')};
+
+  flex-basis: ${({ width }) => (width ? `${width}` : '50%')};
   @media (max-width: 1020px) {
     flex-basis: 35%;
   }

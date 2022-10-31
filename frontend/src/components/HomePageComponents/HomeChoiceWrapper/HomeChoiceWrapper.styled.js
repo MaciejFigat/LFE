@@ -85,6 +85,7 @@ export const MainChoiceContainer = styled.main`
   justify-content: center;
   flex-grow: 1;
   min-height: fit-content;
+  width: 100%;
 `
 export const MainChoiceBackground = styled.div`
   position: absolute;

@@ -22,7 +22,8 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
 }) => {
   return (
     <ScrollSec>
-      <ScrollSectionRow imgStart>
+      {/* <ScrollSectionRow imgStart> */}
+      <ScrollSectionRow>
         <SectionColumn width={widthSmall}>{narrowSection}</SectionColumn>
         <SectionColumnScroll width={widthBig}>
           {wideSection}

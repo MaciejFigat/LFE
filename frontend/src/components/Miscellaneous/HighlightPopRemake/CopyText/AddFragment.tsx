@@ -17,6 +17,10 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   const savedFragment = useAppSelector((state) => state.fragment.fragmentSaved)
   const { excerpt: savedExcerpt } = savedFragment
 
+  const keywordMain = useAppSelector(
+    (state) => state.preference.sortingKeywords.keywordMain
+  )
+
   const docResult: any = useAppSelector((state) => state.searchResult.docResult)
   const { sad, syg, dataOrzeczenia, typWyroku } = docResult.tresc
   const querySaved = docResult.query_f
@@ -52,6 +56,17 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     docId: `${lastId}`,
     coordinates: `${syg}`,
     description: `${typWyroku} ${sad}`,
+    keywords: [keywordMain],
+
+    keywordValue: [
+      {
+        keyword: keywordMain,
+        labelOne: 'pro',
+        labelTwo: 'contra',
+        value: false,
+        skip: true,
+      },
+    ],
   }
   // todo saving into the DB
 

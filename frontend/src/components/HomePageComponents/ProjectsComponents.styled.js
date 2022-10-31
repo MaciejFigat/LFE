@@ -85,7 +85,8 @@ export const ProjectCardHome = styled(motion.div)`
 // `
 export const ProjectH2 = styled(motion.h2)`
   /* border-bottom: 1px solid var(--background2-main); */
-
+  display: grid;
+  place-items: center;
   padding-bottom: 0.5rem;
   color: var(--background4-main);
   user-select: none;
@@ -101,7 +102,7 @@ export const ProjectH2NoHover = styled(ProjectH2)`
 `
 export const ProjectMenuContainerHome = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   /* background: var(--background1-main); */
   gap: 1.25rem;
   cursor: grab;

@@ -344,7 +344,9 @@ export const SwitchResultWrapper = styled(SwitchSectionWrapper)`
   color: var(--background4-main);
   gap: 1rem;
   margin: 0;
-  margin-bottom: 0.75rem;
+
+  /* background: red; */
+  /* margin-bottom: 0.75rem; */
   @media screen and (max-width: 690px) {
     margin-bottom: 0;
     &:first-of-type {

@@ -58,32 +58,31 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
 
   return (
     <SearchResultsSectionWrapper>
-      {' '}
       <ScrollSection
         // widthBig='200px'
         // widthSmall='100px'
-        wideSection={<ProjectsEnumeration />}
-        narrowSection={
+        wideSection={
           <MainProjectWrapper>
-            {projectName !== '' && (
-              <SwitchResultWrapper>
-                <ProjectH2NoHover>Przypisane fragmenty</ProjectH2NoHover>
-              </SwitchResultWrapper>
-            )}
-            {fragmentsKeywordMain.length > 0 && (
-              <StaggerChildrenWrapperSecondary key={projectName}>
-                {' '}
-                <MainProjectDetails>
-                  {fragmentsKeywordMain?.map((fragment) => (
-                    <ProjectDiv variants={dropUpVariants} key={Math.random()}>
-                      {fragment.title}
-                    </ProjectDiv>
-                  ))}
-                </MainProjectDetails>
-              </StaggerChildrenWrapperSecondary>
-            )}
+            {/* {projectName !== '' && ( */}
+            <SwitchResultWrapper>
+              <ProjectH2NoHover>Przypisane fragmenty</ProjectH2NoHover>
+            </SwitchResultWrapper>
+            {/* )} */}
+            {/* {fragmentsKeywordMain.length > 0 && ( */}
+            <StaggerChildrenWrapperSecondary key={projectName}>
+              {' '}
+              <MainProjectDetails>
+                {fragmentsKeywordMain?.map((fragment) => (
+                  <ProjectDiv variants={dropUpVariants} key={Math.random()}>
+                    {fragment.title}
+                  </ProjectDiv>
+                ))}
+              </MainProjectDetails>
+            </StaggerChildrenWrapperSecondary>
+            {/* )} */}
           </MainProjectWrapper>
         }
+        narrowSection={<ProjectsEnumeration />}
       />
     </SearchResultsSectionWrapper>
   )

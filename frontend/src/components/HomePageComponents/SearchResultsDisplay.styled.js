@@ -90,7 +90,9 @@ export const SearchResultsSectionWrapper = styled.div`
   width: 90vw;
   /* border: 1px solid var(--background4-main); */
   border-radius: 20px;
-  min-width: max(950px, 90vw);
+  /* min-width: max(950px, 90vw); */
+  min-width: 99vw;
+  /* background: brown; */
   margin-top: 2rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -140,6 +142,9 @@ export const MainProjectWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* background: brown; */
+  width: 100%;
+  /* height */
   /* gap: 0.5rem; */
 `
 export const MainProjectDetails = styled(motion.div)`
@@ -150,8 +155,8 @@ export const MainProjectDetails = styled(motion.div)`
   grid-column-gap: 1em;
   max-width: 80vw;
   @media screen and (max-width: 1090px) {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 100vw;
-    min-width: 95vw;
+    grid-template-columns: repeat(2, 1fr);
+    /* max-width: 100vw; */
+    /* min-width: 95vw; */
   }
 `

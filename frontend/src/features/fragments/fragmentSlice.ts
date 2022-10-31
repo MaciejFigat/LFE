@@ -9,7 +9,7 @@ import axios from 'axios'
 export const createFragment = createAsyncThunk(
     'fragment/createFragment',
     async (newFragmentInfo: FragmentCreated, thunkAPI) => {
-        const { source, excerpt, coordinates, title, description, docId, query } = newFragmentInfo
+        const { source, excerpt, coordinates, title, description, docId, query, keywords, keywordValue } = newFragmentInfo
 
         try {
             const state: any = thunkAPI.getState()
@@ -20,12 +20,12 @@ export const createFragment = createAsyncThunk(
                     Authorization: `Bearer ${userInfo.token}`,
                 },
             }
-            const keywords = ['']
+            // const keywords = ['']
             // const docTest = 'testing this horrible '
-            const keywordValue = [{
-                keyword: '', value: true, skip: true, labelOne: 'pro',
-                labelTwo: 'contra'
-            }]
+            // const keywordValue = [{
+            //     keyword: '', value: true, skip: true, labelOne: 'pro',
+            //     labelTwo: 'contra'
+            // }]
             const { data } = await axios.post(
                 '/api/fragments/',
                 {
