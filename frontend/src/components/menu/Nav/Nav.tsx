@@ -7,17 +7,17 @@ import {
   MobileViewContainer,
   HeaderTitleMobile,
   WrapperDesktopOnly,
-  // MobileNavContainer,
 } from './nav.styled'
 import NavListDesktop from './NavListDesktop'
 import NavListMobile from './NavListMobile'
 import useScrollListener from '../../../hooks/useScrollListener'
 import { useCycle } from 'framer-motion'
-import NavDropdown from '../Dropdowns/NavDropdown'
+
 import SearchDropdown from '../../Miscellaneous/SearchBar/SearchDropdown'
 import { preferedSchemeEdit } from '../../../features/preferences/preferenceSlice'
 import { getUserFragments } from '../../../features/fragments/fragmentSlice'
 import { UserInfo } from '../../../interfaces'
+import MobileNavIcons from './MobileNavIcons'
 interface NavProps {}
 
 const Nav: React.FC<NavProps> = () => {
@@ -96,18 +96,11 @@ const Nav: React.FC<NavProps> = () => {
           <div onClick={handleClickMenu}>
             <Burger menuOpen={open} />
           </div>
-          <HeaderTitleMobile>
-            <SearchDropdown scrollDirection={scrollDirection} />
-          </HeaderTitleMobile>
-          <HeaderTitleMobile>
-            <NavDropdown scrollDirection={scrollDirection} />
-          </HeaderTitleMobile>
+          <MobileNavIcons scrollDirection={scrollDirection} />
         </MobileViewContainer>
 
-        {/* <MobileNavContainer onClick={handleCloseMenu}> */}
-        {/* <MobileNavContainer> */}
         <NavListMobile open={open} scrollDirection={scrollDirection} />
-        {/* </MobileNavContainer> */}
+
         <NavListDesktop scrollDirection={scrollDirection} />
       </TransitionWrapper>
     </TransitionWrapperMain>

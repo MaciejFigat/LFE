@@ -61,6 +61,10 @@ export const TransitionWrapperMain = styled.div`
 export const TransitionWrapper = styled.div`
   position: sticky;
   top: 0;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
   /* //! irritating gap holy grail no 2 */
   /* max-height: 3.4rem; */
   /* height: 57px; */
@@ -129,6 +133,12 @@ export const ListLoginWrapper = styled.div`
   @media (max-width: 1020px) {
     display: none;
   }
+`
+export const MobileIconsWrapper = styled(motion.div)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `
 export const MobileNavList = styled.ul`
   display: flex;
@@ -230,6 +240,8 @@ export const MobileViewContainer = styled.div`
   display: none;
   flex-direction: row;
   justify-content: space-around;
+  /* align-items: center;
+  background: red; */
   /* padding: 0 1.5rem 0 1rem; */
   /* this below fixes the irritating gap in nav when you scroll it down */
   /* margin-top: -1px !important; */
@@ -264,6 +276,14 @@ export const HeaderTitleMobile = styled.h1`
   }
 `
 
+// export const WrapperMobileOnly = styled.div`
+//   display: none;
+//   @media (max-width: 1019px) {
+//     place-items: center;
+//     display: grid;
+//     font-size: 1.25rem;
+//   }
+// `
 export const WrapperDesktopOnly = styled.div`
   display: grid;
   place-items: center;

@@ -54,7 +54,7 @@ export const SearchBarWrapper = styled.div`
 
   height: ${({ large }) => (large ? '50px' : '30px')};
   min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
-  z-index: 10;
+  /* z-index: 10; */
   gap: 0.75rem;
   background: transparent;
 
@@ -241,7 +241,7 @@ export const DropDownListContainer = styled.div`
   left: 0px;
   top: 15px;
   user-select: none;
-  z-index: 10;
+  /* z-index: 10; */
   /* background: var(--background-blur1); */
   background: var(--background1-main);
   /* border: 1px solid var(--background2-main); */

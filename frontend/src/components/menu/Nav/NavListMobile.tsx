@@ -6,12 +6,15 @@ import {
   MobileSvgDiv,
   MobileNavList,
   MobileLinkText,
+  HeaderTitleMobile,
 } from './nav.styled'
 import { NavLink } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 import ProjectDropdown from '../Dropdowns/ProjectDropdown'
 import { DropDownHeaderMenu } from '../../../styles/misc.styled'
+import SearchDropdown from '../../Miscellaneous/SearchBar/SearchDropdown'
+import NavDropdown from '../Dropdowns/NavDropdown'
 interface NavListMobileProps {
   open: boolean
   scrollDirection?: 'up' | 'down' | 'top' | undefined | null
@@ -103,7 +106,12 @@ const NavListMobile: React.FC<NavListMobileProps> = ({
             variants={sideVariants}
           >
             <MobileNavList>
-              {links.map(({ name, to, id, iconVariant }) => (
+              <motion.div variants={itemVariants}>
+                <HeaderTitleMobile>
+                  <SearchDropdown scrollDirection={scrollDirection} />
+                </HeaderTitleMobile>
+              </motion.div>
+              {/* {links.map(({ name, to, id, iconVariant }) => (
                 <ListItem key={id}>
                   <motion.div variants={itemVariants}>
                     {' '}
@@ -116,7 +124,7 @@ const NavListMobile: React.FC<NavListMobileProps> = ({
                         }
                       >
                         <MobileLinkText>{name}</MobileLinkText>
-                        {/* <ListItemMobile> */}{' '}
+                    
                         <MobileSvgDiv>
                           <SvgIcon
                             variant={iconVariant}
@@ -125,20 +133,23 @@ const NavListMobile: React.FC<NavListMobileProps> = ({
                             lowerPosition='2px'
                           />
                         </MobileSvgDiv>
-                        {/* </ListItemMobile>{' '} */}
+                   
                       </NavLink>
                     </DropDownHeaderMenu>
                   </motion.div>
                 </ListItem>
-              ))}
+              ))} */}
 
-              <ListItemMobile>
+              {/* <motion.div variants={itemVariants}>
                 {' '}
-                <motion.div variants={itemVariants}>
-                  {' '}
-                  <ProjectDropdown scrollDirection={scrollDirection} />
-                </motion.div>
-              </ListItemMobile>
+                <ProjectDropdown scrollDirection={scrollDirection} />
+              </motion.div> */}
+              <motion.div variants={itemVariants}>
+                {/* <HeaderTitleMobile> */}
+                <NavDropdown scrollDirection={scrollDirection} />
+                {/* </HeaderTitleMobile> */}
+              </motion.div>
+              {/* </ListItemMobile> */}
             </MobileNavList>{' '}
           </motion.div>
         </AnimatedWrapperMobile>

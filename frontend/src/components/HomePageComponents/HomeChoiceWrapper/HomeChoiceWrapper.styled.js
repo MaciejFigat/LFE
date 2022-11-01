@@ -18,7 +18,11 @@ export const WrapperWindow = styled.div`
 `
 export const ChoiceTitleContainer = styled.div`
   /* position: relative; */
-  max-width: fit-content;
+  /* display: grid;
+  place-items: center; */
+  /* background: brown; */
+  /* width: 100%; */
+  /* max-width: fit-content; */
   /* top: -90%; */
   /* ${({ navTop }) => (navTop ? 'left:35%;' : 'left: 2rem;')} */
   /* left: 35%; */

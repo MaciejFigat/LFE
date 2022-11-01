@@ -55,6 +55,25 @@ export const HeroTwoContainer = styled.div`
   display: grid;
   place-items: center;
 `
+export const HeroWrapperColumns = styled.div`
+  display: flex;
+  flex-direction: row;
+  color: var(--background4-main);
+`
+export const HeroSubtitle = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 2.1rem;
+  font-weight: 600;
+`
+export const HeroWrapperRow = styled.div`
+  display: flex;
+  color: var(--background4-main);
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+`
 export const HeroTitle = styled.div`
   display: flex;
   flex-direction: row;
