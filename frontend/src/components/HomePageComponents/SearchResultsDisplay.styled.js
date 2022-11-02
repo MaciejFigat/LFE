@@ -49,18 +49,14 @@ export const SearchResultsDashboardDiv = styled.div`
   /* align-items: center; */
   justify-content: space-around;
   padding: 2rem;
-  background: linear-gradient(
-    120deg,
-    var(--background-blur1) 0%,
-    transparent 30%,
-    transparent 70%,
-    var(--background-blur1)
-  );
-  border-top: 1px solid var(--background-blur1);
+
+  background: var(--background-gradient1);
+  /* border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
 
   border-left: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2); */
+  box-shadow: var(--boxShadowClay1);
   /* box-shadow: var(--boxShadowInset1); */
   /* min-width: fit-content; */
   /* width: 900px; */

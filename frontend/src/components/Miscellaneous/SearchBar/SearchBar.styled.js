@@ -15,10 +15,11 @@ export const HomeSearchContainer = styled.div`
   /* box-shadow: var(--boxShadowInset1); */
   background: var(--background-gradient1);
 
-  border-top: 1px solid var(--background-blur2);
+  /* border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur1);
-  border-left: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background-blur1); */
+  box-shadow: var(--boxShadowClay1);
   /* border: 1px solid var(--background2-main); */
 `
 
@@ -293,7 +294,7 @@ export const SwitchButtonWrapper = styled.div`
   /* padding-bottom: 0.75rem; */
 
   b {
-    font-size: 1.2rem;
+    font-size: 0.85rem;
   }
 `
 export const ListItem = styled.li`
@@ -321,6 +322,8 @@ export const SwitchSectionWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  margin-bottom: 1rem;
 `
 export const SwitchResultWrapper = styled(SwitchSectionWrapper)`
   justify-content: center;

@@ -53,8 +53,9 @@ export const SearchBarButton = styled.button`
   border: none;
   cursor: pointer;
   align-items: center;
-  background: var(--background1-main);
-  /* color: var(--background-secondary2); */
+
+  /* background: var(--background1-main); */
+
   color: var(--background4-main);
   border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
@@ -67,16 +68,16 @@ export const SearchBarButton = styled.button`
   transition: 0.2s;
 
   &:hover {
-    box-shadow: var(--boxShadow1);
+    box-shadow: var(--boxShadowInset1);
 
-    color: var(--background-secondary2);
     border-top: 1px solid var(--background-blur1);
     border-right: 1px solid var(--background-blur1);
     border-left: 1px solid var(--background-blur1);
     border-bottom: 1px solid var(--background-blur1);
   }
   &:active {
-    box-shadow: var(--boxShadowInset1);
+    box-shadow: var(--boxShadowInset2);
+    color: var(--background-secondary2);
   }
   @media (max-width: 420px) {
     font-size: 0.7rem;
@@ -85,8 +86,8 @@ export const SearchBarButton = styled.button`
 `
 export const HighlightButton = styled(SearchBarButton)`
   border-radius: 10px;
-  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
-  font-size: 1rem;
+  padding: 0.3rem 0.6rem 0.3rem 0.5rem;
+  font-size: 0.95rem;
   margin-right: 1rem;
 `
 export const SearchBarForm = styled.form`

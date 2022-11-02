@@ -33,13 +33,16 @@ export const ChoiceTitleContainer = styled.div`
 `
 export const ChoiceNav = styled.nav`
   /* min-width: 70%; */
-  /* max-width: 80%; */
-  width: 400px;
-
-  left: 20%;
+  /* width: 400px; */
+  width: ${({ amount }) => (amount ? `calc(${amount}*190px)` : '400px')};
+  /* min-width: fit-content; */
+  /* min-width: 700px; */
+  /* max-width: 700px; */
+  /* width: fit-content(400px); */
+  /* width: fit-content; */
   /* height: 3rem; */
 
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   /* border-radius: 5px; */
@@ -51,13 +54,6 @@ export const ChoiceNav = styled.nav`
   /* box-shadow: var(--boxShadow1); */
   box-shadow: var(--boxShadowClay1);
 
-  /* box-shadow: inset -0.6em -0.6em 1em #a8a7a5, inset 0.4em 0.4em 0.5em #ffffff,
-    0.8em 0.8em 2em #8d8c8a; */
-  /* #a8a7a5, #fffffe;', */
-  /* -3px 3px 7px #8d8c8a, 7px -7px 10px #ffffff;', */
-  /* box-shadow: inset -0.6em -0.6em 1em rgba(165, 79, 29, 0.6),
-    inset 0.4em 0.4em 0.5em rgba(245, 230, 221, 0.6),
-    0.8em 0.8em 2em rgba(165, 79, 29, 0.6); */
   /* background: var(--background-gradient1); */
 
   color: var(--background4-main);
@@ -65,9 +61,9 @@ export const ChoiceNav = styled.nav`
   padding: 1rem;
   border-radius: 20px;
 
-  @media screen and (max-width: 1391px) {
-    font-size: 1rem;
-  }
+  /* @media screen and (max-width: 1391px) {
+    font-size: 0.95rem;
+  } */
   @media screen and (max-width: 991px) {
     font-size: 0.95rem;
     left: 1rem;
@@ -136,6 +132,7 @@ export const ChoiceItem = styled.div`
   /* margin-top: -0.5rem; */
   transition: 0.3s;
   width: 100%;
+
   &:first-of-type {
     left: -1px;
   }

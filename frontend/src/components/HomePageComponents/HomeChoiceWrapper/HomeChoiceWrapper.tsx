@@ -55,7 +55,7 @@ const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = ({
             </HeroWrapperRow>
           )}
         </ChoiceTitleContainer>
-        <ChoiceNav navTop={navTop}>
+        <ChoiceNav navTop={navTop} amount={tabs.length}>
           <AnimateSharedLayout>
             <ChoiceList>
               {tabs.map((item) => (

@@ -9,6 +9,7 @@ import {
   SwitchButtonWrapper,
   SwitchResultContainer,
   SwitchResultWrapper,
+  SwitchSectionWrapper,
   SwitchText,
 } from '../Miscellaneous/SearchBar/SearchBar.styled'
 import {
@@ -108,7 +109,7 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
             </SwitchResultWrapper>
             <SearchResultsHorizontalWrapper>
               <SearchResultsDashboardColumn>
-                <SwitchResultWrapper>
+                <SwitchSectionWrapper>
                   {/* <SwitchButtonWrapper> */}
                   <SearchBar
                     searchQuery={searchQuery}
@@ -119,7 +120,7 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
                     skip={1}
                     take={30}
                   />
-                </SwitchResultWrapper>
+                </SwitchSectionWrapper>
                 <SwitchResultWrapper>
                   <SearchBarForm onSubmit={highlightHandler}>
                     <HighlightButton type='submit'>Zaznacz</HighlightButton>{' '}

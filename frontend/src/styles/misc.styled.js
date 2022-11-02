@@ -352,14 +352,14 @@ export const SwitchTextMisc = styled.b`
 export const SwitchHandleMisc = styled(motion.div)`
   width: 14px;
   height: 14px;
-  background-color: white;
+
   border-radius: 12px;
   background-color: ${({ isOn }) =>
     isOn ? 'var(--background4-main)' : 'var(--background1-main)'};
 `
 
 export const HeroTitleMisc = styled.h3`
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   /* color: red; */
   color: var(--background4-main);
