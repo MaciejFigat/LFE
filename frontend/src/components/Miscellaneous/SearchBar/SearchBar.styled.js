@@ -371,6 +371,7 @@ export const SwitchDiv = styled.div`
   padding: 1px;
   cursor: pointer;
   justify-content: ${({ isOn }) => (isOn ? 'flex-end' : 'flex-start')};
+
   align-items: center;
 `
 export const SwitchText = styled.b`
@@ -381,7 +382,11 @@ export const SwitchText = styled.b`
 export const SwitchHandle = styled(motion.div)`
   width: 14px;
   height: 14px;
-  background-color: white;
+  /* background: var(--background-gradient1); */
+  box-shadow: var(--boxShadowClay1);
+  /* box-shadow: ${({ isOn }) =>
+    isOn ? 'var(--boxShadowClay1)' : 'var(--boxShadowInset1)'}; */
+
   border-radius: 12px;
   background-color: ${({ isOn }) =>
     isOn ? 'var(--background4-main)' : 'var(--background1-main)'};
