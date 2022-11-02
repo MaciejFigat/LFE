@@ -11,25 +11,15 @@ import {
 } from './HomeChoiceWrapper.styled'
 
 import {
-  HeroSubtitle,
   HeroTitle,
   HeroWrapperColumns,
   HeroWrapperRow,
 } from '../HeroSection.styled'
 import { titleSvg } from '../HeroSectionSVGS/Title'
-import {
-  DropDownHeaderMenu,
-  DropDownHeaderMisc,
-  SpaceAroundWrapper,
-  SvgWrapperMisc,
-} from '../../../styles/misc.styled'
+
 import { NavLink } from 'react-router-dom'
-import { MobileLinkText } from '../../menu/Nav/nav.styled'
-import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
-import {
-  ButtonBig,
-  ButtonMedium,
-} from '../../Miscellaneous/Buttons/BigButton.styled'
+
+import { ButtonMedium } from '../../Miscellaneous/Buttons/BigButton.styled'
 
 interface HomeChoiceWrapperProps {
   tabs: { label: string; content: any }[]
@@ -52,19 +42,12 @@ const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = ({
         <ChoiceTitleContainer navTop={navTop}>
           <HeroWrapperColumns>
             <HeroTitle>{titleSvg}</HeroTitle>
-            {/* <HeroSubtitle>Szybko, sprawnie i&nbsp;bezpiecznie.</HeroSubtitle> */}
           </HeroWrapperColumns>
           <HeroWrapperRow>
             <h3>Nie masz jeszcze konta?</h3>
 
             <ButtonMedium variant='primary'>
-              <NavLink to='/register'>
-                {/* <SpaceAroundWrapper> */}
-                Zarejestruj się
-                {/* <SvgWrapperMisc> */}
-                {/* </SvgWrapperMisc> */}
-                {/* </SpaceAroundWrapper> */}
-              </NavLink>
+              <NavLink to='/register'>Zarejestruj się</NavLink>
             </ButtonMedium>
           </HeroWrapperRow>
         </ChoiceTitleContainer>

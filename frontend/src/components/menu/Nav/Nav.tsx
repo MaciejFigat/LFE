@@ -5,7 +5,6 @@ import {
   TransitionWrapperMain,
   TransitionWrapper,
   MobileViewContainer,
-  HeaderTitleMobile,
   WrapperDesktopOnly,
 } from './nav.styled'
 import NavListDesktop from './NavListDesktop'

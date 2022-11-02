@@ -29,7 +29,7 @@ export const IconBurger = styled.div`
   transition-duration: 0.5s;
   position: absolute;
   height: 5px;
-  width: 30px;
+  width: 27px;
   top: 22px;
   cursor: pointer;
   background-color: var(--background4-main);
@@ -37,7 +37,7 @@ export const IconBurger = styled.div`
   &:before {
     transition-duration: 0.5s;
     position: absolute;
-    width: 20px;
+    width: 18px;
     height: 5px;
     background-color: var(--background2-main);
     content: '';
@@ -46,7 +46,7 @@ export const IconBurger = styled.div`
   &:after {
     transition-duration: 0.5s;
     position: absolute;
-    width: 20px;
+    width: 18px;
     height: 5px;
     background-color: var(--background5-main);
     content: '';

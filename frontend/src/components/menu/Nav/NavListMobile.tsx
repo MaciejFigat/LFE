@@ -1,18 +1,11 @@
 import React from 'react'
 import {
-  ListItem,
-  ListItemMobile,
   AnimatedWrapperMobile,
-  MobileSvgDiv,
   MobileNavList,
-  MobileLinkText,
   HeaderTitleMobile,
 } from './nav.styled'
-import { NavLink } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
-import ProjectDropdown from '../Dropdowns/ProjectDropdown'
-import { DropDownHeaderMenu } from '../../../styles/misc.styled'
+
 import SearchDropdown from '../../Miscellaneous/SearchBar/SearchDropdown'
 import NavDropdown from '../Dropdowns/NavDropdown'
 interface NavListMobileProps {
@@ -43,36 +36,6 @@ const sideVariants = {
   },
 }
 
-type LinkData = {
-  name: string
-  iconVariant:
-    | 'home'
-    | 'question'
-    | 'store'
-    | 'search'
-    | 'login'
-    | 'logout'
-    | 'admin'
-    | 'user'
-    | 'searchPlus'
-    | 'homeTwo'
-    | 'cog'
-    | 'save'
-    | 'textLeft'
-  to: string
-  id: string
-}
-
-const links: LinkData[] = [
-  { name: 'Start', iconVariant: 'home', to: '/', id: '1' },
-  {
-    name: 'Dokument',
-    iconVariant: 'textLeft',
-    to: '/search/result',
-    id: '2',
-  },
-]
-
 const NavListMobile: React.FC<NavListMobileProps> = ({
   open,
   scrollDirection,
@@ -86,12 +49,10 @@ const NavListMobile: React.FC<NavListMobileProps> = ({
             height: 0,
             borderColor: 'var(--background-blur1)',
           }}
-          // initial={{ width: 0, height: 0 }}
           animate={{
             height: '62px',
             opacity: 1,
             borderColor: 'var(--background-blur2)',
-            // width: '40vw',
           }}
           transition={{ type: 'default' }}
           exit={{
@@ -111,45 +72,10 @@ const NavListMobile: React.FC<NavListMobileProps> = ({
                   <SearchDropdown scrollDirection={scrollDirection} />
                 </HeaderTitleMobile>
               </motion.div>
-              {/* {links.map(({ name, to, id, iconVariant }) => (
-                <ListItem key={id}>
-                  <motion.div variants={itemVariants}>
-                    {' '}
-                    <DropDownHeaderMenu>
-                      {' '}
-                      <NavLink
-                        to={to}
-                        className={(navData) =>
-                          'nav_link' + (navData.isActive ? ' activated' : '')
-                        }
-                      >
-                        <MobileLinkText>{name}</MobileLinkText>
-                    
-                        <MobileSvgDiv>
-                          <SvgIcon
-                            variant={iconVariant}
-                            noMargin
-                            noContent
-                            lowerPosition='2px'
-                          />
-                        </MobileSvgDiv>
-                   
-                      </NavLink>
-                    </DropDownHeaderMenu>
-                  </motion.div>
-                </ListItem>
-              ))} */}
 
-              {/* <motion.div variants={itemVariants}>
-                {' '}
-                <ProjectDropdown scrollDirection={scrollDirection} />
-              </motion.div> */}
               <motion.div variants={itemVariants}>
-                {/* <HeaderTitleMobile> */}
                 <NavDropdown scrollDirection={scrollDirection} />
-                {/* </HeaderTitleMobile> */}
               </motion.div>
-              {/* </ListItemMobile> */}
             </MobileNavList>{' '}
           </motion.div>
         </AnimatedWrapperMobile>
