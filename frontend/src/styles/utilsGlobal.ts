@@ -39,6 +39,8 @@ interface GlobalStyle {
     boxShadowInset4?: string,
     boxShadowInset5?: string,
     boxShadowNone?: string
+    boxShadowClay1?: string
+    boxShadowClay2?: string
 }
 
 
@@ -60,7 +62,8 @@ const defaultStyle: GlobalStyle = {
     background5Tertiary: '#e63946;',
 }
 const primaryStyle: GlobalStyle = {
-    background1Main: '#1E1E1F;',
+    background1Main: 'hsl(240, 2%, 12%);',
+    // background1Main: '#1E1E1F;',
     // background2Main: '#3C3B3D;',
     background2Main: '#7D7C7F;',
     background3Main: '#6D6C70;',
@@ -111,6 +114,10 @@ const primaryStyle: GlobalStyle = {
     boxShadowInset5: 'inset -5px 5px 10px #8d8c8a, inset 5px -5px 10px #ffffff;',
     // boxShadowNone: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, 0px 0px 0px #d2d1ce, 0px 0px 0px #fffffe;',
     boxShadowNone: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, 0px 0px 0px #262627, 0px 0px 0px #262627;',
+    boxShadowClay1: 'inset 0.6em -0.6em 1em #151515, inset 0.4em 0.4em 0.9em hsl(240, 2%, 22%), -0.5em 0.5em 0.8em hsl(240, 2%, 14%);',
+    /* box-shadow: inset -0.6em -0.6em 1em #a8a7a5, inset 0.4em 0.4em 0.5em #ffffff,
+  0.8em 0.8em 2em #8d8c8a; */
+    // boxShadowClay1: 'inset 0.6em -0.6em 1em #151515, inset 0.4em 0.4em 0.5em hsl(240, 2%, 22%), -0.6em 0.6em 1em #272729;',
 }
 // backgroundNeon5: '#54bea8;', 1
 // backgroundNeon6: '#DB3EB1;   2
@@ -128,7 +135,8 @@ const primaryStyle: GlobalStyle = {
 // red: #e63946;
 
 const secondaryStyle: GlobalStyle = {
-    background1Main: '#F7F6F2;',
+    // background1Main: '#F7F6F2;',
+    background1Main: 'hsl(48, 24%, 96%);',
     // background2Main: '#EBFBFF;',
     // background2Main: '#FEE7C9;',
     background2Main: '#C0BFBC;',
@@ -194,6 +202,9 @@ const secondaryStyle: GlobalStyle = {
     // boxShadowInset4: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff;',
     boxShadowInset5: 'inset -5px 5px 10px #d2d1ce, inset 5px -5px 10px #ffffff;',
     boxShadowNone: 'inset 0px 0px 0px #b7b6b3, inset 0px 0px 0px #ffffff, 0px 0px 0px #ebeae6, 0px 0px 0px #fffffe;',
+    boxShadowClay1: 'inset 0.3em -0.3em 0.7em #a8a7a5, inset 0.4em 0.4em 0.9em hsl(228, 34%, 93%), -0.15em 0.15em 0.5em #8d8c8a;',
+    // boxShadowClay1: 'inset 0.6em -0.6em 1em #a8a7a5, inset 0.4em 0.4em 0.5em hsl(228, 34%, 93%), -0.3em 0.4em 0.5em #8d8c8a;',
+    // boxShadowClay1: 'inset 0.6em -0.6em 1em #a8a7a5, inset 0.4em 0.4em 0.5em hsl(228, 34%, 93%), -0.4em 0.6em 0.7em #8d8c8a;',
 }
 const tertiaryStyle: GlobalStyle = {
     background1Main: '#264653;',
@@ -359,6 +370,7 @@ export const handleGlobalScheme: (props: any) => {} = (props: any) => {
         boxShadowInset4: `${style.boxShadowInset4}`,
         boxShadowInset5: `${style.boxShadowInset5}`,
         boxShadowNone: `${style.boxShadowNone}`,
+        boxShadowClay1: `${style.boxShadowClay1}`,
 
 
     }

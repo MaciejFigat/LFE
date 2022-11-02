@@ -72,6 +72,7 @@ export const HeroWrapperRow = styled.div`
   color: var(--background4-main);
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
   gap: 1.5rem;
 `
 export const HeroTitle = styled.div`

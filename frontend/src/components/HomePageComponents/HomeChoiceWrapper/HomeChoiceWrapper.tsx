@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useAppSelector } from '../../../app/reduxHooks'
+import { UserInfo } from '../../../interfaces'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import {
   ChoiceItem,
@@ -9,7 +11,6 @@ import {
   MainChoiceContainer,
   WrapperWindow,
 } from './HomeChoiceWrapper.styled'
-
 import {
   HeroTitle,
   HeroWrapperColumns,
@@ -30,6 +31,7 @@ const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = ({
   tabs,
   navTop,
 }) => {
+  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const [selectedTab, setSelectedTab] = useState(tabs[0])
 
   const tabHelper = (item: any) => {
@@ -43,13 +45,15 @@ const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = ({
           <HeroWrapperColumns>
             <HeroTitle>{titleSvg}</HeroTitle>
           </HeroWrapperColumns>
-          <HeroWrapperRow>
-            <h3>Nie masz jeszcze konta?</h3>
+          {Object.keys(userInfo).length === 0 && (
+            <HeroWrapperRow>
+              <h3>Nie masz jeszcze konta?</h3>
 
-            <ButtonMedium variant='primary'>
-              <NavLink to='/register'>Zarejestruj się</NavLink>
-            </ButtonMedium>
-          </HeroWrapperRow>
+              <ButtonMedium variant='primary'>
+                <NavLink to='/register'>Zarejestruj się</NavLink>
+              </ButtonMedium>
+            </HeroWrapperRow>
+          )}
         </ChoiceTitleContainer>
         <ChoiceNav navTop={navTop}>
           <AnimateSharedLayout>

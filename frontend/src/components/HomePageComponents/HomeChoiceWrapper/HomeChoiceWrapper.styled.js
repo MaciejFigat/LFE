@@ -33,7 +33,9 @@ export const ChoiceTitleContainer = styled.div`
 `
 export const ChoiceNav = styled.nav`
   /* min-width: 70%; */
-  max-width: 80%;
+  /* max-width: 80%; */
+  width: 400px;
+
   left: 20%;
   /* height: 3rem; */
 
@@ -41,29 +43,37 @@ export const ChoiceNav = styled.nav`
   margin-top: 1rem;
   margin-bottom: 1rem;
   /* border-radius: 5px; */
-  border-top: 1px solid var(--background-blur1);
+  /* border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
 
   border-left: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2); */
+  /* box-shadow: var(--boxShadow1); */
+  box-shadow: var(--boxShadowClay1);
 
-  background: var(--background-gradient1);
+  /* box-shadow: inset -0.6em -0.6em 1em #a8a7a5, inset 0.4em 0.4em 0.5em #ffffff,
+    0.8em 0.8em 2em #8d8c8a; */
+  /* #a8a7a5, #fffffe;', */
+  /* -3px 3px 7px #8d8c8a, 7px -7px 10px #ffffff;', */
+  /* box-shadow: inset -0.6em -0.6em 1em rgba(165, 79, 29, 0.6),
+    inset 0.4em 0.4em 0.5em rgba(245, 230, 221, 0.6),
+    0.8em 0.8em 2em rgba(165, 79, 29, 0.6); */
+  /* background: var(--background-gradient1); */
 
   color: var(--background4-main);
 
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 20px;
 
-  width: 900px;
   @media screen and (max-width: 1391px) {
     font-size: 1rem;
   }
   @media screen and (max-width: 991px) {
     font-size: 0.95rem;
     left: 1rem;
-    min-width: 85%;
+    /* min-width: 85%; */
     max-width: 95%;
-    width: 500px;
+    /* width: 500px; */
   }
   @media screen and (max-width: 601px) {
     min-height: fit-content;
@@ -72,7 +82,7 @@ export const ChoiceNav = styled.nav`
   }
   @media screen and (max-width: 780px) {
     /* padding: 0; */
-    box-shadow: none;
+    /* box-shadow: none; */
   }
   @media screen and (max-width: 600px) {
     display: grid;
@@ -102,7 +112,7 @@ export const ChoiceItem = styled.div`
   position: relative;
   top: 0px;
   left: 0px;
-  border-radius: 5px;
+  border-radius: 10px;
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
@@ -193,12 +203,12 @@ export const ChoiceList = styled.ul`
 
 export const ChoiceUnderline = styled(motion.div)`
   position: absolute;
-  bottom: -2px;
+  bottom: -1px;
   border-radius: 5px;
 
   left: 0px;
   right: 0;
-  height: 46px;
+  height: 44px;
   border-top: 1px solid;
 
   border-bottom: 1px solid;
@@ -206,8 +216,10 @@ export const ChoiceUnderline = styled(motion.div)`
   border-width: 1px;
   border-image-source: linear-gradient(
     to left,
+    transparent 0%,
     transparent 20%,
-    var(--background-secondary1) 70%,
+    var(--background-secondary1) 60%,
+    transparent 90%,
     transparent 100%
   );
 
