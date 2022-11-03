@@ -86,7 +86,7 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
                   contentAfter={moreColumns ? 'Edytuj' : ''}
                   toLeft
                 /> */}
-                <DotButton left='1px' />
+                <DotButton left='0px' />
               </SendButtonVerySmall>
             </RelativeRightSvgWrapper>
           </FragmentTitleRowSmall>

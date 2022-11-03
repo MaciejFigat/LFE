@@ -319,7 +319,7 @@ export const DotButton = styled.div`
 
   &:before {
     position: relative;
-    top: -2px;
+    top: 0px;
     /* left: ${({ left }) => (left ? '4px' : '-1px')}; */
     left: ${({ left }) => (left ? left : '-1px')};
     /* left: 3px; */

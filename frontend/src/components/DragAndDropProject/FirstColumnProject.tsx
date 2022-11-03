@@ -3,7 +3,10 @@ import {
   FragmentB,
   FragmentDivSmall,
   FragmentParSmall,
+  FragmentTitleRowSmall,
+  KeywordB,
   KeywordColumnContainer,
+  KeywordDivSimple,
   KeywordSearchContainer,
 } from '../Miscellaneous/KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { useAppSelector } from '../../app/reduxHooks'
@@ -30,6 +33,7 @@ import {
   DotButton,
   OpenBigDivButton,
   OpenDivButtonWrapper,
+  RelativeRightSvgWrapper,
   WrapperMotionDiv,
 } from '../../styles/misc.styled'
 
@@ -321,24 +325,60 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                       <WrapperMotionDiv layoutId={fragment._id}>
                         {' '}
                       </WrapperMotionDiv>
-                      <OpenDivButtonWrapper>
-                        <OpenBigDivButton
-                          onClick={() => openWindowHandler(fragment._id)}
-                        >
-                          <DotButton left />
-                        </OpenBigDivButton>
-                      </OpenDivButtonWrapper>
+
+                      <FragmentTitleRowSmall>
+                        <FragmentParSmall>
+                          {fragment.title !==
+                          fragment.excerpt.substring(0, 22) ? (
+                            <>{fragment.title}</>
+                          ) : (
+                            <>{fragment.source}</>
+                          )}
+                        </FragmentParSmall>
+                        <RelativeRightSvgWrapper>
+                          <SendButtonVerySmall
+                            variant='primaryEmpty'
+                            onClick={() => openWindowHandler(fragment._id)}
+                            // onClick={openWindowHandler('6310d693cbf3fcda37beff9c')}
+                          >
+                            <DotButton left='0px' />
+                          </SendButtonVerySmall>
+                        </RelativeRightSvgWrapper>
+                      </FragmentTitleRowSmall>
+                      {fragment.title !== fragment.excerpt.substring(0, 22) && (
+                        <FragmentParSmall>{fragment.source}</FragmentParSmall>
+                      )}
 
                       <FragmentParSmall>
-                        {' '}
-                        <FragmentB>T:</FragmentB> {fragment.title}
+                        <FragmentB> {fragment.excerpt}</FragmentB>
+                      </FragmentParSmall>
+                      {fragment.description.substring(0, 12) !==
+                        fragment.source.substring(0, 12) && (
+                        <FragmentParSmall>
+                          {fragment.description}
+                        </FragmentParSmall>
+                      )}
+                      <FragmentParSmall>
+                        {fragment.coordinates}
                       </FragmentParSmall>
                       <FragmentParSmall>
-                        <FragmentB>E:</FragmentB> {fragment.excerpt}
+                        Aktualizacja: {fragment.updatedAt.substring(0, 10)} o
+                        godzinie {fragment.updatedAt.substring(12, 16)}
                       </FragmentParSmall>
-                      <FragmentParSmall>
-                        <FragmentB>D:</FragmentB> {fragment.description}
-                      </FragmentParSmall>
+                      {(fragment.keywords.length > 1 ||
+                        fragment.keywords[0] !== '') && (
+                        <KeywordDivSimple>
+                          {fragment.keywords
+                            .filter(
+                              (keyword: string) => keyword !== keywordMain
+                            )
+                            .map((keyword: string) => (
+                              <KeywordB key={Math.random()}>
+                                {keyword} &nbsp;
+                              </KeywordB>
+                            ))}
+                        </KeywordDivSimple>
+                      )}
                     </FragmentDivSmall>
                   )}
                 </Draggable>
