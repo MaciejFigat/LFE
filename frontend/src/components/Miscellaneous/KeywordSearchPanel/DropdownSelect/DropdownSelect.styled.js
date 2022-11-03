@@ -13,6 +13,12 @@ export const DropDownHeaderInside = styled(motion.div)`
   height: 100%;
   transition: all 0.2s ease-out;
 `
+
+export const DropDownButtons = styled(motion.div)`
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+`
 export const DropDownHeader = styled(motion.div)`
   cursor: pointer;
   user-select: none;
@@ -37,7 +43,7 @@ export const DropDownHeader = styled(motion.div)`
   text-align: center;
 
   &:hover {
-    box-shadow: var(--boxShadow1);
+    box-shadow: var(--boxShadowInset1);
     transition: all 0.1s ease-out;
     color: var(--background-secondary1);
 
@@ -47,7 +53,7 @@ export const DropDownHeader = styled(motion.div)`
     border-bottom: 1px solid var(--background-blur1);
   }
   &:active {
-    box-shadow: var(--boxShadowInset1);
+    box-shadow: var(--boxShadowInset2);
   }
   .activeButton {
     /* scale: 0.99; */
@@ -68,12 +74,13 @@ export const DropDownListContainer = styled.div`
 export const DropDownList = styled.div`
   //todo
   position: relative;
-  top: -1px;
+  top: 10px;
   user-select: none;
   z-index: 2;
   /* left: 10px; */
   padding: 0;
   margin: 0;
+  border-radius: 10px;
   padding-left: 1rem;
   padding-right: 0.5rem;
   background: var(--background1-main);
@@ -86,7 +93,7 @@ export const DropDownList = styled.div`
   border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
-  box-shadow: var(--boxShadow2);
+  box-shadow: var(--boxShadow1);
 
   box-sizing: border-box;
 
@@ -120,9 +127,11 @@ export const HorizontalButtonContainer = styled(motion.div)`
 export const HeaderAndCogContainer = styled(HorizontalButtonContainer)`
   min-width: 232px;
   /* background: red; */
+  flex-direction: column;
   justify-content: space-around;
   justify-content: center;
   align-items: center;
+
   .active {
     /* color: var(--background3-main); */
     transition: all 0.1s ease-out;
@@ -166,7 +175,7 @@ export const OptionsDropdownContainer = styled.div`
   height: 3.7rem;
   left: 10px;
   top: 15px;
-  z-index: 10;
+  /* z-index: 10; */
   background: var(--background1-main);
   width: 250px;
 

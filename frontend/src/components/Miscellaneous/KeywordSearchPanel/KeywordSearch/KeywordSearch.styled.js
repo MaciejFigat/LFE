@@ -23,18 +23,26 @@ export const KeywordColumnContainer = styled.div`
 
 export const FragmentB = styled.b`
   color: var(--background4-main);
-  font-size: 0.9rem;
+  font-size: 1rem;
+  @media (max-width: 1020px) {
+    font-size: 0.85rem;
+  }
 `
 export const KeywordB = styled.b`
   display: grid;
   place-items: center;
   color: var(--background4-main);
-  box-shadow: var(--boxShadowInset1);
-  border-bottom: 1px solid var(--background2-main);
-  border-left: 1px solid var(--background2-main);
-  border-radius: 5px;
+  /* box-shadow: var(--boxShadowClay1); */
+  /* border-bottom: 1px solid var(--background2-main); */
+  /* border-left: 1px solid var(--background2-main); */
+
+  border-right: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
+  border-radius: 10px;
   font-size: 0.8rem;
-  padding: 0.25rem;
+  padding: 0.5rem;
 `
 export const KeywordDivSimple = styled.b`
   display: flex;
@@ -65,26 +73,29 @@ export const FragmentTitleRowSmall = styled.div`
   max-height: 1.2rem;
 `
 export const FragmentDivSmall = styled(motion.div)`
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 330px;
+
+  /* width: fit-content; */
   /* align-self: center; */
   /* ${({ moreColumns }) =>
     moreColumns
       ? 'background: none;'
       : 'background: var(--background1-main);'}; */
-
+  /* 
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background-blur1);
-  /* box-shadow: var(--boxShadow1); */
-  /* background: linear-gradient(
-    var(--background-blur1) 10%,
-    transparent 90%,
-    var(--background-blur1)
-  ); */
+  border-bottom: 1px solid var(--background-blur1); */
+  /* background: var(--background-gradient1); */
+  box-shadow: var(--boxShadowClay2);
+  border-radius: 20px;
 
-  border-radius: 5px;
-
-  padding: 0.95rem;
+  padding: 1.95rem;
   padding-right: 0.75rem;
   padding-bottom: 0rem;
   overflow: scroll;

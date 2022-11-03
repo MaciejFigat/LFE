@@ -12,7 +12,7 @@ export const FragmentContainer = styled.div`
       ? 'border-bottom: 1px solid var(--background2-main);'
       : 'border: none;'};
   /* background: lime; */
-  width: 480px;
+  /* width: 480px; */
   max-width: 40vw;
 
   /* border-left: 1px solid var(--background2-main); */

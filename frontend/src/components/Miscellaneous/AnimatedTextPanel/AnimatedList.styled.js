@@ -4,11 +4,12 @@ import { motion } from 'framer-motion'
 export const FragmentsWrapper = styled(motion.div)`
   display: grid;
   place-items: flex-start;
+
   /* width: 90vw; */
-  width: 95%;
+  width: 100%;
   ${({ moreColumns }) => moreColumns && 'display: grid;'};
   ${({ moreColumns }) =>
-    moreColumns && 'grid-template-columns: repeat(4, 1fr);'};
+    moreColumns && 'grid-template-columns: repeat(3, 1fr);'};
   ${({ moreColumns }) =>
     moreColumns && 'grid-template-rows: fit-content(40%);'};
   /* ${({ moreColumns }) =>
@@ -34,9 +35,10 @@ export const ListWrapper = styled(motion.div)`
   display: flex;
   margin: 0;
   flex-direction: column;
+
   /* margin-top: 16px; */
 
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
 
   @media (max-width: 1140px) {
     /* margin-top: 20px; */

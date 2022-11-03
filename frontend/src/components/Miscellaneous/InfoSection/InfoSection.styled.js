@@ -12,12 +12,12 @@ export const InfoSec = styled.div`
   padding-top: 4rem;
 
   border-radius: 20px;
-  border-top: 1px solid var(--background-blur2);
-  border-right: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background-blur1);
 
-  box-shadow: var(--boxShadow1);
+  /* box-shadow: var(--boxShadow1); */
+
+  background: var(--background-gradient1);
+
+  box-shadow: var(--boxShadowClay1);
 
   margin-bottom: 1rem;
   @media (min-width: 1180px) {
@@ -180,10 +180,16 @@ export const Button = styled.button`
   background: none;
   /* border: none; */
 
+  /* box-shadow: var(--boxShadowClay1); */
+  background: var(--background-gradient1);
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background-blur1);
+
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
+
+  border-left: 1px solid transparent;
+  border-bottom: 1px solid transparent;
   /* ${(props) => handleSectionColor(props).buttonBackground} */
   outline: none;
   cursor: pointer;
@@ -200,7 +206,7 @@ export const Button = styled.button`
   }
   &:hover {
     box-shadow: var(--boxShadowInset1);
-    transition: all 0.3s ease-in;
+    transition: all 0.2s ease-in;
     border-top: 1px solid transparent;
     border-right: 1px solid transparent;
     border-left: 1px solid var(--background-blur1);
@@ -211,8 +217,15 @@ export const Button = styled.button`
     /* ${(props) => handleSectionColor(props).buttonColorHover} */
     /* buttonColor as color for the link nested inside the Button */
     a {
-      transition: all 0.3s ease-out;
+      transition: all 0.2s ease-out;
       ${(props) => handleSectionColor(props).buttonColorHover}
+    }
+  }
+  &:active {
+    a {
+      box-shadow: var(--boxShadowInset2);
+      color: var(--background-secondary1) !important;
+      background: red;
     }
   }
 

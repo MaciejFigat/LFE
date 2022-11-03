@@ -47,6 +47,9 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
   const idOpenFragment = useAppSelector(
     (state) => state.preference.idOpenFragment
   )
+  const keywordMain = useAppSelector(
+    (state) => state.preference.sortingKeywords.keywordMain
+  )
 
   const openWindowHandler = () => {
     if (idOpenFragment === '') {
@@ -83,7 +86,7 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
                   contentAfter={moreColumns ? 'Edytuj' : ''}
                   toLeft
                 /> */}
-                <DotButton />
+                <DotButton left='1px' />
               </SendButtonVerySmall>
             </RelativeRightSvgWrapper>
           </FragmentTitleRowSmall>
@@ -97,16 +100,18 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
           {description.substring(0, 12) !== source.substring(0, 12) && (
             <FragmentParSmall>{description}</FragmentParSmall>
           )}
+          <FragmentParSmall>{coordinates}</FragmentParSmall>
           <FragmentParSmall>
             Aktualizacja: {updatedAt.substring(0, 10)} o godzinie{' '}
             {updatedAt.substring(12, 16)}
           </FragmentParSmall>
-          <FragmentParSmall>{coordinates}</FragmentParSmall>
           {(keywords.length > 1 || keywords[0] !== '') && (
             <KeywordDivSimple>
-              {keywords.map((keyword) => (
-                <KeywordB key={Math.random()}>{keyword} &nbsp;</KeywordB>
-              ))}
+              {keywords
+                .filter((keyword) => keyword !== keywordMain)
+                .map((keyword) => (
+                  <KeywordB key={Math.random()}>{keyword} &nbsp;</KeywordB>
+                ))}
             </KeywordDivSimple>
           )}
         </FragmentDivSmall>

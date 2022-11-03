@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { FragmentContainer } from './FragmentsColumn.styled'
-import { motion } from 'framer-motion'
+
 import {
   ListWrapper,
   ItemWrapper,
@@ -62,7 +62,7 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = ({
           fragmentsKeywordMain
             .map((fragment) => (
               <ListWrapper
-                as={motion.ul}
+                // as={motion.ul}
                 key={fragment._id}
                 variants={dropUpVariants}
               >

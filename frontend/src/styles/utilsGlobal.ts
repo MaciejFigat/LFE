@@ -115,7 +115,8 @@ const primaryStyle: GlobalStyle = {
     // boxShadowNone: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, 0px 0px 0px #d2d1ce, 0px 0px 0px #fffffe;',
     boxShadowNone: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, 0px 0px 0px #262627, 0px 0px 0px #262627;',
     boxShadowClay1: 'inset 0.3em -0.3em 0.6em #151515, inset -0.2em 0.3em 0.8em hsl(240, 2%, 22%), -0.1em 0.2em 0.6em hsl(240, 2%, 14%);',
-    boxShadowClay2: 'inset 0.6em -0.6em 1em #151515, inset 0.4em 0.4em 0.9em hsl(240, 2%, 22%), -0.5em 0.5em 0.8em hsl(240, 2%, 14%);',
+    boxShadowClay2: 'inset 0.3em -0.3em 0.6em #151515, inset -0.1em 0.2em 0.6em hsl(240, 2%, 22%), -0.1em 0.1em 0.4em hsl(240, 2%, 14%);',
+    // boxShadowClay2: 'inset 0.6em -0.6em 1em #151515, inset 0.4em 0.4em 0.9em hsl(240, 2%, 22%), -0.5em 0.5em 0.8em hsl(240, 2%, 14%);',
     /* box-shadow: inset -0.6em -0.6em 1em #a8a7a5, inset 0.4em 0.4em 0.5em #ffffff,
   0.8em 0.8em 2em #8d8c8a; */
     // boxShadowClay1: 'inset 0.6em -0.6em 1em #151515, inset 0.4em 0.4em 0.5em hsl(240, 2%, 22%), -0.6em 0.6em 1em #272729;',
@@ -204,7 +205,8 @@ const secondaryStyle: GlobalStyle = {
     boxShadowInset5: 'inset -5px 5px 10px #d2d1ce, inset 5px -5px 10px #ffffff;',
     boxShadowNone: 'inset 0px 0px 0px #b7b6b3, inset 0px 0px 0px #ffffff, 0px 0px 0px #ebeae6, 0px 0px 0px #fffffe;',
     boxShadowClay1: 'inset 0.1em -0.1em 0.4em #a8a7a5, inset 0.4em 0.4em 0.9em hsl(228, 34%, 93%), -0.1em 0.1em 0.3em #8d8c8a;',
-    // boxShadowClay1: 'inset 0.3em -0.3em 0.7em #a8a7a5, inset 0.4em 0.4em 0.9em hsl(228, 34%, 93%), -0.15em 0.15em 0.5em #8d8c8a;',
+    boxShadowClay2: 'inset 0.1em -0.1em 0.4em #a8a7a5, inset 0.3em 0.3em 0.6em hsl(228, 34%, 93%), -0.09em 0.09em 0.2em #8d8c8a;',
+    // boxShadowClay2: 'inset 0.3em -0.3em 0.7em #a8a7a5, inset 0.4em 0.4em 0.9em hsl(228, 34%, 93%), -0.15em 0.15em 0.5em #8d8c8a;',
     // boxShadowClay1: 'inset 0.6em -0.6em 1em #a8a7a5, inset 0.4em 0.4em 0.5em hsl(228, 34%, 93%), -0.3em 0.4em 0.5em #8d8c8a;',
     // boxShadowClay1: 'inset 0.6em -0.6em 1em #a8a7a5, inset 0.4em 0.4em 0.5em hsl(228, 34%, 93%), -0.4em 0.6em 0.7em #8d8c8a;',
 }
@@ -373,6 +375,7 @@ export const handleGlobalScheme: (props: any) => {} = (props: any) => {
         boxShadowInset5: `${style.boxShadowInset5}`,
         boxShadowNone: `${style.boxShadowNone}`,
         boxShadowClay1: `${style.boxShadowClay1}`,
+        boxShadowClay2: `${style.boxShadowClay2}`,
 
 
     }

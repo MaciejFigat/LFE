@@ -110,7 +110,6 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
             <SearchResultsHorizontalWrapper>
               <SearchResultsDashboardColumn>
                 <SwitchSectionWrapper>
-                  {/* <SwitchButtonWrapper> */}
                   <SearchBar
                     searchQuery={searchQuery}
                     setSearchQuery={setSearchQuery}

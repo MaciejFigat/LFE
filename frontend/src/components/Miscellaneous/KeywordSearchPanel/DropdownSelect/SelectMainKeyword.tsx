@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../../app/reduxHooks'
 import {
+  DropDownButtons,
   DropDownContainer,
   DropDownHeader,
   DropDownHeaderInside,
@@ -129,7 +130,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
       (fragmentsSorted) =>
         fragmentsSorted.keywords?.indexOf(selectedMainKeyword) >= 0
     )
-    if (window.confirm('Are you sure?')) {
+    if (window.confirm('Czy potwierdzasz usunięcie powiązanych fragmentów?')) {
       if (fragmentsMatching.length === 1 || 2) {
         fragmentsMatching.map((fragment) =>
           dispatch(deleteSavedFragment(fragment._id))
@@ -277,7 +278,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
               </SendButtonVerySmall>
             )}
             {wide && (
-              <>
+              <DropDownButtons>
                 <SendButtonVerySmall
                   variant='successEmpty'
                   onClick={editingNewHandler}
@@ -301,7 +302,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                     contentAfter='usuń powiązane'
                   />
                 </SendButtonVerySmall>
-              </>
+              </DropDownButtons>
             )}
           </HeaderAndCogContainer>
           <DropDownListContainer>

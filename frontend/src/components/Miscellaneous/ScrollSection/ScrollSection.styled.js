@@ -25,7 +25,7 @@ export const SectionColumn = styled.div`
   /* background: none; */
   flex-direction: column;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: sticky;
   top: 0;

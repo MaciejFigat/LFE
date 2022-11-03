@@ -301,14 +301,18 @@ export const RelativeSvgWrapper = styled.div`
 `
 
 export const DotButton = styled.div`
+  position: relative;
+  top: -10px;
+  display: grid;
+  place-items: center;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border-right: 1px solid var(--background-blur1);
+  /* border-right: 1px solid var(--background-blur1);
   border-top: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur2);
-  box-shadow: var(--boxShadow1);
+  border-bottom: 1px solid var(--background-blur2); */
+  box-shadow: var(--boxShadowClay1);
   font-weight: 700;
   cursor: help;
   transition: 0.1s;
@@ -316,17 +320,18 @@ export const DotButton = styled.div`
   &:before {
     position: relative;
     top: -2px;
-    left: ${({ left }) => (left ? '4px' : '-1px')};
+    /* left: ${({ left }) => (left ? '4px' : '-1px')}; */
+    left: ${({ left }) => (left ? left : '-1px')};
     /* left: 3px; */
     content: 'e';
   }
   &:hover {
     box-shadow: var(--boxShadowInset4);
     color: var(--background-secondary1);
-    border-right: 1px solid transparent;
+    /* border-right: 1px solid transparent;
     border-top: 1px solid transparent;
     border-left: 1px solid var(--background-blur1);
-    border-bottom: 1px solid var(--background-blur1);
+    border-bottom: 1px solid var(--background-blur1); */
   }
   &:active {
     /* background: var(--background2-main); */

@@ -64,7 +64,7 @@ export const SearchResultsDashboardDiv = styled.div`
   max-width: 700px;
   /* width: 600px; */
   margin-bottom: 2rem;
-  margin-top: 4rem;
+  margin-top: 0rem;
   @media screen and (max-width: 890px) {
     /* justify-content: center; */
     max-width: 90vw;

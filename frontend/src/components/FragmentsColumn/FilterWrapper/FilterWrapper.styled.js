@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 export const FilterOptionsWrapper = styled.div`
-  background: var(--background1-main);
-  border-top: 1px solid var(--background-blur2);
+  /* border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2); */
 
+  box-shadow: var(--boxShadowClay2);
   background: var(--background-gradient1);
 
   min-width: ${({ wide }) => (wide ? 'min(450px, 80vw)' : '250px')};
-  height: ${({ wide }) => wide && '120px'};
+  height: ${({ wide }) => wide && '140px'};
   padding: ${({ wide }) => (wide ? '2rem' : '0.25rem')};
   margin: ${({ wide }) => (wide ? '2rem' : '0.25rem')};
   border-radius: 20px;
