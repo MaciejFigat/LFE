@@ -31,8 +31,6 @@ import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
 
 import {
   DotButton,
-  OpenBigDivButton,
-  OpenDivButtonWrapper,
   RelativeRightSvgWrapper,
   WrapperMotionDiv,
 } from '../../styles/misc.styled'

@@ -14,7 +14,7 @@ export const DropDownContainer = styled.div`
 export const DropDownHeader = styled.div`
   margin-bottom: 0.25em;
   user-select: none;
-
+  color: var(--background4-main);
   padding: ${({ wide }) =>
     wide ? '0.4rem 0.6rem 0.4rem 0.7rem' : '0.2rem 0.4rem 0.2rem 0.5rem'};
   font-weight: 500;
