@@ -34,7 +34,7 @@ const containerVariants = {
     opacity: 1,
     transition: {
       delayChildren: 0, // this will set a delay before the children start animating
-      staggerChildren: 0.3, // this will set the time inbetween children animation
+      staggerChildren: 0.2, // this will set the time inbetween children animation
     },
   },
 }

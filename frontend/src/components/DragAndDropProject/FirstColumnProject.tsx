@@ -337,7 +337,6 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                           <SendButtonVerySmall
                             variant='primaryEmpty'
                             onClick={() => openWindowHandler(fragment._id)}
-                            // onClick={openWindowHandler('6310d693cbf3fcda37beff9c')}
                           >
                             <DotButton left='0px' />
                           </SendButtonVerySmall>

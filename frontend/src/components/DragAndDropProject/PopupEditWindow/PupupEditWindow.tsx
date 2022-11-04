@@ -105,14 +105,6 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     if (setOpenedApp) {
       setOpenedApp(null)
     }
-    // if (setCanOpenApp) {
-    //   setCanOpenApp(false)
-    //   setTimeout(() => {
-    //     setCanOpenApp(true)
-    //   }, 500)
-    // }
-
-    // dispatch(editIdOpenFragment(''))
   }
   // Todo title editing
 
@@ -243,7 +235,15 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     }
   }
 
-  useMemo(() => window.scrollTo(0, 0), [])
+  // useMemo(() => window.scrollTo(0, 0), [])
+  useMemo(
+    () =>
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      }),
+    []
+  )
 
   return (
     <>
