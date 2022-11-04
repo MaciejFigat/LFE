@@ -17,7 +17,16 @@ import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWindow'
 import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
-import { DotButton, WrapperMotionDiv } from '../../styles/misc.styled'
+import {
+  DotButton,
+  RelativeRightSvgWrapper,
+  WrapperMotionDiv,
+} from '../../styles/misc.styled'
+import {
+  FragmentB,
+  FragmentParSmall,
+  FragmentTitleRowSmall,
+} from '../Miscellaneous/KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 interface ProjectsDisplayProps {}
 
 const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
@@ -114,13 +123,30 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
                         layoutId={fragment._id}
                       ></WrapperMotionDiv>
                       <ProjectDiv variants={dropUpVariants} key={Math.random()}>
-                        {fragment.title}
-                        <SendButtonVerySmall
-                          variant='primaryEmpty'
-                          onClick={() => openWindowHandler(fragment._id)}
-                        >
-                          <DotButton left='0px' />
-                        </SendButtonVerySmall>
+                        <FragmentTitleRowSmall>
+                          <FragmentParSmall>
+                            {fragment.title !==
+                            fragment.excerpt.substring(0, 22) ? (
+                              <>{fragment.title}</>
+                            ) : (
+                              <>{fragment.source}</>
+                            )}
+                          </FragmentParSmall>
+                          <RelativeRightSvgWrapper>
+                            <SendButtonVerySmall
+                              variant='primaryEmpty'
+                              onClick={() => openWindowHandler(fragment._id)}
+                            >
+                              <DotButton left='0px' />
+                            </SendButtonVerySmall>
+                          </RelativeRightSvgWrapper>
+                        </FragmentTitleRowSmall>
+                        <FragmentParSmall>
+                          <FragmentB>
+                            {' '}
+                            {fragment.excerpt.substring(0, 72)}
+                          </FragmentB>
+                        </FragmentParSmall>
                       </ProjectDiv>
                     </div>
                   ))}

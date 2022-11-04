@@ -109,23 +109,26 @@ export const ProjectsDisplayWrapper = styled.div`
 export const ProjectDiv = styled(motion.div)`
   display: grid;
   place-items: center;
-  height: 40px;
+  height: 150px;
   font-size: 1rem;
-  padding: 0.55rem 0.75rem 0.55rem 0.75rem;
-  width: 150px;
+  padding: 0.95rem 1rem 0.95rem 1rem;
+  width: 250px;
   min-width: fit-content;
   color: var(--background4-main);
   /* border: 1px solid var(--background2-main); */
   border-radius: 5px;
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background2-main);
-  border-bottom: 1px solid var(--background2-main);
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
   /* box-shadow: ${({ selected }) =>
     selected ? 'var(--boxShadow2)' : 'var(--boxShadow1)'}; */
 
   /* background: var(--background1-main); */
   border-radius: 5px;
+  @media screen and (max-width: 760px) {
+    padding: 0.55rem 0.75rem 0.55rem 0.75rem;
+  }
 `
 export const ProjectDivSecondary = styled(ProjectDiv)`
   background: var(--background4-main);
@@ -146,12 +149,15 @@ export const MainProjectWrapper = styled.div`
 export const MainProjectDetails = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(auto-fill, 60px);
-  grid-row-gap: 0.25em;
+  /* grid-template-rows: repeat(auto-fill, 60px); */
+  grid-row-gap: 0.95em;
   grid-column-gap: 1em;
   max-width: 80vw;
-  @media screen and (max-width: 1090px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media screen and (min-width: 1490px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (max-width: 1190px) {
+    grid-template-columns: repeat(1, 1fr);
     /* max-width: 100vw; */
     /* min-width: 95vw; */
   }
