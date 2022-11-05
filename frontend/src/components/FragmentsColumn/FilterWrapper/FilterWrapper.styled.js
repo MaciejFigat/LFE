@@ -8,10 +8,11 @@ export const FilterOptionsWrapper = styled.div`
 
   box-shadow: var(--boxShadowClay2);
   background: var(--background-gradient1);
+  /* background: brown; */
 
-  min-width: ${({ wide }) => (wide ? 'min(450px, 80vw)' : '250px')};
-  height: ${({ wide }) => wide && '140px'};
-  padding: ${({ wide }) => (wide ? '2rem' : '0.25rem')};
+  min-width: ${({ wide }) => (wide ? 'min(450px, 80vw)' : '280px')};
+  height: ${({ wide }) => (wide ? '140px' : '100px')};
+  padding: ${({ wide }) => (wide ? '2rem' : '0.75rem')};
   margin: ${({ wide }) => (wide ? '2rem' : '0.25rem')};
   border-radius: 20px;
   max-width: fit-content;

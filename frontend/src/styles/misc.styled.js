@@ -88,15 +88,16 @@ export const OpenedLayoutDiv = styled(motion.div)`
   padding-bottom: 1rem;
   box-sizing: border-box;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 20px;
   background: var(--background1-main);
-  border-left: 1px solid var(--background-blur1);
+  /* border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur2);
-  border-top: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2); */
 
   color: var(--background2-main);
-  box-shadow: var(--boxShadow4);
+  /* box-shadow: var(--boxShadow4); */
+  box-shadow: var(--boxShadowClay4);
   /* border: 1px solid var(--background1-main); */
 `
 export const OpenedDivBig = styled(OpenedLayoutDiv)`
@@ -312,7 +313,7 @@ export const DotButton = styled.div`
   border-top: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur2); */
-  box-shadow: var(--boxShadowClay1);
+  box-shadow: var(--boxShadowClay3);
   font-weight: 700;
   cursor: help;
   transition: 0.1s;

@@ -125,6 +125,10 @@ body {
     handleGlobalScheme(props.globalScheme).boxShadowClay1}
   --boxShadowClay2: ${(props) =>
     handleGlobalScheme(props.globalScheme).boxShadowClay2}
+  --boxShadowClay3: ${(props) =>
+    handleGlobalScheme(props.globalScheme).boxShadowClay3}
+  --boxShadowClay4: ${(props) =>
+    handleGlobalScheme(props.globalScheme).boxShadowClay4}
 
 
   // --boxShadowNone: inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, 0px 0px 0px #d2d1ce, 0px 0px 0px #fffffe;

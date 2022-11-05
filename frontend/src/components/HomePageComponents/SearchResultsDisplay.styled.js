@@ -115,17 +115,17 @@ export const ProjectDiv = styled(motion.div)`
   width: 250px;
   min-width: fit-content;
   color: var(--background4-main);
-  /* border: 1px solid var(--background2-main); */
-  border-radius: 5px;
-  border-top: 1px solid var(--background-blur2);
+
+  /* border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2); */
   /* box-shadow: ${({ selected }) =>
     selected ? 'var(--boxShadow2)' : 'var(--boxShadow1)'}; */
 
   /* background: var(--background1-main); */
-  border-radius: 5px;
+  border-radius: 15px;
+  box-shadow: var(--boxShadowClay3);
   @media screen and (max-width: 760px) {
     padding: 0.55rem 0.75rem 0.55rem 0.75rem;
   }
@@ -138,10 +138,12 @@ export const ProjectDivSecondary = styled(ProjectDiv)`
   border-radius: 10px;
 `
 export const MainProjectWrapper = styled.div`
+  position: relative;
+  top: 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background: brown; */
+
   width: 100%;
   /* height */
   /* gap: 0.5rem; */

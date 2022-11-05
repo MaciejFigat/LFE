@@ -14,37 +14,41 @@ export const ProjectCardHome = styled(motion.div)`
   font-weight: 500;
   min-width: fit-content;
 
-  /* border: 1px solid var(--background2-main); */
   /* background: var(--background-blur1); */
   /* border-top: 1px solid transparent;
   border-right: 1px solid transparent;
   border-left: 1px solid transparent;
   border-bottom: 1px solid transparent; */
+  border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
   border-radius: 10px;
-
+  border-color: ${({ selected }) =>
+    selected ? 'var(--background-secondary1)' : 'var(--background2-main)'};
   /* box-shadow: var(--boxShadowNone); */
-  box-shadow: var(--boxShadowClay2);
+  /* box-shadow: var(--boxShadowClay3); */
   transition: 0.2s;
 
   color: ${({ selected }) =>
     selected ? 'var(--background-secondary1)' : 'var(--background4-main)'};
   box-shadow: ${({ selected }) =>
-    selected ? 'var(--boxShadowInset1)' : 'var(--boxShadowClay2)'};
+    selected ? 'var(--boxShadowClay3)' : 'var(--boxShadowClay2)'};
+  /* box-shadow: ${({ selected }) =>
+    selected ? 'var(--boxShadowClay3)' : 'var(--boxShadowClay1)'}; */
   &:hover {
     opacity: 0.9;
-    box-shadow: ${({ selected }) =>
-      selected ? 'var(--boxShadowInset1)' : 'var(--boxShadowInset1)'};
+    /* box-shadow: ${({ selected }) =>
+      selected ? 'var(--boxShadowClay2)' : 'var(--boxShadowClay1)'}; */
     /* box-shadow: var(--boxShadowInset1); */
 
-    /* border-top: 1px solid var(--background-blur2);
-    border-right: 1px solid var(--background-blur2);
-    border-left: 1px solid var(--background-blur1);
-    border-bottom: 1px solid var(--background-blur1); */
-    /* color: var(--background-secondary1); */
+    color: var(--background-secondary1);
   }
   &:active {
     opacity: 0.8;
-    box-shadow: var(--boxShadowInset1);
+    border-color: var(--background-secondary1);
+    /* box-shadow: var(--boxShadowInset1); */
+    box-shadow: var(--boxShadowClay3);
     color: var(--background-secondary1);
     /* box-shadow: var(--boxShadowClay2); */
   }
@@ -71,7 +75,7 @@ export const ProjectH2 = styled(motion.h2)`
   padding-bottom: 0.5rem;
   padding: 1rem;
   border-radius: 20px;
-  box-shadow: var(--boxShadowClay2);
+  box-shadow: var(--boxShadowClay3);
   color: var(--background4-main);
   user-select: none;
   &:hover {

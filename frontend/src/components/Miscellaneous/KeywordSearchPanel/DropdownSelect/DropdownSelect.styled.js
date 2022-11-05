@@ -173,13 +173,13 @@ export const OptionsDropdownContainer = styled.div`
   align-items: center;
   position: relative;
   height: 3.7rem;
-  left: 10px;
-  top: 15px;
+  left: -25px;
+  top: -113px;
   /* z-index: 10; */
   background: var(--background1-main);
   width: 250px;
 
-  border-radius: 5px;
+  border-radius: 15px;
 
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);

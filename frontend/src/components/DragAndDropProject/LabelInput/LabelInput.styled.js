@@ -67,6 +67,9 @@ export const HorizontalButtonContainer = styled(motion.div)`
   justify-content: flex-end;
   margin-bottom: 0;
 `
+export const VerticalButtonContainer = styled(HorizontalButtonContainer)`
+  flex-direction: column;
+`
 export const AlignCenterContainer = styled.div`
   display: flex;
   padding: 1.25rem;

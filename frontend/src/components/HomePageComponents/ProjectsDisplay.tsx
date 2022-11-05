@@ -1,6 +1,6 @@
 import React, { useMemo, useEffect, useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
-import { SwitchResultWrapper } from '../Miscellaneous/SearchBar/SearchBar.styled'
+// import { SwitchResultWrapper } from '../Miscellaneous/SearchBar/SearchBar.styled'
 import { updateUserFragmentsKeywordMain } from '../../features/fragments/fragmentSlice'
 import {
   MainProjectDetails,
@@ -109,9 +109,9 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
           widthSmall='35%'
           wideSection={
             <MainProjectWrapper>
-              <SwitchResultWrapper>
-                <ProjectH2NoHover>Przypisane fragmenty</ProjectH2NoHover>
-              </SwitchResultWrapper>
+              {/* <SwitchResultWrapper> */}
+              <ProjectH2NoHover>Przypisane fragmenty</ProjectH2NoHover>
+              {/* </SwitchResultWrapper> */}
 
               <StaggerChildrenWrapperSecondary key={projectName}>
                 {' '}

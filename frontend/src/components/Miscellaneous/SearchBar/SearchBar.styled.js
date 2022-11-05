@@ -19,7 +19,7 @@ export const HomeSearchContainer = styled.div`
   border-right: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background-blur1); */
-  box-shadow: var(--boxShadowClay1);
+  box-shadow: var(--boxShadowClay3);
   /* border: 1px solid var(--background2-main); */
 `
 

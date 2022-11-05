@@ -12,7 +12,6 @@ export const DropDownContainer = styled.div`
 `
 
 export const DropDownHeader = styled.div`
-  margin-bottom: 0.25em;
   user-select: none;
   color: var(--background4-main);
   padding: ${({ wide }) =>
@@ -28,7 +27,7 @@ export const DropDownHeader = styled.div`
   /* color: var(--background-secondary1); */
   transition: all 0.2s ease-out;
   text-align: center;
-  margin-bottom: ${({ wide }) => (wide ? '1rem' : '0.25rem')};
+  margin-bottom: ${({ wide }) => (wide ? '1rem' : '0.75rem')};
   font-size: ${({ wide }) => (wide ? '1.2rem' : '0.75')};
 
   cursor: pointer;
@@ -55,7 +54,7 @@ export const DropDownList = styled.div`
   cursor: pointer;
   top: -68px;
 
-  right: ${({ wide }) => (wide ? '-220px' : '-110px')};
+  right: ${({ wide }) => (wide ? '-220px' : '-150px')};
   font-size: ${({ wide }) => (wide ? '1.5rem' : '1rem')};
   z-index: 11;
   padding: 0;
@@ -63,7 +62,8 @@ export const DropDownList = styled.div`
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   user-select: none;
-  /* background: var(--background-gradient1); */
+  background: ${({ wide }) =>
+    wide ? 'var(--background-gradient1)' : 'var(--background1-main)'};
 
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);

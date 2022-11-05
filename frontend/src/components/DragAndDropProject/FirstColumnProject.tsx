@@ -24,7 +24,7 @@ import { saveAs } from 'file-saver'
 import SelectMainKeyword from '../Miscellaneous/KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
 import {
   AlignCenterContainer,
-  HorizontalButtonContainer,
+  VerticalButtonContainer,
 } from './LabelInput/LabelInput.styled'
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
@@ -283,7 +283,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
             style={getListStyle(snapshot.isDraggingOver)}
             {...provided.droppableProps}
           >
-            <HorizontalButtonContainer>
+            <VerticalButtonContainer>
               <SelectMainKeyword wide />
               <AlignCenterContainer>
                 <ButtonMedium variant='success' onClick={exportHandler}>
@@ -297,7 +297,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                   />
                 </ButtonMedium>
               </AlignCenterContainer>
-            </HorizontalButtonContainer>
+            </VerticalButtonContainer>
 
             {state[0]
               .slice(start, end + 1)

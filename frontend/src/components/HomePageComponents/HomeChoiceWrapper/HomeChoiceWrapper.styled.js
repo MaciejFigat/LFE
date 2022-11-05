@@ -52,7 +52,7 @@ export const ChoiceNav = styled.nav`
   border-left: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur2); */
   /* box-shadow: var(--boxShadow1); */
-  box-shadow: var(--boxShadowClay1);
+  box-shadow: var(--boxShadowClay3);
 
   /* background: var(--background-gradient1); */
 
@@ -113,7 +113,7 @@ export const ChoiceItem = styled.div`
   border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
-
+  /* background: var(--background-gradient1); */
   min-width: fit-content;
   padding: 10px 15px;
   cursor: pointer;

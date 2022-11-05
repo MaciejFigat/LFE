@@ -41,6 +41,8 @@ interface GlobalStyle {
     boxShadowNone?: string
     boxShadowClay1?: string
     boxShadowClay2?: string
+    boxShadowClay3?: string
+    boxShadowClay4?: string
 }
 
 
@@ -85,7 +87,7 @@ const primaryStyle: GlobalStyle = {
     backgroundOpaque1: 'rgba( 109, 108, 112, 0.1 );',
     backgroundOpaque2: 'rgba( 29, 53, 87, 0.4 );',
     backgroundBlur1: 'rgba(60, 59, 61, 0.65);',
-    backgroundBlur2: 'rgba(60, 59, 61, 0.65);',
+    backgroundBlur2: 'rgba(60, 59, 61, 0.75);',
     // backgroundBlur2: 'rgba( 29, 53, 87, 0.4 );',
     // success1: 'rgb(70, 209, 96);',
     success1: '#009670;',
@@ -118,6 +120,8 @@ const primaryStyle: GlobalStyle = {
     boxShadowNone: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, 0px 0px 0px #262627, 0px 0px 0px #262627;',
     boxShadowClay1: 'inset 0.3em -0.3em 0.6em #151515, inset -0.2em 0.3em 0.8em hsl(240, 2%, 22%), -0.1em 0.2em 0.6em hsl(240, 2%, 14%);',
     boxShadowClay2: 'inset 0.3em -0.3em 0.6em #151515, inset -0.1em 0.2em 0.6em hsl(240, 2%, 22%), -0.1em 0.1em 0.4em hsl(240, 2%, 14%);',
+    boxShadowClay3: 'inset 0.15em -0.15em 0.3em #151515, inset -0.05em 0.08em 0.3em hsl(240, 2%, 22%), -0.051em 0.051em 0.2em hsl(240, 2%, 14%);',
+    boxShadowClay4: 'inset 0.25em -0.45em 1.9em #151515, inset 0.475em 0.475em 0.45em hsl(240, 2%, 22%), -0.43em 0.43em 4.95em hsl(240, 2%, 24%);',
     // boxShadowClay2: 'inset 0.6em -0.6em 1em #151515, inset 0.4em 0.4em 0.9em hsl(240, 2%, 22%), -0.5em 0.5em 0.8em hsl(240, 2%, 14%);',
     /* box-shadow: inset -0.6em -0.6em 1em #a8a7a5, inset 0.4em 0.4em 0.5em #ffffff,
   0.8em 0.8em 2em #8d8c8a; */
@@ -208,8 +212,13 @@ const secondaryStyle: GlobalStyle = {
     // boxShadowInset4: 'inset -11px 11px 22px #b7b6b3, inset 11px -11px 22px #ffffff;',
     boxShadowInset5: 'inset -5px 5px 10px #d2d1ce, inset 5px -5px 10px #ffffff;',
     boxShadowNone: 'inset 0px 0px 0px #b7b6b3, inset 0px 0px 0px #ffffff, 0px 0px 0px #ebeae6, 0px 0px 0px #fffffe;',
-    boxShadowClay1: 'inset 0.1em -0.1em 0.4em #a8a7a5, inset 0.4em 0.4em 0.9em hsl(228, 34%, 93%), -0.1em 0.1em 0.3em #8d8c8a;',
-    boxShadowClay2: 'inset 0.1em -0.1em 0.4em #a8a7a5, inset 0.3em 0.3em 0.6em hsl(228, 34%, 93%), -0.09em 0.09em 0.2em #8d8c8a;',
+    // boxShadowClay1: 'inset 0.1em -0.1em 0.4em #a8a7a5, inset 0.4em 0.4em 0.9em hsl(228, 34%, 93%), -0.1em 0.1em 0.3em #8d8c8a;',
+    // boxShadowClay2: 'inset 0.1em -0.1em 0.4em #a8a7a5, inset 0.3em 0.3em 0.6em hsl(228, 34%, 93%), -0.09em 0.09em 0.2em #8d8c8a;',
+    boxShadowClay1: 'inset 0.06em -0.06em 0.25em #a8a7a5, inset 0.2em 0.2em 0.4em hsl(228, 34%, 93%), -0.08em 0.08em 0.15em #8d8c8a;',
+    boxShadowClay2: 'inset 0.05em -0.05em 0.2em #a8a7a5, inset 0.15em 0.15em 0.3em hsl(228, 34%, 93%), -0.06em 0.06em 0.1em #8d8c8a;',
+    boxShadowClay3: 'inset 0.025em -0.05em 0.1em #a8a7a5, inset 0.075em 0.075em 0.15em hsl(228, 34%, 93%), -0.03em 0.03em 0.05em #8d8c8a;',
+    boxShadowClay4: 'inset 0.425em -0.45em 0.9em #a8a7a5, inset 0.475em 0.475em 0.45em hsl(228, 34%, 93%), -3.43em 3.43em 3.45em #8d8c8a;',
+
     // boxShadowClay2: 'inset 0.3em -0.3em 0.7em #a8a7a5, inset 0.4em 0.4em 0.9em hsl(228, 34%, 93%), -0.15em 0.15em 0.5em #8d8c8a;',
     // boxShadowClay1: 'inset 0.6em -0.6em 1em #a8a7a5, inset 0.4em 0.4em 0.5em hsl(228, 34%, 93%), -0.3em 0.4em 0.5em #8d8c8a;',
     // boxShadowClay1: 'inset 0.6em -0.6em 1em #a8a7a5, inset 0.4em 0.4em 0.5em hsl(228, 34%, 93%), -0.4em 0.6em 0.7em #8d8c8a;',
@@ -380,6 +389,8 @@ export const handleGlobalScheme: (props: any) => {} = (props: any) => {
         boxShadowNone: `${style.boxShadowNone}`,
         boxShadowClay1: `${style.boxShadowClay1}`,
         boxShadowClay2: `${style.boxShadowClay2}`,
+        boxShadowClay3: `${style.boxShadowClay3}`,
+        boxShadowClay4: `${style.boxShadowClay4}`,
 
 
     }
