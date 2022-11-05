@@ -275,7 +275,6 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
           wideSection={
             <FirstColumnProject
               setOpenedApp={setOpenedApp}
-              // setTitle={setTitle}
               canOpenApp={canOpenApp}
               setIdOpen={setIdOpen}
               openedApp={openedApp}

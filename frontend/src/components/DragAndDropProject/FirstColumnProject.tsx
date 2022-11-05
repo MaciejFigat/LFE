@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import {
+  FirstColProjectWrapper,
   FragmentB,
   FragmentDivSmall,
   FragmentParSmall,
@@ -79,6 +80,9 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
     (state) => state.preference.savedFragmentsPage
   )
   const { start, end } = savedFragmentsPage
+
+  const widthNumber = useAppSelector((state) => state.preference.width)
+  // const width = widthString.substring(0, 2)
 
   const exportHandler = () => {
     Packer.toBlob(doc).then((blob) => {
@@ -298,85 +302,87 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                 </ButtonMedium>
               </AlignCenterContainer>
             </VerticalButtonContainer>
+            <FirstColProjectWrapper width={widthNumber}>
+              {state[0]
+                .slice(start, end + 1)
+                .map((fragment: any, index: number) => (
+                  <Draggable
+                    key={fragment.nanoId}
+                    draggableId={fragment.nanoId}
+                    index={index}
+                  >
+                    {(provided, snapshot) => (
+                      <FragmentDivSmall
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        style={getItemStyle(
+                          snapshot.isDragging,
+                          provided.draggableProps.style
+                        )}
+                      >
+                        <WrapperMotionDiv layoutId={fragment._id}>
+                          {' '}
+                        </WrapperMotionDiv>
 
-            {state[0]
-              .slice(start, end + 1)
-              .map((fragment: any, index: number) => (
-                <Draggable
-                  key={fragment.nanoId}
-                  draggableId={fragment.nanoId}
-                  index={index}
-                >
-                  {(provided, snapshot) => (
-                    <FragmentDivSmall
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      style={getItemStyle(
-                        snapshot.isDragging,
-                        provided.draggableProps.style
-                      )}
-                    >
-                      <WrapperMotionDiv layoutId={fragment._id}>
-                        {' '}
-                      </WrapperMotionDiv>
+                        <FragmentTitleRowSmall>
+                          <FragmentParSmall>
+                            {fragment.title !==
+                            fragment.excerpt.substring(0, 22) ? (
+                              <>{fragment.title}</>
+                            ) : (
+                              <>{fragment.source}</>
+                            )}
+                          </FragmentParSmall>
+                          <RelativeRightSvgWrapper>
+                            <SendButtonVerySmall
+                              variant='primaryEmpty'
+                              onClick={() => openWindowHandler(fragment._id)}
+                            >
+                              <DotButton left='0px' />
+                            </SendButtonVerySmall>
+                          </RelativeRightSvgWrapper>
+                        </FragmentTitleRowSmall>
+                        {fragment.title !==
+                          fragment.excerpt.substring(0, 22) && (
+                          <FragmentParSmall>{fragment.source}</FragmentParSmall>
+                        )}
 
-                      <FragmentTitleRowSmall>
                         <FragmentParSmall>
-                          {fragment.title !==
-                          fragment.excerpt.substring(0, 22) ? (
-                            <>{fragment.title}</>
-                          ) : (
-                            <>{fragment.source}</>
-                          )}
+                          <FragmentB> {fragment.excerpt}</FragmentB>
                         </FragmentParSmall>
-                        <RelativeRightSvgWrapper>
-                          <SendButtonVerySmall
-                            variant='primaryEmpty'
-                            onClick={() => openWindowHandler(fragment._id)}
-                          >
-                            <DotButton left='0px' />
-                          </SendButtonVerySmall>
-                        </RelativeRightSvgWrapper>
-                      </FragmentTitleRowSmall>
-                      {fragment.title !== fragment.excerpt.substring(0, 22) && (
-                        <FragmentParSmall>{fragment.source}</FragmentParSmall>
-                      )}
-
-                      <FragmentParSmall>
-                        <FragmentB> {fragment.excerpt}</FragmentB>
-                      </FragmentParSmall>
-                      {fragment.description.substring(0, 12) !==
-                        fragment.source.substring(0, 12) && (
+                        {fragment.description.substring(0, 12) !==
+                          fragment.source.substring(0, 12) && (
+                          <FragmentParSmall>
+                            {fragment.description}
+                          </FragmentParSmall>
+                        )}
                         <FragmentParSmall>
-                          {fragment.description}
+                          {fragment.coordinates}
                         </FragmentParSmall>
-                      )}
-                      <FragmentParSmall>
-                        {fragment.coordinates}
-                      </FragmentParSmall>
-                      <FragmentParSmall>
-                        Aktualizacja: {fragment.updatedAt.substring(0, 10)} o
-                        godzinie {fragment.updatedAt.substring(12, 16)}
-                      </FragmentParSmall>
-                      {(fragment.keywords.length > 1 ||
-                        fragment.keywords[0] !== '') && (
-                        <KeywordDivSimple>
-                          {fragment.keywords
-                            .filter(
-                              (keyword: string) => keyword !== keywordMain
-                            )
-                            .map((keyword: string) => (
-                              <KeywordB key={Math.random()}>
-                                {keyword} &nbsp;
-                              </KeywordB>
-                            ))}
-                        </KeywordDivSimple>
-                      )}
-                    </FragmentDivSmall>
-                  )}
-                </Draggable>
-              ))}
+                        <FragmentParSmall>
+                          Aktualizacja: {fragment.updatedAt.substring(0, 10)} o
+                          godzinie {fragment.updatedAt.substring(12, 16)}
+                        </FragmentParSmall>
+                        {(fragment.keywords.length > 1 ||
+                          fragment.keywords[0] !== '') && (
+                          <KeywordDivSimple>
+                            {fragment.keywords
+                              .filter(
+                                (keyword: string) => keyword !== keywordMain
+                              )
+                              .map((keyword: string) => (
+                                <KeywordB key={Math.random()}>
+                                  {keyword} &nbsp;
+                                </KeywordB>
+                              ))}
+                          </KeywordDivSimple>
+                        )}
+                      </FragmentDivSmall>
+                    )}
+                  </Draggable>
+                ))}
+            </FirstColProjectWrapper>
 
             {provided.placeholder}
           </KeywordSearchContainer>

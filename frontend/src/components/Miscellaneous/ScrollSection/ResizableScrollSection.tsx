@@ -27,7 +27,7 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
   narrowOption,
 }) => {
   const dispatch: any = useAppDispatch()
-  const width = useAppSelector((state) => state.preference.width)
+  const widthNumber = useAppSelector((state) => state.preference.width)
   const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
 
   const [initialPos, setInitialPos] = useState<any>(null)
@@ -52,22 +52,29 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
       }px`
     }
   }
-  const saveWidthHandler = () => {
+  const saveWidthHandler = (e: any) => {
     let resizable = document.getElementById('SectionWide')
     if (resizable !== null && narrowOption) {
       dispatch(preferredNarrowWidthSaved(resizable.style.width))
     } else if (resizable !== null && !narrowOption) {
-      dispatch(preferredWidthSaved(resizable.style.width))
+      // dispatch(preferredWidthSaved(resizable.style.width))
+      dispatch(
+        preferredWidthSaved(
+          parseInt(initialSize) + Math.floor(e.clientX - initialPos)
+        )
+      )
+      // setWidthNumber(parseInt(initialSize) + Math.floor(e.clientX - initialPos))
+      // console.log(parseInt(initialSize) + Math.floor(e.clientX - initialPos))
     }
   }
   useEffect(() => {
     let resizable = document.getElementById('SectionWide')
-    if (width !== '' && resizable !== null && !narrowOption) {
-      resizable.style.width = width
+    if (widthNumber > 600 && resizable !== null && !narrowOption) {
+      resizable.style.width = `${widthNumber}px`
     } else if (widthNarrow !== '' && resizable !== null && narrowOption) {
       resizable.style.width = widthNarrow
     }
-  }, [dispatch, width, narrowOption, widthNarrow])
+  }, [dispatch, widthNumber, narrowOption, widthNarrow])
 
   return (
     <ScrollSec>
@@ -79,8 +86,8 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
           <DragButton draggable='true' onDragEnd={saveWidthHandler} />
         </DragDiv>
         <SectionColumnScrollResize
-          width={width}
-          animate={narrowOption ? { widthNarrow } : { width }}
+          width={`${widthNumber}px`}
+          animate={narrowOption ? { widthNarrow } : { widthNumber }}
           transition={{ type: 'inertia' }}
           widthNarrow={widthNarrow}
           narrowOption={narrowOption}
