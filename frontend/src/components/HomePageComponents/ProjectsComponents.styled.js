@@ -16,78 +16,62 @@ export const ProjectCardHome = styled(motion.div)`
 
   /* border: 1px solid var(--background2-main); */
   /* background: var(--background-blur1); */
-  border-top: 1px solid var(--background-blur1);
-  border-right: 1px solid var(--background-blur1);
-  border-left: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur2);
-  border-radius: 5px;
-  /* border-top: ${({ selected }) =>
-    selected
-      ? '1px solid var(--background-blur1)'
-      : '1px solid var(--background-blur2)'};
+  /* border-top: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-bottom: 1px solid transparent; */
+  border-radius: 10px;
 
-  border-right: ${({ selected }) =>
-    selected
-      ? '1px solid var(--background-blur1)'
-      : '1px solid var(--background-blur2)'};
-
-  border-left: ${({ selected }) =>
-    selected
-      ? '1px solid var(--background-blur2)'
-      : '1px solid var(--background-blur1)'};
-  border-bottom: ${({ selected }) =>
-    selected
-      ? '1px solid var(--background-blur2)'
-      : '1px solid var(--background-blur1)'}; */
-
-  /* box-shadow: ${({ selected }) =>
-    selected ? 'var(--boxShadow1)' : 'var(--boxShadow2)'}; */
-  color: ${({ selected }) =>
-    selected ? 'var(--background-secondary1)' : 'var(--background4-main)'};
-
-  /* transition: 0.3s; */
-  cursor: pointer;
-  /* ${({ selected }) =>
-    selected
-      ? 'background: var(--background-blur1);'
-      : 'background: var(--background1-main);'} */
-  /* ${({ selected }) => (selected ? ' scale: 1.4;' : 'scale: 1;')} */
-  box-shadow: var(--boxShadowNone);
+  /* box-shadow: var(--boxShadowNone); */
+  box-shadow: var(--boxShadowClay2);
   transition: 0.2s;
 
-  /* box-shadow: ${({ selected }) =>
-    selected ? 'var(--boxShadowInset1)' : 'var(--boxShadowNone)'}; */
+  color: ${({ selected }) =>
+    selected ? 'var(--background-secondary1)' : 'var(--background4-main)'};
+  box-shadow: ${({ selected }) =>
+    selected ? 'var(--boxShadowInset1)' : 'var(--boxShadowClay2)'};
   &:hover {
     opacity: 0.9;
-    box-shadow: ${({ selected }) => (selected ? 'var(--boxShadowNone)' : ' ')};
+    box-shadow: ${({ selected }) =>
+      selected ? 'var(--boxShadowInset1)' : 'var(--boxShadowInset1)'};
     /* box-shadow: var(--boxShadowInset1); */
-    color: var(--background-secondary1);
-    border-top: 1px solid var(--background-blur2);
+
+    /* border-top: 1px solid var(--background-blur2);
     border-right: 1px solid var(--background-blur2);
     border-left: 1px solid var(--background-blur1);
-    border-bottom: 1px solid var(--background-blur1);
+    border-bottom: 1px solid var(--background-blur1); */
     /* color: var(--background-secondary1); */
   }
   &:active {
     opacity: 0.8;
-    box-shadow: var(--boxShadowInset2);
+    box-shadow: var(--boxShadowInset1);
+    color: var(--background-secondary1);
+    /* box-shadow: var(--boxShadowClay2); */
+  }
+  @media screen and (max-width: 880px) {
+    min-width: 137px;
+    width: fit-content;
+    opacity: 0;
+    font-size: 0.85rem;
+    padding: 0 0.25rem 0 0.25rem;
+  }
+  @media screen and (max-width: 350px) {
+    min-width: 110px;
+    width: 110px;
+    opacity: 0;
+    font-size: 0.75rem;
+    padding: 0 0.15rem 0 0.15rem;
+    overflow: hidden;
   }
 `
 
-// export const ProjectBorderHighlight = styled(motion.div)`
-//   position: relative;
-//   bottom: -5px;
-//   border-radius: 5px;
-//   left: 0;
-//   right: 0;
-//   height: 5px;
-//   background: var(--background4-main);
-// `
 export const ProjectH2 = styled(motion.h2)`
-  /* border-bottom: 1px solid var(--background2-main); */
   display: grid;
   place-items: center;
   padding-bottom: 0.5rem;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: var(--boxShadowClay2);
   color: var(--background4-main);
   user-select: none;
   &:hover {
@@ -96,6 +80,7 @@ export const ProjectH2 = styled(motion.h2)`
   }
 `
 export const ProjectH2NoHover = styled(ProjectH2)`
+  font-size: 1.2rem;
   &:hover {
     color: var(--background4-main);
   }
@@ -110,13 +95,17 @@ export const ProjectMenuContainerHome = styled(motion.div)`
   /* margin-top: 1rem; */
   margin-bottom: 1rem;
 
-  @media screen and (max-width: 940px) {
+  @media screen and (max-width: 880px) {
+    /* grid-template-columns: repeat(2, 1fr); */
+    gap: 0.75rem;
+  }
+  @media screen and (max-width: 850px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media screen and (max-width: 700px) {
-    grid-template-columns: repeat(1, 1fr);
+  @media screen and (max-width: 470px) {
+    grid-template-columns: repeat(2, 1fr);
   }
   @media screen and (max-width: 470px) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 `

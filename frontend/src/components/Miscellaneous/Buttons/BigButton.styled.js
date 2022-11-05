@@ -3,6 +3,9 @@ import { motion } from 'framer-motion'
 import { handleButtonColor } from './utilsBigButton'
 
 export const ButtonBig = styled(motion.button)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.75rem 1.5rem;
   border-radius: 15px;
   font-size: 1.25rem;
@@ -11,9 +14,13 @@ export const ButtonBig = styled(motion.button)`
   border-bottom: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
+  /* border-left: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-top: 1px solid transparent; */
   background: ${(props) => handleButtonColor(props).buttonBackground};
   color: ${(props) => handleButtonColor(props).buttonColor};
-  box-shadow: var(--boxShadow1);
+  /* box-shadow: var(--boxShadowClay1); */
   transition: all 0.3s ease-out;
   /* border: none; */
   /* border: 1px solid ${(props) =>
@@ -33,7 +40,8 @@ export const ButtonBig = styled(motion.button)`
   &:hover {
     background: ${(props) => handleButtonColor(props).buttonBackgroundHover};
     transition: all 0.2s ease-out;
-    border-color: ${(props) => handleButtonColor(props).buttonBorderHover};
+    /* border-color: ${(props) =>
+      handleButtonColor(props).buttonBorderHover}; */
     transition: all 0.3s ease-out;
     /* box-shadow: var(--boxShadow1); */
 

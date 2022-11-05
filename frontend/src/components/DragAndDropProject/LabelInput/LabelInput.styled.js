@@ -70,13 +70,6 @@ export const HorizontalButtonContainer = styled(motion.div)`
 export const AlignCenterContainer = styled.div`
   display: flex;
   padding: 1.25rem;
-  /* flex-direction: row; */
-  /* align-items: flex-end; */
-
-  /* border-right: 1px solid var(--background-blur2); */
-  /* border-top: 1px solid var(--background-blur2); */
-  /* border-left: 1px solid var(--background2-main); */
-  /* border-bottom: 1px solid var(--background2-main); */
-  box-shadow: var(--boxShadowInset1);
-  border-radius: 5px;
+  /* box-shadow: var(--boxShadowClay2); */
+  /* border-radius: 20px; */
 `

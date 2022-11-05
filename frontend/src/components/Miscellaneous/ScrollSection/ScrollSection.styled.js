@@ -19,6 +19,9 @@ export const ScrollSectionRow = styled.div`
   width: 100%;
   flex-direction: ${({ imgStart }) =>
     imgStart === true ? 'row-reverse' : 'row'};
+  @media (max-width: 880px) {
+    flex-direction: column;
+  }
 `
 
 export const SectionColumn = styled.div`
@@ -37,7 +40,14 @@ export const SectionColumn = styled.div`
   flex-basis: ${({ width }) => (width ? `${width}` : '50%')};
   /* background: red; */
   overflow: scroll;
-  @media (max-width: 1020px) {
+  @media screen and (max-width: 1490px) {
+    flex-basis: 50%;
+  }
+  @media (max-width: 880px) {
+    position: relative;
+    max-height: fit-content;
+  }
+  @media (max-width: 1220px) {
     flex-basis: 65%;
   }
   @media (max-width: 440px) {
@@ -58,6 +68,7 @@ export const SectionColumnScroll = styled.div`
   justify-content: flex-start;
   /* align-items: center; */
   /* align-items: flex-start; */
+  /* background: var(--background-blur1); */
 
   margin-bottom: 15px;
   padding-left: 15px;

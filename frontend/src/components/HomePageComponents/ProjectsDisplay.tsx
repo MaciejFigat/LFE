@@ -105,8 +105,8 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
     <SearchResultsSectionWrapper>
       <AnimateSharedLayout type='crossfade'>
         <ScrollSection
-          // widthBig='200px'
-          // widthSmall='100px'
+          widthBig='65%'
+          widthSmall='35%'
           wideSection={
             <MainProjectWrapper>
               <SwitchResultWrapper>
@@ -152,7 +152,6 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
                   ))}
                 </MainProjectDetails>
               </StaggerChildrenWrapperSecondary>
-              {/* )} */}
             </MainProjectWrapper>
           }
           narrowSection={<ProjectsEnumeration />}

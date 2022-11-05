@@ -34,6 +34,7 @@ import {
   RelativeRightSvgWrapper,
   WrapperMotionDiv,
 } from '../../styles/misc.styled'
+import { ButtonMedium } from '../Miscellaneous/Buttons/BigButton.styled'
 
 interface FirstColumnProjectProps {
   state: any[]
@@ -65,11 +66,11 @@ const getListStyle = (isDraggingOver: any) => ({
   width: 250,
   minWidth: '100%',
 })
+
 const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
   state,
   keywordMain,
   setOpenedApp,
-  // setTitle,
   canOpenApp,
   openedApp,
   setIdOpen,
@@ -285,20 +286,16 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
             <HorizontalButtonContainer>
               <SelectMainKeyword wide />
               <AlignCenterContainer>
-                <SendButtonVerySmall
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  variant='primaryEmpty'
-                  onClick={exportHandler}
-                >
+                <ButtonMedium variant='success' onClick={exportHandler}>
+                  {' '}
+                  eksportuj wybrany projekt &nbsp;
                   <SvgIcon
                     variant='export'
                     toBottom
-                    showContent
-                    contentAfter='eksportuj'
+                    noContent
+                    lowerPosition='2px'
                   />
-                </SendButtonVerySmall>
+                </ButtonMedium>
               </AlignCenterContainer>
             </HorizontalButtonContainer>
 

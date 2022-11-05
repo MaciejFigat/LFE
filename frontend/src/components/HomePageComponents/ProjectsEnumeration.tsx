@@ -3,6 +3,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { sortingKeywordMainEdit } from '../../features/preferences/preferenceSlice'
+import { ButtonMedium } from '../Miscellaneous/Buttons/BigButton.styled'
 import {
   ProjectCardHome,
   ProjectH2,
@@ -43,24 +44,22 @@ const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
         {keywordMain !== '' && (
           <NavLink to='/storage'>
             <ProjectH2
-              key={keywordMain}
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}
-              transition={{ duration: 0.5 }}
+            // key={keywordMain}
+            // initial={{ y: 10, opacity: 0 }}
+            // animate={{ y: 0, opacity: 1 }}
+            // exit={{ y: -10, opacity: 0 }}
+            // transition={{ duration: 0.5 }}
             >
-              Przejdź do: {keywordMain}
+              <ButtonMedium variant='success'>
+                {' '}
+                Kliknij by eksportować: {keywordMain}
+              </ButtonMedium>
             </ProjectH2>
           </NavLink>
         )}
         {keywordMain === '' && (
-          <ProjectH2
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -10, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            Wybierz projekt:
+          <ProjectH2>
+            <ButtonMedium variant='secondary'>Wybierz projekt</ButtonMedium>
           </ProjectH2>
         )}
       </AnimatePresence>
@@ -81,7 +80,7 @@ const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
               }}
               selected={keywordMain === keyword ? true : false}
             >
-              {keyword.substring(0, 20)}
+              {keyword.substring(0, 18)}
             </ProjectCardHome>
           ))}
       </ProjectMenuContainerHome>

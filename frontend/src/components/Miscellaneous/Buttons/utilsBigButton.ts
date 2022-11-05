@@ -37,30 +37,34 @@ const secondaryStyle: StyleVariant = {
 }
 
 const successEmptyStyle: StyleVariant = {
-    buttonColor: 'var(--success1)',
-    buttonBackground: 'var(--background1-main)',
-    buttonBackgroundHover: 'transparent',
-    buttonColorHover: 'var(--background-secondary1)',
-    buttonBorder: 'var(--background4-main)',
-    buttonBorderHover: 'var(--background-secondary1)',
-    buttonColorActive: 'var(--background3-main)',
-    buttonBorderActive: 'var(--background3-main)'
-    // buttonColor: 'var(--success1);',
-    // buttonBackground: 'transparent;',
-    // buttonBorder: '2px solid var(--success1);',
-    // buttonBorderHover: '2px solid var(--success2);',
-    // buttonBackgroundHover: 'transparent;',
-    // buttonColorHover: 'var(--success2);',
-    // buttonColorActive: 'var(--success2);',
-    // buttonBorderActive: 'var(--success2);'
+    // buttonColor: 'var(--success1)',
+    // buttonBackground: 'var(--background1-main)',
+    // buttonBackgroundHover: 'transparent',
+    // buttonColorHover: 'var(--background-secondary1)',
+    // buttonBorder: 'var(--background4-main)',
+    // buttonBorderHover: 'var(--background-secondary1)',
+    // buttonColorActive: 'var(--background3-main)',
+    // buttonBorderActive: 'var(--background3-main)'
+    buttonColor: 'var(--success1);',
+    buttonBackground: 'transparent;',
+    buttonBorder: '2px solid var(--success1);',
+    buttonBorderHover: '2px solid var(--success2);',
+    buttonBackgroundHover: 'transparent;',
+    buttonColorHover: 'var(--success2);',
+    buttonColorActive: 'var(--success2);',
+    buttonBorderActive: 'var(--success2);'
 
 }
 
 const successStyle: StyleVariant = {
-    buttonColor: 'var(--background-tertiary4);',
+    buttonColor: 'var(--background1-main);',
     buttonBackground: 'var(--success1);',
+    buttonBorder: '2px solid var(--success1);',
+    buttonBorderHover: '2px solid var(--success2);',
     buttonBackgroundHover: 'var(--success2);',
-    buttonColorHover: 'var(--background-tertiary1);'
+    buttonColorHover: 'var(--background1-main);',
+    buttonColorActive: 'var(--background-secondary3);',
+    buttonBorderActive: 'var(--success2);'
 }
 const infoStyle: StyleVariant = {
     buttonColor: 'var(--success1)',
@@ -102,6 +106,7 @@ export const handleButtonColor: (props: any) => {} = (props: any) => {
         case 'success':
             style = successStyle
             break;
+
         case 'successEmpty':
             style = successEmptyStyle
             break;
