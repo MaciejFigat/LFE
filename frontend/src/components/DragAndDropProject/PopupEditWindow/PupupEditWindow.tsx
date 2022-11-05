@@ -235,19 +235,9 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     }
   }
 
-  // useMemo(() => window.scrollTo(0, 0), [])
-  useMemo(
-    () =>
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      }),
-    []
-  )
-
   return (
     <>
-      <OpenedDivBig layoutId={openedApp!.toString()}>
+      <OpenedDivBig layoutId={openedApp!.toString()} yPosition={window.scrollY}>
         <ClosingDivBig
           initial={{ y: 8, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

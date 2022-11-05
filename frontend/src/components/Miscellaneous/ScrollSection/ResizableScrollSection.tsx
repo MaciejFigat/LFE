@@ -57,14 +57,11 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
     if (resizable !== null && narrowOption) {
       dispatch(preferredNarrowWidthSaved(resizable.style.width))
     } else if (resizable !== null && !narrowOption) {
-      // dispatch(preferredWidthSaved(resizable.style.width))
       dispatch(
         preferredWidthSaved(
           parseInt(initialSize) + Math.floor(e.clientX - initialPos)
         )
       )
-      // setWidthNumber(parseInt(initialSize) + Math.floor(e.clientX - initialPos))
-      // console.log(parseInt(initialSize) + Math.floor(e.clientX - initialPos))
     }
   }
   useEffect(() => {

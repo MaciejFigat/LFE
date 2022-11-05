@@ -107,7 +107,8 @@ export const OpenedDivBig = styled(OpenedLayoutDiv)`
   align-items: center; */
   height: 80vh;
   width: 80vw;
-  top: 15vh;
+  top: ${({ yPosition }) => (yPosition ? `${yPosition + 133}px` : '15vh')};
+
   left: 10vw;
   z-index: 2;
 `

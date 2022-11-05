@@ -75,8 +75,8 @@ export const FragmentTitleRowSmall = styled.div`
 export const FirstColProjectWrapper = styled(motion.div)`
   display: grid;
   grid-template-columns: ${({ width }) =>
-    width > 880 ? 'repeat(2, 1fr);' : 'repeat(1, 1fr);'};
-  grid-template-columns: ${({ width }) => width > 1380 && 'repeat(3, 1fr);'};
+    width > 880 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+  grid-template-columns: ${({ width }) => width > 1380 && 'repeat(3, 1fr)'};
 
   gap: 0.55rem;
 `
