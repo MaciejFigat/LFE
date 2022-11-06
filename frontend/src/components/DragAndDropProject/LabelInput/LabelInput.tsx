@@ -1,10 +1,13 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { editSavedFragment } from '../../../features/fragments/fragmentSlice'
+
 import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
 import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 import {
-  HorizontalButtonContainer,
+  LabelContainer,
+  LabelContainerButtons,
+  LabelContainerWrapper,
   TitleAnimated,
   TitleInput,
 } from './LabelInput.styled'
@@ -91,43 +94,52 @@ const LabelInput: React.FC<LabelInputProps> = ({
   return (
     <>
       {editing ? (
-        <HorizontalButtonContainer
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <TitleInput
-            type='label'
-            name='label'
-            placeholder='new label'
-            value={label}
-            onChange={(e: any) => setLabelHelper(e.target.value)}
-          />
-          <SendButtonVerySmall
-            variant='primaryEmpty'
-            onClick={resetLabelHelper}
-          >
-            <SvgIcon variant='back' toBottom contentAfter='wróć' />
-          </SendButtonVerySmall>
-          {labelRedux !== label && (
-            <SendButtonVerySmall
-              variant='successEmpty'
-              onClick={saveInputLabelHelper}
-            >
-              <SvgIcon variant='save' toBottom contentAfter='zapisz' />
-            </SendButtonVerySmall>
-          )}
-        </HorizontalButtonContainer>
-      ) : (
-        <TitleAnimated
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={editingHelper}
-        >
+        <LabelContainerWrapper>
           {' '}
-          {label}
-        </TitleAnimated>
+          <LabelContainer
+          // initial={{ opacity: 0 }}
+          // animate={{ opacity: 1 }}
+          // exit={{ opacity: 0 }}
+          >
+            <TitleInput
+              type='label'
+              name='label'
+              placeholder='new label'
+              value={label}
+              onChange={(e: any) => setLabelHelper(e.target.value)}
+            />{' '}
+          </LabelContainer>{' '}
+          <LabelContainerButtons>
+            <SendButtonVerySmall
+              variant='primaryEmpty'
+              onClick={resetLabelHelper}
+            >
+              <SvgIcon variant='back' toBottom contentAfter='wróć' />
+            </SendButtonVerySmall>
+            {labelRedux !== label && (
+              <SendButtonVerySmall
+                variant='successEmpty'
+                onClick={saveInputLabelHelper}
+              >
+                <SvgIcon variant='save' toBottom contentAfter='zapisz' />
+              </SendButtonVerySmall>
+            )}
+          </LabelContainerButtons>
+        </LabelContainerWrapper>
+      ) : (
+        // <HorizontalLabelContainer>
+        <LabelContainer>
+          <TitleAnimated
+            // initial={{ opacity: 0 }}
+            // animate={{ opacity: 1 }}
+            // exit={{ opacity: 0 }}
+            onClick={editingHelper}
+          >
+            {' '}
+            {label}
+          </TitleAnimated>
+        </LabelContainer>
+        // </HorizontalLabelContainer>
       )}
     </>
   )

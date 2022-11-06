@@ -19,12 +19,14 @@ interface ResizableScrollSectionProps {
   narrowSection?: ReactNode
   transparent?: boolean
   narrowOption?: boolean
+  topMargin?: string
 }
 
 const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
   wideSection,
   narrowSection,
   narrowOption,
+  topMargin,
 }) => {
   const dispatch: any = useAppDispatch()
   const widthNumber = useAppSelector((state) => state.preference.width)
@@ -74,7 +76,7 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
   }, [dispatch, widthNumber, narrowOption, widthNarrow])
 
   return (
-    <ScrollSec>
+    <ScrollSec topMargin={topMargin}>
       <ScrollSectionRow imgStart>
         <SectionColumnResize>{narrowSection}</SectionColumnResize>
 

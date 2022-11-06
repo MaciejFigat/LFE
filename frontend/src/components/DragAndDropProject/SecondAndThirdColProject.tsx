@@ -6,12 +6,16 @@ import {
   FragmentParSmallExcerpt,
   KeywordB,
   KeywordColumnContainer,
+  KeywordColumnsSubtitle,
+  KeywordColumnsSubtitleWrapper,
   KeywordDivSimple,
   KeywordSearchContainer,
+  KeywordSearchLabelH2,
 } from '../Miscellaneous/KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 import LabelInput from './LabelInput/LabelInput'
 import {
+  ClayButtonWrapper,
   DotButton,
   OpenBigDivButton,
   OpenDivButtonWrapper,
@@ -76,95 +80,109 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
   }, [labelOne, labelTwo])
 
   return (
-    <KeywordColumnContainer>
-      {state.slice(1).map((el, ind) => (
-        // ? here indexes have '+1' because I separated 1st column and since I used its indexes aswell as those here, +1 is to avoid the conflict in logic of Droppable
-        <Droppable key={ind + 1} droppableId={`${ind + 1}`}>
-          {(provided, snapshot) => (
-            <KeywordSearchContainer
-              ref={provided.innerRef}
-              style={getListStyle(snapshot.isDraggingOver)}
-              {...provided.droppableProps}
-            >
-              {ind === 0 && (
-                <h3>
-                  {
-                    <LabelInput
-                      labelNrOne
-                      editing={inputOneEditing}
-                      setEditing={setInputOneEditing}
-                      label={labelOneState ?? ''}
-                      labelRedux={labelOne ?? ''}
-                      setLabel={setLabelOneState}
-                    />
-                  }
-                </h3>
-              )}
-              {ind === 1 && (
-                <h3>
-                  {
-                    <LabelInput
-                      editing={inputTwoEditing}
-                      setEditing={setInputTwoEditing}
-                      label={labelTwoState ?? ''}
-                      labelRedux={labelTwo ?? ''}
-                      setLabel={setLabelTwoState}
-                    />
-                  }
-                </h3>
-              )}
-
-              {el.map((fragment: any, index: number) => (
-                <Draggable
-                  key={fragment.excerpt + fragment.title + index}
-                  draggableId={`${fragment.nanoId}${ind}`}
-                  index={index}
-                >
-                  {(provided, snapshot) => (
-                    <FragmentDivSmall
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      style={getItemStyle(
-                        snapshot.isDragging,
-                        provided.draggableProps.style
-                      )}
+    <>
+      <KeywordColumnsSubtitleWrapper>
+        <KeywordColumnsSubtitle>
+          Przeciągnij fragmenty do kategorii<p>Możesz zmienić ich nazwę</p>
+        </KeywordColumnsSubtitle>
+      </KeywordColumnsSubtitleWrapper>
+      <KeywordColumnContainer>
+        {state.slice(1).map((el, ind) => (
+          // ? here indexes have '+1' because I separated 1st column and since I used its indexes aswell as those here, +1 is to avoid the conflict in logic of Droppable
+          <Droppable key={ind + 1} droppableId={`${ind + 1}`}>
+            {(provided, snapshot) => (
+              <KeywordSearchContainer
+                ref={provided.innerRef}
+                style={getListStyle(snapshot.isDraggingOver)}
+                {...provided.droppableProps}
+              >
+                {ind === 0 && (
+                  <KeywordSearchLabelH2>
+                    <ClayButtonWrapper
+                      paddingProps='0.25rem'
+                      heightProps='40px'
                     >
-                      <WrapperMotionDiv layoutId={fragment._id}>
-                        {' '}
-                      </WrapperMotionDiv>
-                      <OpenDivButtonWrapper>
-                        <OpenBigDivButton
-                          onClick={() => openWindowHandler(fragment._id)}
-                        >
+                      <LabelInput
+                        labelNrOne
+                        editing={inputOneEditing}
+                        setEditing={setInputOneEditing}
+                        label={labelOneState ?? ''}
+                        labelRedux={labelOne ?? ''}
+                        setLabel={setLabelOneState}
+                      />
+                    </ClayButtonWrapper>
+                  </KeywordSearchLabelH2>
+                )}
+                {ind === 1 && (
+                  <KeywordSearchLabelH2>
+                    <ClayButtonWrapper
+                      paddingProps='0.25rem'
+                      heightProps='40px'
+                    >
+                      <LabelInput
+                        editing={inputTwoEditing}
+                        setEditing={setInputTwoEditing}
+                        label={labelTwoState ?? ''}
+                        labelRedux={labelTwo ?? ''}
+                        setLabel={setLabelTwoState}
+                      />
+                    </ClayButtonWrapper>
+                  </KeywordSearchLabelH2>
+                )}
+
+                {el.map((fragment: any, index: number) => (
+                  <Draggable
+                    key={fragment.excerpt + fragment.title + index}
+                    draggableId={`${fragment.nanoId}${ind}`}
+                    index={index}
+                  >
+                    {(provided, snapshot) => (
+                      <FragmentDivSmall
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        style={getItemStyle(
+                          snapshot.isDragging,
+                          provided.draggableProps.style
+                        )}
+                      >
+                        <WrapperMotionDiv layoutId={fragment._id}>
                           {' '}
-                          <DotButton left />
-                        </OpenBigDivButton>
-                      </OpenDivButtonWrapper>
-                      {fragment.title !== fragment.excerpt.substring(0, 22) && (
-                        <FragmentParSmall>{fragment.title}</FragmentParSmall>
-                      )}
-                      <FragmentParSmallExcerpt>
-                        {fragment.excerpt}
-                      </FragmentParSmallExcerpt>
-                      <FragmentParSmall>
-                        {fragment.description}
-                      </FragmentParSmall>
-                      <KeywordDivSimple>
-                        {fragment.keywords.map((keyword: string) => (
-                          <KeywordB key={keyword}>{keyword} &nbsp;</KeywordB>
-                        ))}
-                      </KeywordDivSimple>
-                    </FragmentDivSmall>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </KeywordSearchContainer>
-          )}
-        </Droppable>
-      ))}
-    </KeywordColumnContainer>
+                        </WrapperMotionDiv>
+                        <OpenDivButtonWrapper>
+                          <OpenBigDivButton
+                            onClick={() => openWindowHandler(fragment._id)}
+                          >
+                            {' '}
+                            <DotButton left />
+                          </OpenBigDivButton>
+                        </OpenDivButtonWrapper>
+                        {fragment.title !==
+                          fragment.excerpt.substring(0, 22) && (
+                          <FragmentParSmall>{fragment.title}</FragmentParSmall>
+                        )}
+                        <FragmentParSmallExcerpt>
+                          {fragment.excerpt}
+                        </FragmentParSmallExcerpt>
+                        <FragmentParSmall>
+                          {fragment.description}
+                        </FragmentParSmall>
+                        <KeywordDivSimple>
+                          {fragment.keywords.map((keyword: string) => (
+                            <KeywordB key={keyword}>{keyword} &nbsp;</KeywordB>
+                          ))}
+                        </KeywordDivSimple>
+                      </FragmentDivSmall>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </KeywordSearchContainer>
+            )}
+          </Droppable>
+        ))}
+      </KeywordColumnContainer>
+    </>
   )
 }
 export default SecondAndThirdColProject

@@ -276,6 +276,16 @@ export const SvgWrapperMiscSmall = styled(SvgWrapperMisc)`
   }
 `
 
+export const ClayButtonWrapper = styled.div`
+  display: grid;
+  place-items: center;
+  padding: ${({ paddingProps }) => (paddingProps ? paddingProps : '1rem')};
+  height: ${({ heightProps }) => (heightProps ? heightProps : 'fit-content')};
+  box-shadow: var(--boxShadowClay1);
+  background: var(--background-gradient1);
+  border-radius: 20px;
+`
+
 export const HorizontalWrapperTight = styled.div`
   display: flex;
   justify-content: center;

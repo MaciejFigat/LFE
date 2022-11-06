@@ -25,12 +25,14 @@ import { saveAs } from 'file-saver'
 import SelectMainKeyword from '../Miscellaneous/KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
 import {
   AlignCenterContainer,
+  ProjectOneSelectProjectWrapper,
   VerticalButtonContainer,
 } from './LabelInput/LabelInput.styled'
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
 
 import {
+  ClayButtonWrapper,
   DotButton,
   RelativeRightSvgWrapper,
   WrapperMotionDiv,
@@ -288,18 +290,24 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
             {...provided.droppableProps}
           >
             <VerticalButtonContainer>
-              <SelectMainKeyword wide />
+              <ProjectOneSelectProjectWrapper>
+                {' '}
+                <SelectMainKeyword wide />
+              </ProjectOneSelectProjectWrapper>
               <AlignCenterContainer>
-                <ButtonMedium variant='success' onClick={exportHandler}>
+                <ClayButtonWrapper paddingProps='0.5rem'>
                   {' '}
-                  eksportuj wybrany projekt &nbsp;
-                  <SvgIcon
-                    variant='export'
-                    toBottom
-                    noContent
-                    lowerPosition='2px'
-                  />
-                </ButtonMedium>
+                  <ButtonMedium variant='success' onClick={exportHandler}>
+                    {' '}
+                    eksportuj wybrany projekt &nbsp;
+                    <SvgIcon
+                      variant='export'
+                      toBottom
+                      noContent
+                      lowerPosition='2px'
+                    />
+                  </ButtonMedium>
+                </ClayButtonWrapper>
               </AlignCenterContainer>
             </VerticalButtonContainer>
             <FirstColProjectWrapper width={widthNumber}>

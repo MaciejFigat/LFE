@@ -271,6 +271,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
     <AnimateSharedLayout type='crossfade'>
       <DragDropContext onDragEnd={onDragEnd}>
         <ResizableScrollSection
+          topMargin='3rem'
           transparent
           wideSection={
             <FirstColumnProject

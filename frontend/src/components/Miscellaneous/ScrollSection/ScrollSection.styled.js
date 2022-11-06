@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 export const ScrollSec = styled.div`
   /* background: var(--background1-main); */
   /* background: lime; */
+  margin-top: ${({ topMargin }) => (topMargin ? topMargin : '0')};
   color: var(--background4-main);
   min-height: fit-content;
   width: 100%;
@@ -166,7 +167,7 @@ export const SectionColumnResize = styled.div`
   /* background: none; */
   background: var(--background1-main);
   position: sticky;
-  top: 0;
+  top: -150px;
   margin-bottom: 15px;
   padding-left: 15px;
   max-height: 100vh;
