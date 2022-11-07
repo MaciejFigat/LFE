@@ -7,7 +7,7 @@ const preferenceSlice = createSlice({
     initialState: {
 
         width: 700,
-        widthNarrow: '70%',
+        widthNarrow: 500,
         sortingDate: { sortingYear: today.getFullYear(), sortingMonth: today.getMonth() + 1, sortingDay: today.getDate() },
         sortingKeywords: {
             keywordMain: '',

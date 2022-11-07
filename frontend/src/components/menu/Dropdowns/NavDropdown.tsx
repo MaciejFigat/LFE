@@ -58,7 +58,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
             <DropDownHeaderMini onClick={toggling}>
               <SpaceAroundWrapper>
                 <SvgWrapperMiscSmall>
-                  <SvgIcon variant='cog' noContent />
+                  <SvgIcon variant='cog' noContent lowerPosition='2px' />
                 </SvgWrapperMiscSmall>
               </SpaceAroundWrapper>
               {/* <SvgIcon variant='cog' contentAfter='ustawienia' toBottom /> */}
@@ -74,7 +74,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                 <SpaceAroundWrapper>
                   <MobileLinkText> Logowanie</MobileLinkText>
                   <SvgWrapperMisc>
-                    <SvgIcon variant='login' noContent />
+                    <SvgIcon variant='login' noContent lowerPosition='1px' />
                   </SvgWrapperMisc>
                 </SpaceAroundWrapper>
 
@@ -104,7 +104,11 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                       <SpaceAroundWrapperDropdown>
                         Admin
                         <RelativeSvgWrapper>
-                          <SvgIcon variant='admin' noContent />
+                          <SvgIcon
+                            variant='admin'
+                            noContent
+                            lowerPosition='2px'
+                          />
                         </RelativeSvgWrapper>
                       </SpaceAroundWrapperDropdown>
                     </NavLink>
@@ -122,7 +126,11 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                       <SpaceAroundWrapperDropdown>
                         Profil
                         <RelativeSvgWrapper>
-                          <SvgIcon variant='user' noContent />
+                          <SvgIcon
+                            variant='user'
+                            noContent
+                            lowerPosition='2px'
+                          />
                         </RelativeSvgWrapper>
                       </SpaceAroundWrapperDropdown>
                     </NavLink>
@@ -133,15 +141,17 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                     <NavLink
                       to='/'
                       onClick={logoutHandler}
-                      className={(navData) =>
-                        'nav_link' + (navData.isActive ? ' activated' : '')
-                      }
+                      className='nav_link'
                     >
                       {' '}
                       <SpaceAroundWrapperDropdown>
                         Wyloguj
                         <RelativeSvgWrapper left='2px'>
-                          <SvgIcon variant='logout' noContent />
+                          <SvgIcon
+                            variant='logout'
+                            noContent
+                            lowerPosition='2px'
+                          />
                         </RelativeSvgWrapper>
                       </SpaceAroundWrapperDropdown>
                     </NavLink>

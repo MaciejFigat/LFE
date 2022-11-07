@@ -44,7 +44,7 @@ export const KeywordColumnsSubtitle = styled.div`
   place-items: center;
   font-weight: 800;
   font-size: 1.1rem;
-  background: var(--background-gradient1);
+  /* background: var(--background-gradient1); */
   border-radius: 20px;
   box-shadow: var(--boxShadowClay1);
   width: fit-content;
@@ -171,8 +171,10 @@ export const FragmentDivSmall = styled(motion.div)`
   }
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(
-      transparent,
+      transparent 10%,
       var(--background-blur2),
+      var(--background-secondary1),
+      var(--background-blur2) 90%,
       transparent
     );
     border-radius: 2px;

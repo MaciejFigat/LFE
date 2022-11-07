@@ -55,7 +55,7 @@ const getItemStyle = (isDragging: any, draggableStyle: any) => ({
     ? 'var(--background2-main)'
     : 'var(--background1-main)',
   color: isDragging
-    ? 'var(--background-secondary4)'
+    ? 'var(--background-secondary1)'
     : 'var(--background4-main)',
   // styles we need to apply on draggables
   ...draggableStyle,
@@ -63,8 +63,9 @@ const getItemStyle = (isDragging: any, draggableStyle: any) => ({
 
 const getListStyle = (isDraggingOver: any) => ({
   background: isDraggingOver
-    ? 'var(--background-tertiary1)'
+    ? 'var(--background-blur1)'
     : 'var(--background1-main)',
+  borderRadius: '40px',
 
   width: 250,
   minWidth: '100%',
@@ -281,122 +282,126 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
     }
   }
   return (
-    <KeywordColumnContainer>
-      <Droppable key={'0'} droppableId={`0`}>
-        {(provided, snapshot) => (
-          <KeywordSearchContainer
-            ref={provided.innerRef}
-            style={getListStyle(snapshot.isDraggingOver)}
-            {...provided.droppableProps}
-          >
-            <VerticalButtonContainer>
-              <ProjectOneSelectProjectWrapper>
-                {' '}
-                <SelectMainKeyword wide />
-              </ProjectOneSelectProjectWrapper>
-              <AlignCenterContainer>
-                <ClayButtonWrapper paddingProps='0.5rem'>
-                  {' '}
-                  <ButtonMedium variant='success' onClick={exportHandler}>
-                    {' '}
-                    eksportuj wybrany projekt &nbsp;
-                    <SvgIcon
-                      variant='export'
-                      toBottom
-                      noContent
-                      lowerPosition='2px'
-                    />
-                  </ButtonMedium>
-                </ClayButtonWrapper>
-              </AlignCenterContainer>
-            </VerticalButtonContainer>
-            <FirstColProjectWrapper width={widthNumber}>
-              {state[0]
-                .slice(start, end + 1)
-                .map((fragment: any, index: number) => (
-                  <Draggable
-                    key={fragment.nanoId}
-                    draggableId={fragment.nanoId}
-                    index={index}
-                  >
-                    {(provided, snapshot) => (
-                      <FragmentDivSmall
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        style={getItemStyle(
-                          snapshot.isDragging,
-                          provided.draggableProps.style
-                        )}
-                      >
-                        <WrapperMotionDiv layoutId={fragment._id}>
-                          {' '}
-                        </WrapperMotionDiv>
+    <>
+      <VerticalButtonContainer>
+        <ProjectOneSelectProjectWrapper>
+          {' '}
+          <SelectMainKeyword wide />
+        </ProjectOneSelectProjectWrapper>
+        <AlignCenterContainer>
+          <ClayButtonWrapper paddingProps='0.5rem'>
+            {' '}
+            <ButtonMedium variant='success' onClick={exportHandler}>
+              {' '}
+              eksportuj wybrany projekt &nbsp;
+              <SvgIcon
+                variant='export'
+                toBottom
+                noContent
+                lowerPosition='2px'
+              />
+            </ButtonMedium>
+          </ClayButtonWrapper>
+        </AlignCenterContainer>
+      </VerticalButtonContainer>
+      <KeywordColumnContainer>
+        <Droppable key={'0'} droppableId={`0`}>
+          {(provided, snapshot) => (
+            <KeywordSearchContainer
+              ref={provided.innerRef}
+              style={getListStyle(snapshot.isDraggingOver)}
+              {...provided.droppableProps}
+            >
+              <FirstColProjectWrapper width={widthNumber}>
+                {state[0]
+                  .slice(start, end + 1)
+                  .map((fragment: any, index: number) => (
+                    <Draggable
+                      key={fragment.nanoId}
+                      draggableId={fragment.nanoId}
+                      index={index}
+                    >
+                      {(provided, snapshot) => (
+                        <FragmentDivSmall
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          style={getItemStyle(
+                            snapshot.isDragging,
+                            provided.draggableProps.style
+                          )}
+                        >
+                          <WrapperMotionDiv layoutId={fragment._id}>
+                            {' '}
+                          </WrapperMotionDiv>
 
-                        <FragmentTitleRowSmall>
+                          <FragmentTitleRowSmall>
+                            <FragmentParSmall>
+                              {fragment.title !==
+                              fragment.excerpt.substring(0, 22) ? (
+                                <>{fragment.title}</>
+                              ) : (
+                                <>{fragment.source}</>
+                              )}
+                            </FragmentParSmall>
+                            <RelativeRightSvgWrapper>
+                              <SendButtonVerySmall
+                                variant='primaryEmpty'
+                                onClick={() => openWindowHandler(fragment._id)}
+                              >
+                                <DotButton left='0px' />
+                              </SendButtonVerySmall>
+                            </RelativeRightSvgWrapper>
+                          </FragmentTitleRowSmall>
+                          {fragment.title !==
+                            fragment.excerpt.substring(0, 22) && (
+                            <FragmentParSmall>
+                              {fragment.source}
+                            </FragmentParSmall>
+                          )}
+
                           <FragmentParSmall>
-                            {fragment.title !==
-                            fragment.excerpt.substring(0, 22) ? (
-                              <>{fragment.title}</>
-                            ) : (
-                              <>{fragment.source}</>
-                            )}
+                            <FragmentB> {fragment.excerpt}</FragmentB>
                           </FragmentParSmall>
-                          <RelativeRightSvgWrapper>
-                            <SendButtonVerySmall
-                              variant='primaryEmpty'
-                              onClick={() => openWindowHandler(fragment._id)}
-                            >
-                              <DotButton left='0px' />
-                            </SendButtonVerySmall>
-                          </RelativeRightSvgWrapper>
-                        </FragmentTitleRowSmall>
-                        {fragment.title !==
-                          fragment.excerpt.substring(0, 22) && (
-                          <FragmentParSmall>{fragment.source}</FragmentParSmall>
-                        )}
-
-                        <FragmentParSmall>
-                          <FragmentB> {fragment.excerpt}</FragmentB>
-                        </FragmentParSmall>
-                        {fragment.description.substring(0, 12) !==
-                          fragment.source.substring(0, 12) && (
+                          {fragment.description.substring(0, 12) !==
+                            fragment.source.substring(0, 12) && (
+                            <FragmentParSmall>
+                              {fragment.description}
+                            </FragmentParSmall>
+                          )}
                           <FragmentParSmall>
-                            {fragment.description}
+                            {fragment.coordinates}
                           </FragmentParSmall>
-                        )}
-                        <FragmentParSmall>
-                          {fragment.coordinates}
-                        </FragmentParSmall>
-                        <FragmentParSmall>
-                          Aktualizacja: {fragment.updatedAt.substring(0, 10)} o
-                          godzinie {fragment.updatedAt.substring(12, 16)}
-                        </FragmentParSmall>
-                        {(fragment.keywords.length > 1 ||
-                          fragment.keywords[0] !== '') && (
-                          <KeywordDivSimple>
-                            {fragment.keywords
-                              .filter(
-                                (keyword: string) => keyword !== keywordMain
-                              )
-                              .map((keyword: string) => (
-                                <KeywordB key={Math.random()}>
-                                  {keyword} &nbsp;
-                                </KeywordB>
-                              ))}
-                          </KeywordDivSimple>
-                        )}
-                      </FragmentDivSmall>
-                    )}
-                  </Draggable>
-                ))}
-            </FirstColProjectWrapper>
+                          <FragmentParSmall>
+                            Aktualizacja: {fragment.updatedAt.substring(0, 10)}{' '}
+                            o godzinie {fragment.updatedAt.substring(12, 16)}
+                          </FragmentParSmall>
+                          {(fragment.keywords.length > 1 ||
+                            fragment.keywords[0] !== '') && (
+                            <KeywordDivSimple>
+                              {fragment.keywords
+                                .filter(
+                                  (keyword: string) => keyword !== keywordMain
+                                )
+                                .map((keyword: string) => (
+                                  <KeywordB key={Math.random()}>
+                                    {keyword} &nbsp;
+                                  </KeywordB>
+                                ))}
+                            </KeywordDivSimple>
+                          )}
+                        </FragmentDivSmall>
+                      )}
+                    </Draggable>
+                  ))}
+              </FirstColProjectWrapper>
 
-            {provided.placeholder}
-          </KeywordSearchContainer>
-        )}
-      </Droppable>
-    </KeywordColumnContainer>
+              {provided.placeholder}
+            </KeywordSearchContainer>
+          )}
+        </Droppable>
+      </KeywordColumnContainer>
+    </>
   )
 }
 export default FirstColumnProject

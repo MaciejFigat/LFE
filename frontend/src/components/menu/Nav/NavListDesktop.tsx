@@ -28,7 +28,7 @@ const links = [
       <>
         Start
         {/* <SvgIcon variant='home' noMargin noContent /> */}
-        <SvgIcon variant='home' noMargin noContent lowerPosition='2px' />
+        <SvgIcon variant='home' noMargin noContent lowerPosition='3px' />
       </>
     ),
     to: '/',
@@ -38,7 +38,7 @@ const links = [
     name: (
       <>
         Dokument{' '}
-        <SvgIcon variant='textLeft' noMargin noContent lowerPosition='2px' />
+        <SvgIcon variant='textLeft' noMargin noContent lowerPosition='4px' />
       </>
       // <SvgIcon variant='textLeft' noMargin contentAfter='dokument' toRight />
     ),

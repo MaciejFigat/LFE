@@ -72,7 +72,7 @@ const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
                 <SvgIcon
                   variant={isOpen ? 'downPoint' : 'rightPoint'}
                   noContent
-                  lowerPosition='2px'
+                  lowerPosition='3px'
                   // contentAfter={isOpen ? 'zamknij' : 'wybierz projekt'}
                   // toBottom={isOpen ? false : true}
                 />

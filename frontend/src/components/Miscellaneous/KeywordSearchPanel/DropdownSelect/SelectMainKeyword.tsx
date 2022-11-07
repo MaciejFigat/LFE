@@ -109,7 +109,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
       )
       .map((el) => ({ ...el, nanoId: nanoid() }))
 
-    if (selectedMainKeyword !== '') {
+    if (selectedMainKeyword !== '' && keywordMain !== '') {
       dispatch(updateUserFragmentsKeywordMain(fragmentsMatching))
     }
     const fragmentsNoName = fragments
@@ -119,11 +119,11 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
           fragmentsSorted.keywords?.indexOf(selectedMainKeyword) >= 0
       )
       .map((el) => ({ ...el, nanoId: nanoid() }))
-    if (selectedMainKeyword === '') {
+    if (selectedMainKeyword === '' && keywordMain !== '') {
       dispatch(updateUserFragmentsKeywordMain(fragmentsNoName))
       console.log(fragmentsNoName)
     }
-  }, [fragments, dispatch, selectedMainKeyword])
+  }, [fragments, dispatch, selectedMainKeyword, keywordMain])
 
   const removeKeywordHelperUltimate = () => {
     const fragmentsMatching = fragments?.filter(

@@ -57,7 +57,11 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
   const saveWidthHandler = (e: any) => {
     let resizable = document.getElementById('SectionWide')
     if (resizable !== null && narrowOption) {
-      dispatch(preferredNarrowWidthSaved(resizable.style.width))
+      dispatch(
+        preferredNarrowWidthSaved(
+          parseInt(initialSize) + Math.floor(e.clientX - initialPos)
+        )
+      )
     } else if (resizable !== null && !narrowOption) {
       dispatch(
         preferredWidthSaved(
@@ -70,8 +74,9 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
     let resizable = document.getElementById('SectionWide')
     if (widthNumber > 600 && resizable !== null && !narrowOption) {
       resizable.style.width = `${widthNumber}px`
-    } else if (widthNarrow !== '' && resizable !== null && narrowOption) {
-      resizable.style.width = widthNarrow
+    } else if (widthNarrow > 400 && resizable !== null && narrowOption) {
+      // resizable.style.width = widthNarrow
+      resizable.style.width = `${widthNarrow}px`
     }
   }, [dispatch, widthNumber, narrowOption, widthNarrow])
 
@@ -86,7 +91,8 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
         </DragDiv>
         <SectionColumnScrollResize
           width={`${widthNumber}px`}
-          animate={narrowOption ? { widthNarrow } : { widthNumber }}
+          animate={narrowOption ? `${widthNarrow}px` : `${widthNumber}px`}
+          // animate={narrowOption ? { widthNarrow } : { widthNumber }}
           transition={{ type: 'inertia' }}
           widthNarrow={widthNarrow}
           narrowOption={narrowOption}

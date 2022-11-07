@@ -195,7 +195,7 @@ export const DropDownList = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  color: var(--background-secondary2);
+  /* color: var(--background-secondary2); */
   font-size: 1rem;
   font-weight: 400;
   min-width: fit-content;

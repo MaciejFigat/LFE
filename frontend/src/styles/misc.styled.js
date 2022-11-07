@@ -231,9 +231,9 @@ export const SpaceAroundWrapper = styled.div`
   justify-content: space-around;
   color: var(--background4-main);
   transition: 0.2s;
-  ${DropDownHeaderMisc}:hover & {
+  /* ${DropDownHeaderMisc}:hover & {
     color: var(--background-secondary1);
-  }
+  } */
 
   width: 100%;
 `
@@ -245,12 +245,18 @@ export const SpaceAroundWrapperDropdown = styled(SpaceAroundWrapper)`
   font-weight: 600;
   font-size: 0.85rem;
   color: var(--background4-main);
+  &:hover {
+    color: var(--background-secondary1);
+    svg {
+      color: var(--background-secondary1);
+    }
+  }
   svg {
     color: var(--background4-main);
   }
-  ${DropDownHeaderMisc}:hover & {
+  /* ${DropDownHeaderMisc}:hover & {
     color: var(--background-secondary1);
-  }
+  } */
 `
 export const SvgWrapperMisc = styled.div`
   position: relative;
@@ -266,14 +272,20 @@ export const SvgWrapperMisc = styled.div`
       color: var(--background-secondary1);
     }
   }
+  ${DropDownHeaderMisc}:active & {
+    svg {
+      color: var(--background-secondary2);
+    }
+  }
   @media (max-width: 520px) {
     font-size: 0.85rem;
   }
 `
 export const SvgWrapperMiscSmall = styled(SvgWrapperMisc)`
-  svg {
+  /* svg {
     color: var(--background4-main);
-  }
+   
+  } */
 `
 
 export const ClayButtonWrapper = styled.div`

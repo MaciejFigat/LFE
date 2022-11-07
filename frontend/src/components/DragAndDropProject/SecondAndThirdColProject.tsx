@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import {
-  // FragmentB,
   FragmentDivSmall,
   FragmentParSmall,
   FragmentParSmallExcerpt,
@@ -37,8 +36,9 @@ const getItemStyle = (isDragging: any, draggableStyle: any) => ({
 })
 const getListStyle = (isDraggingOver: any) => ({
   background: isDraggingOver
-    ? 'var(--background-tertiary1)'
+    ? 'var(--background-blur1)'
     : 'var(--background1-main)',
+  borderRadius: '40px',
 
   width: 250,
 })

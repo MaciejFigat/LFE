@@ -43,6 +43,7 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = ({
   const keywordMain: string = useAppSelector(
     (state) => state.preference.sortingKeywords.keywordMain
   )
+  const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
 
   const fragmentSuccess: boolean = useAppSelector(
     (state) => state.fragment.success
@@ -57,7 +58,7 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = ({
 
   return (
     <StaggerChildrenWrapperSecondary key={keywordMain}>
-      <FragmentsWrapper moreColumns={moreColumns}>
+      <FragmentsWrapper moreColumns={moreColumns} width={widthNarrow}>
         {fragmentsKeywordMain.length > 0 &&
           fragmentsKeywordMain
             .map((fragment) => (

@@ -152,8 +152,9 @@ export const SectionColumnScrollResize = styled(motion.div)`
   /* align-items: center; */
   align-items: center;
   /* background: red; */
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   padding-left: 15px;
+
   //* the following sets width depending on whether it's narrowOption (used in DocResult display) or regular
   ${(props) =>
     props.narrowOption && props.widthNarrow && `width: ${props.widthNarrow}`};
@@ -165,11 +166,15 @@ export const SectionColumnScrollResize = styled(motion.div)`
 // ? this encloses {narrowSection}
 export const SectionColumnResize = styled.div`
   /* background: none; */
+  display: grid;
+  place-items: center;
   background: var(--background1-main);
   position: sticky;
-  top: -150px;
-  margin-bottom: 15px;
+  top: 0px;
+  /* margin-bottom: 15px; */
+  margin-bottom: 0;
   padding-left: 15px;
+  padding-bottom: 0;
   max-height: 100vh;
   min-height: fit-content;
   overflow: scroll;

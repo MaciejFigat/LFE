@@ -3,10 +3,35 @@ import { motion } from 'framer-motion'
 
 export const FragmentsWrapper = styled(motion.div)`
   display: grid;
-  place-items: flex-start;
+  place-items: ${({ moreColumns }) => (moreColumns ? 'flex-start' : 'center')};
 
+  /* //todo resizable narrow column grid columns */
+  grid-template-columns: ${({ moreColumns, width }) =>
+    !moreColumns && width < 600 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+  /* grid-template-columns: ${({ moreColumns, width }) =>
+    !moreColumns && width < 500 && 'repeat(3, 1fr)'}; */
+  @media (min-width: 1640px) {
+    grid-template-columns: ${({ moreColumns, width }) =>
+      !moreColumns && width < 766 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+    grid-template-columns: ${({ moreColumns, width }) =>
+      !moreColumns && width < 400 && 'repeat(3, 1fr)'};
+  }
+  @media (min-width: 1820px) {
+    grid-template-columns: ${({ moreColumns, width }) =>
+      !moreColumns && width < 966 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+    grid-template-columns: ${({ moreColumns, width }) =>
+      !moreColumns && width < 500 && 'repeat(3, 1fr)'};
+  }
+  @media (max-width: 1340px) {
+    grid-template-columns: ${({ moreColumns, width }) =>
+      !moreColumns && 'repeat(1, 1fr)'};
+  }
+  /* //todo resizable narrow column grid columns END */
+  /* background: ${({ width }) => (width < 700 ? 'red' : 'blue')}; */
+  /* grid-template-columns: repeat(2, 1fr); */
+  gap: 1rem;
   /* width: 90vw; */
-  width: 100%;
+  width: ${({ moreColumns }) => (moreColumns ? '100%' : 'fit-content')};
   ${({ moreColumns }) => moreColumns && 'display: grid;'};
   ${({ moreColumns }) =>
     moreColumns && 'grid-template-columns: repeat(3, 1fr);'};

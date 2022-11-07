@@ -22,6 +22,8 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
   )
+  const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
+
   const sortingDate = useAppSelector((state) => state.preference.sortingDate)
   const { sortingYear, sortingMonth, sortingDay } = sortingDate
   const sortingOption: string = useAppSelector(
@@ -47,7 +49,7 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
   }, [dispatch, fragmentSuccess])
 
   return (
-    <FragmentsWrapper moreColumns={moreColumns}>
+    <FragmentsWrapper moreColumns={moreColumns} width={widthNarrow}>
       {fragments.length > 0 &&
         fragments
           .filter((fragmentsSorted) =>
