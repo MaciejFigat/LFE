@@ -94,29 +94,31 @@ export const KeywordB = styled.b`
   border-bottom: 1px solid var(--background-blur1);
   border-radius: 10px;
   font-size: 0.8rem;
-  padding: 0.5rem;
+  padding: 0.25rem;
 `
 export const KeywordDivSimple = styled.b`
   display: flex;
   flex-direction: row;
+  gap: 0.25rem;
   flex-wrap: wrap;
 `
 export const FragmentParSmallExcerpt = styled.p`
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
   color: var(--background4-main);
   margin: 0;
   margin-bottom: 0.55rem;
+  line-height: 1.1;
 `
 export const FragmentParSmall = styled.p`
   font-weight: 400;
   font-size: 0.8rem;
   color: var(--background4-main);
   margin: 0;
-  margin-bottom: 0.55rem;
-  &:first-of-type {
+  /* margin-bottom: 0.55rem; */
+  /* &:first-of-type {
     margin-top: 1.75rem;
-  }
+  } */
 `
 export const FragmentTitleRowSmall = styled.div`
   display: flex;
@@ -134,32 +136,59 @@ export const FirstColProjectWrapper = styled(motion.div)`
   gap: 0.55rem;
   margin-top: 1.25rem;
 `
+export const FragmentDivSmallWrapper = styled(motion.div)`
+  //todo
+  /* display: flex; */
+  gap: 1rem;
+  display: grid;
+  /* grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: ${({ width }) =>
+    width < 500 ? 'repeat(2, 1fr) !important' : 'repeat(1, 1fr) !important'}; */
+  /* flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+
+  @media (min-width: 1520px) {
+    display: ${({ width }) => width < 600 || (!width && 'grid')};
+    grid-template-columns: ${({ width }) =>
+      width < 600 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+  }
+`
 export const FragmentDivSmall = styled(motion.div)`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   justify-content: space-between;
 
-  width: 330px;
-
-  /* width: fit-content; */
-  /* align-self: center; */
-  /* ${({ moreColumns }) =>
-    moreColumns
-      ? 'background: none;'
-      : 'background: var(--background1-main);'}; */
   /* 
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1); */
   /* background: var(--background-gradient1); */
-  box-shadow: var(--boxShadowClay2);
+  box-shadow: var(--boxShadowClay3);
   border-radius: 20px;
+  padding: ${({ width }) =>
+    width < 1100 || !width
+      ? '1.5rem 0.75rem 0rem 1.5rem'
+      : '0.75rem 0.5rem 0rem 0.75rem'};
 
-  padding: 1.95rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0rem;
+  /* box-shadow: ${({ width }) =>
+    width < 1100 || !width ? 'var(--boxShadow1)' : 'var(--boxShadow1)'}; */
+  /* width: 330px; */
+  width: ${({ width }) => (width < 1100 || !width ? '330px' : '220px')};
+
+  @media (min-width: 1520px) {
+    padding: ${({ width }) =>
+      width < 600 || width
+        ? '0.75rem 0.8rem 0rem 0.75rem'
+        : '1.5rem 0.75rem 0rem 1.5rem'};
+    width: ${({ width }) => (width < 600 || width ? '280px' : '330px')};
+  }
+  @media (min-width: 1020px) {
+    /* font-size: 0.85rem; */
+    /* //todo  */
+  }
   overflow: scroll;
   height: 220px;
   ::-webkit-scrollbar {

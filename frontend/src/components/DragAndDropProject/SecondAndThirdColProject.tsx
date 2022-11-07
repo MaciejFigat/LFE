@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
+import { useAppSelector } from '../../app/reduxHooks'
 import {
   FragmentDivSmall,
+  FragmentDivSmallWrapper,
   FragmentParSmall,
   FragmentParSmallExcerpt,
   KeywordB,
@@ -16,7 +18,7 @@ import LabelInput from './LabelInput/LabelInput'
 import {
   ClayButtonWrapper,
   DotButton,
-  OpenBigDivButton,
+  OpenDivButtonSecond,
   OpenDivButtonWrapper,
   WrapperMotionDiv,
 } from '../../styles/misc.styled'
@@ -34,6 +36,7 @@ const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   // styles we need to apply on draggables
   ...draggableStyle,
 })
+
 const getListStyle = (isDraggingOver: any) => ({
   background: isDraggingOver
     ? 'var(--background-blur1)'
@@ -61,6 +64,8 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
   openedApp,
   setIdOpen,
 }) => {
+  const widthNumber = useAppSelector((state) => state.preference.width)
+
   const [inputOneEditing, setInputOneEditing] = useState(false)
   const [inputTwoEditing, setInputTwoEditing] = useState(false)
   const [labelOneState, setLabelOneState] = useState(labelOne)
@@ -129,53 +134,63 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                     </ClayButtonWrapper>
                   </KeywordSearchLabelH2>
                 )}
-
-                {el.map((fragment: any, index: number) => (
-                  <Draggable
-                    key={fragment.excerpt + fragment.title + index}
-                    draggableId={`${fragment.nanoId}${ind}`}
-                    index={index}
-                  >
-                    {(provided, snapshot) => (
-                      <FragmentDivSmall
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        style={getItemStyle(
-                          snapshot.isDragging,
-                          provided.draggableProps.style
-                        )}
-                      >
-                        <WrapperMotionDiv layoutId={fragment._id}>
-                          {' '}
-                        </WrapperMotionDiv>
-                        <OpenDivButtonWrapper>
-                          <OpenBigDivButton
-                            onClick={() => openWindowHandler(fragment._id)}
-                          >
+                <FragmentDivSmallWrapper width={widthNumber}>
+                  {el.map((fragment: any, index: number) => (
+                    <Draggable
+                      key={fragment.excerpt + fragment.title + index}
+                      draggableId={`${fragment.nanoId}${ind}`}
+                      index={index}
+                    >
+                      {(provided, snapshot) => (
+                        <FragmentDivSmall
+                          width={widthNumber}
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          style={getItemStyle(
+                            snapshot.isDragging,
+                            provided.draggableProps.style
+                          )}
+                        >
+                          <WrapperMotionDiv layoutId={fragment._id}>
                             {' '}
-                            <DotButton left />
-                          </OpenBigDivButton>
-                        </OpenDivButtonWrapper>
-                        {fragment.title !==
-                          fragment.excerpt.substring(0, 22) && (
-                          <FragmentParSmall>{fragment.title}</FragmentParSmall>
-                        )}
-                        <FragmentParSmallExcerpt>
-                          {fragment.excerpt}
-                        </FragmentParSmallExcerpt>
-                        <FragmentParSmall>
-                          {fragment.description}
-                        </FragmentParSmall>
-                        <KeywordDivSimple>
-                          {fragment.keywords.map((keyword: string) => (
-                            <KeywordB key={keyword}>{keyword} &nbsp;</KeywordB>
-                          ))}
-                        </KeywordDivSimple>
-                      </FragmentDivSmall>
-                    )}
-                  </Draggable>
-                ))}
+                          </WrapperMotionDiv>
+                          <OpenDivButtonWrapper>
+                            <OpenDivButtonSecond
+                              top='3px'
+                              // left='-190px'
+                              onClick={() => openWindowHandler(fragment._id)}
+                            >
+                              {' '}
+                              <DotButton left='0px' top='-2px' />
+                            </OpenDivButtonSecond>
+                          </OpenDivButtonWrapper>
+                          {fragment.title !==
+                            fragment.excerpt.substring(0, 22) && (
+                            <FragmentParSmall>
+                              {fragment.title}
+                            </FragmentParSmall>
+                          )}{' '}
+                          <FragmentParSmall>
+                            {fragment.description}
+                          </FragmentParSmall>
+                          <FragmentParSmallExcerpt>
+                            {fragment.excerpt}
+                          </FragmentParSmallExcerpt>
+                          <KeywordDivSimple>
+                            {fragment.keywords
+                              .filter((keyword: string) => keyword !== '')
+                              .map((keyword: string) => (
+                                <KeywordB key={keyword}>
+                                  {keyword} &nbsp;
+                                </KeywordB>
+                              ))}
+                          </KeywordDivSimple>
+                        </FragmentDivSmall>
+                      )}
+                    </Draggable>
+                  ))}
+                </FragmentDivSmallWrapper>
                 {provided.placeholder}
               </KeywordSearchContainer>
             )}

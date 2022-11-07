@@ -88,11 +88,15 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
   // const width = widthString.substring(0, 2)
 
   const exportHandler = () => {
-    Packer.toBlob(doc).then((blob) => {
-      console.log(blob)
-      saveAs(blob, `${keywordMain}.docx`)
-      console.log('Document created successfully')
-    })
+    if (keywordMain !== '') {
+      Packer.toBlob(doc).then((blob) => {
+        console.log(blob)
+        saveAs(blob, `${keywordMain}.docx`)
+        console.log('Document created successfully')
+      })
+    } else {
+      window.alert('Wybierz projekt')
+    }
   }
 
   const buildParagraphTwo = () => {

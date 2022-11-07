@@ -40,6 +40,19 @@ export const OpenBigDivButton = styled(OpenDivButton)`
     left: -150px;
   }
 `
+export const OpenDivButtonSecond = styled(OpenBigDivButton)`
+  position: relative;
+  /* top: 10px; */
+  top: ${({ top }) => (top ? top : '10px')};
+  left: 10px;
+  /* left: ${({ left }) => (left ? left : '-100px')}; */
+  &:after {
+    position: absolute;
+    top: 0;
+    /* top: 10px; */
+    /* left: -155px; */
+  }
+`
 export const WrapperMotionDiv = styled(motion.div)`
   position: relative;
   width: 100%;
@@ -343,7 +356,7 @@ export const DotButton = styled.div`
 
   &:before {
     position: relative;
-    top: 0px;
+    top: ${({ top }) => (top ? top : '0px')};
     /* left: ${({ left }) => (left ? '4px' : '-1px')}; */
     left: ${({ left }) => (left ? left : '-1px')};
     /* left: 3px; */
