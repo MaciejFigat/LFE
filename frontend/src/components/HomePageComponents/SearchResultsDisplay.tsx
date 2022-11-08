@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { highlightQueryEdit } from '../../features/preferences/preferenceSlice'
-import { HeroTitleMisc } from '../../styles/misc.styled'
+import { HeroTitleMisc, HorizontalWrapperTight } from '../../styles/misc.styled'
+import { ButtonSmall } from '../Miscellaneous/Buttons/BigButton.styled'
 import DataSection from '../Miscellaneous/InfoSection/DataSection'
+import DataSectionSimple from '../Miscellaneous/InfoSection/DataSectionSimple'
 import Pagination from '../Miscellaneous/Pagination/Pagination'
 import SearchBar from '../Miscellaneous/SearchBar/SearchBar'
 import {
@@ -50,7 +52,11 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
   const queryTrimmed = encodeURIComponent(query?.trim())
 
   const [searchQuery, setSearchQuery] = useState<string>('')
+  const [simpleView, setSimpleView] = useState<boolean>(false)
 
+  const simpleViewHandler = () => {
+    setSimpleView((simpleView) => !simpleView)
+  }
   const [isOnOne, setIsOnOne] = useState(false)
   const [isOnTwo, setIsOnTwo] = useState(false)
   const [isOnThree, setIsOnThree] = useState(false)
@@ -194,30 +200,59 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
                 </SwitchResultWrapper>
               </SearchResultsDashboardColumn>
             </SearchResultsHorizontalWrapper>
+            <HorizontalWrapperTight>
+              <ButtonSmall variant='secondary' onClick={simpleViewHandler}>
+                Widok uproszczony
+              </ButtonSmall>
+            </HorizontalWrapperTight>
             <Pagination />
           </SearchResultsDashboardDiv>
 
-          <SearchResultsWrapper>
-            {data
-              .slice(start, end + 1)
+          <SearchResultsWrapper simpleView={simpleView}>
+            {!simpleView &&
+              data
+                .slice(start, end + 1)
 
-              .filter(
-                (dataSliced: any) =>
-                  helperFragmentSourceFilter().indexOf(dataSliced.typSadu) > -1
-              )
-              .map((fragmentArray: any) => (
-                <DataSection
-                  highlightQuery={highlightQuery}
-                  variant='secondary'
-                  key={fragmentArray['uuid']}
-                  paddingTop='small'
-                  imgStart
-                  fragmentsFound={fragmentArray.fragment}
-                  metryka={fragmentArray.metryka}
-                  istota_interpretacji={fragmentArray.istota_interpretacji}
-                  query={queryTrimmed}
-                />
-              ))}
+                .filter(
+                  (dataSliced: any) =>
+                    helperFragmentSourceFilter().indexOf(dataSliced.typSadu) >
+                    -1
+                )
+                .map((fragmentArray: any) => (
+                  <DataSection
+                    highlightQuery={highlightQuery}
+                    variant='secondary'
+                    key={fragmentArray['uuid']}
+                    paddingTop='small'
+                    imgStart
+                    fragmentsFound={fragmentArray.fragment}
+                    metryka={fragmentArray.metryka}
+                    istota_interpretacji={fragmentArray.istota_interpretacji}
+                    query={queryTrimmed}
+                  />
+                ))}
+            {simpleView &&
+              data
+                .slice(start, end + 1)
+
+                .filter(
+                  (dataSliced: any) =>
+                    helperFragmentSourceFilter().indexOf(dataSliced.typSadu) >
+                    -1
+                )
+                .map((fragmentArray: any) => (
+                  <DataSectionSimple
+                    // highlightQuery={highlightQuery}
+                    variant='secondary'
+                    key={fragmentArray['uuid']}
+                    paddingTop='small'
+                    imgStart
+                    fragmentsFound={fragmentArray.fragment}
+                    metryka={fragmentArray.metryka}
+                    istota_interpretacji={fragmentArray.istota_interpretacji}
+                    query={queryTrimmed}
+                  />
+                ))}
           </SearchResultsWrapper>
         </SearchResultsSectionWrapper>
       )}

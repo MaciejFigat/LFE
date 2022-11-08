@@ -11,11 +11,20 @@ export const FragmentsTopWrapper = styled.div`
 `
 export const SearchResultsWrapper = styled.div`
   /* position: absolute; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  grid-template-columns: ${({ simpleView }) =>
+    simpleView ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
   /* top: 250px; */
   /* background: lime; */
+  @media screen and (min-width: 990px) {
+    grid-template-columns: ${({ simpleView }) =>
+      simpleView ? 'repeat(3, 1fr)' : 'repeat(1, 1fr)'};
+  }
 `
 export const SearchResultsDashboardColumn = styled.div`
   display: flex;
@@ -51,12 +60,12 @@ export const SearchResultsDashboardDiv = styled.div`
   padding: 2rem;
 
   background: var(--background-gradient1);
-  /* border-top: 1px solid var(--background-blur1);
+  border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
 
   border-left: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur2); */
-  box-shadow: var(--boxShadowClay1);
+  border-bottom: 1px solid var(--background-blur2);
+  /* box-shadow: var(--boxShadowClay1); */
   /* box-shadow: var(--boxShadowInset1); */
   /* min-width: fit-content; */
   /* width: 900px; */

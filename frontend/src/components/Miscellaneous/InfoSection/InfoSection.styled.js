@@ -15,9 +15,14 @@ export const InfoSec = styled.div`
 
   /* box-shadow: var(--boxShadow1); */
 
-  background: var(--background-gradient1);
+  /* background: var(--background-gradient1); */
 
-  box-shadow: var(--boxShadowClay1);
+  /* box-shadow: var(--boxShadowClay1); */
+
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
 
   margin-bottom: 1rem;
   @media (min-width: 1180px) {
@@ -37,25 +42,35 @@ export const InfoSec = styled.div`
   }
 `
 export const InfoSecSimple = styled(InfoSec)`
+  border-top: 1px solid var(--background-blur1);
+  border-right: 1px solid var(--background-blur1);
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
+  border-radius: 20px;
+  background: var(--background1-main);
+
+  box-shadow: var(--boxShadowNone);
   padding: 0.25rem;
   padding-top: 0.5rem;
 
-  border-image-slice: 1;
   border-width: 1px;
-  border-image-source: linear-gradient(to left, transparent, transparent);
+  /* border-image-slice: 1; */
+  /* border-image-source: linear-gradient(to left, transparent, transparent); */
 
   padding-bottom: 1.5rem;
   margin: 0;
-  margin-bottom: 2rem;
+  /* margin-bottom: 1rem; */
   min-height: min-content;
-  max-width: 650px;
+  min-width: 100%;
+  max-width: 400px;
   transition: 0.2s;
   &:hover {
-    border-image-source: linear-gradient(
+    border-color: var(--background-secondary1);
+    /* border-image-source: linear-gradient(
       to left,
       var(--background-blur1),
       var(--background-secondary1)
-    );
+    ); */
   }
 `
 export const InfoRow = styled.div`

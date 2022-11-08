@@ -9,15 +9,15 @@ import {
   Container,
   InfoSecSimple,
   TopLineSimple,
-  TextWrapperSimple,
+  // TextWrapperSimple,
   SubtitleSimple,
   CenterWrapperSimple,
   InfoColumnShortSimple,
   TextWrapperSimpleShort,
-  InfoRowSimple,
-  InfoColumnSimple,
+  // InfoRowSimple,
+  // InfoColumnSimple,
 } from './InfoSection.styled'
-import parse from 'html-react-parser'
+// import parse from 'html-react-parser'
 
 //! problem solved with parse - html-react-parser - prarses string to html in React
 
@@ -92,23 +92,23 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
     <CenterWrapperSimple>
       <InfoSecSimple variant={variant} paddingTop={paddingTop}>
         <Container>
-          <InfoRowSimple imgStart={imgStart}>
-            <InfoColumnShortSimple>
-              <TextWrapperSimpleShort imgStart={imgStart}>
-                <TopLineSimple variant={variant}>
-                  {metryka.rodzaj_orzeczenia}
-                </TopLineSimple>{' '}
-                <TopLineSimple variant={variant}>{metryka.data}</TopLineSimple>{' '}
-                <TopLineSimple variant={variant}>{metryka.organ}</TopLineSimple>
-                <SubtitleSimple
-                  variant={variant}
-                  onClick={() => submitHandlerDocNr(0)}
-                >
-                  {istota_interpretacji}
-                </SubtitleSimple>
-              </TextWrapperSimpleShort>
-            </InfoColumnShortSimple>
-            <InfoColumnSimple>
+          {/* <InfoRowSimple imgStart={imgStart}> */}
+          <InfoColumnShortSimple>
+            <TextWrapperSimpleShort imgStart={imgStart}>
+              <TopLineSimple variant={variant}>
+                {metryka.rodzaj_orzeczenia}
+              </TopLineSimple>{' '}
+              <TopLineSimple variant={variant}>{metryka.data}</TopLineSimple>{' '}
+              <TopLineSimple variant={variant}>{metryka.organ}</TopLineSimple>
+              <SubtitleSimple
+                variant={variant}
+                onClick={() => submitHandlerDocNr(0)}
+              >
+                {istota_interpretacji.substring(0, 50)} (...)
+              </SubtitleSimple>
+            </TextWrapperSimpleShort>
+          </InfoColumnShortSimple>
+          {/* <InfoColumnSimple>
               <TextWrapperSimple>
                 {fragmentsFound.length > 0 &&
                   fragmentsFound
@@ -126,8 +126,8 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
                       </SubtitleSimple>
                     ))}
               </TextWrapperSimple>
-            </InfoColumnSimple>
-          </InfoRowSimple>
+            </InfoColumnSimple> */}
+          {/* </InfoRowSimple> */}
         </Container>
       </InfoSecSimple>
     </CenterWrapperSimple>

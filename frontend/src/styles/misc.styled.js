@@ -135,6 +135,12 @@ export const HorizontalWrapper = styled.div`
   justify-content: center;
   flex-direction: row;
 `
+export const HorizontalWrapperGap = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;
+`
 export const DropDownHeaderMisc = styled.div`
   display: flex;
   align-items: center;
@@ -404,5 +410,10 @@ export const HeroTitleMisc = styled.h3`
   font-size: 1.5rem;
   font-weight: 700;
   /* color: red; */
+  color: var(--background4-main);
+`
+export const HeroTitleMiscMedium = styled.h3`
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--background4-main);
 `

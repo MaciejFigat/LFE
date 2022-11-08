@@ -418,3 +418,16 @@ export const SetTakeButton = styled.button`
     padding: none;
   }
 `
+
+export const HomeSearchTipsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--boxShadowInset1);
+  padding: 2rem;
+  border-radius: 20px;
+  margin-top: 2rem;
+  background: var(--background-gradient1);
+`
+// export const HomeSearchTipsWrapper = styled.div``

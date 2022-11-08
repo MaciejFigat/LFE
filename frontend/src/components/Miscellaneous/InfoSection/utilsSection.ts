@@ -47,7 +47,7 @@ const secondaryStyle: StyleVariant = {
     buttonColor: 'var(--background4-main);',
     buttonBackground: 'var(--background4-main);',
     buttonBackgroundHover: 'var(--background3-main);',
-    buttonColorHover: 'var(--background3-main);'
+    buttonColorHover: 'var(--background-secondary1);'
 
 
 }

@@ -54,7 +54,7 @@ export const SearchBarButton = styled.button`
   cursor: pointer;
   align-items: center;
 
-  /* background: var(--background1-main); */
+  background: var(--background1-main);
 
   color: var(--background4-main);
   border-top: 1px solid var(--background-blur1);
@@ -86,7 +86,7 @@ export const SearchBarButton = styled.button`
 `
 export const HighlightButton = styled(SearchBarButton)`
   border-radius: 10px;
-  padding: 0.3rem 0.6rem 0.3rem 0.5rem;
+  padding: 0.5rem 0.6rem 0.5rem 0.75rem;
   font-size: 0.95rem;
   margin-right: 1rem;
 `
