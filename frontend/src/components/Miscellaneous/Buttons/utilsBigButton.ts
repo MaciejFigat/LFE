@@ -14,9 +14,9 @@ interface StyleVariant {
 const primaryStyle: StyleVariant = {
     buttonColor: 'var(--background1-main)',
     buttonBackground: 'var(--background4-main)',
-    buttonBackgroundHover: 'var(--background1-main)',
-    buttonColorHover: 'var(--background-secondary1)',
-    buttonBorder: 'var(--background4-main)',
+    buttonBackgroundHover: 'var(--background-blur2)',
+    buttonColorHover: 'var(--background-secondary2)',
+    buttonBorder: 'var(--background-secondary2)',
     buttonBorderHover: 'var(--background-blur1)',
     buttonColorActive: 'var(--background3-main)',
     buttonBorderActive: 'var(--background3-main)'

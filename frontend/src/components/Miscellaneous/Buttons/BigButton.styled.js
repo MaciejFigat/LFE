@@ -62,7 +62,7 @@ export const ButtonBig = styled(motion.button)`
 `
 
 export const ButtonMedium = styled(ButtonBig)`
-  padding: 0.75rem 1rem 0.5rem;
+  padding: 0.75rem 1.55rem 0.65rem;
   font-size: 1.1rem;
 `
 export const ButtonSmall = styled(ButtonBig)`

@@ -17,6 +17,7 @@ import { preferedSchemeEdit } from '../../../features/preferences/preferenceSlic
 import { getUserFragments } from '../../../features/fragments/fragmentSlice'
 import { UserInfo } from '../../../interfaces'
 import MobileNavIcons from './MobileNavIcons'
+import { setUserInfoFromLocalStorage } from '../../../features/users/userSlice'
 interface NavProps {}
 
 const Nav: React.FC<NavProps> = () => {
@@ -75,6 +76,21 @@ const Nav: React.FC<NavProps> = () => {
   useEffect(() => {
     if (Object.keys(userInfo).length > 0) {
       dispatch(getUserFragments(1))
+    }
+  }, [dispatch, userInfo])
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('userInfo')
+    if (loggedInUser && Object.keys(userInfo).length === 0) {
+      const foundUser = JSON.parse(loggedInUser)
+      const userDataFromStorage = {
+        _id: foundUser._id,
+        name: foundUser.name,
+        email: foundUser.email,
+        isAdmin: foundUser.isAdmin,
+        token: foundUser.token,
+      }
+      dispatch(setUserInfoFromLocalStorage(userDataFromStorage))
     }
   }, [dispatch, userInfo])
 

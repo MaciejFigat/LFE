@@ -21,6 +21,7 @@ import {
   SvgWrapperMiscSmall,
 } from '../../../styles/misc.styled'
 import { MobileLinkText } from '../Nav/nav.styled'
+import { resetUserFragments } from '../../../features/fragments/fragmentSlice'
 // import ColorDropdown from './ColorDropdown'
 
 interface NavDropdownProps {
@@ -37,6 +38,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   const logoutHandler = (e: any) => {
     e.preventDefault()
     dispatch(logout())
+    dispatch(resetUserFragments())
   }
 
   const [isOpen, setIsOpen] = useState(false)

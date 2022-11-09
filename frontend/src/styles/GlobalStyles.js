@@ -209,6 +209,8 @@ body {
       display: flex;
       align-items: center;
       justify-content: space-around;
+      flex-direction:row;
+      
       gap: 1rem;
       color: var(--background4-main);
       width: 100%;

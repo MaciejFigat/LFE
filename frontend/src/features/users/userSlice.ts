@@ -340,9 +340,13 @@ const userSlice = createSlice({
         logout: (state) => {
             state.userInfo = {}
             state.error = {}
+            localStorage.clear()
         },
         userSuccessReset(state) {
             state.success = false
+        },
+        setUserInfoFromLocalStorage(state, action) {
+            state.userInfo = action.payload
         },
     },
 
@@ -508,7 +512,7 @@ const userSlice = createSlice({
 })
 
 
-export const { logout, userSuccessReset } = userSlice.actions
+export const { logout, userSuccessReset, setUserInfoFromLocalStorage } = userSlice.actions
 // export const { actions, reducer } = userSlice
 export default userSlice.reducer
 

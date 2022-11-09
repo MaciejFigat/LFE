@@ -212,6 +212,9 @@ const fragmentSlice = createSlice({
         updateUserFragmentsKeywordTwo(state, action) {
             state.fragmentsKeywordTwo = action.payload
         },
+        resetUserFragments(state) {
+            state.userFragments = []
+        },
 
 
     },
@@ -236,7 +239,11 @@ const fragmentSlice = createSlice({
         builder.addCase(getUserFragments.fulfilled, (state, action) => {
             state.loading = false
 
-            state.userFragments = action.payload.map((el: any) => ({ ...el, nanoId: nanoid() }))
+            state.userFragments = action.payload!.map((el: any) => ({ ...el, nanoId: nanoid() }))
+            // if (action.payload.isArray()) { state.userFragments = action.payload }
+            // if (action.payload.length > 0) { state.userFragments = action.payload }
+            // state.userFragments = action.payload
+
             state.success = true
             // ? setting successUpdate = false so after I fetch the fragments after updating data I won't activate getUserFragments for every subsequent render
             state.successUpdate = false
@@ -278,6 +285,6 @@ const fragmentSlice = createSlice({
 
 
 
-export const { citationAdded, citationRemoved, citationTitleEdit, citationDescriptionEdit, updateUserFragmentsKeywordMain, updateUserFragmentsKeywordOne, updateUserFragmentsKeywordTwo } = fragmentSlice.actions
+export const { citationAdded, citationRemoved, citationTitleEdit, citationDescriptionEdit, updateUserFragmentsKeywordMain, updateUserFragmentsKeywordOne, updateUserFragmentsKeywordTwo, resetUserFragments } = fragmentSlice.actions
 
 export default fragmentSlice.reducer

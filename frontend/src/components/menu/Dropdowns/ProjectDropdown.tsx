@@ -26,6 +26,7 @@ const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
   const fragments: any[] = useAppSelector(
     (state) => state.fragment.userFragments
   )
+
   const keywordsAll = fragments
     ?.map((fragment) => fragment.keywords?.map((keyword: string) => keyword))
     .flat()

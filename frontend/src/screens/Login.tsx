@@ -19,6 +19,7 @@ import {
   ButtonBig,
   ButtonSmall,
 } from '../components/Miscellaneous/Buttons/BigButton.styled'
+import { resetUserFragments } from '../features/fragments/fragmentSlice'
 
 interface LoginProps {}
 
@@ -42,6 +43,7 @@ const Login: React.FC<LoginProps> = () => {
   const logoutHandler = (e: any) => {
     e.preventDefault()
     dispatch(logout())
+    dispatch(resetUserFragments())
   }
   const userEmail = { email }
 

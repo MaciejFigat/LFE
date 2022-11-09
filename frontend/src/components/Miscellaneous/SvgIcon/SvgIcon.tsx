@@ -35,6 +35,7 @@ import {
   faEye,
   faCaretRight,
   faCaretDown,
+  faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
 interface SvgIconProps {
   variant:
@@ -71,6 +72,7 @@ interface SvgIconProps {
     | 'eye'
     | 'rightPoint'
     | 'downPoint'
+    | 'chevronRight'
 
   noMargin?: boolean
   contentAfter?: string
@@ -168,6 +170,8 @@ const SvgIcon: React.FC<SvgIconProps> = ({
         return faCaretRight
       case 'downPoint':
         return faCaretDown
+      case 'chevronRight':
+        return faChevronRight
 
       default:
         return faUser

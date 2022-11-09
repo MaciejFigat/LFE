@@ -317,6 +317,12 @@ export const ClayButtonWrapper = styled.div`
   border-radius: 20px;
 `
 
+export const HorizontalWrapperSpace = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+`
 export const HorizontalWrapperTight = styled.div`
   display: flex;
   justify-content: center;

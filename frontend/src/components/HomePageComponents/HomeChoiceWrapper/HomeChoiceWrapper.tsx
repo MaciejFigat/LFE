@@ -21,6 +21,8 @@ import { titleSvg } from '../HeroSectionSVGS/Title'
 import { NavLink } from 'react-router-dom'
 
 import { ButtonMedium } from '../../Miscellaneous/Buttons/BigButton.styled'
+import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
+import { HorizontalWrapperSpace } from '../../../styles/misc.styled'
 
 interface HomeChoiceWrapperProps {
   tabs: { label: string; content: any }[]
@@ -50,7 +52,16 @@ const HomeChoiceWrapper: React.FC<HomeChoiceWrapperProps> = ({
               <h3>Nie masz jeszcze konta?</h3>
 
               <ButtonMedium variant='primary'>
-                <NavLink to='/register'>Zarejestruj się</NavLink>
+                <NavLink to='/register'>
+                  <HorizontalWrapperSpace>
+                    Zarejestruj się &nbsp;
+                    <SvgIcon
+                      variant='chevronRight'
+                      noContent
+                      lowerPosition='3px'
+                    />
+                  </HorizontalWrapperSpace>
+                </NavLink>
               </ButtonMedium>
             </HeroWrapperRow>
           )}
