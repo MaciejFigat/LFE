@@ -95,7 +95,7 @@ export const SearchBarButton = styled.button`
   border-radius: 10px;
   /* margin-left: 0.5rem; */
   margin-left: ${({ large }) => (large ? '1rem' : '0.5rem')};
-  margin-right: ${({ large }) => (large ? '1rem' : '0rem')};
+  margin-right: ${({ large }) => (large ? '0.5rem' : '0rem')};
   &:hover {
     color: var(--background-secondary1) !important;
     /* transition: all 0.7s ease-out; */
@@ -174,7 +174,8 @@ export const SearchInput = styled.input`
 export const SpinnerWrapperSearch = styled.div`
   display: grid;
   place-items: center;
-  width: 50px;
+  width: 25px;
+  margin: 0;
 `
 /*//! SearchDropdown */
 

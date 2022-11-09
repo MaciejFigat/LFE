@@ -420,7 +420,8 @@ export const HeroTitleMisc = styled.h3`
   color: var(--background4-main);
 `
 export const HeroTitleMiscMedium = styled.h3`
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--background4-main);
+  margin-bottom: 0;
 `

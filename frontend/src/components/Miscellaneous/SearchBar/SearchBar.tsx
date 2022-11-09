@@ -88,17 +88,17 @@ const SearchBar: React.FC<SearchBarProps> = ({
               {large ? (
                 <RotatingLines
                   strokeColor='var(--background-secondary1)'
-                  strokeWidth='5'
+                  strokeWidth='3'
                   animationDuration='0.75'
                   ariaLabel='progress-bar-loading'
-                  width='50'
+                  width='28'
                   visible={true}
                 />
               ) : (
                 <ThreeDots
-                  height={large ? '44' : '22'}
-                  width={large ? '44' : '22'}
-                  color='var(--background4-main)'
+                  height={'22'}
+                  width={'22'}
+                  color='var(--background-secondary1)'
                   ariaLabel='loading'
                 />
               )}

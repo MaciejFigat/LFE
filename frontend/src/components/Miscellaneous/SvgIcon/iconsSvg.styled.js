@@ -45,10 +45,10 @@ export const IconsItem = styled.div`
     left: ${({ toBottom }) => toBottom && '0px; '};
 
     @media (max-width: 620px) {
-      width: ${(props) => (props.noContent ? `0px` : '60px')};
-      left: ${({ toBottom }) => toBottom && '-5px; '};
-      font-size: 0.55rem;
-      padding: 0;
+      /* width: ${(props) => (props.noContent ? `0px` : '60px')}; */
+      /* left: ${({ toBottom }) => toBottom && '-5px; '}; */
+      /* font-size: 0.55rem; */
+      /* padding: 0; */
     }
     @media (max-width: 500px) {
       width: ${(props) => (props.noContent ? `0px` : '60px')};
