@@ -287,9 +287,9 @@ body {
     border-radius: 4px;
     // color: var(--background4-main);
     background-color: var(--background2-main);
-    border: 1px solid var(--background5-main);
+    // border: 1px solid var(--background5-main);
     &:active{
-      border: 1px solid var(--background2-main);
+      // border: 1px solid var(--background2-main);
     }
   }
   .calendarFormat{

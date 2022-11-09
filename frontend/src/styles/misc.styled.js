@@ -264,6 +264,7 @@ export const SpaceAroundWrapperDropdown = styled(SpaceAroundWrapper)`
   font-weight: 600;
   font-size: 0.85rem;
   color: var(--background4-main);
+
   &:hover {
     color: var(--background-secondary1);
     svg {

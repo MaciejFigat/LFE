@@ -202,9 +202,6 @@ export const DropDownList = styled.div`
   &:first-child {
     padding-top: 0.5rem;
   }
-  /* &:last-child {
-    padding-bottom: 0.25rem;
-  } */
 `
 // export const ListItem = styled.li`
 

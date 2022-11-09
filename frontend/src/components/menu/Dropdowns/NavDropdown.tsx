@@ -22,7 +22,6 @@ import {
 } from '../../../styles/misc.styled'
 import { MobileLinkText } from '../Nav/nav.styled'
 import { resetUserFragments } from '../../../features/fragments/fragmentSlice'
-// import ColorDropdown from './ColorDropdown'
 
 interface NavDropdownProps {
   options?: any
@@ -140,23 +139,16 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                 )}{' '}
                 {Object.keys(userInfo).length > 0 && (
                   <ListItem onClick={toggling}>
-                    <NavLink
-                      to='/'
-                      onClick={logoutHandler}
-                      className='nav_link'
-                    >
-                      {' '}
-                      <SpaceAroundWrapperDropdown>
-                        Wyloguj
-                        <RelativeSvgWrapper left='2px'>
-                          <SvgIcon
-                            variant='logout'
-                            noContent
-                            lowerPosition='2px'
-                          />
-                        </RelativeSvgWrapper>
-                      </SpaceAroundWrapperDropdown>
-                    </NavLink>
+                    <SpaceAroundWrapperDropdown onClick={logoutHandler}>
+                      Wyloguj
+                      <RelativeSvgWrapper left='2px'>
+                        <SvgIcon
+                          variant='logout'
+                          noContent
+                          lowerPosition='2px'
+                        />
+                      </RelativeSvgWrapper>
+                    </SpaceAroundWrapperDropdown>
                   </ListItem>
                 )}
                 {/* <ListItem>
