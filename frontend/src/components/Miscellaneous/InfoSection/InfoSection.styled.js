@@ -41,6 +41,45 @@ export const InfoSec = styled.div`
     padding: 10px 0;
   }
 `
+export const Subtitle = styled.p`
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 1rem;
+  text-align: justify;
+
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  letter-spacing: 0em;
+  font-weight: 500;
+  transition: 0.2s;
+  /* subtitleColor */
+  ${(props) => handleSectionColor(props).subtitleColor}
+  &:hover {
+    ${(props) => handleSectionColor(props).buttonColorHover}
+  }
+  @media screen and (max-width: 991px) {
+    text-align: left;
+  }
+`
+export const SubtitleSimple = styled(Subtitle)`
+  margin: 0;
+  /* display: flex; */
+  /* flex-direction: row; */
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.025em;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  &:last-of-type {
+    margin-bottom: 0rem;
+  }
+  @media screen and (min-width: 1220px) {
+    font-size: 1rem;
+    line-height: 1.4rem;
+  }
+`
+
 export const InfoSecSimple = styled(InfoSec)`
   border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
@@ -66,6 +105,13 @@ export const InfoSecSimple = styled(InfoSec)`
   transition: 0.2s;
   &:hover {
     border-color: var(--background-secondary1);
+    ${SubtitleSimple} {
+   
+    ${(props) => handleSectionColor(props).buttonColorHover}
+  
+  }
+  &:hover {
+ 
     /* border-image-source: linear-gradient(
       to left,
       var(--background-blur1),
@@ -294,26 +340,7 @@ export const Heading = styled.h1`
     font-size: 36px;
   }
 `
-export const Subtitle = styled.p`
-  margin: 0;
-  margin-top: 10px;
-  margin-bottom: 1rem;
-  text-align: justify;
 
-  font-size: 1.2rem;
-  line-height: 1.4rem;
-  letter-spacing: 0em;
-  font-weight: 500;
-  transition: 0.2s;
-  /* subtitleColor */
-  ${(props) => handleSectionColor(props).subtitleColor}
-  &:hover {
-    ${(props) => handleSectionColor(props).buttonColorHover}
-  }
-  @media screen and (max-width: 991px) {
-    text-align: left;
-  }
-`
 export const SubtitleShort = styled(Subtitle)`
   text-align: center;
   font-weight: 400;
@@ -333,24 +360,6 @@ export const SubtitleShortLonger = styled(Subtitle)`
   line-height: 1.3rem;
   letter-spacing: 0em;
   /* font-weight: 400; */
-`
-export const SubtitleSimple = styled(Subtitle)`
-  margin: 0;
-  /* display: flex; */
-  /* flex-direction: row; */
-  text-align: left;
-  font-size: 0.95rem;
-  line-height: 1.25rem;
-  letter-spacing: 0.025em;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  &:last-of-type {
-    margin-bottom: 0rem;
-  }
-  @media screen and (min-width: 1220px) {
-    font-size: 1rem;
-    line-height: 1.4rem;
-  }
 `
 
 export const HomeContentWrapper = styled.div`
@@ -374,10 +383,30 @@ export const CenterWrapperSimple = styled(CenterWrapper)`
   width: 95%;
 `
 export const DataContainerSimple = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
+  display: grid;
+  place-items: ${({ moreColumns }) => (moreColumns ? 'flex-start' : 'center')};
+
+  /* //todo resizable narrow column grid columns */
+  grid-template-columns: ${({ width }) =>
+    width < 600 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+
+  @media (min-width: 1640px) {
+    grid-template-columns: ${({ width }) =>
+      width < 766 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+    grid-template-columns: ${({ width }) => width < 400 && 'repeat(3, 1fr)'};
+  }
+  @media (min-width: 1820px) {
+    grid-template-columns: ${({ width }) =>
+      width < 966 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+    grid-template-columns: ${({ width }) => width < 500 && 'repeat(3, 1fr)'};
+  }
+  @media (max-width: 1340px) {
+    grid-template-columns: 'repeat(1, 1fr)';
+  }
+  /* //todo resizable narrow column grid columns END */
+  /* background: ${({ width }) => (width < 700 ? 'red' : 'blue')}; */
+  /* grid-template-columns: repeat(2, 1fr); */
+  gap: 1rem;
 `
 
 // export const HighlightMarker = styled.div`

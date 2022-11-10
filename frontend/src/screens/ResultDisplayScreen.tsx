@@ -19,6 +19,8 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
   const dispatch: any = useAppDispatch()
 
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+
+  const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
   )
@@ -72,7 +74,7 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
                   <UserFragmentsByKeyword />
                 )}
 
-                <DataContainerSimple>
+                <DataContainerSimple width={widthNarrow}>
                   {!showFragmentsState &&
                     data.length > 0 &&
                     data.slice(start, end + 1).map((fragmentArray: any) => (

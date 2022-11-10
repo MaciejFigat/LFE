@@ -52,7 +52,7 @@ interface DataSectionSimpleProps {
 const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
   metryka,
   query,
-  fragmentsFound,
+  // fragmentsFound,
   variant,
   imgStart,
   paddingTop,
@@ -90,7 +90,11 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
 
   return (
     <CenterWrapperSimple>
-      <InfoSecSimple variant={variant} paddingTop={paddingTop}>
+      <InfoSecSimple
+        variant={variant}
+        paddingTop={paddingTop}
+        onClick={() => submitHandlerDocNr(0)}
+      >
         <Container>
           {/* <InfoRowSimple imgStart={imgStart}> */}
           <InfoColumnShortSimple>
@@ -100,10 +104,7 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
               </TopLineSimple>{' '}
               <TopLineSimple variant={variant}>{metryka.data}</TopLineSimple>{' '}
               <TopLineSimple variant={variant}>{metryka.organ}</TopLineSimple>
-              <SubtitleSimple
-                variant={variant}
-                onClick={() => submitHandlerDocNr(0)}
-              >
+              <SubtitleSimple variant={variant}>
                 {istota_interpretacji.substring(0, 50)} (...)
               </SubtitleSimple>
             </TextWrapperSimpleShort>
