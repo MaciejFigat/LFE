@@ -21,6 +21,9 @@ const ResultDisplayIdQueryScreen: React.FC<
   const dispatch = useAppDispatch()
 
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+
+  const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
+
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
   )
@@ -68,7 +71,7 @@ const ResultDisplayIdQueryScreen: React.FC<
               {showFragmentsState && sortingOption === 'keyword' && (
                 <UserFragmentsByKeyword />
               )}
-              <DataContainerSimple>
+              <DataContainerSimple width={widthNarrow}>
                 {!showFragmentsState &&
                   data.length > 0 &&
                   data.slice(start, end + 1).map((fragmentArray: any) => (
