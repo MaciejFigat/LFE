@@ -50,7 +50,7 @@ const HomeSearch: React.FC<HomeSearchProps> = () => {
               variant='primary'
               onClick={() => submitHandler('podatek vat')}
             >
-              Podatek Vat
+              Podatek VAT
             </ButtonSmall>
             <ButtonSmall variant='primary' onClick={() => submitHandler('cfc')}>
               Spółki CFC

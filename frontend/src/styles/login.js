@@ -98,12 +98,12 @@ export const Button = styled.button`
 
   background: var(--background1-main);
   border: none;
-  border-radius: 3px;
+  border-radius: 10px;
   outline: 0;
   cursor: pointer;
 
   margin-bottom: 0.6rem;
-  box-shadow: var(--boxShadow1);
+  box-shadow: var(--boxShadowClay1);
   transition: all 0.2s ease-out;
   :hover {
     color: var(--background-secondary1);

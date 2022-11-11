@@ -239,7 +239,7 @@ const fragmentSlice = createSlice({
         builder.addCase(getUserFragments.fulfilled, (state, action) => {
             state.loading = false
 
-            state.userFragments = action.payload!.map((el: any) => ({ ...el, nanoId: nanoid() }))
+            if (action.payload.length > 0) { state.userFragments = action.payload!.map((el: any) => ({ ...el, nanoId: nanoid() })) }
             // if (action.payload.isArray()) { state.userFragments = action.payload }
             // if (action.payload.length > 0) { state.userFragments = action.payload }
             // state.userFragments = action.payload

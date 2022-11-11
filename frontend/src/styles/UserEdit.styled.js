@@ -54,14 +54,14 @@ export const ContactField = styled.div`
 
 export const ContactFieldContent = styled.input`
   &::placeholder {
-    color: var(--background2-main);
+    color: var(--background4-main);
     font-weight: 400;
   }
 
   font-family: 'Quicksand', sans-serif;
   outline: none;
   border: none;
-  color: var(--background1-main);
+  color: var(--background4-main);
   background: none;
   line-height: 1.2;
   cursor: text;

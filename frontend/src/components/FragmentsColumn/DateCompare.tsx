@@ -162,15 +162,19 @@ const DateCompare: React.FC<DateCompareProps> = () => {
   //? 👇️ This works because each Date object stores a timestamp (the number of milliseconds since the Unix Epoch) under the hood.
   //?  console.log(new Date().getTime()) -> 1643013648670
   const handleSetLastSession = () => {
+    // const maxDate = new Date(
+    //   Math.max(
+
+    //     ...fragments.map((fragment) => {
+    //       return new Date(fragment.createdAt)
+    //       // return new Date(fragment.updatedAt)
+    //     })
+    //   )
+    // )
     const maxDate = new Date(
-      Math.max(
-        // @ts-ignore //todo
-        ...fragments.map((fragment) => {
-          return new Date(fragment.createdAt)
-          // return new Date(fragment.updatedAt)
-        })
-      )
+      Math.max(...fragments.map((fragment) => Date.parse(fragment.createdAt)))
     )
+    // new Date(Math.max(...a.map(e => new Date(e.MeasureDate))));
     //? If you try to compare two Date objects, they get converted to timestamps before the comparison takes place
 
     const date = {
@@ -182,6 +186,8 @@ const DateCompare: React.FC<DateCompareProps> = () => {
     }
 
     // console.log(date)
+
+    console.log(maxDate)
     dispatch(sortingDateEdit(date))
   }
   return (
