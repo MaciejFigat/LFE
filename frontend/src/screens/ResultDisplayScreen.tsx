@@ -60,7 +60,7 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
         <ResizableScrollSection
           narrowOption
           narrowSection={
-            Object.keys(userInfo).length > 0 ? (
+            Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
               <>
                 <SharedChoiceWrapper />
 

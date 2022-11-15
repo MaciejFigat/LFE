@@ -165,9 +165,8 @@ export const SectionColumnScrollResize = styled(motion.div)`
 `
 // ? this encloses {narrowSection}
 export const SectionColumnResize = styled.div`
-  /* background: none; */
   display: grid;
-  place-items: center;
+  place-items: flex-start center;
   background: var(--background1-main);
   position: sticky;
   top: 0px;

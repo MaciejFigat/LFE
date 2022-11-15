@@ -20,9 +20,10 @@ export const DropDownHeader = styled.div`
   border-radius: 10px;
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur1);
-  border-left: 1px solid var(--background-blur1);
-  background: var(--background-gradient1);
+  border-bottom: 1px solid var(--background-blur2);
+  border-left: 1px solid var(--background-blur2);
+  /* background: var(--background-gradient1); */
+  /* box-shadow: var(--boxShadowClay1); */
 
   /* color: var(--background-secondary1); */
   transition: all 0.2s ease-out;
@@ -34,6 +35,7 @@ export const DropDownHeader = styled.div`
 
   &:hover {
     box-shadow: var(--boxShadowInset1);
+    color: var(--background-secondary1);
   }
   &:active {
     box-shadow: var(--boxShadowInset2);

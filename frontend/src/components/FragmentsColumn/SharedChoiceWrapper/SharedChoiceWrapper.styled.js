@@ -6,7 +6,7 @@ export const WrapperWindow = styled.div`
   /* width: 80%; */
   margin: 2.5rem 1rem 1.5rem 1rem;
   height: 260px;
-  border-radius: 10px;
+  /* border-radius: 30px; */
   /* background: var(--background-blur1); */
   /* background: var(--background3-main); */
   display: flex;
@@ -37,6 +37,7 @@ export const ChoiceList = styled.ul`
   list-style: none;
   display: flex;
   width: 100%;
+  min-width: 312px;
   padding: 0;
   margin: 0;
   .selected {
