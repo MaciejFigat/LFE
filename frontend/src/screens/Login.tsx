@@ -93,10 +93,10 @@ const Login: React.FC<LoginProps> = () => {
             <Title>
               Możesz zresetować hasło. Wpisz swój email w pole email powyżej i
               kliknij
-              <ButtonSmall variant='secondary'>
-                <div onClick={resetPasswordHandler}>&nbsp;reset hasła</div>
-              </ButtonSmall>
             </Title>
+            <ButtonSmall variant='secondary'>
+              <div onClick={resetPasswordHandler}>&nbsp;reset hasła</div>
+            </ButtonSmall>
           </LoginTextWrapper>
         </LoginWrapper>
       </Wrapper>

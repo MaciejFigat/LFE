@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-
 import axios from 'axios'
 
 
@@ -8,6 +7,7 @@ interface UserInfo {
     name?: string
     email?: string
     password?: string
+    status?: 'Active' | 'Pending'
     isAdmin?: boolean
 }
 interface UserLogin {
@@ -357,7 +357,7 @@ const userSlice = createSlice({
         })
         builder.addCase(sendUserId.fulfilled, (state, action) => {
             state.loading = false
-            state.userInfo = (action.payload.name !== 'Error') && { id: action.payload._id, name: action.payload.name, email: action.payload.email, isAdmin: action.payload.isAdmin, token: action.payload.token }
+            state.userInfo = (action.payload.name !== 'Error') && { id: action.payload._id, name: action.payload.name, email: action.payload.email, isAdmin: action.payload.isAdmin, status: action.payload.status, token: action.payload.token }
             state.error = action.payload.message
 
 
@@ -383,6 +383,7 @@ const userSlice = createSlice({
         })
         builder.addCase(activateUser.pending, (state, action) => {
             state.loading = true
+
 
         })
         builder.addCase(activateUser.fulfilled, (state, action) => {

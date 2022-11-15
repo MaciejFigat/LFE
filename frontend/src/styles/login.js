@@ -127,6 +127,7 @@ export const Title = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   width: 50%;
 `
 export const LoginLink = styled.div`

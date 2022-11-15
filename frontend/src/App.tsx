@@ -38,8 +38,8 @@ function App() {
           element={<ResultDisplayIdQueryScreen />}
         />
         <Route path='/storage' element={<StoredFragments />} />
-        <Route path='/resetpassword' element={<ResetPassword />} />
-        <Route path='/confirmaccount' element={<ConfirmAccount />} />
+        <Route path='/resetpassword/:token' element={<ResetPassword />} />
+        <Route path='/confirmaccount/:token' element={<ConfirmAccount />} />
         <Route path='/admin' element={<AdminPanel />} />
         <Route path='/admin/userlist' element={<UserListAdmin />} />
         <Route path='/admin/user/:id/edit' element={<UserAdminEdit />} />
