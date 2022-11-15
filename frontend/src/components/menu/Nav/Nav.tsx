@@ -87,6 +87,7 @@ const Nav: React.FC<NavProps> = () => {
         _id: foundUser._id,
         name: foundUser.name,
         email: foundUser.email,
+        status: foundUser.status,
         isAdmin: foundUser.isAdmin,
         token: foundUser.token,
       }

@@ -53,7 +53,7 @@ const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
     <>
       <Main>
         <DropDownContainer>
-          {Object.keys(userInfo).length > 0 && (
+          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' && (
             <ProjectDropDownWrapper>
               <ProjectNameDiv>
                 <NavLink
