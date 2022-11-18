@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { resetPassword } from '../features/users/userSlice'
 import { Wrapper, LoginContainer, LoginLink } from '../styles/login'
-import useRedirectResetListener from '../hooks/useRedirectListenerReset'
 import { useNavigate } from 'react-router-dom'
 import {
   ButtonBig,
