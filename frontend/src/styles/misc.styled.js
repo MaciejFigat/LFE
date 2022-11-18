@@ -413,6 +413,10 @@ export const SwitchHandleMisc = styled(motion.div)`
     isOn ? 'var(--background4-main)' : 'var(--background1-main)'};
 `
 
+export const HighlightText = styled.b`
+  color: var(--background-secondary1);
+  /* background: var(--background-blur1); */
+`
 export const HeroTitleMisc = styled.h3`
   font-size: 1.5rem;
   font-weight: 700;

@@ -53,7 +53,14 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   position: relative;
-
+  label {
+    color: var(--background3-main);
+    &:hover {
+      color: var(--background-secondary1);
+    }
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
   @media screen and (max-width: 760px) {
     max-width: 90%;
   }

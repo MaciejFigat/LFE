@@ -3,17 +3,16 @@ import { UserInfo } from '../interfaces'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { updateUserProfile, getUserDetails } from '../features/users/userSlice'
 import Toast from '../components/Miscellaneous/Toast/Toast'
-import SmallSection from '../components/Miscellaneous/SectionSmall/SmallSection'
 
-import {
-  EditFormContainer,
-  EditForm,
-  ContactField,
-  ContactFieldContent,
-} from '../styles/UserEdit.styled'
-import { SendButton } from '../components/Miscellaneous/Buttons/Buttons.styled'
-import { AdminContainer, AdminWrapper } from '../styles/ArticleTable.styled'
 import { useNavigate } from 'react-router-dom'
+import {
+  Form,
+  Input,
+  LoginContainer,
+  LoginWrapper,
+  Wrapper,
+} from '../styles/login'
+import { ButtonMedium } from '../components/Miscellaneous/Buttons/BigButton.styled'
 
 interface UserProfileProps {}
 
@@ -52,50 +51,46 @@ const UserProfile: React.FC<UserProfileProps> = () => {
   }, [dispatch, nameState, emailState, id, user, navigate])
   return (
     <>
-      <SmallSection
-        title='Edit your account'
-        description={name ? `${nameState}` : 'Hello'}
-        variant='primary'
-      />
-      <AdminWrapper>
+      <LoginContainer>
         <Toast option='editUser' />
-        <AdminContainer>
-          <EditFormContainer>
-            <EditForm>
-              <ContactField>
-                <label>Name</label>
-                <ContactFieldContent
-                  type='text'
-                  value={name}
-                  placeholder='Name'
-                  onChange={(e: any) => setName(e.target.value)}
-                />
-              </ContactField>
-              <ContactField>
-                <label>Email</label>
-                <ContactFieldContent
-                  type='text'
-                  value={email}
-                  placeholder='Email'
-                  onChange={(e: any) => setEmail(e.target.value)}
-                />
-              </ContactField>
-              <ContactField>
-                <label>New password</label>
-                <ContactFieldContent
-                  type='text'
-                  value={password}
-                  placeholder='password'
-                  onChange={(e: any) => setPassword(e.target.value)}
-                />
-              </ContactField>
-            </EditForm>{' '}
-          </EditFormContainer>
-          <SendButton onClick={updateUserHandler} variant='success'>
-            Save changes
-          </SendButton>
-        </AdminContainer>
-      </AdminWrapper>
+        <Wrapper>
+          <LoginWrapper>
+            <h3>
+              {name
+                ? `edycja profilu ${nameState}`
+                : 'Użytkownik niezalogowany'}
+            </h3>
+
+            <Form onSubmit={updateUserHandler}>
+              <label>imię</label>
+              <Input
+                type='name'
+                name='name'
+                placeholder='Wpisz imię'
+                value={name}
+                onChange={(e: any) => setName(e.target.value)}
+              />
+              <label>email</label>
+              <Input
+                type='email'
+                name='email'
+                placeholder='Wpisz email'
+                value={email}
+                onChange={(e: any) => setEmail(e.target.value)}
+              />
+              <label>nowe hasło</label>
+              <Input
+                type='password'
+                name='new password'
+                placeholder='Wpisz nowe hasło'
+                value={password}
+                onChange={(e: any) => setPassword(e.target.value)}
+              />
+              <ButtonMedium variant='success'>Zapisz zmiany</ButtonMedium>
+            </Form>
+          </LoginWrapper>
+        </Wrapper>
+      </LoginContainer>
     </>
   )
 }

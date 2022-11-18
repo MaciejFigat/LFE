@@ -5,9 +5,9 @@ import {
   HeaderTitleMobile,
 } from './nav.styled'
 import { AnimatePresence, motion } from 'framer-motion'
-
 import SearchDropdown from '../../Miscellaneous/SearchBar/SearchDropdown'
 import NavDropdown from '../Dropdowns/NavDropdown'
+
 interface NavListMobileProps {
   open: boolean
   scrollDirection?: 'up' | 'down' | 'top' | undefined | null
