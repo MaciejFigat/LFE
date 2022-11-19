@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import {
   Form,
   Input,
+  InputAndLabelWrapper,
   LoginContainer,
   LoginWrapper,
   Wrapper,
@@ -50,48 +51,50 @@ const UserProfile: React.FC<UserProfileProps> = () => {
     setEmail(emailState)
   }, [dispatch, nameState, emailState, id, user, navigate])
   return (
-    <>
-      <LoginContainer>
-        <Toast option='editUser' />
-        <Wrapper>
-          <LoginWrapper>
-            <h3>
-              {name
-                ? `edycja profilu ${nameState}`
-                : 'Użytkownik niezalogowany'}
-            </h3>
+    <LoginContainer>
+      <Toast option='editUser' />
+      <Wrapper>
+        <LoginWrapper>
+          <h3>
+            {name ? `edycja profilu ${nameState}` : 'Użytkownik niezalogowany'}
+          </h3>
 
-            <Form onSubmit={updateUserHandler}>
-              <label>imię</label>
+          <Form onSubmit={updateUserHandler}>
+            <InputAndLabelWrapper>
               <Input
                 type='name'
                 name='name'
-                placeholder='Wpisz imię'
+                placeholder='imię'
                 value={name}
                 onChange={(e: any) => setName(e.target.value)}
               />
-              <label>email</label>
+              <label>imię</label>
+            </InputAndLabelWrapper>
+            <InputAndLabelWrapper>
               <Input
                 type='email'
-                name='email'
-                placeholder='Wpisz email'
+                name='new email'
+                placeholder='email'
                 value={email}
                 onChange={(e: any) => setEmail(e.target.value)}
               />
-              <label>nowe hasło</label>
+              <label>email</label>
+            </InputAndLabelWrapper>
+            <InputAndLabelWrapper>
               <Input
                 type='password'
                 name='new password'
-                placeholder='Wpisz nowe hasło'
+                placeholder='nowe hasło'
                 value={password}
                 onChange={(e: any) => setPassword(e.target.value)}
               />
-              <ButtonMedium variant='success'>Zapisz zmiany</ButtonMedium>
-            </Form>
-          </LoginWrapper>
-        </Wrapper>
-      </LoginContainer>
-    </>
+              <label>nowe hasło</label>
+            </InputAndLabelWrapper>
+            <ButtonMedium variant='success'>Zapisz zmiany</ButtonMedium>
+          </Form>
+        </LoginWrapper>
+      </Wrapper>
+    </LoginContainer>
   )
 }
 export default UserProfile

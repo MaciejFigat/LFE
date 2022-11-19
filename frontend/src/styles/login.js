@@ -23,14 +23,16 @@ export const LoginWrapper = styled.div`
 `
 export const LoginContainer = styled.div`
   display: grid;
-  place-items: center;
+  place-items: center center;
   height: 89vh;
   background: var(--background1-main);
+
   color: var(--background4-main);
   @media screen and (max-width: 760px) {
     /* max-width: 90%; */
   }
 `
+
 export const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
@@ -39,28 +41,6 @@ export const Wrapper = styled.section`
   height: 100%;
   width: 100%;
   margin-top: 1rem;
-  @media screen and (max-width: 760px) {
-    max-width: 90%;
-  }
-`
-
-export const Form = styled.form`
-  margin: 0 auto;
-  width: 100%;
-  z-index: 1;
-  max-width: 414px;
-  padding: 1.3rem;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  label {
-    color: var(--background3-main);
-    &:hover {
-      color: var(--background-secondary1);
-    }
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-  }
   @media screen and (max-width: 760px) {
     max-width: 90%;
   }
@@ -94,6 +74,38 @@ export const Input = styled.input`
   &::placeholder {
     color: var(--background2-main);
   }
+`
+export const Form = styled.form`
+  margin: 0 auto;
+  width: 100%;
+  z-index: 1;
+  max-width: 414px;
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  input:focus,
+  input:hover ~ label {
+    color: var(--background-secondary1);
+  }
+  label {
+    transition: 0.2s;
+    color: var(--background3-main);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+  /* input:focus ~ & {
+    background: yellow !important;
+    color: pink !important;
+  } */
+  @media screen and (max-width: 760px) {
+    max-width: 90%;
+  }
+`
+
+export const InputAndLabelWrapper = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
 `
 
 export const Button = styled.button`

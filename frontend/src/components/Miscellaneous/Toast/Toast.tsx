@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 
 import { userSuccessReset } from '../../../features/users/userSlice'
-import { ToastBody, ToastContainer, ToastWrapper } from './Toast.styled'
+import { ToastBody, ToastContainer } from './Toast.styled'
 import { UserInfo as UserName } from '../../../interfaces'
 interface ToastProps {
   option:
@@ -101,11 +101,9 @@ const Toast: React.FC<ToastProps> = ({ option, emailMessage }) => {
   }, [dispatch, option, loadingUser])
 
   return (
-    <ToastWrapper>
-      <ToastContainer variant={toastVariant}>
-        <ToastBody variant={toastVariant}>{toastMessage}</ToastBody>
-      </ToastContainer>
-    </ToastWrapper>
+    <ToastContainer variant={toastVariant}>
+      <ToastBody variant={toastVariant}>{toastMessage}</ToastBody>
+    </ToastContainer>
   )
 }
 export default Toast
