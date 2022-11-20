@@ -70,13 +70,14 @@ export const DropDownHeader = styled(motion.div)`
 
 export const DropDownListContainer = styled.div`
   position: absolute;
+  z-index: 13;
 `
 export const DropDownList = styled.div`
   //todo
   position: relative;
   top: 10px;
   user-select: none;
-  z-index: 2;
+  z-index: 13;
   /* left: 10px; */
   padding: 0;
   margin: 0;
@@ -107,10 +108,22 @@ export const DropDownList = styled.div`
 `
 export const ListItem = styled.li`
   list-style: none;
-  margin-bottom: 0.8rem;
+  /* margin-bottom: 0.8rem; */
+  padding: 0.4rem 0;
   cursor: pointer;
   &:hover {
-    color: var(--background3-main);
+    color: var(--background-secondary1);
+    background: var(--background-blur1);
+  }
+`
+export const ListItemHighlight = styled(ListItem)`
+  /* background: var(--background-blur2); */
+  /* padding: 0.5rem; */
+  color: var(--background-secondary2);
+  font-weight: 700;
+  &:hover {
+    color: var(--background-secondary1);
+    background: var(--background-blur1);
   }
 `
 export const HorizontalButtonContainer = styled(motion.div)`

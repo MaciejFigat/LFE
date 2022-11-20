@@ -9,6 +9,7 @@ import {
   DropDownListContainer,
   HeaderAndCogContainer,
   ListItem,
+  ListItemHighlight,
   Main,
   OptionsDropdownContainer,
   TitleInputMainKeyword,
@@ -49,7 +50,11 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
   )
 
   const keywordsAll = fragments
-    ?.map((fragment) => fragment.keywords?.map((keyword: string) => keyword))
+    ?.map((fragment) =>
+      fragment.keywords
+        ?.filter((keyword: string) => keyword !== '')
+        .map((keyword: string) => keyword)
+    )
     .flat()
   //todo .flat() flattens the arr ie. [a, b, [c, d]].flat()=>[a, b, c, d]
 
@@ -66,6 +71,10 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
   )
 
   const toggling = () => setIsOpen((isOpen) => !isOpen)
+  // * sets mainKeyword as ''
+  const setNoKeywordHelper = () => {
+    dispatch(sortingKeywordMainEdit(''))
+  }
 
   const stopEditingHandler = () => {
     if (keywordEditing === true) {
@@ -422,6 +431,9 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
           {isOpen && uniqueKeywords.length > 1 && (
             <DropDownListContainer>
               <DropDownList>
+                <ListItemHighlight onClick={setNoKeywordHelper}>
+                  fragmenty bez projektu
+                </ListItemHighlight>
                 {uniqueKeywords?.map((keyword) => (
                   <ListItem
                     onClick={onOptionClicked(keyword)}
