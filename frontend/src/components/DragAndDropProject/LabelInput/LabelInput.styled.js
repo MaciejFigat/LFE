@@ -15,7 +15,7 @@ export const TitleAnimated = styled(motion.div)`
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
-  border-radius: 20px;
+  border-radius: 16px;
   min-height: 30px;
 
   background: var(--background4-main);
@@ -61,8 +61,7 @@ export const TitleInput = styled(motion.input)`
   line-height: normal;
   /* background: transparent; */
   background: var(--background-secondary2);
-
-  border-radius: 20px;
+  border-radius: 16px;
   outline: 0;
   /* background-color: transparent; */
   /* background: brown; */
@@ -154,11 +153,11 @@ export const ProjectOneSelectProjectWrapper = styled.div`
   place-items: center;
   border-radius: 20px;
   background: var(--background-gradient1);
-  box-shadow: var(--boxShadowClay1);
-  /* border-right: 1px solid var(--background-blur2);
+  /* box-shadow: var(--boxShadowClay3); */
+  border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background-blur1); */
+  border-bottom: 1px solid var(--background-blur1);
 `
 export const AlignCenterContainer = styled.div`
   display: flex;

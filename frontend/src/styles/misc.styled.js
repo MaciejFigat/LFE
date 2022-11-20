@@ -313,7 +313,7 @@ export const ClayButtonWrapper = styled.div`
   place-items: center;
   padding: ${({ paddingProps }) => (paddingProps ? paddingProps : '1rem')};
   height: ${({ heightProps }) => (heightProps ? heightProps : 'fit-content')};
-  box-shadow: var(--boxShadowClay1);
+  box-shadow: var(--boxShadowClay3);
   background: var(--background-gradient1);
   border-radius: 20px;
 `

@@ -37,6 +37,7 @@ export const KeywordColumnsSubtitleWrapper = styled.div`
   display: grid;
   place-items: center;
   width: 100%;
+
   margin: 0;
 `
 export const KeywordColumnsSubtitle = styled.div`
@@ -46,7 +47,12 @@ export const KeywordColumnsSubtitle = styled.div`
   font-size: 1.1rem;
   /* background: var(--background-gradient1); */
   border-radius: 20px;
-  box-shadow: var(--boxShadowClay1);
+  /* box-shadow: var(--boxShadowClay3); */
+  border-right: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
+  background: var(--background-gradient1);
   width: fit-content;
   padding: 1rem 2.5rem;
   margin-top: 2.5rem;

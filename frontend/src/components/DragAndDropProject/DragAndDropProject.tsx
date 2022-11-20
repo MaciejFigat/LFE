@@ -63,14 +63,30 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
 
   const { keywordMain } = sortingKeywords
 
-  const fragmentsSkipTrueOne = fragmentsKeywordMain.filter((filteredFragment) =>
-    filteredFragment.keywordValue.find(
-      (keywordSearched: any) =>
-        keywordSearched.keyword === keywordMain &&
-        keywordSearched?.skip !== undefined &&
-        keywordSearched.skip === true
-    )
-  )
+  const fragmentsSkipTrueOne =
+    keywordMain !== ''
+      ? fragmentsKeywordMain.filter((filteredFragment) =>
+          filteredFragment.keywordValue.find(
+            (keywordSearched: any) =>
+              keywordSearched.keyword === keywordMain &&
+              keywordSearched?.skip !== undefined &&
+              keywordSearched.skip === true
+          )
+        )
+      : fragments.filter(
+          (filteredFragment) =>
+            filteredFragment.keywords.length === 1 &&
+            filteredFragment.keywords[0] === ''
+        )
+
+  // fragmentsKeywordMain.filter((filteredFragment) =>
+  //   filteredFragment.keywordValue.find(
+  //     (keywordSearched: any) =>
+  //       keywordSearched.keyword === keywordMain &&
+  //       keywordSearched?.skip !== undefined &&
+  //       keywordSearched.skip === true
+  //   )
+  // )
 
   const fragmentsValueTrueTwo = fragmentsKeywordMain.filter(
     (filteredFragment) =>
@@ -221,15 +237,31 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
 
   useEffect(() => {
     if (fragmentsKeywordMain) {
-      const fragmentsSkipTrue = fragmentsKeywordMain.filter(
-        (filteredFragment) =>
-          filteredFragment.keywordValue.find(
-            (keywordSearched: any) =>
-              keywordSearched.keyword === keywordMain &&
-              keywordSearched?.skip !== undefined &&
-              keywordSearched.skip === true
-          )
-      )
+      const fragmentsSkipTrue =
+        keywordMain !== ''
+          ? fragmentsKeywordMain.filter((filteredFragment) =>
+              filteredFragment.keywordValue.find(
+                (keywordSearched: any) =>
+                  keywordSearched.keyword === keywordMain &&
+                  keywordSearched?.skip !== undefined &&
+                  keywordSearched.skip === true
+              )
+            )
+          : fragments.filter(
+              (filteredFragment) =>
+                filteredFragment.keywords.length === 1 &&
+                filteredFragment.keywords[0] === ''
+            )
+
+      // fragmentsKeywordMain.filter(
+      //   (filteredFragment) =>
+      //     filteredFragment.keywordValue.find(
+      //       (keywordSearched: any) =>
+      //         keywordSearched.keyword === keywordMain &&
+      //         keywordSearched?.skip !== undefined &&
+      //         keywordSearched.skip === true
+      //     )
+      // )
 
       const fragmentsValueTrue = fragmentsKeywordMain.filter(
         (filteredFragment) =>

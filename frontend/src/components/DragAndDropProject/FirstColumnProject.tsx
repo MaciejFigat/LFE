@@ -295,9 +295,13 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
         <AlignCenterContainer>
           <ClayButtonWrapper paddingProps='0.5rem'>
             {' '}
-            <ButtonMedium variant='success' onClick={exportHandler}>
+            <ButtonMedium
+              variant='success'
+              borderRadius='12px'
+              onClick={exportHandler}
+            >
               {' '}
-              eksportuj wybrany projekt &nbsp;
+              eksportuj &nbsp;
               <SvgIcon
                 variant='export'
                 toBottom
@@ -378,7 +382,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                           </FragmentParSmall>
                           <FragmentParSmall>
                             Aktualizacja: {fragment.updatedAt.substring(0, 10)}{' '}
-                            o godzinie {fragment.updatedAt.substring(12, 16)}
+                            o godzinie {fragment.updatedAt.substring(11, 16)}
                           </FragmentParSmall>
                           {(fragment.keywords.length > 1 ||
                             fragment.keywords[0] !== '') && (

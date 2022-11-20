@@ -174,7 +174,7 @@ export const OptionsDropdownContainer = styled.div`
   position: relative;
   height: 3.7rem;
   left: -25px;
-  top: -113px;
+  top: 23px;
   /* z-index: 10; */
   background: var(--background1-main);
   width: 250px;

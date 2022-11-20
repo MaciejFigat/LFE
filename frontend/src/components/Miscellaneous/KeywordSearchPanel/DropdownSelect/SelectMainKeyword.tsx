@@ -67,14 +67,24 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
 
   const toggling = () => setIsOpen((isOpen) => !isOpen)
 
+  const stopEditingHandler = () => {
+    if (keywordEditing === true) {
+      setKeywordEditing((keywordEditing) => !keywordEditing)
+      setNewKeyword(keywordMain)
+    }
+    if (keywordCreation === true)
+      setKeywordCreation((keywordCreation) => !keywordCreation)
+  }
   const editingHandler = () => {
     setKeywordEditing((keywordEditing) => !keywordEditing)
   }
-  const editingNewHandler = () => {
+  const addNewHandler = () => {
     setSelectedMainKeyword('')
-    setKeywordEditing((keywordEditing) => !keywordEditing)
-    setKeywordCreation((keywordCreation) => !keywordCreation)
+
+    if (keywordCreation === false)
+      setKeywordCreation((keywordCreation) => !keywordCreation)
   }
+
   const onOptionClicked = (value: string | null) => () => {
     setSelectedMainKeyword(value)
     setIsOpen(false)
@@ -153,17 +163,22 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
   const saveNewKeywordHelper = () => {
     setKeywordEditing((keywordEditing) => !keywordEditing)
     setKeywordEditing((keywordCreation) => !keywordCreation)
-    for (let i = 0; i < fragmentsKeywordMain.length; i++) {
+    const fragmentsNoProject = fragments.filter(
+      (filteredFragment) =>
+        filteredFragment.keywords.length === 1 &&
+        filteredFragment.keywords[0] === ''
+    )
+    for (let i = 0; i < fragmentsNoProject.length; i++) {
       const fragEdited = {
-        _id: fragmentsKeywordMain[i]._id,
+        _id: fragmentsNoProject[i]._id,
         keywords: [newKeyword],
         keywordValue: [
           {
             keyword: newKeyword,
-            labelOne: fragmentsKeywordMain[0].keywordValue[0].labelOne,
-            labelTwo: fragmentsKeywordMain[0].keywordValue[0].labelTwo,
-            value: fragmentsKeywordMain[0].keywordValue[0].value,
-            skip: fragmentsKeywordMain[0].keywordValue[0].skip,
+            labelOne: fragmentsNoProject[0].keywordValue[0].labelOne,
+            labelTwo: fragmentsNoProject[0].keywordValue[0].labelTwo,
+            value: fragmentsNoProject[0].keywordValue[0].value,
+            skip: fragmentsNoProject[0].keywordValue[0].skip,
           },
         ],
       }
@@ -171,6 +186,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
       dispatch(editSavedFragment(fragEdited))
       // console.log(fragmentsKeywordMain[i].keywords)
     }
+    // console.log('test')
   }
   const saveEditedKeywordHelper = () => {
     setKeywordEditing((keywordEditing) => !keywordEditing)
@@ -204,8 +220,8 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
             ...filteredArr,
             {
               keyword: newKeyword,
-              labelOne: foundObject.labelOne,
-              labelTwo: foundObject.labelTwo,
+              labelOne: foundObject.labelOne || 'pro',
+              labelTwo: foundObject.labelTwo || 'contra',
               value: foundObject.value,
               skip: foundObject.skip,
             },
@@ -235,7 +251,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
       <Main>
         <DropDownContainer>
           <HeaderAndCogContainer>
-            {keywordEditing ? (
+            {keywordEditing || keywordCreation ? (
               <TitleInputMainKeyword
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -277,11 +293,13 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                 />
               </SendButtonVerySmall>
             )}
-            {wide && (
+            {/* //todo here */}
+            {wide && !keywordEditing && !keywordCreation && (
+              // {wide && (
               <DropDownButtons>
                 <SendButtonVerySmall
                   variant='successEmpty'
-                  onClick={editingNewHandler}
+                  onClick={addNewHandler}
                 >
                   <SvgIcon variant='plus' toBottom contentAfter='dodaj' />
                 </SendButtonVerySmall>
@@ -304,13 +322,49 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                 </SendButtonVerySmall>
               </DropDownButtons>
             )}
+            {wide && (keywordEditing || keywordCreation) && (
+              <DropDownButtons>
+                <SendButtonVerySmall
+                  variant='primaryEmpty'
+                  onClick={stopEditingHandler}
+                >
+                  <SvgIcon variant='back' toBottom contentAfter='wróć' />
+                </SendButtonVerySmall>
+                {keywordCreation && (
+                  <SendButtonVerySmall
+                    variant='successEmpty'
+                    onClick={saveNewKeywordHelper}
+                  >
+                    <SvgIcon
+                      variant='save'
+                      toBottom
+                      contentAfter='zapisz nowy'
+                    />
+                  </SendButtonVerySmall>
+                )}{' '}
+                {keywordEditing && (
+                  <SendButtonVerySmall
+                    variant='successEmpty'
+                    onClick={saveEditedKeywordHelper}
+                  >
+                    <SvgIcon
+                      variant='save'
+                      toBottom
+                      contentAfter='zapisz zmiany'
+                    />
+                  </SendButtonVerySmall>
+                )}
+              </DropDownButtons>
+            )}
           </HeaderAndCogContainer>
+          {/* //? dropdown after cog icon clicked in small version (!wide prop) */}
           <DropDownListContainer>
-            {!wide && optionsOpen && !keywordEditing && !keywordCreation && (
+            {/* {!wide && optionsOpen && !keywordEditing && !keywordCreation && ( */}
+            {!wide && optionsOpen && !keywordCreation && !keywordEditing && (
               <OptionsDropdownContainer>
                 <SendButtonVerySmall
                   variant='successEmpty'
-                  onClick={editingNewHandler}
+                  onClick={addNewHandler}
                 >
                   <SvgIcon variant='plus' toBottom contentAfter='dodaj nowy' />
                 </SendButtonVerySmall>
@@ -333,15 +387,15 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                 </SendButtonVerySmall>
               </OptionsDropdownContainer>
             )}
-            {optionsOpen && keywordEditing && (
+
+            {!wide && (keywordEditing || keywordCreation) && (
               <OptionsDropdownContainer>
                 <SendButtonVerySmall
                   variant='primaryEmpty'
-                  onClick={editingHandler}
+                  onClick={stopEditingHandler}
                 >
                   <SvgIcon variant='back' toBottom contentAfter='wróć' />
                 </SendButtonVerySmall>
-
                 {keywordCreation ? (
                   <SendButtonVerySmall
                     variant='successEmpty'
@@ -365,7 +419,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
             )}
           </DropDownListContainer>
 
-          {isOpen && (
+          {isOpen && uniqueKeywords.length > 1 && (
             <DropDownListContainer>
               <DropDownList>
                 {uniqueKeywords?.map((keyword) => (

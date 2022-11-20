@@ -6,8 +6,9 @@ export const ButtonBig = styled(motion.button)`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: 15px;
+  padding: 1.1rem 1.5rem;
+  border-radius: ${({ borderRadius }) =>
+    borderRadius ? borderRadius : '16px'};
   font-size: 1.25rem;
   font-weight: 600;
   border-left: 1px solid var(--background-blur1);
@@ -62,11 +63,11 @@ export const ButtonBig = styled(motion.button)`
 `
 
 export const ButtonMedium = styled(ButtonBig)`
-  padding: 0.75rem 1.55rem 0.65rem;
+  padding: 0.75rem 1.85rem 0.75rem;
   font-size: 1.1rem;
 `
 export const ButtonSmall = styled(ButtonBig)`
-  padding: 0.55rem 1.25rem 0.55rem;
+  padding: 0.65rem 1.25rem 0.6rem;
   font-size: 1rem;
 `
 export const ButtonVerySmall = styled(ButtonBig)`
