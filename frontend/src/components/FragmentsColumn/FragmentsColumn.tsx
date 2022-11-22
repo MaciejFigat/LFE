@@ -1,81 +1,94 @@
 import React from 'react'
 import { useAppSelector } from '../../app/reduxHooks'
-import {
-  FragmentsP,
-  FragmentContainer,
-  FragmentsPExcerpt,
-  HorizontalContainer,
-} from './FragmentsColumn.styled'
+
 import { motion, AnimateSharedLayout } from 'framer-motion'
 import {
-  // ListWrapper,
+  FragmentsWrapper,
   ItemWrapper,
-  ListWrapperDemo,
+  ListItemSimple,
+  ListWrapper,
+  SimpleCitationItem,
 } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { citationRemoved } from '../../features/fragments/fragmentSlice'
-// import AnimatedItem from '../AnimatedTextPanel/AnimatedItem'
-interface FragmentsColumnProps {}
 
-const FragmentsColumn: React.FC<FragmentsColumnProps> = () => {
+import {
+  FragmentB,
+  FragmentDivSmall,
+  FragmentParSmall,
+  FragmentTitleRowSmall,
+} from '../Miscellaneous/KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
+import {
+  RelativeRightSvgWrapper,
+  WrapperMotionDiv,
+} from '../../styles/misc.styled'
+import {
+  FragmentsContainerSimple,
+  FragmentsP,
+  FragmentsPExcerpt,
+  HorizontalContainer,
+} from './FragmentsColumn.styled'
+
+interface FragmentsColumnProps {
+  showFragmentsState?: boolean
+}
+
+const FragmentsColumn: React.FC<FragmentsColumnProps> = ({
+  showFragmentsState,
+}) => {
   const dispatch: any = useAppDispatch()
-
+  const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
   const citations: any[] = useAppSelector((state) => state.fragment.citations)
   const removeCitationHandler = (id: string) => {
     dispatch(citationRemoved(id))
   }
-  const date = new Date()
 
-  let day = date.getDate()
-  let month = date.getMonth() + 1
-  let year = date.getFullYear()
-
-  let currentDate = `${day}-${month}-${year}`
   return (
     <AnimateSharedLayout>
-      {citations.length > 0 &&
-        citations
-          .map((citation, index) => (
-            <ListWrapperDemo
-              as={motion.ul}
-              key={citation.id}
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              {citation.excerpt !== '' && (
-                <FragmentContainer key={citation.title} borderBottom>
+      <FragmentsWrapper moreColumns={false} width={widthNarrow}>
+        {citations.length > 0 &&
+          citations
+            .map((citation, index) => (
+              <ListWrapper
+                key={citation.id}
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                {citation.excerpt !== '' && (
                   <ItemWrapper>
                     {' '}
-                    <HorizontalContainer>
-                      {index === 0 ? (
-                        <FragmentsP>{citation.title}</FragmentsP>
+                    <SimpleCitationItem>
+                      <HorizontalContainer>
+                        {index === 0 ? (
+                          <FragmentsP>{citation.title}</FragmentsP>
+                        ) : (
+                          <FragmentsP>Przykład nr {index + 1}</FragmentsP>
+                        )}
+                        <SendButtonVerySmall
+                          variant='secondaryEmpty'
+                          onClick={() => removeCitationHandler(citation.id)}
+                        >
+                          usuń
+                        </SendButtonVerySmall>
+                      </HorizontalContainer>
+                      <FragmentsPExcerpt>{citation.excerpt}</FragmentsPExcerpt>
+                      {citation.source !== 'source' ? (
+                        <FragmentsP>{citation.source}</FragmentsP>
                       ) : (
-                        <FragmentsP>Przykład nr {index + 1}</FragmentsP>
+                        <FragmentsP>
+                          {/* Zespół TurboLex, {currentDate}, Warszawa */} xxx
+                        </FragmentsP>
                       )}
-                      <SendButtonVerySmall
-                        variant='secondaryEmpty'
-                        onClick={() => removeCitationHandler(citation.id)}
-                      >
-                        usuń
-                      </SendButtonVerySmall>
-                    </HorizontalContainer>
-                    <FragmentsPExcerpt>{citation.excerpt}</FragmentsPExcerpt>
-                    {citation.source !== 'source' ? (
-                      <FragmentsP>{citation.source}</FragmentsP>
-                    ) : (
-                      <FragmentsP>
-                        Zespół TurboLex, {currentDate}, Warszawa
-                      </FragmentsP>
-                    )}
+                    </SimpleCitationItem>
                   </ItemWrapper>
-                </FragmentContainer>
-              )}
-            </ListWrapperDemo>
-          ))
-          .reverse()}{' '}
+                )}
+              </ListWrapper>
+            ))
+            .reverse()}{' '}
+      </FragmentsWrapper>
     </AnimateSharedLayout>
   )
 }

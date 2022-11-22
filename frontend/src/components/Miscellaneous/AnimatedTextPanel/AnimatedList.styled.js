@@ -77,6 +77,7 @@ export const ListWrapperDemo = styled(ListWrapper)`
   padding-right: 1rem;
   padding: 0;
   min-width: 90%;
+  max-width: 90%;
   /* &:first-of-type {
     margin-top: 200px;
   } */
@@ -269,4 +270,17 @@ export const ItemWrapper = styled(motion.div)`
   @media (max-width: 740px) {
     margin-bottom: 5px;
   }
+`
+export const SimpleCitationItem = styled(motion.div)`
+  width: 300px;
+  height: 200px;
+  overflow: scroll;
+  /* max-width: 300px; */
+  /* background: brown; */
+  padding: 1rem;
+  border-radius: 20px;
+  border-right: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
+  border-left: 1px solid var(--background-blur1);
+  border-bottom: 1px solid var(--background-blur1);
 `

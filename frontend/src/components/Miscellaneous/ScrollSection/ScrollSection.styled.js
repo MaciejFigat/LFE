@@ -167,6 +167,7 @@ export const SectionColumnScrollResize = styled(motion.div)`
 export const SectionColumnResize = styled.div`
   display: grid;
   place-items: flex-start center;
+
   background: var(--background1-main);
   position: sticky;
   top: 0px;

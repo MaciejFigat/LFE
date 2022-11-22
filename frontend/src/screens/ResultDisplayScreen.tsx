@@ -94,7 +94,38 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
                 </DataContainerSimple>
               </>
             ) : (
-              <FragmentsColumn />
+              <>
+                <SharedChoiceWrapper />
+
+                {showFragmentsState && (
+                  <FragmentsColumn showFragmentsState={showFragmentsState} />
+                )}
+                {/* {showFragmentsState && sortingOption === 'wszystkie' && (
+                  <FragmentsColumn showFragmentsState={showFragmentsState} />
+                )}
+                {showFragmentsState && sortingOption === 'projekt' && (
+                  <FragmentsColumn showFragmentsState={showFragmentsState} />
+                )} */}
+
+                <DataContainerSimple width={widthNarrow}>
+                  {!showFragmentsState &&
+                    data.length > 0 &&
+                    data.slice(start, end + 1).map((fragmentArray: any) => (
+                      <DataSectionSimple
+                        variant='primary'
+                        // imgStart
+                        istota_interpretacji={
+                          fragmentArray.istota_interpretacji
+                        }
+                        key={fragmentArray['uuid']}
+                        paddingTop='small'
+                        fragmentsFound={fragmentArray.fragment}
+                        metryka={fragmentArray.metryka}
+                        query={queryTrimmed}
+                      />
+                    ))}
+                </DataContainerSimple>
+              </>
             )
           }
           wideSection={<ResultDisplay />}

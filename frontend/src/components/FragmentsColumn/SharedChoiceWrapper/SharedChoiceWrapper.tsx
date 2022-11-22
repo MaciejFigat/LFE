@@ -15,11 +15,15 @@ import {
 import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
 import Pagination from '../../Miscellaneous/Pagination/Pagination'
 import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
+import { UserInfo } from '../../../interfaces'
 
 interface SharedChoiceWrapperProps {}
 
 const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
   const dispatch = useAppDispatch()
+
+  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  const citations = useAppSelector((state) => state.fragment.citations)
 
   const numberOfResults: number | undefined = useAppSelector(
     (state) => state.searchResult.searchResults.data.length
@@ -32,8 +36,13 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
       // icon: <SvgIcon variant='save' contentAfter='zapisane' toBottom />,
       content: (
         <>
-          {' '}
-          <FilterWrapper />
+          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+            <FilterWrapper />
+          ) : (
+            <>
+              Ilość zapisanych fragmentów: <b>{citations.length}</b>
+            </>
+          )}
         </>
       ),
     },

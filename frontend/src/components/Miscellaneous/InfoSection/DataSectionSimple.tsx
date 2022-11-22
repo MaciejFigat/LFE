@@ -96,7 +96,6 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
         onClick={() => submitHandlerDocNr(0)}
       >
         <Container>
-          {/* <InfoRowSimple imgStart={imgStart}> */}
           <InfoColumnShortSimple>
             <TextWrapperSimpleShort imgStart={imgStart}>
               <TopLineSimple variant={variant}>
@@ -109,26 +108,6 @@ const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
               </SubtitleSimple>
             </TextWrapperSimpleShort>
           </InfoColumnShortSimple>
-          {/* <InfoColumnSimple>
-              <TextWrapperSimple>
-                {fragmentsFound.length > 0 &&
-                  fragmentsFound
-                    .filter(
-                      (fragmentsSorted) =>
-                        !fragmentsSorted.startsWith('ISTOTA INTERPRETACJI')
-                    )
-                    .map((fragment, index) => (
-                      <SubtitleSimple
-                        variant={variant}
-                        key={Math.random()}
-                        onClick={() => submitHandlerDocNr(index)}
-                      >
-                        &#9830;{parse(fragment.substring(0, 120))}
-                      </SubtitleSimple>
-                    ))}
-              </TextWrapperSimple>
-            </InfoColumnSimple> */}
-          {/* </InfoRowSimple> */}
         </Container>
       </InfoSecSimple>
     </CenterWrapperSimple>
