@@ -202,7 +202,7 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
             </SearchResultsHorizontalWrapper>
             <HorizontalWrapperTight>
               <ButtonSmall variant='secondary' onClick={simpleViewHandler}>
-                Widok uproszczony
+                {simpleView ? 'Widok rozszerzony' : 'Widok uproszczony'}
               </ButtonSmall>
             </HorizontalWrapperTight>
             <Pagination />

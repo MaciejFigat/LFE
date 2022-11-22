@@ -1,75 +1,46 @@
 import React from 'react'
-import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
-import {
-  HeroTextContainer,
-  HeroSecNoSvg,
-  HeroTitleLeft,
-} from './HeroSection.styled'
+
+import { HeroTitleLeft, HeroTwoContainer } from './HeroSection.styled'
+import { useAppSelector } from '../../app/reduxHooks'
 
 import {
-  InfoColumn,
-  InfoColumnShort,
-  InfoRow,
-  Subtitle,
-  TextWrapper,
-  TextWrapperParSimple,
+  HeroTextWrapper,
+  HeroWrapperColumn,
+  HeroWrapperRow,
   TopLine,
 } from './HomeSection.styled'
+import CitationDisplay from './CitationDisplay'
 
 interface HeroThreeProps {}
 
 const HeroThree: React.FC<HeroThreeProps> = () => {
+  const citations: any = useAppSelector((state) => state.fragment.citations)
+
   const variant = 'secondary'
   return (
-    <HeroSecNoSvg>
-      <HeroTextContainer>
-        {/* <InfoRow imgStart border> */}
-        <InfoRow border imgStart>
-          <InfoColumnShort imgStart>
-            <TextWrapper>
-              {' '}
-              <TextWrapperParSimple>
-                1. Zaloguj się &nbsp;
-                <SvgIcon
-                  variant='login'
-                  noMargin
-                  // contentAfter='export'
-                  noContent
-                />
-              </TextWrapperParSimple>
-              <TextWrapperParSimple>
-                2. Kliknij w menu Projekty&nbsp;
-                <SvgIcon variant='moreOptions' noMargin noContent />
-              </TextWrapperParSimple>{' '}
-              <TextWrapperParSimple>
-                3. Wybierz projekt i kliknij &nbsp;
-                <SvgIcon variant='export' noMargin noContent />
-              </TextWrapperParSimple>{' '}
-              <TextWrapperParSimple>
-                4. Otwórz zapisany plik tekstowy
-              </TextWrapperParSimple>{' '}
-            </TextWrapper>
-          </InfoColumnShort>
-          <InfoColumn>
-            <TextWrapper>
-              {/* <HeroTitleLeft>Eksport projektów</HeroTitleLeft> */}
-              <HeroTitleLeft>Eksport projektów</HeroTitleLeft>{' '}
-              <TopLine variant={variant}>
-                {' '}
-                Obecnie umożliwiamy zapisanie zebranych fragmentów i ich eksport
-                do pliku doc.
-              </TopLine>
-              <Subtitle variant={variant}></Subtitle>
-              <TopLine variant={variant}>
-                {' '}
-                Funkcjonalność jest dostępna dla zalogowanych użytkowników.
-              </TopLine>
-              <Subtitle variant={variant}></Subtitle>
-            </TextWrapper>
-          </InfoColumn>
-        </InfoRow>
-      </HeroTextContainer>
-    </HeroSecNoSvg>
+    <HeroWrapperRow>
+      <HeroTwoContainer>
+        {citations && citations?.length === 1 && (
+          <HeroTextWrapper>
+            <HeroTitleLeft>Stwórz nowe fragmenty</HeroTitleLeft>
+
+            <TopLine variant={variant}>
+              Zapisz fragmenty tekstu w dokumencie
+            </TopLine>
+          </HeroTextWrapper>
+        )}
+        {citations && citations?.length > 1 && (
+          <HeroTextWrapper>
+            <HeroTitleLeft>Eksportuj fragmenty </HeroTitleLeft>
+
+            <TopLine variant={variant}>Eksport do txt Eksport do pdf</TopLine>
+          </HeroTextWrapper>
+        )}
+      </HeroTwoContainer>
+      <HeroWrapperColumn>
+        <CitationDisplay />
+      </HeroWrapperColumn>
+    </HeroWrapperRow>
   )
 }
 export default HeroThree

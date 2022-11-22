@@ -99,6 +99,7 @@ export const HeroTitle = styled.div`
     width: 50%;
   }
 `
+
 export const HeroTitleLeft = styled.div`
   display: flex;
   font-size: 1.8rem;

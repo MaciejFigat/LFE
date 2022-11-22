@@ -108,15 +108,23 @@ export const HeroWrapperColumn = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 50%;
+  min-width: 60%;
+  padding-left: 2rem;
   overflow: scroll;
+  margin-bottom: 2rem;
   /* max-height: 80vh; */
 `
 export const HeroWrapperRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: center;
   margin-top: 4rem;
+`
+export const HeroResultScroller = styled.div`
+  margin-top: 3rem;
+  /* height: 600px; */
+  overflow: scroll;
 `
 export const HeroTextWrapper = styled.div`
   width: 80%;
@@ -131,6 +139,7 @@ export const HeroTextWrapper = styled.div`
   border-top: 1px solid var(--background-blur2);
   border-radius: 20px;
   padding: 1.5rem;
+  margin-bottom: 2rem;
   @media screen and (max-width: 991px) {
     padding: 1rem;
   }

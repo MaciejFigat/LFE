@@ -97,9 +97,7 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
               <>
                 <SharedChoiceWrapper />
 
-                {showFragmentsState && (
-                  <FragmentsColumn showFragmentsState={showFragmentsState} />
-                )}
+                {showFragmentsState && <FragmentsColumn />}
                 {/* {showFragmentsState && sortingOption === 'wszystkie' && (
                   <FragmentsColumn showFragmentsState={showFragmentsState} />
                 )}

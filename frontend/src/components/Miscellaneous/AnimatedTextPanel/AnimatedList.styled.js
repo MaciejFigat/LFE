@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 export const FragmentsWrapper = styled(motion.div)`
   display: grid;
   place-items: ${({ moreColumns }) => (moreColumns ? 'flex-start' : 'center')};
-
+  margin-bottom: 2rem;
   /* //todo resizable narrow column grid columns */
   grid-template-columns: ${({ moreColumns, width }) =>
     !moreColumns && width < 600 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
@@ -60,7 +60,9 @@ export const ListWrapper = styled(motion.div)`
   display: flex;
   margin: 0;
   flex-direction: column;
-
+  /* &:last-of-type {
+    margin-bottom: 2rem;
+  } */
   /* margin-top: 16px; */
 
   /* padding: 0.5rem; */
@@ -272,15 +274,44 @@ export const ItemWrapper = styled(motion.div)`
   }
 `
 export const SimpleCitationItem = styled(motion.div)`
+  display: grid;
+  place-items: space-around;
   width: 300px;
   height: 200px;
   overflow: scroll;
   /* max-width: 300px; */
   /* background: brown; */
+  box-shadow: var(--boxShadow1);
   padding: 1rem;
   border-radius: 20px;
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
+  ::-webkit-scrollbar {
+    width: 0.1em;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      transparent 10%,
+      var(--background-blur2),
+      var(--background-secondary1),
+      var(--background-blur2) 90%,
+      transparent
+    );
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 2px;
+  }
+`
+export const SimpleCitationItemNoShadow = styled(SimpleCitationItem)`
+  box-shadow: none;
+  width: 300px;
+  height: 120px;
+  padding: 0.75rem;
 `

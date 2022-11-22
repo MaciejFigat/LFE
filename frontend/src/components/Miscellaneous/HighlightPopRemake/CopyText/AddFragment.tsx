@@ -43,9 +43,9 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     id: nanoid(),
     title: highlightedText.substring(0, 22),
     date: '',
-    source: 'source',
+    source: `${typWyroku} ${sad} ${dataOrzeczenia}` ?? '',
     excerpt: highlightedText,
-    coordinates: '',
+    coordinates: `${syg}` ?? '',
     description: '',
   }
   const newFragment = {

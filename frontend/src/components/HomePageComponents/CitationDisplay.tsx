@@ -1,28 +1,24 @@
 import React from 'react'
-import { useAppSelector } from '../../app/reduxHooks'
+import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
+import { citationRemoved } from '../../features/fragments/fragmentSlice'
 import { AnimateSharedLayout } from 'framer-motion'
 import {
-  FragmentsWrapper,
   ItemWrapper,
   ListWrapper,
-  SimpleCitationItem,
+  SimpleCitationItemNoShadow,
 } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
-import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
-import { useAppDispatch } from '../../app/reduxHooks'
-import { citationRemoved } from '../../features/fragments/fragmentSlice'
 import {
   FragmentsP,
   FragmentsPExcerpt,
   HorizontalContainer,
-} from './FragmentsColumn.styled'
+} from '../FragmentsColumn/FragmentsColumn.styled'
+import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
+import { TwoColumnsWrapper } from '../../styles/misc.styled'
 
-interface FragmentsColumnProps {
-  wide?: boolean
-}
+interface CitationDisplayProps {}
 
-const FragmentsColumn: React.FC<FragmentsColumnProps> = ({ wide }) => {
+const CitationDisplay: React.FC<CitationDisplayProps> = () => {
   const dispatch: any = useAppDispatch()
-  const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
   const citations: any[] = useAppSelector((state) => state.fragment.citations)
   const removeCitationHandler = (id: string) => {
     dispatch(citationRemoved(id))
@@ -30,7 +26,8 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = ({ wide }) => {
 
   return (
     <AnimateSharedLayout>
-      <FragmentsWrapper moreColumns={wide ? true : false} width={widthNarrow}>
+      {' '}
+      <TwoColumnsWrapper>
         {citations.length > 0 &&
           citations
             .map((citation, index) => (
@@ -44,12 +41,13 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = ({ wide }) => {
                 {citation.excerpt !== '' && (
                   <ItemWrapper>
                     {' '}
-                    <SimpleCitationItem>
+                    <SimpleCitationItemNoShadow>
                       <HorizontalContainer>
-                        {citation.coordinates !== '' ? (
-                          <FragmentsP>{citation.coordinates}</FragmentsP>
-                        ) : (
-                          <FragmentsP>Przykład nr {index + 1}</FragmentsP>
+                        {citation.source !== '' && (
+                          <FragmentsP>
+                            {citation.source.substring(0, 27)}
+                            {/* {citation.source} */}
+                          </FragmentsP>
                         )}
                         <SendButtonVerySmall
                           variant='secondaryEmpty'
@@ -58,18 +56,18 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = ({ wide }) => {
                           usuń
                         </SendButtonVerySmall>
                       </HorizontalContainer>
-                      {citation.source !== '' && (
-                        <FragmentsP>{citation.source}</FragmentsP>
-                      )}
-                      <FragmentsPExcerpt>{citation.excerpt}</FragmentsPExcerpt>
-                    </SimpleCitationItem>
+
+                      <FragmentsPExcerpt>
+                        {citation.excerpt.substring(0, 50)}
+                      </FragmentsPExcerpt>
+                    </SimpleCitationItemNoShadow>
                   </ItemWrapper>
                 )}
               </ListWrapper>
             ))
             .reverse()}{' '}
-      </FragmentsWrapper>
+      </TwoColumnsWrapper>
     </AnimateSharedLayout>
   )
 }
-export default FragmentsColumn
+export default CitationDisplay

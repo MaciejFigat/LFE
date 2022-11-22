@@ -98,7 +98,7 @@ const primaryStyle: GlobalStyle = {
     warning2: '#ee9b00;',
     danger1: '#D22730;',
 
-    boxShadow1: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -4px 4px 6px #151515, 2px -2px 4px #272729;',
+    boxShadow1: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -4px 4px 6px #151515, 0px -0px 0px #272729;',
     boxShadow2: 'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -5px 5px 10px #151515, 3px -3px 10px #272729;',
     // boxShadow1: ' -35px 35px 70px #0c0c0c, 35px -35px 70px #303032;',
     // boxShadow1: '-5px 5px 10px #151515, 5px -5px 10px #272729;',

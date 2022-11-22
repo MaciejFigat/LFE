@@ -27,6 +27,7 @@ export const FragmentsP = styled.p`
   font-size: 0.75rem;
 `
 export const FragmentsPExcerpt = styled.p`
+  color: var(--background4-main);
   font-size: 1rem;
 `
 export const DateCompareWrapper = styled.div`

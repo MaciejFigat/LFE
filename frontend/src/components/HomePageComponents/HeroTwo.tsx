@@ -1,4 +1,5 @@
 import React from 'react'
+import { useAppSelector } from '../../app/reduxHooks'
 import { HeroTitleLeft, HeroTwoContainer } from './HeroSection.styled'
 import {
   HeroTextWrapper,
@@ -7,56 +8,66 @@ import {
   TopLine,
 } from './HomeSection.styled'
 
-import HighlightPopMenuDemo from '../Miscellaneous/HighlightPopRemake/HighlightPopMenuDemo'
-
-import { PopupDescriptionInput } from '../DragAndDropProject/PopupEditWindow/PopupEditWindow.styled'
-import FragmentsColumn from '../FragmentsColumn/FragmentsColumn'
+// import FragmentsColumn from '../FragmentsColumn/FragmentsColumn'
 import { AnimateSharedLayout } from 'framer-motion'
+
+import DataSectionSimple from '../Miscellaneous/InfoSection/DataSectionSimple'
 import { TwoColumnsWrapper } from '../../styles/misc.styled'
 
 interface HeroTwoProps {}
 
 const HeroTwo: React.FC<HeroTwoProps> = () => {
+  const searchResults: any = useAppSelector(
+    (state) => state.searchResult.searchResults
+  )
+  const { data, query } = searchResults
+  const queryTrimmed = encodeURIComponent(query?.trim())
   const variant = 'secondary'
   return (
     <AnimateSharedLayout>
       <HeroWrapperRow>
         <HeroTwoContainer>
-          <HeroTextWrapper>
-            {/* <HeroTitleLeft>Zaznacz poniższy tekst</HeroTitleLeft> */}
+          {/* <HeroTitleLeft>Wybierz dokument</HeroTitleLeft> */}
+          {data && data?.length === 0 && (
+            <HeroTextWrapper>
+              <HeroTitleLeft>Wyszukaj</HeroTitleLeft>
 
-            <HighlightPopMenuDemo>
-              <HeroTitleLeft>Zapisywanie fragmentów</HeroTitleLeft>
+              <TopLine variant={variant}>Wpisz frazę wyszukiwania</TopLine>
+            </HeroTextWrapper>
+          )}
+          {data && data?.length > 0 && (
+            <HeroTextWrapper>
+              <HeroTitleLeft>Przykładowe wyniki &#x2192;</HeroTitleLeft>
+
               <TopLine variant={variant}>
-                Zaznaczając tekst wyszukanej interpretacji bądź wyroku, możesz
-                wybrać opcję Kopiuj lub Zapisz.
+                Po kliknięciu przejdziesz do widoku wybranego dokumentu.
               </TopLine>
               <TopLine variant={variant}>
-                Kopiowany fragment zawiera odpowiednie metadane np, datę
-                wydania, sygnaturę dokumentu, rodzaj organu wydającego itp.
+                W tym widoku możesz, zaznaczając tekst, wybrać opcję Kopiuj lub
+                Zapisz.
               </TopLine>
-              <TwoColumnsWrapper>
-                {/* <TopLine variant={variant}>
-                  W przypadku kopiowania procedura jest podobna, lecz w tym
-                  przypadku zapisujemy fragment w naszym systemie. Jeśli
-                  użytkownik jest zalogowany, może przeglądać i edytować
-                  uprzednio zapisane fragmenty, np. dodając własne uwagi.
-                </TopLine> */}
-              </TwoColumnsWrapper>
-            </HighlightPopMenuDemo>
-
-            {/* <Subtitle variant={variant}> */}
-            <PopupDescriptionInput
-              type='label'
-              name='label'
-              rows='4'
-              placeholder='kopiuj i wklej tutaj'
-            ></PopupDescriptionInput>
-            {/* </Subtitle> */}
-          </HeroTextWrapper>
+            </HeroTextWrapper>
+          )}
         </HeroTwoContainer>
         <HeroWrapperColumn>
-          <FragmentsColumn />
+          {/* <HeroTitleLeft>Wybierz dokument</HeroTitleLeft> */}
+          <TwoColumnsWrapper>
+            {data
+              .slice(0, 4)
+
+              .map((fragmentArray: any) => (
+                <DataSectionSimple
+                  variant='secondary'
+                  key={fragmentArray['uuid']}
+                  paddingTop='small'
+                  imgStart
+                  fragmentsFound={fragmentArray.fragment}
+                  metryka={fragmentArray.metryka}
+                  istota_interpretacji={fragmentArray.istota_interpretacji}
+                  query={queryTrimmed}
+                />
+              ))}
+          </TwoColumnsWrapper>
         </HeroWrapperColumn>
       </HeroWrapperRow>
     </AnimateSharedLayout>
