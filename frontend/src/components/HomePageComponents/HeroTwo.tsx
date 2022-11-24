@@ -42,9 +42,14 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
               <TopLine variant={variant}>
                 Po kliknięciu przejdziesz do widoku wybranego dokumentu.
               </TopLine>
+            </HeroTextWrapper>
+          )}
+          {data && data?.length > 0 && (
+            <HeroTextWrapper>
+              <HeroTitleLeft>Zapisywanie</HeroTitleLeft>
+
               <TopLine variant={variant}>
-                W tym widoku możesz, zaznaczając tekst, wybrać opcję Kopiuj lub
-                Zapisz.
+                Przeglądając wybrany dokument zaznacz tekst i zapisz fragment.
               </TopLine>
             </HeroTextWrapper>
           )}

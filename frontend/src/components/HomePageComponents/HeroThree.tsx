@@ -20,7 +20,7 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
   return (
     <HeroWrapperRow>
       <HeroTwoContainer>
-        {citations && citations?.length === 1 && (
+        {citations && citations?.length <= 1 && (
           <HeroTextWrapper>
             <HeroTitleLeft>Stwórz nowe fragmenty</HeroTitleLeft>
 
@@ -29,6 +29,15 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
             </TopLine>
           </HeroTextWrapper>
         )}
+
+        <HeroTextWrapper>
+          <HeroTitleLeft>Zapisane fragmenty</HeroTitleLeft>
+
+          <TopLine variant={variant}>
+            Podstawowe funkcjonalności dla niezalogowanych użytkowników.
+          </TopLine>
+        </HeroTextWrapper>
+
         {citations && citations?.length > 1 && (
           <HeroTextWrapper>
             <HeroTitleLeft>Eksportuj fragmenty </HeroTitleLeft>
