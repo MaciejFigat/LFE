@@ -10,6 +10,7 @@ import SearchResultsDisplay from '../components/HomePageComponents/SearchResults
 import ProjectsDisplay from '../components/HomePageComponents/ProjectsDisplay'
 import FragmentsDisplay from '../components/HomePageComponents/FragmentsDisplay'
 import VisitedLinks from '../components/Miscellaneous/VisitedLinks/VisitedLinks'
+import HeroGrid from '../components/HomePageComponents/HeroGrid'
 // import HomeSearch from '../components/HomePageComponents/HomeSearch'
 
 const Home: React.FC = () => {
@@ -68,10 +69,10 @@ const Home: React.FC = () => {
       {Object.keys(userInfo).length === 0 && (
         <HomeChoiceWrapper tabs={tabsTutorial} />
       )}
-
-      {Object.keys(userInfo).length > 0 && (
+      <HeroGrid />
+      {/* {Object.keys(userInfo).length > 0 && (
         <HomeChoiceWrapper navTop tabs={tabsUser} />
-      )}
+      )} */}
       {/* <SearchResultsDisplay /> */}
     </>
   )

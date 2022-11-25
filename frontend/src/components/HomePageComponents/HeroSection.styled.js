@@ -144,3 +144,67 @@ export const HeroP = styled.p`
     height: 150%;
   }
 `
+// ? new Hero section - the grid
+
+export const HeroGridWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  /* min-height:100% */
+  margin: 0px;
+  overflow: hidden;
+`
+export const HeroNavigation = styled.div`
+  display: flex;
+  width: 100%;
+
+  border-bottom: 1px solid var(--background-blur2);
+`
+export const HeroNavOne = styled.div`
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  display: flex;
+  gap: 1rem;
+  /* background: brown; */
+  border-left: 1px solid var(--background-blur2);
+  flex-basis: calc(100% / 3);
+  /* flex-basis: 33vw; */
+  &:first-of-type {
+    justify-content: flex-start;
+  }
+`
+export const HeroNavTwo = styled(HeroNavOne)`
+  flex-basis: 0;
+  flex-grow: 1;
+`
+
+export const HeroMainContainer = styled.div`
+  /* it grow into remaining vertical space */
+  flex-grow: 1;
+`
+export const HeroMainArticle = styled.div`
+  display: grid;
+  height: 100%;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 2fr 1fr;
+`
+export const HeroArticleSection = styled.div`
+  height: 100%;
+  border: 1px solid var(--background-blur2);
+  &:first-of-type {
+    /* border-top: none; */
+  }
+`
+export const HeroArticleBigSection = styled(HeroArticleSection)`
+  border-top: 1px solid var(--background-blur2);
+`
+export const HeroArticleSmallSection = styled(HeroArticleSection)`
+  border-left: 1px solid var(--background-blur2);
+`
+export const HeroArticleBottomBigSection = styled(HeroArticleSection)`
+  border-top: 1px solid var(--background-blur2);
+`
+export const HeroArticleBottomSmallSection = styled(HeroArticleSection)`
+  border-left: 1px solid var(--background-blur2);
+`

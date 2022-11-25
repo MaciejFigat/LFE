@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAppSelector } from '../../app/reduxHooks'
+import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { AnimateSharedLayout } from 'framer-motion'
 import {
   FragmentsWrapper,
@@ -8,7 +8,7 @@ import {
   SimpleCitationItem,
 } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
-import { useAppDispatch } from '../../app/reduxHooks'
+
 import { citationRemoved } from '../../features/fragments/fragmentSlice'
 import {
   FragmentsP,

@@ -5,12 +5,12 @@ const GlobalStyle = createGlobalStyle`
 * {
   
   -webkit-tap-highlight-color: transparent;
-  
+  box-sizing: border-box;
 }
 html {
   font-size: 100%;
   height: 100%;
-  box-sizing: border-box;
+  // box-sizing: border-box;
 } 
 
 body {
