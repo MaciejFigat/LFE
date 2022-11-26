@@ -16,12 +16,12 @@ import { TwoColumnsWrapper } from '../../styles/misc.styled'
 
 interface HeroTwoProps {}
 
-const HeroTwo: React.FC<HeroTwoProps> = () => {
+const HeroTwoSecond: React.FC<HeroTwoProps> = () => {
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
   )
-  const { data, query } = searchResults
-  const queryTrimmed = encodeURIComponent(query?.trim())
+  const { data } = searchResults
+
   const variant = 'secondary'
   return (
     <AnimateSharedLayout>
@@ -37,7 +37,7 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
           )}
           {data && data?.length > 0 && (
             <HeroTextWrapper>
-              <HeroTitleLeft>Przykładowe wyniki &#x2192;</HeroTitleLeft>
+              {/* <HeroTitleLeft>Przykładowe wyniki &#x2192;</HeroTitleLeft> */}
 
               <TopLine variant={variant}>
                 Po kliknięciu przejdziesz do widoku wybranego dokumentu.
@@ -54,6 +54,20 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
             </HeroTextWrapper>
           )}
         </HeroTwoContainer>
+      </HeroWrapperRow>
+    </AnimateSharedLayout>
+  )
+}
+const HeroTwoMain: React.FC<HeroTwoProps> = () => {
+  const searchResults: any = useAppSelector(
+    (state) => state.searchResult.searchResults
+  )
+  const { data, query } = searchResults
+  const queryTrimmed = encodeURIComponent(query?.trim())
+
+  return (
+    <AnimateSharedLayout>
+      <HeroWrapperRow>
         <HeroWrapperColumn>
           {/* <HeroTitleLeft>Wybierz dokument</HeroTitleLeft> */}
           <TwoColumnsWrapper>
@@ -78,4 +92,4 @@ const HeroTwo: React.FC<HeroTwoProps> = () => {
     </AnimateSharedLayout>
   )
 }
-export default HeroTwo
+export { HeroTwoMain, HeroTwoSecond }

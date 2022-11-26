@@ -40,6 +40,8 @@ export const SearchBarWrapper = styled.div`
   align-self: center;
 
   height: ${({ large }) => (large ? '50px' : '30px')};
+  height: ${({ medium }) => medium && '40px'};
+  min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
   min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
   /* z-index: 10; */
   gap: 0.75rem;
@@ -131,6 +133,8 @@ export const SearchInput = styled.input`
   /* box-shadow: ${({ large }) =>
     large ? 'var(--boxShadowInset1)' : 'var(--boxShadowInset1)'}; */
   font-size: ${({ large }) => (large ? '1.5rem' : '1rem')};
+  /* //? medium version */
+  font-size: ${({ medium }) => medium && '1.2rem'};
   transition: all 0.3s ease-out;
   min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
   border-radius: ${({ large }) => (large ? '20px' : '12px')};
@@ -431,4 +435,10 @@ export const HomeSearchTipsWrapper = styled.div`
   margin-top: 2rem;
   background: var(--background-gradient1);
 `
-// export const HomeSearchTipsWrapper = styled.div``
+export const HeroSearchSampleWrapper = styled(HomeSearchTipsWrapper)`
+  padding: 0rem;
+  /* box-shadow: var(--boxShadowClay1); */
+  box-shadow: none;
+  background: none;
+  margin-top: 0;
+`

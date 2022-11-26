@@ -13,7 +13,17 @@ import CitationDisplay from './CitationDisplay'
 
 interface HeroThreeProps {}
 
-const HeroThree: React.FC<HeroThreeProps> = () => {
+const HeroThreeMain: React.FC<HeroThreeProps> = () => {
+  return (
+    // <HeroWrapperRow>
+    // <HeroWrapperColumn>
+    <CitationDisplay />
+    // <>Gwno</>
+    // </HeroWrapperColumn>
+    // </HeroWrapperRow>
+  )
+}
+const HeroThreeSecond: React.FC<HeroThreeProps> = () => {
   const citations: any = useAppSelector((state) => state.fragment.citations)
 
   const variant = 'secondary'
@@ -30,14 +40,6 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
           </HeroTextWrapper>
         )}
 
-        <HeroTextWrapper>
-          <HeroTitleLeft>Zapisane fragmenty</HeroTitleLeft>
-
-          <TopLine variant={variant}>
-            Podstawowe funkcjonalności dla niezalogowanych użytkowników.
-          </TopLine>
-        </HeroTextWrapper>
-
         {citations && citations?.length > 1 && (
           <HeroTextWrapper>
             <HeroTitleLeft>Eksportuj fragmenty </HeroTitleLeft>
@@ -46,10 +48,21 @@ const HeroThree: React.FC<HeroThreeProps> = () => {
           </HeroTextWrapper>
         )}
       </HeroTwoContainer>
-      <HeroWrapperColumn>
-        <CitationDisplay />
-      </HeroWrapperColumn>
     </HeroWrapperRow>
   )
 }
-export default HeroThree
+const HeroThreeThird: React.FC<HeroThreeProps> = () => {
+  const variant = 'secondary'
+  return (
+    <HeroWrapperRow>
+      <HeroTwoContainer>
+        <HeroTextWrapper>
+          <TopLine variant={variant}>
+            Podstawowe funkcjonalności dla niezalogowanych użytkowników.
+          </TopLine>
+        </HeroTextWrapper>
+      </HeroTwoContainer>
+    </HeroWrapperRow>
+  )
+}
+export { HeroThreeMain, HeroThreeSecond, HeroThreeThird }

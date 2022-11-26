@@ -130,6 +130,19 @@ export const TwoColumnsWrapper = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
 `
+export const ThreeColumnsWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  /* padding: 1rem;
+  margin-bottom: 3rem; */
+  @media screen and (max-width: 1020px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 520px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`
 export const HorizontalWrapper = styled.div`
   display: flex;
   justify-content: center;

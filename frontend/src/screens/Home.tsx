@@ -3,8 +3,8 @@ import Toast from '../components/Miscellaneous/Toast/Toast'
 import { useAppSelector } from '../app/reduxHooks'
 import HomeChoiceWrapper from '../components/HomePageComponents/HomeChoiceWrapper/HomeChoiceWrapper'
 // import HeroOne from '../components/HomePageComponents/HeroOne'
-import HeroTwo from '../components/HomePageComponents/HeroTwo'
-import HeroThree from '../components/HomePageComponents/HeroThree'
+// import HeroTwo from '../components/HomePageComponents/HeroTwo'
+// import HeroThree from '../components/HomePageComponents/HeroThree'
 import { UserInfo } from '../interfaces'
 import SearchResultsDisplay from '../components/HomePageComponents/SearchResultsDisplay'
 import ProjectsDisplay from '../components/HomePageComponents/ProjectsDisplay'
@@ -28,11 +28,13 @@ const Home: React.FC = () => {
     },
     {
       label: 'Zapisz',
-      content: <HeroTwo />,
+      // content: <HeroTwo />,
+      content: 'HeroTwo suspended ',
     },
     {
       label: 'Eksportuj',
-      content: <HeroThree />,
+      // content: <HeroThree />,
+      content: 'HEroThree suspended aswell as Two',
     },
   ]
   const tabsUser = [
@@ -66,9 +68,9 @@ const Home: React.FC = () => {
   return (
     <>
       <Toast option='registerUser' />
-      {Object.keys(userInfo).length === 0 && (
+      {/* {Object.keys(userInfo).length === 0 && (
         <HomeChoiceWrapper tabs={tabsTutorial} />
-      )}
+      )} */}
       <HeroGrid />
       {/* {Object.keys(userInfo).length > 0 && (
         <HomeChoiceWrapper navTop tabs={tabsUser} />

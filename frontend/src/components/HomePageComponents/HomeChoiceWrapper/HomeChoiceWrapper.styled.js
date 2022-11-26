@@ -18,8 +18,8 @@ export const WrapperWindow = styled.div`
 `
 export const ChoiceTitleContainer = styled.div`
   /* position: relative; */
-  /* display: grid;
-  place-items: center; */
+  display: grid;
+  place-items: center;
   /* background: brown; */
   /* width: 100%; */
   /* max-width: fit-content; */
@@ -93,9 +93,14 @@ export const ChoiceNav = styled.nav`
 export const MainChoiceContainer = styled.main`
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  /* background: brown; */
   flex-grow: 1;
-  min-height: fit-content;
+  /* min-height: fit-content; */
   width: 100%;
+  /* overflow: scroll; */
+  /* max-height: 90%; */
+  padding: 0.5rem 0;
 `
 export const MainChoiceBackground = styled.div`
   position: absolute;

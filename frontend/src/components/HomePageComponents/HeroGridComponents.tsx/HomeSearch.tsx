@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
-import SearchBar from '../Miscellaneous/SearchBar/SearchBar'
-import { useAppDispatch } from '../../app/reduxHooks'
-import { getSearchResults } from '../../features/searchResults/searchResultsSlice'
+import SearchBar from '../../Miscellaneous/SearchBar/SearchBar'
+import { useAppDispatch } from '../../../app/reduxHooks'
+import { getSearchResults } from '../../../features/searchResults/searchResultsSlice'
 import {
   HomeSearchContainer,
   HomeSearchTipsWrapper,
   HomeSearchWrapper,
-} from '../Miscellaneous/SearchBar/SearchBar.styled'
-import { ButtonSmall } from '../Miscellaneous/Buttons/BigButton.styled'
+} from '../../Miscellaneous/SearchBar/SearchBar.styled'
+import { ButtonSmall } from '../../Miscellaneous/Buttons/BigButton.styled'
 import {
   HeroTitleMiscMedium,
   HorizontalWrapperGap,
-} from '../../styles/misc.styled'
+} from '../../../styles/misc.styled'
 interface HomeSearchProps {}
 
 const HomeSearch: React.FC<HomeSearchProps> = () => {

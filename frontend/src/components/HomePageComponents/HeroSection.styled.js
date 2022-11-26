@@ -188,15 +188,23 @@ export const HeroMainArticle = styled.div`
   height: 100%;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 2fr 1fr;
+
+  max-height: 76vh;
 `
 export const HeroArticleSection = styled.div`
   height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  margin: 0;
   border: 1px solid var(--background-blur2);
   &:first-of-type {
     /* border-top: none; */
   }
 `
 export const HeroArticleBigSection = styled(HeroArticleSection)`
+  overflow-y: scroll;
+  max-height: 100%;
   border-top: 1px solid var(--background-blur2);
 `
 export const HeroArticleSmallSection = styled(HeroArticleSection)`

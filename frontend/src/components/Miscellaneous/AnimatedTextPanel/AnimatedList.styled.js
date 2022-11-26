@@ -278,7 +278,8 @@ export const SimpleCitationItem = styled(motion.div)`
   place-items: space-around;
   width: 300px;
   height: 200px;
-  overflow: scroll;
+
+  overflow-y: scroll;
   /* max-width: 300px; */
   /* background: brown; */
   box-shadow: var(--boxShadow1);
