@@ -447,3 +447,10 @@ export const RegularDiv = styled.div`
   place-items: center;
   width: 100%;
 `
+
+export const RegularColumn = styled.div`
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  width: 100%;
+`

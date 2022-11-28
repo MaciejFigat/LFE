@@ -338,7 +338,7 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   // background: var(--background-secondary2);
-  background: var(--background2-main);
+  background: var(--background-blur2);
 
   @media (max-width: 1020px) {
     // background: var(--background2-main);

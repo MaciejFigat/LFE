@@ -1,9 +1,9 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import {
-  addVisitedLink,
+  // addVisitedLink,
   changeHeroDocIndex,
-  getDocResult,
+  // getDocResult,
 } from '../../../features/searchResults/searchResultsSlice'
 import {
   Container,
@@ -51,7 +51,9 @@ const HeroDataSectionSimple: React.FC<HeroDataSectionSimpleProps> = ({
   istota_interpretacji,
 }) => {
   const dispatch = useAppDispatch()
-
+  const heroDocIndex: number = useAppSelector(
+    (state) => state.searchResult.heroDocIndex
+  )
   const submitHandlerDocIndex = (index: number) => {
     dispatch(changeHeroDocIndex(index))
   }
@@ -62,6 +64,7 @@ const HeroDataSectionSimple: React.FC<HeroDataSectionSimpleProps> = ({
         variant={variant}
         paddingTop={paddingTop}
         onClick={() => submitHandlerDocIndex(index ?? 0)}
+        active={index === heroDocIndex ? true : false}
       >
         <Container>
           <InfoColumnShortSimple>

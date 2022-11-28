@@ -214,10 +214,16 @@ export const HeroArticleSection = styled.div`
 export const HeroArticleBigSection = styled(HeroArticleSection)`
   overflow-y: scroll;
   max-height: 100%;
+  ::-webkit-scrollbar {
+    width: 0.2em;
+  }
   /* border-top: 1px solid var(--background-blur2); */
 `
 export const HeroArticleSmallSection = styled(HeroArticleSection)`
   overflow-y: scroll;
+  ::-webkit-scrollbar {
+    width: 0.2em;
+  }
   border-left: 1px solid var(--background-blur2);
 `
 export const HeroArticleBottomBigSection = styled(HeroArticleSection)`

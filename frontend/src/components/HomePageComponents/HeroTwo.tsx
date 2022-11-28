@@ -3,7 +3,7 @@ import { useAppSelector } from '../../app/reduxHooks'
 import { HeroTitleLeft, HeroTwoContainer } from './HeroSection.styled'
 import {
   HeroTextWrapper,
-  HeroWrapperColumn,
+  // HeroWrapperColumn,
   HeroWrapperRow,
   TopLine,
 } from './HomeSection.styled'

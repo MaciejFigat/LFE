@@ -81,13 +81,18 @@ export const SubtitleSimple = styled(Subtitle)`
 `
 
 export const InfoSecSimple = styled(InfoSec)`
-  border-top: 1px solid var(--background-blur1);
-  border-right: 1px solid var(--background-blur1);
+  border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur2);
   border-radius: 20px;
   background: var(--background1-main);
+  border-color: ${({ active }) =>
+    active === true
+      ? 'var(--background-secondary1)'
+      : 'var(--background-blur2)'};
 
+  
   box-shadow: var(--boxShadowNone);
   padding: 0.25rem;
   padding-top: 0.5rem;

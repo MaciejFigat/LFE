@@ -29,6 +29,7 @@ import { HeroThreeMain, HeroThreeSecond, HeroThreeThird } from './HeroThree'
 import { RegularDiv } from '../../styles/misc.styled'
 import Pagination from '../Miscellaneous/Pagination/Pagination'
 import HomeSearchResultsSmall from './HeroGridComponents.tsx/HomeSearchResultsSmall'
+import HeroSearchButtons from './HeroGridComponents.tsx/HeroSearchButtons'
 
 interface HeroGridProps {
   //   children: ReactChild
@@ -70,10 +71,18 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       ),
       quaternaryContent: (
         <>
-          {data && data?.length === 0 ? (
-            <HomeSearchSample />
-          ) : (
-            <RegularDiv>list of simple fragments</RegularDiv>
+          {data && data?.length === 0 ? null : (
+            <RegularDiv>
+              {' '}
+              <HeroSearchButtons />
+            </RegularDiv>
+          )}
+        </>
+      ),
+      pentanaryContent: (
+        <>
+          {data && data?.length === 0 ? null : (
+            <RegularDiv>Widok dokumentu</RegularDiv>
           )}
         </>
       ),
@@ -146,24 +155,6 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
             </motion.div>
           </AnimatePresence>
         </HeroNavOne>
-        {/* {data && data?.length === 0 ? (
-          <HeroNavTwo>
-            <HomeSearchSample />{' '}
-          </HeroNavTwo>
-        ) : (
-          <>
-            {' '}
-            <HeroNavTwo>
-              <RegularDiv>{`${query} `}</RegularDiv>
-            </HeroNavTwo>{' '}
-            <HeroNavTwo>
-              {' '}
-              <RegularDiv>{`wyników: ${data.length}`}</RegularDiv>
-            </HeroNavTwo>
-          </>
-        )} */}
-        {/* <HeroNavTwo>1 </HeroNavTwo> */}
-        {/* <HeroNavTwo> 2</HeroNavTwo> */}
       </HeroNavigation>
 
       <HeroMainContainer>
@@ -197,19 +188,9 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
               </motion.div>
             </AnimatePresence>
           </HeroArticleSmallSection>
-          {/* {data && data?.length === 0 && (
-            <>
-              {' '}
-             
-            </>
-          )} */}
           <HeroArticleBottomBigSection>
             {' '}
-            left - Buttons - right above main view that links to dokument//
-            possible option to change view to view dokument{' '}
-          </HeroArticleBottomBigSection>{' '}
-          <HeroArticleBottomSmallSection>
-            {/* <AnimatePresence exitBeforeEnter>
+            <AnimatePresence exitBeforeEnter>
               <motion.div
                 key={selectedTab ? selectedTab.label : 'empty'}
                 initial={{ y: 10, opacity: 0 }}
@@ -217,10 +198,24 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                {selectedTab ? selectedTab.tertiaryContent : ''}
+                {selectedTab ? selectedTab.quaternaryContent : ''}
               </motion.div>
-            </AnimatePresence> */}
-            will link to dokument chosen - above will be simple found items
+            </AnimatePresence>
+            left - Buttons - right above main view that links to dokument//
+            possible option to change view to view dokument{' '}
+          </HeroArticleBottomBigSection>{' '}
+          <HeroArticleBottomSmallSection>
+            <AnimatePresence exitBeforeEnter>
+              <motion.div
+                key={selectedTab ? selectedTab.label : 'empty'}
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                {selectedTab ? selectedTab.pentanaryContent : ''}
+              </motion.div>
+            </AnimatePresence>
           </HeroArticleBottomSmallSection>
         </HeroMainArticle>
         <HeroMainArticle></HeroMainArticle>

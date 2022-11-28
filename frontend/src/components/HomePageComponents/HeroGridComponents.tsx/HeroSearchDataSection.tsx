@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { getDocResult } from '../../../features/searchResults/searchResultsSlice'
 import { addVisitedLink } from '../../../features/searchResults/searchResultsSlice'
 import {
-  InfoSec,
+  // InfoSec,
   Container,
   Subtitle,
   InfoRow,
@@ -64,10 +64,10 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
   query,
   highlightQuery,
   fragmentsFound,
-  variant,
+  // variant,
   imgStart,
   buttonLink,
-  paddingTop,
+  // paddingTop,
   istota_interpretacji,
 }) => {
   const dispatch = useAppDispatch()
@@ -102,7 +102,6 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
 
   return (
     <CenterWrapper>
-      {/* <InfoSec  paddingTop={paddingTop}> */}
       <Container>
         <InfoRow imgStart={imgStart}>
           <InfoColumnShort imgStart={imgStart}>
@@ -164,7 +163,6 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
           </InfoColumn>
         </InfoRow>
       </Container>
-      {/* </InfoSec> */}
     </CenterWrapper>
   )
 }
