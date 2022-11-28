@@ -34,8 +34,6 @@ interface InfoData {
 
 interface HeroDataSectionSimpleProps {
   metryka: InfoData
-  query: string
-
   fragmentsFound: string[]
   variant?: 'primary' | 'secondary' | 'tertiary'
   index?: number
@@ -46,7 +44,6 @@ interface HeroDataSectionSimpleProps {
 
 const HeroDataSectionSimple: React.FC<HeroDataSectionSimpleProps> = ({
   metryka,
-  query,
   index,
   variant,
   imgStart,
@@ -55,30 +52,8 @@ const HeroDataSectionSimple: React.FC<HeroDataSectionSimpleProps> = ({
 }) => {
   const dispatch = useAppDispatch()
 
-  const visitedLinks: any[] = useAppSelector(
-    (state) => state.searchResult.visitedLinks
-  )
-
   const submitHandlerDocIndex = (index: number) => {
-    // const searchquery = {
-    //   query: query,
-    //   selectedDoc: index,
-    //   docNumber: metryka.doc_id,
-    // }
-    // dispatch(getDocResult(searchquery))
     dispatch(changeHeroDocIndex(index))
-    // const fragData = {
-    //   doc_link: metryka.doc_link,
-    //   rodzaj_orzeczenia: metryka.rodzaj_orzeczenia,
-    //   data: metryka.data,
-    //   organ: metryka.organ,
-    //   id: metryka.doc_id,
-    //   query: query,
-    // }
-    // const existingLink = visitedLinks.find(
-    //   (visitedLinks) => visitedLinks.doc_link === fragData.doc_link
-    // )
-    // if (!existingLink) dispatch(addVisitedLink(fragData))
   }
 
   return (

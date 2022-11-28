@@ -60,9 +60,11 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           {data && data?.length === 0 ? (
             <HomeSearchBarOnly />
           ) : (
-            // <RegularDiv>{`${query}: ${data.length} wyników`}</RegularDiv>
             //! add a button that provides a choice to show Searchbar switch between
-            <Pagination narrow />
+            <>
+              <RegularDiv>{`${query}: ${data.length} wyników`}</RegularDiv>
+              <Pagination narrow />
+            </>
           )}{' '}
         </>
       ),

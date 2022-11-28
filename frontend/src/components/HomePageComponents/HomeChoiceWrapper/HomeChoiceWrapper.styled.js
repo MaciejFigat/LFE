@@ -100,7 +100,7 @@ export const MainChoiceContainer = styled.main`
   width: 100%;
   /* overflow: scroll; */
   /* max-height: 90%; */
-  padding: 0.5rem 0;
+  /* padding: 0.5rem 0; */
 `
 export const MainChoiceBackground = styled.div`
   position: absolute;

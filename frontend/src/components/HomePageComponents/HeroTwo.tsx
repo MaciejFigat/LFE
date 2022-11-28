@@ -8,12 +8,9 @@ import {
   TopLine,
 } from './HomeSection.styled'
 
-// import FragmentsColumn from '../FragmentsColumn/FragmentsColumn'
 import { AnimateSharedLayout } from 'framer-motion'
 
-import DataSectionSimple from '../Miscellaneous/InfoSection/DataSectionSimple'
-import { TwoColumnsWrapper } from '../../styles/misc.styled'
-import DataSection from '../Miscellaneous/InfoSection/DataSection'
+import HeroSearchDataSection from './HeroGridComponents.tsx/HeroSearchDataSection'
 
 interface HeroTwoProps {}
 
@@ -71,24 +68,17 @@ const HeroTwoMain: React.FC<HeroTwoProps> = () => {
 
   return (
     <AnimateSharedLayout>
-      {/* <HeroTitleLeft>Wybierz dokument</HeroTitleLeft> */}
-      <HeroWrapperRow>
-        <HeroWrapperColumn>
-          <TwoColumnsWrapper>
-            <DataSection
-              highlightQuery={queryTrimmed}
-              variant='secondary'
-              key={data[heroDocIndex]['uuid']}
-              paddingTop='small'
-              imgStart
-              fragmentsFound={data[heroDocIndex].fragment}
-              metryka={data[heroDocIndex].metryka}
-              istota_interpretacji={data[heroDocIndex].istota_interpretacji}
-              query={queryTrimmed}
-            />
-          </TwoColumnsWrapper>
-        </HeroWrapperColumn>
-      </HeroWrapperRow>
+      <HeroSearchDataSection
+        highlightQuery={queryTrimmed}
+        variant='secondary'
+        key={data[heroDocIndex]['uuid']}
+        paddingTop='small'
+        imgStart={false}
+        fragmentsFound={data[heroDocIndex].fragment}
+        metryka={data[heroDocIndex].metryka}
+        istota_interpretacji={data[heroDocIndex].istota_interpretacji}
+        query={queryTrimmed}
+      />
     </AnimateSharedLayout>
   )
 }

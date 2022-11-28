@@ -1,5 +1,5 @@
 import React from 'react'
-import { DataContainerSimple } from '../HomeSection.styled'
+// import { DataContainerSimple } from '../HomeSection.styled'
 import { useAppSelector } from '../../../app/reduxHooks'
 import HeroDataSectionSimple from './HeroDataSectionSimple'
 interface HomeSearchResultsSmallProps {}
@@ -13,8 +13,7 @@ const HomeSearchResultsSmall: React.FC<HomeSearchResultsSmallProps> = () => {
   )
   const { start, end } = searchResultsPage
 
-  const { data, query } = searchResults
-  const queryTrimmed = encodeURIComponent(query?.trim())
+  const { data } = searchResults
 
   return (
     <div>
@@ -26,14 +25,12 @@ const HomeSearchResultsSmall: React.FC<HomeSearchResultsSmallProps> = () => {
             .map((fragmentArray: any, index: number) => (
               <HeroDataSectionSimple
                 variant='primary'
-                // imgStart
                 index={index}
                 istota_interpretacji={fragmentArray.istota_interpretacji}
                 key={fragmentArray['uuid']}
                 paddingTop='small'
                 fragmentsFound={fragmentArray.fragment}
                 metryka={fragmentArray.metryka}
-                query={queryTrimmed}
               />
             ))}
       </>
