@@ -13,7 +13,10 @@ import {
   HorizontalContainer,
 } from '../FragmentsColumn/FragmentsColumn.styled'
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
-import { TwoColumnsWrapper } from '../../styles/misc.styled'
+import {
+  ChangingColumnsWrapper,
+  TwoColumnsWrapper,
+} from '../../styles/misc.styled'
 
 interface CitationDisplayProps {}
 
@@ -27,7 +30,7 @@ const CitationDisplay: React.FC<CitationDisplayProps> = () => {
   return (
     <AnimateSharedLayout>
       {' '}
-      <TwoColumnsWrapper>
+      <ChangingColumnsWrapper>
         {citations.length > 0 &&
           citations
             .map((citation, index) => (
@@ -66,7 +69,7 @@ const CitationDisplay: React.FC<CitationDisplayProps> = () => {
               </ListWrapper>
             ))
             .reverse()}{' '}
-      </TwoColumnsWrapper>
+      </ChangingColumnsWrapper>
     </AnimateSharedLayout>
   )
 }

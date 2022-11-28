@@ -130,7 +130,7 @@ export const TwoColumnsWrapper = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
 `
-export const ThreeColumnsWrapper = styled.div`
+export const ChangingColumnsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
@@ -440,5 +440,10 @@ export const HeroTitleMiscMedium = styled.h3`
   font-size: 1rem;
   font-weight: 700;
   color: var(--background4-main);
-  margin-bottom: 0;
+  margin-bottom: 1rem;
+`
+export const RegularDiv = styled.div`
+  display: grid;
+  place-items: center;
+  width: 100%;
 `

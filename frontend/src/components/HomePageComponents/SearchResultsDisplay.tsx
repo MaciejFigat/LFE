@@ -102,12 +102,10 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
 
   return (
     <>
-      {' '}
       {data && data?.length === 0 && <HomeSearch />}
       {data && data?.length > 0 && (
         <SearchResultsSectionWrapper>
           <SearchResultsDashboardDiv>
-            {' '}
             <SwitchResultWrapper>
               <HeroTitleMisc>
                 {query} - {data.length} wyników

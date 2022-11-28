@@ -157,14 +157,16 @@ export const HeroGridWrapper = styled.div`
 export const HeroNavigation = styled.div`
   display: flex;
   width: 100%;
-
-  border-bottom: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
+  /* border-bottom: 1px solid var(--background-blur2); */
 `
 export const HeroNavOne = styled.div`
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3rem 2rem;
-  display: flex;
+
+  /* padding: 3rem 2rem; */
+  /* padding: 1rem 1rem 1rem; */
   gap: 1rem;
   /* background: brown; */
   border-left: 1px solid var(--background-blur2);
@@ -178,6 +180,9 @@ export const HeroNavTwo = styled(HeroNavOne)`
   flex-basis: 0;
   flex-grow: 1;
 `
+export const HeroNavOneBig = styled(HeroNavOne)`
+  flex-basis: calc(100% * 2 / 3);
+`
 
 export const HeroMainContainer = styled.div`
   /* it grow into remaining vertical space */
@@ -187,7 +192,7 @@ export const HeroMainArticle = styled.div`
   display: grid;
   height: 100%;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 6fr 1fr;
 
   max-height: 76vh;
 `
@@ -197,22 +202,29 @@ export const HeroArticleSection = styled.div`
   place-items: center;
   padding: 0;
   margin: 0;
-  border: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
+  /* border-bottom: 1px solid var(--background-blur2); */
   &:first-of-type {
-    /* border-top: none; */
+    /* border-bottom: none; */
+  }
+  &:last-of-type {
+    /* border-bottom: 1px solid var(--background-blur2); */
   }
 `
 export const HeroArticleBigSection = styled(HeroArticleSection)`
   overflow-y: scroll;
   max-height: 100%;
-  border-top: 1px solid var(--background-blur2);
+  /* border-top: 1px solid var(--background-blur2); */
 `
 export const HeroArticleSmallSection = styled(HeroArticleSection)`
+  overflow-y: scroll;
   border-left: 1px solid var(--background-blur2);
 `
 export const HeroArticleBottomBigSection = styled(HeroArticleSection)`
-  border-top: 1px solid var(--background-blur2);
+  /* border-top: 1px solid var(--background-blur2); */
+  border-bottom: 1px solid var(--background-blur2);
 `
 export const HeroArticleBottomSmallSection = styled(HeroArticleSection)`
   border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
 `

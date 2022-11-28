@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { useAppDispatch } from '../../../app/reduxHooks'
 import { getSearchResults } from '../../../features/searchResults/searchResultsSlice'
@@ -20,35 +20,33 @@ const HomeSearchSample: React.FC<HomeSearchSampleProps> = () => {
 
     dispatch(getSearchResults(queryTrimmed))
   }
-
+  const variant = 'secondary'
   return (
     <>
       {' '}
-      {/* <HomeSearchWrapper> */}
       <HeroSearchSampleWrapper>
+        <HeroTitleMiscMedium>Przykładowe tematy</HeroTitleMiscMedium>
         <HorizontalWrapperGap>
           {' '}
           <ButtonSmall
-            variant='primary'
+            variant={variant}
             onClick={() => submitHandler('podatek vat')}
           >
-            Podatek VAT
+            VAT
           </ButtonSmall>
-          <ButtonSmall variant='primary' onClick={() => submitHandler('cfc')}>
-            Spółki CFC
+          <ButtonSmall variant={variant} onClick={() => submitHandler('cfc')}>
+            CFC
           </ButtonSmall>
           <ButtonSmall
-            variant='primary'
+            variant={variant}
             onClick={() =>
               submitHandler('o podatku dochodowym od osób fizycznych')
             }
           >
-            Podatek PIT
+            PIT
           </ButtonSmall>
         </HorizontalWrapperGap>{' '}
-        <HeroTitleMiscMedium>Przykładowe tematy</HeroTitleMiscMedium>
       </HeroSearchSampleWrapper>
-      {/* </HomeSearchWrapper> */}
     </>
   )
 }

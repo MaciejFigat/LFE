@@ -13,6 +13,7 @@ import { AnimateSharedLayout } from 'framer-motion'
 
 import DataSectionSimple from '../Miscellaneous/InfoSection/DataSectionSimple'
 import { TwoColumnsWrapper } from '../../styles/misc.styled'
+import DataSection from '../Miscellaneous/InfoSection/DataSection'
 
 interface HeroTwoProps {}
 
@@ -62,30 +63,29 @@ const HeroTwoMain: React.FC<HeroTwoProps> = () => {
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
   )
+  const heroDocIndex: number = useAppSelector(
+    (state) => state.searchResult.heroDocIndex
+  )
   const { data, query } = searchResults
   const queryTrimmed = encodeURIComponent(query?.trim())
 
   return (
     <AnimateSharedLayout>
+      {/* <HeroTitleLeft>Wybierz dokument</HeroTitleLeft> */}
       <HeroWrapperRow>
         <HeroWrapperColumn>
-          {/* <HeroTitleLeft>Wybierz dokument</HeroTitleLeft> */}
           <TwoColumnsWrapper>
-            {data
-              .slice(0, 4)
-
-              .map((fragmentArray: any) => (
-                <DataSectionSimple
-                  variant='secondary'
-                  key={fragmentArray['uuid']}
-                  paddingTop='small'
-                  imgStart
-                  fragmentsFound={fragmentArray.fragment}
-                  metryka={fragmentArray.metryka}
-                  istota_interpretacji={fragmentArray.istota_interpretacji}
-                  query={queryTrimmed}
-                />
-              ))}
+            <DataSection
+              highlightQuery={queryTrimmed}
+              variant='secondary'
+              key={data[heroDocIndex]['uuid']}
+              paddingTop='small'
+              imgStart
+              fragmentsFound={data[heroDocIndex].fragment}
+              metryka={data[heroDocIndex].metryka}
+              istota_interpretacji={data[heroDocIndex].istota_interpretacji}
+              query={queryTrimmed}
+            />
           </TwoColumnsWrapper>
         </HeroWrapperColumn>
       </HeroWrapperRow>
