@@ -14,7 +14,7 @@ import {
   HeroNavigation,
   HeroNavOne,
   HeroNavOneBig,
-  HeroNavTwo,
+  // HeroNavTwo,
 } from './HeroSection.styled'
 import { useAppSelector } from '../../app/reduxHooks'
 import {
@@ -24,7 +24,7 @@ import {
   ChoiceUnderline,
   MainChoiceContainer,
 } from './HomeChoiceWrapper/HomeChoiceWrapper.styled'
-import { HeroTwoMain, HeroTwoSecond } from './HeroTwo'
+import { HeroTwoMain, HeroTwoSecond, HeroTwoThird } from './HeroTwo'
 import { HeroThreeMain, HeroThreeSecond, HeroThreeThird } from './HeroThree'
 import { RegularDiv } from '../../styles/misc.styled'
 import Pagination from '../Miscellaneous/Pagination/Pagination'
@@ -63,7 +63,9 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           ) : (
             //! add a button that provides a choice to show Searchbar switch between
             <>
-              <RegularDiv>{`${query}: ${data.length} wyników`}</RegularDiv>
+              <RegularDiv>
+                <b>{`${query}: ${data.length} wyników`}</b>
+              </RegularDiv>
               <Pagination narrow />
             </>
           )}{' '}
@@ -82,7 +84,9 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       pentanaryContent: (
         <>
           {data && data?.length === 0 ? null : (
-            <RegularDiv>Widok dokumentu</RegularDiv>
+            <RegularDiv>
+              <HeroTwoThird />
+            </RegularDiv>
           )}
         </>
       ),
@@ -201,8 +205,6 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
                 {selectedTab ? selectedTab.quaternaryContent : ''}
               </motion.div>
             </AnimatePresence>
-            left - Buttons - right above main view that links to dokument//
-            possible option to change view to view dokument{' '}
           </HeroArticleBottomBigSection>{' '}
           <HeroArticleBottomSmallSection>
             <AnimatePresence exitBeforeEnter>

@@ -71,6 +71,7 @@ export const SubtitleSimple = styled(Subtitle)`
   letter-spacing: 0.025em;
   font-weight: 500;
   margin-bottom: 0.5rem;
+  cursor: pointer;
   &:last-of-type {
     margin-bottom: 0rem;
   }

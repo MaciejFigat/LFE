@@ -33,7 +33,7 @@ export const Subtitle = styled.p`
   margin-top: 10px;
   margin-bottom: 1rem;
   text-align: left;
-
+  cursor: pointer;
   font-size: 1.1rem;
   line-height: 1.5rem;
   letter-spacing: 0em;
@@ -53,6 +53,7 @@ export const SubtitleSimple = styled(Subtitle)`
   font-size: 0.95rem;
   line-height: 1.25rem;
   letter-spacing: 0.025em;
+
   font-weight: 500;
   margin-bottom: 0.5rem;
   &:last-of-type {

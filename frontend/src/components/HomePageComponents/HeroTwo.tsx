@@ -1,16 +1,13 @@
 import React from 'react'
-import { useAppSelector } from '../../app/reduxHooks'
+import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { HeroTitleLeft, HeroTwoContainer } from './HeroSection.styled'
-import {
-  HeroTextWrapper,
-  // HeroWrapperColumn,
-  HeroWrapperRow,
-  TopLine,
-} from './HomeSection.styled'
+import { HeroTextWrapper, HeroWrapperRow, TopLine } from './HomeSection.styled'
 
 import { AnimateSharedLayout } from 'framer-motion'
 
 import HeroSearchDataSection from './HeroGridComponents.tsx/HeroSearchDataSection'
+import { ButtonSmall } from '../Miscellaneous/Buttons/BigButton.styled'
+import { changeResultsDetailView } from '../../features/preferences/preferenceSlice'
 
 interface HeroTwoProps {}
 
@@ -82,4 +79,27 @@ const HeroTwoMain: React.FC<HeroTwoProps> = () => {
     </AnimateSharedLayout>
   )
 }
-export { HeroTwoMain, HeroTwoSecond }
+const HeroTwoThird: React.FC<HeroTwoProps> = () => {
+  const resultsDetailView: any = useAppSelector(
+    (state) => state.preference.resultsDetailView
+  )
+
+  const dispatch: any = useAppDispatch()
+
+  const changeResultsViewHelper = () => {
+    dispatch(changeResultsDetailView())
+    console.log(resultsDetailView)
+  }
+
+  return (
+    <div>
+      <ButtonSmall
+        variant='secondary'
+        onClick={() => changeResultsViewHelper()}
+      >
+        {resultsDetailView ? 'widok uproszczony' : 'podgląd dokumentu'}
+      </ButtonSmall>
+    </div>
+  )
+}
+export { HeroTwoMain, HeroTwoSecond, HeroTwoThird }

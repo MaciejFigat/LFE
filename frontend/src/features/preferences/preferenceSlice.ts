@@ -15,6 +15,7 @@ const preferenceSlice = createSlice({
             keywordTwo: ''
         },
         sortingOption: 'data',
+        resultsDetailView: false,
         showFragments: true,
         sortFragmentsBySource: {
             KrajowaInformacjaSkarbowa: true,
@@ -39,6 +40,11 @@ const preferenceSlice = createSlice({
         },
         showFragments(state, action) {
             state.showFragments = action.payload
+        },
+        changeResultsDetailView(state) {
+            if (state.resultsDetailView === true) { state.resultsDetailView = false }
+            else if (state.resultsDetailView === false) { state.resultsDetailView = true }
+
         },
         preferredWidthSaved(state, action) {
 
@@ -100,6 +106,6 @@ const preferenceSlice = createSlice({
 
 
 
-export const { editIdOpenFragment, sortFragmentsBySourceEditOne, sortFragmentsBySourceEditTwo, sortFragmentsBySourceEditThree, showFragments, preferredWidthSaved, searchResultsPageSaved, fragmentsPageSaved, linksPageSaved, preferredNarrowWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingKeywordMainEdit, sortingOptionEdit, highlightQueryEdit, fragmentScrolledEdit, preferedSchemeEdit } = preferenceSlice.actions
+export const { editIdOpenFragment, sortFragmentsBySourceEditOne, sortFragmentsBySourceEditTwo, sortFragmentsBySourceEditThree, showFragments, preferredWidthSaved, searchResultsPageSaved, fragmentsPageSaved, linksPageSaved, preferredNarrowWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingKeywordMainEdit, sortingOptionEdit, highlightQueryEdit, fragmentScrolledEdit, preferedSchemeEdit, changeResultsDetailView } = preferenceSlice.actions
 
 export default preferenceSlice.reducer

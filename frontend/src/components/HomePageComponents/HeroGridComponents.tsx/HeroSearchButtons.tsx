@@ -4,7 +4,9 @@ import {
   addHeroDocIndex,
   subtractHeroDocIndex,
 } from '../../../features/searchResults/searchResultsSlice'
-import { ButtonSmall } from '../../Miscellaneous/Buttons/BigButton.styled'
+import { HorizontalWrapperGap } from '../../../styles/misc.styled'
+import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
+import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 interface HeroSearchButtonsProps {}
 
 const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
@@ -23,14 +25,20 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
     if (searchData.length > heroDocIndex) dispatch(addHeroDocIndex())
   }
   return (
-    <div>
-      <ButtonSmall variant='secondary' onClick={() => minusHandlerDocIndex()}>
-        -1
-      </ButtonSmall>{' '}
-      <ButtonSmall variant='secondary' onClick={() => plusHandlerDocIndex()}>
-        +1
-      </ButtonSmall>
-    </div>
+    <HorizontalWrapperGap>
+      <SendButtonVerySmall
+        variant='primaryEmpty'
+        onClick={() => minusHandlerDocIndex()}
+      >
+        <SvgIcon variant='chevronLeft' noContent lowerPosition='3px' />
+      </SendButtonVerySmall>{' '}
+      <SendButtonVerySmall
+        variant='primaryEmpty'
+        onClick={() => plusHandlerDocIndex()}
+      >
+        <SvgIcon variant='chevronRight' noContent lowerPosition='3px' />
+      </SendButtonVerySmall>
+    </HorizontalWrapperGap>
   )
 }
 export default HeroSearchButtons

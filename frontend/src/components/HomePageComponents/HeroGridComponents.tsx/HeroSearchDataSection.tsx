@@ -25,6 +25,7 @@ import {
 import parse from 'html-react-parser'
 // import { SendButtonSmall } from '../Buttons/Buttons.styled'
 import { HorizontalWrapper } from '../../../styles/misc.styled'
+import ResultDisplay from '../../Miscellaneous/ResultDisplay/ResultDisplay'
 //! problem solved with parse - html-react-parser - prarses string to html in React
 
 interface InfoData {
@@ -64,17 +65,17 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
   query,
   highlightQuery,
   fragmentsFound,
-  // variant,
   imgStart,
   buttonLink,
-  // paddingTop,
   istota_interpretacji,
 }) => {
   const dispatch = useAppDispatch()
   const visitedLinks: any[] = useAppSelector(
     (state) => state.searchResult.visitedLinks
   )
-
+  const resultsDetailView: any = useAppSelector(
+    (state) => state.preference.resultsDetailView
+  )
   let navigate = useNavigate()
 
   const submitHandlerDocNr = (index: number) => {
@@ -101,46 +102,51 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
   }
 
   return (
-    <CenterWrapper>
-      <Container>
-        <InfoRow imgStart={imgStart}>
-          <InfoColumnShort imgStart={imgStart}>
-            <TextWrapperShort>
-              <SubtitleShort>{metryka.rodzaj_orzeczenia}</SubtitleShort>
-              <SubtitleShort>{metryka.data}</SubtitleShort>
-              <SubtitleShort>{metryka.syg}</SubtitleShort>
+    <>
+      {' '}
+      {resultsDetailView ? (
+        <ResultDisplay />
+      ) : (
+        <CenterWrapper>
+          <Container>
+            <InfoRow imgStart={imgStart}>
+              <InfoColumnShort imgStart={imgStart}>
+                <TextWrapperShort>
+                  <SubtitleShort>{metryka.rodzaj_orzeczenia}</SubtitleShort>
+                  <SubtitleShort>{metryka.data}</SubtitleShort>
+                  <SubtitleShort>{metryka.syg}</SubtitleShort>
 
-              <TopLineShort>Istota interpretacji:</TopLineShort>
-              <SubtitleShortLonger onClick={() => submitHandlerDocNr(0)}>
-                {istota_interpretacji}
-              </SubtitleShortLonger>
-              <SubtitleShort> Wynik przydatny?</SubtitleShort>
-              <HorizontalWrapper>
-                <Button variant='secondary'>
-                  <ButtonLink href={buttonLink} target='_blank'>
-                    Tak
-                  </ButtonLink>
-                </Button>
-                <Button variant='secondary'>
-                  <ButtonLink href={buttonLink} target='_blank'>
-                    Nie
-                  </ButtonLink>
-                </Button>{' '}
-              </HorizontalWrapper>
-            </TextWrapperShort>
-          </InfoColumnShort>
-          <InfoColumn>
-            <TextWrapper>
-              <TopLine>Znalezione fragmenty:</TopLine>
-              {fragmentsFound.length > 0 &&
-                fragmentsFound.map((fragment, index) => (
-                  <HighlightMarker
-                    key={Math.random()}
-                    mark={[query, highlightQuery]}
-                  >
-                    {' '}
-                    <Subtitle onClick={() => submitHandlerDocNr(index)}>
-                      {/* <Highlighter
+                  <TopLineShort>Istota interpretacji:</TopLineShort>
+                  <SubtitleShortLonger onClick={() => submitHandlerDocNr(0)}>
+                    {istota_interpretacji}
+                  </SubtitleShortLonger>
+                  <SubtitleShort> Wynik przydatny?</SubtitleShort>
+                  <HorizontalWrapper>
+                    <Button variant='secondary'>
+                      <ButtonLink href={buttonLink} target='_blank'>
+                        Tak
+                      </ButtonLink>
+                    </Button>
+                    <Button variant='secondary'>
+                      <ButtonLink href={buttonLink} target='_blank'>
+                        Nie
+                      </ButtonLink>
+                    </Button>{' '}
+                  </HorizontalWrapper>
+                </TextWrapperShort>
+              </InfoColumnShort>
+              <InfoColumn>
+                <TextWrapper>
+                  <TopLine>Znalezione fragmenty:</TopLine>
+                  {fragmentsFound.length > 0 &&
+                    fragmentsFound.map((fragment, index) => (
+                      <HighlightMarker
+                        key={Math.random()}
+                        mark={[query, highlightQuery]}
+                      >
+                        {' '}
+                        <Subtitle onClick={() => submitHandlerDocNr(index)}>
+                          {/* <Highlighter
                           highlightClassName='highlightQuery'
                           searchWords={[highlightQuery]}
                           autoEscape={true}
@@ -148,22 +154,24 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
                             .replace('<em>', '')
                             .replace('</em>', '')}
                         /> */}
-                      {/* (...) */}
-                      {/* {parse(fragment)} */}
-                      &bull;
-                      {parse(
-                        fragment
-                          .replace('ISTOTA INTERPRETACJI', '')
-                          .replace('INTERPRETACJA INDYWIDUALNA', '')
-                      )}
-                    </Subtitle>
-                  </HighlightMarker>
-                ))}
-            </TextWrapper>
-          </InfoColumn>
-        </InfoRow>
-      </Container>
-    </CenterWrapper>
+                          {/* (...) */}
+                          {/* {parse(fragment)} */}
+                          &bull;
+                          {parse(
+                            fragment
+                              .replace('ISTOTA INTERPRETACJI', '')
+                              .replace('INTERPRETACJA INDYWIDUALNA', '')
+                          )}
+                        </Subtitle>
+                      </HighlightMarker>
+                    ))}
+                </TextWrapper>
+              </InfoColumn>
+            </InfoRow>
+          </Container>
+        </CenterWrapper>
+      )}
+    </>
   )
 }
 export default HeroSearchDataSection
