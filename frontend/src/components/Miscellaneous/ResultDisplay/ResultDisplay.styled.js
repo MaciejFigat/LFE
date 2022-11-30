@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const ArticleContainer = styled.div`
+  position: relative;
   display: flex;
 
   justify-content: center;
@@ -61,7 +62,8 @@ export const ArticleParagraph = styled.div`
   /* padding-bottom: 0; */
   max-width: 47rem;
   font-weight: 500;
-  text-align: justify;
+  /* text-align: justify; */
+  text-align: left;
 `
 export const ArticleParagraphFragment = styled(ArticleParagraph)`
   color: var(--background-secondary3);

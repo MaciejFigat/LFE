@@ -30,17 +30,11 @@ import { RegularDiv } from '../../styles/misc.styled'
 import HomeSearchResultsSmall from './HeroGridComponents.tsx/HomeSearchResultsSmall'
 import HeroSearchButtons from './HeroGridComponents.tsx/HeroSearchButtons'
 import HomeSearchBarPagination from './HeroGridComponents.tsx/HomeSearchBarPagination'
+import SimpleResultDisplay from '../Miscellaneous/ResultDisplay/SimpleResultDisplay'
 
-interface HeroGridProps {
-  //   children: ReactChild
-}
+interface HeroGridProps {}
 
 const HeroGrid: React.FC<HeroGridProps> = () => {
-  const searchResults: any = useAppSelector(
-    (state) => state.searchResult.searchResults
-  )
-  const { data } = searchResults
-
   const tabs = [
     {
       label: 'Wyszukaj',
@@ -60,10 +54,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
     },
     {
       label: 'Zapisz',
-      content: (
-        // <>{data && data?.length === 0 ? <HeroWelcome /> : <HeroTwoMain />}</>
-        <>{data && data?.length === 0 ? <HeroTwoMain /> : null}</>
-      ),
+      content: <SimpleResultDisplay />,
       secondaryContent: (
         <>
           <HeroTwoSecond />

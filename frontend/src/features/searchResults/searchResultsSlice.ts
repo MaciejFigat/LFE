@@ -186,6 +186,7 @@ const searchResultSlice = createSlice({
 
 
         loading: false,
+        loadingDoc: false,
 
         error: {},
         success: false,
@@ -258,16 +259,16 @@ const searchResultSlice = createSlice({
         builder.addCase(getDocResult.rejected, (state, action) => {
             state.loading = false
         })
-        builder.addCase(getDocByIdAndQuery.pending, (state, action) => {
-            state.loading = true
+        builder.addCase(getDocByIdAndQuery.pending, (state) => {
+            state.loadingDoc = true
         })
         builder.addCase(getDocByIdAndQuery.fulfilled, (state, action) => {
-            state.loading = false
+            state.loadingDoc = false
             state.docResult = action.payload
 
         })
         builder.addCase(getDocByIdAndQuery.rejected, (state, action) => {
-            state.loading = false
+            state.loadingDoc = false
         })
         builder.addCase(getDocByNr.pending, (state, action) => {
             state.loading = true

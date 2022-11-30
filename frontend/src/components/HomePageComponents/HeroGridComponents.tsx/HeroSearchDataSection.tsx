@@ -25,7 +25,7 @@ import {
 import parse from 'html-react-parser'
 // import { SendButtonSmall } from '../Buttons/Buttons.styled'
 import { HorizontalWrapper } from '../../../styles/misc.styled'
-import ResultDisplay from '../../Miscellaneous/ResultDisplay/ResultDisplay'
+import SimpleResultDisplay from '../../Miscellaneous/ResultDisplay/SimpleResultDisplay'
 //! problem solved with parse - html-react-parser - prarses string to html in React
 
 interface InfoData {
@@ -105,7 +105,7 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
     <>
       {' '}
       {resultsDetailView ? (
-        <ResultDisplay />
+        <SimpleResultDisplay />
       ) : (
         <CenterWrapper>
           <Container>

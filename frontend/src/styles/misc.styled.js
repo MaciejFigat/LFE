@@ -471,3 +471,13 @@ export const RegularColumn = styled.div`
   place-items: center;
   width: 100%;
 `
+export const LoadingAbsolutePopup = styled(motion.div)`
+  position: absolute;
+  display: grid;
+  place-content: flex-start center;
+  background: var(--background-blur1);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`

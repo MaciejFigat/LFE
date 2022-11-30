@@ -85,7 +85,7 @@ const HeroTwoMain: React.FC<HeroTwoProps> = () => {
   )
 }
 const HeroTwoThird: React.FC<HeroTwoProps> = () => {
-  const resultsDetailView: any = useAppSelector(
+  const resultsDetailView: boolean = useAppSelector(
     (state) => state.preference.resultsDetailView
   )
   const searchResults: any = useAppSelector(
