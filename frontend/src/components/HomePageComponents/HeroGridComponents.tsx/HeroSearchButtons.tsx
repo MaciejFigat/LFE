@@ -25,20 +25,24 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
     if (searchData.length > heroDocIndex) dispatch(addHeroDocIndex())
   }
   return (
-    <HorizontalWrapperGap>
-      <SendButtonVerySmall
-        variant='primaryEmpty'
-        onClick={() => minusHandlerDocIndex()}
-      >
-        <SvgIcon variant='chevronLeft' noContent lowerPosition='3px' />
-      </SendButtonVerySmall>{' '}
-      <SendButtonVerySmall
-        variant='primaryEmpty'
-        onClick={() => plusHandlerDocIndex()}
-      >
-        <SvgIcon variant='chevronRight' noContent lowerPosition='3px' />
-      </SendButtonVerySmall>
-    </HorizontalWrapperGap>
+    <>
+      {searchData && searchData?.length === 0 ? null : (
+        <HorizontalWrapperGap>
+          <SendButtonVerySmall
+            variant='primaryEmpty'
+            onClick={() => minusHandlerDocIndex()}
+          >
+            <SvgIcon variant='chevronLeft' noContent lowerPosition='3px' />
+          </SendButtonVerySmall>{' '}
+          <SendButtonVerySmall
+            variant='primaryEmpty'
+            onClick={() => plusHandlerDocIndex()}
+          >
+            <SvgIcon variant='chevronRight' noContent lowerPosition='3px' />
+          </SendButtonVerySmall>
+        </HorizontalWrapperGap>
+      )}
+    </>
   )
 }
 export default HeroSearchButtons

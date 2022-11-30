@@ -88,7 +88,11 @@ const HeroTwoThird: React.FC<HeroTwoProps> = () => {
   const resultsDetailView: any = useAppSelector(
     (state) => state.preference.resultsDetailView
   )
+  const searchResults: any = useAppSelector(
+    (state) => state.searchResult.searchResults
+  )
 
+  const { data } = searchResults
   const dispatch: any = useAppDispatch()
 
   const changeResultsViewHelper = () => {
@@ -97,14 +101,16 @@ const HeroTwoThird: React.FC<HeroTwoProps> = () => {
   }
 
   return (
-    <div>
-      <ButtonSmall
-        variant='secondary'
-        onClick={() => changeResultsViewHelper()}
-      >
-        {resultsDetailView ? 'widok uproszczony' : 'podgląd dokumentu'}
-      </ButtonSmall>
-    </div>
+    <>
+      {data && data?.length === 0 ? null : (
+        <ButtonSmall
+          variant='secondary'
+          onClick={() => changeResultsViewHelper()}
+        >
+          {resultsDetailView ? 'widok uproszczony' : 'podgląd dokumentu'}
+        </ButtonSmall>
+      )}
+    </>
   )
 }
 export { HeroTwoMain, HeroTwoSecond, HeroTwoThird }

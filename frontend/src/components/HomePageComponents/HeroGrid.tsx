@@ -48,23 +48,14 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       secondaryContent: <HomeSearchResultsSmall />,
       tertiaryContent: <HomeSearchBarPagination />,
       quaternaryContent: (
-        <>
-          {data && data?.length === 0 ? null : (
-            <RegularDiv>
-              {' '}
-              <HeroSearchButtons />
-            </RegularDiv>
-          )}
-        </>
+        <RegularDiv>
+          <HeroSearchButtons />
+        </RegularDiv>
       ),
       pentanaryContent: (
-        <>
-          {data && data?.length === 0 ? null : (
-            <RegularDiv>
-              <HeroTwoThird />
-            </RegularDiv>
-          )}
-        </>
+        <RegularDiv>
+          <HeroTwoThird />
+        </RegularDiv>
       ),
     },
     {
