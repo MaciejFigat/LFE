@@ -44,11 +44,11 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
   const highlightQuery: string = useAppSelector(
     (state) => state.preference.highlightQuery
   )
-  const FragmentsSource: any = useAppSelector(
+  const fragmentsSource: any = useAppSelector(
     (state) => state.preference.sortFragmentsBySource
   )
   const { KrajowaInformacjaSkarbowa, IzbaSkarbowa, MinisterFinansów } =
-    FragmentsSource
+    fragmentsSource
   const queryTrimmed = encodeURIComponent(query?.trim())
 
   const [searchQuery, setSearchQuery] = useState<string>('')

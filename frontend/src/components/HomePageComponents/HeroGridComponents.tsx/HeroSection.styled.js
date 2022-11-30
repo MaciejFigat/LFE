@@ -367,6 +367,11 @@ export const HighlightMarker = styled(Marker)`
 
 export const SearchBarPaginationSvgWrapper = styled.div`
   position: absolute;
+  top: 5%;
+  left: 90%;
+`
+export const SearchBarPaginationSvgWrapperSecond = styled.div`
+  position: absolute;
   top: 75%;
-  left: -3%;
+  left: 90%;
 `

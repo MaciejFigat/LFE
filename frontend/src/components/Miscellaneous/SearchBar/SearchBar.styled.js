@@ -370,19 +370,19 @@ export const SwitchDiv = styled.div`
   width: 28px;
   height: 16px;
   background-color: ${({ isOn }) =>
-    isOn ? 'var(--background2-main)' : 'var(--background4-main)'};
+    isOn ? 'var(--background4-main)' : 'var(--background2-main)'};
   display: flex;
   border-radius: 10px;
   padding: 1px;
   cursor: pointer;
-  justify-content: ${({ isOn }) => (isOn ? 'flex-end' : 'flex-start')};
+  justify-content: ${({ isOn }) => (isOn ? 'flex-start' : 'flex-end')};
 
   align-items: center;
 `
 export const SwitchText = styled.b`
   /* font-size: 0.9rem !important; */
   color: ${({ isOn }) =>
-    isOn ? 'var(--background2-main)' : 'var(--background4-main)'};
+    isOn ? 'var(--background4-main)' : 'var(--background2-main)'};
 `
 export const SwitchHandle = styled(motion.div)`
   width: 14px;
@@ -394,7 +394,7 @@ export const SwitchHandle = styled(motion.div)`
 
   border-radius: 12px;
   background-color: ${({ isOn }) =>
-    isOn ? 'var(--background4-main)' : 'var(--background1-main)'};
+    isOn ? 'var(--background2-main)' : 'var(--background2-main)'};
 `
 export const SetTakeButton = styled.button`
   outline: none;

@@ -17,6 +17,42 @@ const HomeSearchResultsSmall: React.FC<HomeSearchResultsSmallProps> = () => {
 
   const { data } = searchResults
 
+  const fragmentsSource: any = useAppSelector(
+    (state) => state.preference.sortFragmentsBySource
+  )
+  const { KrajowaInformacjaSkarbowa, IzbaSkarbowa, MinisterFinansów } =
+    fragmentsSource
+  const helperFragmentSourceFilter = () => {
+    let numbers: number[]
+    switch (true) {
+      case KrajowaInformacjaSkarbowa && !IzbaSkarbowa && !MinisterFinansów:
+        numbers = [7]
+        break
+      case !KrajowaInformacjaSkarbowa && IzbaSkarbowa && !MinisterFinansów:
+        numbers = [8]
+        break
+      case !KrajowaInformacjaSkarbowa && !IzbaSkarbowa && MinisterFinansów:
+        numbers = [9]
+        break
+      case KrajowaInformacjaSkarbowa && IzbaSkarbowa && !MinisterFinansów:
+        numbers = [7, 8]
+        break
+      case !KrajowaInformacjaSkarbowa && IzbaSkarbowa && MinisterFinansów:
+        numbers = [8, 9]
+        break
+      case KrajowaInformacjaSkarbowa && !IzbaSkarbowa && MinisterFinansów:
+        numbers = [7, 9]
+        break
+      case !KrajowaInformacjaSkarbowa && !IzbaSkarbowa && !MinisterFinansów:
+        numbers = []
+        break
+      default:
+        numbers = [7, 8, 9, 3]
+
+        break
+    }
+    return numbers
+  }
   return (
     <RegularColumn>
       {data && data?.length === 0 ? (
@@ -24,6 +60,10 @@ const HomeSearchResultsSmall: React.FC<HomeSearchResultsSmallProps> = () => {
       ) : (
         data
           .slice(start, end + 1)
+          .filter(
+            (dataSliced: any) =>
+              helperFragmentSourceFilter().indexOf(dataSliced.typSadu) > -1
+          )
           .map((fragmentArray: any, index: number) => (
             <HeroDataSectionSimple
               variant='primary'

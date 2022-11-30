@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
-import {
-  HorizontalWrapper,
-  RegularDiv,
-  RelativeWrapper,
-  RelativeWrapperStretch,
-} from '../../../styles/misc.styled'
+import { RegularDiv, RelativeWrapperStretch } from '../../../styles/misc.styled'
 import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
 import Pagination from '../../Miscellaneous/Pagination/Pagination'
 import SearchBar from '../../Miscellaneous/SearchBar/SearchBar'
 import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
-import { SearchBarPaginationSvgWrapper } from './HeroSection.styled'
+import HeroSearchOptions from './HeroSearchOptions'
+import {
+  SearchBarPaginationSvgWrapper,
+  SearchBarPaginationSvgWrapperSecond,
+} from './HeroSection.styled'
 
 interface HomeSearchBarPaginationProps {}
 
@@ -22,9 +21,15 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
 
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false)
+  const [showSearchOptions, setShowSearchOptions] = useState<boolean>(false)
 
   const showHandler = () => {
     setShowSearchBar((showSearchBar) => !showSearchBar)
+    if (showSearchOptions)
+      setShowSearchOptions((showSearchOptions) => !showSearchOptions)
+  }
+  const showOptionsHandler = () => {
+    setShowSearchOptions((showSearchOptions) => !showSearchOptions)
   }
 
   return (
@@ -37,7 +42,20 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
             </SendButtonVerySmall>
           </SearchBarPaginationSvgWrapper>
         )}
-        {data && (data?.length === 0 || showSearchBar) ? (
+        {data && data?.length === 0 ? null : (
+          <SearchBarPaginationSvgWrapperSecond>
+            <SendButtonVerySmall
+              variant='secondaryEmpty'
+              onClick={showOptionsHandler}
+            >
+              <SvgIcon variant={showSearchOptions ? 'homeTwo' : 'homeTwo'} />
+            </SendButtonVerySmall>
+          </SearchBarPaginationSvgWrapperSecond>
+        )}
+        {data && data?.length > 0 && showSearchOptions ? (
+          <HeroSearchOptions />
+        ) : null}
+        {data && !showSearchOptions && (data?.length === 0 || showSearchBar) ? (
           <>
             <SearchBar
               large
@@ -52,10 +70,14 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
           </>
         ) : (
           <>
-            <RegularDiv>
-              <b>{`${query}: ${data.length} wyników`}</b>
-              <Pagination narrow />
-            </RegularDiv>
+            {!showSearchOptions ? (
+              <>
+                <RegularDiv>
+                  <b>{`${query}: ${data.length} wyników`}</b>
+                  <Pagination narrow />
+                </RegularDiv>
+              </>
+            ) : null}
           </>
         )}
       </RelativeWrapperStretch>
