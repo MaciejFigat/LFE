@@ -3,6 +3,7 @@ import React from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
 import { RegularColumn } from '../../../styles/misc.styled'
 import HeroDataSectionSimple from './HeroDataSectionSimple'
+import HomeSearchSample from './HomeSearchSample'
 interface HomeSearchResultsSmallProps {}
 
 const HomeSearchResultsSmall: React.FC<HomeSearchResultsSmallProps> = () => {
@@ -18,7 +19,9 @@ const HomeSearchResultsSmall: React.FC<HomeSearchResultsSmallProps> = () => {
 
   return (
     <RegularColumn>
-      {data.length > 0 &&
+      {data && data?.length === 0 ? (
+        <HomeSearchSample />
+      ) : (
         data
           .slice(start, end + 1)
           .map((fragmentArray: any, index: number) => (
@@ -31,7 +34,8 @@ const HomeSearchResultsSmall: React.FC<HomeSearchResultsSmallProps> = () => {
               fragmentsFound={fragmentArray.fragment}
               metryka={fragmentArray.metryka}
             />
-          ))}
+          ))
+      )}
     </RegularColumn>
   )
 }

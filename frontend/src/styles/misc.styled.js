@@ -145,8 +145,25 @@ export const ChangingColumnsWrapper = styled.div`
 `
 export const HorizontalWrapper = styled.div`
   display: flex;
+  width: 100%;
   justify-content: center;
+  align-items: center;
   flex-direction: row;
+`
+
+export const AbsoluteWrapper = styled.div`
+  position: absolute;
+`
+export const RelativeWrapperStretch = styled.div`
+  position: relative;
+  display: grid;
+  place-items: center;
+
+  height: 100%;
+  width: 100%;
+`
+export const RelativeWrapper = styled.div`
+  position: relative;
 `
 export const HorizontalWrapperGap = styled.div`
   display: flex;

@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
-import HeroWelcome from './HeroGridComponents.tsx/HeroWelcome'
-import HomeSearchBarOnly from './HeroGridComponents.tsx/HomeSearchBarOnly'
-import HomeSearchSample from './HeroGridComponents.tsx/HomeSearchSample'
+// import HeroWelcome from './HeroGridComponents.tsx/HeroWelcome'
+
 import {
   HeroArticleBigSection,
   HeroArticleBottomBigSection,
@@ -27,9 +26,10 @@ import {
 import { HeroTwoMain, HeroTwoSecond, HeroTwoThird } from './HeroTwo'
 import { HeroThreeMain, HeroThreeSecond, HeroThreeThird } from './HeroThree'
 import { RegularDiv } from '../../styles/misc.styled'
-import Pagination from '../Miscellaneous/Pagination/Pagination'
+
 import HomeSearchResultsSmall from './HeroGridComponents.tsx/HomeSearchResultsSmall'
 import HeroSearchButtons from './HeroGridComponents.tsx/HeroSearchButtons'
+import HomeSearchBarPagination from './HeroGridComponents.tsx/HomeSearchBarPagination'
 
 interface HeroGridProps {
   //   children: ReactChild
@@ -39,38 +39,14 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
   )
-  const { data, query } = searchResults
+  const { data } = searchResults
 
   const tabs = [
     {
       label: 'Wyszukaj',
-      content: (
-        <>{data && data?.length === 0 ? <HeroWelcome /> : <HeroTwoMain />}</>
-      ),
-      secondaryContent: (
-        <>
-          {data && data?.length === 0 ? (
-            <HomeSearchSample />
-          ) : (
-            <HomeSearchResultsSmall />
-          )}
-        </>
-      ),
-      tertiaryContent: (
-        <>
-          {data && data?.length === 0 ? (
-            <HomeSearchBarOnly />
-          ) : (
-            //! add a button that provides a choice to show Searchbar switch between
-            <>
-              <RegularDiv>
-                <b>{`${query}: ${data.length} wyników`}</b>
-              </RegularDiv>
-              <Pagination narrow />
-            </>
-          )}{' '}
-        </>
-      ),
+      content: <HeroTwoMain />,
+      secondaryContent: <HomeSearchResultsSmall />,
+      tertiaryContent: <HomeSearchBarPagination />,
       quaternaryContent: (
         <>
           {data && data?.length === 0 ? null : (
@@ -94,7 +70,8 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
     {
       label: 'Zapisz',
       content: (
-        <>{data && data?.length === 0 ? <HeroWelcome /> : <HeroTwoMain />}</>
+        // <>{data && data?.length === 0 ? <HeroWelcome /> : <HeroTwoMain />}</>
+        <>{data && data?.length === 0 ? <HeroTwoMain /> : null}</>
       ),
       secondaryContent: (
         <>
@@ -147,17 +124,17 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           </RegularDiv>
         </HeroNavOneBig>{' '}
         <HeroNavOne>
-          <AnimatePresence exitBeforeEnter>
-            <motion.div
+          {/* <AnimatePresence exitBeforeEnter> */}
+          {/* <motion.div
               key={selectedTab ? selectedTab.label : 'empty'}
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               transition={{ duration: 0.2 }}
-            >
-              {selectedTab ? selectedTab.tertiaryContent : ''}
-            </motion.div>
-          </AnimatePresence>
+            > */}
+          {selectedTab ? selectedTab.tertiaryContent : null}
+          {/* </motion.div> */}
+          {/* </AnimatePresence> */}
         </HeroNavOne>
       </HeroNavigation>
 
@@ -173,7 +150,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
                   exit={{ y: -10, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {selectedTab ? selectedTab.content : ''}
+                  {selectedTab ? selectedTab.content : null}
                 </motion.div>
               </AnimatePresence>
             </MainChoiceContainer>
@@ -188,7 +165,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                {selectedTab ? selectedTab.secondaryContent : ''}
+                {selectedTab ? selectedTab.secondaryContent : null}
               </motion.div>
             </AnimatePresence>
           </HeroArticleSmallSection>
@@ -202,7 +179,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                {selectedTab ? selectedTab.quaternaryContent : ''}
+                {selectedTab ? selectedTab.quaternaryContent : null}
               </motion.div>
             </AnimatePresence>
           </HeroArticleBottomBigSection>{' '}
@@ -215,7 +192,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                {selectedTab ? selectedTab.pentanaryContent : ''}
+                {selectedTab ? selectedTab.pentanaryContent : null}
               </motion.div>
             </AnimatePresence>
           </HeroArticleBottomSmallSection>

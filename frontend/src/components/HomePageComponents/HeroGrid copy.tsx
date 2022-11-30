@@ -1,6 +1,6 @@
 import React from 'react'
 import HeroWelcome from './HeroGridComponents.tsx/HeroWelcome'
-import HomeSearchBarOnly from './HeroGridComponents.tsx/HomeSearchBarOnly'
+
 import HomeSearchSample from './HeroGridComponents.tsx/HomeSearchSample'
 import {
   HeroArticleBigSection,
@@ -27,10 +27,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
         <HeroNavOne>
           <HomeSearchSample />
         </HeroNavOne>
-        <HeroNavOne>
-          {' '}
-          <HomeSearchBarOnly />
-        </HeroNavOne>
+        <HeroNavOne> </HeroNavOne>
         <HeroNavTwo> </HeroNavTwo>
         <HeroNavTwo> </HeroNavTwo>
       </HeroNavigation>

@@ -8,6 +8,7 @@ import { AnimateSharedLayout } from 'framer-motion'
 import HeroSearchDataSection from './HeroGridComponents.tsx/HeroSearchDataSection'
 import { ButtonSmall } from '../Miscellaneous/Buttons/BigButton.styled'
 import { changeResultsDetailView } from '../../features/preferences/preferenceSlice'
+import HeroWelcome from './HeroGridComponents.tsx/HeroWelcome'
 
 interface HeroTwoProps {}
 
@@ -65,17 +66,21 @@ const HeroTwoMain: React.FC<HeroTwoProps> = () => {
 
   return (
     <AnimateSharedLayout>
-      <HeroSearchDataSection
-        highlightQuery={queryTrimmed}
-        variant='secondary'
-        key={data[heroDocIndex]['uuid']}
-        paddingTop='small'
-        imgStart={false}
-        fragmentsFound={data[heroDocIndex].fragment}
-        metryka={data[heroDocIndex].metryka}
-        istota_interpretacji={data[heroDocIndex].istota_interpretacji}
-        query={queryTrimmed}
-      />
+      {data && data?.length === 0 ? (
+        <HeroWelcome />
+      ) : (
+        <HeroSearchDataSection
+          highlightQuery={queryTrimmed}
+          variant='secondary'
+          key={data[heroDocIndex]['uuid']}
+          paddingTop='small'
+          imgStart={false}
+          fragmentsFound={data[heroDocIndex].fragment}
+          metryka={data[heroDocIndex].metryka}
+          istota_interpretacji={data[heroDocIndex].istota_interpretacji}
+          query={queryTrimmed}
+        />
+      )}
     </AnimateSharedLayout>
   )
 }

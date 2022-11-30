@@ -168,7 +168,7 @@ export const HeroNavOne = styled.div`
   /* padding: 3rem 2rem; */
   /* padding: 1rem 1rem 1rem; */
   gap: 1rem;
-  /* background: brown; */
+
   border-left: 1px solid var(--background-blur2);
   flex-basis: calc(100% / 3);
   /* flex-basis: 33vw; */
