@@ -5,16 +5,26 @@ import React, {
   useEffect,
   useCallback,
 } from 'react'
+import { useAppSelector } from '../../../app/reduxHooks'
 import CopyText from './CopyText/CopyText'
 import { HPopover, HPopoverItem } from './HighlightPopRemake.styled'
 import AddFragment from './CopyText/AddFragment'
 interface HighlightPopProps {
   children: ReactNode
+
+  heroYPosition?: boolean
 }
 
-const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
+const HighlightPopMenu: React.FC<HighlightPopProps> = ({
+  children,
+  heroYPosition,
+}) => {
+  const heroYValue: number = useAppSelector(
+    (state) => state.preference.yHeroPosition
+  )
   const [xPosition, setXPosition] = useState<number | null>(null)
   const [yPosition, setYPosition] = useState<number | null>(null)
+
   const [selectedText, setSelectedText] = useState<string>('')
   const [showPopover, setShowPopover] = useState<boolean>(false)
 
@@ -70,10 +80,25 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
     }
 
     setXPosition(x + width / 2)
-    setYPosition(y + window.scrollY - 10)
+    // setYPosition(y + window.scrollY - 70)
+
+    if (heroYPosition) setYPosition(y + heroYValue - 180)
+    else setYPosition(y + window.scrollY - 70)
     setSelectedText(selectedText)
     setShowPopover(true)
-  }, [])
+  }, [heroYPosition, heroYValue])
+
+  // useEffect(() => {
+  //   const testPosition = () => {
+  //     console.log(scrollTopPosition ?? 'don`t look at me, i`m a test')
+  //     if (yScrollPosition) setYScrollPosition(scrollTopPosition)
+  //     console.log(yScrollPosition)
+  //   }
+  //   window.addEventListener('mouseup', testPosition)
+  //   return () => {
+  //     window.removeEventListener('mouseup', testPosition)
+  //   }
+  // }, [scrollTopPosition, yScrollPosition])
 
   useEffect(() => {
     window.addEventListener('mouseup', onMouseUp)

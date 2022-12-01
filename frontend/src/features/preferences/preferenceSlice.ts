@@ -8,6 +8,7 @@ const preferenceSlice = createSlice({
 
         width: 700,
         widthNarrow: 900,
+        yHeroPosition: 0,
         sortingDate: { sortingYear: today.getFullYear(), sortingMonth: today.getMonth() + 1, sortingDay: today.getDate() },
         sortingKeywords: {
             keywordMain: '',
@@ -41,6 +42,7 @@ const preferenceSlice = createSlice({
         showFragments(state, action) {
             state.showFragments = action.payload
         },
+
         changeResultsDetailView(state) {
             if (state.resultsDetailView === true) { state.resultsDetailView = false }
             else if (state.resultsDetailView === false) { state.resultsDetailView = true }
@@ -98,7 +100,9 @@ const preferenceSlice = createSlice({
             state.sortFragmentsBySource.MinisterFinansów = !state.sortFragmentsBySource.MinisterFinansów
         },
 
-
+        editYHeroPosition(state, action) {
+            state.yHeroPosition = action.payload
+        },
     },
 
 
@@ -106,6 +110,6 @@ const preferenceSlice = createSlice({
 
 
 
-export const { editIdOpenFragment, sortFragmentsBySourceEditOne, sortFragmentsBySourceEditTwo, sortFragmentsBySourceEditThree, showFragments, preferredWidthSaved, searchResultsPageSaved, fragmentsPageSaved, linksPageSaved, preferredNarrowWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingKeywordMainEdit, sortingOptionEdit, highlightQueryEdit, fragmentScrolledEdit, preferedSchemeEdit, changeResultsDetailView } = preferenceSlice.actions
+export const { editIdOpenFragment, sortFragmentsBySourceEditOne, sortFragmentsBySourceEditTwo, sortFragmentsBySourceEditThree, showFragments, preferredWidthSaved, searchResultsPageSaved, fragmentsPageSaved, linksPageSaved, preferredNarrowWidthSaved, sortingDateEdit, sortingKeywordsEdit, sortingKeywordMainEdit, sortingOptionEdit, highlightQueryEdit, fragmentScrolledEdit, preferedSchemeEdit, changeResultsDetailView, editYHeroPosition } = preferenceSlice.actions
 
 export default preferenceSlice.reducer

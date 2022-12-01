@@ -266,6 +266,7 @@ export const ListRowShort = styled(ListRow)`
 export const ItemWrapper = styled(motion.div)`
   margin-bottom: 10px;
   width: 100%;
+
   &:last-child {
     margin-bottom: 0px;
   }
@@ -277,12 +278,13 @@ export const SimpleCitationItem = styled(motion.div)`
   display: grid;
   place-items: space-around;
   width: 300px;
+
   height: 200px;
 
   overflow-y: scroll;
   /* max-width: 300px; */
   /* background: brown; */
-  box-shadow: var(--boxShadow1);
+  /* box-shadow: var(--boxShadow1); */
   padding: 1rem;
   border-radius: 20px;
   border-right: 1px solid var(--background-blur2);
@@ -312,7 +314,10 @@ export const SimpleCitationItem = styled(motion.div)`
 `
 export const SimpleCitationItemNoShadow = styled(SimpleCitationItem)`
   box-shadow: none;
-  width: 300px;
-  height: 120px;
+  /* width: 300px; */
+  height: 180px;
   padding: 0.75rem;
+  min-width: 100%;
+  /* background: brown; */
+  margin-bottom: 0.5rem;
 `

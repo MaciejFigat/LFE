@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 import parse from 'html-react-parser'
 import HighlightPopMenu from '../HighlightPopRemake/HighlightPopMenu'
@@ -67,7 +67,7 @@ const SimpleResultDisplay: React.FC<SimpleResultDisplayProps> = () => {
               {' '}
               {docResult.tresc.dataOrzeczenia}
             </ArticleTopline>{' '}
-            <HighlightPopMenu>
+            <HighlightPopMenu heroYPosition>
               {docResult.korpus.map((korpusElement: any) => (
                 <ArticleSection key={Math.random()}>
                   {korpusElement.map((korpusParagraph: any) => (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
 // import HeroWelcome from './HeroGridComponents.tsx/HeroWelcome'
 
@@ -15,7 +15,7 @@ import {
   HeroNavOneBig,
   // HeroNavTwo,
 } from './HeroSection.styled'
-import { useAppSelector } from '../../app/reduxHooks'
+import { useAppDispatch } from '../../app/reduxHooks'
 import {
   ChoiceItem,
   ChoiceList,
@@ -24,17 +24,38 @@ import {
   MainChoiceContainer,
 } from './HomeChoiceWrapper/HomeChoiceWrapper.styled'
 import { HeroTwoMain, HeroTwoSecond, HeroTwoThird } from './HeroTwo'
-import { HeroThreeMain, HeroThreeSecond, HeroThreeThird } from './HeroThree'
+import { HeroThreeSecond, HeroThreeThird } from './HeroThree'
 import { RegularDiv } from '../../styles/misc.styled'
 
 import HomeSearchResultsSmall from './HeroGridComponents.tsx/HomeSearchResultsSmall'
 import HeroSearchButtons from './HeroGridComponents.tsx/HeroSearchButtons'
 import HomeSearchBarPagination from './HeroGridComponents.tsx/HomeSearchBarPagination'
 import SimpleResultDisplay from '../Miscellaneous/ResultDisplay/SimpleResultDisplay'
+import CitationDisplay from './CitationDisplay'
+import FragmentsColumn from '../FragmentsColumn/FragmentsColumn'
+import { editYHeroPosition } from '../../features/preferences/preferenceSlice'
 
 interface HeroGridProps {}
 
 const HeroGrid: React.FC<HeroGridProps> = () => {
+  const dispatch = useAppDispatch()
+  //* I will pass the scrollTop of the element to use if for correct HighlightPopMenu positioning
+
+  const scrollPosition = document.querySelector('.scrollPosition')
+  const [yScrollPosition, setYScrollPosition] = useState<number | undefined>()
+  useEffect(() => {
+    const dispatchHelper = () => {
+      if (scrollPosition) {
+        dispatch(editYHeroPosition(Math.floor(scrollPosition?.scrollTop)))
+      }
+    }
+    // window.addEventListener('mouseup', testPosition)
+    window.addEventListener('mousedown', dispatchHelper)
+    return () => {
+      // window.removeEventListener('mouseup', testPosition)
+      window.removeEventListener('mousedown', dispatchHelper)
+    }
+  }, [scrollPosition?.scrollTop, dispatch, scrollPosition])
   const tabs = [
     {
       label: 'Wyszukaj',
@@ -54,16 +75,20 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
     },
     {
       label: 'Zapisz',
-      content: <SimpleResultDisplay />,
+      content: (
+        // <SimpleResultDisplay scrollTopPosition={scrollPosition?.scrollTop} />
+        <SimpleResultDisplay />
+      ),
       secondaryContent: (
         <>
-          <HeroTwoSecond />
+          <CitationDisplay />
+          {/* <FragmentsColumn /> */}
         </>
       ),
     },
     {
       label: 'Eksportuj',
-      content: <HeroThreeMain />,
+      content: <>All citations etc.</>,
       secondaryContent: <HeroThreeSecond />,
       // ! here I will differentiate between logged users and not registered ones (ie. link to fragment management )
       tertiaryContent: <HeroThreeThird />,
@@ -75,6 +100,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
   const tabHelper = (item: any) => {
     setSelectedTab(item)
   }
+
   return (
     <HeroGridWrapper>
       <HeroNavigation>
@@ -122,7 +148,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
 
       <HeroMainContainer>
         <HeroMainArticle>
-          <HeroArticleBigSection>
+          <HeroArticleBigSection className='scrollPosition'>
             <MainChoiceContainer>
               <AnimatePresence exitBeforeEnter>
                 <motion.div
