@@ -13,7 +13,8 @@ import {
   HorizontalContainer,
 } from '../FragmentsColumn/FragmentsColumn.styled'
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
-import { ChangingColumnsWrapper, RegularColumn } from '../../styles/misc.styled'
+import { RegularColumn, RelativeWrapper } from '../../styles/misc.styled'
+import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
 
 interface CitationDisplayProps {}
 
@@ -45,20 +46,32 @@ const CitationDisplay: React.FC<CitationDisplayProps> = () => {
                       <HorizontalContainer>
                         {citation.source !== '' && (
                           <FragmentsP>
-                            {citation.source.substring(0, 27)}
-                            {/* {citation.source} */}
+                            {/* {citation.source.substring(0, 27)} */}
+                            {citation.source}
                           </FragmentsP>
                         )}
-                        <SendButtonVerySmall
-                          variant='secondaryEmpty'
-                          onClick={() => removeCitationHandler(citation.id)}
-                        >
-                          usuń
-                        </SendButtonVerySmall>
-                      </HorizontalContainer>
 
+                        <>
+                          <RelativeWrapper top='-15px' left='10px'>
+                            {' '}
+                            <SendButtonVerySmall
+                              variant='secondaryEmpty'
+                              onClick={() => removeCitationHandler(citation.id)}
+                            >
+                              <SvgIcon
+                                variant='remove'
+                                contentAfter='usuń'
+                                toBottom
+                                toLeft='-60px'
+                                width='40px'
+                              />
+                            </SendButtonVerySmall>
+                          </RelativeWrapper>
+                        </>
+                      </HorizontalContainer>
+                      <FragmentsP>{citation.coordinates}</FragmentsP>
                       <FragmentsPExcerpt>
-                        {citation.excerpt.substring(0, 50)}
+                        {citation.excerpt.substring(0, 150)}
                       </FragmentsPExcerpt>
                     </SimpleCitationItemNoShadow>
                   </ItemWrapper>

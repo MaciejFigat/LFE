@@ -152,6 +152,8 @@ export const HorizontalWrapper = styled.div`
 `
 
 export const AbsoluteWrapper = styled.div`
+  top: ${({ top }) => (top ? `${top}` : '0')};
+  left: ${({ left }) => (left ? `${left}` : '0')};
   position: absolute;
 `
 export const RelativeWrapperStretch = styled.div`
@@ -163,6 +165,8 @@ export const RelativeWrapperStretch = styled.div`
   width: 100%;
 `
 export const RelativeWrapper = styled.div`
+  top: ${({ top }) => (top ? `${top}` : '0')};
+  left: ${({ left }) => (left ? `${left}` : '0')};
   position: relative;
 `
 export const HorizontalWrapperGap = styled.div`

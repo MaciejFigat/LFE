@@ -85,6 +85,11 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           {/* <FragmentsColumn /> */}
         </>
       ),
+      quaternaryContent: (
+        <RegularDiv>
+          <HeroSearchButtons />
+        </RegularDiv>
+      ),
     },
     {
       label: 'Eksportuj',

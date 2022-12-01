@@ -24,11 +24,16 @@ export const FragmentContainer = styled.div`
 `
 export const FragmentsP = styled.p`
   color: var(--background4-main);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  max-width: 70%;
 `
 export const FragmentsPExcerpt = styled.p`
   color: var(--background4-main);
   font-size: 1rem;
+  margin: 0;
+  margin-bottom: 0.5rem;
 `
 export const DateCompareWrapper = styled.div`
   display: flex;

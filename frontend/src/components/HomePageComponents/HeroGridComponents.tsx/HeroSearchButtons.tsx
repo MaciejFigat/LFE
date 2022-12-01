@@ -55,13 +55,25 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
             variant='primaryEmpty'
             onClick={() => minusHandlerDocIndex()}
           >
-            <SvgIcon variant='chevronLeft' noContent lowerPosition='3px' />
+            <SvgIcon
+              variant='chevronLeft'
+              contentAfter='poprzedni'
+              toLeft='-60px'
+              lowerPosition='3px'
+              width='80px'
+            />
           </SendButtonVerySmall>{' '}
           <SendButtonVerySmall
             variant='primaryEmpty'
             onClick={() => plusHandlerDocIndex()}
           >
-            <SvgIcon variant='chevronRight' noContent lowerPosition='3px' />
+            <SvgIcon
+              variant='chevronRight'
+              contentAfter='następny'
+              toRight='60px'
+              lowerPosition='3px'
+              width='80px'
+            />
           </SendButtonVerySmall>
         </HorizontalWrapperGap>
       )}

@@ -145,11 +145,11 @@ const fragmentSlice = createSlice({
         citations: [
             {
                 id: '1',
-                source: 'Interpretacja indywidualna Dyrektora Izby Skarbowej w Warszawie 9 marca 2016',
-                excerpt: 'Dla potrzeb wydania niniejszej interpretacji należy przyjąć, że Spółka cypryjska będzie spełniała kryteria do zakwalifikowania jej jako zagraniczną spółkę kontrolowaną (dalej: „CFC”) ',
-                coordinates: 'IPPB6/4510-22/16-2/AM',
-                title: 'Przykład dot. zapisanych metadanych',
-                description: 'Interpretacja indywidualna Dyrektora Izby Skarbowej w Warszawie'
+                source: '',
+                excerpt: '',
+                coordinates: '',
+                title: '',
+                description: ''
             }
         ],
 

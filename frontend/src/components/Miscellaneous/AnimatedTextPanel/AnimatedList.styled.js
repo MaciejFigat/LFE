@@ -314,10 +314,14 @@ export const SimpleCitationItem = styled(motion.div)`
 `
 export const SimpleCitationItemNoShadow = styled(SimpleCitationItem)`
   box-shadow: none;
-  /* width: 300px; */
   height: 180px;
-  padding: 0.75rem;
-  min-width: 100%;
-  /* background: brown; */
+  padding: 1.25rem;
+  /* min- width: 100%; */
+  min-width: 400px;
+  overflow-y: hidden;
+  min-height: fit-content;
   margin-bottom: 0.5rem;
+  @media (max-width: 1020px) {
+    min-width: 200px;
+  }
 `

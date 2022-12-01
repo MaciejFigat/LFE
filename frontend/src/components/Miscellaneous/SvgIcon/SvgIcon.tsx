@@ -78,12 +78,13 @@ interface SvgIconProps {
 
   noMargin?: boolean
   contentAfter?: string
-  toRight?: boolean
-  toLeft?: boolean
+  toRight?: string | boolean
+  toLeft?: string | boolean
   noContent?: boolean
   showContent?: boolean
-  toBottom?: boolean
+  toBottom?: string | boolean
   lowerPosition?: string
+  width?: string
 }
 
 const SvgIcon: React.FC<SvgIconProps> = ({
@@ -96,6 +97,7 @@ const SvgIcon: React.FC<SvgIconProps> = ({
   showContent,
   noContent,
   lowerPosition,
+  width,
 }) => {
   const [copySuccess, setCopySuccess] = useState<string | undefined>('')
   const hoverHelper = () => {
@@ -205,6 +207,7 @@ const SvgIcon: React.FC<SvgIconProps> = ({
       noContent={noContent}
       showContent={showContent}
       lowerPosition={lowerPosition}
+      width={width}
     >
       <FontAwesomeIcon icon={iconVersion(variant)} />
     </IconsItem>
