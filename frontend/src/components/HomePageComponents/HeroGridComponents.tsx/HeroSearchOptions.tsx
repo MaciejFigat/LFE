@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
+import { useAppSelector } from '../../../app/reduxHooks'
 import {
   SwitchButtonWrapper,
   SwitchResultContainer,
@@ -9,7 +9,7 @@ import {
 import SwitchButton from '../../Miscellaneous/SearchBar/SwitchButton'
 interface HeroSearchOptionsProps {}
 
-const HeroSearchOptions: React.FC<HeroSearchOptionsProps> = ({}) => {
+const HeroSearchOptions: React.FC<HeroSearchOptionsProps> = () => {
   const searchResults: any = useAppSelector(
     (state) => state.searchResult.searchResults
   )
