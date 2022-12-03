@@ -126,9 +126,10 @@ export const OpenedDivBig = styled(OpenedLayoutDiv)`
   z-index: 2;
 `
 export const TwoColumnsWrapper = styled.div`
+  padding: 2rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
+  gap: 1rem;
 `
 export const ChangingColumnsWrapper = styled.div`
   display: grid;
@@ -160,7 +161,6 @@ export const RelativeWrapperStretch = styled.div`
   position: relative;
   display: grid;
   place-items: center;
-
   height: 100%;
   width: 100%;
 `
@@ -181,7 +181,6 @@ export const DropDownHeaderMisc = styled.div`
   justify-content: space-around;
   user-select: none;
   height: 26px;
-  /* text-transform: lowercase; */
   border-radius: 12px;
   width: 150px;
   border: 1px solid var(--background-blur1);
@@ -196,9 +195,6 @@ export const DropDownHeaderMisc = styled.div`
     color: var(--background4-main);
     box-shadow: var(--boxShadow1);
     background: transparent;
-    /* svg {
-      color: var(--background4-main) ;
-    } */
   }
   &:active {
     color: var(--background4-main);
@@ -221,7 +217,6 @@ export const DropDownHeaderMenu = styled(DropDownHeaderMisc)`
   background: transparent;
   height: 32px;
   max-height: 34px;
-  /* padding-right: 0.5rem; */
   padding: 0 1.25rem;
   &:hover {
     color: var(--background4-main);
@@ -249,9 +244,7 @@ export const DropDownHeaderMenu = styled(DropDownHeaderMisc)`
   }
 `
 export const DropDownHeaderMini = styled(DropDownHeaderMisc)`
-  /* width: fit-content; */
   padding: 0.5rem;
-  /* height: fit-content; */
   height: 25px;
   width: 25px;
   border-radius: 50%;
@@ -470,14 +463,18 @@ export const RegularDiv = styled.div`
 `
 
 export const RegularColumn = styled.div`
-  padding: 1rem;
   display: grid;
   place-items: center;
+  gap: 1rem;
+  padding: 1rem;
   width: 100%;
 `
 export const LoadingAbsolutePopup = styled(motion.div)`
   position: absolute;
   display: grid;
+  //todo
+  color: ${({ isOn }) =>
+    isOn ? 'var(--background2-main)' : 'var(--background5-main)'};
   place-content: flex-start center;
   background: var(--background-blur1);
   top: 0;

@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import {
   // addVisitedLink,
   changeHeroDocIndex,
+  getDocByIdAndQuery,
   // getDocResult,
 } from '../../../features/searchResults/searchResultsSlice'
 import {
@@ -51,10 +52,24 @@ const HeroDataSectionSimple: React.FC<HeroDataSectionSimpleProps> = ({
   istota_interpretacji,
 }) => {
   const dispatch = useAppDispatch()
+  const resultsDetailView: boolean = useAppSelector(
+    (state) => state.preference.resultsDetailView
+  )
+  const searchResult: any = useAppSelector((state) => state.searchResult)
+
+  const { data, query } = searchResult.searchResults
+
   const heroDocIndex: number = useAppSelector(
     (state) => state.searchResult.heroDocIndex
   )
   const submitHandlerDocIndex = (index: number) => {
+    if (resultsDetailView) {
+      const searchquery = {
+        query: query,
+        docNumber: data[index].doc_id,
+      }
+      dispatch(getDocByIdAndQuery(searchquery))
+    }
     dispatch(changeHeroDocIndex(index))
   }
 

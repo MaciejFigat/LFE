@@ -21,14 +21,18 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     (state) => state.preference.sortingKeywords.keywordMain
   )
 
+  const savedDocId: number = useAppSelector((state) => state.searchResult.docId)
+
   const docResult: any = useAppSelector((state) => state.searchResult.docResult)
   const { sad, syg, dataOrzeczenia, typWyroku } = docResult.tresc
   const querySaved = docResult.query_f
-  const visitedLinks: any[] = useAppSelector(
-    (state) => state.searchResult.visitedLinks
-  )
 
-  const lastId = visitedLinks[visitedLinks.length - 1].id
+  // * Alternative method of getting to docId
+  // * resultsDetailView: true => then we save read docId
+  // * searchResult.heroDocIndex => will tell me which docId (within searchResults.data) is relevant since docResult doesn't have docId
+  // *
+
+  // const lastId = visitedLinks[visitedLinks.length - 1].id
 
   const [copySuccess, setCopySuccess] = useState('')
 
@@ -43,6 +47,7 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     id: nanoid(),
     title: highlightedText.substring(0, 22),
     date: '',
+    docId: savedDocId,
     source: `${typWyroku} ${sad} ${dataOrzeczenia}` ?? '',
     excerpt: highlightedText,
     coordinates: `${syg}` ?? '',
@@ -53,7 +58,8 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     source: `${typWyroku} ${sad} ${dataOrzeczenia}`,
     excerpt: highlightedText,
     query: `${querySaved}`,
-    docId: `${lastId}`,
+    // docId: `${lastId}`,
+    docId: savedDocId,
     coordinates: `${syg}`,
     description: `${typWyroku} ${sad}`,
     keywords: [keywordMain],

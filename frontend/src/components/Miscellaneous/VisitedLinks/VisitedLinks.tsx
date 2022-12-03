@@ -74,7 +74,7 @@ const VisitedLinks: React.FC<VisitedLinksProps> = ({ large }) => {
               </VisitedLinkRow>
             </VisitedLinkWrapper>
           ))}
-      {visitedLinks.length > 3 && <LinksPagination miniVersion />}
+      {visitedLinks.length > 3 ? <LinksPagination miniVersion /> : null}
     </div>
   )
 }

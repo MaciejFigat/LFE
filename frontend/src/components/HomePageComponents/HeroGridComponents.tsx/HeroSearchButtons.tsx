@@ -2,6 +2,8 @@ import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import {
   addHeroDocIndex,
+  addVisitedLink,
+  changeDocId,
   getDocByIdAndQuery,
   subtractHeroDocIndex,
 } from '../../../features/searchResults/searchResultsSlice'
@@ -23,6 +25,9 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
   )
   const searchResult: any = useAppSelector((state) => state.searchResult)
 
+  const visitedLinks: any[] = useAppSelector(
+    (state) => state.searchResult.visitedLinks
+  )
   const { data, query } = searchResult.searchResults
   // ! _Debounce maybe
   const minusHandlerDocIndex = () => {
@@ -32,7 +37,22 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
         docNumber: data[heroDocIndex - 1].doc_id,
       }
 
+      const fragData = {
+        doc_link: data[heroDocIndex - 1].doc_link,
+        rodzaj_orzeczenia: data[heroDocIndex - 1].rodzaj_orzeczenia,
+        data: data[heroDocIndex - 1].data,
+        organ: data[heroDocIndex - 1].organ,
+        id: data[heroDocIndex - 1].doc_id,
+        query: query,
+      }
+
+      const existingLink = visitedLinks.find(
+        (visitedLinks) => visitedLinks.doc_link === fragData.doc_link
+      )
+      if (!existingLink) dispatch(addVisitedLink(fragData))
+
       dispatch(getDocByIdAndQuery(searchquery))
+      dispatch(changeDocId(data[heroDocIndex + 1].doc_id))
     }
     dispatch(subtractHeroDocIndex())
   }
@@ -43,6 +63,21 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
         docNumber: data[heroDocIndex + 1].doc_id,
       }
 
+      const fragData = {
+        doc_link: data[heroDocIndex + 1].doc_link,
+        rodzaj_orzeczenia: data[heroDocIndex + 1].rodzaj_orzeczenia,
+        data: data[heroDocIndex + 1].data,
+        organ: data[heroDocIndex + 1].organ,
+        id: data[heroDocIndex + 1].doc_id,
+        query: query,
+      }
+
+      const existingLink = visitedLinks.find(
+        (visitedLinks) => visitedLinks.doc_link === fragData.doc_link
+      )
+      if (!existingLink) dispatch(addVisitedLink(fragData))
+
+      dispatch(changeDocId(data[heroDocIndex + 1].doc_id))
       dispatch(getDocByIdAndQuery(searchquery))
     }
     if (searchData.length > heroDocIndex) dispatch(addHeroDocIndex())

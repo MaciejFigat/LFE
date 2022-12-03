@@ -20,12 +20,7 @@ export const createFragment = createAsyncThunk(
                     Authorization: `Bearer ${userInfo.token}`,
                 },
             }
-            // const keywords = ['']
-            // const docTest = 'testing this horrible '
-            // const keywordValue = [{
-            //     keyword: '', value: true, skip: true, labelOne: 'pro',
-            //     labelTwo: 'contra'
-            // }]
+
             const { data } = await axios.post(
                 '/api/fragments/',
                 {
@@ -36,7 +31,6 @@ export const createFragment = createAsyncThunk(
                     description,
                     query,
                     docId,
-                    // docId: docTest,
                     keywords: keywords,
                     keywordValue: keywordValue
                 },

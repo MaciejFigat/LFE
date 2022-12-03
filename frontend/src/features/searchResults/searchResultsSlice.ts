@@ -181,7 +181,7 @@ const searchResultSlice = createSlice({
         },
 
         heroDocIndex: 0,
-
+        docId: 0,
         visitedLinks: [{ test: true, doc_link: 0 }],
 
 
@@ -196,6 +196,9 @@ const searchResultSlice = createSlice({
 
         changeHeroDocIndex: (state, action) => {
             state.heroDocIndex = action.payload
+        },
+        changeDocId: (state, action) => {
+            state.docId = action.payload
         },
         addHeroDocIndex: (state) => {
             state.heroDocIndex = state.heroDocIndex + 1
@@ -302,5 +305,5 @@ const searchResultSlice = createSlice({
 })
 
 
-export const { addVisitedLink, changeHeroDocIndex, subtractHeroDocIndex, addHeroDocIndex } = searchResultSlice.actions
+export const { addVisitedLink, changeHeroDocIndex, subtractHeroDocIndex, addHeroDocIndex, changeDocId } = searchResultSlice.actions
 export default searchResultSlice.reducer

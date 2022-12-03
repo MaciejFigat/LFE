@@ -30,14 +30,16 @@ const SimpleResultDisplay: React.FC<SimpleResultDisplayProps> = () => {
   const { loadingDoc } = searchResult
 
   useEffect(() => {
-    const searchquery = {
-      query: query,
-      docNumber: data[heroDocIndex].doc_id,
-    }
+    if (data && data.length > 0) {
+      const searchquery = {
+        query: query,
+        docNumber: data[heroDocIndex ?? 0].doc_id ?? 0,
+      }
 
-    const { data: resultData } = docResult
-    if (data?.length > 0 && resultData?.length === 0) {
-      dispatch(getDocByIdAndQuery(searchquery))
+      const { data: resultData } = docResult
+      if (data?.length > 0 && resultData?.length === 0) {
+        dispatch(getDocByIdAndQuery(searchquery))
+      }
     }
   }, [heroDocIndex, dispatch, data, query, docResult])
 

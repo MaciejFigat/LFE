@@ -20,7 +20,8 @@ interface FragmentCreated {
     coordinates?: string
     title?: string
     description?: string
-    docId?: string
+    // docId?: string
+    docId?: number
     query?: string
     keywords?: string[]
 

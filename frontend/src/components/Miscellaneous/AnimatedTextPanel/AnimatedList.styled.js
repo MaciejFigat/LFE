@@ -320,7 +320,7 @@ export const SimpleCitationItemNoShadow = styled(SimpleCitationItem)`
   min-width: 400px;
   overflow-y: hidden;
   min-height: fit-content;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
   @media (max-width: 1020px) {
     min-width: 200px;
   }

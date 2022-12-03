@@ -35,10 +35,9 @@ export const IconsItem = styled.div`
     /* z-index: 11; */
     width: ${(props) => (props.noContent ? `0px` : `70px`)};
     width: ${(width) => width && width};
-    /*  width: ${(props) =>
-      props.noContent ? `0px` : `${props.contentAfter.length * 10}px`}; */
+
     /* max-width: ${(props) => (props.noContent ? `0px` : 'min-content')}; */
-    /* min-width: min-content; */
+
     padding-right: 0.25rem;
     font-size: min(max(1rem, 4vw), 12px);
     /* display: block !important; */

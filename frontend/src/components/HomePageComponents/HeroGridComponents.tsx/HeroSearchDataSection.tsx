@@ -2,7 +2,10 @@ import React, { ReactFragment } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
 // import Highlighter from 'react-highlight-words'
-import { getDocResult } from '../../../features/searchResults/searchResultsSlice'
+import {
+  changeDocId,
+  getDocResult,
+} from '../../../features/searchResults/searchResultsSlice'
 import { addVisitedLink } from '../../../features/searchResults/searchResultsSlice'
 import {
   // InfoSec,
@@ -73,6 +76,7 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
   const visitedLinks: any[] = useAppSelector(
     (state) => state.searchResult.visitedLinks
   )
+  const savedDocId: number = useAppSelector((state) => state.searchResult.docId)
   const resultsDetailView: any = useAppSelector(
     (state) => state.preference.resultsDetailView
   )
@@ -98,6 +102,7 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
       (visitedLinks) => visitedLinks.doc_link === fragData.doc_link
     )
     if (!existingLink) dispatch(addVisitedLink(fragData))
+    if (savedDocId !== metryka.doc_id) dispatch(changeDocId(metryka.doc_id))
     navigate(`/search/result#frag-${index}`)
   }
 

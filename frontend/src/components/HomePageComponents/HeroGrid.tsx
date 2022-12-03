@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
-// import HeroWelcome from './HeroGridComponents.tsx/HeroWelcome'
-
 import {
   HeroArticleBigSection,
   HeroArticleBottomBigSection,
@@ -13,7 +11,6 @@ import {
   HeroNavigation,
   HeroNavOne,
   HeroNavOneBig,
-  // HeroNavTwo,
 } from './HeroSection.styled'
 import { useAppDispatch } from '../../app/reduxHooks'
 import {
@@ -23,17 +20,17 @@ import {
   ChoiceUnderline,
   MainChoiceContainer,
 } from './HomeChoiceWrapper/HomeChoiceWrapper.styled'
-import { HeroTwoMain, HeroTwoSecond, HeroTwoThird } from './HeroTwo'
-import { HeroThreeSecond, HeroThreeThird } from './HeroThree'
+import { HeroTwoMain, HeroTwoThird } from './HeroTwo'
 import { RegularDiv } from '../../styles/misc.styled'
-
 import HomeSearchResultsSmall from './HeroGridComponents.tsx/HomeSearchResultsSmall'
 import HeroSearchButtons from './HeroGridComponents.tsx/HeroSearchButtons'
 import HomeSearchBarPagination from './HeroGridComponents.tsx/HomeSearchBarPagination'
 import SimpleResultDisplay from '../Miscellaneous/ResultDisplay/SimpleResultDisplay'
 import CitationDisplay from './CitationDisplay'
-import FragmentsColumn from '../FragmentsColumn/FragmentsColumn'
 import { editYHeroPosition } from '../../features/preferences/preferenceSlice'
+import { HeroSavedOne, HeroSavedTwo } from './HeroGridComponents.tsx/HeroSaved'
+import { HeroExportMain } from './HeroGridComponents.tsx/HeroExport'
+import VisitedLinks from '../Miscellaneous/VisitedLinks/VisitedLinks'
 
 interface HeroGridProps {}
 
@@ -42,7 +39,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
   //* I will pass the scrollTop of the element to use if for correct HighlightPopMenu positioning
 
   const scrollPosition = document.querySelector('.scrollPosition')
-  const [yScrollPosition, setYScrollPosition] = useState<number | undefined>()
+
   useEffect(() => {
     const dispatchHelper = () => {
       if (scrollPosition) {
@@ -82,21 +79,31 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       secondaryContent: (
         <>
           <CitationDisplay />
-          {/* <FragmentsColumn /> */}
         </>
+      ),
+      tertiaryContent: (
+        <RegularDiv>
+          <HeroSavedOne />
+        </RegularDiv>
       ),
       quaternaryContent: (
         <RegularDiv>
           <HeroSearchButtons />
         </RegularDiv>
       ),
+      pentanaryContent: (
+        <RegularDiv>
+          <HeroSavedTwo />
+        </RegularDiv>
+      ),
     },
     {
       label: 'Eksportuj',
-      content: <>All citations etc.</>,
-      secondaryContent: <HeroThreeSecond />,
+      content: <CitationDisplay wide />,
+      secondaryContent: <VisitedLinks />,
       // ! here I will differentiate between logged users and not registered ones (ie. link to fragment management )
-      tertiaryContent: <HeroThreeThird />,
+      tertiaryContent: <>Ostatnio przeglądane</>,
+      quaternaryContent: <HeroExportMain />,
     },
   ]
 
@@ -210,8 +217,8 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
             </AnimatePresence>
           </HeroArticleBottomSmallSection>
         </HeroMainArticle>
-        <HeroMainArticle></HeroMainArticle>
-        <HeroMainArticle></HeroMainArticle>
+        {/* <HeroMainArticle></HeroMainArticle> */}
+        {/* <HeroMainArticle></HeroMainArticle> */}
       </HeroMainContainer>
     </HeroGridWrapper>
   )

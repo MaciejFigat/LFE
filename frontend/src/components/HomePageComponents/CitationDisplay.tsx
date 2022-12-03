@@ -15,10 +15,13 @@ import {
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import { RegularColumn, RelativeWrapper } from '../../styles/misc.styled'
 import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
+import { TwoColumnsWrapper } from '../../styles/misc.styled'
 
-interface CitationDisplayProps {}
+interface CitationDisplayProps {
+  wide?: boolean
+}
 
-const CitationDisplay: React.FC<CitationDisplayProps> = () => {
+const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
   const dispatch: any = useAppDispatch()
   const citations: any[] = useAppSelector((state) => state.fragment.citations)
   const removeCitationHandler = (id: string) => {
@@ -27,10 +30,11 @@ const CitationDisplay: React.FC<CitationDisplayProps> = () => {
 
   return (
     <AnimateSharedLayout>
-      {' '}
-      <RegularColumn>
-        {citations.length > 0 &&
-          citations
+      {/* {' '}<TwoColumnsWrapper></TwoColumnsWrapper> */}
+      {citations.length > 0 && !wide ? (
+        <RegularColumn>
+          {' '}
+          {citations
             .map((citation) => (
               <ListWrapper
                 key={citation.id}
@@ -78,8 +82,63 @@ const CitationDisplay: React.FC<CitationDisplayProps> = () => {
                 )}
               </ListWrapper>
             ))
-            .reverse()}{' '}
-      </RegularColumn>
+            .reverse()}
+        </RegularColumn>
+      ) : null}
+      {citations.length > 0 && wide ? (
+        <TwoColumnsWrapper>
+          {' '}
+          {citations
+            .map((citation) => (
+              <ListWrapper
+                key={citation.id}
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                {citation.excerpt !== '' && (
+                  <ItemWrapper>
+                    {' '}
+                    <SimpleCitationItemNoShadow>
+                      <HorizontalContainer>
+                        {citation.source !== '' && (
+                          <FragmentsP>
+                            {/* {citation.source.substring(0, 27)} */}
+                            {citation.source}
+                          </FragmentsP>
+                        )}
+
+                        <>
+                          <RelativeWrapper top='-15px' left='10px'>
+                            {' '}
+                            <SendButtonVerySmall
+                              variant='secondaryEmpty'
+                              onClick={() => removeCitationHandler(citation.id)}
+                            >
+                              <SvgIcon
+                                variant='remove'
+                                contentAfter='usuń'
+                                toBottom
+                                toLeft='-60px'
+                                width='40px'
+                              />
+                            </SendButtonVerySmall>
+                          </RelativeWrapper>
+                        </>
+                      </HorizontalContainer>
+                      <FragmentsP>{citation.coordinates}</FragmentsP>
+                      <FragmentsPExcerpt>
+                        {citation.excerpt.substring(0, 150)}
+                      </FragmentsPExcerpt>
+                    </SimpleCitationItemNoShadow>
+                  </ItemWrapper>
+                )}
+              </ListWrapper>
+            ))
+            .reverse()}
+        </TwoColumnsWrapper>
+      ) : null}
     </AnimateSharedLayout>
   )
 }

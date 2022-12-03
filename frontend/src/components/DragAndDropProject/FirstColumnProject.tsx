@@ -30,7 +30,6 @@ import {
 } from './LabelInput/LabelInput.styled'
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
-
 import {
   ClayButtonWrapper,
   DotButton,
