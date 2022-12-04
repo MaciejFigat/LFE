@@ -149,13 +149,16 @@ export const HeroP = styled.p`
 export const HeroGridWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  /* min-height:100% */
+  /* height: 100vh;  */
+  height: calc(100vh - 67px);
+  min-height:100%
+
   margin: 0px;
   overflow: hidden;
 `
 export const HeroNavigation = styled.div`
   display: flex;
+
   width: 100%;
   border-top: 1px solid var(--background-blur2);
   /* border-bottom: 1px solid var(--background-blur2); */
@@ -185,12 +188,14 @@ export const HeroNavOneBig = styled(HeroNavOne)`
 `
 
 export const HeroMainContainer = styled.div`
-  /* it grow into remaining vertical space */
+  /* it grows into remaining vertical space */
   flex-grow: 1;
 `
 export const HeroMainArticle = styled.div`
   display: grid;
+  /* min-height: 100%; */
   height: 100%;
+  min-height: 100%;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 6fr 1fr;
 

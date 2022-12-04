@@ -245,8 +245,8 @@ export const DropDownHeaderMenu = styled(DropDownHeaderMisc)`
 `
 export const DropDownHeaderMini = styled(DropDownHeaderMisc)`
   padding: 0.5rem;
-  height: 25px;
-  width: 25px;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
   background: transparent;
   box-shadow: var(--boxShadowNone);
@@ -267,8 +267,8 @@ export const DropDownHeaderMini = styled(DropDownHeaderMisc)`
   @media (max-width: 520px) {
     padding: 0.25rem;
     /* height: fit-content; */
-    height: 20px;
-    width: 20px;
+    /* height: 25px; */
+    /* width: 25px; */
   }
 `
 export const SpaceAroundWrapper = styled.div`

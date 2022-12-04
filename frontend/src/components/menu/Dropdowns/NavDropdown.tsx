@@ -22,6 +22,7 @@ import {
 } from '../../../styles/misc.styled'
 import { MobileLinkText } from '../Nav/nav.styled'
 import { resetUserFragments } from '../../../features/fragments/fragmentSlice'
+import ColorChange from '../Footer/ColorChange'
 
 interface NavDropdownProps {
   options?: any
@@ -151,6 +152,9 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                     </SpaceAroundWrapperDropdown>
                   </ListItem>
                 )}
+                <ListItem>
+                  <ColorChange />
+                </ListItem>
                 {/* <ListItem>
                   <ColorDropdown />
                 </ListItem> */}

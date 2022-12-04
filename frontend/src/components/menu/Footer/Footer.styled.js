@@ -78,8 +78,14 @@ export const FooterMediaWrapper = styled.section`
   }
 `
 
+export const NavIcon = styled(FontAwesomeIcon)`
+  position: relative;
+  top: ${({ top }) => (top ? top : '0')};
+  left: ${({ left }) => (left ? left : '0')};
+`
 export const FooterIcon = styled(FontAwesomeIcon)`
   margin-right: 12px;
+  /* margin-left: 54px; */
 `
 export const FooterRights = styled.div`
   display: flex;

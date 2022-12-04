@@ -15,7 +15,7 @@ import ConfirmAccount from './screens/ConfirmAccount'
 import StoredFragments from './screens/StoredFragments'
 import ResultDisplayScreen from './screens/ResultDisplayScreen'
 import ResultDisplayIdQueryScreen from './screens/ResultDisplayIdQueryScreen'
-import Footer from './components/menu/Footer/Footer'
+// import Footer from './components/menu/Footer/Footer'
 
 function App() {
   const location = useLocation()
@@ -44,7 +44,7 @@ function App() {
         <Route path='/profile' element={<UserProfile />} />
         <Route path='/' element={<Home />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }
