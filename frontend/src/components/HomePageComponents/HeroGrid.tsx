@@ -9,8 +9,8 @@ import {
   HeroMainArticle,
   HeroMainContainer,
   HeroNavigation,
-  HeroNavOne,
   HeroNavOneBig,
+  HeroNavTwo,
 } from './HeroSection.styled'
 import { useAppDispatch } from '../../app/reduxHooks'
 import {
@@ -72,10 +72,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
     },
     {
       label: 'Zapisz',
-      content: (
-        // <SimpleResultDisplay scrollTopPosition={scrollPosition?.scrollTop} />
-        <SimpleResultDisplay />
-      ),
+      content: <SimpleResultDisplay />,
       secondaryContent: (
         <>
           <CitationDisplay />
@@ -143,7 +140,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
             </ChoiceNav>{' '}
           </RegularDiv>
         </HeroNavOneBig>{' '}
-        <HeroNavOne>
+        <HeroNavTwo>
           {/* <AnimatePresence exitBeforeEnter> */}
           {/* <motion.div
               key={selectedTab ? selectedTab.label : 'empty'}
@@ -155,7 +152,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           {selectedTab ? selectedTab.tertiaryContent : null}
           {/* </motion.div> */}
           {/* </AnimatePresence> */}
-        </HeroNavOne>
+        </HeroNavTwo>
       </HeroNavigation>
 
       <HeroMainContainer>

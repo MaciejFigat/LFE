@@ -151,6 +151,7 @@ export const ProjectOneSelectProjectWrapper = styled.div`
   margin-bottom: 0.75rem;
   display: grid;
   place-items: center;
+
   border-radius: 20px;
   background: var(--background-gradient1);
   /* box-shadow: var(--boxShadowClay3); */

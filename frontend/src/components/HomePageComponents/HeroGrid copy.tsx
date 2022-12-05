@@ -23,7 +23,6 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
   return (
     <HeroGridWrapper>
       <HeroNavigation>
-        {/* <HeroNavOne>{titleSvgSmall}</HeroNavOne> */}
         <HeroNavOne>
           <HomeSearchSample />
         </HeroNavOne>

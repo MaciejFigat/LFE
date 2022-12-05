@@ -18,6 +18,7 @@ export const DropDownButtons = styled(motion.div)`
   display: flex;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  gap: 1.5rem;
 `
 export const DropDownHeader = styled(motion.div)`
   cursor: pointer;
@@ -106,6 +107,9 @@ export const DropDownList = styled.div`
     padding-top: 0.8rem;
   }
 `
+export const DropDownListGrid = styled(DropDownList)`
+  top: 110px;
+`
 export const ListItem = styled.li`
   list-style: none;
   /* margin-bottom: 0.8rem; */
@@ -133,6 +137,7 @@ export const HorizontalButtonContainer = styled(motion.div)`
   min-width: 250px;
   min-height: min-content;
   align-items: flex-start;
+
   /* justify-content: flex-start; */
   justify-content: center;
   margin-bottom: 0;
@@ -141,7 +146,7 @@ export const HeaderAndCogContainer = styled(HorizontalButtonContainer)`
   min-width: 232px;
   /* background: red; */
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   justify-content: center;
   align-items: center;
 

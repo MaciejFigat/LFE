@@ -2,25 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import { DragDropContext } from 'react-beautiful-dnd'
-// import ResizableScrollSection from '../Miscellaneous/ScrollSection/ResizableScrollSection'
+import ResizableScrollSection from '../Miscellaneous/ScrollSection/ResizableScrollSection'
 import FirstColumnProject from './FirstColumnProject'
 import SecondAndThirdColProject from './SecondAndThirdColProject'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import PupupEditWindow from './PopupEditWindow/PupupEditWindow'
 import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
-import {
-  HeroArticleBigSection,
-  HeroArticleSmallSectionFlexStart,
-  HeroGridWrapper,
-  HeroMainArticleReversed,
-  HeroMainContainer,
-  HeroNavigation,
-  HeroNavOne,
-  HeroNavTwo,
-} from '../HomePageComponents/HeroSection.styled'
-import FirstColumnExportControls from './FirstColumnExportControls'
-import SelectMainKeywordGrid from '../Miscellaneous/KeywordSearchPanel/DropdownSelect/SelectMainKeywordGrid'
-import { RegularDiv } from '../../styles/misc.styled'
 //? reordering the items within a list
 
 const reorder = (list: any, startIndex: any, endIndex: any) => {
@@ -91,6 +78,15 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
             filteredFragment.keywords.length === 1 &&
             filteredFragment.keywords[0] === ''
         )
+
+  // fragmentsKeywordMain.filter((filteredFragment) =>
+  //   filteredFragment.keywordValue.find(
+  //     (keywordSearched: any) =>
+  //       keywordSearched.keyword === keywordMain &&
+  //       keywordSearched?.skip !== undefined &&
+  //       keywordSearched.skip === true
+  //   )
+  // )
 
   const fragmentsValueTrueTwo = fragmentsKeywordMain.filter(
     (filteredFragment) =>
@@ -296,54 +292,32 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   return (
     <AnimateSharedLayout type='crossfade'>
       <DragDropContext onDragEnd={onDragEnd}>
-        <HeroGridWrapper>
-          <HeroNavigation>
-            <HeroNavOne>
-              {' '}
-              <RegularDiv>
-                <FirstColumnExportControls state={state} />
-              </RegularDiv>
-            </HeroNavOne>
-            {/* <HeroNavOneBig>1</HeroNavOneBig> */}
-            <HeroNavTwo>
-              {' '}
-              <SelectMainKeywordGrid />
-            </HeroNavTwo>
-            {/* <HeroNavTwo>
-              <FirstColumnExportControls state={state} />
-            </HeroNavTwo> */}
-            {/* <HeroNavTwo> 4</HeroNavTwo> */}
-          </HeroNavigation>
-          <HeroMainContainer>
-            <HeroMainArticleReversed>
-              <HeroArticleBigSection>
-                {' '}
-                <FirstColumnProject
-                  setOpenedApp={setOpenedApp}
-                  canOpenApp={canOpenApp}
-                  setIdOpen={setIdOpen}
-                  openedApp={openedApp}
-                  state={state}
-                  keywordMain={keywordMain}
-                />
-              </HeroArticleBigSection>
-              <HeroArticleSmallSectionFlexStart>
-                {' '}
-                <SecondAndThirdColProject
-                  setOpenedApp={setOpenedApp}
-                  setIdOpen={setIdOpen}
-                  canOpenApp={canOpenApp}
-                  openedApp={openedApp}
-                  labelOne={labelOneState}
-                  labelTwo={labelTwoState}
-                  state={state}
-                />
-              </HeroArticleSmallSectionFlexStart>
-              {/* <HeroArticleBottomBigSection> 3</HeroArticleBottomBigSection> */}
-              {/* <HeroArticleBottomSmallSection>4</HeroArticleBottomSmallSection> */}
-            </HeroMainArticleReversed>
-          </HeroMainContainer>{' '}
-        </HeroGridWrapper>
+        <ResizableScrollSection
+          topMargin='3rem'
+          transparent
+          wideSection={
+            <FirstColumnProject
+              setOpenedApp={setOpenedApp}
+              canOpenApp={canOpenApp}
+              setIdOpen={setIdOpen}
+              openedApp={openedApp}
+              state={state}
+              keywordMain={keywordMain}
+            />
+          }
+          // ! 2nd 3rd columns
+          narrowSection={
+            <SecondAndThirdColProject
+              setOpenedApp={setOpenedApp}
+              setIdOpen={setIdOpen}
+              canOpenApp={canOpenApp}
+              openedApp={openedApp}
+              labelOne={labelOneState}
+              labelTwo={labelTwoState}
+              state={state}
+            />
+          }
+        />
       </DragDropContext>
       <AnimatePresence>
         {openedApp && (

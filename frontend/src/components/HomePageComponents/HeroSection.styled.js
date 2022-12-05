@@ -172,7 +172,8 @@ export const HeroNavOne = styled.div`
   /* padding: 1rem 1rem 1rem; */
   gap: 1rem;
 
-  border-left: 1px solid var(--background-blur2);
+  /* border-left: 1px solid var(--background-blur2); */
+  border-left: none;
   flex-basis: calc(100% / 3);
   /* flex-basis: 33vw; */
   &:first-of-type {
@@ -182,8 +183,10 @@ export const HeroNavOne = styled.div`
 export const HeroNavTwo = styled(HeroNavOne)`
   flex-basis: 0;
   flex-grow: 1;
+  border-left: 1px solid var(--background-blur2);
 `
 export const HeroNavOneBig = styled(HeroNavOne)`
+  border-left: none;
   flex-basis: calc(100% * 2 / 3);
 `
 
@@ -200,6 +203,12 @@ export const HeroMainArticle = styled.div`
   grid-template-rows: 6fr 1fr;
 
   max-height: 76vh;
+`
+export const HeroMainArticleReversed = styled(HeroMainArticle)`
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+  /* grid-template-rows: 6fr 1fr; */
+  /* flex-grow: 1; */
 `
 export const HeroArticleSection = styled.div`
   height: 100%;
@@ -230,6 +239,9 @@ export const HeroArticleSmallSection = styled(HeroArticleSection)`
     width: 0.2em;
   }
   border-left: 1px solid var(--background-blur2);
+`
+export const HeroArticleSmallSectionFlexStart = styled(HeroArticleSmallSection)`
+  place-items: flex-start;
 `
 export const HeroArticleBottomBigSection = styled(HeroArticleSection)`
   /* border-top: 1px solid var(--background-blur2); */

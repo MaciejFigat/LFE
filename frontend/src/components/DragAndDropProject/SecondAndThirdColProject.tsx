@@ -7,8 +7,8 @@ import {
   FragmentParSmallExcerpt,
   KeywordB,
   KeywordColumnContainer,
-  KeywordColumnsSubtitle,
-  KeywordColumnsSubtitleWrapper,
+  // KeywordColumnsSubtitle,
+  // KeywordColumnsSubtitleWrapper,
   KeywordDivSimple,
   KeywordSearchContainer,
   KeywordSearchLabelH2,
@@ -86,11 +86,11 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
 
   return (
     <>
-      <KeywordColumnsSubtitleWrapper>
+      {/* <KeywordColumnsSubtitleWrapper>
         <KeywordColumnsSubtitle>
           Przeciągnij fragmenty do kategorii<p>Możesz zmienić ich nazwę</p>
         </KeywordColumnsSubtitle>
-      </KeywordColumnsSubtitleWrapper>
+      </KeywordColumnsSubtitleWrapper> */}
       <KeywordColumnContainer>
         {state.slice(1).map((el, ind) => (
           // ? here indexes have '+1' because I separated 1st column and since I used its indexes aswell as those here, +1 is to avoid the conflict in logic of Droppable

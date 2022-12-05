@@ -352,3 +352,5 @@ export const MobileLinkText = styled.div`
     display: none;
   }
 `
+// export const MobileLinkText = styled.div``
+// export const MobileLinkText = styled.div``

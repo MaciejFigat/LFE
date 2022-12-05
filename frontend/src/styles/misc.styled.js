@@ -350,6 +350,7 @@ export const HorizontalWrapperSpace = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
+  width: 100%;
 `
 export const HorizontalWrapperTight = styled.div`
   display: flex;
