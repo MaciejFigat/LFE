@@ -340,9 +340,11 @@ export const ClayButtonWrapper = styled.div`
   place-items: center;
   padding: ${({ paddingProps }) => (paddingProps ? paddingProps : '1rem')};
   height: ${({ heightProps }) => (heightProps ? heightProps : 'fit-content')};
-  box-shadow: var(--boxShadowClay3);
+  /* box-shadow: var(--boxShadowClay3); */
+  box-shadow: none;
+  border: 1px solid var(--background-blur2);
   background: var(--background-gradient1);
-  border-radius: 20px;
+  border-radius: 25px;
 `
 
 export const HorizontalWrapperSpace = styled.div`
@@ -465,6 +467,7 @@ export const RegularDiv = styled.div`
 
 export const RegularColumn = styled.div`
   display: grid;
+
   place-items: center;
   gap: 1rem;
   padding: 1rem;

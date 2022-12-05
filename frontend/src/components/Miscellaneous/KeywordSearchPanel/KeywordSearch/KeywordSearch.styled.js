@@ -75,6 +75,7 @@ export const KeywordColumnContainer = styled.div`
   flex-direction: row;
   align-items: flex-start;
   /* padding-top: 4rem; */
+
   width: 100%;
 `
 // ? test styling
@@ -162,7 +163,8 @@ export const FragmentDivSmallWrapper = styled(motion.div)`
 `
 export const FragmentDivSmall = styled(motion.div)`
   display: flex;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  align-items: center;
   flex-direction: column;
   justify-content: space-between;
 

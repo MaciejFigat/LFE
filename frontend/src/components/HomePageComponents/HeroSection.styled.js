@@ -228,6 +228,7 @@ export const HeroArticleSection = styled.div`
 export const HeroArticleBigSection = styled(HeroArticleSection)`
   overflow-y: scroll;
   max-height: 100%;
+
   ::-webkit-scrollbar {
     width: 0.2em;
   }

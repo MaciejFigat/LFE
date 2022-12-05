@@ -20,6 +20,7 @@ import {
   DotButton,
   OpenDivButtonSecond,
   OpenDivButtonWrapper,
+  RegularColumn,
   WrapperMotionDiv,
 } from '../../styles/misc.styled'
 
@@ -85,12 +86,7 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
   }, [labelOne, labelTwo])
 
   return (
-    <>
-      {/* <KeywordColumnsSubtitleWrapper>
-        <KeywordColumnsSubtitle>
-          Przeciągnij fragmenty do kategorii<p>Możesz zmienić ich nazwę</p>
-        </KeywordColumnsSubtitle>
-      </KeywordColumnsSubtitleWrapper> */}
+    <RegularColumn>
       <KeywordColumnContainer>
         {state.slice(1).map((el, ind) => (
           // ? here indexes have '+1' because I separated 1st column and since I used its indexes aswell as those here, +1 is to avoid the conflict in logic of Droppable
@@ -103,10 +99,7 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
               >
                 {ind === 0 && (
                   <KeywordSearchLabelH2>
-                    <ClayButtonWrapper
-                      paddingProps='0.25rem'
-                      heightProps='40px'
-                    >
+                    <ClayButtonWrapper paddingProps='0.5rem'>
                       <LabelInput
                         labelNrOne
                         editing={inputOneEditing}
@@ -120,10 +113,7 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                 )}
                 {ind === 1 && (
                   <KeywordSearchLabelH2>
-                    <ClayButtonWrapper
-                      paddingProps='0.25rem'
-                      heightProps='40px'
-                    >
+                    <ClayButtonWrapper paddingProps='0.5rem'>
                       <LabelInput
                         editing={inputTwoEditing}
                         setEditing={setInputTwoEditing}
@@ -197,7 +187,7 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
           </Droppable>
         ))}
       </KeywordColumnContainer>
-    </>
+    </RegularColumn>
   )
 }
 export default SecondAndThirdColProject

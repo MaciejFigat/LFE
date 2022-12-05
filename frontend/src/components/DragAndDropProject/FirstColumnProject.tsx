@@ -15,7 +15,9 @@ import { Droppable, Draggable } from 'react-beautiful-dnd'
 import { VerticalButtonContainer } from './LabelInput/LabelInput.styled'
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import {
+  ClayButtonWrapper,
   DotButton,
+  RegularColumn,
   RelativeRightSvgWrapper,
   WrapperMotionDiv,
 } from '../../styles/misc.styled'
@@ -46,9 +48,10 @@ const getListStyle = (isDraggingOver: any) => ({
   background: isDraggingOver
     ? 'var(--background-blur1)'
     : 'var(--background1-main)',
-  borderRadius: '40px',
+  borderRadius: '20px',
 
-  width: 250,
+  // width: 250,
+  width: '100%',
   minWidth: '100%',
 })
 
@@ -75,8 +78,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
     }
   }
   return (
-    <div>
-      <VerticalButtonContainer></VerticalButtonContainer>
+    <RegularColumn>
       <KeywordColumnContainer>
         <Droppable key={'0'} droppableId={`0`}>
           {(provided, snapshot) => (
@@ -86,6 +88,9 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
               {...provided.droppableProps}
             >
               <FirstColProjectWrapper width={widthNumber}>
+                <ClayButtonWrapper paddingProps='0.5rem'>
+                  Przeciągnij fragmenty
+                </ClayButtonWrapper>
                 {state[0]
                   .slice(start, end + 1)
                   .map((fragment: any, index: number) => (
@@ -174,7 +179,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
           )}
         </Droppable>
       </KeywordColumnContainer>
-    </div>
+    </RegularColumn>
   )
 }
 export default FirstColumnProject
