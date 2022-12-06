@@ -80,6 +80,7 @@ interface SvgIconProps {
   contentAfter?: string
   toRight?: string | boolean
   toLeft?: string | boolean
+  toTop?: string | boolean
   noContent?: boolean
   showContent?: boolean
   toBottom?: string | boolean
@@ -93,6 +94,7 @@ const SvgIcon: React.FC<SvgIconProps> = ({
   contentAfter,
   toRight,
   toLeft,
+  toTop,
   toBottom,
   showContent,
   noContent,
@@ -204,6 +206,7 @@ const SvgIcon: React.FC<SvgIconProps> = ({
       toRight={toRight}
       toLeft={toLeft}
       toBottom={toBottom}
+      toTop={toTop}
       noContent={noContent}
       showContent={showContent}
       lowerPosition={lowerPosition}

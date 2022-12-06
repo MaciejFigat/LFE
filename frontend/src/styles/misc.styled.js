@@ -54,8 +54,12 @@ export const OpenDivButtonSecond = styled(OpenBigDivButton)`
   }
 `
 export const WrapperMotionDiv = styled(motion.div)`
-  position: relative;
-  width: 100%;
+  /* position: relative; */
+  position: absolute;
+  /* background: brown; */
+  height: 180px;
+  /* width: 90%; */
+  max-width: 340px;
 `
 export const ClosingDiv = styled(motion.div)`
   width: 35%;
@@ -340,11 +344,12 @@ export const ClayButtonWrapper = styled.div`
   place-items: center;
   padding: ${({ paddingProps }) => (paddingProps ? paddingProps : '1rem')};
   height: ${({ heightProps }) => (heightProps ? heightProps : 'fit-content')};
-  /* box-shadow: var(--boxShadowClay3); */
-  box-shadow: none;
-  border: 1px solid var(--background-blur2);
+  box-shadow: var(--boxShadowClay1);
+  /* box-shadow: none; */
+  /* border: 1px solid var(--background-blur2); */
   background: var(--background-gradient1);
   border-radius: 25px;
+  margin-bottom: 0.5rem;
 `
 
 export const HorizontalWrapperSpace = styled.div`

@@ -133,7 +133,7 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                     >
                       {(provided, snapshot) => (
                         <FragmentDivSmall
-                          width={widthNumber}
+                          // width={widthNumber}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
@@ -148,7 +148,6 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                           <OpenDivButtonWrapper>
                             <OpenDivButtonSecond
                               top='3px'
-                              // left='-190px'
                               onClick={() => openWindowHandler(fragment._id)}
                             >
                               {' '}

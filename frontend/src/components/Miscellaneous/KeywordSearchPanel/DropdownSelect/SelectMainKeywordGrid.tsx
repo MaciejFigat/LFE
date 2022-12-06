@@ -73,6 +73,7 @@ const SelectMainKeywordGrid: React.FC<SelectMainKeywordGridProps> = ({
   // * sets mainKeyword as ''
   const setNoKeywordHelper = () => {
     dispatch(sortingKeywordMainEdit(''))
+    setIsOpen(false)
   }
 
   const stopEditingHandler = () => {
@@ -245,16 +246,20 @@ const SelectMainKeywordGrid: React.FC<SelectMainKeywordGridProps> = ({
     <>
       <HorizontalWrapperSpace>
         {keywordEditing || keywordCreation ? (
-          <TitleInputMainKeyword
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            type='mainLabel'
-            name='main label'
-            placeholder={keywordMain}
-            value={newKeyword}
-            onChange={(e: any) => setNewKeyword(e.target.value)}
-          />
+          <>
+            {keywordEditing ? <b>Wpisz nazwę edytowanego projektu</b> : null}
+            {keywordCreation ? <b>Wpisz nazwę nowego projektu</b> : null}
+            <TitleInputMainKeyword
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              type='mainLabel'
+              name='main label'
+              placeholder={keywordMain}
+              value={newKeyword}
+              onChange={(e: any) => setNewKeyword(e.target.value)}
+            />
+          </>
         ) : (
           <DropDownHeader
             initial={{ opacity: 0 }}
@@ -274,13 +279,23 @@ const SelectMainKeywordGrid: React.FC<SelectMainKeywordGridProps> = ({
         {!keywordEditing && !keywordCreation && (
           <DropDownButtons>
             <SendButtonVerySmall variant='successEmpty' onClick={addNewHandler}>
-              <SvgIcon variant='plus' toBottom contentAfter='dodaj' />
+              <SvgIcon
+                variant='plus'
+                toBottom
+                width='90px'
+                contentAfter='dodaj nowy projekt'
+              />
             </SendButtonVerySmall>
             <SendButtonVerySmall
               variant='primaryEmpty'
               onClick={editingHandler}
             >
-              <SvgIcon variant='edit' toBottom contentAfter='edytuj' />
+              <SvgIcon
+                variant='edit'
+                toBottom
+                width='100px'
+                contentAfter='edytuj nazwę projektu'
+              />
             </SendButtonVerySmall>
 
             <SendButtonVerySmall
@@ -290,7 +305,8 @@ const SelectMainKeywordGrid: React.FC<SelectMainKeywordGridProps> = ({
               <SvgIcon
                 variant='remove'
                 toBottom
-                contentAfter='usuń powiązane'
+                width='120px'
+                contentAfter='usuń powiązane fragmenty'
               />
             </SendButtonVerySmall>
           </DropDownButtons>

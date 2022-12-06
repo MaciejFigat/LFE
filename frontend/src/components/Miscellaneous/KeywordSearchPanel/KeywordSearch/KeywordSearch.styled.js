@@ -140,7 +140,8 @@ export const FirstColProjectWrapper = styled(motion.div)`
     width > 880 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
   grid-template-columns: ${({ width }) => width > 1380 && 'repeat(3, 1fr)'};
 
-  gap: 0.55rem;
+  /* gap: 0.55rem; */
+  gap: 1rem;
   margin-top: 1.25rem;
 `
 export const FragmentDivSmallWrapper = styled(motion.div)`
@@ -162,12 +163,18 @@ export const FragmentDivSmallWrapper = styled(motion.div)`
   }
 `
 export const FragmentDivSmall = styled(motion.div)`
+  position: relative;
   display: flex;
   /* align-items: flex-start; */
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
-
+  justify-content: space-around;
+  /* justify-content: flex-start; */
+  max-width: 100%;
+  max-width: 330px;
+  max-height: 340px !important;
+  /* min-height: fit-content !important; */
+  /* background: brown !important; */
   /* 
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
@@ -197,7 +204,8 @@ export const FragmentDivSmall = styled(motion.div)`
     /* font-size: 0.85rem; */
     /* //todo  */
   }
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   height: 220px;
   ::-webkit-scrollbar {
     width: 0.2em;

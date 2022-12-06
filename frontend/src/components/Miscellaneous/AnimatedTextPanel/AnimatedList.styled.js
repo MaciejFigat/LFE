@@ -57,6 +57,7 @@ export const FragmentsWrapper = styled(motion.div)`
   }
 `
 export const ListWrapper = styled(motion.div)`
+  position: relative;
   display: flex;
   margin: 0;
   flex-direction: column;
@@ -277,14 +278,21 @@ export const ItemWrapper = styled(motion.div)`
 export const SimpleCitationItem = styled(motion.div)`
   display: grid;
   place-items: space-around;
-  width: 300px;
-
-  height: 200px;
+  place-items: center;
 
   overflow-y: scroll;
-  /* max-width: 300px; */
-  /* background: brown; */
-  /* box-shadow: var(--boxShadow1); */
+
+  box-shadow: var(--boxShadow1);
+
+  min-height: fit-content;
+  height: 240px;
+  padding: 1.55rem;
+  min-width: 400px;
+
+  @media (max-width: 1020px) {
+    min-width: 200px;
+  }
+
   padding: 1rem;
   border-radius: 20px;
   border-right: 1px solid var(--background-blur2);

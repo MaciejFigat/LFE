@@ -164,7 +164,8 @@ export const TitleInputMainKeyword = styled(motion.input)`
   color: var(--background4-main);
   text-align: center;
   height: 22px;
-  padding: 0.4rem 0.25rem 0.4rem 0.25rem;
+  /* padding: 0.4rem 0.25rem 0.4rem 0.25rem; */
+  padding: 0.8rem 0.5rem 0.8rem 0.5rem;
   margin: 0;
   line-height: normal;
   background: transparent;
@@ -172,9 +173,9 @@ export const TitleInputMainKeyword = styled(motion.input)`
   background-color: transparent;
   border: none;
   max-width: 153px;
-  border-bottom: 1px solid var(--background4-main);
+  border: 1px solid var(--background-blur2);
   &:focus {
-    border: none;
+    border-color: var(--background-secondary1);
     outline: 0;
   }
   font-size: inherit;
