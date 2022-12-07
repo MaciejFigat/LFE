@@ -32,6 +32,7 @@ export const KeywordSearchContainer = styled.div`
   flex-basis: 50%;
   margin-right: 0.5rem;
 `
+
 //? both columns in this one
 export const KeywordColumnsSubtitleWrapper = styled.div`
   display: grid;

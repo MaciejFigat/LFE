@@ -1,8 +1,15 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { useAppSelector } from '../../app/reduxHooks'
 import {
+  FragmentDivSmall,
   FragmentDivSmallWrapper,
+  FragmentParSmall,
+  FragmentParSmallExcerpt,
+  KeywordB,
   KeywordColumnContainer,
+  // KeywordColumnsSubtitle,
+  // KeywordColumnsSubtitleWrapper,
+  KeywordDivSimple,
   KeywordSearchContainer,
   KeywordSearchLabelH2,
 } from '../Miscellaneous/KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
@@ -10,34 +17,24 @@ import { Droppable, Draggable } from 'react-beautiful-dnd'
 import LabelInput from './LabelInput/LabelInput'
 import {
   ClayButtonWrapper,
+  DotButton,
+  OpenDivButtonSecond,
+  OpenDivButtonWrapper,
   RegularColumn,
-  RelativeWrapper,
   WrapperMotionDiv,
 } from '../../styles/misc.styled'
-import {
-  ItemWrapper,
-  ListWrapper,
-  SimpleCitationItem,
-} from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
-import {
-  FragmentsP,
-  FragmentsPExcerpt,
-  HorizontalContainer,
-} from '../FragmentsColumn/FragmentsColumn.styled'
-import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
-import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   userSelect: 'none',
-  borderRadius: '20px',
-  //* change background colour if dragging
+
+  // change background colour if dragging
   background: isDragging
-    ? 'var(--background-blur1)'
+    ? 'var(--background2-main)'
     : 'var(--background1-main)',
   color: isDragging
     ? 'var(--background-secondary4)'
     : 'var(--background4-main)',
-  //* styles we need to apply on draggables
+  // styles we need to apply on draggables
   ...draggableStyle,
 })
 
@@ -47,7 +44,7 @@ const getListStyle = (isDraggingOver: any) => ({
     : 'var(--background1-main)',
   borderRadius: '40px',
 
-  // width: 250,
+  width: 250,
 })
 interface SecondAndThirdColProjectProps {
   state: any[]
@@ -135,7 +132,8 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                       index={index}
                     >
                       {(provided, snapshot) => (
-                        <ListWrapper
+                        <FragmentDivSmall
+                          // width={widthNumber}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
@@ -147,44 +145,37 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                           <WrapperMotionDiv layoutId={fragment._id}>
                             {' '}
                           </WrapperMotionDiv>
-                          {fragment.excerpt !== '' && (
-                            <ItemWrapper>
-                              {/* //? This one has styles ie. shadows and borders */}
-                              <SimpleCitationItem>
-                                <HorizontalContainer>
-                                  {fragment.source !== '' && (
-                                    <FragmentsP>{fragment.source}</FragmentsP>
-                                  )}
-
-                                  <>
-                                    <RelativeWrapper top='-15px' left='10px'>
-                                      {' '}
-                                      <SendButtonVerySmall
-                                        variant='secondaryEmpty'
-                                        onClick={() =>
-                                          openWindowHandler(fragment._id)
-                                        }
-                                      >
-                                        <SvgIcon
-                                          variant='edit'
-                                          contentAfter='edytuj'
-                                          // toBottom
-                                          toLeft='-20px'
-                                          toTop='13px'
-                                          width='50px'
-                                        />
-                                      </SendButtonVerySmall>
-                                    </RelativeWrapper>
-                                  </>
-                                </HorizontalContainer>
-                                <FragmentsP>{fragment.coordinates}</FragmentsP>
-                                <FragmentsPExcerpt>
-                                  {fragment.excerpt.substring(0, 150)}
-                                </FragmentsPExcerpt>
-                              </SimpleCitationItem>
-                            </ItemWrapper>
-                          )}
-                        </ListWrapper>
+                          <OpenDivButtonWrapper>
+                            <OpenDivButtonSecond
+                              top='3px'
+                              onClick={() => openWindowHandler(fragment._id)}
+                            >
+                              {' '}
+                              <DotButton left='0px' top='-2px' />
+                            </OpenDivButtonSecond>
+                          </OpenDivButtonWrapper>
+                          {fragment.title !==
+                            fragment.excerpt.substring(0, 22) && (
+                            <FragmentParSmall>
+                              {fragment.title}
+                            </FragmentParSmall>
+                          )}{' '}
+                          <FragmentParSmall>
+                            {fragment.description}
+                          </FragmentParSmall>
+                          <FragmentParSmallExcerpt>
+                            {fragment.excerpt}
+                          </FragmentParSmallExcerpt>
+                          <KeywordDivSimple>
+                            {fragment.keywords
+                              .filter((keyword: string) => keyword !== '')
+                              .map((keyword: string) => (
+                                <KeywordB key={keyword}>
+                                  {keyword} &nbsp;
+                                </KeywordB>
+                              ))}
+                          </KeywordDivSimple>
+                        </FragmentDivSmall>
                       )}
                     </Draggable>
                   ))}

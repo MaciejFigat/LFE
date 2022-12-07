@@ -1,7 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import {
   FirstColProjectWrapper,
-  FragmentB,
   FragmentDivSmall,
   FragmentParSmall,
   FragmentParSmallExcerpt,
@@ -13,7 +12,6 @@ import {
 } from '../Miscellaneous/KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { useAppSelector } from '../../app/reduxHooks'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-// import { VerticalButtonContainer } from './LabelInput/LabelInput.styled'
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import {
   ClayButtonWrapper,
@@ -54,10 +52,10 @@ const getItemStyle = (isDragging: any, draggableStyle: any) => ({
 })
 
 const getListStyle = (isDraggingOver: any) => ({
+  borderRadius: '20px',
   background: isDraggingOver
     ? 'var(--background-blur1)'
     : 'var(--background1-main)',
-  borderRadius: '20px',
 
   // width: 250,
   width: '100%',
@@ -77,7 +75,7 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
   )
   const { start, end } = savedFragmentsPage
 
-  const widthNumber = useAppSelector((state) => state.preference.width)
+  // const widthNumber = useAppSelector((state) => state.preference.width)
   // const width = widthString.substring(0, 2)
 
   const openWindowHandler = (id: string) => {

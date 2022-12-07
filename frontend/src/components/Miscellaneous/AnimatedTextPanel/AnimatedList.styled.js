@@ -287,8 +287,8 @@ export const SimpleCitationItem = styled(motion.div)`
   min-height: fit-content;
   height: 240px;
   padding: 1.55rem;
-  min-width: 400px;
-
+  min-width: 460px;
+  max-width: 460px;
   @media (max-width: 1020px) {
     min-width: 200px;
   }
