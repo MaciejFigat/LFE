@@ -10,7 +10,7 @@ export const IconsItem = styled.div`
   display: flex;
 
   ${({ lowerPosition }) => lowerPosition && 'position: relative;'}
-  top: ${({ lowerPosition }) => lowerPosition && lowerPosition};
+  top: ${({ lowerPosition }) => (lowerPosition ? lowerPosition : null)};
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -47,31 +47,14 @@ export const IconsItem = styled.div`
     top: ${({ toTop }) => (toTop ? toTop : null)};
     bottom: ${({ toRight }) => (toRight ? '15px;' : '15px;')};
     bottom: ${({ toBottom }) => toBottom && '-5px;'};
-    /* left: ${({ toRight }) => (toRight ? toRight : '70px;')}; */
+
     left: ${({ toRight }) => toRight && toRight};
-    /* left: ${({ toLeft }) => (toLeft ? toLeft : '-40px;')}; */
+
     left: ${({ toLeft }) => toLeft && toLeft};
     left: ${({ toBottom }) => toBottom && '0px; '};
 
-    @media (max-width: 620px) {
-      /* width: ${(props) => (props.noContent ? `0px` : '60px')}; */
-      /* left: ${({ toBottom }) => toBottom && '-5px; '}; */
-      /* font-size: 0.55rem; */
-      /* padding: 0; */
-    }
     @media (max-width: 500px) {
       width: ${(props) => (props.noContent ? `0px` : '60px')};
     }
-    @media (max-width: 1020px) {
-      /* bottom: ${({ toRight }) => (toRight ? '15px; ' : '15px;')};
-      bottom: ${({ toBottom }) => toBottom && '-5px;'};
-      left: ${({ toRight }) => (toRight ? '70px; ' : '-40px;')};
-      left: ${({ toLeft }) => (toLeft ? '-45px; ' : '-40px;')};
-      left: ${({ toBottom }) => toBottom && '0px;'}; */
-    }
-    /* @media (max-width: 380px) {
-      display: none;
-    } */
-    /* height: 5px; */
   }
 `

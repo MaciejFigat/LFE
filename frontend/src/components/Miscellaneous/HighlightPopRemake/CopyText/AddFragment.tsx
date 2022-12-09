@@ -80,7 +80,11 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     e.preventDefault()
     dispatch(citationAdded(newCitation))
     setCopySuccess('Zapisano!')
-    if (Object.keys(userInfo).length > 0 && savedExcerpt !== highlightedText) {
+    if (
+      Object.keys(userInfo).length > 0 &&
+      userInfo.status === 'Active' &&
+      savedExcerpt !== highlightedText
+    ) {
       dispatch(createFragment(newFragment))
     }
   }

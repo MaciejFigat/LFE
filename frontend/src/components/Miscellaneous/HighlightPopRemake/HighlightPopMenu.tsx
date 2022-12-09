@@ -37,8 +37,6 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({
   const onMouseUp = useCallback(() => {
     const selection: Selection | null = window.getSelection()
     const selectedText = selection!.toString().trim()
-    // @ts-ignore
-    // const selectedText = window.getSelection().toString().trim()
 
     if (!selectedText) {
       hidePopover()
@@ -87,18 +85,6 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({
     setSelectedText(selectedText)
     setShowPopover(true)
   }, [heroYPosition, heroYValue])
-
-  // useEffect(() => {
-  //   const testPosition = () => {
-  //     console.log(scrollTopPosition ?? 'don`t look at me, i`m a test')
-  //     if (yScrollPosition) setYScrollPosition(scrollTopPosition)
-  //     console.log(yScrollPosition)
-  //   }
-  //   window.addEventListener('mouseup', testPosition)
-  //   return () => {
-  //     window.removeEventListener('mouseup', testPosition)
-  //   }
-  // }, [scrollTopPosition, yScrollPosition])
 
   useEffect(() => {
     window.addEventListener('mouseup', onMouseUp)

@@ -30,7 +30,6 @@ const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
 
   return (
     <AnimateSharedLayout>
-      {/* {' '}<TwoColumnsWrapper></TwoColumnsWrapper> */}
       {citations.length > 0 && !wide ? (
         <RegularColumn>
           {' '}

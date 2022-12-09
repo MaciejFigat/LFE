@@ -96,9 +96,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
     let filteredArr = keywordArr.filter((keyword) => keyword !== keywordValue)
     setKeywordValuePropsFiltered([
       ...keywordValueProps.filter(
-        (keywordObject: any) =>
-          // keywordObject.keyword !== keywordValue || keywordObject.keyword === ''
-          keywordObject.keyword !== keywordValue
+        (keywordObject: any) => keywordObject.keyword !== keywordValue
       ),
     ])
     setKeywordArr(() => filteredArr)

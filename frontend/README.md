@@ -149,3 +149,26 @@ glassmorphed
     // --background-tertiary3: #a8dadc;
     // --background-tertiary4: #f1faee;
     // --background-tertiary5: #e63946;
+
+<!-- //todo popup after element -->
+  &:after {
+    position: absolute;
+    content: '${(props) => props.contentAfter}';
+    font-size: 0.95rem;
+    background: var(--background-blur1);
+    top: ${({ toTop }) => (toTop ? toTop : 0)};
+    left: ${({ toLeft }) => (toLeft ? toLeft : 0)};
+    width: ${({ width }) => (width ? width : '20px')};
+    padding: 0.5rem 0.75rem;
+    height: fit-content;
+    min-height: 15px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in;
+    opacity: 0;
+  }
+  &:hover {
+    &:after {
+      opacity: 1;
+    }
+  }
+  <!-- //? popup after element END-->

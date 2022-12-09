@@ -145,7 +145,7 @@ export const HorizontalButtonContainer = styled(motion.div)`
 export const HeaderAndCogContainer = styled(HorizontalButtonContainer)`
   min-width: 232px;
   /* background: red; */
-  flex-direction: column;
+  flex-direction: row;
   /* justify-content: space-around; */
   justify-content: center;
   align-items: center;
@@ -193,7 +193,7 @@ export const OptionsDropdownContainer = styled.div`
   position: relative;
   height: 3.7rem;
   left: -25px;
-  top: 23px;
+  top: 10px;
   /* z-index: 10; */
   background: var(--background1-main);
   width: 250px;

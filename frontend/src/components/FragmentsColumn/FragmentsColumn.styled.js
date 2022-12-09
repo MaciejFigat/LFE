@@ -32,6 +32,7 @@ export const FragmentsP = styled.p`
 export const FragmentsPExcerpt = styled.p`
   color: var(--background4-main);
   font-size: 1rem;
+  /* font-weight: 600; */
   margin: 0;
   margin-bottom: 0.5rem;
 `
@@ -48,6 +49,7 @@ export const HorizontalContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 `
 export const DateCompareRow = styled.div`
   display: flex;

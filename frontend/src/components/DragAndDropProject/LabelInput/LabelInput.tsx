@@ -97,9 +97,10 @@ const LabelInput: React.FC<LabelInputProps> = ({
         <LabelContainerWrapper>
           {' '}
           <LabelContainer
-          // initial={{ opacity: 0 }}
-          // animate={{ opacity: 1 }}
-          // exit={{ opacity: 0 }}
+            contentAfter='edytuj nazwę'
+            width='55px'
+            toTop='-15px'
+            toLeft='-100px'
           >
             <TitleInput
               type='label'
@@ -114,21 +115,38 @@ const LabelInput: React.FC<LabelInputProps> = ({
               variant='primaryEmpty'
               onClick={resetLabelHelper}
             >
-              <SvgIcon variant='back' toBottom contentAfter='wróć' />
+              <SvgIcon
+                variant='back'
+                toLeft='-45px'
+                toTop='-15px'
+                width='45px'
+                contentAfter='wróć'
+              />
             </SendButtonVerySmall>
             {labelRedux !== label && (
               <SendButtonVerySmall
                 variant='successEmpty'
                 onClick={saveInputLabelHelper}
               >
-                <SvgIcon variant='save' toBottom contentAfter='zapisz' />
+                <SvgIcon
+                  variant='save'
+                  toLeft='45px'
+                  toTop='-15px'
+                  width='50px'
+                  contentAfter='zapisz'
+                />
               </SendButtonVerySmall>
             )}
           </LabelContainerButtons>
         </LabelContainerWrapper>
       ) : (
         // <HorizontalLabelContainer>
-        <LabelContainer>
+        <LabelContainer
+          contentAfter='nazwa kategorii'
+          width='70px'
+          toTop='-15px'
+          toLeft='-110px'
+        >
           <TitleAnimated
             // initial={{ opacity: 0 }}
             // animate={{ opacity: 1 }}

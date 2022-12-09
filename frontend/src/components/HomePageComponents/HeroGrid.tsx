@@ -12,7 +12,8 @@ import {
   HeroNavOneBig,
   HeroNavTwo,
 } from './HeroSection.styled'
-import { useAppDispatch } from '../../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+import { UserInfo } from '../../interfaces'
 import {
   ChoiceItem,
   ChoiceList,
@@ -31,11 +32,18 @@ import { editYHeroPosition } from '../../features/preferences/preferenceSlice'
 import { HeroSavedOne, HeroSavedTwo } from './HeroGridComponents.tsx/HeroSaved'
 import { HeroExportMain } from './HeroGridComponents.tsx/HeroExport'
 import VisitedLinks from '../Miscellaneous/VisitedLinks/VisitedLinks'
+import FilterWrapper from '../FragmentsColumn/FilterWrapper/FilterWrapper'
+import UserFragmentsColumn from '../FragmentsColumn/UserFragmentsColumn'
+import UserFragmentsByKeyword from '../FragmentsColumn/UserFragmentsByKeyword'
 
 interface HeroGridProps {}
 
 const HeroGrid: React.FC<HeroGridProps> = () => {
   const dispatch = useAppDispatch()
+  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  const sortingOption: string = useAppSelector(
+    (state) => state.preference.sortingOption
+  )
   //* I will pass the scrollTop of the element to use if for correct HighlightPopMenu positioning
 
   const scrollPosition = document.querySelector('.scrollPosition')
@@ -75,13 +83,28 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       content: <SimpleResultDisplay />,
       secondaryContent: (
         <>
-          <CitationDisplay />
+          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+            <>
+              {(sortingOption === 'data' || sortingOption === 'wszystkie') && (
+                <UserFragmentsColumn />
+              )}
+              {sortingOption === 'projekt' && <UserFragmentsByKeyword />}
+            </>
+          ) : (
+            <CitationDisplay />
+          )}
         </>
       ),
       tertiaryContent: (
-        <RegularDiv>
-          <HeroSavedOne />
-        </RegularDiv>
+        <>
+          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+            <FilterWrapper />
+          ) : (
+            <RegularDiv>
+              <HeroSavedOne />
+            </RegularDiv>
+          )}
+        </>
       ),
       quaternaryContent: (
         <RegularDiv>
@@ -89,9 +112,15 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
         </RegularDiv>
       ),
       pentanaryContent: (
-        <RegularDiv>
-          <HeroSavedTwo />
-        </RegularDiv>
+        <>
+          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+            <>Active user bottom</>
+          ) : (
+            <RegularDiv>
+              <HeroSavedTwo />
+            </RegularDiv>
+          )}
+        </>
       ),
     },
     {

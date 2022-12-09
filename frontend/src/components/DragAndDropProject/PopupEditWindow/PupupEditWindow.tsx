@@ -12,9 +12,14 @@ import {
   editSavedFragment,
   getUserFragments,
 } from '../../../features/fragments/fragmentSlice'
-import KeywordEditing from './KeywordEditing'
+// import KeywordEditing from './KeywordEditing'
 import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
-import { ClosingDivBig, OpenedDivBig } from '../../../styles/misc.styled'
+import {
+  ClosingDivBig,
+  HorizontalWrapperGap,
+  OpenedDivBig,
+  RegularDiv,
+} from '../../../styles/misc.styled'
 import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 import {
   DescriptionDiv,
@@ -34,6 +39,8 @@ import {
   PopupTitleInput,
 } from './PopupEditWindow.styled'
 import { editIdOpenFragment } from '../../../features/preferences/preferenceSlice'
+import FragmentKeywordDisplay from './FragmentKeywordDisplay'
+import { HorizontalContainer } from '../../FragmentsColumn/FragmentsColumn.styled'
 
 interface PupupEditWindowProps {
   openedApp?: string | null
@@ -66,6 +73,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     excerpt: '',
     source: '',
     updatedAt: '',
+    coordinates: '',
     keywords: [],
     keywordValue: [],
   })
@@ -100,7 +108,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     setExcerptEditing((excerptEditing) => !excerptEditing)
     setExcerptValue(openedFragment.excerpt)
   }
-  const removeFragmentHandler = (id: string) => {
+  const removeFragmentHandler = () => {
     dispatch(deleteSavedFragment(idOpen))
     if (setOpenedApp) {
       setOpenedApp(null)
@@ -255,7 +263,8 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <PopupB>{titleValue}</PopupB>
+                    <PopupB>Tytuł: </PopupB>
+                    {titleValue}
                   </motion.div>
                 </PopupTitleAnimated>
               </PopupTitle>
@@ -325,7 +334,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                 >
                   <SendButtonVerySmall
                     variant='secondaryEmpty'
-                    onClick={() => removeFragmentHandler(idOpen)}
+                    onClick={() => removeFragmentHandler()}
                   >
                     <SvgIcon
                       variant='remove'
@@ -337,12 +346,9 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
               </motion.div>{' '}
             </AnimatePresence>
           </PopupTitleContainer>{' '}
-          <PopupDatePar>
-            {openedFragment?.updatedAt.substring(0, 10)} at{' '}
-            {openedFragment?.updatedAt.substring(12, 16)}
-          </PopupDatePar>
           <PopupDatePar>{openedFragment?.source}</PopupDatePar>
-          <KeywordEditing id={idOpen} setOpenedApp={setOpenedApp} />
+          <PopupDatePar>{openedFragment?.coordinates}</PopupDatePar>
+          {/* <KeywordEditing id={idOpen} setOpenedApp={setOpenedApp} /> */}
           {/* //todo excerpt editing/display below */}
           <PopupListRow>
             <PopupTitleContainer>
@@ -478,6 +484,17 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
               </PopupListButtonContainer>
             </PopupTextAreaContainer>
           </PopupListRowShort>
+          <PopupTitleContainer>
+            {' '}
+            <HorizontalWrapperGap>
+              <PopupB> Projekty:</PopupB>
+              <FragmentKeywordDisplay id={idOpen} />
+            </HorizontalWrapperGap>
+            <PopupDatePar>
+              Aktualizowano {openedFragment?.updatedAt.substring(0, 10)} o{' '}
+              {openedFragment?.updatedAt.substring(12, 16)}{' '}
+            </PopupDatePar>
+          </PopupTitleContainer>
         </FragmentDivPopup>
       </OpenedDivBig>
     </>

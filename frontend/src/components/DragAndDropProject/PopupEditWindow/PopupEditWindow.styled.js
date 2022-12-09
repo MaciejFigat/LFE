@@ -3,8 +3,13 @@ import { motion } from 'framer-motion'
 
 export const FragmentDivPopup = styled(motion.div)`
   /* position: absolute; */
-  align-self: center;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-around;
+  /* align-self: center; */
   background: var(--background1-main);
+  /* background: brown; */
   border-radius: 10px;
   /* width: 95%; */
   padding: 0.75rem;
@@ -109,7 +114,7 @@ export const PopupListRow = styled(motion.div)`
   border-bottom: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
-  box-shadow: var(--boxShadowInset1);
+  /* box-shadow: var(--boxShadowInset1); */
   @media (max-width: 740px) {
     padding: 0.55rem;
     font-size: 1rem;
@@ -180,7 +185,7 @@ export const PopupListRowShort = styled(ListRow)`
   border-bottom: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
-  box-shadow: var(--boxShadowInset1);
+  /* box-shadow: var(--boxShadowInset1); */
 `
 export const PopupTextAreaContainer = styled(motion.div)`
   display: flex;

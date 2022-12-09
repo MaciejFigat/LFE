@@ -6,25 +6,16 @@ import {
 } from '../Miscellaneous/KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { useAppSelector } from '../../app/reduxHooks'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
+
 import {
-  ClayButtonWrapper,
+  ClayButtonWrapperSecondary,
   RegularColumn,
-  RelativeWrapper,
   WrapperMotionDiv,
 } from '../../styles/misc.styled'
 
-import {
-  ItemWrapper,
-  ListWrapper,
-  SimpleCitationItem,
-} from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
-import {
-  FragmentsP,
-  FragmentsPExcerpt,
-  HorizontalContainer,
-} from '../FragmentsColumn/FragmentsColumn.styled'
-import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
+import { ListWrapper } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
+
+import FragmentTextItem from '../Miscellaneous/AnimatedTextPanel/FragmentTextItem'
 
 interface FirstColumnProjectProps {
   state: any[]
@@ -72,13 +63,6 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
   )
   const { start, end } = savedFragmentsPage
 
-  const openWindowHandler = (id: string) => {
-    if (canOpenApp && setOpenedApp && setIdOpen && openedApp === null) {
-      setOpenedApp(id)
-      setIdOpen(id)
-    }
-  }
-
   return (
     <RegularColumn>
       <KeywordColumnContainer>
@@ -90,9 +74,9 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
               {...provided.droppableProps}
             >
               <FirstColProjectWrapper>
-                <ClayButtonWrapper paddingProps='0.5rem'>
-                  Przeciągnij fragmenty
-                </ClayButtonWrapper>
+                <ClayButtonWrapperSecondary paddingProps='1rem'>
+                  Przeciągnij fragmenty &#x2192;
+                </ClayButtonWrapperSecondary>
                 {state[0]
                   .slice(start, end + 1)
                   .map((fragment: any, index: number) => (
@@ -116,43 +100,16 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                               {' '}
                             </WrapperMotionDiv>
                             {fragment.excerpt !== '' && (
-                              <ItemWrapper>
-                                {/* //? This one has styles ie. shadows and borders */}
-                                <SimpleCitationItem>
-                                  <HorizontalContainer>
-                                    {fragment.source !== '' && (
-                                      <FragmentsP>{fragment.source}</FragmentsP>
-                                    )}
-
-                                    <>
-                                      <RelativeWrapper top='-15px' left='10px'>
-                                        {' '}
-                                        <SendButtonVerySmall
-                                          variant='secondaryEmpty'
-                                          onClick={() =>
-                                            openWindowHandler(fragment._id)
-                                          }
-                                        >
-                                          <SvgIcon
-                                            variant='edit'
-                                            contentAfter='edytuj'
-                                            // toBottom
-                                            toLeft='-20px'
-                                            toTop='13px'
-                                            width='50px'
-                                          />
-                                        </SendButtonVerySmall>
-                                      </RelativeWrapper>
-                                    </>
-                                  </HorizontalContainer>
-                                  <FragmentsP>
-                                    {fragment.coordinates}
-                                  </FragmentsP>
-                                  <FragmentsPExcerpt>
-                                    {fragment.excerpt.substring(0, 150)}
-                                  </FragmentsPExcerpt>
-                                </SimpleCitationItem>
-                              </ItemWrapper>
+                              <FragmentTextItem
+                                _id={fragment._id}
+                                excerpt={fragment.excerpt}
+                                source={fragment.source}
+                                coordinates={fragment.coordinates}
+                                setOpenedApp={setOpenedApp}
+                                canOpenApp={canOpenApp}
+                                openedApp={openedApp}
+                                setIdOpen={setIdOpen}
+                              />
                             )}
                           </ListWrapper>
                         )

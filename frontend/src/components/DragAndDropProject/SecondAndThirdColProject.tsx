@@ -9,7 +9,7 @@ import {
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 import LabelInput from './LabelInput/LabelInput'
 import {
-  ClayButtonWrapper,
+  ClayButtonWrapperSecondary,
   RegularColumn,
   RelativeWrapper,
   WrapperMotionDiv,
@@ -26,6 +26,7 @@ import {
 } from '../FragmentsColumn/FragmentsColumn.styled'
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
+import FragmentTextItem from '../Miscellaneous/AnimatedTextPanel/FragmentTextItem'
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   userSelect: 'none',
@@ -102,7 +103,7 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
               >
                 {ind === 0 && (
                   <KeywordSearchLabelH2>
-                    <ClayButtonWrapper paddingProps='0.5rem'>
+                    <ClayButtonWrapperSecondary paddingProps='0.5rem'>
                       <LabelInput
                         labelNrOne
                         editing={inputOneEditing}
@@ -111,12 +112,12 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                         labelRedux={labelOne ?? 'pro'}
                         setLabel={setLabelOneState}
                       />
-                    </ClayButtonWrapper>
+                    </ClayButtonWrapperSecondary>
                   </KeywordSearchLabelH2>
                 )}
                 {ind === 1 && (
                   <KeywordSearchLabelH2>
-                    <ClayButtonWrapper paddingProps='0.5rem'>
+                    <ClayButtonWrapperSecondary paddingProps='0.5rem'>
                       <LabelInput
                         editing={inputTwoEditing}
                         setEditing={setInputTwoEditing}
@@ -124,7 +125,7 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                         labelRedux={labelTwo ?? 'contra'}
                         setLabel={setLabelTwoState}
                       />
-                    </ClayButtonWrapper>
+                    </ClayButtonWrapperSecondary>
                   </KeywordSearchLabelH2>
                 )}
                 <FragmentDivSmallWrapper width={widthNumber}>
@@ -148,41 +149,16 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                             {' '}
                           </WrapperMotionDiv>
                           {fragment.excerpt !== '' && (
-                            <ItemWrapper>
-                              {/* //? This one has styles ie. shadows and borders */}
-                              <SimpleCitationItem>
-                                <HorizontalContainer>
-                                  {fragment.source !== '' && (
-                                    <FragmentsP>{fragment.source}</FragmentsP>
-                                  )}
-
-                                  <>
-                                    <RelativeWrapper top='-15px' left='10px'>
-                                      {' '}
-                                      <SendButtonVerySmall
-                                        variant='secondaryEmpty'
-                                        onClick={() =>
-                                          openWindowHandler(fragment._id)
-                                        }
-                                      >
-                                        <SvgIcon
-                                          variant='edit'
-                                          contentAfter='edytuj'
-                                          // toBottom
-                                          toLeft='-20px'
-                                          toTop='13px'
-                                          width='50px'
-                                        />
-                                      </SendButtonVerySmall>
-                                    </RelativeWrapper>
-                                  </>
-                                </HorizontalContainer>
-                                <FragmentsP>{fragment.coordinates}</FragmentsP>
-                                <FragmentsPExcerpt>
-                                  {fragment.excerpt.substring(0, 150)}
-                                </FragmentsPExcerpt>
-                              </SimpleCitationItem>
-                            </ItemWrapper>
+                            <FragmentTextItem
+                              _id={fragment._id}
+                              excerpt={fragment.excerpt}
+                              source={fragment.source}
+                              coordinates={fragment.coordinates}
+                              setOpenedApp={setOpenedApp}
+                              canOpenApp={canOpenApp}
+                              openedApp={openedApp}
+                              setIdOpen={setIdOpen}
+                            />
                           )}
                         </ListWrapper>
                       )}

@@ -61,6 +61,11 @@ export const WrapperMotionDiv = styled(motion.div)`
   /* width: 90%; */
   max-width: 340px;
 `
+export const WrapperMotionDivRelative = styled(motion.div)`
+  position: relative;
+  height: 180px;
+  max-width: 340px;
+`
 export const ClosingDiv = styled(motion.div)`
   width: 35%;
   border-radius: 100px;
@@ -95,6 +100,13 @@ export const ClosingDivBig = styled(ClosingDiv)`
   left: 35%;
 `
 export const OpenedLayoutDiv = styled(motion.div)`
+  /* display: grid; */
+  /* place-items: center; */
+  /* display: flex;
+  flex-direction: column;
+  align-items: space-around; */
+
+  /* justify-content: center; */
   height: 100%;
   width: calc(100% + 200px);
   /* //todo here  */
@@ -107,19 +119,22 @@ export const OpenedLayoutDiv = styled(motion.div)`
   overflow: hidden;
   border-radius: 20px;
   background: var(--background1-main);
+  /* background: brown; */
+  /* border: 1px solid var(--background-secondary1); */
+  border: 1px solid var(--background4-main);
   /* border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2); */
 
   color: var(--background2-main);
-  /* box-shadow: var(--boxShadow4); */
-  box-shadow: var(--boxShadowClay4);
+  box-shadow: var(--boxShadow4);
+  /* box-shadow: var(--boxShadowClay4); */
   /* border: 1px solid var(--background1-main); */
 `
 export const OpenedDivBig = styled(OpenedLayoutDiv)`
   /* display: flex;
-  background: red;
+  background: brown;
   justify-content: center;
   align-items: center; */
   height: 80vh;
@@ -176,6 +191,7 @@ export const RelativeWrapper = styled.div`
 export const HorizontalWrapperGap = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: row;
   gap: 1rem;
 `
@@ -345,11 +361,14 @@ export const ClayButtonWrapper = styled.div`
   padding: ${({ paddingProps }) => (paddingProps ? paddingProps : '1rem')};
   height: ${({ heightProps }) => (heightProps ? heightProps : 'fit-content')};
   box-shadow: var(--boxShadowClay1);
-  /* box-shadow: none; */
-  /* border: 1px solid var(--background-blur2); */
   background: var(--background-gradient1);
   border-radius: 25px;
   margin-bottom: 0.5rem;
+`
+export const ClayButtonWrapperSecondary = styled(ClayButtonWrapper)`
+  box-shadow: var(--boxShadow1);
+  max-width: fit-content;
+  margin-bottom: 1rem;
 `
 
 export const HorizontalWrapperSpace = styled.div`

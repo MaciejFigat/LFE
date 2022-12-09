@@ -222,7 +222,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   transition: all 0.2s ease-in;
-  //!
+
   margin-right: 1rem;
 
   a {

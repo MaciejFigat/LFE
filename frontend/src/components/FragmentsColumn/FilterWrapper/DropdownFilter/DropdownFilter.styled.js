@@ -28,7 +28,7 @@ export const DropDownHeader = styled.div`
   /* color: var(--background-secondary1); */
   transition: all 0.2s ease-out;
   text-align: center;
-  margin-bottom: ${({ wide }) => (wide ? '1rem' : '0.75rem')};
+  margin-bottom: ${({ wide }) => (wide ? '1rem' : '0rem')};
   font-size: ${({ wide }) => (wide ? '1.2rem' : '0.75')};
 
   cursor: pointer;

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
-import { FragmentContainer } from './FragmentsColumn.styled'
+// import { FragmentContainer } from './FragmentsColumn.styled'
 
 import {
   ListWrapper,
@@ -9,6 +9,8 @@ import {
 } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import AnimatedSavedItemSimple from '../Miscellaneous/AnimatedTextPanel/AnimatedSavedItemSimple'
+
+import { FragmentContainer } from './FragmentsColumn.styled'
 
 interface UserFragmentsColumnProps {
   moreColumns?: boolean
@@ -49,6 +51,7 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
   }, [dispatch, fragmentSuccess])
 
   return (
+    // <FragmentsWrapper moreColumns={moreColumns} width={widthNarrow}>
     <FragmentsWrapper moreColumns={moreColumns} width={widthNarrow}>
       {fragments.length > 0 &&
         fragments
@@ -65,10 +68,8 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
 
           .map((fragment) => (
             <ListWrapper
+              // as={motion.ul}
               key={fragment._id}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
             >
               {fragment.excerpt !== '' && (
                 <FragmentContainer
@@ -77,7 +78,6 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
                 >
                   <ItemWrapper>
                     <AnimatedSavedItemSimple
-                      moreColumns={moreColumns}
                       id={fragment._id}
                       title={fragment.title}
                       description={fragment.description}

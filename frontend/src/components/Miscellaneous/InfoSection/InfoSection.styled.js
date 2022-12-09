@@ -391,7 +391,7 @@ export const CenterWrapperSimple = styled(CenterWrapper)`
 export const DataContainerSimple = styled.div`
   display: grid;
   place-items: ${({ moreColumns }) => (moreColumns ? 'flex-start' : 'center')};
-
+  gap: 1rem;
   /* //todo resizable narrow column grid columns */
   grid-template-columns: ${({ width }) =>
     width < 600 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
@@ -410,9 +410,6 @@ export const DataContainerSimple = styled.div`
     grid-template-columns: 'repeat(1, 1fr)';
   }
   /* //todo resizable narrow column grid columns END */
-  /* background: ${({ width }) => (width < 700 ? 'red' : 'blue')}; */
-  /* grid-template-columns: repeat(2, 1fr); */
-  gap: 1rem;
 `
 
 // export const HighlightMarker = styled.div`

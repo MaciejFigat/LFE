@@ -21,7 +21,7 @@ export const KeywordSearchLabelH2 = styled.div`
   margin: 0;
   /* background: brown; */
   /* min-width: fit-content; */
-  padding: 0.75rem 0rem;
+  /* padding: 0.75rem 0rem; */
 `
 export const KeywordSearchContainer = styled.div`
   display: flex;
@@ -75,6 +75,7 @@ export const KeywordColumnContainer = styled.div`
   min-height: 100vh;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: center;
   /* padding-top: 4rem; */
 
   width: 100%;
@@ -100,9 +101,9 @@ export const KeywordB = styled.b`
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
-  border-radius: 10px;
-  font-size: 0.8rem;
-  padding: 0.25rem;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;
 `
 export const KeywordDivSimple = styled.b`
   display: flex;
@@ -137,17 +138,19 @@ export const FragmentTitleRowSmall = styled.div`
 
 export const FirstColProjectWrapper = styled(motion.div)`
   display: grid;
+  place-items: center;
+  /* background: brown; */
   grid-template-columns: ${({ width }) =>
     width > 880 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
   grid-template-columns: ${({ width }) => width > 1380 && 'repeat(3, 1fr)'};
 
   /* gap: 0.55rem; */
   gap: 1rem;
-  margin-top: 1.25rem;
+  /* margin-top: 0.5rem; */
 `
 export const FragmentDivSmallWrapper = styled(motion.div)`
   //todo
-  /* display: flex; */
+
   gap: 1rem;
   display: grid;
   /* grid-template-columns: repeat(2, 1fr);
