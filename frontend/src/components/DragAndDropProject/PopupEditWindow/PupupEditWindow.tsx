@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import React, {
   useState,
   useEffect,
@@ -13,34 +13,28 @@ import {
   getUserFragments,
 } from '../../../features/fragments/fragmentSlice'
 // import KeywordEditing from './KeywordEditing'
-import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
+
 import {
+  CenteredTitle,
   ClosingDivBig,
   HorizontalWrapperGap,
   OpenedDivBig,
-  RegularDiv,
 } from '../../../styles/misc.styled'
-import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
+
 import {
-  DescriptionDiv,
   FragmentDivPopup,
   PopupB,
   PopupDatePar,
   PopupDescriptionAnimated,
   PopupDescriptionInput,
   PopupHorizontalContainer,
-  PopupListButtonContainer,
   PopupListRow,
-  PopupListRowShort,
-  PopupTextAreaContainer,
-  PopupTitle,
-  PopupTitleAnimated,
   PopupTitleContainer,
   PopupTitleInput,
 } from './PopupEditWindow.styled'
 import { editIdOpenFragment } from '../../../features/preferences/preferenceSlice'
 import FragmentKeywordDisplay from './FragmentKeywordDisplay'
-import { HorizontalContainer } from '../../FragmentsColumn/FragmentsColumn.styled'
+import { ButtonSmall } from '../../Miscellaneous/Buttons/BigButton.styled'
 
 interface PupupEditWindowProps {
   openedApp?: string | null
@@ -84,15 +78,23 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
 
   const [excerptEditing, setExcerptEditing] = useState(false)
 
-  const [titleValue, setTitleValue] = useState(openedFragment?.title)
+  // const [titleValue, setTitleValue] = useState(openedFragment?.title)
+  const [titleValue, setTitleValue] = useState('')
 
   const [descriptionValue, setDescriptionValue] = useState(
-    openedFragment?.description
+    ''
+    // openedFragment?.description !== 'komentarz'
+    //   ? openedFragment?.description
+    //   : ''
   )
 
-  const [excerptValue, setExcerptValue] = useState(openedFragment?.excerpt)
+  // const [excerptValue, setExcerptValue] = useState(openedFragment?.excerpt)
+  const [excerptValue, setExcerptValue] = useState('')
 
-  const toggleEditing = () => setTitleEditing(!titleEditing)
+  const toggleEditing = () => {
+    setTitleEditing(!titleEditing)
+    if (openedFragment?.title) setTitleValue(openedFragment?.title)
+  }
 
   const toggleDescriptionEditing = () =>
     setDescriptionEditing((descriptionEditing) => !descriptionEditing)
@@ -104,6 +106,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
 
   const toggleExcerptEditing = () =>
     setExcerptEditing((excerptEditing) => !excerptEditing)
+
   const toggleExcerptReset = () => {
     setExcerptEditing((excerptEditing) => !excerptEditing)
     setExcerptValue(openedFragment.excerpt)
@@ -144,7 +147,8 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     setOpenedFragment(fragment)
     setTitleValue(fragment?.title)
     setExcerptValue(fragment?.excerpt)
-    setDescriptionValue(fragment?.description)
+    if (fragment?.description !== 'komentarz')
+      setDescriptionValue(fragment?.description)
   }, [fragments, idOpen])
 
   const onClickCloseHelper = () => {
@@ -253,99 +257,86 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
           transition={{ ease: 'linear' }}
           onClick={() => onClickCloseHelper()}
         />
+
         <FragmentDivPopup>
           <PopupTitleContainer>
+            <HorizontalWrapperGap>
+              {titleEditing ? (
+                <ButtonSmall variant='primary' onClick={toggleEditing}>
+                  Anuluj zmiany
+                </ButtonSmall>
+              ) : (
+                <ButtonSmall variant='secondary' onClick={toggleEditing}>
+                  Zmień tytuł
+                </ButtonSmall>
+              )}
+              {titleEditing && titleValue !== openedFragment.title ? (
+                <ButtonSmall variant='success' onClick={saveTitleHandler}>
+                  Zapisz tytuł
+                </ButtonSmall>
+              ) : null}
+              {excerptEditing ? (
+                <ButtonSmall variant='primary' onClick={toggleExcerptReset}>
+                  Anuluj zmiany
+                </ButtonSmall>
+              ) : (
+                <ButtonSmall variant='secondary' onClick={toggleExcerptEditing}>
+                  Edytuj cytat
+                </ButtonSmall>
+              )}
+              {excerptEditing && excerptValue !== openedFragment.excerpt ? (
+                <ButtonSmall variant='success' onClick={saveExcerptHandler}>
+                  Zapisz zmiany cytatu
+                </ButtonSmall>
+              ) : null}
+              {descriptionEditing ? (
+                <ButtonSmall variant='primary' onClick={toggleDescriptionReset}>
+                  Anuluj zmiany
+                </ButtonSmall>
+              ) : (
+                <ButtonSmall
+                  variant='secondary'
+                  onClick={toggleDescriptionEditing}
+                >
+                  Dodaj komentarz
+                </ButtonSmall>
+              )}
+              {descriptionEditing &&
+              descriptionValue !== openedFragment.description ? (
+                <ButtonSmall variant='success' onClick={saveDescriptionHandler}>
+                  Zapisz zmiany komentarza
+                </ButtonSmall>
+              ) : null}
+            </HorizontalWrapperGap>
+            <ButtonSmall
+              variant='danger'
+              onClick={() => removeFragmentHandler()}
+            >
+              Usuń fragment
+            </ButtonSmall>
+          </PopupTitleContainer>
+          <CenteredTitle>
             {!titleEditing ? (
-              <PopupTitle onClick={toggleEditing}>
-                <PopupTitleAnimated>
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                  >
-                    <PopupB>Tytuł: </PopupB>
-                    {titleValue}
-                  </motion.div>
-                </PopupTitleAnimated>
-              </PopupTitle>
-            ) : (
-              <PopupTitle>
-                <PopupTitleAnimated>
-                  <PopupTitleInput
-                    type='title'
-                    name='title'
-                    placeholder='new title'
-                    value={titleValue}
-                    onChange={(e: any) => setTitleValue(e.target.value)}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                  />
-                  {titleEditing && titleValue !== openedFragment.title && (
-                    <PopupHorizontalContainer>
-                      {' '}
-                      <SendButtonVerySmall
-                        variant='secondaryEmpty'
-                        onClick={toggleEditing}
-                      >
-                        <SvgIcon
-                          variant='back'
-                          toBottom
-                          contentAfter='anuluj zmiany'
-                        />
-                      </SendButtonVerySmall>{' '}
-                      <SendButtonVerySmall
-                        variant='successEmpty'
-                        onClick={saveTitleHandler}
-                      >
-                        <SvgIcon
-                          variant='save'
-                          toBottom
-                          contentAfter='zapisz'
-                        />
-                      </SendButtonVerySmall>
-                    </PopupHorizontalContainer>
-                  )}
-                  {titleEditing && titleValue === openedFragment.title && (
-                    <SendButtonVerySmall
-                      variant='secondaryEmpty'
-                      onClick={toggleEditing}
-                    >
-                      <SvgIcon
-                        variant='back'
-                        toBottom
-                        contentAfter='anuluj zmiany'
-                      />
-                    </SendButtonVerySmall>
-                  )}
-                </PopupTitleAnimated>
-              </PopupTitle>
-            )}{' '}
-            <AnimatePresence>
-              {' '}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <PopupHorizontalContainer
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                >
-                  <SendButtonVerySmall
-                    variant='secondaryEmpty'
-                    onClick={() => removeFragmentHandler()}
-                  >
-                    <SvgIcon
-                      variant='remove'
-                      toBottom
-                      contentAfter='usuń fragment'
-                    />
-                  </SendButtonVerySmall>{' '}
-                </PopupHorizontalContainer>
-              </motion.div>{' '}
-            </AnimatePresence>
-          </PopupTitleContainer>{' '}
+                {titleValue}
+              </motion.div>
+            ) : (
+              <PopupTitleInput
+                type='title'
+                name='title'
+                placeholder='new title'
+                value={titleValue}
+                onChange={(e: any) => setTitleValue(e.target.value)}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              />
+            )}
+          </CenteredTitle>
           <PopupDatePar>{openedFragment?.source}</PopupDatePar>
           <PopupDatePar>{openedFragment?.coordinates}</PopupDatePar>
           {/* <KeywordEditing id={idOpen} setOpenedApp={setOpenedApp} /> */}
@@ -357,133 +348,59 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                 >
-                  <DescriptionDiv onClick={toggleExcerptEditing}>
-                    <PopupB>Cytat: </PopupB>
-                    {excerptValue}
-                  </DescriptionDiv>
+                  {excerptValue}
                 </PopupDescriptionAnimated>
               ) : (
                 <PopupDescriptionAnimated
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                 >
-                  <PopupB>Cytat: </PopupB>{' '}
                   <PopupDescriptionInput
                     type='excerpt'
                     name='excerpt'
-                    cols='35'
-                    rows='5'
+                    cols='25'
+                    rows='2'
                     placeholder='nowy cytat'
                     value={excerptValue}
                     onChange={(e: any) => setExcerptValue(e.target.value)}
                   />
                 </PopupDescriptionAnimated>
               )}
-              <PopupHorizontalContainer>
-                {excerptEditing && excerptValue !== openedFragment.excerpt && (
-                  <>
-                    <SendButtonVerySmall
-                      variant='primaryEmpty'
-                      onClick={toggleExcerptReset}
-                    >
-                      <SvgIcon
-                        variant='back'
-                        toBottom
-                        contentAfter='anuluj zmiany'
-                      />
-                    </SendButtonVerySmall>
-                    <SendButtonVerySmall
-                      variant='successEmpty'
-                      onClick={saveExcerptHandler}
-                    >
-                      <SvgIcon variant='save' toBottom contentAfter='zapisz' />
-                    </SendButtonVerySmall>
-                  </>
-                )}
-                {excerptEditing && excerptValue === openedFragment.excerpt && (
-                  <SendButtonVerySmall
-                    variant='primaryEmpty'
-                    onClick={toggleExcerptEditing}
-                  >
-                    <SvgIcon variant='back' toBottom contentAfter='powrót' />
-                  </SendButtonVerySmall>
-                )}
-              </PopupHorizontalContainer>
+              <PopupHorizontalContainer></PopupHorizontalContainer>
             </PopupTitleContainer>
           </PopupListRow>
           {/* //todo description editing/display below */}
-          <PopupListRowShort>
-            <PopupTextAreaContainer>
+          {descriptionValue !== 'komentarz' || descriptionEditing ? (
+            <PopupListRow>
               {!descriptionEditing ? (
-                <AnimatePresence>
-                  <PopupDescriptionAnimated
-                    initial={{ opacity: 0, scale: 1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <DescriptionDiv onClick={toggleDescriptionEditing}>
-                      <PopupB>Opis: </PopupB> {descriptionValue}
-                    </DescriptionDiv>
-                  </PopupDescriptionAnimated>
-                </AnimatePresence>
+                <PopupDescriptionAnimated
+                  initial={{ opacity: 0, scale: 1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {/* <DescriptionDiv onClick={toggleDescriptionEditing}> */}
+                  {descriptionValue}
+                  {/* </DescriptionDiv> */}
+                </PopupDescriptionAnimated>
               ) : (
-                <AnimatePresence>
-                  <PopupDescriptionAnimated
-                    initial={{ opacity: 0, scale: 1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <PopupB>Opis:</PopupB>{' '}
-                    <PopupDescriptionInput
-                      type='description'
-                      name='description'
-                      // cols='35'
-                      rows='5'
-                      placeholder='nowy opis'
-                      value={descriptionValue}
-                      onChange={(e: any) => setDescriptionValue(e.target.value)}
-                    />
-                  </PopupDescriptionAnimated>
-                </AnimatePresence>
+                <PopupDescriptionAnimated
+                  initial={{ opacity: 0, scale: 1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <PopupDescriptionInput
+                    type='description'
+                    name='description'
+                    cols='25'
+                    rows='2'
+                    placeholder='nowy opis'
+                    value={descriptionValue}
+                    onChange={(e: any) => setDescriptionValue(e.target.value)}
+                  />
+                </PopupDescriptionAnimated>
               )}
-              <PopupListButtonContainer>
-                {descriptionEditing &&
-                  descriptionValue !== openedFragment.description && (
-                    <PopupHorizontalContainer>
-                      <SendButtonVerySmall
-                        variant='primaryEmpty'
-                        onClick={toggleDescriptionReset}
-                      >
-                        <SvgIcon
-                          variant='back'
-                          toBottom
-                          contentAfter='powrót'
-                        />
-                      </SendButtonVerySmall>
-                      <SendButtonVerySmall
-                        variant='successEmpty'
-                        onClick={saveDescriptionHandler}
-                      >
-                        <SvgIcon
-                          variant='save'
-                          toBottom
-                          contentAfter='zapisz'
-                        />
-                      </SendButtonVerySmall>
-                    </PopupHorizontalContainer>
-                  )}
-                {descriptionEditing &&
-                  descriptionValue === openedFragment.description && (
-                    <SendButtonVerySmall
-                      variant='primaryEmpty'
-                      onClick={toggleDescriptionEditing}
-                    >
-                      <SvgIcon variant='back' toBottom contentAfter='powrót' />
-                    </SendButtonVerySmall>
-                  )}
-              </PopupListButtonContainer>
-            </PopupTextAreaContainer>
-          </PopupListRowShort>
+            </PopupListRow>
+          ) : null}
           <PopupTitleContainer>
             {' '}
             <HorizontalWrapperGap>
@@ -493,7 +410,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
             <PopupDatePar>
               Aktualizowano {openedFragment?.updatedAt.substring(0, 10)} o{' '}
               {openedFragment?.updatedAt.substring(12, 16)}{' '}
-            </PopupDatePar>
+            </PopupDatePar>{' '}
           </PopupTitleContainer>
         </FragmentDivPopup>
       </OpenedDivBig>

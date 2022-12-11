@@ -35,6 +35,7 @@ import VisitedLinks from '../Miscellaneous/VisitedLinks/VisitedLinks'
 import FilterWrapper from '../FragmentsColumn/FilterWrapper/FilterWrapper'
 import UserFragmentsColumn from '../FragmentsColumn/UserFragmentsColumn'
 import UserFragmentsByKeyword from '../FragmentsColumn/UserFragmentsByKeyword'
+import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWindow'
 
 interface HeroGridProps {}
 
@@ -43,6 +44,10 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
   const sortingOption: string = useAppSelector(
     (state) => state.preference.sortingOption
+  )
+
+  const idOpenFragment = useAppSelector(
+    (state) => state.preference.idOpenFragment
   )
   //* I will pass the scrollTop of the element to use if for correct HighlightPopMenu positioning
 
@@ -88,7 +93,19 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
               {(sortingOption === 'data' || sortingOption === 'wszystkie') && (
                 <UserFragmentsColumn />
               )}
-              {sortingOption === 'projekt' && <UserFragmentsByKeyword />}
+              {sortingOption === 'projekt' && (
+                // <AnimateSharedLayout type='crossfade'>
+                //   <AnimatePresence>
+                //     {idOpenFragment !== '' && (
+                //       <PupupEditWindow
+                //         idOpen={idOpenFragment}
+                //         openedApp={idOpenFragment}
+                //       />
+                //     )}
+                //   </AnimatePresence>{' '}
+                // </AnimateSharedLayout>
+                <UserFragmentsByKeyword />
+              )}
             </>
           ) : (
             <CitationDisplay />
@@ -140,113 +157,126 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
   }
 
   return (
-    <HeroGridWrapper>
-      <HeroNavigation>
-        <HeroNavOneBig>
-          {' '}
-          <RegularDiv>
-            {' '}
-            <ChoiceNav amount={tabs.length}>
-              <AnimateSharedLayout>
-                <ChoiceList>
-                  {tabs.map((item) => (
-                    <ChoiceItem
-                      key={item.label}
-                      className={
-                        item.label === selectedTab.label ? 'selected' : ''
-                      }
-                      onClick={() => tabHelper(item)}
-                    >
-                      <b>{`${item.label}`}</b>
+    <>
+      <AnimateSharedLayout type='crossfade'>
+        <AnimatePresence>
+          {idOpenFragment !== '' && (
+            <PupupEditWindow
+              idOpen={idOpenFragment}
+              openedApp={idOpenFragment}
+            />
+          )}
+        </AnimatePresence>{' '}
+        {/* <UserFragmentsByKeyword /> */}
+        <HeroGridWrapper>
+          <HeroNavigation>
+            <HeroNavOneBig>
+              {' '}
+              <RegularDiv>
+                {' '}
+                <ChoiceNav amount={tabs.length}>
+                  <AnimateSharedLayout>
+                    <ChoiceList>
+                      {tabs.map((item) => (
+                        <ChoiceItem
+                          key={item.label}
+                          className={
+                            item.label === selectedTab.label ? 'selected' : ''
+                          }
+                          onClick={() => tabHelper(item)}
+                        >
+                          <b>{`${item.label}`}</b>
 
-                      {item.label === selectedTab.label && (
-                        <ChoiceUnderline layoutId='under' />
-                      )}
-                    </ChoiceItem>
-                  ))}
-                </ChoiceList>
-              </AnimateSharedLayout>
-            </ChoiceNav>{' '}
-          </RegularDiv>
-        </HeroNavOneBig>{' '}
-        <HeroNavTwo>
-          {/* <AnimatePresence exitBeforeEnter> */}
-          {/* <motion.div
+                          {item.label === selectedTab.label && (
+                            <ChoiceUnderline layoutId='under' />
+                          )}
+                        </ChoiceItem>
+                      ))}
+                    </ChoiceList>
+                  </AnimateSharedLayout>
+                </ChoiceNav>{' '}
+              </RegularDiv>
+            </HeroNavOneBig>{' '}
+            <HeroNavTwo>
+              {/* <AnimatePresence exitBeforeEnter> */}
+              {/* <motion.div
               key={selectedTab ? selectedTab.label : 'empty'}
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               transition={{ duration: 0.2 }}
             > */}
-          {selectedTab ? selectedTab.tertiaryContent : null}
-          {/* </motion.div> */}
-          {/* </AnimatePresence> */}
-        </HeroNavTwo>
-      </HeroNavigation>
+              {selectedTab ? selectedTab.tertiaryContent : null}
+              {/* </motion.div> */}
+              {/* </AnimatePresence> */}
+            </HeroNavTwo>
+          </HeroNavigation>
 
-      <HeroMainContainer>
-        <HeroMainArticle>
-          <HeroArticleBigSection className='scrollPosition'>
-            <MainChoiceContainer>
-              <AnimatePresence exitBeforeEnter>
-                <motion.div
-                  key={selectedTab ? selectedTab.label : 'empty'}
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -10, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {selectedTab ? selectedTab.content : null}
-                </motion.div>
-              </AnimatePresence>
-            </MainChoiceContainer>
-          </HeroArticleBigSection>
-          <HeroArticleSmallSection>
-            {' '}
-            <AnimatePresence exitBeforeEnter>
-              <motion.div
-                key={selectedTab ? selectedTab.label : 'empty'}
-                initial={{ y: 10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -10, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                {selectedTab ? selectedTab.secondaryContent : null}
-              </motion.div>
-            </AnimatePresence>
-          </HeroArticleSmallSection>
-          <HeroArticleBottomBigSection>
-            {' '}
-            <AnimatePresence exitBeforeEnter>
-              <motion.div
-                key={selectedTab ? selectedTab.label : 'empty'}
-                initial={{ y: 10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -10, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                {selectedTab ? selectedTab.quaternaryContent : null}
-              </motion.div>
-            </AnimatePresence>
-          </HeroArticleBottomBigSection>{' '}
-          <HeroArticleBottomSmallSection>
-            <AnimatePresence exitBeforeEnter>
-              <motion.div
-                key={selectedTab ? selectedTab.label : 'empty'}
-                initial={{ y: 10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -10, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                {selectedTab ? selectedTab.pentanaryContent : null}
-              </motion.div>
-            </AnimatePresence>
-          </HeroArticleBottomSmallSection>
-        </HeroMainArticle>
-        {/* <HeroMainArticle></HeroMainArticle> */}
-        {/* <HeroMainArticle></HeroMainArticle> */}
-      </HeroMainContainer>
-    </HeroGridWrapper>
+          <HeroMainContainer>
+            <HeroMainArticle>
+              <HeroArticleBigSection className='scrollPosition'>
+                <MainChoiceContainer>
+                  <AnimatePresence exitBeforeEnter>
+                    <motion.div
+                      key={selectedTab ? selectedTab.label : 'empty'}
+                      initial={{ y: 10, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -10, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {selectedTab ? selectedTab.content : null}
+                    </motion.div>
+                  </AnimatePresence>
+                </MainChoiceContainer>
+              </HeroArticleBigSection>
+              <HeroArticleSmallSection>
+                {' '}
+                <AnimatePresence exitBeforeEnter>
+                  <motion.div
+                    key={selectedTab ? selectedTab.label : 'empty'}
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -10, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {selectedTab ? selectedTab.secondaryContent : null}
+                  </motion.div>
+                </AnimatePresence>
+              </HeroArticleSmallSection>
+              <HeroArticleBottomBigSection>
+                {' '}
+                <AnimatePresence exitBeforeEnter>
+                  <motion.div
+                    key={selectedTab ? selectedTab.label : 'empty'}
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -10, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {selectedTab ? selectedTab.quaternaryContent : null}
+                  </motion.div>
+                </AnimatePresence>
+              </HeroArticleBottomBigSection>{' '}
+              <HeroArticleBottomSmallSection>
+                <AnimatePresence exitBeforeEnter>
+                  <motion.div
+                    key={selectedTab ? selectedTab.label : 'empty'}
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -10, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {selectedTab ? selectedTab.pentanaryContent : null}
+                  </motion.div>
+                </AnimatePresence>
+              </HeroArticleBottomSmallSection>
+            </HeroMainArticle>
+            {/* <HeroMainArticle></HeroMainArticle> */}
+            {/* <HeroMainArticle></HeroMainArticle> */}
+          </HeroMainContainer>
+        </HeroGridWrapper>
+      </AnimateSharedLayout>
+    </>
   )
 }
 export default HeroGrid

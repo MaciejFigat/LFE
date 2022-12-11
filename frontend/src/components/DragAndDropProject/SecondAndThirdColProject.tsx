@@ -11,21 +11,10 @@ import LabelInput from './LabelInput/LabelInput'
 import {
   ClayButtonWrapperSecondary,
   RegularColumn,
-  RelativeWrapper,
   WrapperMotionDiv,
 } from '../../styles/misc.styled'
-import {
-  ItemWrapper,
-  ListWrapper,
-  SimpleCitationItem,
-} from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
-import {
-  FragmentsP,
-  FragmentsPExcerpt,
-  HorizontalContainer,
-} from '../FragmentsColumn/FragmentsColumn.styled'
-import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
-import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
+import { ListWrapper } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
+
 import FragmentTextItem from '../Miscellaneous/AnimatedTextPanel/FragmentTextItem'
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
@@ -75,14 +64,6 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
   const [inputTwoEditing, setInputTwoEditing] = useState(false)
   const [labelOneState, setLabelOneState] = useState(labelOne)
   const [labelTwoState, setLabelTwoState] = useState(labelTwo)
-
-  const openWindowHandler = (id: string) => {
-    if (canOpenApp && setOpenedApp && setIdOpen && openedApp === null) {
-      setOpenedApp(id)
-
-      setIdOpen(id)
-    }
-  }
 
   useEffect(() => {
     setLabelOneState(labelOne)

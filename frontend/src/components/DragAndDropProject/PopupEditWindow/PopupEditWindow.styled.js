@@ -29,8 +29,8 @@ export const PopupTitle = styled(motion.h2)`
   display: grid;
   place-items: center;
   margin: 0;
-  word-break: break-all;
-  width: 50%;
+  /* word-break: break-all; */
+  width: 100%;
   margin-left: 0.5rem;
   font-size: 1.2rem;
   color: var(--background4-main);
@@ -65,11 +65,12 @@ export const PopupB = styled.b`
 `
 export const PopupTitleInput = styled(motion.input)`
   color: var(--background-secondary2);
-  width: 100%;
+  width: 50%;
   min-width: 250px;
   padding: 0;
   margin: 0;
-  margin-left: 1rem;
+  text-align: center;
+  /* margin-left: 1rem; */
   line-height: normal;
   background: transparent;
   outline: 0;
@@ -79,7 +80,7 @@ export const PopupTitleInput = styled(motion.input)`
     border: none;
     outline: 0;
   }
-  font-size: inherit;
+  font-size: 1.55rem;
   font-family: inherit;
 `
 export const PopupHorizontalContainer = styled(motion.div)`
@@ -93,6 +94,7 @@ export const PopupHorizontalContainer = styled(motion.div)`
   margin-bottom: 0;
 `
 export const PopupDatePar = styled(motion.p)`
+  text-align: center;
   font-size: 1.1rem;
   margin: 0;
   padding: 0rem 0.75rem 0rem 0.5rem;
@@ -105,15 +107,17 @@ export const PopupListRow = styled(motion.div)`
   margin-right: 0.75rem;
   font-size: 1.2rem;
   font-weight: 400;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   /* background: var(--background-blur1); */
   max-width: 100%;
+  margin: 0;
+  padding: 0;
   /* border-left: 1px solid var(--background2-main);
   border-bottom: 1px solid var(--background2-main); */
-  border-left: 1px solid var(--background-blur1);
+  /* border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur2);
-  border-top: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2); */
   /* box-shadow: var(--boxShadowInset1); */
   @media (max-width: 740px) {
     padding: 0.55rem;
@@ -125,6 +129,8 @@ export const PopupDescriptionAnimated = styled(motion.div)`
   min-height: 100px;
   color: var(--background4-main);
   transition: all 0.3s ease-out;
+  padding: 1rem;
+  font-weight: 600;
 `
 export const DescriptionDiv = styled(motion.div)`
   max-width: 80%;
@@ -135,22 +141,21 @@ export const PopupDescriptionInput = styled(motion.textarea)`
   outline: none;
   border: none;
   width: 100%;
-  /* box-shadow: var(--boxShadowInset1); */
+
   min-height: fit-content;
   height: 100%;
-  text-align: center;
-  /* text-: center; */
-  color: var(--background5-main);
+
+  color: var(--background-secondary2);
   transition: all 0.3s ease-out;
-  /* background: none; */
-  padding-top: 2rem;
-  border-radius: 5px;
-  /* background: var(--background-blur1); */
+
+  /* border-radius: 5px; */
+
   background: transparent;
   cursor: text;
   overflow-y: auto;
   line-height: 1.1;
   font-size: inherit;
+  font-weight: 600;
   font-family: inherit;
   &::placeholder {
     color: var(--background4-main);

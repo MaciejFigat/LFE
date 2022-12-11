@@ -7,10 +7,7 @@ import {
   RelativeWrapper,
   WrapperMotionDivRelative,
 } from '../../../styles/misc.styled'
-import {
-  SimpleCitationItem,
-  SimpleCitationItemSmall,
-} from './AnimatedList.styled'
+import { SimpleCitationItemSmall } from './AnimatedList.styled'
 import { editIdOpenFragment } from '../../../features/preferences/preferenceSlice'
 import {
   FragmentsP,

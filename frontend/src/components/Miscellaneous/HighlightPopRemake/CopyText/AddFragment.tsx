@@ -54,14 +54,15 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     description: '',
   }
   const newFragment = {
-    title: highlightedText.substring(0, 22),
+    // title: highlightedText.substring(0, 22),
+    title: `${querySaved}`,
     source: `${typWyroku} ${sad} ${dataOrzeczenia}`,
     excerpt: highlightedText,
     query: `${querySaved}`,
     // docId: `${lastId}`,
     docId: savedDocId,
     coordinates: `${syg}`,
-    description: `${typWyroku} ${sad}`,
+    description: `komentarz`,
     keywords: [keywordMain],
 
     keywordValue: [

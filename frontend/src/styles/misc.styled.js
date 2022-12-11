@@ -483,6 +483,13 @@ export const HeroTitleMiscMedium = styled.h3`
   color: var(--background4-main);
   margin-bottom: 1rem;
 `
+export const CenteredTitle = styled.h2`
+  width: 100%;
+  display: grid;
+  font-size: 1.55rem;
+  place-items: center center;
+  color: var(--background4-main);
+`
 export const RegularDiv = styled.div`
   display: grid;
   place-items: center;
