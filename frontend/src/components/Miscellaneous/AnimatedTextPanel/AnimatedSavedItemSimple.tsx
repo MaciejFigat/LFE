@@ -1,8 +1,6 @@
 import React from 'react'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
-
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
-// import SvgIcon from '../SvgIcon/SvgIcon'
 import {
   RelativeWrapper,
   WrapperMotionDivRelative,

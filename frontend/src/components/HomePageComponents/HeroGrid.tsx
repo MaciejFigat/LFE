@@ -29,12 +29,15 @@ import HomeSearchBarPagination from './HeroGridComponents.tsx/HomeSearchBarPagin
 import SimpleResultDisplay from '../Miscellaneous/ResultDisplay/SimpleResultDisplay'
 import CitationDisplay from './CitationDisplay'
 import { editYHeroPosition } from '../../features/preferences/preferenceSlice'
-import { HeroSavedOne, HeroSavedTwo } from './HeroGridComponents.tsx/HeroSaved'
+import {
+  HeroFragmentsDisplay,
+  HeroSavedOne,
+  HeroSavedTwo,
+} from './HeroGridComponents.tsx/HeroSaved'
 import { HeroExportMain } from './HeroGridComponents.tsx/HeroExport'
 import VisitedLinks from '../Miscellaneous/VisitedLinks/VisitedLinks'
 import FilterWrapper from '../FragmentsColumn/FilterWrapper/FilterWrapper'
-import UserFragmentsColumn from '../FragmentsColumn/UserFragmentsColumn'
-import UserFragmentsByKeyword from '../FragmentsColumn/UserFragmentsByKeyword'
+
 import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWindow'
 
 interface HeroGridProps {}
@@ -42,9 +45,6 @@ interface HeroGridProps {}
 const HeroGrid: React.FC<HeroGridProps> = () => {
   const dispatch = useAppDispatch()
   const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
-  const sortingOption: string = useAppSelector(
-    (state) => state.preference.sortingOption
-  )
 
   const idOpenFragment = useAppSelector(
     (state) => state.preference.idOpenFragment
@@ -90,22 +90,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
         <>
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
             <>
-              {(sortingOption === 'data' || sortingOption === 'wszystkie') && (
-                <UserFragmentsColumn />
-              )}
-              {sortingOption === 'projekt' && (
-                // <AnimateSharedLayout type='crossfade'>
-                //   <AnimatePresence>
-                //     {idOpenFragment !== '' && (
-                //       <PupupEditWindow
-                //         idOpen={idOpenFragment}
-                //         openedApp={idOpenFragment}
-                //       />
-                //     )}
-                //   </AnimatePresence>{' '}
-                // </AnimateSharedLayout>
-                <UserFragmentsByKeyword />
-              )}
+              <HeroFragmentsDisplay />
             </>
           ) : (
             <CitationDisplay />

@@ -1,5 +1,7 @@
 import React from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
+import UserFragmentsByKeyword from '../../FragmentsColumn/UserFragmentsByKeyword'
+import UserFragmentsColumn from '../../FragmentsColumn/UserFragmentsColumn'
 interface HeroSavedProps {}
 
 const HeroSavedMain: React.FC<HeroSavedProps> = () => {
@@ -21,4 +23,17 @@ const HeroSavedOne: React.FC<HeroSavedProps> = () => {
 const HeroSavedTwo: React.FC<HeroSavedProps> = () => {
   return <div>Dokument link</div>
 }
-export { HeroSavedOne, HeroSavedTwo, HeroSavedMain }
+const HeroFragmentsDisplay: React.FC<HeroSavedProps> = () => {
+  const sortingOption: string = useAppSelector(
+    (state) => state.preference.sortingOption
+  )
+  return (
+    <>
+      {sortingOption === 'data' || sortingOption === 'wszystkie' ? (
+        <UserFragmentsColumn />
+      ) : null}
+      {sortingOption === 'projekt' ? <UserFragmentsByKeyword /> : null}
+    </>
+  )
+}
+export { HeroSavedOne, HeroSavedTwo, HeroFragmentsDisplay, HeroSavedMain }

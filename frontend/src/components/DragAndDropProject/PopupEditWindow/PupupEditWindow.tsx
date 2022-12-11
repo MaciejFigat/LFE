@@ -378,9 +378,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {/* <DescriptionDiv onClick={toggleDescriptionEditing}> */}
                   {descriptionValue}
-                  {/* </DescriptionDiv> */}
                 </PopupDescriptionAnimated>
               ) : (
                 <PopupDescriptionAnimated
