@@ -59,6 +59,7 @@ export const WrapperMotionDiv = styled(motion.div)`
   /* background: brown; */
   height: 180px;
   /* width: 90%; */
+  width: 300px;
   max-width: 340px;
 `
 export const WrapperMotionDivRelative = styled(motion.div)`
@@ -131,6 +132,18 @@ export const OpenedLayoutDiv = styled(motion.div)`
   box-shadow: var(--boxShadow4);
   /* box-shadow: var(--boxShadowClay4); */
   /* border: 1px solid var(--background1-main); */
+`
+// export const BlurWrapper = styled(motion.div)`
+export const BlurWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* width: 100vw; */
+  /* height: 100%; */
+  transition: 0.3s;
+  height: 100%;
+  background: var(--background-blur1);
 `
 export const OpenedDivBig = styled(OpenedLayoutDiv)`
   /* display: flex;

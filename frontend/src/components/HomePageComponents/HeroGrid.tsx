@@ -36,9 +36,10 @@ import {
 } from './HeroGridComponents.tsx/HeroSaved'
 import { HeroExportMain } from './HeroGridComponents.tsx/HeroExport'
 import VisitedLinks from '../Miscellaneous/VisitedLinks/VisitedLinks'
-import FilterWrapper from '../FragmentsColumn/FilterWrapper/FilterWrapper'
 
 import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWindow'
+import HeroChoiceWrapper from '../FragmentsColumn/SharedChoiceWrapper/HeroChoiceWrapper'
+import HeroSortingOptions from '../FragmentsColumn/FilterWrapper/HeroSortingOptions'
 
 interface HeroGridProps {}
 
@@ -59,10 +60,9 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
         dispatch(editYHeroPosition(Math.floor(scrollPosition?.scrollTop)))
       }
     }
-    // window.addEventListener('mouseup', testPosition)
+
     window.addEventListener('mousedown', dispatchHelper)
     return () => {
-      // window.removeEventListener('mouseup', testPosition)
       window.removeEventListener('mousedown', dispatchHelper)
     }
   }, [scrollPosition?.scrollTop, dispatch, scrollPosition])
@@ -100,7 +100,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       tertiaryContent: (
         <>
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
-            <FilterWrapper />
+            <HeroSortingOptions />
           ) : (
             <RegularDiv>
               <HeroSavedOne />
@@ -116,7 +116,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       pentanaryContent: (
         <>
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
-            <>Active user bottom</>
+            <HeroChoiceWrapper />
           ) : (
             <RegularDiv>
               <HeroSavedTwo />

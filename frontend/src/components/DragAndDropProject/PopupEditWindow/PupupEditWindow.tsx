@@ -15,6 +15,7 @@ import {
 // import KeywordEditing from './KeywordEditing'
 
 import {
+  BlurWrapper,
   CenteredTitle,
   ClosingDivBig,
   HorizontalWrapperGap,
@@ -27,7 +28,6 @@ import {
   PopupDatePar,
   PopupDescriptionAnimated,
   PopupDescriptionInput,
-  PopupHorizontalContainer,
   PopupListRow,
   PopupTitleContainer,
   PopupTitleInput,
@@ -248,13 +248,18 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
   }
 
   return (
-    <>
+    <BlurWrapper
+    // initial={{ opacity: 0 }}
+    // animate={{ opacity: 1 }}
+    // exit={{ opacity: 0 }}
+    // transition={{ ease: 'easeIn', duration: 0.2 }}
+    >
       <OpenedDivBig layoutId={openedApp!.toString()} yPosition={window.scrollY}>
         <ClosingDivBig
           initial={{ y: 8, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 8, opacity: 0 }}
-          transition={{ ease: 'linear' }}
+          transition={{ ease: 'linear', duration: 0.2 }}
           onClick={() => onClickCloseHelper()}
         />
 
@@ -366,7 +371,6 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                   />
                 </PopupDescriptionAnimated>
               )}
-              <PopupHorizontalContainer></PopupHorizontalContainer>
             </PopupTitleContainer>
           </PopupListRow>
           {/* //todo description editing/display below */}
@@ -412,7 +416,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
           </PopupTitleContainer>
         </FragmentDivPopup>
       </OpenedDivBig>
-    </>
+    </BlurWrapper>
   )
 }
 export default PupupEditWindow
