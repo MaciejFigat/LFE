@@ -7,7 +7,10 @@ import {
   getDocByIdAndQuery,
   subtractHeroDocIndex,
 } from '../../../features/searchResults/searchResultsSlice'
-import { HorizontalWrapperGap } from '../../../styles/misc.styled'
+import {
+  HorizontalWrapperGap,
+  RelativeWrapper,
+} from '../../../styles/misc.styled'
 import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
 import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 interface HeroSearchButtonsProps {}
@@ -86,30 +89,34 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
     <>
       {searchData && searchData?.length === 0 ? null : (
         <HorizontalWrapperGap>
-          <SendButtonVerySmall
-            variant='primaryEmpty'
-            onClick={() => minusHandlerDocIndex()}
-          >
-            <SvgIcon
-              variant='chevronLeft'
-              contentAfter='poprzedni'
-              toLeft='-60px'
-              lowerPosition='3px'
-              width='80px'
-            />
-          </SendButtonVerySmall>{' '}
-          <SendButtonVerySmall
-            variant='primaryEmpty'
-            onClick={() => plusHandlerDocIndex()}
-          >
-            <SvgIcon
-              variant='chevronRight'
-              contentAfter='następny'
-              toRight='60px'
-              lowerPosition='3px'
-              width='80px'
-            />
-          </SendButtonVerySmall>
+          <RelativeWrapper top='0' left='0px'>
+            <SendButtonVerySmall
+              variant='primaryEmpty'
+              onClick={() => minusHandlerDocIndex()}
+            >
+              <SvgIcon
+                variant='chevronLeft'
+                contentAfter='poprzedni'
+                toLeft='-60px'
+                lowerPosition='3px'
+                width='80px'
+              />
+            </SendButtonVerySmall>{' '}
+          </RelativeWrapper>
+          <RelativeWrapper top='0' left='0px'>
+            <SendButtonVerySmall
+              variant='primaryEmpty'
+              onClick={() => plusHandlerDocIndex()}
+            >
+              <SvgIcon
+                variant='chevronRight'
+                contentAfter='następny'
+                toRight='60px'
+                lowerPosition='3px'
+                width='80px'
+              />
+            </SendButtonVerySmall>
+          </RelativeWrapper>
         </HorizontalWrapperGap>
       )}
     </>

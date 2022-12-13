@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
-import { RegularDiv, RelativeWrapperStretch } from '../../../styles/misc.styled'
+import {
+  RegularDiv,
+  RelativeWrapper,
+  RelativeWrapperStretch,
+} from '../../../styles/misc.styled'
 import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
 import Pagination from '../../Miscellaneous/Pagination/Pagination'
 import SearchBar from '../../Miscellaneous/SearchBar/SearchBar'
@@ -37,19 +41,26 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
       <RelativeWrapperStretch>
         {data && data?.length === 0 ? null : (
           <SearchBarPaginationSvgWrapper>
-            <SendButtonVerySmall variant='secondaryEmpty' onClick={showHandler}>
-              <SvgIcon variant={showSearchBar ? 'chevronRight' : 'search'} />
-            </SendButtonVerySmall>
+            <RelativeWrapper top='0px' left='0px'>
+              <SendButtonVerySmall
+                variant='secondaryEmpty'
+                onClick={showHandler}
+              >
+                <SvgIcon variant={showSearchBar ? 'chevronRight' : 'search'} />
+              </SendButtonVerySmall>
+            </RelativeWrapper>
           </SearchBarPaginationSvgWrapper>
         )}
         {data && data?.length === 0 ? null : (
           <SearchBarPaginationSvgWrapperSecond>
-            <SendButtonVerySmall
-              variant='secondaryEmpty'
-              onClick={showOptionsHandler}
-            >
-              <SvgIcon variant={showSearchOptions ? 'homeTwo' : 'homeTwo'} />
-            </SendButtonVerySmall>
+            <RelativeWrapper top='0px' left='0px'>
+              <SendButtonVerySmall
+                variant='secondaryEmpty'
+                onClick={showOptionsHandler}
+              >
+                <SvgIcon variant={showSearchOptions ? 'homeTwo' : 'homeTwo'} />
+              </SendButtonVerySmall>
+            </RelativeWrapper>
           </SearchBarPaginationSvgWrapperSecond>
         )}
         {data && data?.length > 0 && showSearchOptions ? (

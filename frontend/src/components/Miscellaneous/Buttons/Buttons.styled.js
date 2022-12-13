@@ -3,9 +3,11 @@ import { motion } from 'framer-motion'
 import { handleButtonColor } from './utilsButton'
 
 export const SendButton = styled(motion.button)`
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
   align-items: center;
+  flex-direction: row; */
+  display: grid;
+  place-items: center center;
   gap: 0.25rem;
   /* buttonBackground */
   ${(props) => handleButtonColor(props).buttonBackground}
