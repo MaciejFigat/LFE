@@ -21,12 +21,11 @@ import {
   ChoiceUnderline,
   MainChoiceContainer,
 } from './HomeChoiceWrapper/HomeChoiceWrapper.styled'
-import { HeroTwoMain, HeroTwoThird } from './HeroTwo'
+import { HeroTwoFourth, HeroTwoMain, HeroTwoThird } from './HeroTwo'
 import { RegularDiv } from '../../styles/misc.styled'
 import HomeSearchResultsSmall from './HeroGridComponents.tsx/HomeSearchResultsSmall'
 import HeroSearchButtons from './HeroGridComponents.tsx/HeroSearchButtons'
 import HomeSearchBarPagination from './HeroGridComponents.tsx/HomeSearchBarPagination'
-import SimpleResultDisplay from '../Miscellaneous/ResultDisplay/SimpleResultDisplay'
 import CitationDisplay from './CitationDisplay'
 import { editYHeroPosition } from '../../features/preferences/preferenceSlice'
 import {
@@ -36,7 +35,6 @@ import {
 } from './HeroGridComponents.tsx/HeroSaved'
 import { HeroExportMain } from './HeroGridComponents.tsx/HeroExport'
 import VisitedLinks from '../Miscellaneous/VisitedLinks/VisitedLinks'
-
 import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWindow'
 import HeroChoiceWrapper from '../FragmentsColumn/SharedChoiceWrapper/HeroChoiceWrapper'
 import HeroSortingOptions from '../FragmentsColumn/FilterWrapper/HeroSortingOptions'
@@ -85,7 +83,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
     },
     {
       label: 'Zapisz',
-      content: <SimpleResultDisplay />,
+      content: <HeroTwoFourth />,
       secondaryContent: (
         <>
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (

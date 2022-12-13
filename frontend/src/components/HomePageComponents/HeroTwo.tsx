@@ -5,6 +5,7 @@ import HeroSearchDataSection from './HeroGridComponents.tsx/HeroSearchDataSectio
 import { ButtonSmall } from '../Miscellaneous/Buttons/BigButton.styled'
 import { changeResultsDetailView } from '../../features/preferences/preferenceSlice'
 import HeroWelcome from './HeroGridComponents.tsx/HeroWelcome'
+import SimpleResultDisplay from '../Miscellaneous/ResultDisplay/SimpleResultDisplay'
 
 interface HeroTwoProps {}
 
@@ -67,4 +68,19 @@ const HeroTwoThird: React.FC<HeroTwoProps> = () => {
     </>
   )
 }
-export { HeroTwoMain, HeroTwoThird }
+const HeroTwoFourth: React.FC<HeroTwoProps> = () => {
+  const searchResults: any = useAppSelector(
+    (state) => state.searchResult.searchResults
+  )
+
+  const { data } = searchResults
+
+  return (
+    <>
+      <AnimateSharedLayout>
+        {data && data?.length === 0 ? <HeroWelcome /> : <SimpleResultDisplay />}
+      </AnimateSharedLayout>
+    </>
+  )
+}
+export { HeroTwoMain, HeroTwoThird, HeroTwoFourth }

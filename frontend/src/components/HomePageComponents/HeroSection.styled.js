@@ -200,9 +200,10 @@ export const HeroMainArticle = styled.div`
   height: 100%;
   min-height: 100%;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 6fr 1fr;
+  /* grid-template-rows: 9fr 1fr; */
+  grid-template-rows: auto 70px;
 
-  max-height: 76vh;
+  max-height: 70vh;
 `
 export const HeroMainArticleReversed = styled(HeroMainArticle)`
   grid-template-columns: 1fr 2fr;
@@ -227,7 +228,7 @@ export const HeroArticleSection = styled.div`
 `
 export const HeroArticleBigSection = styled(HeroArticleSection)`
   overflow-y: scroll;
-  max-height: 100%;
+  /* max-height: 100%; */
 
   ::-webkit-scrollbar {
     width: 0.2em;
@@ -236,6 +237,7 @@ export const HeroArticleBigSection = styled(HeroArticleSection)`
 `
 export const HeroArticleSmallSection = styled(HeroArticleSection)`
   overflow-y: scroll;
+
   ::-webkit-scrollbar {
     width: 0.2em;
   }
