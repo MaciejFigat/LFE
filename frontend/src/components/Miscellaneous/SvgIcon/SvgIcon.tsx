@@ -37,6 +37,9 @@ import {
   faCaretDown,
   faChevronRight,
   faChevronLeft,
+  faMinusCircle,
+  faPlusSquare,
+  faMinusSquare,
 } from '@fortawesome/free-solid-svg-icons'
 interface SvgIconProps {
   variant:
@@ -63,12 +66,14 @@ interface SvgIconProps {
     | 'back'
     | 'exit'
     | 'expand'
-    | 'plus'
     | 'arrow'
     | 'paint'
     | 'export'
     | 'moreOptions'
+    | 'plus'
+    | 'plusSquare'
     | 'minus'
+    | 'minusSquare'
     | 'dotCircle'
     | 'eye'
     | 'rightPoint'
@@ -158,6 +163,8 @@ const SvgIcon: React.FC<SvgIconProps> = ({
         return faExpand
       case 'plus':
         return faPlusCircle
+      case 'plusSquare':
+        return faPlusSquare
       case 'arrow':
         return faArrowRight
       case 'paint':
@@ -167,7 +174,9 @@ const SvgIcon: React.FC<SvgIconProps> = ({
       case 'moreOptions':
         return faPlus
       case 'minus':
-        return faMinus
+        return faMinusCircle
+      case 'minusSquare':
+        return faMinusSquare
       case 'dotCircle':
         return faDotCircle
       case 'eye':

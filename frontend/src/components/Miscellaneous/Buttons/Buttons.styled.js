@@ -5,6 +5,7 @@ import { handleButtonColor } from './utilsButton'
 export const SendButton = styled(motion.button)`
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 0.25rem;
   /* buttonBackground */
   ${(props) => handleButtonColor(props).buttonBackground}
@@ -83,6 +84,7 @@ export const SendButtonSmall = styled(SendButton)`
 export const SendButtonVerySmall = styled(SendButtonSmall)`
   margin: 0;
   margin-right: 0.25rem;
+
   border: none;
   &:hover {
     border: none;

@@ -8,7 +8,6 @@ export const IconsItem = styled.div`
   padding: 0;
   font-size: 1em;
   display: flex;
-
   ${({ lowerPosition }) => lowerPosition && 'position: relative;'}
   top: ${({ lowerPosition }) => (lowerPosition ? lowerPosition : null)};
   justify-content: center;
@@ -51,7 +50,7 @@ export const IconsItem = styled.div`
     left: ${({ toRight }) => toRight && toRight};
 
     left: ${({ toLeft }) => toLeft && toLeft};
-    left: ${({ toBottom }) => toBottom && '0px; '};
+    left: ${({ toBottom }) => toBottom && '0px;'};
 
     @media (max-width: 500px) {
       width: ${(props) => (props.noContent ? `0px` : '60px')};

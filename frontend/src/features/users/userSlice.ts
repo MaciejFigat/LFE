@@ -29,6 +29,7 @@ export const sendUserId = createAsyncThunk(
                 headers: {
                     'Content-Type': 'application/json',
                 },
+
             }
             const { data } = await axios.post(
                 '/api/users/login',

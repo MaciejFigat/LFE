@@ -30,8 +30,8 @@ const HeroTwoMain: React.FC<HeroTwoProps> = () => {
           key={data[heroDocIndex]['uuid']}
           paddingTop='small'
           imgStart={false}
-          fragmentsFound={data[heroDocIndex].fragment}
-          metryka={data[heroDocIndex].metryka}
+          fragmentsFound={data[heroDocIndex]?.fragment}
+          metryka={data[heroDocIndex]?.metryka}
           istota_interpretacji={data[heroDocIndex].istota_interpretacji}
           query={queryTrimmed}
         />
