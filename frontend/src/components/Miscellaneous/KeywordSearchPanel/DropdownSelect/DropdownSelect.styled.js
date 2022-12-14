@@ -220,8 +220,8 @@ export const OptionsDropdownContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  height: 3.7rem;
-  left: -25px;
+  height: 3rem;
+  left: -10px;
   top: 10px;
   /* z-index: 10; */
   background: var(--background1-main);

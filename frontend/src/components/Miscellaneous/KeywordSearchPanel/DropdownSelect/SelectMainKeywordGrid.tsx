@@ -305,9 +305,10 @@ const SelectMainKeywordGrid: React.FC<SelectMainKeywordGridProps> = () => {
             <SendButtonVerySmall variant='successEmpty' onClick={addNewHandler}>
               <SvgIcon
                 variant='plus'
-                toBottom
-                width='90px'
-                contentAfter='dodaj nowy projekt'
+                toTop='-30px'
+                toLeft='-70px'
+                width='100px'
+                contentAfter='dodaj nowy projekt do fragmentów bez projektu'
               />
             </SendButtonVerySmall>
             <SendButtonVerySmall
@@ -328,9 +329,10 @@ const SelectMainKeywordGrid: React.FC<SelectMainKeywordGridProps> = () => {
             >
               <SvgIcon
                 variant='remove'
-                toBottom
+                toTop='10px'
+                toLeft='-20px'
                 width='120px'
-                contentAfter='usuń powiązane fragmenty'
+                contentAfter='usuń fragmenty powiązane'
               />
             </SendButtonVerySmall>
           </DropDownButtons>

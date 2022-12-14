@@ -384,13 +384,25 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                   variant='successEmpty'
                   onClick={addNewHandler}
                 >
-                  <SvgIcon variant='plus' toBottom contentAfter='dodaj nowy' />
+                  <SvgIcon
+                    variant='plus'
+                    toTop='10px'
+                    toLeft='10px'
+                    width='100px'
+                    contentAfter='dodaj nowy projekt do fragmentów bez projektu'
+                  />
                 </SendButtonVerySmall>
                 <SendButtonVerySmall
                   variant='primaryEmpty'
                   onClick={editingHandler}
                 >
-                  <SvgIcon variant='edit' toBottom contentAfter='edytuj' />
+                  <SvgIcon
+                    variant='edit'
+                    toTop='10px'
+                    toLeft='10px'
+                    width='100px'
+                    contentAfter='edytuj nazwę wybranego projektu'
+                  />
                 </SendButtonVerySmall>
 
                 <SendButtonVerySmall
@@ -399,8 +411,10 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                 >
                   <SvgIcon
                     variant='remove'
-                    toBottom
-                    contentAfter='usuń powiązane'
+                    toTop='10px'
+                    toLeft='10px'
+                    width='120px'
+                    contentAfter='usuń fragmenty powiązane z projektem'
                   />
                 </SendButtonVerySmall>
               </OptionsDropdownContainer>
