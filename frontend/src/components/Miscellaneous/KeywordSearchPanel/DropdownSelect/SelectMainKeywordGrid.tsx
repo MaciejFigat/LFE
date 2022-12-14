@@ -6,6 +6,8 @@ import {
   DropDownHeaderInside,
   DropDownListContainer,
   DropDownListGrid,
+  DropDownSvgRounded,
+  HeaderAndCogContainer,
   ListItem,
   ListItemHighlight,
   TitleInputMainKeyword,
@@ -20,15 +22,14 @@ import { updateUserFragmentsKeywordMain } from '../../../../features/fragments/f
 import { nanoid } from '@reduxjs/toolkit'
 import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
 import SvgIcon from '../../SvgIcon/SvgIcon'
-import { HorizontalWrapperSpace } from '../../../../styles/misc.styled'
+import {
+  HorizontalWrapperSpace,
+  RelativeWrapper,
+} from '../../../../styles/misc.styled'
 
-interface SelectMainKeywordGridProps {
-  wide?: boolean
-}
+interface SelectMainKeywordGridProps {}
 
-const SelectMainKeywordGrid: React.FC<SelectMainKeywordGridProps> = ({
-  wide,
-}) => {
+const SelectMainKeywordGrid: React.FC<SelectMainKeywordGridProps> = () => {
   const dispatch: any = useAppDispatch()
 
   const keywordMain = useAppSelector(
@@ -261,19 +262,42 @@ const SelectMainKeywordGrid: React.FC<SelectMainKeywordGridProps> = ({
             />
           </>
         ) : (
-          <DropDownHeader
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={toggling}
-            className={isOpen ? 'active' : 'inactive'}
-          >
-            <DropDownHeaderInside
-              className={isOpen ? 'activeButton' : 'inactiveButton'}
+          <HeaderAndCogContainer>
+            <DropDownHeader
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={toggling}
+              className={isOpen ? 'active' : 'inactive'}
+              // wide
             >
-              {selectedMainKeyword || 'Wybierz projekt'}
-            </DropDownHeaderInside>
-          </DropDownHeader>
+              <DropDownHeaderInside
+                className={isOpen ? 'activeButton' : 'inactiveButton'}
+              >
+                {selectedMainKeyword || 'Wybierz projekt'}
+              </DropDownHeaderInside>
+            </DropDownHeader>{' '}
+            <DropDownSvgRounded>
+              {' '}
+              <RelativeWrapper top='3px' left='0px'>
+                <SendButtonVerySmall
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  variant='secondaryEmpty'
+                  onClick={toggling}
+                >
+                  <SvgIcon
+                    variant={isOpen ? 'downPoint' : 'rightPoint'}
+                    toTop='-20px'
+                    toLeft='60px'
+                    width='56px'
+                    noContent
+                  />
+                </SendButtonVerySmall>
+              </RelativeWrapper>
+            </DropDownSvgRounded>
+          </HeaderAndCogContainer>
         )}{' '}
         {/* //todo here */}
         {!keywordEditing && !keywordCreation && (
@@ -338,7 +362,6 @@ const SelectMainKeywordGrid: React.FC<SelectMainKeywordGridProps> = ({
           </DropDownButtons>
         )}
       </HorizontalWrapperSpace>
-      {/* //? dropdown after cog icon clicked in small version (!wide prop) */}
 
       {isOpen && uniqueKeywords.length > 1 && (
         <DropDownListContainer>

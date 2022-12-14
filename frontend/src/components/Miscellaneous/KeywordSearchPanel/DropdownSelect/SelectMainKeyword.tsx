@@ -7,6 +7,7 @@ import {
   DropDownHeaderInside,
   DropDownList,
   DropDownListContainer,
+  DropDownSvgRounded,
   HeaderAndCogContainer,
   ListItem,
   ListItemHighlight,
@@ -24,6 +25,7 @@ import { updateUserFragmentsKeywordMain } from '../../../../features/fragments/f
 import { nanoid } from '@reduxjs/toolkit'
 import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
 import SvgIcon from '../../SvgIcon/SvgIcon'
+import { RelativeWrapper } from '../../../../styles/misc.styled'
 
 interface SelectMainKeywordProps {
   wide?: boolean
@@ -193,9 +195,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
       }
 
       dispatch(editSavedFragment(fragEdited))
-      // console.log(fragmentsKeywordMain[i].keywords)
     }
-    // console.log('test')
   }
   const saveEditedKeywordHelper = () => {
     setKeywordEditing((keywordEditing) => !keywordEditing)
@@ -278,29 +278,38 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                 exit={{ opacity: 0 }}
                 onClick={toggling}
                 className={isOpen ? 'active' : 'inactive'}
+                wide={wide}
               >
                 <DropDownHeaderInside
                   className={isOpen ? 'activeButton' : 'inactiveButton'}
                 >
-                  {selectedMainKeyword || 'Wybierz projekt'}
+                  {selectedMainKeyword?.substring(0, 15) || 'Wybierz projekt'}
                 </DropDownHeaderInside>
               </DropDownHeader>
             )}{' '}
             {!wide && (
-              <SendButtonVerySmall
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                variant='secondaryEmpty'
-                onClick={togglingOptions}
-              >
-                <SvgIcon
-                  variant='cog'
-                  toBottom
-                  contentAfter='opcje'
-                  lowerPosition='3px'
-                />
-              </SendButtonVerySmall>
+              <DropDownSvgRounded optionsOpen={optionsOpen}>
+                {' '}
+                <RelativeWrapper top='3px' left='0px'>
+                  <SendButtonVerySmall
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    variant='secondaryEmpty'
+                    onClick={togglingOptions}
+                  >
+                    <SvgIcon
+                      variant={
+                        isOpen || optionsOpen ? 'downPoint' : 'rightPoint'
+                      }
+                      toTop='-20px'
+                      toLeft='60px'
+                      width='56px'
+                      contentAfter='opcje'
+                    />
+                  </SendButtonVerySmall>
+                </RelativeWrapper>
+              </DropDownSvgRounded>
             )}
             {/* //todo here */}
             {wide && !keywordEditing && !keywordCreation && (

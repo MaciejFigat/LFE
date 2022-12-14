@@ -20,6 +20,27 @@ export const DropDownButtons = styled(motion.div)`
   margin-bottom: 1rem;
   gap: 1.5rem;
 `
+export const DropDownSvgRounded = styled.div`
+  border: 1px solid var(--background-blur2);
+  border-left: none;
+  height: 39px;
+  -webkit-border-radius: 10px 10px 5px 5px;
+  -moz-border-radius: 10px 10px 5px 5px;
+  border-radius: 0px 50% 50% 0px;
+  transition: all 0.1s ease-out;
+  box-shadow: ${({ optionsOpen }) =>
+    optionsOpen ? 'var(--boxShadowInset1)' : 'none'};
+  svg {
+    color: ${({ optionsOpen }) =>
+      optionsOpen ? 'var(--background-secondary1)' : 'inherit'};
+  }
+  &:hover {
+    box-shadow: var(--boxShadowInset1);
+  }
+  &:active {
+    box-shadow: var(--boxShadowInset1);
+  }
+`
 export const DropDownHeader = styled(motion.div)`
   cursor: pointer;
   user-select: none;
@@ -35,7 +56,7 @@ export const DropDownHeader = styled(motion.div)`
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
-  border-radius: 5px;
+  border-radius: ${({ wide }) => (wide ? '10px' : '15px 0px 0px 15px')};
   font-weight: 500;
   font-size: 1rem;
   color: var(--background4-main);
@@ -108,7 +129,8 @@ export const DropDownList = styled.div`
   }
 `
 export const DropDownListGrid = styled(DropDownList)`
-  top: 110px;
+  top: 160px;
+  left: -145px;
 `
 export const ListItem = styled.li`
   list-style: none;
@@ -149,7 +171,14 @@ export const HeaderAndCogContainer = styled(HorizontalButtonContainer)`
   /* justify-content: space-around; */
   justify-content: center;
   align-items: center;
-
+  &:hover {
+    svg {
+      color: var(--background-secondary1);
+    }
+  }
+  svg {
+    font-size: 1.25rem;
+  }
   .active {
     /* color: var(--background3-main); */
     transition: all 0.1s ease-out;
@@ -163,7 +192,7 @@ export const HeaderAndCogContainer = styled(HorizontalButtonContainer)`
 export const TitleInputMainKeyword = styled(motion.input)`
   color: var(--background4-main);
   text-align: center;
-  height: 22px;
+  height: 39px;
   /* padding: 0.4rem 0.25rem 0.4rem 0.25rem; */
   padding: 0.8rem 0.5rem 0.8rem 0.5rem;
   margin: 0;

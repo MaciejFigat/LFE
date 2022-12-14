@@ -1,11 +1,8 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { sortingDateEdit } from '../../features/preferences/preferenceSlice'
-import { RegularDiv, RelativeWrapper } from '../../styles/misc.styled'
-import {
-  ButtonSmall,
-  ButtonVerySmall,
-} from '../Miscellaneous/Buttons/BigButton.styled'
+import { RelativeWrapper } from '../../styles/misc.styled'
+import { ButtonVerySmall } from '../Miscellaneous/Buttons/BigButton.styled'
 
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
@@ -213,7 +210,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
         </HorizontalContainer>
         <HorizontalContainer>
           {' '}
-          <RelativeWrapper top='4px' left='4px'>
+          <RelativeWrapper top='4px' left='6px'>
             <SendButtonVerySmall
               variant='secondaryEmpty'
               onClick={handleDecreaseSortMonth}
@@ -232,7 +229,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
               </SendButtonVerySmall>
             </RelativeWrapper>
           ) : (
-            <RelativeWrapper top='4px' left='4px'>
+            <RelativeWrapper>
               <SendButtonVerySmall variant='primaryEmpty'>
                 &nbsp;
               </SendButtonVerySmall>{' '}
@@ -241,12 +238,12 @@ const DateCompare: React.FC<DateCompareProps> = () => {
         </HorizontalContainer>
         <HorizontalContainer>
           {' '}
-          <RelativeWrapper top='4px' left='4px'>
+          <RelativeWrapper top='4px' left='6px'>
             <SendButtonVerySmall
               variant='secondaryEmpty'
               onClick={handleDecreaseSortYear}
             >
-              <SvgIcon variant='arrowLeft' noContent />
+              <SvgIcon variant='minusSquare' noContent />
             </SendButtonVerySmall>
           </RelativeWrapper>
           <b>{sortingYear}</b>
@@ -256,7 +253,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
                 variant='primaryEmpty'
                 onClick={handleIncreaseSortYear}
               >
-                <SvgIcon variant='arrowRight' noContent />
+                <SvgIcon variant='plusSquare' noContent />
               </SendButtonVerySmall>
             </RelativeWrapper>
           )}

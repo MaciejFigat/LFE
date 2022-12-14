@@ -30,7 +30,6 @@ import {
   faPaintBrush,
   faFileExport,
   faPlus,
-  faMinus,
   faDotCircle,
   faEye,
   faCaretRight,
