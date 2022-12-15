@@ -276,258 +276,188 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
     }
   }
   return (
-    <>
-      <Main>
-        <DropDownContainer>
-          <HeaderAndCogContainer>
-            <DropDownSvgRoundedLeft optionsOpen={optionsNewKeywordOpen}>
-              {' '}
-              <RelativeWrapper top='5px' left='3px'>
-                <SendButtonVerySmall
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  variant='successEmpty'
-                  onClick={togglingNewKeywordOptions}
-                >
-                  <SvgIcon
-                    variant={
-                      optionsNewKeywordOpen ? 'arrowLeft' : 'moreOptions'
-                    }
-                    toTop='-20px'
-                    toLeft='-90px'
-                    width='100px'
-                    contentAfter='dodaj projekt'
-                  />
-                </SendButtonVerySmall>
-              </RelativeWrapper>
-            </DropDownSvgRoundedLeft>
-            {keywordEditing || keywordCreation || optionsNewKeywordOpen ? (
-              <TitleInputMainKeyword
+    <Main>
+      <DropDownContainer>
+        <HeaderAndCogContainer>
+          <DropDownSvgRoundedLeft optionsOpen={optionsNewKeywordOpen}>
+            {' '}
+            <RelativeWrapper top='5px' left='3px'>
+              <SendButtonVerySmall
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                type='mainLabel'
-                name='main label'
-                placeholder={keywordMain}
-                value={newKeyword}
-                onChange={(e: any) => setNewKeyword(e.target.value)}
-              />
-            ) : (
-              <DropDownHeader
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={toggling}
-                className={isOpen ? 'active' : 'inactive'}
-                wide={wide}
+                variant='successEmpty'
+                onClick={togglingNewKeywordOptions}
               >
-                <DropDownHeaderInside
-                  className={isOpen ? 'activeButton' : 'inactiveButton'}
+                <SvgIcon
+                  variant={optionsNewKeywordOpen ? 'arrowLeft' : 'moreOptions'}
+                  toTop='-20px'
+                  toLeft='-90px'
+                  width='100px'
+                  contentAfter='dodaj projekt'
+                />
+              </SendButtonVerySmall>
+            </RelativeWrapper>
+          </DropDownSvgRoundedLeft>
+          {keywordEditing || keywordCreation || optionsNewKeywordOpen ? (
+            <TitleInputMainKeyword
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              type='mainLabel'
+              name='main label'
+              placeholder={keywordMain}
+              value={newKeyword}
+              onChange={(e: any) => setNewKeyword(e.target.value)}
+              wide={wide}
+            />
+          ) : (
+            <DropDownHeader
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={toggling}
+              wide={wide}
+              className={isOpen ? 'active' : 'inactive'}
+            >
+              <DropDownHeaderInside
+                className={isOpen ? 'activeButton' : 'inactiveButton'}
+              >
+                {!wide &&
+                  (selectedMainKeyword?.substring(0, 15) || 'Wybierz projekt')}
+                {wide &&
+                  (selectedMainKeyword?.substring(0, 25) || 'Wybierz projekt')}
+              </DropDownHeaderInside>
+            </DropDownHeader>
+          )}{' '}
+          <DropDownSvgRounded optionsOpen={optionsOpen}>
+            {' '}
+            <RelativeWrapper top='3px' left='0px'>
+              <SendButtonVerySmall
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                variant='secondaryEmpty'
+                onClick={togglingOptions}
+              >
+                <SvgIcon
+                  variant={isOpen || optionsOpen ? 'downPoint' : 'rightPoint'}
+                  toTop='-20px'
+                  toLeft='60px'
+                  width='56px'
+                  contentAfter='opcje'
+                />
+              </SendButtonVerySmall>
+            </RelativeWrapper>
+          </DropDownSvgRounded>
+        </HeaderAndCogContainer>
+        {/* //? dropdown after cog icon clicked in small version (!wide prop) */}
+        <DropDownListContainer>
+          {/* //todo adding saveTempKeywordHelper */}
+          {keywordMain !== newKeyword &&
+            optionsNewKeywordOpen &&
+            !keywordCreation &&
+            !keywordEditing && (
+              <RelativeWrapper top='5px' left='45px'>
+                <ButtonVerySmall
+                  variant='success'
+                  onClick={saveTempKeywordHelper}
                 >
-                  {selectedMainKeyword?.substring(0, 15) || 'Wybierz projekt'}
-                </DropDownHeaderInside>
-              </DropDownHeader>
-            )}{' '}
-            {!wide && (
-              <DropDownSvgRounded optionsOpen={optionsOpen}>
-                {' '}
-                <RelativeWrapper top='3px' left='0px'>
-                  <SendButtonVerySmall
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    variant='secondaryEmpty'
-                    onClick={togglingOptions}
-                  >
-                    <SvgIcon
-                      variant={
-                        isOpen || optionsOpen ? 'downPoint' : 'rightPoint'
-                      }
-                      toTop='-20px'
-                      toLeft='60px'
-                      width='56px'
-                      contentAfter='opcje'
-                    />
-                  </SendButtonVerySmall>
-                </RelativeWrapper>
-              </DropDownSvgRounded>
+                  Dodaj nowy projekt
+                </ButtonVerySmall>
+              </RelativeWrapper>
             )}
-            {/* //todo here */}
-            {/* {wide && !keywordEditing && !keywordCreation && (
-              // {wide && (
-              <DropDownButtons>
-                <SendButtonVerySmall
-                  variant='successEmpty'
-                  onClick={addNewHandler}
-                >
-                  <SvgIcon variant='plus' toBottom contentAfter='dodaj' />
-                </SendButtonVerySmall>
-                <SendButtonVerySmall
-                  variant='primaryEmpty'
-                  onClick={editingHandler}
-                >
-                  <SvgIcon variant='edit' toBottom contentAfter='edytuj' />
-                </SendButtonVerySmall>
+          {optionsOpen && !keywordCreation && !keywordEditing && (
+            <OptionsDropdownContainer>
+              <SendButtonVerySmall
+                variant='successEmpty'
+                onClick={addNewHandler}
+              >
+                <SvgIcon
+                  variant='plus'
+                  toTop='10px'
+                  toLeft='10px'
+                  width='100px'
+                  contentAfter='dodaj nowy projekt do fragmentów bez projektu'
+                />
+              </SendButtonVerySmall>
+              <SendButtonVerySmall
+                variant='primaryEmpty'
+                onClick={editingHandler}
+              >
+                <SvgIcon
+                  variant='edit'
+                  toTop='10px'
+                  toLeft='10px'
+                  width='100px'
+                  contentAfter='edytuj nazwę wybranego projektu'
+                />
+              </SendButtonVerySmall>
 
-                <SendButtonVerySmall
-                  variant='dangerEmpty'
-                  onClick={removeKeywordHelperUltimate}
-                >
-                  <SvgIcon
-                    variant='remove'
-                    toBottom
-                    contentAfter='usuń powiązane'
-                  />
-                </SendButtonVerySmall>
-              </DropDownButtons>
-            )}
-            {wide && (keywordEditing || keywordCreation) && (
-              <DropDownButtons>
-                <SendButtonVerySmall
-                  variant='primaryEmpty'
-                  onClick={stopEditingHandler}
-                >
-                  <SvgIcon variant='back' toBottom contentAfter='wróć' />
-                </SendButtonVerySmall>
-                {keywordCreation && (
-                  <SendButtonVerySmall
-                    variant='successEmpty'
-                    onClick={saveNewKeywordHelper}
-                  >
-                    <SvgIcon
-                      variant='save'
-                      toBottom
-                      contentAfter='zapisz nowy'
-                    />
-                  </SendButtonVerySmall>
-                )}{' '}
-                {keywordEditing && (
-                  <SendButtonVerySmall
-                    variant='successEmpty'
-                    onClick={saveEditedKeywordHelper}
-                  >
-                    <SvgIcon
-                      variant='save'
-                      toBottom
-                      contentAfter='zapisz zmiany'
-                    />
-                  </SendButtonVerySmall>
-                )}
-              </DropDownButtons>
-            )} */}
-          </HeaderAndCogContainer>
-          {/* //? dropdown after cog icon clicked in small version (!wide prop) */}
-          <DropDownListContainer>
-            {/* {!wide && optionsOpen && !keywordEditing && !keywordCreation && ( */}
-            {/* //todo adding saveTempKeywordHelper */}
-            {!wide &&
-              keywordMain !== newKeyword &&
-              optionsNewKeywordOpen &&
-              !keywordCreation &&
-              !keywordEditing && (
-                <RelativeWrapper top='5px' left='45px'>
-                  <ButtonVerySmall
-                    variant='success'
-                    onClick={saveTempKeywordHelper}
-                  >
-                    Dodaj nowy projekt
-                  </ButtonVerySmall>
-                </RelativeWrapper>
-              )}
-            {!wide && optionsOpen && !keywordCreation && !keywordEditing && (
-              <OptionsDropdownContainer>
-                <SendButtonVerySmall
-                  variant='successEmpty'
-                  onClick={addNewHandler}
-                >
-                  <SvgIcon
-                    variant='plus'
-                    toTop='10px'
-                    toLeft='10px'
-                    width='100px'
-                    contentAfter='dodaj nowy projekt do fragmentów bez projektu'
-                  />
-                </SendButtonVerySmall>
-                <SendButtonVerySmall
-                  variant='primaryEmpty'
-                  onClick={editingHandler}
-                >
-                  <SvgIcon
-                    variant='edit'
-                    toTop='10px'
-                    toLeft='10px'
-                    width='100px'
-                    contentAfter='edytuj nazwę wybranego projektu'
-                  />
-                </SendButtonVerySmall>
-
-                <SendButtonVerySmall
-                  variant='dangerEmpty'
-                  onClick={removeKeywordHelperUltimate}
-                >
-                  <SvgIcon
-                    variant='remove'
-                    toTop='10px'
-                    toLeft='10px'
-                    width='120px'
-                    contentAfter='usuń fragmenty powiązane z projektem'
-                  />
-                </SendButtonVerySmall>
-              </OptionsDropdownContainer>
-            )}
-
-            {!wide && (keywordEditing || keywordCreation) && (
-              <OptionsDropdownContainer>
-                <SendButtonVerySmall
-                  variant='primaryEmpty'
-                  onClick={stopEditingHandler}
-                >
-                  <SvgIcon variant='back' toBottom contentAfter='wróć' />
-                </SendButtonVerySmall>
-                {keywordCreation ? (
-                  <SendButtonVerySmall
-                    variant='successEmpty'
-                    onClick={saveNewKeywordHelper}
-                  >
-                    <SvgIcon variant='save' toBottom contentAfter='zapisz' />
-                  </SendButtonVerySmall>
-                ) : (
-                  <SendButtonVerySmall
-                    variant='successEmpty'
-                    onClick={saveEditedKeywordHelper}
-                  >
-                    <SvgIcon
-                      variant='save'
-                      toBottom
-                      contentAfter='zapisz zmiany'
-                    />
-                  </SendButtonVerySmall>
-                )}
-              </OptionsDropdownContainer>
-            )}
-          </DropDownListContainer>
-
-          {isOpen && uniqueKeywords.length > 1 && (
-            <DropDownListContainer>
-              <DropDownList>
-                <ListItemHighlight onClick={setNoKeywordHelper}>
-                  fragmenty bez projektu
-                </ListItemHighlight>
-                {uniqueKeywords?.map((keyword) => (
-                  <ListItem
-                    onClick={onOptionClicked(keyword)}
-                    key={Math.random()}
-                  >
-                    {keyword}
-                  </ListItem>
-                ))}
-              </DropDownList>
-            </DropDownListContainer>
+              <SendButtonVerySmall
+                variant='dangerEmpty'
+                onClick={removeKeywordHelperUltimate}
+              >
+                <SvgIcon
+                  variant='remove'
+                  toTop='10px'
+                  toLeft='10px'
+                  width='120px'
+                  contentAfter='usuń fragmenty powiązane z projektem'
+                />
+              </SendButtonVerySmall>
+            </OptionsDropdownContainer>
           )}
-        </DropDownContainer>
-      </Main>{' '}
-    </>
+          {(keywordEditing || keywordCreation) && (
+            <OptionsDropdownContainer>
+              <SendButtonVerySmall
+                variant='primaryEmpty'
+                onClick={stopEditingHandler}
+              >
+                <SvgIcon variant='back' toBottom contentAfter='wróć' />
+              </SendButtonVerySmall>
+              {keywordCreation ? (
+                <SendButtonVerySmall
+                  variant='successEmpty'
+                  onClick={saveNewKeywordHelper}
+                >
+                  <SvgIcon variant='save' toBottom contentAfter='zapisz' />
+                </SendButtonVerySmall>
+              ) : (
+                <SendButtonVerySmall
+                  variant='successEmpty'
+                  onClick={saveEditedKeywordHelper}
+                >
+                  <SvgIcon
+                    variant='save'
+                    toBottom
+                    contentAfter='zapisz zmiany'
+                  />
+                </SendButtonVerySmall>
+              )}
+            </OptionsDropdownContainer>
+          )}
+        </DropDownListContainer>
+
+        {isOpen && uniqueKeywords.length > 1 && (
+          <DropDownListContainer>
+            <DropDownList>
+              <ListItemHighlight onClick={setNoKeywordHelper}>
+                fragmenty bez projektu
+              </ListItemHighlight>
+              {uniqueKeywords?.map((keyword) => (
+                <ListItem
+                  onClick={onOptionClicked(keyword)}
+                  key={Math.random()}
+                >
+                  {keyword}
+                </ListItem>
+              ))}
+            </DropDownList>
+          </DropDownListContainer>
+        )}
+      </DropDownContainer>
+    </Main>
   )
 }
 export default SelectMainKeyword

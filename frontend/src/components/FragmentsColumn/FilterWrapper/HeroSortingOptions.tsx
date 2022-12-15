@@ -5,18 +5,16 @@ import SelectMainKeyword from '../../Miscellaneous/KeywordSearchPanel/DropdownSe
 import FragmentsPagination from '../../Miscellaneous/Pagination/FragmentsPagination'
 import DateCompare from '../DateCompare'
 
-interface HeroSortingOptionsProps {
-  wide?: boolean
-}
+interface HeroSortingOptionsProps {}
 
-const HeroSortingOptions: React.FC<HeroSortingOptionsProps> = ({ wide }) => {
+const HeroSortingOptions: React.FC<HeroSortingOptionsProps> = () => {
   const sortingOption: string = useAppSelector(
     (state) => state.preference.sortingOption
   )
   return (
     <CenterWrapper>
       {sortingOption === 'data' && <DateCompare />}
-      {sortingOption === 'projekt' && <SelectMainKeyword wide={wide} />}
+      {sortingOption === 'projekt' && <SelectMainKeyword />}
       {sortingOption === 'wszystkie' && <FragmentsPagination narrow />}
     </CenterWrapper>
   )

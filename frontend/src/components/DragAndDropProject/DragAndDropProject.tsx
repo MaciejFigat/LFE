@@ -23,6 +23,7 @@ import {
 import FirstColumnExportControls from './FirstColumnExportControls'
 import SelectMainKeywordGrid from '../Miscellaneous/KeywordSearchPanel/DropdownSelect/SelectMainKeywordGrid'
 import { RegularDiv } from '../../styles/misc.styled'
+import SelectMainKeyword from '../Miscellaneous/KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
 //? reordering the items within a list
 
 const reorder = (list: any, startIndex: any, endIndex: any) => {
@@ -309,7 +310,8 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
 
             <HeroNavTwo>
               {' '}
-              <SelectMainKeywordGrid />
+              {/* <SelectMainKeywordGrid /> */}
+              <SelectMainKeyword wide />
             </HeroNavTwo>
           </HeroNavigation>
           <HeroMainContainer>

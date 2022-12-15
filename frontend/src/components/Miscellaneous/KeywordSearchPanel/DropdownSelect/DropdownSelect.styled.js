@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-export const Main = styled.div``
+export const Main = styled.div`
+  margin: 1rem;
+`
 export const DropDownContainer = styled.div`
   width: 12rem;
 
@@ -55,8 +57,10 @@ export const DropDownSvgRoundedLeft = styled(DropDownSvgRounded)`
 export const DropDownHeader = styled(motion.div)`
   cursor: pointer;
   user-select: none;
-  min-width: 157px;
-  max-width: 157px;
+  min-width: ${({ wide }) => (wide ? '220px' : '157px')};
+  /* max-width: 157px; */
+  max-width: ${({ wide }) => (wide ? '220px' : '157px')};
+
   min-height: 20.5px;
   /* margin: 0; */
   padding: 0.48rem 0.5rem 0.48rem 1rem;
@@ -215,7 +219,9 @@ export const TitleInputMainKeyword = styled(motion.input)`
   outline: 0;
   background-color: transparent;
   border: none;
-  max-width: 157px;
+
+  min-width: ${({ wide }) => (wide ? '220px' : '157px')};
+  max-width: ${({ wide }) => (wide ? '220px' : '157px')};
   border: 1px solid var(--background-blur2);
   &:focus {
     border-color: var(--background-secondary1);

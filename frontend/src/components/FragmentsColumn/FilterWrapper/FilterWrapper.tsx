@@ -19,7 +19,7 @@ const FilterWrapper: React.FC<FilterWrapperProps> = ({ wide }) => {
     <FilterOptionsWrapper wide={wide}>
       <DropdownFilter options={optionsTest} wide={wide} />
       {sortingOption === 'data' && <DateCompare />}
-      {sortingOption === 'projekt' && <SelectMainKeyword wide={wide} />}
+      {sortingOption === 'projekt' && <SelectMainKeyword />}
       {sortingOption === 'wszystkie' && <FragmentsPagination narrow />}
     </FilterOptionsWrapper>
   )
