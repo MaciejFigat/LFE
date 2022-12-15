@@ -50,51 +50,46 @@ const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
   }, [scrollDirection])
 
   return (
-    <>
-      <Main>
-        <DropDownContainer>
-          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' && (
-            <ProjectDropDownWrapper>
-              <ProjectNameDiv>
-                <NavLink
-                  to='/storage'
-                  className={(navData) =>
-                    'nav_link' + (navData.isActive ? ' activated' : '')
-                  }
-                >
-                  {projectName !== '' ? (
-                    projectName.substring(0, 10)
-                  ) : (
-                    <>projekty</>
-                  )}
-                </NavLink>
-              </ProjectNameDiv>
-              <DropDownHeader onClick={toggling}>
-                <SvgIcon
-                  variant={isOpen ? 'downPoint' : 'rightPoint'}
-                  noContent
-                  lowerPosition='3px'
-                  // contentAfter={isOpen ? 'zamknij' : 'wybierz projekt'}
-                  // toBottom={isOpen ? false : true}
-                />
-              </DropDownHeader>
-            </ProjectDropDownWrapper>
-          )}
-          {isOpen && (
-            <DropDownListContainer>
-              <ProjectDownList>
-                {Object.keys(userInfo).length > 0 &&
-                uniqueKeywords.length > 0 ? (
-                  <ProjectMenuTwo />
+    <Main>
+      <DropDownContainer>
+        {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' && (
+          <ProjectDropDownWrapper>
+            <ProjectNameDiv>
+              <NavLink
+                to='/storage'
+                className={(navData) =>
+                  'nav_link' + (navData.isActive ? ' activated' : '')
+                }
+              >
+                {projectName !== '' ? (
+                  projectName.substring(0, 8)
                 ) : (
-                  <b>dodaj nowy projekt</b>
+                  <>projekty</>
                 )}
-              </ProjectDownList>
-            </DropDownListContainer>
-          )}
-        </DropDownContainer>
-      </Main>{' '}
-    </>
+              </NavLink>
+            </ProjectNameDiv>
+            <DropDownHeader onClick={toggling}>
+              <SvgIcon
+                variant={isOpen ? 'downPoint' : 'rightPoint'}
+                noContent
+                lowerPosition='3px'
+              />
+            </DropDownHeader>
+          </ProjectDropDownWrapper>
+        )}
+        {isOpen && (
+          <DropDownListContainer>
+            <ProjectDownList>
+              {Object.keys(userInfo).length > 0 && uniqueKeywords.length > 0 ? (
+                <ProjectMenuTwo />
+              ) : (
+                <b>dodaj nowy projekt</b>
+              )}
+            </ProjectDownList>
+          </DropDownListContainer>
+        )}
+      </DropDownContainer>
+    </Main>
   )
 }
 export default ProjectDropdown

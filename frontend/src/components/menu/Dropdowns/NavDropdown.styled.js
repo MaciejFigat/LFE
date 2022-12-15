@@ -13,9 +13,11 @@ export const ProjectNameDiv = styled.div`
   display: grid;
   place-items: center;
   user-select: none;
+  padding: 0;
   padding-right: 0.5rem;
   border-right: 1px solid var(--background-blur2);
   min-width: 92px;
+
   letter-spacing: 0.075em;
 `
 export const ProjectDropDownWrapper = styled.div`
@@ -26,9 +28,11 @@ export const ProjectDropDownWrapper = styled.div`
   border-right: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background-blur1);
-  border-radius: 12px;
+  border-radius: 15px;
+  height: 34px;
 
   padding: 0.2rem 0.4rem 0.2rem 0.5rem;
+  /* padding: 0; */
   box-shadow: var(--boxShadowNone);
   /* color: var(--background4-main); */
   /* 

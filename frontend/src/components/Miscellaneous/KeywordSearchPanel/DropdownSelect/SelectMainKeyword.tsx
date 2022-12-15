@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../../app/reduxHooks'
 import {
-  DropDownButtons,
   DropDownContainer,
   DropDownHeader,
   DropDownHeaderInside,
   DropDownList,
   DropDownListContainer,
   DropDownSvgRounded,
+  DropDownSvgRoundedLeft,
   HeaderAndCogContainer,
   ListItem,
   ListItemHighlight,
@@ -26,6 +26,7 @@ import { nanoid } from '@reduxjs/toolkit'
 import { SendButtonVerySmall } from '../../Buttons/Buttons.styled'
 import SvgIcon from '../../SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../../../styles/misc.styled'
+import { ButtonVerySmall } from '../../Buttons/BigButton.styled'
 
 interface SelectMainKeywordProps {
   wide?: boolean
@@ -64,6 +65,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
 
   const [isOpen, setIsOpen] = useState(false)
   const [optionsOpen, setOptionsOpen] = useState(false)
+  const [optionsNewKeywordOpen, setOptionsNewKeywordOpen] = useState(false)
   const [keywordEditing, setKeywordEditing] = useState<boolean>(false)
   const [keywordCreation, setKeywordCreation] = useState<boolean>(false)
   const [newKeyword, setNewKeyword] = useState<string>(keywordMain)
@@ -142,7 +144,6 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
       .map((el) => ({ ...el, nanoId: nanoid() }))
     if (selectedMainKeyword === '' && keywordMain !== '') {
       dispatch(updateUserFragmentsKeywordMain(fragmentsNoName))
-      console.log(fragmentsNoName)
     }
   }, [fragments, dispatch, selectedMainKeyword, keywordMain])
 
@@ -244,6 +245,12 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
 
   const togglingOptions = () => {
     setOptionsOpen((optionsOpen) => !optionsOpen)
+
+    if (optionsNewKeywordOpen === true) {
+      setOptionsNewKeywordOpen(
+        (optionsNewKeywordOpen) => !optionsNewKeywordOpen
+      )
+    }
     if (optionsOpen === false) {
       setNewKeyword(keywordMain)
     }
@@ -254,13 +261,48 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
       setKeywordCreation((keywordCreation) => !keywordCreation)
     // setNewKeyword(keywordMain)
   }
+  const togglingNewKeywordOptions = () => {
+    setOptionsNewKeywordOpen((optionsNewKeywordOpen) => !optionsNewKeywordOpen)
 
+    if (optionsOpen === true) {
+      setOptionsOpen((optionsOpen) => !optionsOpen)
+    }
+  }
+  //? this one is for saving new keyword when we just add it to sortingKeyword - it will be saved only if we save a fragment with this beeing active
+
+  const saveTempKeywordHelper = () => {
+    if (keywordMain !== newKeyword) {
+      dispatch(sortingKeywordMainEdit(newKeyword))
+    }
+  }
   return (
     <>
       <Main>
         <DropDownContainer>
           <HeaderAndCogContainer>
-            {keywordEditing || keywordCreation ? (
+            <DropDownSvgRoundedLeft optionsOpen={optionsNewKeywordOpen}>
+              {' '}
+              <RelativeWrapper top='5px' left='3px'>
+                <SendButtonVerySmall
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  variant='successEmpty'
+                  onClick={togglingNewKeywordOptions}
+                >
+                  <SvgIcon
+                    variant={
+                      optionsNewKeywordOpen ? 'arrowLeft' : 'moreOptions'
+                    }
+                    toTop='-20px'
+                    toLeft='-90px'
+                    width='100px'
+                    contentAfter='dodaj projekt'
+                  />
+                </SendButtonVerySmall>
+              </RelativeWrapper>
+            </DropDownSvgRoundedLeft>
+            {keywordEditing || keywordCreation || optionsNewKeywordOpen ? (
               <TitleInputMainKeyword
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -312,7 +354,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
               </DropDownSvgRounded>
             )}
             {/* //todo here */}
-            {wide && !keywordEditing && !keywordCreation && (
+            {/* {wide && !keywordEditing && !keywordCreation && (
               // {wide && (
               <DropDownButtons>
                 <SendButtonVerySmall
@@ -373,11 +415,26 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                   </SendButtonVerySmall>
                 )}
               </DropDownButtons>
-            )}
+            )} */}
           </HeaderAndCogContainer>
           {/* //? dropdown after cog icon clicked in small version (!wide prop) */}
           <DropDownListContainer>
             {/* {!wide && optionsOpen && !keywordEditing && !keywordCreation && ( */}
+            {/* //todo adding saveTempKeywordHelper */}
+            {!wide &&
+              keywordMain !== newKeyword &&
+              optionsNewKeywordOpen &&
+              !keywordCreation &&
+              !keywordEditing && (
+                <RelativeWrapper top='5px' left='45px'>
+                  <ButtonVerySmall
+                    variant='success'
+                    onClick={saveTempKeywordHelper}
+                  >
+                    Dodaj nowy projekt
+                  </ButtonVerySmall>
+                </RelativeWrapper>
+              )}
             {!wide && optionsOpen && !keywordCreation && !keywordEditing && (
               <OptionsDropdownContainer>
                 <SendButtonVerySmall

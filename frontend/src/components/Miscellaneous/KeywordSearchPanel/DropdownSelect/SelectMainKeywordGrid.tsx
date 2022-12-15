@@ -298,7 +298,7 @@ const SelectMainKeywordGrid: React.FC<SelectMainKeywordGridProps> = () => {
               </RelativeWrapper>
             </DropDownSvgRounded>
           </HeaderAndCogContainer>
-        )}{' '}
+        )}
         {/* //todo here */}
         {!keywordEditing && !keywordCreation && (
           <DropDownButtons>

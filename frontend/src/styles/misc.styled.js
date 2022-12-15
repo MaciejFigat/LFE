@@ -243,14 +243,14 @@ export const DropDownHeaderMisc = styled.div`
   }
 `
 export const DropDownHeaderMenu = styled(DropDownHeaderMisc)`
-  width: 130px;
+  /* width: 140px; */
   max-width: fit-content;
   box-shadow: var(--boxShadowNone);
   color: var(--background4-main);
   background: transparent;
   height: 32px;
   max-height: 34px;
-  padding: 0 1.25rem;
+  padding: 1rem 1.61rem;
   &:hover {
     color: var(--background4-main);
     box-shadow: var(--boxShadow1);

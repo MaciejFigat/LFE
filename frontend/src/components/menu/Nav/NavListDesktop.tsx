@@ -23,11 +23,9 @@ const itemVariants = {
 }
 const links = [
   {
-    // name: <SvgIcon variant='home' noMargin contentAfter='start' toRight />,
     name: (
       <>
         Start
-        {/* <SvgIcon variant='home' noMargin noContent /> */}
         <SvgIcon variant='home' noMargin noContent lowerPosition='3px' />
       </>
     ),
@@ -40,7 +38,6 @@ const links = [
         Dokument{' '}
         <SvgIcon variant='textLeft' noMargin noContent lowerPosition='4px' />
       </>
-      // <SvgIcon variant='textLeft' noMargin contentAfter='dokument' toRight />
     ),
     to: '/search/result',
     id: '2',

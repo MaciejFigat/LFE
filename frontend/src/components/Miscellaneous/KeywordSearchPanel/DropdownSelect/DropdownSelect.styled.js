@@ -41,13 +41,26 @@ export const DropDownSvgRounded = styled.div`
     box-shadow: var(--boxShadowInset1);
   }
 `
+export const DropDownSvgRoundedLeft = styled(DropDownSvgRounded)`
+  border-radius: 50% 0px 0px 50%;
+  border-left: 1px solid var(--background-blur2);
+  border-right: none;
+  svg {
+    font-size: 1rem !important;
+    /* color: var(--success1); */
+    color: ${({ optionsOpen }) =>
+      optionsOpen ? 'var(--background-secondary2)' : 'inherit'};
+  }
+`
 export const DropDownHeader = styled(motion.div)`
   cursor: pointer;
   user-select: none;
-  min-width: 129px;
+  min-width: 157px;
+  max-width: 157px;
   min-height: 20.5px;
   /* margin: 0; */
-  padding: 0.48rem 1rem 0.48rem 1rem;
+  padding: 0.48rem 0.5rem 0.48rem 1rem;
+
   /* border-right: 1px solid var(--background2-main);
   border-top: 1px solid var(--background2-main);
   box-shadow: var(--boxShadowInset1); */
@@ -56,7 +69,8 @@ export const DropDownHeader = styled(motion.div)`
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
-  border-radius: ${({ wide }) => (wide ? '10px' : '15px 0px 0px 15px')};
+  /* border-radius: ${({ wide }) => (wide ? '10px' : '15px 0px 0px 15px')}; */
+  /* border-radius: 0; */
   font-weight: 500;
   font-size: 1rem;
   color: var(--background4-main);
@@ -100,7 +114,7 @@ export const DropDownList = styled.div`
   top: 10px;
   user-select: none;
   z-index: 13;
-  /* left: 10px; */
+  left: -10px;
   padding: 0;
   margin: 0;
   border-radius: 10px;
@@ -130,7 +144,7 @@ export const DropDownList = styled.div`
 `
 export const DropDownListGrid = styled(DropDownList)`
   top: 160px;
-  left: -145px;
+  left: -179px;
 `
 export const ListItem = styled.li`
   list-style: none;
@@ -201,7 +215,7 @@ export const TitleInputMainKeyword = styled(motion.input)`
   outline: 0;
   background-color: transparent;
   border: none;
-  max-width: 153px;
+  max-width: 157px;
   border: 1px solid var(--background-blur2);
   &:focus {
     border-color: var(--background-secondary1);
