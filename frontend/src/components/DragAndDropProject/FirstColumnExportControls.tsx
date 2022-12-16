@@ -10,8 +10,9 @@ import {
   ExternalHyperlink,
 } from 'docx'
 import { saveAs } from 'file-saver'
-import { ButtonSmall } from '../Miscellaneous/Buttons/BigButton.styled'
+import { ButtonVerySmall } from '../Miscellaneous/Buttons/BigButton.styled'
 import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
+import { ClayButtonWrapperSecondary } from '../../styles/misc.styled'
 interface FirstColumnExportControlsProps {
   state: any[]
 }
@@ -217,18 +218,18 @@ const FirstColumnExportControls: React.FC<FirstColumnExportControlsProps> = ({
   })
 
   return (
-    <>
+    <ClayButtonWrapperSecondary paddingProps='10px' marginProps='0rem'>
       {' '}
-      <ButtonSmall
+      <ButtonVerySmall
         variant='success'
-        borderRadius='12px'
+        borderRadius='15px'
         onClick={exportHandler}
       >
         {' '}
         eksportuj &nbsp;
         <SvgIcon variant='export' toBottom noContent lowerPosition='2px' />
-      </ButtonSmall>
-    </>
+      </ButtonVerySmall>
+    </ClayButtonWrapperSecondary>
   )
 }
 export default FirstColumnExportControls

@@ -20,6 +20,12 @@ export const ProjectMenuWrapper = styled(motion.div)`
     min-width: 0;
   }
 `
+export const ProjectPaginationWrapper = styled(ProjectMenuWrapper)`
+  /* min-width: 80%; */
+  width: 380px;
+  /* background: brown; */
+  border: 1px solid var(--background-blur2);
+`
 export const ProjectMenuContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
@@ -67,7 +73,10 @@ export const DragMenuButton = styled(motion.div)`
   min-width: 40px;
   //todo
   min-height: 70px;
-
+  svg {
+    opacity: 0.7;
+    font-size: 1.1rem;
+  }
   background: linear-gradient(
     90deg,
     var(--background-blur1) 0%,
@@ -81,13 +90,25 @@ export const DragMenuButton = styled(motion.div)`
     var(--background-blur1) 100%
   );`};
 
-  ${({ position }) => position === 'left' && 'left: 85%;'};
+  ${({ position }) => position === 'left' && 'left: 89%;'};
   ${({ position, wide }) => position === 'left' && wide && 'left: 90.5%;'};
-  ${({ position }) => position === 'right' && 'right: 4%;'};
-  ${({ position, wide }) => position === 'right' && wide && 'right: 2.5%;'};
+  ${({ position }) => position === 'right' && 'right: 5.5%;'};
+  ${({ position, wide }) => position === 'right' && wide && 'right: 3.5%;'};
   z-index: 11;
+
+  /* left: ${({ left }) => (left ? left : '0')}; */
+  /* right: ${({ right }) => (right ? right : '0')}; */
   @media (max-width: 520px) {
     ${({ position }) => position === 'left' && 'left: 75%;'};
     ${({ position }) => position === 'right' && 'right: 8%;'};
+  }
+`
+export const DragPaginationButton = styled(DragMenuButton)`
+  /* min-height: 100%; */
+  left: ${({ left }) => (left ? left : '0')};
+  /* right: ${({ right }) => (right ? right : '0')}; */
+  svg {
+    /* opacity: 0.7; */
+    font-size: 1rem;
   }
 `

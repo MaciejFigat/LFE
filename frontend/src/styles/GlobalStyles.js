@@ -170,6 +170,10 @@ body {
     --background-blue6: #086788;
     --background-blue7: #7EBDC2;
     
+    --border-radius1: 10px;
+    --border-radius2: 15px;
+    --border-radius3: 20px;
+
     //! variants for semitransparent elements
     --background-opaque1: ${(props) =>
       handleGlobalScheme(props.globalScheme).backgroundOpaque1}

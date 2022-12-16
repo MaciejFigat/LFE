@@ -28,7 +28,7 @@ export const ProjectDropDownWrapper = styled.div`
   border-right: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background-blur1);
-  border-radius: 15px;
+  border-radius: var(--border-radius2);
   height: 34px;
 
   padding: 0.2rem 0.4rem 0.2rem 0.5rem;

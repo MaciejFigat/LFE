@@ -81,7 +81,9 @@ const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
           <DropDownListContainer>
             <ProjectDownList>
               {Object.keys(userInfo).length > 0 && uniqueKeywords.length > 0 ? (
-                <ProjectMenuTwo />
+                <ProjectMenuTwo
+                  wide={uniqueKeywords.length > 5 ? true : false}
+                />
               ) : (
                 <b>dodaj nowy projekt</b>
               )}

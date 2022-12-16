@@ -2,6 +2,7 @@ import { useAnimation } from 'framer-motion'
 import React, { useRef, useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 import { sortingKeywordMainEdit } from '../../../features/preferences/preferenceSlice'
+import { RelativeWrapper } from '../../../styles/misc.styled'
 import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 import {
   DragMenuButton,
@@ -89,10 +90,14 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = ({ wide }) => {
     <ProjectMenuWrapper wide={wide}>
       {' '}
       <DragMenuButton position='right' wide={wide} onClick={onLeftClick}>
-        <SvgIcon noContent variant='arrowLeft' />
+        <RelativeWrapper top='3px' left='0px'>
+          <SvgIcon noContent variant='arrowLeft' />
+        </RelativeWrapper>
       </DragMenuButton>{' '}
       <DragMenuButton position='left' wide={wide} onClick={onRightClick}>
-        <SvgIcon noContent variant='arrowRight' />
+        <RelativeWrapper top='3px' left='0px'>
+          <SvgIcon noContent variant='arrowRight' />
+        </RelativeWrapper>
       </DragMenuButton>
       <ProjectMenuContainer
         wide={wide}

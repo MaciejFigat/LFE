@@ -316,7 +316,6 @@ export const HomeContentWrapper = styled.div`
 export const CenterWrapper = styled.div`
   display: flex;
   width: 100%;
-
   justify-content: center;
 `
 export const CenterWrapperSimple = styled(CenterWrapper)`

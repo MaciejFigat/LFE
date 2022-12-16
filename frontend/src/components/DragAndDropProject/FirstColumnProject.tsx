@@ -10,12 +10,15 @@ import { Droppable, Draggable } from 'react-beautiful-dnd'
 import {
   ClayButtonWrapperSecondary,
   RegularColumn,
+  RelativeWrapper,
   WrapperMotionDiv,
 } from '../../styles/misc.styled'
 
 import { ListWrapper } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
 
 import FragmentTextItem from '../Miscellaneous/AnimatedTextPanel/FragmentTextItem'
+import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
+import { HorizontalContainer } from '../FragmentsColumn/FragmentsColumn.styled'
 
 interface FirstColumnProjectProps {
   state: any[]
@@ -75,7 +78,12 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
             >
               <FirstColProjectWrapper>
                 <ClayButtonWrapperSecondary paddingProps='1rem'>
-                  Przeciągnij fragmenty &#x2192;
+                  <HorizontalContainer>
+                    Przeciągnij fragmenty do kategorii{' '}
+                    <RelativeWrapper top='4px' left='5px'>
+                      <SvgIcon variant='arrowRight' noContent />
+                    </RelativeWrapper>
+                  </HorizontalContainer>
                 </ClayButtonWrapperSecondary>
                 {state[0]
                   .slice(start, end + 1)

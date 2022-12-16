@@ -293,8 +293,10 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                   variant={optionsNewKeywordOpen ? 'arrowLeft' : 'moreOptions'}
                   toTop='-20px'
                   toLeft='-90px'
-                  width='100px'
-                  contentAfter='dodaj projekt'
+                  width={optionsNewKeywordOpen ? '60px' : '100px'}
+                  contentAfter={
+                    optionsNewKeywordOpen ? 'powrót' : 'dodaj projekt'
+                  }
                 />
               </SendButtonVerySmall>
             </RelativeWrapper>

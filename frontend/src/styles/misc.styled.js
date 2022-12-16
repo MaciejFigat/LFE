@@ -214,7 +214,8 @@ export const DropDownHeaderMisc = styled.div`
   justify-content: space-around;
   user-select: none;
   height: 26px;
-  border-radius: 12px;
+  /* border-radius: 12px; */
+  border-radius: var(--border-radius2);
   width: 150px;
   border: 1px solid var(--background-blur1);
   padding: 0.2rem 0.4rem 0.2rem 0.5rem;
@@ -376,12 +377,17 @@ export const ClayButtonWrapper = styled.div`
   box-shadow: var(--boxShadowClay1);
   background: var(--background-gradient1);
   border-radius: 25px;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
 `
 export const ClayButtonWrapperSecondary = styled(ClayButtonWrapper)`
-  box-shadow: var(--boxShadow1);
+  /* box-shadow: var(--boxShadow1); */
+  box-shadow: none;
+  border-right: 1px solid var(--background-blur2);
+  border-top: 1px solid var(--background-blur2);
+  border-left: 1px solid var(--background-blur2);
+  border-bottom: 1px solid var(--background-blur2);
   max-width: fit-content;
-  margin-bottom: 1rem;
+  margin-bottom: ${({ marginProps }) => (marginProps ? marginProps : '1rem')};
 `
 
 export const HorizontalWrapperSpace = styled.div`

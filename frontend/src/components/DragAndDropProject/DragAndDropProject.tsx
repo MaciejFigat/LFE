@@ -10,8 +10,6 @@ import PupupEditWindow from './PopupEditWindow/PupupEditWindow'
 import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
 import {
   HeroArticleBigSection,
-  HeroArticleBottomBigSection,
-  HeroArticleBottomSmallSection,
   HeroArticleSmallSectionFlexStart,
   HeroGridWrapper,
   HeroMainArticleReversed,
@@ -337,8 +335,8 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
                   state={state}
                 />
               </HeroArticleSmallSectionFlexStart>
-              <HeroArticleBottomBigSection> 3</HeroArticleBottomBigSection>
-              <HeroArticleBottomSmallSection>4</HeroArticleBottomSmallSection>
+              {/* <HeroArticleBottomBigSection> 3</HeroArticleBottomBigSection> */}
+              {/* <HeroArticleBottomSmallSection>4</HeroArticleBottomSmallSection> */}
             </HeroMainArticleReversed>
           </HeroMainContainer>{' '}
         </HeroGridWrapper>
