@@ -120,9 +120,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = ({ wide }) => {
             onMouseUp={() => handleCardMouseUp(keyword)}
             variants={cardVariants}
             wide={wide}
-            // initial='notSelected'
-            animate={selectedCard === keyword ? 'selected' : 'notSelected'}
-            // animate={selectedCard === keyword && 'selected'}
+            nimate={selectedCard === keyword ? 'selected' : 'notSelected'}
             custom={selectedCard! ? selectedCard! - keyword : 0}
           >
             {keyword.substring(0, 15)}
