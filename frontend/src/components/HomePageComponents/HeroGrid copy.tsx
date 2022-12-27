@@ -1,6 +1,5 @@
 import React from 'react'
 import HeroWelcome from './HeroGridComponents.tsx/HeroWelcome'
-
 import HomeSearchSample from './HeroGridComponents.tsx/HomeSearchSample'
 import {
   HeroArticleBigSection,
@@ -15,9 +14,7 @@ import {
   HeroNavTwo,
 } from './HeroSection.styled'
 
-interface HeroGridProps {
-  //   children: ReactChild
-}
+interface HeroGridProps {}
 
 const HeroGrid: React.FC<HeroGridProps> = () => {
   return (

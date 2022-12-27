@@ -145,30 +145,32 @@ export const DropDownListContainer = styled.div`
   /* top: 60px;
   right: 0%; */
   /* right: 140px; */
+  right:${({ wide }) => (wide ? '240px;' : '60px;')}
   transition: all 0.3s ease-out;
   text-align: center;
   background: var(--background1-main);
+
   svg {
     color: var(--background2-main);
   }
   @media screen and (max-width: 1440px) {
-    right: 140px;
+    right:${({ wide }) => (wide ? '140px;' : '60px;')}
   }
   @media screen and (max-width: 1440px) {
-    right: 120px;
+    right:${({ wide }) => (wide ? '120px;' : '60px;')}
   }
   @media screen and (max-width: 1090px) {
-    right: 90px;
+    right:${({ wide }) => (wide ? '90px;' : '40px;')}
   }
   @media screen and (max-width: 780px) {
-    right: 40px;
+    right:${({ wide }) => (wide ? '40px;' : '20px;')}
   }
   @media screen and (max-width: 590px) {
-    right: 30px;
+    right:${({ wide }) => (wide ? '30px;' : '10px;')}
   }
   @media (max-width: 520px) {
     width: 270px;
-    right: 30px;
+    right:${({ wide }) => (wide ? '20px;' : '10px;')}
     /* max-width: 300px; */
     min-width: 0;
   }

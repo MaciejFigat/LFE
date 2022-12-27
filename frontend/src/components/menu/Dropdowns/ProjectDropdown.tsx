@@ -78,7 +78,9 @@ const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
           </ProjectDropDownWrapper>
         )}
         {isOpen && (
-          <DropDownListContainer>
+          <DropDownListContainer
+            wide={uniqueKeywords.length > 5 ? true : false}
+          >
             <ProjectDownList>
               {Object.keys(userInfo).length > 0 && uniqueKeywords.length > 0 ? (
                 <ProjectMenuTwo

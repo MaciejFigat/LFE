@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import { DragDropContext } from 'react-beautiful-dnd'
-
 import FirstColumnProject from './FirstColumnProject'
 import SecondAndThirdColProject from './SecondAndThirdColProject'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
