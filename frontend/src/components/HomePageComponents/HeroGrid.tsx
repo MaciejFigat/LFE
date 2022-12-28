@@ -125,7 +125,15 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
     },
     {
       label: 'Eksportuj',
-      content: <CitationDisplay wide />,
+      content: (
+        <>
+          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+            <h1>userFragments</h1>
+          ) : (
+            <CitationDisplay wide />
+          )}
+        </>
+      ),
       secondaryContent: <VisitedLinks />,
       // ! here I will differentiate between logged users and not registered ones (ie. link to fragment management )
       tertiaryContent: <>Ostatnio przeglądane</>,
