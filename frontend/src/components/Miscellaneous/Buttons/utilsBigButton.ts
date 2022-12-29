@@ -16,8 +16,8 @@ const primaryStyle: StyleVariant = {
     buttonBackground: 'var(--background4-main)',
     buttonBackgroundHover: 'var(--background-blur2)',
     buttonColorHover: 'var(--background-secondary2)',
-    buttonBorder: 'var(--background-secondary2)',
-    buttonBorderHover: 'var(--background-blur1)',
+    // buttonBorder: 'var(--background-secondary2)',
+    // buttonBorderHover: 'var(--background-blur1)',
     buttonColorActive: 'var(--background3-main)',
     buttonBorderActive: 'var(--background3-main)'
 }
@@ -30,8 +30,8 @@ const secondaryStyle: StyleVariant = {
     buttonBackground: 'var(--background-blur1)',
     buttonBackgroundHover: 'var(--background1-main)',
     buttonColorHover: 'var(--background-secondary1)',
-    buttonBorder: 'var(--background4-main)',
-    buttonBorderHover: 'var(--background-secondary1)',
+    // buttonBorder: 'var(--background4-main)',
+    // buttonBorderHover: 'var(--background-secondary1)',
     buttonColorActive: 'var(--background3-main)',
     buttonBorderActive: 'var(--background3-main)'
 }
@@ -47,10 +47,10 @@ const successEmptyStyle: StyleVariant = {
     // buttonBorderActive: 'var(--background3-main)'
     buttonColor: 'var(--success1);',
     buttonBackground: 'transparent;',
-    buttonBorder: '2px solid var(--success1);',
-    buttonBorderHover: '2px solid var(--success2);',
-    buttonBackgroundHover: 'transparent;',
-    buttonColorHover: 'var(--success2);',
+    buttonBorder: 'var(--success1);',
+    buttonBorderHover: 'var(--success2);',
+    buttonBackgroundHover: 'var(--success1);',
+    buttonColorHover: 'var(--background1-main);',
     buttonColorActive: 'var(--success2);',
     buttonBorderActive: 'var(--success2);'
 
@@ -59,8 +59,8 @@ const successEmptyStyle: StyleVariant = {
 const successStyle: StyleVariant = {
     buttonColor: 'var(--background1-main);',
     buttonBackground: 'var(--success1);',
-    buttonBorder: '2px solid var(--success1);',
-    buttonBorderHover: '2px solid var(--success2);',
+    buttonBorder: 'var(--success1);',
+    buttonBorderHover: 'var(--success2);',
     buttonBackgroundHover: 'var(--success2);',
     buttonColorHover: 'var(--background1-main);',
     buttonColorActive: 'var(--background-secondary3);',

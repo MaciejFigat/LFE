@@ -176,6 +176,18 @@ export const ChangingColumnsWrapper = styled.div`
     grid-template-columns: repeat(1, 1fr);
   }
 `
+export const HeroColumnsWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem;
+  padding: 2rem;
+  @media screen and (min-width: 1720px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (max-width: 1220px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`
 export const HorizontalWrapper = styled.div`
   display: flex;
   width: 100%;

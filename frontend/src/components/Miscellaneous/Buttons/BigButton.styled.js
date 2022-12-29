@@ -15,10 +15,12 @@ export const ButtonBig = styled(motion.button)`
   border-bottom: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
-  /* border-left: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-  border-right: 1px solid transparent;
-  border-top: 1px solid transparent; */
+
+  border-color: ${(props) =>
+    handleButtonColor(props).buttonBorder
+      ? handleButtonColor(props).buttonBorder
+      : null};
+
   background: ${(props) => handleButtonColor(props).buttonBackground};
   color: ${(props) => handleButtonColor(props).buttonColor};
   /* box-shadow: var(--boxShadowClay1); */

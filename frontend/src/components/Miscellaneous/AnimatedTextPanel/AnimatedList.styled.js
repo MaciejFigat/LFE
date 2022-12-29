@@ -9,25 +9,26 @@ export const FragmentsWrapper = styled(motion.div)`
   /* place-items: center center; */
   margin-top: 2rem;
   margin-bottom: 2rem;
+
   /* //todo resizable narrow column grid columns */
   grid-template-columns: ${({ moreColumns, width }) =>
-    !moreColumns && width < 600 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+    !moreColumns && width < 600 ? 'repeat(2, 1fr)' : null};
   /* grid-template-columns: ${({ moreColumns, width }) =>
     !moreColumns && width < 500 && 'repeat(3, 1fr)'}; */
   @media (min-width: 1640px) {
     grid-template-columns: ${({ moreColumns, width }) =>
-      !moreColumns && width < 766 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+      !moreColumns && width < 766 ? 'repeat(2, 1fr)' : null};
     grid-template-columns: ${({ moreColumns, width }) =>
       !moreColumns && width < 400 && 'repeat(3, 1fr)'};
   }
   @media (min-width: 1820px) {
     grid-template-columns: ${({ moreColumns, width }) =>
-      !moreColumns && width < 966 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+      !moreColumns && width < 966 ? 'repeat(2, 1fr)' : null};
     grid-template-columns: ${({ moreColumns, width }) =>
       !moreColumns && width < 500 && 'repeat(3, 1fr)'};
   }
   @media (max-width: 1340px) {
-    grid-template-columns: ${({ moreColumns, width }) =>
+    grid-template-columns: ${({ moreColumns }) =>
       !moreColumns && 'repeat(1, 1fr)'};
   }
   /* //todo resizable narrow column grid columns END */

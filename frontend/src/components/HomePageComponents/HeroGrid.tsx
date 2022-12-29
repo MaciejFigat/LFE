@@ -38,6 +38,11 @@ import VisitedLinks from '../Miscellaneous/VisitedLinks/VisitedLinks'
 import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWindow'
 import HeroChoiceWrapper from '../FragmentsColumn/SharedChoiceWrapper/HeroChoiceWrapper'
 import HeroSortingOptions from '../FragmentsColumn/FilterWrapper/HeroSortingOptions'
+import SelectMainKeyword from '../Miscellaneous/KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
+import FirstColumnExportControls from '../DragAndDropProject/FirstColumnExportControls'
+import HeroProjectExport from './HeroGridComponents.tsx/HeroProjectExport'
+import UserFragmentsByKeyword from '../FragmentsColumn/UserFragmentsByKeyword'
+import UserFragmentsByKeywordHero from '../FragmentsColumn/UserFragmentsByKeywordHero'
 
 interface HeroGridProps {}
 
@@ -128,7 +133,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       content: (
         <>
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
-            <h1>userFragments</h1>
+            <UserFragmentsByKeywordHero />
           ) : (
             <CitationDisplay wide />
           )}
@@ -136,8 +141,33 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       ),
       secondaryContent: <VisitedLinks />,
       // ! here I will differentiate between logged users and not registered ones (ie. link to fragment management )
-      tertiaryContent: <>Ostatnio przeglądane</>,
-      quaternaryContent: <HeroExportMain />,
+      tertiaryContent: (
+        <>
+          {' '}
+          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+            <SelectMainKeyword />
+          ) : (
+            <h1>ostatnio przeglądane</h1>
+          )}
+        </>
+      ),
+      quaternaryContent: (
+        <>
+          {' '}
+          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+            <></>
+          ) : null}
+        </>
+      ),
+      pentanaryContent: (
+        <>
+          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+            <HeroProjectExport />
+          ) : (
+            <HeroExportMain />
+          )}
+        </>
+      ),
     },
   ]
 

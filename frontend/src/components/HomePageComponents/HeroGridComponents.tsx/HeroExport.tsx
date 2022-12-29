@@ -11,6 +11,8 @@ import {
   ExternalHyperlink,
 } from 'docx'
 import { ButtonSmall } from '../../Miscellaneous/Buttons/BigButton.styled'
+import { ClayButtonWrapperSecondary } from '../../../styles/misc.styled'
+import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 interface HeroExportProps {}
 
 const HeroExportMain: React.FC<HeroExportProps> = () => {
@@ -91,7 +93,7 @@ const HeroExportMain: React.FC<HeroExportProps> = () => {
       Packer.toBlob(doc).then((blob) => {
         console.log(blob)
         saveAs(blob, `zapisane.docx`)
-        console.log('Document created successfully')
+        // console.log('Document created successfully')
       })
     } else {
       window.alert('Wybierz projekt')
@@ -101,11 +103,17 @@ const HeroExportMain: React.FC<HeroExportProps> = () => {
   return (
     <>
       {citations.length > 1 ? (
-        <ButtonSmall variant='secondary' onClick={exportHandler}>
-          eksport
+        <ButtonSmall variant='successEmpty' onClick={exportHandler}>
+          eksport &nbsp;
+          <SvgIcon variant='export' toBottom noContent lowerPosition='2px' />
         </ButtonSmall>
       ) : (
-        <p>Brak fragmentów</p>
+        <ClayButtonWrapperSecondary
+          paddingProps='0.5rem 1rem'
+          marginProps='0rem'
+        >
+          Brak fragmentów
+        </ClayButtonWrapperSecondary>
       )}
     </>
   )
