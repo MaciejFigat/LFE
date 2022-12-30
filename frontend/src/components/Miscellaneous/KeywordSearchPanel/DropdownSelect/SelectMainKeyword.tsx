@@ -328,7 +328,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                 {!wide &&
                   (selectedMainKeyword?.substring(0, 15) || 'Wybierz projekt')}
                 {wide &&
-                  (selectedMainKeyword?.substring(0, 25) || 'Wybierz projekt')}
+                  (selectedMainKeyword?.substring(0, 20) || 'Wybierz projekt')}
               </DropDownHeaderInside>
             </DropDownHeader>
           )}{' '}

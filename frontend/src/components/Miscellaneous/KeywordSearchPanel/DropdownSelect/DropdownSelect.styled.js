@@ -25,7 +25,7 @@ export const DropDownButtons = styled(motion.div)`
 export const DropDownSvgRounded = styled.div`
   border: 1px solid var(--background-blur2);
   border-left: none;
-  height: 39px;
+  height: 40px;
   -webkit-border-radius: 10px 10px 5px 5px;
   -moz-border-radius: 10px 10px 5px 5px;
   border-radius: 0px 50% 50% 0px;
@@ -60,8 +60,8 @@ export const DropDownHeader = styled(motion.div)`
   min-width: ${({ wide }) => (wide ? '220px' : '157px')};
   /* max-width: 157px; */
   max-width: ${({ wide }) => (wide ? '220px' : '157px')};
-
-  min-height: 20.5px;
+  height: 40px;
+  /* min-height: 20.5px; */
   /* margin: 0; */
   padding: 0.48rem 0.5rem 0.48rem 1rem;
 
@@ -210,7 +210,7 @@ export const HeaderAndCogContainer = styled(HorizontalButtonContainer)`
 export const TitleInputMainKeyword = styled(motion.input)`
   color: var(--background4-main);
   text-align: center;
-  height: 39px;
+  height: 40px;
   /* padding: 0.4rem 0.25rem 0.4rem 0.25rem; */
   padding: 0.8rem 0.5rem 0.8rem 0.5rem;
   margin: 0;

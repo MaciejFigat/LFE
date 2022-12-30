@@ -43,6 +43,7 @@ import FirstColumnExportControls from '../DragAndDropProject/FirstColumnExportCo
 import HeroProjectExport from './HeroGridComponents.tsx/HeroProjectExport'
 import UserFragmentsByKeyword from '../FragmentsColumn/UserFragmentsByKeyword'
 import UserFragmentsByKeywordHero from '../FragmentsColumn/UserFragmentsByKeywordHero'
+import HeroProjectCategories from './HeroGridComponents.tsx/HeroProjectCategories'
 
 interface HeroGridProps {}
 
@@ -139,7 +140,15 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           )}
         </>
       ),
-      secondaryContent: <VisitedLinks />,
+      secondaryContent: (
+        <>
+          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+            <HeroProjectCategories />
+          ) : (
+            <VisitedLinks />
+          )}
+        </>
+      ),
       // ! here I will differentiate between logged users and not registered ones (ie. link to fragment management )
       tertiaryContent: (
         <>
@@ -147,7 +156,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
             <SelectMainKeyword />
           ) : (
-            <h1>ostatnio przeglądane</h1>
+            <h3>ostatnio przeglądane</h3>
           )}
         </>
       ),
