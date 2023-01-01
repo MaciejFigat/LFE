@@ -50,7 +50,7 @@ const HeroProjectCategories: React.FC<HeroProjectCategoriesProps> = () => {
     (keywordSearched: any) => keywordSearched.keyword === keywordMain
   )
   return (
-    <div>
+    <>
       {/* <ClayButtonWrapperSecondary paddingProps='0.75rem 1.5rem'>
         <HorizontalContainer>
           {keywordMain}
@@ -59,22 +59,26 @@ const HeroProjectCategories: React.FC<HeroProjectCategoriesProps> = () => {
                     </RelativeWrapper>
         </HorizontalContainer>
       </ClayButtonWrapperSecondary> */}
-      <ClayButtonWrapperSecondary paddingProps='0.75rem 1.5rem'>
-        <HorizontalContainer>
-          bez kategorii {fragmentsSkipTrueOne?.length}
-        </HorizontalContainer>
-      </ClayButtonWrapperSecondary>
-      <ClayButtonWrapperSecondary paddingProps='0.75rem 1.5rem'>
-        <HorizontalContainer>
-          {keywordValueFound?.labelOne} {fragmentsValueTrueTwo.length}
-        </HorizontalContainer>
-      </ClayButtonWrapperSecondary>
-      <ClayButtonWrapperSecondary paddingProps='0.75rem 1.5rem'>
-        <HorizontalContainer>
-          {keywordValueFound?.labelTwo} {fragmentsValueFalseThree.length}
-        </HorizontalContainer>
-      </ClayButtonWrapperSecondary>
-    </div>
+      {keywordMain !== '' ? (
+        <>
+          <ClayButtonWrapperSecondary paddingProps='0.75rem 1.5rem'>
+            <HorizontalContainer>
+              bez kategorii {fragmentsSkipTrueOne?.length}
+            </HorizontalContainer>
+          </ClayButtonWrapperSecondary>
+          <ClayButtonWrapperSecondary paddingProps='0.75rem 1.5rem'>
+            <HorizontalContainer>
+              {keywordValueFound?.labelOne} {fragmentsValueTrueTwo.length}
+            </HorizontalContainer>
+          </ClayButtonWrapperSecondary>
+          <ClayButtonWrapperSecondary paddingProps='0.75rem 1.5rem'>
+            <HorizontalContainer>
+              {keywordValueFound?.labelTwo} {fragmentsValueFalseThree.length}
+            </HorizontalContainer>
+          </ClayButtonWrapperSecondary>
+        </>
+      ) : null}
+    </>
   )
 }
 export default HeroProjectCategories
