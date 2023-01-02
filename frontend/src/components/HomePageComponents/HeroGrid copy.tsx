@@ -1,6 +1,6 @@
 import React from 'react'
-import HeroWelcome from './HeroGridComponents.tsx/HeroWelcome'
-import HomeSearchSample from './HeroGridComponents.tsx/HomeSearchSample'
+import HeroWelcome from './HeroGridComponents/HeroWelcome'
+import HomeSearchSample from './HeroGridComponents/HomeSearchSample'
 import {
   HeroArticleBigSection,
   HeroArticleBottomBigSection,

@@ -1,7 +1,9 @@
 import React from 'react'
+
 import { useAppSelector } from '../../../app/reduxHooks'
 import { ClayButtonWrapperSecondary } from '../../../styles/misc.styled'
 import { HorizontalContainer } from '../../FragmentsColumn/FragmentsColumn.styled'
+import HeroChart from './HeroChart'
 interface HeroProjectCategoriesProps {}
 
 const HeroProjectCategories: React.FC<HeroProjectCategoriesProps> = () => {
@@ -49,8 +51,14 @@ const HeroProjectCategories: React.FC<HeroProjectCategoriesProps> = () => {
   const keywordValueFound = fragmentsKeywordMain[0]?.keywordValue?.find(
     (keywordSearched: any) => keywordSearched.keyword === keywordMain
   )
+
+  // !
+
+  // !
+
   return (
     <>
+      {' '}
       {/* <ClayButtonWrapperSecondary paddingProps='0.75rem 1.5rem'>
         <HorizontalContainer>
           {keywordMain}
@@ -59,7 +67,7 @@ const HeroProjectCategories: React.FC<HeroProjectCategoriesProps> = () => {
                     </RelativeWrapper>
         </HorizontalContainer>
       </ClayButtonWrapperSecondary> */}
-      {keywordMain !== '' ? (
+      {/* {keywordMain !== '' ? (
         <>
           <ClayButtonWrapperSecondary paddingProps='0.75rem 1.5rem'>
             <HorizontalContainer>
@@ -77,7 +85,14 @@ const HeroProjectCategories: React.FC<HeroProjectCategoriesProps> = () => {
             </HorizontalContainer>
           </ClayButtonWrapperSecondary>
         </>
-      ) : null}
+      ) : null} */}
+      <HeroChart
+        values={[
+          fragmentsSkipTrueOne?.length ?? 0,
+          fragmentsValueTrueTwo?.length ?? 0,
+          fragmentsValueFalseThree?.length ?? 0,
+        ]}
+      />
     </>
   )
 }

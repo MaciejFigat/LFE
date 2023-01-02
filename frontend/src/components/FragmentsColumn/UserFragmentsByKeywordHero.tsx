@@ -5,7 +5,7 @@ import { FragmentContainer } from './FragmentsColumn.styled'
 import {
   ListWrapper,
   ItemWrapper,
-  FragmentsWrapper,
+  // FragmentsWrapper,
 } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
 
 import { getUserFragments } from '../../features/fragments/fragmentSlice'

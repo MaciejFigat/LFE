@@ -1,10 +1,10 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { AnimateSharedLayout } from 'framer-motion'
-import HeroSearchDataSection from './HeroGridComponents.tsx/HeroSearchDataSection'
+import HeroSearchDataSection from './HeroGridComponents/HeroSearchDataSection'
 import { ButtonSmall } from '../Miscellaneous/Buttons/BigButton.styled'
 import { changeResultsDetailView } from '../../features/preferences/preferenceSlice'
-import HeroWelcome from './HeroGridComponents.tsx/HeroWelcome'
+import HeroWelcome from './HeroGridComponents/HeroWelcome'
 import SimpleResultDisplay from '../Miscellaneous/ResultDisplay/SimpleResultDisplay'
 
 interface HeroTwoProps {}

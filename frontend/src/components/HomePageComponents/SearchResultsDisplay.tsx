@@ -20,7 +20,7 @@ import {
   SearchInputResultDisplay,
 } from '../Miscellaneous/SearchBar/SearchFilter.styled'
 import SwitchButton from '../Miscellaneous/SearchBar/SwitchButton'
-import HomeSearch from './HeroGridComponents.tsx/HomeSearch'
+import HomeSearch from './HeroGridComponents/HomeSearch'
 import {
   SearchResultsDashboardColumn,
   SearchResultsDashboardDiv,

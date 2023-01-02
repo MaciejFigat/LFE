@@ -23,27 +23,27 @@ import {
 } from './HomeChoiceWrapper/HomeChoiceWrapper.styled'
 import { HeroTwoFourth, HeroTwoMain, HeroTwoThird } from './HeroTwo'
 import { RegularDiv } from '../../styles/misc.styled'
-import HomeSearchResultsSmall from './HeroGridComponents.tsx/HomeSearchResultsSmall'
-import HeroSearchButtons from './HeroGridComponents.tsx/HeroSearchButtons'
-import HomeSearchBarPagination from './HeroGridComponents.tsx/HomeSearchBarPagination'
+import HomeSearchResultsSmall from './HeroGridComponents/HomeSearchResultsSmall'
+import HeroSearchButtons from './HeroGridComponents/HeroSearchButtons'
+import HomeSearchBarPagination from './HeroGridComponents/HomeSearchBarPagination'
 import CitationDisplay from './CitationDisplay'
 import { editYHeroPosition } from '../../features/preferences/preferenceSlice'
 import {
   HeroFragmentsDisplay,
   HeroSavedOne,
   HeroSavedTwo,
-} from './HeroGridComponents.tsx/HeroSaved'
-import { HeroExportMain } from './HeroGridComponents.tsx/HeroExport'
+} from './HeroGridComponents/HeroSaved'
+import { HeroExportMain } from './HeroGridComponents/HeroExport'
 import VisitedLinks from '../Miscellaneous/VisitedLinks/VisitedLinks'
 import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWindow'
 import HeroChoiceWrapper from '../FragmentsColumn/SharedChoiceWrapper/HeroChoiceWrapper'
 import HeroSortingOptions from '../FragmentsColumn/FilterWrapper/HeroSortingOptions'
 import SelectMainKeyword from '../Miscellaneous/KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
-import FirstColumnExportControls from '../DragAndDropProject/FirstColumnExportControls'
-import HeroProjectExport from './HeroGridComponents.tsx/HeroProjectExport'
-import UserFragmentsByKeyword from '../FragmentsColumn/UserFragmentsByKeyword'
+// import FirstColumnExportControls from '../DragAndDropProject/FirstColumnExportControls'
+import HeroProjectExport from './HeroGridComponents/HeroProjectExport'
+// import UserFragmentsByKeyword from '../FragmentsColumn/UserFragmentsByKeyword'
 import UserFragmentsByKeywordHero from '../FragmentsColumn/UserFragmentsByKeywordHero'
-import HeroProjectCategories from './HeroGridComponents.tsx/HeroProjectCategories'
+import HeroProjectCategories from './HeroGridComponents/HeroProjectCategories'
 
 interface HeroGridProps {}
 
