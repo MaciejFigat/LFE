@@ -402,6 +402,10 @@ export const ClayButtonWrapperSecondary = styled(ClayButtonWrapper)`
   margin-bottom: ${({ marginProps }) => (marginProps ? marginProps : '1rem')};
 `
 
+export const HeroCanvas = styled.canvas`
+  display: grid;
+  place-items: center center;
+`
 export const HorizontalWrapperSpace = styled.div`
   display: flex;
   justify-content: space-around;

@@ -52,10 +52,6 @@ const HeroProjectCategories: React.FC<HeroProjectCategoriesProps> = () => {
     (keywordSearched: any) => keywordSearched.keyword === keywordMain
   )
 
-  // !
-
-  // !
-
   return (
     <>
       {' '}
@@ -91,6 +87,11 @@ const HeroProjectCategories: React.FC<HeroProjectCategoriesProps> = () => {
           fragmentsSkipTrueOne?.length ?? 0,
           fragmentsValueTrueTwo?.length ?? 0,
           fragmentsValueFalseThree?.length ?? 0,
+        ]}
+        labels={[
+          'bez kategorii',
+          keywordValueFound?.labelOne,
+          keywordValueFound?.labelTwo,
         ]}
       />
     </>

@@ -1,18 +1,29 @@
 import React, { useRef, useEffect } from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
+import { HeroCanvas } from '../../../styles/misc.styled'
 
 interface HeroChartProps {
   values: [number, number, number]
+  labels: [string, string, string]
 }
 
-const HeroChart: React.FC<HeroChartProps> = ({ values }) => {
+const HeroChart: React.FC<HeroChartProps> = ({ values, labels }) => {
   const preferedScheme = useAppSelector(
     (state) => state.preference.preferedScheme
   )
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
   useEffect(() => {
+    //* this function adjusts width and height of the canvas to devicePixelRatio - it's a bit hacky
+    // function fixDpi() {
+    //   let dpi = window.devicePixelRatio
+    //   if (canvasRef.current) {
+    //     canvasRef.current.setAttribute('height', (135 * dpi).toString())
+    //     canvasRef.current.setAttribute('width', (135 * dpi).toString())
+    //   }
+    // }
     if (canvasRef.current) {
+      //   fixDpi()
       const ctx = canvasRef.current.getContext('2d')
 
       if (ctx) {
@@ -29,36 +40,46 @@ const HeroChart: React.FC<HeroChartProps> = ({ values }) => {
 
         // The miterLimit property controls the maximum distance between the mitered corner and the outer edge of the line. By increasing the value of this property, you can help to improve the smoothness of the corners of the circle.
 
-        ctx.miterLimit = 5
+        ctx.miterLimit = 10
 
         // enable antialiasing for the canvas context
-        ctx.imageSmoothingEnabled = true
+        // ctx.imageSmoothingEnabled = true
         // set the stroke style and line width for the canvas context
         ctx.strokeStyle = 'rgb(0, 0, 0)'
         ctx.strokeStyle = getComputedStyle(canvasRef.current).getPropertyValue(
           '--background1-main'
         )
+        // getComputedStyle(canvasRef.current).getPropertyValue(
+        //   '--background1-main'
+        // )
+        // getComputedStyle(canvasRef.current).getPropertyValue(
+        //   '--background-secondary1'
+        // )
         ctx.lineWidth = 1
 
         ctx.beginPath()
-        ctx.moveTo(100, 100)
-        ctx.arc(100, 100, 100, 0, (angle1 * Math.PI) / 180)
-
+        ctx.moveTo(105, 105)
+        ctx.arc(105, 105, 100, 0, (angle1 * Math.PI) / 180)
         ctx.closePath()
         ctx.fillStyle = 'rgb( 0, 0, 0 )'
-
         ctx.fillStyle = getComputedStyle(canvasRef.current).getPropertyValue(
-          '--background-secondary1'
+          '--background2-main'
+          //   '--background-blur2'
         )
+        // ctx.fillStyle = getComputedStyle(canvasRef.current).getPropertyValue(
+        //   '--background-secondary1'
+        // )
 
-        ctx.fill()
         ctx.stroke()
+        ctx.fill()
+
         // draw second slice
         ctx.beginPath()
-        ctx.moveTo(100, 100)
+        // ctx.moveTo(100, 100)
+        ctx.moveTo(105, 105)
         ctx.arc(
-          100,
-          100,
+          105,
+          105,
           100,
           (angle1 * Math.PI) / 180,
           ((angle1 + angle2) * Math.PI) / 180
@@ -69,18 +90,19 @@ const HeroChart: React.FC<HeroChartProps> = ({ values }) => {
         ctx.fillStyle = 'rgb( 0, 0, 0 )'
 
         ctx.fillStyle = getComputedStyle(canvasRef.current).getPropertyValue(
-          '--background-secondary2'
+          '--background-secondary1'
         )
-
-        ctx.fill()
         ctx.stroke()
+        ctx.fill()
+
         // draw third slice
         ctx.beginPath()
-        ctx.moveTo(100, 100)
+        // ctx.moveTo(100, 100)
+        ctx.moveTo(105, 105)
 
         ctx.arc(
-          100,
-          100,
+          105,
+          105,
           100,
           ((angle1 + angle2) * Math.PI) / 180,
           ((angle1 + angle2 + angle3) * Math.PI) / 180
@@ -90,14 +112,16 @@ const HeroChart: React.FC<HeroChartProps> = ({ values }) => {
         ctx.fillStyle = 'rgb( 0, 0, 0 )'
 
         ctx.fillStyle = getComputedStyle(canvasRef.current).getPropertyValue(
-          '--background2-main'
+          '--background-secondary2'
         )
 
         ctx.fill()
         ctx.stroke()
         // draw doughnut hole
+
         ctx.beginPath()
-        ctx.arc(100, 100, 80, 0, 2 * Math.PI)
+        ctx.moveTo(105, 105)
+        ctx.arc(105, 105, 80, 0, 2 * Math.PI)
         ctx.closePath()
         ctx.fillStyle = 'rgb( 0, 0, 0 )'
 
@@ -106,6 +130,7 @@ const HeroChart: React.FC<HeroChartProps> = ({ values }) => {
         )
 
         ctx.fill()
+        ctx.stroke()
         // draw the border around the circle
       }
     }
@@ -113,8 +138,11 @@ const HeroChart: React.FC<HeroChartProps> = ({ values }) => {
 
   return (
     <>
-      <canvas ref={canvasRef} width={210} height={210} />
-      {/* <canvas width='200' height='200'></canvas> */}
+      <HeroCanvas ref={canvasRef} width={210} height={210} />
+
+      <p>{labels[0]}</p>
+      <p>{labels[1]}</p>
+      <p>{labels[2]}</p>
     </>
   )
 }
