@@ -12,18 +12,44 @@ const HeroChart: React.FC<HeroChartProps> = ({ values, labels }) => {
     (state) => state.preference.preferedScheme
   )
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
-
+  const prevValues = useRef<HeroChartProps>()
   useEffect(() => {
-    //* this function adjusts width and height of the canvas to devicePixelRatio - it's a bit hacky
-    // function fixDpi() {
-    //   let dpi = window.devicePixelRatio
-    //   if (canvasRef.current) {
-    //     canvasRef.current.setAttribute('height', (135 * dpi).toString())
-    //     canvasRef.current.setAttribute('width', (135 * dpi).toString())
-    //   }
+    const obj1String = JSON.stringify(values)
+    const obj2String = JSON.stringify([0, 0, 0])
+    // * JSON.stringify method returns a string representation of an object that includes the object's keys and values
+    // * If the two objects have the same keys and values, their string representations will be the same.
+    // if (obj1String === obj2String) {
+    //   console.log(obj1String)
+    //   return
     // }
+    if (
+      (prevValues.current && prevValues.current.values === values) ||
+      obj1String === obj2String
+    ) {
+      console.log('stopped')
+      return
+    }
+    prevValues.current = { values, labels }
+
+    //* this function adjusts width and height of the canvas to devicePixelRatio - it's a bit hacky
+    function fixDpi() {
+      let dpi = window.devicePixelRatio
+      if (canvasRef.current) {
+        // canvasRef.current.setAttribute('height', (135 * dpi).toString())
+        // canvasRef.current.setAttribute('width', (135 * dpi).toString())
+        let styleHeight = +getComputedStyle(canvasRef.current)
+          .getPropertyValue('height')
+          .slice(0, -2)
+        let styleWidth = +getComputedStyle(canvasRef.current)
+          .getPropertyValue('width')
+          .slice(0, -2)
+        canvasRef.current.setAttribute('height', (styleHeight * dpi).toString())
+        canvasRef.current.setAttribute('width', (styleWidth * dpi).toString())
+        console.log('rendered TEST fixDpi')
+      }
+    }
     if (canvasRef.current) {
-      //   fixDpi()
+      fixDpi()
       const ctx = canvasRef.current.getContext('2d')
 
       if (ctx) {
