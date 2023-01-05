@@ -406,6 +406,10 @@ export const HeroCanvas = styled.canvas`
   display: grid;
   place-items: center center;
 `
+export const HeroCanvasLabel = styled.p`
+  font-weight: 700;
+  color: ${({ colorProps }) => (colorProps ? colorProps : 'null')};
+`
 export const HorizontalWrapperSpace = styled.div`
   display: flex;
   justify-content: space-around;

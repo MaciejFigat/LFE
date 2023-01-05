@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
-import { HeroCanvas } from '../../../styles/misc.styled'
+import { HeroCanvas, HeroCanvasLabel } from '../../../styles/misc.styled'
 
 interface HeroChartProps {
   values: [number, number, number]
@@ -30,12 +30,12 @@ const HeroChart: React.FC<HeroChartProps> = ({ values, labels }) => {
       return
     }
     prevValues.current = { values, labels }
-    console.log(prevValues.current)
+    // console.log(prevValues.current)
 
     //* this function adjusts width and height of the canvas to devicePixelRatio
     function fixDpi() {
       let dpi = window.devicePixelRatio
-      console.log(dpi)
+      //   console.log(dpi)
       prevDpi.current = dpi
       //* this checks whether values changed if they didn't it stops
       if (
@@ -67,7 +67,7 @@ const HeroChart: React.FC<HeroChartProps> = ({ values, labels }) => {
       const ctx = canvasRef.current.getContext('2d')
 
       if (ctx) {
-        // // Calculate the size of each arc based on the values
+        // Calculate the size of each arc based on the values
         const [value1, value2, value3] = values
         const total = value1 + value2 + value3
         //* calculate angles for each slice
@@ -180,9 +180,15 @@ const HeroChart: React.FC<HeroChartProps> = ({ values, labels }) => {
     <>
       <HeroCanvas ref={canvasRef} width={210} height={210} />
 
-      <p>{labels[0]}</p>
-      <p>{labels[1]}</p>
-      <p>{labels[2]}</p>
+      <HeroCanvasLabel>
+        {labels[0]} - {values[0]}{' '}
+      </HeroCanvasLabel>
+      <HeroCanvasLabel colorProps='var(--background-secondary1)'>
+        {labels[1]} - {values[1]}
+      </HeroCanvasLabel>
+      <HeroCanvasLabel colorProps='var(--background-secondary2)'>
+        {labels[2]} - {values[2]}
+      </HeroCanvasLabel>
     </>
   )
 }

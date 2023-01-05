@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { useAppSelector } from '../../../app/reduxHooks'
-import { ClayButtonWrapperSecondary } from '../../../styles/misc.styled'
-import { HorizontalContainer } from '../../FragmentsColumn/FragmentsColumn.styled'
+// import { ClayButtonWrapperSecondary } from '../../../styles/misc.styled'
+// import { HorizontalContainer } from '../../FragmentsColumn/FragmentsColumn.styled'
 import HeroChart from './HeroChart'
 interface HeroProjectCategoriesProps {}
 
