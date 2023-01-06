@@ -406,8 +406,16 @@ export const HeroCanvas = styled.canvas`
   display: grid;
   place-items: center center;
 `
+export const NumberBackground = styled.b`
+  color: ${({ colorProps }) => (colorProps ? colorProps : 'null')};
+  background: ${({ backgroundProps }) =>
+    backgroundProps ? backgroundProps : 'null'};
+  padding: ${({ value }) => (value ? '0.2rem 0.35rem' : '0.15rem 0.55rem')};
+  border-radius: 50%;
+  margin-right: ${({ value }) => (value ? '0.5rem' : '0.6rem')};
+`
 export const HeroCanvasLabel = styled.p`
-  font-weight: 700;
+  font-weight: 600;
   color: ${({ colorProps }) => (colorProps ? colorProps : 'null')};
 `
 export const HorizontalWrapperSpace = styled.div`

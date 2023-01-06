@@ -1,6 +1,10 @@
 import React, { useRef, useEffect } from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
-import { HeroCanvas, HeroCanvasLabel } from '../../../styles/misc.styled'
+import {
+  HeroCanvas,
+  HeroCanvasLabel,
+  NumberBackground,
+} from '../../../styles/misc.styled'
 
 interface HeroChartProps {
   values: [number, number, number]
@@ -19,30 +23,27 @@ const HeroChart: React.FC<HeroChartProps> = ({ values, labels }) => {
     const valuesEmpty = JSON.stringify([0, 0, 0])
     // * JSON.stringify method returns a string representation of an object that includes the object's keys and values
     // * If the two objects have the same keys and values, their string representations will be the same.
-    // const valuesCurrent2 = JSON.stringify(prevValues?.current.values ?? 0)
+
     const valuesPrevious = JSON.stringify(prevValues.current?.values)
     // ! this is to be removed when I find the reason I get 2 calls to change mainKeyword with one action
     if (
       (prevValues.current && valuesCurrent === valuesPrevious) ||
       valuesCurrent === valuesEmpty
     ) {
-      //   console.log('stopped')
       return
     }
     prevValues.current = { values, labels }
-    // console.log(prevValues.current)
 
     //* this function adjusts width and height of the canvas to devicePixelRatio
     function fixDpi() {
       let dpi = window.devicePixelRatio
-      //   console.log(dpi)
+
       prevDpi.current = dpi
       //* this checks whether values changed if they didn't it stops
       if (
         (prevValues.current && valuesCurrent === valuesPrevious) ||
         valuesCurrent === valuesEmpty
       ) {
-        // console.log('stopped dpi')
         return
       }
       //* this checks whether dpi changed
@@ -59,7 +60,6 @@ const HeroChart: React.FC<HeroChartProps> = ({ values, labels }) => {
             (styleHeight * dpi).toString()
           )
           canvasRef.current.setAttribute('width', (styleWidth * dpi).toString())
-          //   console.log('rendered TEST fixDpi')
         }
     }
     if (canvasRef.current) {
@@ -83,18 +83,13 @@ const HeroChart: React.FC<HeroChartProps> = ({ values, labels }) => {
         ctx.miterLimit = 10
 
         // enable antialiasing for the canvas context
-        // ctx.imageSmoothingEnabled = true
+        ctx.imageSmoothingEnabled = true
         // set the stroke style and line width for the canvas context
         ctx.strokeStyle = 'rgb(0, 0, 0)'
         ctx.strokeStyle = getComputedStyle(canvasRef.current).getPropertyValue(
           '--background1-main'
         )
-        // getComputedStyle(canvasRef.current).getPropertyValue(
-        //   '--background1-main'
-        // )
-        // getComputedStyle(canvasRef.current).getPropertyValue(
-        //   '--background-secondary1'
-        // )
+
         ctx.lineWidth = 1
 
         ctx.beginPath()
@@ -104,18 +99,14 @@ const HeroChart: React.FC<HeroChartProps> = ({ values, labels }) => {
         ctx.fillStyle = 'rgb( 0, 0, 0 )'
         ctx.fillStyle = getComputedStyle(canvasRef.current).getPropertyValue(
           '--background2-main'
-          //   '--background-blur2'
         )
-        // ctx.fillStyle = getComputedStyle(canvasRef.current).getPropertyValue(
-        //   '--background-secondary1'
-        // )
 
         ctx.stroke()
         ctx.fill()
 
         // draw second slice
         ctx.beginPath()
-        // ctx.moveTo(100, 100)
+
         ctx.moveTo(105, 105)
         ctx.arc(
           105,
@@ -137,7 +128,7 @@ const HeroChart: React.FC<HeroChartProps> = ({ values, labels }) => {
 
         // draw third slice
         ctx.beginPath()
-        // ctx.moveTo(100, 100)
+
         ctx.moveTo(105, 105)
 
         ctx.arc(
@@ -180,15 +171,42 @@ const HeroChart: React.FC<HeroChartProps> = ({ values, labels }) => {
     <>
       <HeroCanvas ref={canvasRef} width={210} height={210} />
 
-      <HeroCanvasLabel>
-        {labels[0]} - {values[0]}{' '}
-      </HeroCanvasLabel>
-      <HeroCanvasLabel colorProps='var(--background-secondary1)'>
-        {labels[1]} - {values[1]}
-      </HeroCanvasLabel>
-      <HeroCanvasLabel colorProps='var(--background-secondary2)'>
-        {labels[2]} - {values[2]}
-      </HeroCanvasLabel>
+      {values[0] !== 0 ? (
+        <HeroCanvasLabel>
+          <NumberBackground
+            colorProps='var(--background5-main)'
+            backgroundProps='var(--background2-main)'
+            value={values[0] > 9 ? true : false}
+          >
+            {values[0]}
+          </NumberBackground>
+          {labels[0]}
+        </HeroCanvasLabel>
+      ) : null}
+      {values[1] !== 0 ? (
+        <HeroCanvasLabel colorProps='var(--background-secondary1)'>
+          <NumberBackground
+            colorProps='var(--background1-main)'
+            backgroundProps='var(--background-secondary1)'
+            value={values[1] > 9 ? true : false}
+          >
+            {values[1]}
+          </NumberBackground>
+          {labels[1]}
+        </HeroCanvasLabel>
+      ) : null}
+      {values[2] !== 0 ? (
+        <HeroCanvasLabel colorProps='var(--background-secondary2)'>
+          <NumberBackground
+            colorProps='var(--background1-main)'
+            backgroundProps='var(--background-secondary2)'
+            value={values[2] > 9 ? true : false}
+          >
+            {values[2]}
+          </NumberBackground>
+          {labels[2]}
+        </HeroCanvasLabel>
+      ) : null}
     </>
   )
 }
