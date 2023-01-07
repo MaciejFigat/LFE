@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { FragmentContainer } from './FragmentsColumn.styled'
-
 import {
   ListWrapper,
   ItemWrapper,
-  // FragmentsWrapper,
 } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
-
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import AnimatedSavedItemSimple from '../Miscellaneous/AnimatedTextPanel/AnimatedSavedItemSimple'
 import StaggerChildrenWrapperSecondary from '../Miscellaneous/AnimationWrappers/StaggerChildrenWrapperSecondary'
 import { HeroColumnsWrapper } from '../../styles/misc.styled'
+import { ButtonMedium } from '../Miscellaneous/Buttons/BigButton.styled'
+import { CenterWrapper } from '../Miscellaneous/InfoSection/InfoSection.styled'
+import { changeFragmentsDetailView } from '../../features/preferences/preferenceSlice'
 
 interface UserFragmentsByKeywordHeroProps {}
 
@@ -42,11 +42,17 @@ const UserFragmentsByKeywordHero: React.FC<
   const keywordMain: string = useAppSelector(
     (state) => state.preference.sortingKeywords.keywordMain
   )
+  const fragmentsDetailView: boolean = useAppSelector(
+    (state) => state.preference.fragmentsDetailView
+  )
 
   const fragmentSuccess: boolean = useAppSelector(
     (state) => state.fragment.success
   )
 
+  const viewHandler = () => {
+    dispatch(changeFragmentsDetailView())
+  }
   useEffect(() => {
     dispatch(getUserFragments(1))
     if (fragmentSuccess === true) {
@@ -56,6 +62,11 @@ const UserFragmentsByKeywordHero: React.FC<
 
   return (
     <StaggerChildrenWrapperSecondary key={keywordMain}>
+      <CenterWrapper>
+        <ButtonMedium variant='secondary' onClick={viewHandler}>
+          {fragmentsDetailView ? 'simple' : 'not so simple'}
+        </ButtonMedium>
+      </CenterWrapper>
       <HeroColumnsWrapper>
         {fragmentsKeywordMain.length > 0 &&
           fragmentsKeywordMain
@@ -64,17 +75,21 @@ const UserFragmentsByKeywordHero: React.FC<
                 {fragment.excerpt !== '' && (
                   <FragmentContainer key={fragment.title}>
                     <ItemWrapper>
-                      <AnimatedSavedItemSimple
-                        id={fragment._id}
-                        title={fragment.title}
-                        description={fragment.description}
-                        source={fragment.source}
-                        excerpt={fragment.excerpt}
-                        coordinates={fragment.coordinates}
-                        updatedAt={fragment.updatedAt}
-                        keywords={fragment.keywords}
-                        keywordValue={fragment.keywordValue}
-                      />
+                      {fragmentsDetailView ? (
+                        <AnimatedSavedItemSimple
+                          id={fragment._id}
+                          title={fragment.title}
+                          description={fragment.description}
+                          source={fragment.source}
+                          excerpt={fragment.excerpt}
+                          coordinates={fragment.coordinates}
+                          updatedAt={fragment.updatedAt}
+                          keywords={fragment.keywords}
+                          keywordValue={fragment.keywordValue}
+                        />
+                      ) : (
+                        <h2>simple View</h2>
+                      )}
                     </ItemWrapper>
                   </FragmentContainer>
                 )}

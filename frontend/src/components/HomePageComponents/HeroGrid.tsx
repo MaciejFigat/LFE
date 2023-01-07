@@ -39,11 +39,10 @@ import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWind
 import HeroChoiceWrapper from '../FragmentsColumn/SharedChoiceWrapper/HeroChoiceWrapper'
 import HeroSortingOptions from '../FragmentsColumn/FilterWrapper/HeroSortingOptions'
 import SelectMainKeyword from '../Miscellaneous/KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
-// import FirstColumnExportControls from '../DragAndDropProject/FirstColumnExportControls'
 import HeroProjectExport from './HeroGridComponents/HeroProjectExport'
-// import UserFragmentsByKeyword from '../FragmentsColumn/UserFragmentsByKeyword'
 import UserFragmentsByKeywordHero from '../FragmentsColumn/UserFragmentsByKeywordHero'
 import HeroProjectCategories from './HeroGridComponents/HeroProjectCategories'
+import HeroProjectButtons from './HeroGridComponents/HeroProjectButtons'
 
 interface HeroGridProps {}
 
@@ -101,6 +100,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           )}
         </>
       ),
+      //? upper right corner
       tertiaryContent: (
         <>
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
@@ -112,11 +112,13 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           )}
         </>
       ),
+      //? lower left corner
       quaternaryContent: (
         <RegularDiv>
           <HeroSearchButtons />
         </RegularDiv>
       ),
+      //? lower right corner
       pentanaryContent: (
         <>
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
@@ -164,7 +166,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
         <>
           {' '}
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
-            <></>
+            <HeroProjectButtons />
           ) : null}
         </>
       ),
@@ -197,7 +199,6 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
             />
           )}
         </AnimatePresence>{' '}
-        {/* <UserFragmentsByKeyword /> */}
         <HeroGridWrapper>
           <HeroNavigation>
             <HeroNavOneBig>
