@@ -2,25 +2,17 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const FragmentsTopWrapper = styled.div`
-  /* position: absolute; */
   display: grid;
   place-items: center;
   margin-top: 1rem;
-  /* top: 150px; */
-  /* background: lime; */
 `
 export const SearchResultsWrapper = styled.div`
-  /* position: absolute; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
   display: grid;
   place-items: center;
   gap: 1rem;
   grid-template-columns: ${({ simpleView }) =>
     simpleView ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
-  /* top: 250px; */
-  /* background: lime; */
+
   @media screen and (min-width: 990px) {
     grid-template-columns: ${({ simpleView }) =>
       simpleView ? 'repeat(3, 1fr)' : 'repeat(1, 1fr)'};
@@ -29,9 +21,8 @@ export const SearchResultsWrapper = styled.div`
 export const SearchResultsDashboardColumn = styled.div`
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   flex-direction: column;
-  /* min-width: 30vw; */
+
   max-width: 330px;
   padding: 1rem;
   &:last-of-type {

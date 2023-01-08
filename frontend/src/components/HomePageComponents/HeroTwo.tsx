@@ -52,7 +52,6 @@ const HeroTwoThird: React.FC<HeroTwoProps> = () => {
 
   const changeResultsViewHelper = () => {
     dispatch(changeResultsDetailView())
-    // console.log(resultsDetailView)
   }
 
   return (

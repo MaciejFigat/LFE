@@ -1,7 +1,6 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import {
-  addHeroDocIndex,
   addVisitedLink,
   changeDocId,
   getDocByIdAndQuery,

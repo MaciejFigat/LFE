@@ -27,7 +27,7 @@ export const ProjectCardHome = styled(motion.div)`
   border-color: ${({ selected }) =>
     selected ? 'var(--background-secondary1)' : 'var(--background2-main)'};
   /* box-shadow: var(--boxShadowNone); */
-  /* box-shadow: var(--boxShadowClay3); */
+
   transition: 0.2s;
 
   color: ${({ selected }) =>
