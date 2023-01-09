@@ -79,14 +79,6 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                     <SvgIcon variant='login' noContent lowerPosition='1px' />
                   </SvgWrapperMisc>
                 </SpaceAroundWrapper>
-
-                {/* <SpaceAroundWrapper>
-                  Logowanie
-                  <SvgWrapperColor>
-                    <SvgIcon variant='login' noContent />
-                  </SvgWrapperColor>
-                </SpaceAroundWrapper> */}
-                {/* <SvgIcon variant='login' contentAfter='login' toBottom /> */}
               </NavLink>
             </DropDownHeaderMisc>
           )}

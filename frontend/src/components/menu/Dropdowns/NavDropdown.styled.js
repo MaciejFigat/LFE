@@ -171,7 +171,7 @@ export const DropDownListContainer = styled.div`
   @media (max-width: 520px) {
     width: 270px;
     right:${({ wide }) => (wide ? '20px;' : '10px;')}
-    /* max-width: 300px; */
+    
     min-width: 0;
   }
   @media (max-width: 520px) {
