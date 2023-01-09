@@ -177,6 +177,8 @@ export const DropDownListContainer = styled.div`
   @media (max-width: 520px) {
     right: 10px;
   }
+
+  
 `
 export const NavDropDownListContainer = styled(DropDownListContainer)`
   @media (max-width: 520px) {
@@ -184,6 +186,20 @@ export const NavDropDownListContainer = styled(DropDownListContainer)`
     right: 30px;
     padding: 0.15rem 0.5rem;
     min-width: 0;
+  }
+  right: 0px;
+  left: 80%;
+  @media (min-width: 1200px) {
+    /* right: 120px; */
+    left: 70%;
+  }
+  @media (min-width: 1320px) {
+    /* right: 120px; */
+    left: 80%;
+  }
+  @media (min-width: 1620px) {
+    /* right: 120px; */
+    left: 72%;
   }
 `
 export const ProjectDownList = styled.div`
