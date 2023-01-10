@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
+import { sortingKeywordMainEdit } from '../../../features/preferences/preferenceSlice'
 import {
   addVisitedLink,
   changeDocId,
@@ -16,54 +17,74 @@ interface HeroProjectButtonsProps {}
 
 const HeroProjectButtons: React.FC<HeroProjectButtonsProps> = () => {
   const dispatch = useAppDispatch()
-  const resultsDetailView: boolean = useAppSelector(
-    (state) => state.preference.resultsDetailView
+  const fragments: any[] = useAppSelector(
+    (state) => state.fragment.userFragments
   )
-  const heroDocIndex: number = useAppSelector(
-    (state) => state.searchResult.heroDocIndex
+  const keywordMain = useAppSelector(
+    (state) => state.preference.sortingKeywords.keywordMain
   )
+
   const searchData: any = useAppSelector(
     (state) => state.searchResult.searchResults.data
   )
-  const searchResult: any = useAppSelector((state) => state.searchResult)
+  const keywordsAll = fragments
+    ?.map((fragment) =>
+      fragment.keywords
+        ?.filter((keyword: string) => keyword !== '')
+        .map((keyword: string) => keyword)
+    )
+    .flat()
+  //todo .flat() flattens the arr ie. [a, b, [c, d]].flat()=>[a, b, c, d]
 
-  const visitedLinks: any[] = useAppSelector(
-    (state) => state.searchResult.visitedLinks
-  )
-  const { data, query } = searchResult.searchResults
+  let uniqueKeywords = [...Array.from(new Set(keywordsAll))]
+
   // ! _Debounce maybe
+  //* In this function, before the loop, I've added a variable called found and initialized it to false. I've set it to true if it finds a match. After the loop, we check if the variable is still false. If so, it means no match was found so we return the last element of the array.
   const minusHandlerDocIndex = () => {
-    if (resultsDetailView) {
-      const searchquery = {
-        query: query,
-        docNumber: data[heroDocIndex - 1].doc_id,
+    let found = false
+    for (let i = 0; i < uniqueKeywords.length; i++) {
+      if (uniqueKeywords[i] === keywordMain) {
+        found = true
+        if (i - 1 >= 0) {
+          dispatch(sortingKeywordMainEdit(uniqueKeywords[i - 1]))
+          return
+        } else {
+          dispatch(
+            sortingKeywordMainEdit(uniqueKeywords[uniqueKeywords.length - 1])
+          )
+          return
+        }
       }
-
-      const fragData = {
-        doc_link: data[heroDocIndex - 1].doc_link,
-        rodzaj_orzeczenia: data[heroDocIndex - 1].rodzaj_orzeczenia,
-        data: data[heroDocIndex - 1].data,
-        organ: data[heroDocIndex - 1].organ,
-        id: data[heroDocIndex - 1].doc_id,
-        query: query,
-      }
-
-      const existingLink = visitedLinks.find(
-        (visitedLinks) => visitedLinks.doc_link === fragData.doc_link
-      )
-      if (!existingLink) dispatch(addVisitedLink(fragData))
-
-      dispatch(getDocByIdAndQuery(searchquery))
-      dispatch(changeDocId(data[heroDocIndex + 1].doc_id))
     }
-    dispatch(subtractHeroDocIndex())
+    if (!found) {
+      dispatch(
+        sortingKeywordMainEdit(uniqueKeywords[uniqueKeywords.length - 1])
+      )
+      return
+    }
   }
   const plusHandlerDocIndex = () => {
-    //change main keyword
+    let found = false
+    for (let i = 0; i < uniqueKeywords.length; i++) {
+      if (uniqueKeywords[i] === keywordMain) {
+        found = true
+        if (i + 1 < uniqueKeywords.length) {
+          dispatch(sortingKeywordMainEdit(uniqueKeywords[i + 1]))
+          return
+        } else {
+          dispatch(sortingKeywordMainEdit(uniqueKeywords[0]))
+          return
+        }
+      }
+    }
+    if (!found) {
+      dispatch(sortingKeywordMainEdit(uniqueKeywords[0]))
+      return
+    }
   }
   return (
     <>
-      {searchData && searchData?.length === 0 ? null : (
+      {uniqueKeywords?.length === 0 ? null : (
         <HorizontalWrapperGap>
           <RelativeWrapper top='0' left='0px'>
             <SendButtonVerySmall
