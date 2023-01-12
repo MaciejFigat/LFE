@@ -7,7 +7,7 @@ import {
   SwitchHandleMisc,
   SwitchTextMisc,
 } from '../../../styles/misc.styled'
-import { NavIcon } from './Footer.styled'
+import { NavIcon } from '../../../styles/misc.styled'
 import { faSun } from '@fortawesome/free-regular-svg-icons'
 import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
 interface ColorChangeProps {}

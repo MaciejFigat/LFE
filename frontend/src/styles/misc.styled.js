@@ -1,5 +1,12 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+export const NavIcon = styled(FontAwesomeIcon)`
+  position: relative;
+  top: ${({ top }) => (top ? top : '0')};
+  left: ${({ left }) => (left ? left : '0')};
+`
 
 export const OpenDivButtonWrapper = styled.div`
   width: 100%;
