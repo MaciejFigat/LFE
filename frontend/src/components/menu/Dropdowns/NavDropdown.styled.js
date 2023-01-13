@@ -190,15 +190,12 @@ export const NavDropDownListContainer = styled(DropDownListContainer)`
   right: 0px;
   left: 80%;
   @media (min-width: 1200px) {
-    /* right: 120px; */
     left: 70%;
   }
   @media (min-width: 1320px) {
-    /* right: 120px; */
     left: 80%;
   }
   @media (min-width: 1620px) {
-    /* right: 120px; */
     left: 72%;
   }
 `
