@@ -141,17 +141,16 @@ export const OpenedLayoutDiv = styled(motion.div)`
   /* border: 1px solid var(--background1-main); */
 `
 // export const BlurWrapper = styled(motion.div)`
-export const BlurWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  /* width: 100vw; */
-  /* height: 100%; */
-  transition: 0.3s;
-  height: 100%;
-  background: var(--background-blur1);
-`
+// export const BlurWrapper = styled.div`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+
+//   transition: 0.3s;
+//   height: 100%;
+//   background: var(--background-blur1);
+// `
 export const OpenedDivBig = styled(OpenedLayoutDiv)`
   /* display: flex;
   background: brown;
