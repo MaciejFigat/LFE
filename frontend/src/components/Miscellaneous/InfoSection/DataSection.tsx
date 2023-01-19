@@ -1,7 +1,6 @@
 import React, { ReactFragment } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
-// import Highlighter from 'react-highlight-words'
 import { getDocResult } from '../../../features/searchResults/searchResultsSlice'
 import { addVisitedLink } from '../../../features/searchResults/searchResultsSlice'
 import {
@@ -23,7 +22,6 @@ import {
   TopLineShort,
 } from './InfoSection.styled'
 import parse from 'html-react-parser'
-// import { SendButtonSmall } from '../Buttons/Buttons.styled'
 import { HorizontalWrapper } from '../../../styles/misc.styled'
 //! problem solved with parse - html-react-parser - prarses string to html in React
 
@@ -119,13 +117,7 @@ const DataSection: React.FC<DataSectionProps> = ({
                 </TopLine>
                 <SubtitleShort variant={variant}>{metryka.organ}</SubtitleShort>
                 <TopLine variant={variant}>{metryka.syg}</TopLine>
-                {/* <TopLine variant={variant}>
-                  <SubtitleShort variant={variant}>
-                    {metryka.numer_dokumentu}
-                  </SubtitleShort>
-                </TopLine> */}
-                {/* <TopLine variant={variant}></TopLine>
-                 */}
+
                 <TopLineShort variant={variant}>
                   Istota interpretacji:
                 </TopLineShort>
@@ -163,16 +155,6 @@ const DataSection: React.FC<DataSectionProps> = ({
             </InfoColumnShort>
             <InfoColumn>
               <TextWrapper>
-                <div>
-                  {/* <TopLine variant={variant}>Istota interpretacji:</TopLine>
-                  <Subtitle
-                    variant={variant}
-                    onClick={() => submitHandlerDocNr(0)}
-                  >
-                    {istota_interpretacji}
-                  </Subtitle> */}
-                </div>
-
                 <TopLine variant={variant}>Znalezione fragmenty:</TopLine>
                 {fragmentsFound.length > 0 &&
                   fragmentsFound.map((fragment, index) => (
@@ -185,16 +167,6 @@ const DataSection: React.FC<DataSectionProps> = ({
                         variant={variant}
                         onClick={() => submitHandlerDocNr(index)}
                       >
-                        {/* <Highlighter
-                          highlightClassName='highlightQuery'
-                          searchWords={[highlightQuery]}
-                          autoEscape={true}
-                          textToHighlight={fragment
-                            .replace('<em>', '')
-                            .replace('</em>', '')}
-                        /> */}
-                        {/* (...) */}
-                        {/* {parse(fragment)} */}
                         &bull;
                         {parse(
                           fragment
