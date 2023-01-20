@@ -13,8 +13,7 @@ export const HeroSecNoSvg = styled(HeroSec)`
   margin-top: 4rem;
   margin-bottom: 0;
   display: flex;
-  /* flex-direction: row; */
-  /* background: brown; */
+
   justify-content: center;
   @media screen and (max-width: 410px) {
     /* max-width: 90%; */
