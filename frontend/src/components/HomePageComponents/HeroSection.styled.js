@@ -5,7 +5,6 @@ export const HeroSec = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   min-height: fit-content;
 `
 
@@ -13,26 +12,18 @@ export const HeroSecNoSvg = styled(HeroSec)`
   margin-top: 4rem;
   margin-bottom: 0;
   display: flex;
-
   justify-content: center;
-  @media screen and (max-width: 410px) {
-    /* max-width: 90%; */
-    /* background: brown; */
-  }
 `
 export const HeroTextContainer = styled.div`
   z-index: 11;
   margin-right: 2rem;
   margin-left: 2rem;
   display: flex;
-  /* flex-direction: row; */
   flex-direction: column;
   justify-content: space-around;
-  /* align-items: center; */
   padding: 2rem;
   padding-top: 0;
   padding-bottom: 0;
-  /* min-width: 70vw; */
   width: 70vw;
   @media screen and (max-width: 1210px) {
     width: 75vw;
@@ -133,7 +124,6 @@ export const HeroP = styled.p`
     content: '';
     position: absolute;
     left: 0;
-    /* top: 10px; */
     top: 20%;
     height: 60%;
     width: 50%;
@@ -148,7 +138,6 @@ export const HeroP = styled.p`
 export const HeroGridWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* height: 100vh;  */
   height: calc(100vh - 67px);
   min-height:100%
 
@@ -157,24 +146,16 @@ export const HeroGridWrapper = styled.div`
 `
 export const HeroNavigation = styled.div`
   display: flex;
-
   width: 100%;
   border-top: 1px solid var(--background-blur2);
-  /* border-bottom: 1px solid var(--background-blur2); */
 `
 export const HeroNavOne = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* padding: 3rem 2rem; */
-  /* padding: 1rem 1rem 1rem; */
   gap: 1rem;
-
-  /* border-left: 1px solid var(--background-blur2); */
   border-left: none;
   flex-basis: calc(100% / 3);
-  /* flex-basis: 33vw; */
   &:first-of-type {
     justify-content: flex-start;
   }
