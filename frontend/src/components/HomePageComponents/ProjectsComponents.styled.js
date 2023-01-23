@@ -34,8 +34,7 @@ export const ProjectCardHome = styled(motion.div)`
     selected ? 'var(--background-secondary1)' : 'var(--background4-main)'};
   box-shadow: ${({ selected }) =>
     selected ? 'var(--boxShadowClay3)' : 'var(--boxShadowClay2)'};
-  /* box-shadow: ${({ selected }) =>
-    selected ? 'var(--boxShadowClay3)' : 'var(--boxShadowClay1)'}; */
+
   &:hover {
     opacity: 0.9;
 
@@ -44,10 +43,8 @@ export const ProjectCardHome = styled(motion.div)`
   &:active {
     opacity: 0.8;
     border-color: var(--background-secondary1);
-    /* box-shadow: var(--boxShadowInset1); */
     box-shadow: var(--boxShadowClay3);
     color: var(--background-secondary1);
-    /* box-shadow: var(--boxShadowClay2); */
   }
   @media screen and (max-width: 880px) {
     min-width: 137px;
@@ -93,7 +90,6 @@ export const ProjectMenuContainerHome = styled(motion.div)`
   gap: 1.25rem;
   cursor: grab;
   white-space: nowrap;
-  /* margin-top: 1rem; */
   margin-bottom: 1rem;
 
   @media screen and (max-width: 880px) {
