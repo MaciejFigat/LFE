@@ -15,7 +15,6 @@ export const TransitionWrapperMain = styled.div`
   }
   .nav_link {
     transition: color 600ms ease-out;
-    /* color: var(--background-main5); */
   }
   .top {
     transition: all 1000ms ease-in;
@@ -24,7 +23,6 @@ export const TransitionWrapperMain = styled.div`
 
     background: var(--background1-main);
     .nav_link {
-      /* color: var(--background4-main); */
     }
   }
   .active {
@@ -48,7 +46,6 @@ export const TransitionWrapperMain = styled.div`
   }
   .hidden {
     svg {
-      /* color: red; */
       color: var(--background5-main);
     }
     transition: all 200ms ease-in;
@@ -65,10 +62,7 @@ export const TransitionWrapper = styled.div`
 
   justify-content: center;
   align-items: center;
-  /* //! irritating gap holy grail no 2 */
-  /* max-height: 3.4rem; */
-  /* height: 57px; */
-  //todo
+
   border-bottom: 1px solid var(--background1-main);
   height: 67px;
   @media (min-width: 1020px) {
@@ -83,9 +77,7 @@ export const NavContainer = styled.nav`
     max-width: 2000px;
   }
 `
-export const MobileNavContainer = styled.nav`
-  /* width: fit-content; */
-`
+export const MobileNavContainer = styled.nav``
 // the following list is used for desktop navigation
 
 export const NavList = styled.ul`
@@ -182,21 +174,20 @@ export const ListItem = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-direction: row; */
+
   margin-right: 1rem;
   font-size: 1.05rem;
   letter-spacing: 0.075em;
   font-weight: 700;
   text-transform: uppercase;
-  /* color: var(--background5-main); */
+
   @media (max-width: 1020px) {
     flex-direction: column;
     align-content: flex-start;
     font-size: 1.15rem;
     margin-right: 0.25rem;
     margin-left: 1.25rem;
-    /* font-weight: 400; */
-    /* @media screen and (orientation: landscape) { */
+
     @media (max-width: 700px) and (orientation: landscape) {
       font-size: 1.15rem;
     }
@@ -240,50 +231,32 @@ export const MobileViewContainer = styled.div`
   display: none;
   flex-direction: row;
   justify-content: space-around;
-  /* align-items: center;
-  background: red; */
-  /* padding: 0 1.5rem 0 1rem; */
-  /* this below fixes the irritating gap in nav when you scroll it down */
-  /* margin-top: -1px !important; */
+
   @media (max-width: 1020px) {
     display: flex;
   }
   @media (max-width: 680px) {
     max-width: 98%;
-    /* justify-content: center; */
   }
   @media (max-width: 540px) {
     justify-content: space-around;
   }
 `
 export const HeaderTitleMobile = styled.h1`
-  /* color: var(--background1-main); */
-  /* font-size: 1.75rem; */
-  /* font-weight: 400; */
   display: none;
 
   max-width: fit-content;
 
   @media (max-width: 1020px) {
-    /* display: block; */
     display: grid;
     place-items: center;
 
     font-size: 1.25rem;
   }
   @media (max-width: 600px) {
-    /* ${({ wide }) => (wide ? 'max-width: 100px;' : 'max-width: 40px;')}; */
   }
 `
 
-// export const WrapperMobileOnly = styled.div`
-//   display: none;
-//   @media (max-width: 1019px) {
-//     place-items: center;
-//     display: grid;
-//     font-size: 1.25rem;
-//   }
-// `
 export const WrapperDesktopOnly = styled.div`
   display: grid;
   place-items: center;
@@ -318,8 +291,7 @@ export const AnimatedWrapperMobile = styled(motion.div)`
   height: 60px;
   display: none;
   position: absolute;
-  //todo
-  /* background: brown; */
+
   border-bottom: 1px solid var(--background-blur1);
   top: 62px;
   @media (max-width: 1019px) {
@@ -328,10 +300,6 @@ export const AnimatedWrapperMobile = styled(motion.div)`
     justify-content: center;
   }
   @media (max-width: 520px) {
-    /* justify-content: flex-start; */
-    /* flex-direction: row; */
-    /* align-items: center; */
-    /* justify-content: center; */
   }
 `
 export const NavListDesktopWrapper = styled.div`
@@ -352,5 +320,3 @@ export const MobileLinkText = styled.div`
     display: none;
   }
 `
-// export const MobileLinkText = styled.div``
-// export const MobileLinkText = styled.div``
