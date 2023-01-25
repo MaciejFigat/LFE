@@ -2,13 +2,11 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const ScrollSec = styled.div`
-  /* background: var(--background1-main); */
-  /* background: lime; */
   margin-top: ${({ topMargin }) => (topMargin ? topMargin : '0')};
   color: var(--background4-main);
   min-height: fit-content;
   width: 100%;
-  /* background: brown; */
+
   @media (max-width: 880px) {
     padding: 0;
   }
@@ -26,7 +24,6 @@ export const ScrollSectionRow = styled.div`
 `
 
 export const SectionColumn = styled.div`
-  /* background: none; */
   flex-direction: column;
   display: flex;
   justify-content: flex-start;
@@ -37,9 +34,9 @@ export const SectionColumn = styled.div`
   padding-left: 15px;
   max-height: 100vh;
   min-height: fit-content;
-  /* min-width: ${({ width }) => (width ? `${width}` : '40%')}; */
+
   flex-basis: ${({ width }) => (width ? `${width}` : '50%')};
-  /* background: red; */
+
   overflow: scroll;
   @media screen and (max-width: 1490px) {
     flex-basis: 50%;
@@ -65,11 +62,8 @@ export const SectionColumn = styled.div`
 export const SectionColumnScroll = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+
   justify-content: flex-start;
-  /* align-items: center; */
-  /* align-items: flex-start; */
-  /* background: var(--background-blur1); */
 
   margin-bottom: 15px;
   padding-left: 15px;
@@ -99,7 +93,6 @@ export const Container = styled.div`
 // todo draggable parts
 
 export const DragButton = styled.div`
-  /* position: sticky; */
   position: relative;
   top: 50vh;
   left: -1px;
@@ -114,25 +107,23 @@ export const DragButton = styled.div`
   border: 1.5px solid var(--background3-main);
   &:hover {
     border-color: var(--background3-main);
-    /* background: var(--success2); */
+
     background: var(--background2-main);
   }
   border-left: none;
-  /* background: var(--background-secondary1); */
 `
 export const DragDiv = styled.div`
   position: sticky;
   top: 0;
   background: none;
   border-left: 1.5px solid;
-  /* border-right: 1.5px solid; */
+
   border-color: var(--background1-main);
   transition: 0.2s;
   &:active {
     border-color: var(--background2-main);
   }
   &:hover {
-    /* opacity: 0.8; */
     border-color: var(--background3-main);
   }
 
@@ -143,16 +134,15 @@ export const DragDiv = styled.div`
 `
 // ? this encloses {wideSection}
 //! change into motion component
-// export const SectionColumnScrollResize = styled.div`
+
 export const SectionColumnScrollResize = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+
   justify-content: flex-start;
-  /* align-items: center; */
+
   align-items: center;
-  /* background: red; */
-  /* margin-bottom: 15px; */
+
   padding-left: 15px;
 
   //* the following sets width depending on whether it's narrowOption (used in DocResult display) or regular
@@ -171,7 +161,7 @@ export const SectionColumnResize = styled.div`
   background: var(--background1-main);
   position: sticky;
   top: 0px;
-  /* margin-bottom: 15px; */
+
   margin-bottom: 0;
   padding-left: 15px;
   padding-bottom: 0;
@@ -179,11 +169,10 @@ export const SectionColumnResize = styled.div`
   min-height: fit-content;
   overflow: scroll;
   flex-grow: 1;
-  /* min-width: 300px; */
+
   max-width: 70vw;
   width: 10%;
   ::-webkit-scrollbar {
-    /* width: 0.2em; */
     width: 0px;
   }
 `
