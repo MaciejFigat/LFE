@@ -308,7 +308,6 @@ export const SubtitleSimple = styled(Subtitle)`
 `
 
 export const HomeContentWrapper = styled.div`
-  /* margin-top: -30vh; */
   display: grid;
   z-index: 12;
   place-items: center;
@@ -321,7 +320,6 @@ export const CenterWrapper = styled.div`
 export const CenterWrapperSimple = styled(CenterWrapper)`
   margin-bottom: 0.5rem;
   height: fit-content;
-  /* align-self: flex-start; */
   width: 95%;
 `
 export const DataContainerSimple = styled.div`

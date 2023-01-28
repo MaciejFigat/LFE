@@ -63,7 +63,6 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                   <SvgIcon variant='cog' noContent lowerPosition='2px' />
                 </SvgWrapperMiscSmall>
               </SpaceAroundWrapper>
-              {/* <SvgIcon variant='cog' contentAfter='ustawienia' toBottom /> */}
             </DropDownHeaderMini>
           ) : (
             <DropDownHeaderMisc>

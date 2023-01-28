@@ -117,9 +117,9 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
             <InfoRow imgStart={imgStart}>
               <InfoColumnShort imgStart={imgStart}>
                 <TextWrapperShort>
-                  <SubtitleShort>{metryka.rodzaj_orzeczenia}</SubtitleShort>
-                  <SubtitleShort>{metryka.data}</SubtitleShort>
-                  <SubtitleShort>{metryka.syg}</SubtitleShort>
+                  <SubtitleShort>{metryka?.rodzaj_orzeczenia}</SubtitleShort>
+                  <SubtitleShort>{metryka?.data}</SubtitleShort>
+                  <SubtitleShort>{metryka?.syg}</SubtitleShort>
 
                   <TopLineShort>Istota interpretacji:</TopLineShort>
                   <SubtitleShortLonger onClick={() => submitHandlerDocNr(0)}>
@@ -143,7 +143,7 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
               <InfoColumn>
                 <TextWrapper>
                   <TopLine>Znalezione fragmenty:</TopLine>
-                  {fragmentsFound.length > 0 &&
+                  {fragmentsFound?.length > 0 &&
                     fragmentsFound.map((fragment, index) => (
                       <HighlightMarker
                         key={Math.random()}

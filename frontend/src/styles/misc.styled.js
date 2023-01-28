@@ -231,8 +231,9 @@ export const DropDownHeaderMisc = styled.div`
   align-items: center;
   justify-content: space-around;
   user-select: none;
-  height: 26px;
-  /* border-radius: 12px; */
+
+  height: 34px;
+
   border-radius: var(--border-radius2);
   width: 150px;
   border: 1px solid var(--background-blur1);

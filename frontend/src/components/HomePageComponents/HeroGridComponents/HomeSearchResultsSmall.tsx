@@ -59,7 +59,7 @@ const HomeSearchResultsSmall: React.FC<HomeSearchResultsSmallProps> = () => {
         <HomeSearchSample />
       ) : (
         data
-          .slice(start, end + 1)
+          ?.slice(start, end + 1)
           .filter(
             (dataSliced: any) =>
               helperFragmentSourceFilter().indexOf(dataSliced.typSadu) > -1

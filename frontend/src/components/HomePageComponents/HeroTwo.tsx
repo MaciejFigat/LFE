@@ -27,12 +27,12 @@ const HeroTwoMain: React.FC<HeroTwoProps> = () => {
         <HeroSearchDataSection
           highlightQuery={queryTrimmed}
           variant='secondary'
-          key={data[heroDocIndex]['uuid']}
+          key={data && data[heroDocIndex]['uuid']}
           paddingTop='small'
           imgStart={false}
-          fragmentsFound={data[heroDocIndex]?.fragment}
-          metryka={data[heroDocIndex]?.metryka}
-          istota_interpretacji={data[heroDocIndex].istota_interpretacji}
+          fragmentsFound={data && data[heroDocIndex]?.fragment}
+          metryka={data && data[heroDocIndex]?.metryka}
+          istota_interpretacji={data && data[heroDocIndex].istota_interpretacji}
           query={queryTrimmed}
         />
       )}

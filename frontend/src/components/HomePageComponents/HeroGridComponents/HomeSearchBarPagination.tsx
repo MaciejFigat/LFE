@@ -84,7 +84,7 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
             {!showSearchOptions ? (
               <>
                 <RegularDiv>
-                  <b>{`${query}: ${data.length} wyników`}</b>
+                  <b>{`${query}: ${data?.length} wyników`}</b>
                   <Pagination narrow />
                 </RegularDiv>
               </>
