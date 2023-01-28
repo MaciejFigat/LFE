@@ -39,6 +39,8 @@ import {
   faMinusCircle,
   faPlusSquare,
   faMinusSquare,
+  faTimes,
+  faCogs,
 } from '@fortawesome/free-solid-svg-icons'
 interface SvgIconProps {
   variant:
@@ -79,6 +81,8 @@ interface SvgIconProps {
     | 'downPoint'
     | 'chevronRight'
     | 'chevronLeft'
+    | 'close'
+    | 'cogs'
 
   noMargin?: boolean
   contentAfter?: string
@@ -181,6 +185,10 @@ const SvgIcon: React.FC<SvgIconProps> = ({
         return faChevronRight
       case 'chevronLeft':
         return faChevronLeft
+      case 'close':
+        return faTimes
+      case 'cogs':
+        return faCogs
 
       default:
         return faUser

@@ -43,7 +43,6 @@ export const SearchBarWrapper = styled.div`
   height: ${({ medium }) => medium && '40px'};
   min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
   min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
-  /* z-index: 10; */
   gap: 0.75rem;
   background: transparent;
 
@@ -52,14 +51,13 @@ export const SearchBarWrapper = styled.div`
   font-weight: 400;
   .show {
     transition: 0.3s;
-    /* opacity: 1; */
+
     //! here searchButton color is defined when panel is open
     color: var(--background3-main);
-    /* color: red; */
   }
   .hide {
     transition: 0.2s;
-    /* opacity: 0; */
+
     color: var(--background5-main);
   }
   @media (max-width: 620px) {
@@ -67,12 +65,6 @@ export const SearchBarWrapper = styled.div`
     min-width: fit-content;
   }
 
-  /* @media (max-width: 320px) {
-    max-width: ${({ large }) => (large ? '370px' : '150px')};
-    min-width: ${({ large }) => (large ? '0' : 'fit-content')};
-    width: ${({ large }) => (large ? '370px' : '150px')};
-    background: brown;
-  } */
   @media (max-width: 420px) {
     gap: 0.25rem;
     height: ${({ large }) => (large ? '30px' : '25px')};
@@ -87,25 +79,23 @@ export const SearchBarButton = styled.button`
   border: none;
   cursor: pointer;
   background: transparent;
-  /* color: var(--background-blur2) !important; */
+
   color: var(--background4-main) !important;
   font-size: ${({ large }) => (large ? '1.55rem' : '1rem')};
   font-weight: 700;
-  /* color: var(--background3-main); */
-  /* background: var(--background2-main); */
+
   border: 1px solid transparent;
   border-radius: 10px;
-  /* margin-left: 0.5rem; */
+
   margin-left: ${({ large }) => (large ? '1rem' : '0.5rem')};
   margin-right: ${({ large }) => (large ? '0.5rem' : '0rem')};
+  svg {
+    color: var(--background3-main);
+  }
   &:hover {
     color: var(--background-secondary1) !important;
-    /* transition: all 0.7s ease-out; */
-    /* border: 1px solid var(--background2-main); */
   }
-  &:active {
-    /* border: 1px solid var(--background3-main); */
-  }
+
   @media (max-width: 420px) {
     font-size: 0.7rem;
     padding: none;
@@ -117,21 +107,20 @@ export const SearchBarForm = styled.form`
 `
 export const SearchBarContainer = styled.div`
   display: flex;
+  height: 34px;
 `
 export const SearchInput = styled.input`
   max-width: 100%;
   height: 100%;
   padding: 11px 13px;
   color: var(--background3-main);
-  /* background: none; */
   background: var(--background1-main) !important;
   outline: 0;
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background-blur1);
-  /* box-shadow: ${({ large }) =>
-    large ? 'var(--boxShadowInset1)' : 'var(--boxShadowInset1)'}; */
+
   font-size: ${({ large }) => (large ? '1.5rem' : '1rem')};
   /* //? medium version */
   font-size: ${({ medium }) => medium && '1.2rem'};
@@ -144,9 +133,7 @@ export const SearchInput = styled.input`
     min-width: ${({ large }) => (large ? '270px' : 'fit-content')};
     border-radius: ${({ large }) => (large ? '14px' : '12px')};
   }
-  /* @media (max-width: 320px) {
-    max-width: ${({ large }) => (large ? '200px' : '100px')};
-  } */
+
   @media (max-width: 420px) {
     min-width: ${({ large }) => (large ? '200px' : 'fit-content')};
     font-size: 0.8rem;
@@ -157,7 +144,6 @@ export const SearchInput = styled.input`
 
   &:focus,
   &:hover {
-    /* scale: 0.99; */
     color: var(--background4-main);
     transition: all 0.2s ease-out !important;
     box-shadow: var(--boxShadowInset1) !important;
@@ -170,9 +156,6 @@ export const SearchInput = styled.input`
   &::placeholder {
     color: var(--background2-main);
   }
-  /* &:active {
-    border: 1px solid var(--background-blur2);
-  } */
 `
 
 export const SpinnerWrapperSearch = styled.div`
@@ -185,10 +168,8 @@ export const SpinnerWrapperSearch = styled.div`
 
 export const Main = styled.div`
   max-height: 38px;
-  /* max-width: 330px; */
-  /* max-width: 330px; */
   width: 330px;
-  /* background: red; */
+
   @media (max-width: 1020px) {
     font-size: 1.25rem;
   }
@@ -199,6 +180,8 @@ export const Main = styled.div`
 `
 export const DropDownContainer = styled.div`
   min-width: min-content;
+
+  height: 34px;
   margin: 0;
 `
 
@@ -208,6 +191,7 @@ export const DropdownIconWrapper = styled.div`
 
   margin-left: 1rem;
   svg {
+    font-size: 1.2rem;
     color: var(--background2-main);
 
     &:hover {
@@ -219,14 +203,11 @@ export const DropDownHeader = styled.div`
   display: flex;
   font-weight: 500;
   font-size: 0.9rem;
-  /* color: var(--background1-main); */
+
   transition: all 0.3s ease-out;
   text-align: center;
 
-  padding: 4px 0px 4px;
-  &:hover {
-    /* color: var(--background3-main); */
-  }
+  /* padding: 4px 0px 4px; */
 `
 export const DropDownListContainer = styled.div`
   position: relative;

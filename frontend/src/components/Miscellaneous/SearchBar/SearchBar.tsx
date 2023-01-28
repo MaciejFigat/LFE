@@ -16,6 +16,7 @@ import {
 } from './SearchBar.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import { ThreeDots, RotatingLines } from 'react-loader-spinner'
+import { RelativeWrapper } from '../../../styles/misc.styled'
 
 interface SearchBarProps {
   isOpen: boolean
@@ -76,16 +77,10 @@ const SearchBar: React.FC<SearchBarProps> = ({
           type='submit'
         >
           {loadingResults === false ? (
-            <SvgIcon
-              variant={isOpen ? 'searchPlus' : 'search'}
-              noContent
-              // toBottom
-              // contentAfter={'wyszukaj'}
-              // contentAfter={
-              //   isOpen ? 'zaawansowane wyszukiwanie' : 'wyszukiwanie'
-              // }
-              // showContent={isOpen ? true : false}
-            />
+            <RelativeWrapper top='3px' left='-4px'>
+              {' '}
+              <SvgIcon variant={isOpen ? 'searchPlus' : 'search'} noContent />
+            </RelativeWrapper>
           ) : (
             <SpinnerWrapperSearch>
               {large ? (

@@ -23,7 +23,10 @@ import {
 } from './SearchBar.styled'
 import SearchBar from './SearchBar'
 import { DatePickerButton } from './DatePicker.styled'
-import { HorizontalWrapperBaseLine } from '../../../styles/misc.styled'
+import {
+  HorizontalWrapperBaseLine,
+  RelativeWrapper,
+} from '../../../styles/misc.styled'
 
 registerLocale('pl', pl) //* registers locale for me to use it with DatePicker
 
@@ -35,7 +38,6 @@ interface NavDropdownProps {
 const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   const [searchQuery, setSearchQuery] = useState<string>('')
 
-  //todo
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
   const [isOpen, setIsOpen] = useState(false)
@@ -71,14 +73,9 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
             take={take}
           />
           <DropdownIconWrapper onClick={toggling}>
-            <SvgIcon
-              variant={isOpen ? 'minus' : 'moreOptions'}
-              noContent
-              // toBottom
-              // contentAfter={isOpen ? 'close' : 'advanced'}
-              // contentAfter={isOpen ? 'zamknij' : 'opcje'}
-              // showContent={isOpen ? true : false}
-            />
+            <RelativeWrapper top='3px' left='2px'>
+              <SvgIcon variant={isOpen ? 'close' : 'cogs'} noContent />
+            </RelativeWrapper>
           </DropdownIconWrapper>
         </DropDownHeader>
 
