@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { useAppSelector } from '../../../app/reduxHooks'
 import {
   VisitedLinkPar,
@@ -33,11 +32,6 @@ const VisitedLinks: React.FC<VisitedLinksProps> = ({ large }) => {
       )
     }
   }
-  // const copyHandler = (doc_link: string) => {
-  //   if (doc_link) {
-  //     navigator.clipboard.writeText(doc_link)
-  //   }
-  // }
 
   return (
     <div>

@@ -2,12 +2,6 @@ import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { sortingKeywordMainEdit } from '../../../features/preferences/preferenceSlice'
 import {
-  addVisitedLink,
-  changeDocId,
-  getDocByIdAndQuery,
-  subtractHeroDocIndex,
-} from '../../../features/searchResults/searchResultsSlice'
-import {
   HorizontalWrapperGap,
   RelativeWrapper,
 } from '../../../styles/misc.styled'
@@ -24,9 +18,6 @@ const HeroProjectButtons: React.FC<HeroProjectButtonsProps> = () => {
     (state) => state.preference.sortingKeywords.keywordMain
   )
 
-  const searchData: any = useAppSelector(
-    (state) => state.searchResult.searchResults.data
-  )
   const keywordsAll = fragments
     ?.map((fragment) =>
       fragment.keywords

@@ -22,7 +22,13 @@ import {
   MainChoiceContainer,
 } from './HomeChoiceWrapper/HomeChoiceWrapper.styled'
 import { HeroTwoFourth, HeroTwoMain, HeroTwoThird } from './HeroTwo'
-import { RegularDiv } from '../../styles/misc.styled'
+import {
+  HorizontalWrapper,
+  HorizontalWrapperGap,
+  HorizontalWrapperSpace,
+  RegularDiv,
+  RelativeWrapper,
+} from '../../styles/misc.styled'
 import HomeSearchResultsSmall from './HeroGridComponents/HomeSearchResultsSmall'
 import HeroSearchButtons from './HeroGridComponents/HeroSearchButtons'
 import HomeSearchBarPagination from './HeroGridComponents/HomeSearchBarPagination'
@@ -43,6 +49,7 @@ import HeroProjectExport from './HeroGridComponents/HeroProjectExport'
 import UserFragmentsByKeywordHero from '../FragmentsColumn/UserFragmentsByKeywordHero'
 import HeroProjectCategories from './HeroGridComponents/HeroProjectCategories'
 import HeroProjectButtons from './HeroGridComponents/HeroProjectButtons'
+import HeroChangeDetail from './HeroGridComponents/HeroChangeDetail'
 
 interface HeroGridProps {}
 
@@ -151,7 +158,8 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           )}
         </>
       ),
-      // ! here I will differentiate between logged users and not registered ones (ie. link to fragment management )
+
+      //? upper right corner
       tertiaryContent: (
         <>
           {' '}
@@ -162,18 +170,28 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           )}
         </>
       ),
+      //? lower left corner
       quaternaryContent: (
         <>
           {' '}
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
-            <HeroProjectButtons />
+            <>
+              <HeroProjectButtons />
+            </>
           ) : null}
         </>
       ),
+      //? lower right corner
       pentanaryContent: (
         <>
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
-            <HeroProjectExport />
+            <HorizontalWrapper>
+              {' '}
+              <RelativeWrapper left='-10px' top='0px'>
+                <HeroChangeDetail />
+              </RelativeWrapper>{' '}
+              <HeroProjectExport />
+            </HorizontalWrapper>
           ) : (
             <HeroExportMain />
           )}

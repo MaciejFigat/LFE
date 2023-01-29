@@ -9,9 +9,6 @@ import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import AnimatedSavedItemSimple from '../Miscellaneous/AnimatedTextPanel/AnimatedSavedItemSimple'
 import StaggerChildrenWrapperSecondary from '../Miscellaneous/AnimationWrappers/StaggerChildrenWrapperSecondary'
 import { HeroColumnsWrapper } from '../../styles/misc.styled'
-import { ButtonMedium } from '../Miscellaneous/Buttons/BigButton.styled'
-import { CenterWrapper } from '../Miscellaneous/InfoSection/InfoSection.styled'
-import { changeFragmentsDetailView } from '../../features/preferences/preferenceSlice'
 
 interface UserFragmentsByKeywordHeroProps {}
 
@@ -50,9 +47,6 @@ const UserFragmentsByKeywordHero: React.FC<
     (state) => state.fragment.success
   )
 
-  const viewHandler = () => {
-    dispatch(changeFragmentsDetailView())
-  }
   useEffect(() => {
     dispatch(getUserFragments(1))
     if (fragmentSuccess === true) {
@@ -62,11 +56,6 @@ const UserFragmentsByKeywordHero: React.FC<
 
   return (
     <StaggerChildrenWrapperSecondary key={keywordMain}>
-      <CenterWrapper>
-        <ButtonMedium variant='secondary' onClick={viewHandler}>
-          {fragmentsDetailView ? 'simple' : 'not so simple'}
-        </ButtonMedium>
-      </CenterWrapper>
       <HeroColumnsWrapper>
         {fragmentsKeywordMain.length > 0 &&
           fragmentsKeywordMain
