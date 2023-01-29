@@ -439,11 +439,11 @@ export const HorizontalWrapperTight = styled.div`
 `
 export const HorizontalWrapperBaseLine = styled.div`
   display: flex;
+
   justify-content: center;
   align-items: baseline;
   @media (max-width: 420px) {
     flex-direction: column;
-    /* width: 180px; */
   }
 `
 
@@ -454,7 +454,7 @@ export const RelativeRightSvgWrapper = styled.div`
 export const RelativeSvgWrapper = styled.div`
   position: relative;
   top: ${({ top }) => (top ? top : '2px')};
-  /* right: ${({ right }) => (right ? right : '0px')}; */
+
   left: ${({ left }) => (left ? left : '0px')};
 `
 

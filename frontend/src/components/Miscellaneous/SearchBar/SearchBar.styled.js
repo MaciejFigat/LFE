@@ -206,27 +206,23 @@ export const DropDownHeader = styled.div`
 
   transition: all 0.3s ease-out;
   text-align: center;
-
-  /* padding: 4px 0px 4px; */
 `
 export const DropDownListContainer = styled.div`
   position: relative;
-  left: 0px;
+  left: -70px;
   top: 15px;
   user-select: none;
-  /* z-index: 10; */
-  /* background: var(--background-blur1); */
+
   background: var(--background1-main);
-  /* border: 1px solid var(--background2-main); */
+
   border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
   box-shadow: var(--boxShadow1);
-  width: 350px;
+  width: 450px;
   padding: 0.5rem;
-  /* backdrop-filter: blur(8px); */
-  /* -webkit-backdrop-filter: blur(8px); */
+
   border-radius: 10px;
   @media (max-width: 680px) {
     width: 220px;
@@ -254,10 +250,11 @@ export const DropDownDateContainer = styled.div`
 export const DropDownList = styled.div`
   display: grid;
   place-items: center;
+  gap: 0.5rem;
   width: 100%;
   box-sizing: border-box;
-
   color: var(--background5-main);
+
   font-size: 1rem;
   font-weight: 400;
   min-width: fit-content;
@@ -269,8 +266,6 @@ export const DropDownList = styled.div`
   }
 `
 export const SwitchButtonWrapper = styled.div`
-  /* display: grid;
-  place-items: center; */
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -289,7 +284,7 @@ export const ListItem = styled.li`
   width: 100%;
   list-style: none;
   max-width: fit-content;
-
+  color: var(--background4-main);
   padding-bottom: 0.75rem;
   b {
     font-size: 0.95rem;
@@ -387,17 +382,19 @@ export const SetTakeButton = styled.button`
   border: 1px solid transparent;
   border-radius: 8px;
   font-size: 0.95rem;
-
+  font-weight: 600;
   background-color: ${({ buttonActive }) =>
-    buttonActive ? 'var(--background2-main)' : 'transparent'};
+    buttonActive ? 'var(--background-blur1)' : 'transparent'};
+  color: ${({ buttonActive }) =>
+    buttonActive ? 'var(--background-secondary1)' : 'inherit'};
   margin: 0;
   &:hover {
     border: 1px solid;
     border-color: ${({ buttonActive }) =>
-      buttonActive ? 'var(--background1-main)' : 'var(--background4-main)'};
+      buttonActive ? 'var(--background-blur2)' : 'var(--background-blur1)'};
   }
   &:active {
-    border: 1px solid var(--background-secondary4);
+    color: var(--background-secondary1);
   }
   @media (max-width: 620px) {
     font-size: 0.7rem;
