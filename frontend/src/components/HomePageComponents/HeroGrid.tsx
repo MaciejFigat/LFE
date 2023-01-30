@@ -24,8 +24,6 @@ import {
 import { HeroTwoFourth, HeroTwoMain, HeroTwoThird } from './HeroTwo'
 import {
   HorizontalWrapper,
-  HorizontalWrapperGap,
-  HorizontalWrapperSpace,
   RegularDiv,
   RelativeWrapper,
 } from '../../styles/misc.styled'
