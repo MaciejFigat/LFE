@@ -99,6 +99,13 @@ body {
       transparent 70%,
       var(--background-blur1)
     );
+  --background-gradient2: linear-gradient(
+      120deg,
+      var(--background-blur1) 0%,
+      transparent 50%,
+      transparent 80%,
+      var(--background-blur1)
+    );
 
 
   

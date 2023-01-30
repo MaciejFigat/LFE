@@ -3,7 +3,7 @@ import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 import { changeFragmentsDetailView } from '../../../features/preferences/preferenceSlice'
 import { RelativeWrapper } from '../../../styles/misc.styled'
 
-import { ButtonMedium } from '../../Miscellaneous/Buttons/BigButton.styled'
+import { ButtonSmall } from '../../Miscellaneous/Buttons/BigButton.styled'
 import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 interface HeroChangeDetailProps {}
 
@@ -18,7 +18,7 @@ const HeroChangeDetail: React.FC<HeroChangeDetailProps> = () => {
 
   return (
     <>
-      <ButtonMedium variant='secondary' onClick={viewHandler}>
+      <ButtonSmall variant='emptyPrimary' onClick={viewHandler}>
         {fragmentsDetailView ? (
           <>
             Widok szczegółowy
@@ -34,7 +34,7 @@ const HeroChangeDetail: React.FC<HeroChangeDetailProps> = () => {
             </RelativeWrapper>
           </>
         )}
-      </ButtonMedium>
+      </ButtonSmall>
     </>
   )
 }

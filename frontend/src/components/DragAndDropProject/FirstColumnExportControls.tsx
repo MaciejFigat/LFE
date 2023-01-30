@@ -12,7 +12,7 @@ import {
 import { saveAs } from 'file-saver'
 import { ButtonSmall } from '../Miscellaneous/Buttons/BigButton.styled'
 import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
-// import { ClayButtonWrapperSecondary } from '../../styles/misc.styled'
+
 interface FirstColumnExportControlsProps {
   state: any[]
 }
@@ -218,8 +218,6 @@ const FirstColumnExportControls: React.FC<FirstColumnExportControlsProps> = ({
   })
 
   return (
-    // <ClayButtonWrapperSecondary paddingProps='10px' marginProps='0rem'>
-
     <ButtonSmall
       variant='successEmpty'
       borderRadius='15px'
@@ -229,7 +227,6 @@ const FirstColumnExportControls: React.FC<FirstColumnExportControlsProps> = ({
       eksportuj &nbsp;
       <SvgIcon variant='export' toBottom noContent lowerPosition='2px' />
     </ButtonSmall>
-    // </ClayButtonWrapperSecondary>
   )
 }
 export default FirstColumnExportControls

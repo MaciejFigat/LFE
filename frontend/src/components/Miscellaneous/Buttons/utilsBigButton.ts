@@ -21,6 +21,14 @@ const primaryStyle: StyleVariant = {
     buttonColorActive: 'var(--background3-main)',
     buttonBorderActive: 'var(--background3-main)'
 }
+const emptyPrimaryStyle: StyleVariant = {
+    buttonColor: 'var(--background4-main)',
+    buttonBackground: 'var(--background-gradient1)',
+    buttonBackgroundHover: 'var(--background-gradient2)',
+    buttonColorHover: 'var(--background5-main)',
+    buttonColorActive: 'var(--background3-main)',
+    buttonBorderActive: 'var(--background4-main)'
+}
 
 
 
@@ -30,8 +38,15 @@ const secondaryStyle: StyleVariant = {
     buttonBackground: 'var(--background-blur1)',
     buttonBackgroundHover: 'var(--background1-main)',
     buttonColorHover: 'var(--background-secondary1)',
-    // buttonBorder: 'var(--background4-main)',
-    // buttonBorderHover: 'var(--background-secondary1)',
+    buttonColorActive: 'var(--background3-main)',
+    buttonBorderActive: 'var(--background3-main)'
+}
+const emptySecondaryStyle: StyleVariant = {
+    buttonColor: 'var(--background4-main)',
+    buttonBackground: 'var(--background-blur1)',
+    buttonBackgroundHover: 'var(--background1-main)',
+    buttonColorHover: 'var(--background-secondary1)',
+
     buttonColorActive: 'var(--background3-main)',
     buttonBorderActive: 'var(--background3-main)'
 }
@@ -99,8 +114,16 @@ export const handleButtonColor: (props: any) => {} = (props: any) => {
             style = primaryStyle
             break;
 
+        case 'emptyPrimary':
+            style = emptyPrimaryStyle
+            break;
+
         case 'secondary':
             style = secondaryStyle
+            break;
+
+        case 'emptySecondary':
+            style = emptySecondaryStyle
             break;
 
         case 'success':
@@ -115,13 +138,9 @@ export const handleButtonColor: (props: any) => {} = (props: any) => {
             style = infoStyle
             break;
 
-
-
         case 'danger':
             style = dangerStyle
             break;
-
-
 
         default:
             style = defaultStyle
