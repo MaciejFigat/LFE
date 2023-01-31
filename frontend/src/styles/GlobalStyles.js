@@ -138,7 +138,7 @@ body {
     handleGlobalScheme(props.globalScheme).boxShadowClay4}
 
 
-  // --boxShadowNone: inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, 0px 0px 0px #d2d1ce, 0px 0px 0px #fffffe;
+  
 
   
 
