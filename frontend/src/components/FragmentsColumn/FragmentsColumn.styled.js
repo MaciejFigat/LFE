@@ -24,18 +24,17 @@ export const FragmentsP = styled.p`
 export const FragmentsPExcerpt = styled.p`
   color: var(--background4-main);
   font-size: 1rem;
-  /* font-weight: 600; */
+
   margin: 0;
   margin-bottom: 0.5rem;
 `
 export const DateCompareWrapper = styled.div`
   display: flex;
   gap: 0.5rem;
-  /* flex-direction: row; */
+
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* text-justify: center; */
 `
 export const HorizontalContainer = styled.div`
   display: flex;
