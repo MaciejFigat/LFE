@@ -70,21 +70,8 @@ export const ListWrapper = styled(motion.div)`
   width: 100%;
   align-items: center;
   justify-content: center;
-  /* min-height: 100%; */
-  /* &:last-of-type {
-    margin-bottom: 2rem;
-  } */
-  /* margin-top: 16px; */
-
-  /* padding: 0.5rem; */
-
-  @media (max-width: 1140px) {
-    /* margin-top: 20px; */
-  }
 `
-// export const ListWrapperRelative = styled(ListWrapper)`
-//   position: relative;
-// `
+
 export const WrapperMotionDiv = styled(motion.div)`
   position: relative;
   /* min-height: 100%; */
@@ -360,7 +347,7 @@ export const SimpleCitationItemSmall = styled(motion.div)`
   overflow-y: scroll;
   box-shadow: var(--boxShadow1);
   min-height: fit-content;
-  height: 210px;
+  height: 240px;
   padding: 1.55rem;
   min-width: 360px;
   max-width: 360px;
@@ -391,6 +378,13 @@ export const SimpleCitationItemSmall = styled(motion.div)`
   ::-webkit-scrollbar-track {
     border-radius: 2px;
   }
+`
+export const SimpleCitationItemSuperSmall = styled(SimpleCitationItemSmall)`
+  /* place-items: space-around; */
+  place-items: center;
+  box-shadow: var(--boxShadowNone);
+  height: 110px;
+  border-color: var(--background-blur2);
 `
 export const SimpleCitationItemNoShadow = styled(SimpleCitationItem)`
   box-shadow: none;

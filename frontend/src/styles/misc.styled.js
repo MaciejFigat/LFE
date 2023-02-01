@@ -71,7 +71,12 @@ export const WrapperMotionDiv = styled(motion.div)`
 `
 export const WrapperMotionDivRelative = styled(motion.div)`
   position: relative;
-  height: 180px;
+  height: 200px;
+  max-width: 340px;
+`
+export const WrapperMotionDivRelativeSmall = styled(motion.div)`
+  position: relative;
+  height: 120px;
   max-width: 340px;
 `
 export const ClosingDiv = styled(motion.div)`

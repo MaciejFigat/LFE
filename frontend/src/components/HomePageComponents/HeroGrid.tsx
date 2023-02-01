@@ -318,8 +318,6 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
                 </AnimatePresence>
               </HeroArticleBottomSmallSection>
             </HeroMainArticle>
-            {/* <HeroMainArticle></HeroMainArticle> */}
-            {/* <HeroMainArticle></HeroMainArticle> */}
           </HeroMainContainer>
         </HeroGridWrapper>
       </AnimateSharedLayout>

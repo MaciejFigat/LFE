@@ -9,6 +9,7 @@ import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import AnimatedSavedItemSimple from '../Miscellaneous/AnimatedTextPanel/AnimatedSavedItemSimple'
 import StaggerChildrenWrapperSecondary from '../Miscellaneous/AnimationWrappers/StaggerChildrenWrapperSecondary'
 import { HeroColumnsWrapper } from '../../styles/misc.styled'
+import AnimatedSavedItemSuperSimple from '../Miscellaneous/AnimatedTextPanel/AnimatedSavedItemSuperSimple'
 
 interface UserFragmentsByKeywordHeroProps {}
 
@@ -77,7 +78,14 @@ const UserFragmentsByKeywordHero: React.FC<
                           keywordValue={fragment.keywordValue}
                         />
                       ) : (
-                        <h2>simple View</h2>
+                        <AnimatedSavedItemSuperSimple
+                          id={fragment._id}
+                          source={fragment.source}
+                          excerpt={fragment.excerpt}
+                          updatedAt={fragment.updatedAt}
+                          keywords={fragment.keywords}
+                          keywordValue={fragment.keywordValue}
+                        />
                       )}
                     </ItemWrapper>
                   </FragmentContainer>
