@@ -23,14 +23,14 @@ const HeroChangeDetail: React.FC<HeroChangeDetailProps> = () => {
           <>
             Widok szczegółowy
             <RelativeWrapper top='3px' left='5px'>
-              <SvgIcon variant='minus' />
+              <SvgIcon variant='squareEmpty' />
             </RelativeWrapper>
           </>
         ) : (
           <>
             Widok szczegółowy
             <RelativeWrapper top='3px' left='5px'>
-              <SvgIcon variant='plus' />
+              <SvgIcon variant='check' />
             </RelativeWrapper>
           </>
         )}
