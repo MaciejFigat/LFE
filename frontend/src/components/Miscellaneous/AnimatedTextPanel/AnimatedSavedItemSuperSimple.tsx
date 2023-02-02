@@ -9,6 +9,7 @@ import { SimpleCitationItemSuperSmall } from './AnimatedList.styled'
 import { editIdOpenFragment } from '../../../features/preferences/preferenceSlice'
 import {
   FragmentsP,
+  FragmentsPExcerpt,
   HorizontalContainer,
 } from '../../FragmentsColumn/FragmentsColumn.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
@@ -74,7 +75,7 @@ const AnimatedSavedItemSuperSimple: React.FC<
         </HorizontalContainer>
 
         <HorizontalContainer>
-          <FragmentsP>{excerpt.substring(0, 30)}</FragmentsP>
+          <FragmentsPExcerpt>{excerpt.substring(0, 30)}</FragmentsPExcerpt>
           <>
             <RelativeWrapper top='0px' left='8px'>
               <SendButtonVerySmall

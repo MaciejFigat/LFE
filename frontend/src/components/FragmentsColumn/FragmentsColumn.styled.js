@@ -24,7 +24,7 @@ export const FragmentsP = styled.p`
 export const FragmentsPExcerpt = styled.p`
   color: var(--background4-main);
   font-size: 1rem;
-
+  font-weight: 500;
   margin: 0;
   margin-bottom: 0.5rem;
 `

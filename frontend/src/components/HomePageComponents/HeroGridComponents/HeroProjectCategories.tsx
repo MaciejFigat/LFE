@@ -75,7 +75,7 @@ const HeroProjectCategories: React.FC<HeroProjectCategoriesProps> = () => {
         />
       )}
       <HorizontalWrapper>
-        <ButtonSmall variant='secondary' onClick={viewHandler}>
+        <ButtonSmall variant='emptyPrimary' onClick={viewHandler}>
           {viewLinks ? 'ostatnie dokumenty' : 'kategorie projektu'}
         </ButtonSmall>
       </HorizontalWrapper>

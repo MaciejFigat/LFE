@@ -78,7 +78,7 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
             </SendButtonVerySmall>
           </RelativeWrapper>
         </HorizontalContainer>
-        <FragmentsP> </FragmentsP>
+
         <FragmentsPExcerpt>{excerpt.substring(0, 150)}</FragmentsPExcerpt>
         <HorizontalContainer>
           {source !== '' ? (

@@ -342,10 +342,11 @@ export const SimpleCitationItem = styled(motion.div)`
 export const SimpleCitationItemSmall = styled(motion.div)`
   display: grid;
   place-items: flex-start;
-  /* place-items: space-around; */
-  /* place-items: center; */
+
   overflow-y: scroll;
-  box-shadow: var(--boxShadow1);
+  /* box-shadow: var(--boxShadow1); */
+  box-shadow: var(--boxShadowClay3);
+  /* box-shadow: var(--boxShadow1); */
   min-height: fit-content;
   height: 240px;
   padding: 1.55rem;
@@ -382,7 +383,8 @@ export const SimpleCitationItemSmall = styled(motion.div)`
 export const SimpleCitationItemSuperSmall = styled(SimpleCitationItemSmall)`
   /* place-items: space-around; */
   place-items: center;
-  box-shadow: var(--boxShadowNone);
+  /* box-shadow: var(--boxShadowNone); */
+  box-shadow: var(--boxShadowClay3);
   height: 110px;
   border-color: var(--background-blur2);
 `

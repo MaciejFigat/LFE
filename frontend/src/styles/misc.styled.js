@@ -19,24 +19,6 @@ export const OpenDivButton = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  /* position: relative;
-  top: 9px;
-  background: var(--background4-main);
-  transition: all 0.2s ease-in;
-  &:after {
-    opacity: 0;
-    min-width: 200% !important;
-    transition: all 0.2s ease-in;
-    font-size: 0.75rem;
-    content: 'otwórz';
-    color: var(--background4-main);
-  }
-  &:hover {
-    transition: all 0.2s ease-in;
-    &:after {
-      opacity: 1;
-    }
-  } */
 `
 export const OpenBigDivButton = styled(OpenDivButton)`
   position: relative;
@@ -49,34 +31,31 @@ export const OpenBigDivButton = styled(OpenDivButton)`
 `
 export const OpenDivButtonSecond = styled(OpenBigDivButton)`
   position: relative;
-  /* top: 10px; */
+
   top: ${({ top }) => (top ? top : '10px')};
   left: 10px;
-  /* left: ${({ left }) => (left ? left : '-100px')}; */
+
   &:after {
     position: absolute;
     top: 0;
-    /* top: 10px; */
-    /* left: -155px; */
   }
 `
 export const WrapperMotionDiv = styled(motion.div)`
-  /* position: relative; */
   position: absolute;
-  /* background: brown; */
+
   height: 180px;
-  /* width: 90%; */
+
   width: 300px;
   max-width: 340px;
 `
 export const WrapperMotionDivRelative = styled(motion.div)`
   position: relative;
-  height: 200px;
+  height: 220px;
   max-width: 340px;
 `
 export const WrapperMotionDivRelativeSmall = styled(motion.div)`
   position: relative;
-  height: 120px;
+  height: 90px;
   max-width: 340px;
 `
 export const ClosingDiv = styled(motion.div)`
@@ -95,7 +74,6 @@ export const ClosingDiv = styled(motion.div)`
   transition: 0.2s;
   &:hover {
     box-shadow: var(--boxShadowInset1);
-    /* box-shadow: var(--boxShadow1); */
   }
   &:after {
     font-weight: 700;
@@ -113,16 +91,9 @@ export const ClosingDivBig = styled(ClosingDiv)`
   left: 35%;
 `
 export const OpenedLayoutDiv = styled(motion.div)`
-  /* display: grid; */
-  /* place-items: center; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: space-around; */
-
-  /* justify-content: center; */
   height: 100%;
   width: calc(100% + 200px);
-  /* //todo here  */
+
   position: absolute;
   top: -10vh;
   left: -10vw;
@@ -132,35 +103,16 @@ export const OpenedLayoutDiv = styled(motion.div)`
   overflow: hidden;
   border-radius: 20px;
   background: var(--background1-main);
-  /* background: brown; */
-  /* border: 1px solid var(--background-secondary1); */
+
   border: 1px solid var(--background4-main);
-  /* border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background-blur1);
-  border-right: 1px solid var(--background-blur2);
-  border-top: 1px solid var(--background-blur2); */
+/
 
   color: var(--background2-main);
   box-shadow: var(--boxShadow4);
-  /* box-shadow: var(--boxShadowClay4); */
-  /* border: 1px solid var(--background1-main); */
-`
-// export const BlurWrapper = styled(motion.div)`
-// export const BlurWrapper = styled.div`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
 
-//   transition: 0.3s;
-//   height: 100%;
-//   background: var(--background-blur1);
-// `
+`
+
 export const OpenedDivBig = styled(OpenedLayoutDiv)`
-  /* display: flex;
-  background: brown;
-  justify-content: center;
-  align-items: center; */
   height: 80vh;
   width: 80vw;
   top: ${({ yPosition }) => (yPosition ? `${yPosition + 133}px` : '15vh')};
@@ -178,8 +130,7 @@ export const ChangingColumnsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
-  /* padding: 1rem;
-  margin-bottom: 3rem; */
+
   @media screen and (max-width: 1020px) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -190,7 +141,8 @@ export const ChangingColumnsWrapper = styled.div`
 export const HeroColumnsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3.5rem;
+
+  gap: ${({ details }) => (details ? '3.5rem' : '2.5rem')};
   padding: 2rem;
   @media screen and (min-width: 1720px) {
     grid-template-columns: repeat(3, 1fr);
