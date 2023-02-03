@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
 import {
+  HorizontalWrapper,
   RegularDiv,
   RelativeWrapper,
   RelativeWrapperStretch,
@@ -41,25 +42,50 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
       <RelativeWrapperStretch>
         {data && data?.length === 0 ? null : (
           <SearchBarPaginationSvgWrapper>
-            <RelativeWrapper top='0px' left='0px'>
+            <RelativeWrapper top='-5px' left='-80px'>
               <SendButtonVerySmall
                 variant='secondaryEmpty'
                 onClick={showHandler}
               >
-                <SvgIcon variant={showSearchBar ? 'chevronRight' : 'search'} />
+                <HorizontalWrapper>
+                  wyszukiwanie
+                  <RelativeWrapper top='4px' left='5px'>
+                    <SvgIcon
+                      variant={
+                        showSearchBar && !showSearchOptions
+                          ? 'check'
+                          : 'squareEmpty'
+                      }
+                    />{' '}
+                  </RelativeWrapper>
+                </HorizontalWrapper>
               </SendButtonVerySmall>
             </RelativeWrapper>
           </SearchBarPaginationSvgWrapper>
         )}
         {data && data?.length === 0 ? null : (
           <SearchBarPaginationSvgWrapperSecond>
-            <RelativeWrapper top='0px' left='0px'>
+            <RelativeWrapper top='-10px' left='-25px'>
               <SendButtonVerySmall
                 variant='secondaryEmpty'
                 onClick={showOptionsHandler}
               >
-                <SvgIcon variant={showSearchOptions ? 'homeTwo' : 'homeTwo'} />
+                <HorizontalWrapper>
+                  organ
+                  <RelativeWrapper top='4px' left='5px'>
+                    <SvgIcon
+                      variant={showSearchOptions ? 'check' : 'squareEmpty'}
+                    />{' '}
+                  </RelativeWrapper>
+                </HorizontalWrapper>
               </SendButtonVerySmall>
+              {/* <SendButtonVerySmall
+                variant='secondaryEmpty'
+                onClick={showOptionsHandler}
+              >
+                organ{' '}
+                <SvgIcon variant={showSearchOptions ? 'homeTwo' : 'homeTwo'} />
+              </SendButtonVerySmall> */}
             </RelativeWrapper>
           </SearchBarPaginationSvgWrapperSecond>
         )}
