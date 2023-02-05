@@ -104,6 +104,7 @@ export const SearchBarButton = styled.button`
 export const SearchBarForm = styled.form`
   display: flex;
   flex-direction: row;
+  align-items: center;
 `
 export const SearchBarContainer = styled.div`
   display: flex;
