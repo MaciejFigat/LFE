@@ -338,12 +338,7 @@ export const SvgWrapperMisc = styled.div`
     font-size: 0.85rem;
   }
 `
-export const SvgWrapperMiscSmall = styled(SvgWrapperMisc)`
-  /* svg {
-    color: var(--background4-main);
-   
-  } */
-`
+export const SvgWrapperMiscSmall = styled(SvgWrapperMisc)``
 
 export const ClayButtonWrapper = styled.div`
   display: grid;
@@ -353,10 +348,8 @@ export const ClayButtonWrapper = styled.div`
   box-shadow: var(--boxShadowClay1);
   background: var(--background-gradient1);
   border-radius: 25px;
-  /* margin-bottom: 0.5rem; */
 `
 export const ClayButtonWrapperSecondary = styled(ClayButtonWrapper)`
-  /* box-shadow: var(--boxShadow1); */
   box-shadow: none;
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
