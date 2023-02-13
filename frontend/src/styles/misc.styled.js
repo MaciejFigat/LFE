@@ -478,7 +478,6 @@ export const HighlightText = styled.b`
 export const HeroTitleMisc = styled.h3`
   font-size: 1.5rem;
   font-weight: 700;
-  /* color: red; */
   color: var(--background4-main);
 `
 export const HeroTitleMiscMedium = styled.h3`

@@ -1,24 +1,18 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import {
-  // addVisitedLink,
   changeHeroDocIndex,
   getDocByIdAndQuery,
-  // getDocResult,
 } from '../../../features/searchResults/searchResultsSlice'
 import {
   Container,
   InfoSecSimple,
   TopLineSimple,
-  // TextWrapperSimple,
   SubtitleSimple,
   CenterWrapperSimple,
   InfoColumnShortSimple,
   TextWrapperSimpleShort,
-  // InfoRowSimple,
-  // InfoColumnSimple,
 } from '../../Miscellaneous/InfoSection/InfoSection.styled'
-// import parse from 'html-react-parser'
 
 //! problem solved with parse - html-react-parser - prarses string to html in React
 

@@ -75,7 +75,6 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
     if (widthNumber > 600 && resizable !== null && !narrowOption) {
       resizable.style.width = `${widthNumber}px`
     } else if (widthNarrow > 400 && resizable !== null && narrowOption) {
-      // resizable.style.width = widthNarrow
       resizable.style.width = `${widthNarrow}px`
     }
   }, [dispatch, widthNumber, narrowOption, widthNarrow])
