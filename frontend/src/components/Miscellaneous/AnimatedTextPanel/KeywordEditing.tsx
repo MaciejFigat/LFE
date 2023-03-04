@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import {
   KeywordPar,
   KeywordDiv,
@@ -16,6 +16,7 @@ import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import { FragmentB } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { AppDispatch } from '../../../app/store'
+
 interface KeywordEditingProps {
   keywords: string[]
   id: string
@@ -50,16 +51,21 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
     keywordValue: keywordValuePropsFiltered
   }
 
-  const editKeywordHandler = (keyword: string, index: number) => {
-    setKeywordEditing(!keywordEditing)
+  // const editKeywordHandler = (keyword: string) => {
+  //   setKeywordEditing(!keywordEditing)
+  //   setKeywordValue(keyword)
+  //   setPrevKeywordValue(keyword)
+  // }
+  const editKeywordHandler = useCallback((keyword: string) => {
+    setKeywordEditing(prevState => !prevState)
     setKeywordValue(keyword)
     setPrevKeywordValue(keyword)
-  }
-  const addKeywordHandler = () => {
+  }, [])
+  const addKeywordHandler = useCallback(() => {
     setKeywordEditing(!keywordEditing)
-  }
+  }, [keywordEditing])
 
-  const saveKeywordHandler = () => {
+  const saveKeywordHandler = useCallback(() => {
     if (
       !keywordArr.includes(keywordValue) &&
       keywordValue !== '' &&
@@ -87,9 +93,15 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
     setKeywordEditing(!keywordEditing)
     setKeywordValue('')
     setPrevKeywordValue('')
-  }
+  }, [
+    keywordArr,
+    keywordEditing,
+    keywordValue,
+    keywordValueProps,
+    prevKeywordValue
+  ])
 
-  const deleteKeywordHandler = () => {
+  const deleteKeywordHandler = useCallback(() => {
     let filteredArr = keywordArr.filter(keyword => keyword !== keywordValue)
     setKeywordValuePropsFiltered([
       ...keywordValueProps.filter(
@@ -100,7 +112,8 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
     ])
     setKeywordArr(() => filteredArr)
     setKeywordEditing(!keywordEditing)
-  }
+  }, [keywordArr, keywordEditing, keywordValue, keywordValueProps])
+
   const saveKeywordArrHandler = () => {
     dispatch(editSavedFragment(newKeywordList))
   }
@@ -112,7 +125,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
   }, [keywordArr, keywords, sameContents, dispatch])
 
   //? helper function to compare 2 arrays pertaining elements regardless of the order
-  const haveSameContents = (a: any[], b: any[]) => {
+  const haveSameContents = (a: string[], b: string[]) => {
     for (const v of Array.from(new Set([...a, ...b])))
       if (a.filter(e => e === v).length !== b.filter(e => e === v).length)
         return false
@@ -136,7 +149,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                     keywordArr.map((keyword, index) => (
                       <KeywordDiv
                         key={index}
-                        onClick={() => editKeywordHandler(keyword, index)}
+                        onClick={() => editKeywordHandler(keyword)}
                       >
                         {keywordArr.length > 1 ? `${keyword} \u00A0` : keyword}
                       </KeywordDiv>
