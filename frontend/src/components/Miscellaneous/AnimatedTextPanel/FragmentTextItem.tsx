@@ -1,11 +1,12 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { useAppDispatch } from '../../../app/reduxHooks'
+import { AppDispatch } from '../../../app/store'
 import { deleteSavedFragment } from '../../../features/fragments/fragmentSlice'
 import { RelativeWrapper } from '../../../styles/misc.styled'
 import {
   FragmentsP,
   FragmentsPExcerpt,
-  HorizontalContainer,
+  HorizontalContainer
 } from '../../FragmentsColumn/FragmentsColumn.styled'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
@@ -30,9 +31,9 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
   setOpenedApp,
   canOpenApp,
   openedApp,
-  setIdOpen,
+  setIdOpen
 }) => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
   const openWindowHandler = (id: string) => {
     if (canOpenApp && setOpenedApp && setIdOpen && openedApp === null) {

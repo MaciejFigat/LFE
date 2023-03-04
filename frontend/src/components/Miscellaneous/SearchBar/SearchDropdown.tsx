@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-// import { useAppDispatch } from '../../../app/reduxHooks'
+
 import SvgIcon from '../SvgIcon/SvgIcon'
-// import { highlightQueryEdit } from '../../../features/preferences/preferenceSlice'
+
 import DatePicker, { registerLocale } from 'react-datepicker'
 import pl from 'date-fns/locale/pl'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -9,7 +9,7 @@ import {
   DropDownDateContainer,
   SetTakeButton,
   SwitchDivContainerNarrow,
-  SwitchSectionWrapper,
+  SwitchSectionWrapper
 } from './SearchBar.styled'
 
 import {
@@ -19,13 +19,13 @@ import {
   DropDownList,
   DropDownListContainer,
   ListItem,
-  Main,
+  Main
 } from './SearchBar.styled'
 import SearchBar from './SearchBar'
 import { DatePickerButton } from './DatePicker.styled'
 import {
   HorizontalWrapperBaseLine,
-  RelativeWrapper,
+  RelativeWrapper
 } from '../../../styles/misc.styled'
 
 registerLocale('pl', pl) //* registers locale for me to use it with DatePicker

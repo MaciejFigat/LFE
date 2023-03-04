@@ -1,11 +1,12 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
+import { AppDispatch } from '../../../app/store'
 import { searchResultsPageSaved } from '../../../features/preferences/preferenceSlice'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import {
   PaginateActive,
   PaginateBorderWrapper,
-  PaginateWrapper,
+  PaginateWrapper
 } from './Paginate.styled'
 
 interface PaginationProps {
@@ -13,12 +14,12 @@ interface PaginationProps {
 }
 
 const Pagination: React.FC<PaginationProps> = ({ narrow }) => {
-  const dispatch = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
   const searchResults: any = useAppSelector(
-    (state) => state.searchResult.searchResults.data
+    state => state.searchResult.searchResults.data
   )
   const searchResultsPage: any = useAppSelector(
-    (state) => state.preference.searchResultsPage
+    state => state.preference.searchResultsPage
   )
 
   const buttonHelper = (i: number) => {
@@ -26,7 +27,7 @@ const Pagination: React.FC<PaginationProps> = ({ narrow }) => {
       searchResultsPageSaved({
         start: i * 10,
         end: (i + 1) * 10 - 1,
-        pageNr: i + 1,
+        pageNr: i + 1
       })
     )
   }

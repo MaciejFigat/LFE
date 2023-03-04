@@ -10,15 +10,16 @@ import {
   TitleInput,
   DescriptionAnimated,
   DescriptionInput,
-  DescriptionDiv,
+  DescriptionDiv
 } from './AnimatedList.styled'
 import { useAppDispatch } from '../../../app/reduxHooks'
 import {
   citationRemoved,
   citationTitleEdit,
-  citationDescriptionEdit,
+  citationDescriptionEdit
 } from '../../../features/fragments/fragmentSlice'
 import { SendButtonSmall } from '../Buttons/Buttons.styled'
+import { AppDispatch } from '../../../app/store'
 
 interface AnimatedItemProps {
   title: string
@@ -34,9 +35,9 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   title,
   description,
   children,
-  id,
+  id
 }) => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -60,7 +61,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   }
   const newTitle = {
     id: id,
-    title: titleValue,
+    title: titleValue
   }
   const saveTitleHandler = () => {
     dispatch(citationTitleEdit(newTitle))
@@ -68,7 +69,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
   }
   const newDescription = {
     id: id,
-    description: descriptionValue,
+    description: descriptionValue
   }
   const saveDescriptionHandler = () => {
     dispatch(citationDescriptionEdit(newDescription))
@@ -177,7 +178,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{
                         duration: 0.4,
-                        ease: [0.04, 0.52, 0.73, 0.98],
+                        ease: [0.04, 0.52, 0.73, 0.98]
                       }}
                       as={motion.div}
                       layout='position'
@@ -200,7 +201,7 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{
                         duration: 0.4,
-                        ease: [0.04, 0.62, 0.23, 0.98],
+                        ease: [0.04, 0.62, 0.23, 0.98]
                       }}
                       layout='position'
                     >

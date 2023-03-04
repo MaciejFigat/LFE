@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
 import {
   getSearchResults,
-  getResultsFiltered,
+  getResultsFiltered
 } from '../../../features/searchResults/searchResultsSlice'
 import Moment from 'moment'
 import {
@@ -12,11 +12,12 @@ import {
   SearchBarForm,
   SearchBarWrapper,
   SearchInput,
-  SpinnerWrapperSearch,
+  SpinnerWrapperSearch
 } from './SearchBar.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import { ThreeDots, RotatingLines } from 'react-loader-spinner'
 import { RelativeWrapper } from '../../../styles/misc.styled'
+import { AppDispatch } from '../../../app/store'
 
 interface SearchBarProps {
   isOpen: boolean
@@ -37,12 +38,12 @@ const SearchBar: React.FC<SearchBarProps> = ({
   skip,
   take,
   large,
-  medium,
+  medium
 }) => {
-  const dispatch = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
   const loadingResults: any = useAppSelector(
-    (state) => state.searchResult.loading
+    state => state.searchResult.loading
   )
   let navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState<string>('')
@@ -55,7 +56,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       skip: skip,
       take: take,
       start_date: parseInt(Moment(startDate).format('YYYYMMDD'), 10),
-      end_date: parseInt(Moment(endDate).format('YYYYMMDD'), 10),
+      end_date: parseInt(Moment(endDate).format('YYYYMMDD'), 10)
     }
     if (searchQuery?.length > 0 && isOpen) {
       dispatch(getResultsFiltered(filteredSearch))

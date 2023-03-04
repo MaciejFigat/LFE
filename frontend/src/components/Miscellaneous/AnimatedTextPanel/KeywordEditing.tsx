@@ -7,7 +7,7 @@ import {
   TitleAnimated,
   TitleInput,
   HorizontalButtonContainer,
-  ListKeywordContainer,
+  ListKeywordContainer
 } from './AnimatedList.styled'
 import { useAppDispatch } from '../../../app/reduxHooks'
 import { editSavedFragment } from '../../../features/fragments/fragmentSlice'
@@ -15,6 +15,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import { FragmentB } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
+import { AppDispatch } from '../../../app/store'
 interface KeywordEditingProps {
   keywords: string[]
   id: string
@@ -30,9 +31,9 @@ interface KeywordEditingProps {
 const KeywordEditing: React.FC<KeywordEditingProps> = ({
   keywords,
   id,
-  keywordValue: keywordValueProps,
+  keywordValue: keywordValueProps
 }) => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
   const [keywordEditing, setKeywordEditing] = useState(false)
   const [keywordValue, setKeywordValue] = useState<string>('')
@@ -46,7 +47,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
   const newKeywordList = {
     _id: id,
     keywords: keywordArr,
-    keywordValue: keywordValuePropsFiltered,
+    keywordValue: keywordValuePropsFiltered
   }
 
   const editKeywordHandler = (keyword: string, index: number) => {
@@ -66,7 +67,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
     ) {
       if (prevKeywordValue !== '') {
         let filteredArr = keywordArr.filter(
-          (keyword) => keyword !== prevKeywordValue
+          keyword => keyword !== prevKeywordValue
         )
         setKeywordArr(() => [...filteredArr, keywordValue])
       } else if (prevKeywordValue === '' && keywordArr) {
@@ -77,10 +78,10 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
             value: true,
             labelOne: 'pro',
             labelTwo: 'contra',
-            skip: true,
-          },
+            skip: true
+          }
         ])
-        setKeywordArr((keywordArr) => [...keywordArr, keywordValue])
+        setKeywordArr(keywordArr => [...keywordArr, keywordValue])
       }
     }
     setKeywordEditing(!keywordEditing)
@@ -89,13 +90,13 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
   }
 
   const deleteKeywordHandler = () => {
-    let filteredArr = keywordArr.filter((keyword) => keyword !== keywordValue)
+    let filteredArr = keywordArr.filter(keyword => keyword !== keywordValue)
     setKeywordValuePropsFiltered([
       ...keywordValueProps.filter(
-        (keywordObject) =>
+        keywordObject =>
           // keywordObject.keyword !== keywordValue || keywordObject.keyword === ''
           keywordObject.keyword !== keywordValue
-      ),
+      )
     ])
     setKeywordArr(() => filteredArr)
     setKeywordEditing(!keywordEditing)
@@ -113,7 +114,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
   //? helper function to compare 2 arrays pertaining elements regardless of the order
   const haveSameContents = (a: any[], b: any[]) => {
     for (const v of Array.from(new Set([...a, ...b])))
-      if (a.filter((e) => e === v).length !== b.filter((e) => e === v).length)
+      if (a.filter(e => e === v).length !== b.filter(e => e === v).length)
         return false
     return true
   }
@@ -167,7 +168,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
-                duration: 0.6,
+                duration: 0.6
               }}
               exit={{ opacity: 0 }}
             >

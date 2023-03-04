@@ -3,17 +3,18 @@ import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import {
   RelativeWrapper,
-  WrapperMotionDivRelativeSmall,
+  WrapperMotionDivRelativeSmall
 } from '../../../styles/misc.styled'
 import { SimpleCitationItemSuperSmall } from './AnimatedList.styled'
 import { editIdOpenFragment } from '../../../features/preferences/preferenceSlice'
 import {
   FragmentsP,
   FragmentsPExcerpt,
-  HorizontalContainer,
+  HorizontalContainer
 } from '../../FragmentsColumn/FragmentsColumn.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import { deleteSavedFragment } from '../../../features/fragments/fragmentSlice'
+import { AppDispatch } from '../../../app/store'
 
 interface AnimatedSavedItemSuperSimpleProps {
   id: string
@@ -28,9 +29,9 @@ interface AnimatedSavedItemSuperSimpleProps {
 const AnimatedSavedItemSuperSimple: React.FC<
   AnimatedSavedItemSuperSimpleProps
 > = ({ id, source, excerpt }) => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
   const idOpenFragment = useAppSelector(
-    (state) => state.preference.idOpenFragment
+    state => state.preference.idOpenFragment
   )
 
   const openWindowHandler = () => {
