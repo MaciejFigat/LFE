@@ -5,7 +5,7 @@ import {
   MainProjectDetails,
   MainProjectWrapper,
   ProjectDiv,
-  SearchResultsSectionWrapper,
+  SearchResultsSectionWrapper
 } from './SearchResultsDisplay.styled'
 import ProjectsEnumeration from './ProjectsEnumeration'
 import { ProjectH2NoHover } from './ProjectsComponents.styled'
@@ -18,26 +18,25 @@ import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import {
   DotButton,
   RelativeRightSvgWrapper,
-  WrapperMotionDiv,
+  WrapperMotionDiv
 } from '../../styles/misc.styled'
 import {
   FragmentB,
   FragmentParSmall,
-  FragmentTitleRowSmall,
+  FragmentTitleRowSmall
 } from '../Miscellaneous/KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
+import { AppDispatch } from '../../app/store'
 interface ProjectsDisplayProps {}
 
 const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
-  const dispatch: any = useAppDispatch()
-  const fragments: any[] = useAppSelector(
-    (state) => state.fragment.userFragments
-  )
+  const dispatch: AppDispatch = useAppDispatch()
+  const fragments: any[] = useAppSelector(state => state.fragment.userFragments)
   const fragmentsKeywordMain: any[] = useAppSelector(
-    (state) => state.fragment.fragmentsKeywordMain
+    state => state.fragment.fragmentsKeywordMain
   )
 
   const projectName = useAppSelector(
-    (state) => state.preference.sortingKeywords.keywordMain
+    state => state.preference.sortingKeywords.keywordMain
   )
 
   const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
@@ -63,7 +62,7 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
   const dropUpVariants = {
     hidden: {
       y: yValue,
-      opacity: opacity,
+      opacity: opacity
     },
     visible: {
       y: 0,
@@ -71,9 +70,9 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
       transition: {
         type: 'spring',
         stiffness: 100,
-        mass: 0.3,
-      },
-    },
+        mass: 0.3
+      }
+    }
   }
   //? this useMemo hook is used for setting animation values for entering fragment divs when projectName changes
   useMemo(() => {
@@ -85,7 +84,7 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
   useMemo(() => {
     if (projectName !== '') {
       const fragmentsMatching = fragments?.filter(
-        (fragmentsSorted) => fragmentsSorted.keywords?.indexOf(projectName) >= 0
+        fragmentsSorted => fragmentsSorted.keywords?.indexOf(projectName) >= 0
       )
       dispatch(updateUserFragmentsKeywordMain(fragmentsMatching))
     }
@@ -107,7 +106,7 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
               <StaggerChildrenWrapperSecondary key={projectName}>
                 {' '}
                 <MainProjectDetails>
-                  {fragmentsKeywordMain?.map((fragment) => (
+                  {fragmentsKeywordMain?.map(fragment => (
                     <div key={Math.random()}>
                       {' '}
                       <WrapperMotionDiv

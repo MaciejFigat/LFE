@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 // import Highlighter from 'react-highlight-words'
 import {
   changeDocId,
-  getDocResult,
+  getDocResult
 } from '../../../features/searchResults/searchResultsSlice'
 import { addVisitedLink } from '../../../features/searchResults/searchResultsSlice'
 import {
@@ -23,12 +23,13 @@ import {
   TextWrapperShort,
   Button,
   SubtitleShortLonger,
-  TopLineShort,
+  TopLineShort
 } from './HeroSection.styled'
 import parse from 'html-react-parser'
 // import { SendButtonSmall } from '../Buttons/Buttons.styled'
 import { HorizontalWrapper } from '../../../styles/misc.styled'
 import SimpleResultDisplay from '../../Miscellaneous/ResultDisplay/SimpleResultDisplay'
+import { AppDispatch } from '../../../app/store'
 //! problem solved with parse - html-react-parser - prarses string to html in React
 
 interface InfoData {
@@ -70,15 +71,15 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
   fragmentsFound,
   imgStart,
   buttonLink,
-  istota_interpretacji,
+  istota_interpretacji
 }) => {
-  const dispatch = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
   const visitedLinks: any[] = useAppSelector(
-    (state) => state.searchResult.visitedLinks
+    state => state.searchResult.visitedLinks
   )
-  const savedDocId: number = useAppSelector((state) => state.searchResult.docId)
+  const savedDocId: number = useAppSelector(state => state.searchResult.docId)
   const resultsDetailView: any = useAppSelector(
-    (state) => state.preference.resultsDetailView
+    state => state.preference.resultsDetailView
   )
   let navigate = useNavigate()
 
@@ -86,7 +87,7 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
     const searchquery = {
       query: query,
       selectedDoc: index,
-      docNumber: metryka.doc_id,
+      docNumber: metryka.doc_id
     }
     dispatch(getDocResult(searchquery))
     const fragData = {
@@ -95,11 +96,11 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
       data: metryka.data,
       organ: metryka.organ,
       id: metryka.doc_id,
-      query: query,
+      query: query
     }
 
     const existingLink = visitedLinks.find(
-      (visitedLinks) => visitedLinks.doc_link === fragData.doc_link
+      visitedLinks => visitedLinks.doc_link === fragData.doc_link
     )
     if (!existingLink) dispatch(addVisitedLink(fragData))
     if (savedDocId !== metryka.doc_id) dispatch(changeDocId(metryka.doc_id))

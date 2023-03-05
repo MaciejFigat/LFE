@@ -1,25 +1,24 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
+import { AppDispatch } from '../../../app/store'
 import { sortingKeywordMainEdit } from '../../../features/preferences/preferenceSlice'
 import {
   HorizontalWrapperGap,
-  RelativeWrapper,
+  RelativeWrapper
 } from '../../../styles/misc.styled'
 import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
 import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 interface HeroProjectButtonsProps {}
 
 const HeroProjectButtons: React.FC<HeroProjectButtonsProps> = () => {
-  const dispatch = useAppDispatch()
-  const fragments: any[] = useAppSelector(
-    (state) => state.fragment.userFragments
-  )
+  const dispatch: AppDispatch = useAppDispatch()
+  const fragments: any[] = useAppSelector(state => state.fragment.userFragments)
   const keywordMain = useAppSelector(
-    (state) => state.preference.sortingKeywords.keywordMain
+    state => state.preference.sortingKeywords.keywordMain
   )
 
   const keywordsAll = fragments
-    ?.map((fragment) =>
+    ?.map(fragment =>
       fragment.keywords
         ?.filter((keyword: string) => keyword !== '')
         .map((keyword: string) => keyword)

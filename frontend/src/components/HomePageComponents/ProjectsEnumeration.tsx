@@ -2,30 +2,29 @@ import { AnimatePresence } from 'framer-motion'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
+import { AppDispatch } from '../../app/store'
 import { sortingKeywordMainEdit } from '../../features/preferences/preferenceSlice'
 import { ButtonMedium } from '../Miscellaneous/Buttons/BigButton.styled'
 import {
   ProjectCardHome,
   ProjectH2,
-  ProjectMenuContainerHome,
+  ProjectMenuContainerHome
 } from './ProjectsComponents.styled'
 
 interface ProjectsEnumerationProps {}
 
 const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
   const keywordMain = useAppSelector(
-    (state) => state.preference.sortingKeywords.keywordMain
+    state => state.preference.sortingKeywords.keywordMain
   )
 
-  const fragments: any[] = useAppSelector(
-    (state) => state.fragment.userFragments
-  )
+  const fragments: any[] = useAppSelector(state => state.fragment.userFragments)
   const keywordsAll = fragments
-    ?.map((fragment) => fragment.keywords?.map((keyword: string) => keyword))
+    ?.map(fragment => fragment.keywords?.map((keyword: string) => keyword))
     .flat()
-    .filter((keywordsFlattened) => keywordsFlattened !== '')
+    .filter(keywordsFlattened => keywordsFlattened !== '')
   //todo .flat() flattens the arr ie. [a, b, [c, d]].flat()=>[a, b, c, d]
   let uniqueKeywords = [...Array.from(new Set(keywordsAll))]
 
@@ -75,8 +74,8 @@ const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
                 opacity: keywordMain === keyword ? 1 : 0.8,
                 // scale: keywordMain === keyword ? 1.1 : 1,
                 transition: {
-                  duration: 0.3,
-                },
+                  duration: 0.3
+                }
               }}
               selected={keywordMain === keyword ? true : false}
             >

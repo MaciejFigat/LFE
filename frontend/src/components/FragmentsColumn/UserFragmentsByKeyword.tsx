@@ -5,12 +5,13 @@ import { FragmentContainer } from './FragmentsColumn.styled'
 import {
   ListWrapper,
   ItemWrapper,
-  FragmentsWrapper,
+  FragmentsWrapper
 } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
 
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import AnimatedSavedItemSimple from '../Miscellaneous/AnimatedTextPanel/AnimatedSavedItemSimple'
 import StaggerChildrenWrapperSecondary from '../Miscellaneous/AnimationWrappers/StaggerChildrenWrapperSecondary'
+import { AppDispatch } from '../../app/store'
 
 interface UserFragmentsByKeywordProps {
   moreColumns?: boolean
@@ -19,7 +20,7 @@ interface UserFragmentsByKeywordProps {
 const dropUpVariants = {
   hidden: {
     y: -10,
-    opacity: 0,
+    opacity: 0
   },
   visible: {
     y: 0,
@@ -27,26 +28,26 @@ const dropUpVariants = {
     transition: {
       type: 'spring',
       stiffness: 100,
-      mass: 0.3,
-    },
-  },
+      mass: 0.3
+    }
+  }
 }
 
 const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = ({
-  moreColumns,
+  moreColumns
 }) => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
   const fragmentsKeywordMain: any[] = useAppSelector(
-    (state) => state.fragment.fragmentsKeywordMain
+    state => state.fragment.fragmentsKeywordMain
   )
   const keywordMain: string = useAppSelector(
-    (state) => state.preference.sortingKeywords.keywordMain
+    state => state.preference.sortingKeywords.keywordMain
   )
-  const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
+  const widthNarrow = useAppSelector(state => state.preference.widthNarrow)
 
   const fragmentSuccess: boolean = useAppSelector(
-    (state) => state.fragment.success
+    state => state.fragment.success
   )
 
   useEffect(() => {
@@ -61,7 +62,7 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = ({
       <FragmentsWrapper moreColumns={moreColumns} width={widthNarrow}>
         {fragmentsKeywordMain.length > 0 &&
           fragmentsKeywordMain
-            .map((fragment) => (
+            .map(fragment => (
               <ListWrapper
                 // as={motion.ul}
                 key={fragment._id}

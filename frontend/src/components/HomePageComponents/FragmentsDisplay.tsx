@@ -7,22 +7,23 @@ import FilterWrapper from '../FragmentsColumn/FilterWrapper/FilterWrapper'
 import UserFragmentsColumn from '../FragmentsColumn/UserFragmentsColumn'
 import {
   FragmentsTopWrapper,
-  SearchResultsSectionWrapper,
+  SearchResultsSectionWrapper
 } from './SearchResultsDisplay.styled'
 import UserFragmentsByKeyword from '../FragmentsColumn/UserFragmentsByKeyword'
+import { AppDispatch } from '../../app/store'
 
 interface FragmentsDisplayProps {}
 
 const FragmentsDisplay: React.FC<FragmentsDisplayProps> = () => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
   const sortingOption: string = useAppSelector(
-    (state) => state.preference.sortingOption
+    state => state.preference.sortingOption
   )
   const showFragmentsState: boolean = useAppSelector(
-    (state) => state.preference.showFragments
+    state => state.preference.showFragments
   )
   const idOpenFragment = useAppSelector(
-    (state) => state.preference.idOpenFragment
+    state => state.preference.idOpenFragment
   )
   useEffect(() => {
     dispatch(editIdOpenFragment(''))

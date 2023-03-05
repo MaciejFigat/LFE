@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
+import { AppDispatch } from '../../../app/store'
 import { changeFragmentsDetailView } from '../../../features/preferences/preferenceSlice'
 import { RelativeWrapper } from '../../../styles/misc.styled'
 
@@ -8,9 +9,9 @@ import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 interface HeroChangeDetailProps {}
 
 const HeroChangeDetail: React.FC<HeroChangeDetailProps> = () => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
   const fragmentsDetailView: boolean = useAppSelector(
-    (state) => state.preference.fragmentsDetailView
+    state => state.preference.fragmentsDetailView
   )
   const viewHandler = () => {
     dispatch(changeFragmentsDetailView())

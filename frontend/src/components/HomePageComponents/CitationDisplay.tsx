@@ -5,25 +5,26 @@ import { AnimateSharedLayout } from 'framer-motion'
 import {
   ItemWrapper,
   ListWrapper,
-  SimpleCitationItemNoShadow,
+  SimpleCitationItemNoShadow
 } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
 import {
   FragmentsP,
   FragmentsPExcerpt,
-  HorizontalContainer,
+  HorizontalContainer
 } from '../FragmentsColumn/FragmentsColumn.styled'
 import { SendButtonVerySmall } from '../Miscellaneous/Buttons/Buttons.styled'
 import { RegularColumn, RelativeWrapper } from '../../styles/misc.styled'
 import SvgIcon from '../Miscellaneous/SvgIcon/SvgIcon'
 import { TwoColumnsWrapper } from '../../styles/misc.styled'
+import { AppDispatch } from '../../app/store'
 
 interface CitationDisplayProps {
   wide?: boolean
 }
 
 const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
-  const dispatch: any = useAppDispatch()
-  const citations: any[] = useAppSelector((state) => state.fragment.citations)
+  const dispatch: AppDispatch = useAppDispatch()
+  const citations: any[] = useAppSelector(state => state.fragment.citations)
   const removeCitationHandler = (id: string) => {
     dispatch(citationRemoved(id))
   }
@@ -34,7 +35,7 @@ const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
         <RegularColumn>
           {' '}
           {citations
-            .map((citation) => (
+            .map(citation => (
               <ListWrapper
                 key={citation.id}
                 layout
@@ -88,7 +89,7 @@ const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
         <TwoColumnsWrapper>
           {' '}
           {citations
-            .map((citation) => (
+            .map(citation => (
               <ListWrapper
                 key={citation.id}
                 layout

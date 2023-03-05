@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
+import { AppDispatch } from '../../app/store'
 import { highlightQueryEdit } from '../../features/preferences/preferenceSlice'
 import { HeroTitleMisc, HorizontalWrapperTight } from '../../styles/misc.styled'
 import { ButtonSmall } from '../Miscellaneous/Buttons/BigButton.styled'
@@ -12,12 +13,12 @@ import {
   SwitchResultContainer,
   SwitchResultWrapper,
   SwitchSectionWrapper,
-  SwitchText,
+  SwitchText
 } from '../Miscellaneous/SearchBar/SearchBar.styled'
 import {
   HighlightButton,
   SearchBarForm,
-  SearchInputResultDisplay,
+  SearchInputResultDisplay
 } from '../Miscellaneous/SearchBar/SearchFilter.styled'
 import SwitchButton from '../Miscellaneous/SearchBar/SwitchButton'
 import HomeSearch from './HeroGridComponents/HomeSearch'
@@ -26,26 +27,26 @@ import {
   SearchResultsDashboardDiv,
   SearchResultsHorizontalWrapper,
   SearchResultsSectionWrapper,
-  SearchResultsWrapper,
+  SearchResultsWrapper
 } from './SearchResultsDisplay.styled'
 interface SearchResultsDisplayProps {}
 
 const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
-  const dispatch = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
   const searchResults: any = useAppSelector(
-    (state) => state.searchResult.searchResults
+    state => state.searchResult.searchResults
   )
   const { data, query } = searchResults
 
   const searchResultsPage: any = useAppSelector(
-    (state) => state.preference.searchResultsPage
+    state => state.preference.searchResultsPage
   )
   const { start, end } = searchResultsPage
   const highlightQuery: string = useAppSelector(
-    (state) => state.preference.highlightQuery
+    state => state.preference.highlightQuery
   )
   const fragmentsSource: any = useAppSelector(
-    (state) => state.preference.sortFragmentsBySource
+    state => state.preference.sortFragmentsBySource
   )
   const { KrajowaInformacjaSkarbowa, IzbaSkarbowa, MinisterFinansów } =
     fragmentsSource
@@ -55,7 +56,7 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
   const [simpleView, setSimpleView] = useState<boolean>(false)
 
   const simpleViewHandler = () => {
-    setSimpleView((simpleView) => !simpleView)
+    setSimpleView(simpleView => !simpleView)
   }
   const [isOnOne, setIsOnOne] = useState(false)
   const [isOnTwo, setIsOnTwo] = useState(false)

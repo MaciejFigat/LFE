@@ -5,38 +5,37 @@ import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import {
   ListWrapper,
   ItemWrapper,
-  FragmentsWrapper,
+  FragmentsWrapper
 } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import AnimatedSavedItemSimple from '../Miscellaneous/AnimatedTextPanel/AnimatedSavedItemSimple'
 
 import { FragmentContainer } from './FragmentsColumn.styled'
+import { AppDispatch } from '../../app/store'
 
 interface UserFragmentsColumnProps {
   moreColumns?: boolean
 }
 
 const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
-  moreColumns,
+  moreColumns
 }) => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
-  const fragments: any[] = useAppSelector(
-    (state) => state.fragment.userFragments
-  )
-  const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
+  const fragments: any[] = useAppSelector(state => state.fragment.userFragments)
+  const widthNarrow = useAppSelector(state => state.preference.widthNarrow)
 
-  const sortingDate = useAppSelector((state) => state.preference.sortingDate)
+  const sortingDate = useAppSelector(state => state.preference.sortingDate)
   const { sortingYear, sortingMonth, sortingDay } = sortingDate
   const sortingOption: string = useAppSelector(
-    (state) => state.preference.sortingOption
+    state => state.preference.sortingOption
   )
   const savedFragmentsPage: any = useAppSelector(
-    (state) => state.preference.savedFragmentsPage
+    state => state.preference.savedFragmentsPage
   )
   const { start, end } = savedFragmentsPage
   const fragmentSuccess: boolean = useAppSelector(
-    (state) => state.fragment.success
+    state => state.fragment.success
   )
 
   const sortingDateString = `${sortingYear}-${
@@ -55,7 +54,7 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
     <FragmentsWrapper moreColumns={moreColumns} width={widthNarrow}>
       {fragments.length > 0 &&
         fragments
-          .filter((fragmentsSorted) =>
+          .filter(fragmentsSorted =>
             // todo here is filtering function comparing the date
             sortingOption === 'wszystkie'
               ? fragmentsSorted
@@ -66,7 +65,7 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
             sortingOption === 'wszystkie' ? end + 1 : fragments.length - 1
           )
 
-          .map((fragment) => (
+          .map(fragment => (
             <ListWrapper
               // as={motion.ul}
               key={fragment._id}

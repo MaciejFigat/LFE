@@ -6,12 +6,13 @@ import { HeroSearchSampleWrapper } from '../../Miscellaneous/SearchBar/SearchBar
 import { ButtonSmall } from '../../Miscellaneous/Buttons/BigButton.styled'
 import {
   HeroTitleMiscMedium,
-  HorizontalWrapperGap,
+  HorizontalWrapperGap
 } from '../../../styles/misc.styled'
+import { AppDispatch } from '../../../app/store'
 interface HomeSearchSampleProps {}
 
 const HomeSearchSample: React.FC<HomeSearchSampleProps> = () => {
-  const dispatch = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
   const submitHandler = (sampleQuery: string) => {
     // e.preventDefault()

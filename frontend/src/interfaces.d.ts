@@ -44,10 +44,34 @@ interface UserFragments {
     description?: string
     keywords?: string[]
 }
+// Interface for the keyword searched object in the fragment object
+interface KeywordValue {
+    keyword: string
+    value: boolean
+    skip: boolean
+    labelOne: string
+    labelTwo: string
+}
+// fragment from the store
+interface FragmentStored {
+    _id: string
+    user: string
+    source: string
+    excerpt: string
+    coordinates?: string
+    title?: string
+    description?: string
+    docId: number
+    query: string
+    keywords: string[] | []
 
+    keywordValue: KeywordValue[] | []
+}
 
 export {
     UserInfo,
     FragmentCreated,
     UserFragments,
+    FragmentStored,
+    KeywordValue
 }

@@ -3,20 +3,21 @@ import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { FragmentContainer } from './FragmentsColumn.styled'
 import {
   ListWrapper,
-  ItemWrapper,
+  ItemWrapper
 } from '../Miscellaneous/AnimatedTextPanel/AnimatedList.styled'
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import AnimatedSavedItemSimple from '../Miscellaneous/AnimatedTextPanel/AnimatedSavedItemSimple'
 import StaggerChildrenWrapperSecondary from '../Miscellaneous/AnimationWrappers/StaggerChildrenWrapperSecondary'
 import { HeroColumnsWrapper } from '../../styles/misc.styled'
 import AnimatedSavedItemSuperSimple from '../Miscellaneous/AnimatedTextPanel/AnimatedSavedItemSuperSimple'
+import { AppDispatch } from '../../app/store'
 
 interface UserFragmentsByKeywordHeroProps {}
 
 const dropUpVariants = {
   hidden: {
     y: -10,
-    opacity: 0,
+    opacity: 0
   },
   visible: {
     y: 0,
@@ -24,28 +25,28 @@ const dropUpVariants = {
     transition: {
       type: 'spring',
       stiffness: 100,
-      mass: 0.3,
-    },
-  },
+      mass: 0.3
+    }
+  }
 }
 
 const UserFragmentsByKeywordHero: React.FC<
   UserFragmentsByKeywordHeroProps
 > = () => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
   const fragmentsKeywordMain: any[] = useAppSelector(
-    (state) => state.fragment.fragmentsKeywordMain
+    state => state.fragment.fragmentsKeywordMain
   )
   const keywordMain: string = useAppSelector(
-    (state) => state.preference.sortingKeywords.keywordMain
+    state => state.preference.sortingKeywords.keywordMain
   )
   const fragmentsDetailView: boolean = useAppSelector(
-    (state) => state.preference.fragmentsDetailView
+    state => state.preference.fragmentsDetailView
   )
 
   const fragmentSuccess: boolean = useAppSelector(
-    (state) => state.fragment.success
+    state => state.fragment.success
   )
 
   useEffect(() => {
@@ -60,7 +61,7 @@ const UserFragmentsByKeywordHero: React.FC<
       <HeroColumnsWrapper details={fragmentsDetailView}>
         {fragmentsKeywordMain.length > 0 &&
           fragmentsKeywordMain
-            .map((fragment) => (
+            .map(fragment => (
               <ListWrapper key={fragment._id} variants={dropUpVariants}>
                 {fragment.excerpt !== '' && (
                   <FragmentContainer key={fragment.title}>

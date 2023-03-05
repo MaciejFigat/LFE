@@ -6,27 +6,28 @@ import {
   ChoiceItem,
   ChoiceList,
   ChoiceNav,
-  ChoiceUnderline,
+  ChoiceUnderline
 } from './SharedChoiceWrapper.styled'
+import { AppDispatch } from '../../../app/store'
 
 interface HeroChoiceWrapperProps {}
 
 const HeroChoiceWrapper: React.FC<HeroChoiceWrapperProps> = () => {
-  const dispatch = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
   const sortingOption: string = useAppSelector(
-    (state) => state.preference.sortingOption
+    state => state.preference.sortingOption
   )
   const tabs = useMemo(
     () => [
       {
-        label: 'Data',
+        label: 'Data'
       },
       {
-        label: 'Projekt',
+        label: 'Projekt'
       },
       {
-        label: 'Wszystkie',
-      },
+        label: 'Wszystkie'
+      }
     ],
     []
   )
@@ -67,7 +68,7 @@ const HeroChoiceWrapper: React.FC<HeroChoiceWrapperProps> = () => {
       <ChoiceNav>
         <AnimateSharedLayout>
           <ChoiceList>
-            {tabs.map((item) => (
+            {tabs.map(item => (
               <ChoiceItem
                 key={item.label}
                 className={item.label === selectedTab.label ? 'selected' : ''}

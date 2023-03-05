@@ -10,23 +10,24 @@ import {
   ChoiceNav,
   ChoiceUnderline,
   MainChoiceContainer,
-  WrapperWindow,
+  WrapperWindow
 } from './SharedChoiceWrapper.styled'
 import { SendButtonVerySmall } from '../../Miscellaneous/Buttons/Buttons.styled'
 import Pagination from '../../Miscellaneous/Pagination/Pagination'
 import SvgIcon from '../../Miscellaneous/SvgIcon/SvgIcon'
 import { UserInfo } from '../../../interfaces'
+import { AppDispatch } from '../../../app/store'
 
 interface SharedChoiceWrapperProps {}
 
 const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
-  const dispatch = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
-  const citations = useAppSelector((state) => state.fragment.citations)
+  const userInfo: UserInfo = useAppSelector(state => state.user.userInfo)
+  const citations = useAppSelector(state => state.fragment.citations)
 
   const numberOfResults: number | undefined = useAppSelector(
-    (state) => state.searchResult.searchResults.data.length
+    state => state.searchResult.searchResults.data.length
   )
 
   const tabs = [
@@ -44,7 +45,7 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
             </>
           )}
         </>
-      ),
+      )
     },
     {
       label: 'Wyszukane',
@@ -57,14 +58,14 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
           </SendButtonVerySmall>{' '}
           <Pagination narrow />
         </>
-      ),
+      )
     },
     {
       label: 'Przeglądane',
       icon: <SvgIcon variant='eye' noContent />,
       // icon: <SvgIcon variant='eye' contentAfter='przeglądane' toBottom />,
-      content: <VisitedLinks />,
-    },
+      content: <VisitedLinks />
+    }
   ]
 
   const [selectedTab, setSelectedTab] = useState(tabs[1])
@@ -84,7 +85,7 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
       <ChoiceNav>
         <AnimateSharedLayout>
           <ChoiceList>
-            {tabs.map((item) => (
+            {tabs.map(item => (
               <ChoiceItem
                 key={item.label}
                 className={item.label === selectedTab.label ? 'selected' : ''}

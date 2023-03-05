@@ -10,7 +10,7 @@ import {
   HeroMainContainer,
   HeroNavigation,
   HeroNavOneBig,
-  HeroNavTwo,
+  HeroNavTwo
 } from './HeroSection.styled'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { UserInfo } from '../../interfaces'
@@ -19,13 +19,13 @@ import {
   ChoiceList,
   ChoiceNav,
   ChoiceUnderline,
-  MainChoiceContainer,
+  MainChoiceContainer
 } from './HomeChoiceWrapper/HomeChoiceWrapper.styled'
 import { HeroTwoFourth, HeroTwoMain, HeroTwoThird } from './HeroTwo'
 import {
   HorizontalWrapper,
   RegularDiv,
-  RelativeWrapper,
+  RelativeWrapper
 } from '../../styles/misc.styled'
 import HomeSearchResultsSmall from './HeroGridComponents/HomeSearchResultsSmall'
 import HeroSearchButtons from './HeroGridComponents/HeroSearchButtons'
@@ -35,7 +35,7 @@ import { editYHeroPosition } from '../../features/preferences/preferenceSlice'
 import {
   HeroFragmentsDisplay,
   HeroSavedOne,
-  HeroSavedTwo,
+  HeroSavedTwo
 } from './HeroGridComponents/HeroSaved'
 import { HeroExportMain } from './HeroGridComponents/HeroExport'
 import VisitedLinks from '../Miscellaneous/VisitedLinks/VisitedLinks'
@@ -48,15 +48,16 @@ import UserFragmentsByKeywordHero from '../FragmentsColumn/UserFragmentsByKeywor
 import HeroProjectCategories from './HeroGridComponents/HeroProjectCategories'
 import HeroProjectButtons from './HeroGridComponents/HeroProjectButtons'
 import HeroChangeDetail from './HeroGridComponents/HeroChangeDetail'
+import { AppDispatch } from '../../app/store'
 
 interface HeroGridProps {}
 
 const HeroGrid: React.FC<HeroGridProps> = () => {
-  const dispatch = useAppDispatch()
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  const dispatch: AppDispatch = useAppDispatch()
+  const userInfo: UserInfo = useAppSelector(state => state.user.userInfo)
 
   const idOpenFragment = useAppSelector(
-    (state) => state.preference.idOpenFragment
+    state => state.preference.idOpenFragment
   )
   //* I will pass the scrollTop of the element to use if for correct HighlightPopMenu positioning
 
@@ -89,7 +90,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
         <RegularDiv>
           <HeroTwoThird />
         </RegularDiv>
-      ),
+      )
     },
     {
       label: 'Zapisz',
@@ -134,7 +135,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
             </RegularDiv>
           )}
         </>
-      ),
+      )
     },
     {
       label: 'Eksportuj',
@@ -194,8 +195,8 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
             <HeroExportMain />
           )}
         </>
-      ),
-    },
+      )
+    }
   ]
 
   const [selectedTab, setSelectedTab] = useState(tabs[0])
@@ -224,7 +225,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
                 <ChoiceNav amount={tabs.length}>
                   <AnimateSharedLayout>
                     <ChoiceList>
-                      {tabs.map((item) => (
+                      {tabs.map(item => (
                         <ChoiceItem
                           key={item.label}
                           className={

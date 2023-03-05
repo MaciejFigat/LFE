@@ -15,12 +15,14 @@ import {
   HeroMainContainer,
   HeroNavigation,
   HeroNavOne,
-  HeroNavTwo,
+  HeroNavTwo
 } from '../HomePageComponents/HeroSection.styled'
 import FirstColumnExportControls from './FirstColumnExportControls'
-
 import { RegularDiv } from '../../styles/misc.styled'
 import SelectMainKeyword from '../Miscellaneous/KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
+import { AppDispatch } from '../../app/store'
+import { FragmentStored, KeywordValue } from '../../interfaces'
+
 //? reordering the items within a list
 
 const reorder = (list: any, startIndex: any, endIndex: any) => {
@@ -61,24 +63,28 @@ const move = (
 interface DragAndDropProjectProps {}
 
 const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
-  const fragments: any[] = useAppSelector(
-    (state) => state.fragment.userFragments
+  // const fragments: any[] = useAppSelector(state => state.fragment.userFragments)
+  // const fragmentsKeywordMain: any[] = useAppSelector(
+  //   state => state.fragment.fragmentsKeywordMain
+  // )
+  const fragments = useAppSelector<Array<FragmentStored>>(
+    state => state.fragment.userFragments
   )
-  const fragmentsKeywordMain: any[] = useAppSelector(
-    (state) => state.fragment.fragmentsKeywordMain
+  const fragmentsKeywordMain = useAppSelector<Array<FragmentStored>>(
+    state => state.fragment.fragmentsKeywordMain
   )
 
   const sortingKeywords = useAppSelector(
-    (state) => state.preference.sortingKeywords
+    state => state.preference.sortingKeywords
   )
 
   const { keywordMain } = sortingKeywords
 
   const fragmentsSkipTrueOne =
     keywordMain !== ''
-      ? fragmentsKeywordMain.filter((filteredFragment) =>
+      ? fragmentsKeywordMain.filter(filteredFragment =>
           filteredFragment.keywordValue.find(
             (keywordSearched: any) =>
               keywordSearched.keyword === keywordMain &&
@@ -87,23 +93,22 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
           )
         )
       : fragments.filter(
-          (filteredFragment) =>
+          filteredFragment =>
             filteredFragment.keywords.length === 1 &&
             filteredFragment.keywords[0] === ''
         )
 
-  const fragmentsValueTrueTwo = fragmentsKeywordMain.filter(
-    (filteredFragment) =>
-      filteredFragment.keywordValue.find(
-        (keywordSearched: any) =>
-          keywordSearched.keyword === keywordMain &&
-          keywordSearched?.skip !== undefined &&
-          keywordSearched.skip === false &&
-          keywordSearched.value === true
-      )
+  const fragmentsValueTrueTwo = fragmentsKeywordMain.filter(filteredFragment =>
+    filteredFragment.keywordValue.find(
+      (keywordSearched: any) =>
+        keywordSearched.keyword === keywordMain &&
+        keywordSearched?.skip !== undefined &&
+        keywordSearched.skip === false &&
+        keywordSearched.value === true
+    )
   )
   const fragmentsValueFalseThree = fragmentsKeywordMain.filter(
-    (filteredFragment) =>
+    filteredFragment =>
       filteredFragment.keywordValue.find(
         (keywordSearched: any) =>
           keywordSearched.keyword === keywordMain &&
@@ -121,12 +126,12 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   const [state, setState] = useState([
     fragmentsSkipTrueOne,
     fragmentsValueTrueTwo,
-    fragmentsValueFalseThree,
+    fragmentsValueFalseThree
   ])
 
   //? Behold the monster, onDragEnd with no end
 
-  function onDragEnd(result: any) {
+  function onDragEnd (result: any) {
     const { source, destination } = result
 
     // dropped outside the list
@@ -138,7 +143,8 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
     const destinationIndex = +destination.droppableId
     // * reordering within the same array
     //* this is how I access the fragment I just dropped
-    const droppedFragment: any = state[source.droppableId][source.index]
+    const droppedFragment: FragmentStored =
+      state[source.droppableId][source.index]
     // const droppableId = destination.droppableId
     const { _id, keywordValue: keywordValueDropped } = droppedFragment
 
@@ -149,13 +155,14 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       setState(newState)
     } else {
       const filteredKeywordValue = keywordValueDropped.filter(
-        (keywordSearched: any) => keywordSearched.keyword !== keywordMain
+        (keywordSearched: KeywordValue) =>
+          keywordSearched.keyword !== keywordMain
       )
 
       const mainKeywordObject = keywordValueDropped.find(
-        (keywordObject: any) => keywordObject.keyword === keywordMain
+        (keywordObject: KeywordValue) => keywordObject.keyword === keywordMain
       )
-      if (destinationIndex === 0) {
+      if (destinationIndex === 0 && mainKeywordObject) {
         const destinationZero = {
           _id: _id,
           keywordValue: [
@@ -165,63 +172,61 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
               labelOne: mainKeywordObject.labelOne,
               labelTwo: mainKeywordObject.labelTwo,
               value: mainKeywordObject.value,
-              skip: true,
-            },
-          ],
+              skip: true
+            }
+          ]
         }
         dispatch(editSavedFragment(destinationZero))
-
-        // return
       }
 
       //* HERE Begins section of adding keyword to fragment dragged
+      if (mainKeywordObject) {
+        const newKeywordListOne = {
+          _id: _id,
+          keywordValue: [
+            ...filteredKeywordValue,
+            {
+              keyword: mainKeywordObject.keyword,
+              labelOne: mainKeywordObject.labelOne,
+              labelTwo: mainKeywordObject.labelTwo,
+              value: true,
+              skip: false
+            }
+          ]
+        }
+        const newKeywordListTwo = {
+          _id: _id,
+          keywordValue: [
+            ...filteredKeywordValue,
+            {
+              keyword: mainKeywordObject.keyword,
+              labelOne: mainKeywordObject.labelOne,
+              labelTwo: mainKeywordObject.labelTwo,
+              value: false,
+              skip: false
+            }
+          ]
+        }
 
-      const newKeywordListOne = {
-        _id: _id,
-        keywordValue: [
-          ...filteredKeywordValue,
-          {
-            keyword: mainKeywordObject.keyword,
-            labelOne: mainKeywordObject.labelOne,
-            labelTwo: mainKeywordObject.labelTwo,
-            value: true,
-            skip: false,
-          },
-        ],
+        // //todo move from 0 to 1
+        if (sourceIndex === 0 && destinationIndex === 1) {
+          dispatch(editSavedFragment(newKeywordListOne))
+        }
+        //todo move from 0 to 2
+        if (sourceIndex === 0 && destinationIndex === 2) {
+          dispatch(editSavedFragment(newKeywordListTwo))
+        }
+
+        if (sourceIndex === 1 && destinationIndex === 2) {
+          //* from 1 to 2
+
+          dispatch(editSavedFragment(newKeywordListTwo))
+        } else if (sourceIndex === 2 && destinationIndex === 1) {
+          //* from 2 to 1
+
+          dispatch(editSavedFragment(newKeywordListOne))
+        }
       }
-      const newKeywordListTwo = {
-        _id: _id,
-        keywordValue: [
-          ...filteredKeywordValue,
-          {
-            keyword: mainKeywordObject.keyword,
-            labelOne: mainKeywordObject.labelOne,
-            labelTwo: mainKeywordObject.labelTwo,
-            value: false,
-            skip: false,
-          },
-        ],
-      }
-
-      // //todo move from 0 to 1
-      if (sourceIndex === 0 && destinationIndex === 1) {
-        dispatch(editSavedFragment(newKeywordListOne))
-      }
-      //todo move from 0 to 2
-      if (sourceIndex === 0 && destinationIndex === 2) {
-        dispatch(editSavedFragment(newKeywordListTwo))
-      }
-
-      if (sourceIndex === 1 && destinationIndex === 2) {
-        //* from 1 to 2
-
-        dispatch(editSavedFragment(newKeywordListTwo))
-      } else if (sourceIndex === 2 && destinationIndex === 1) {
-        //* from 2 to 1
-
-        dispatch(editSavedFragment(newKeywordListOne))
-      }
-
       const result = move(
         state[sourceIndex],
         state[destinationIndex],
@@ -243,34 +248,33 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
     if (fragmentsKeywordMain) {
       const fragmentsSkipTrue =
         keywordMain !== ''
-          ? fragmentsKeywordMain.filter((filteredFragment) =>
+          ? fragmentsKeywordMain.filter(filteredFragment =>
               filteredFragment.keywordValue.find(
-                (keywordSearched: any) =>
+                (keywordSearched: KeywordValue) =>
                   keywordSearched.keyword === keywordMain &&
                   keywordSearched?.skip !== undefined &&
                   keywordSearched.skip === true
               )
             )
           : fragments.filter(
-              (filteredFragment) =>
+              filteredFragment =>
                 filteredFragment.keywords.length === 1 &&
                 filteredFragment.keywords[0] === ''
             )
 
-      const fragmentsValueTrue = fragmentsKeywordMain.filter(
-        (filteredFragment) =>
-          filteredFragment.keywordValue.find(
-            (keywordSearched: any) =>
-              keywordSearched.keyword === keywordMain &&
-              keywordSearched?.skip !== undefined &&
-              keywordSearched.skip === false &&
-              keywordSearched.value === true
-          )
+      const fragmentsValueTrue = fragmentsKeywordMain.filter(filteredFragment =>
+        filteredFragment.keywordValue.find(
+          (keywordSearched: KeywordValue) =>
+            keywordSearched.keyword === keywordMain &&
+            keywordSearched?.skip !== undefined &&
+            keywordSearched.skip === false &&
+            keywordSearched.value === true
+        )
       )
       const fragmentsValueFalse = fragmentsKeywordMain.filter(
-        (filteredFragment) =>
+        filteredFragment =>
           filteredFragment.keywordValue.find(
-            (keywordSearched: any) =>
+            (keywordSearched: KeywordValue) =>
               keywordSearched.keyword === keywordMain &&
               keywordSearched?.skip !== undefined &&
               keywordSearched.skip === false &&
@@ -281,7 +285,8 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
       setState([fragmentsSkipTrue, fragmentsValueTrue, fragmentsValueFalse])
 
       const keywordValueFound = fragmentsKeywordMain[0]?.keywordValue?.find(
-        (keywordSearched: any) => keywordSearched.keyword === keywordMain
+        (keywordSearched: KeywordValue) =>
+          keywordSearched.keyword === keywordMain
       )
 
       setLabelOneState(keywordValueFound?.labelOne)

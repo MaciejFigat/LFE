@@ -5,17 +5,18 @@ import { getSearchResults } from '../../../features/searchResults/searchResultsS
 import {
   HomeSearchContainer,
   HomeSearchTipsWrapper,
-  HomeSearchWrapper,
+  HomeSearchWrapper
 } from '../../Miscellaneous/SearchBar/SearchBar.styled'
 import { ButtonSmall } from '../../Miscellaneous/Buttons/BigButton.styled'
 import {
   HeroTitleMiscMedium,
-  HorizontalWrapperGap,
+  HorizontalWrapperGap
 } from '../../../styles/misc.styled'
+import { AppDispatch } from '../../../app/store'
 interface HomeSearchProps {}
 
 const HomeSearch: React.FC<HomeSearchProps> = () => {
-  const dispatch = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
   const [searchQuery, setSearchQuery] = useState<string>('')
 

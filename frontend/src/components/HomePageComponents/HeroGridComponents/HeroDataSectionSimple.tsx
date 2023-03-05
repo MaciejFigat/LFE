@@ -1,8 +1,9 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
+import { AppDispatch } from '../../../app/store'
 import {
   changeHeroDocIndex,
-  getDocByIdAndQuery,
+  getDocByIdAndQuery
 } from '../../../features/searchResults/searchResultsSlice'
 import {
   Container,
@@ -11,7 +12,7 @@ import {
   SubtitleSimple,
   CenterWrapperSimple,
   InfoColumnShortSimple,
-  TextWrapperSimpleShort,
+  TextWrapperSimpleShort
 } from '../../Miscellaneous/InfoSection/InfoSection.styled'
 
 //! problem solved with parse - html-react-parser - prarses string to html in React
@@ -43,24 +44,24 @@ const HeroDataSectionSimple: React.FC<HeroDataSectionSimpleProps> = ({
   variant,
   imgStart,
   paddingTop,
-  istota_interpretacji,
+  istota_interpretacji
 }) => {
-  const dispatch = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
   const resultsDetailView: boolean = useAppSelector(
-    (state) => state.preference.resultsDetailView
+    state => state.preference.resultsDetailView
   )
-  const searchResult: any = useAppSelector((state) => state.searchResult)
+  const searchResult: any = useAppSelector(state => state.searchResult)
 
   const { data, query } = searchResult.searchResults
 
   const heroDocIndex: number = useAppSelector(
-    (state) => state.searchResult.heroDocIndex
+    state => state.searchResult.heroDocIndex
   )
   const submitHandlerDocIndex = (index: number) => {
     if (resultsDetailView) {
       const searchquery = {
         query: query,
-        docNumber: data[index].doc_id,
+        docNumber: data[index].doc_id
       }
       dispatch(getDocByIdAndQuery(searchquery))
     }
