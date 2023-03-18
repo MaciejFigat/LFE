@@ -27,7 +27,7 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
   const citations = useAppSelector(state => state.fragment.citations)
 
   const numberOfResults: number | undefined = useAppSelector(
-    state => state.searchResult.searchResults.data.length
+    state => state.searchResult.searchResults.data.length || undefined
   )
 
   const tabs = [

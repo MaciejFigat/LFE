@@ -25,7 +25,11 @@ import { FragmentStored, KeywordValue } from '../../interfaces'
 
 //? reordering the items within a list
 
-const reorder = (list: any, startIndex: any, endIndex: any) => {
+const reorder = (
+  list: FragmentStored[],
+  startIndex: number,
+  endIndex: number
+): FragmentStored[] => {
   const result = Array.from(list)
   const [removed] = result.splice(startIndex, 1)
   result.splice(endIndex, 0, removed)
@@ -86,7 +90,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
     keywordMain !== ''
       ? fragmentsKeywordMain.filter(filteredFragment =>
           filteredFragment.keywordValue.find(
-            (keywordSearched: any) =>
+            (keywordSearched: KeywordValue) =>
               keywordSearched.keyword === keywordMain &&
               keywordSearched?.skip !== undefined &&
               keywordSearched.skip === true
@@ -100,7 +104,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
 
   const fragmentsValueTrueTwo = fragmentsKeywordMain.filter(filteredFragment =>
     filteredFragment.keywordValue.find(
-      (keywordSearched: any) =>
+      (keywordSearched: KeywordValue) =>
         keywordSearched.keyword === keywordMain &&
         keywordSearched?.skip !== undefined &&
         keywordSearched.skip === false &&
@@ -110,7 +114,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   const fragmentsValueFalseThree = fragmentsKeywordMain.filter(
     filteredFragment =>
       filteredFragment.keywordValue.find(
-        (keywordSearched: any) =>
+        (keywordSearched: KeywordValue) =>
           keywordSearched.keyword === keywordMain &&
           keywordSearched?.skip !== undefined &&
           keywordSearched.skip === false &&
@@ -149,8 +153,12 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
     const { _id, keywordValue: keywordValueDropped } = droppedFragment
 
     if (sourceIndex === destinationIndex) {
-      const items = reorder(state[sourceIndex], source.index, destination.index)
-      const newState: any[] = [...state]
+      const items: FragmentStored[] = reorder(
+        state[sourceIndex],
+        source.index,
+        destination.index
+      )
+      const newState: FragmentStored[][] = [...state]
       newState[sourceIndex] = items
       setState(newState)
     } else {
