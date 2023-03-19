@@ -67,11 +67,25 @@ interface FragmentStored {
 
     keywordValue: KeywordValue[] | []
 }
+interface ResultsPage {
+    start: number
+    end: number
+    pageNumber?: number
+
+}
+
+interface FragmentsBySource {
+    KrajowaInformacjaSkarbowa: boolean;
+    IzbaSkarbowa: boolean;
+    MinisterFinansów: boolean;
+}
 
 export {
     UserInfo,
     FragmentCreated,
     UserFragments,
     FragmentStored,
-    KeywordValue
+    KeywordValue,
+    ResultsPage,
+    FragmentsBySource
 }

@@ -63,11 +63,7 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = ({
         {fragmentsKeywordMain.length > 0 &&
           fragmentsKeywordMain
             .map(fragment => (
-              <ListWrapper
-                // as={motion.ul}
-                key={fragment._id}
-                variants={dropUpVariants}
-              >
+              <ListWrapper key={fragment._id} variants={dropUpVariants}>
                 {fragment.excerpt !== '' && (
                   <FragmentContainer
                     key={fragment.title}

@@ -4,20 +4,20 @@ import React, {
   useEffect,
   Dispatch,
   SetStateAction,
-  useMemo
+  useMemo,
 } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import {
   deleteSavedFragment,
   editSavedFragment,
-  getUserFragments
+  getUserFragments,
 } from '../../../features/fragments/fragmentSlice'
 
 import {
   CenteredTitle,
   ClosingDivBig,
   HorizontalWrapperGap,
-  OpenedDivBig
+  OpenedDivBig,
 } from '../../../styles/misc.styled'
 
 import {
@@ -28,7 +28,7 @@ import {
   PopupDescriptionInput,
   PopupListRow,
   PopupTitleContainer,
-  PopupTitleInput
+  PopupTitleInput,
 } from './PopupEditWindow.styled'
 import { editIdOpenFragment } from '../../../features/preferences/preferenceSlice'
 import FragmentKeywordDisplay from './FragmentKeywordDisplay'
@@ -46,16 +46,18 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
   openedApp,
   setOpenedApp,
   setCanOpenApp,
-  idOpen
+  idOpen,
 }) => {
   const dispatch: any = useAppDispatch()
   const successUpdate: boolean = useAppSelector(
-    state => state.fragment.successUpdate
+    (state) => state.fragment.successUpdate
   )
   const loadingUpdate: boolean = useAppSelector(
-    state => state.fragment.loadingUpdate
+    (state) => state.fragment.loadingUpdate
   )
-  const fragments: any[] = useAppSelector(state => state.fragment.userFragments)
+  const fragments: any[] = useAppSelector(
+    (state) => state.fragment.userFragments
+  )
 
   const [openedFragment, setOpenedFragment] = useState({
     title: '',
@@ -65,7 +67,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     updatedAt: '',
     coordinates: '',
     keywords: [],
-    keywordValue: []
+    keywordValue: [],
   })
 
   const [titleEditing, setTitleEditing] = useState(false)
@@ -93,18 +95,18 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
   }
 
   const toggleDescriptionEditing = () =>
-    setDescriptionEditing(descriptionEditing => !descriptionEditing)
+    setDescriptionEditing((descriptionEditing) => !descriptionEditing)
 
   const toggleDescriptionReset = () => {
-    setDescriptionEditing(descriptionEditing => !descriptionEditing)
+    setDescriptionEditing((descriptionEditing) => !descriptionEditing)
     setDescriptionValue(openedFragment.description)
   }
 
   const toggleExcerptEditing = () =>
-    setExcerptEditing(excerptEditing => !excerptEditing)
+    setExcerptEditing((excerptEditing) => !excerptEditing)
 
   const toggleExcerptReset = () => {
-    setExcerptEditing(excerptEditing => !excerptEditing)
+    setExcerptEditing((excerptEditing) => !excerptEditing)
     setExcerptValue(openedFragment.excerpt)
   }
   const removeFragmentHandler = () => {
@@ -121,12 +123,12 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
   // Todo description editing
 
   const saveDescriptionHandler = () => {
-    setDescriptionEditing(descriptionEditing => !descriptionEditing)
+    setDescriptionEditing((descriptionEditing) => !descriptionEditing)
   }
   // Todo excerpt editing
 
   const saveExcerptHandler = () => {
-    setExcerptEditing(excerptEditing => !excerptEditing)
+    setExcerptEditing((excerptEditing) => !excerptEditing)
   }
   useMemo(() => {
     if (successUpdate === true) {
@@ -166,7 +168,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     ) {
       const newTitle = {
         _id: idOpen,
-        title: titleValue
+        title: titleValue,
       }
       dispatch(editSavedFragment(newTitle))
     }
@@ -177,7 +179,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     ) {
       const newExcerpt = {
         _id: idOpen,
-        excerpt: excerptValue
+        excerpt: excerptValue,
       }
       dispatch(editSavedFragment(newExcerpt))
     }
@@ -188,7 +190,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     ) {
       const newDescription = {
         _id: idOpen,
-        description: descriptionValue
+        description: descriptionValue,
       }
       dispatch(editSavedFragment(newDescription))
     }
@@ -200,7 +202,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
       const newTitleDescription = {
         _id: idOpen,
         description: descriptionValue,
-        title: titleValue
+        title: titleValue,
       }
       dispatch(editSavedFragment(newTitleDescription))
     }
@@ -212,7 +214,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
       const newTitleExcerpt = {
         _id: idOpen,
         excerpt: excerptValue,
-        title: titleValue
+        title: titleValue,
       }
       dispatch(editSavedFragment(newTitleExcerpt))
     }
@@ -224,7 +226,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
       const newDescriptionExcerpt = {
         _id: idOpen,
         excerpt: excerptValue,
-        description: descriptionValue
+        description: descriptionValue,
       }
       dispatch(editSavedFragment(newDescriptionExcerpt))
     }
@@ -237,7 +239,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
         _id: idOpen,
         title: titleValue,
         excerpt: excerptValue,
-        description: descriptionValue
+        description: descriptionValue,
       }
       dispatch(editSavedFragment(newEverything))
     }

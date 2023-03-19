@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, FormEvent, ChangeEvent } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { AppDispatch } from '../../app/store'
 import { highlightQueryEdit } from '../../features/preferences/preferenceSlice'
+import { FragmentsBySource, ResultsPage } from '../../interfaces'
 import { HeroTitleMisc, HorizontalWrapperTight } from '../../styles/misc.styled'
 import { ButtonSmall } from '../Miscellaneous/Buttons/BigButton.styled'
 import DataSection from '../Miscellaneous/InfoSection/DataSection'
@@ -33,19 +34,20 @@ interface SearchResultsDisplayProps {}
 
 const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
   const dispatch: AppDispatch = useAppDispatch()
+
   const searchResults: any = useAppSelector(
     state => state.searchResult.searchResults
   )
   const { data, query } = searchResults
 
-  const searchResultsPage: any = useAppSelector(
+  const searchResultsPage: ResultsPage = useAppSelector(
     state => state.preference.searchResultsPage
   )
   const { start, end } = searchResultsPage
   const highlightQuery: string = useAppSelector(
     state => state.preference.highlightQuery
   )
-  const fragmentsSource: any = useAppSelector(
+  const fragmentsSource: FragmentsBySource = useAppSelector(
     state => state.preference.sortFragmentsBySource
   )
   const { KrajowaInformacjaSkarbowa, IzbaSkarbowa, MinisterFinansów } =
@@ -96,7 +98,7 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
     return numbers
   }
 
-  const highlightHandler = (e: any) => {
+  const highlightHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     dispatch(highlightQueryEdit(highlightQueryLocal))
   }
@@ -134,7 +136,9 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
                       placeholder='podświetl'
                       autoComplete='highlight'
                       value={highlightQueryLocal}
-                      onChange={(e: any) => setHighlightQuery(e.target.value)}
+                      onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        setHighlightQuery(e.target.value)
+                      }
                     />
                   </SearchBarForm>
                 </SwitchResultWrapper>

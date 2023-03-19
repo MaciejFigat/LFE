@@ -18,24 +18,24 @@ interface ResultDisplayScreenProps {}
 const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
   const dispatch: any = useAppDispatch()
 
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  const userInfo: UserInfo = useAppSelector(state => state.user.userInfo)
 
-  const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
+  const widthNarrow = useAppSelector(state => state.preference.widthNarrow)
   const searchResults: any = useAppSelector(
-    (state) => state.searchResult.searchResults
+    state => state.searchResult.searchResults
   )
   const searchResultsPage: any = useAppSelector(
-    (state) => state.preference.searchResultsPage
+    state => state.preference.searchResultsPage
   )
   const { start, end } = searchResultsPage
   const showFragmentsState: boolean = useAppSelector(
-    (state) => state.preference.showFragments
+    state => state.preference.showFragments
   )
   const sortingOption: string = useAppSelector(
-    (state) => state.preference.sortingOption
+    state => state.preference.sortingOption
   )
   const idOpenFragment = useAppSelector(
-    (state) => state.preference.idOpenFragment
+    state => state.preference.idOpenFragment
   )
 
   const { data, query } = searchResults
@@ -67,9 +67,6 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
                 {showFragmentsState &&
                   (sortingOption === 'data' ||
                     sortingOption === 'wszystkie') && <UserFragmentsColumn />}
-                {/* {showFragmentsState && sortingOption === 'wszystkie' && (
-                  <UserFragmentsColumn />
-                )} */}
                 {showFragmentsState && sortingOption === 'projekt' && (
                   <UserFragmentsByKeyword />
                 )}
@@ -98,12 +95,6 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
                 <SharedChoiceWrapper />
 
                 {showFragmentsState && <FragmentsColumn />}
-                {/* {showFragmentsState && sortingOption === 'wszystkie' && (
-                  <FragmentsColumn showFragmentsState={showFragmentsState} />
-                )}
-                {showFragmentsState && sortingOption === 'projekt' && (
-                  <FragmentsColumn showFragmentsState={showFragmentsState} />
-                )} */}
 
                 <DataContainerSimple width={widthNarrow}>
                   {!showFragmentsState &&

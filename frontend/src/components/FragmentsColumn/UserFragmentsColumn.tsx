@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
-// import { FragmentContainer } from './FragmentsColumn.styled'
 
 import {
   ListWrapper,
@@ -50,7 +49,6 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
   }, [dispatch, fragmentSuccess])
 
   return (
-    // <FragmentsWrapper moreColumns={moreColumns} width={widthNarrow}>
     <FragmentsWrapper moreColumns={moreColumns} width={widthNarrow}>
       {fragments.length > 0 &&
         fragments
@@ -66,10 +64,7 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
           )
 
           .map(fragment => (
-            <ListWrapper
-              // as={motion.ul}
-              key={fragment._id}
-            >
+            <ListWrapper key={fragment._id}>
               {fragment.excerpt !== '' && (
                 <FragmentContainer
                   key={fragment.title}
