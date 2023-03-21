@@ -33,6 +33,7 @@ import {
 import { editIdOpenFragment } from '../../../features/preferences/preferenceSlice'
 import FragmentKeywordDisplay from './FragmentKeywordDisplay'
 import { ButtonSmall } from '../../Miscellaneous/Buttons/BigButton.styled'
+import { AppDispatch } from '../../../app/store'
 
 interface PupupEditWindowProps {
   openedApp?: string | null
@@ -48,7 +49,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
   setCanOpenApp,
   idOpen
 }) => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
   const successUpdate: boolean = useAppSelector(
     state => state.fragment.successUpdate
   )
@@ -159,90 +160,105 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     }
 
     dispatch(editIdOpenFragment(''))
-    if (
-      titleValue !== openedFragment.title &&
-      excerptValue === openedFragment.excerpt &&
-      descriptionValue === openedFragment.description
-    ) {
-      const newTitle = {
-        _id: idOpen,
-        title: titleValue
-      }
-      dispatch(editSavedFragment(newTitle))
-    }
-    if (
-      excerptValue !== openedFragment.excerpt &&
-      titleValue === openedFragment.title &&
-      descriptionValue === openedFragment.description
-    ) {
-      const newExcerpt = {
-        _id: idOpen,
-        excerpt: excerptValue
-      }
-      dispatch(editSavedFragment(newExcerpt))
-    }
-    if (
-      descriptionValue !== openedFragment.description &&
-      titleValue === openedFragment.title &&
-      excerptValue === openedFragment.excerpt
-    ) {
-      const newDescription = {
-        _id: idOpen,
-        description: descriptionValue
-      }
-      dispatch(editSavedFragment(newDescription))
-    }
-    if (
-      descriptionValue !== openedFragment.description &&
-      titleValue !== openedFragment.title &&
-      excerptValue === openedFragment.excerpt
-    ) {
-      const newTitleDescription = {
-        _id: idOpen,
-        description: descriptionValue,
-        title: titleValue
-      }
-      dispatch(editSavedFragment(newTitleDescription))
-    }
-    if (
-      descriptionValue === openedFragment.description &&
-      titleValue !== openedFragment.title &&
-      excerptValue !== openedFragment.excerpt
-    ) {
-      const newTitleExcerpt = {
-        _id: idOpen,
-        excerpt: excerptValue,
-        title: titleValue
-      }
-      dispatch(editSavedFragment(newTitleExcerpt))
-    }
-    if (
-      descriptionValue !== openedFragment.description &&
-      titleValue === openedFragment.title &&
-      excerptValue !== openedFragment.excerpt
-    ) {
-      const newDescriptionExcerpt = {
-        _id: idOpen,
-        excerpt: excerptValue,
-        description: descriptionValue
-      }
-      dispatch(editSavedFragment(newDescriptionExcerpt))
-    }
-    if (
-      descriptionValue !== openedFragment.description &&
-      titleValue !== openedFragment.title &&
-      excerptValue !== openedFragment.excerpt
-    ) {
-      const newEverything = {
-        _id: idOpen,
-        title: titleValue,
-        excerpt: excerptValue,
-        description: descriptionValue
-      }
-      dispatch(editSavedFragment(newEverything))
-    }
+  //   if (
+  //     titleValue !== openedFragment.title &&
+  //     excerptValue === openedFragment.excerpt &&
+  //     descriptionValue === openedFragment.description
+  //   ) {
+  //     const newTitle = {
+  //       _id: idOpen,
+  //       title: titleValue
+  //     }
+  //     dispatch(editSavedFragment(newTitle))
+  //   }
+  //   if (
+  //     excerptValue !== openedFragment.excerpt &&
+  //     titleValue === openedFragment.title &&
+  //     descriptionValue === openedFragment.description
+  //   ) {
+  //     const newExcerpt = {
+  //       _id: idOpen,
+  //       excerpt: excerptValue
+  //     }
+  //     dispatch(editSavedFragment(newExcerpt))
+  //   }
+  //   if (
+  //     descriptionValue !== openedFragment.description &&
+  //     titleValue === openedFragment.title &&
+  //     excerptValue === openedFragment.excerpt
+  //   ) {
+  //     const newDescription = {
+  //       _id: idOpen,
+  //       description: descriptionValue
+  //     }
+  //     dispatch(editSavedFragment(newDescription))
+  //   }
+  //   if (
+  //     descriptionValue !== openedFragment.description &&
+  //     titleValue !== openedFragment.title &&
+  //     excerptValue === openedFragment.excerpt
+  //   ) {
+  //     const newTitleDescription = {
+  //       _id: idOpen,
+  //       description: descriptionValue,
+  //       title: titleValue
+  //     }
+  //     dispatch(editSavedFragment(newTitleDescription))
+  //   }
+  //   if (
+  //     descriptionValue === openedFragment.description &&
+  //     titleValue !== openedFragment.title &&
+  //     excerptValue !== openedFragment.excerpt
+  //   ) {
+  //     const newTitleExcerpt = {
+  //       _id: idOpen,
+  //       excerpt: excerptValue,
+  //       title: titleValue
+  //     }
+  //     dispatch(editSavedFragment(newTitleExcerpt))
+  //   }
+  //   if (
+  //     descriptionValue !== openedFragment.description &&
+  //     titleValue === openedFragment.title &&
+  //     excerptValue !== openedFragment.excerpt
+  //   ) {
+  //     const newDescriptionExcerpt = {
+  //       _id: idOpen,
+  //       excerpt: excerptValue,
+  //       description: descriptionValue
+  //     }
+  //     dispatch(editSavedFragment(newDescriptionExcerpt))
+  //   }
+  //   if (
+  //     descriptionValue !== openedFragment.description &&
+  //     titleValue !== openedFragment.title &&
+  //     excerptValue !== openedFragment.excerpt
+  //   ) {
+  //     const newEverything = {
+  //       _id: idOpen,
+  //       title: titleValue,
+  //       excerpt: excerptValue,
+  //       description: descriptionValue
+  //     }
+  //     dispatch(editSavedFragment(newEverything))
+  //   }
+  // }
+  if (openedFragment.title !== titleValue) {
+    dispatch(editSavedFragment({_id: idOpen, title: titleValue}))
+  } else if (openedFragment.excerpt !== excerptValue) {
+    dispatch(editSavedFragment({_id: idOpen, excerpt: excerptValue}))
+  } else if (openedFragment.description !== descriptionValue) {
+    dispatch(editSavedFragment({_id: idOpen, description: descriptionValue}))
+  } else if (openedFragment.title !== titleValue && openedFragment.excerpt !== excerptValue) {
+    dispatch(editSavedFragment({_id: idOpen, title: titleValue, excerpt: excerptValue}))
+  } else if (openedFragment.title !== titleValue && openedFragment.description !== descriptionValue) {
+    dispatch(editSavedFragment({_id: idOpen, title: titleValue, description: descriptionValue}))
+  } else if (openedFragment.excerpt !== excerptValue && openedFragment.description !== descriptionValue) {
+    dispatch(editSavedFragment({_id: idOpen, excerpt: excerptValue, description: descriptionValue}))
+  } else if (openedFragment.title !== titleValue && openedFragment.excerpt !== excerptValue && openedFragment.description !== descriptionValue) {
+    dispatch(editSavedFragment({_id: idOpen, title: titleValue, excerpt: excerptValue, description: descriptionValue}))
   }
-
+  
   return (
     <OpenedDivBig layoutId={openedApp!.toString()} yPosition={window.scrollY}>
       <ClosingDivBig
