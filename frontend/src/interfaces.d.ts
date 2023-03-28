@@ -80,6 +80,12 @@ interface FragmentsBySource {
     MinisterFinansów: boolean;
 }
 
+interface FragmentUpdated {
+    title?: string,
+    excerpt?: string,
+    description?: string,
+}
+
 export {
     UserInfo,
     FragmentCreated,
@@ -87,5 +93,6 @@ export {
     FragmentStored,
     KeywordValue,
     ResultsPage,
-    FragmentsBySource
+    FragmentsBySource,
+    FragmentUpdated
 }
