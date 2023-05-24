@@ -7,22 +7,22 @@ import {
   LoginTextWrapper,
   Title,
   LoginLink,
-  LoginWrapper,
+  LoginWrapper
 } from '../styles/login'
 import { useAppDispatch } from '../app/reduxHooks'
 import { createUser } from '../features/users/userSlice'
 import Toast from '../components/Miscellaneous/Toast/Toast'
-
 import useRedirectLoggedListener from '../hooks/useRedirectListenerLogged'
 import { Link } from 'react-router-dom'
 import {
   ButtonBig,
-  ButtonSmall,
+  ButtonSmall
 } from '../components/Miscellaneous/Buttons/BigButton.styled'
+import { AppDispatch } from '../app/store'
 interface RegisterProps {}
 
 const Register: React.FC<RegisterProps> = () => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
   useRedirectLoggedListener()
   const [name, setName] = useState('')
@@ -78,9 +78,6 @@ const Register: React.FC<RegisterProps> = () => {
             <Title>
               Po wypełnieniu powyższego formularza, zostanie wysłany email z
               instrukcjami aktywowania konta.
-              {/* <LoginLink >
-            &nbsp;resetuj hasło.
-          </LoginLink> */}
             </Title>
           </LoginTextWrapper>
         </LoginWrapper>

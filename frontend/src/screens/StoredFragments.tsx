@@ -1,5 +1,5 @@
 import React from 'react'
-import DragAndDropProject from '../components/DragAndDropProject/DragAndDropProject'
+import DragAndDropProject from '../modules/DragAndDropProject/DragAndDropProject'
 
 interface StoredFragmentsProps {}
 

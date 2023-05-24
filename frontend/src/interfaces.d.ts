@@ -64,8 +64,31 @@ interface FragmentStored {
     docId: number
     query: string
     keywords: string[] | []
-
+    updatedAt?: string
     keywordValue: KeywordValue[] | []
+}
+interface FragmentStoredAllData {
+    _id: string
+    user: string
+    source: string
+    excerpt: string
+    coordinates: string
+    title: string
+    description: string
+    docId: number
+    query: string
+    keywords: string[]
+    updatedAt: string
+    keywordValue: KeywordValue[] | []
+}
+interface FragmentStoredSimple {
+    title: string
+    description: string
+    excerpt: string
+    source: string
+    updatedAt: string
+    coordinates: string
+    keywords: string[]
 }
 interface ResultsPage {
     start: number
@@ -91,6 +114,8 @@ export {
     FragmentCreated,
     UserFragments,
     FragmentStored,
+    FragmentStoredAllData,
+    FragmentStoredSimple,
     KeywordValue,
     ResultsPage,
     FragmentsBySource,

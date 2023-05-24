@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { activateUser } from '../features/users/userSlice'
 import { Wrapper, LoginContainer } from '../styles/login'
-// import { Wrapper, Form, Input, Button, LoginContainer } from '../styles/login'
 import useRedirectLoggedListener from '../hooks/useRedirectListenerLogged'
 import { SpinnerWrapperSearch } from '../components/Miscellaneous/SearchBar/SearchBar.styled'
 import { RotatingLines } from 'react-loader-spinner'
@@ -16,31 +15,21 @@ const ConfirmAccount: React.FC<ConfirmAccountProps> = () => {
   const dispatch = useAppDispatch()
   let navigate = useNavigate()
 
-  const errorMessage = useAppSelector((state) => state.user.error)
+  const errorMessage = useAppSelector(state => state.user.error)
   const { token: confirmationToken } = useParams()
 
   useRedirectLoggedListener()
-  // const [token, setToken] = useState<string | number | any>(confirmationToken)
-  const [timeoutSeconds, setTimeoutSeconds] = useState<number>(5)
 
-  // const activationToken = {
-  //   confirmationCode: token,
-  // }
+  const [timeoutSeconds, setTimeoutSeconds] = useState<number>(5)
 
   useEffect(() => {
     const tokenObject = {
-      confirmationCode: confirmationToken,
+      confirmationCode: confirmationToken
     }
     if (confirmationToken) {
-      // setToken(confirmationToken)
       dispatch(activateUser(tokenObject))
     }
   }, [confirmationToken, dispatch])
-
-  // const activateHandler = (e: any) => {
-  //   e.preventDefault()
-  //   dispatch(activateUser(activationToken))
-  // }
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -90,17 +79,6 @@ const ConfirmAccount: React.FC<ConfirmAccountProps> = () => {
             </SpinnerWrapperSearch>
           </>
         )}
-
-        {/* <Form onSubmit={activateHandler}>
-          <Input
-            type='token'
-            name='token'
-            placeholder='Enter your token'
-            value={token}
-            onChange={(e: any) => setToken(e.target.value)}
-          />
-          <Button>Activate User</Button>
-        </Form> */}
       </Wrapper>
     </LoginContainer>
   )

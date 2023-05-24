@@ -1,11 +1,11 @@
-import Nav from './components/menu/Nav/Nav'
+import Nav from './modules/menu/Nav/Nav'
 import Home from './screens/Home'
 import { GlobalStyle } from './styles/GlobalStyles'
 import { useAppSelector } from './app/reduxHooks'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Login from './screens/Login'
 import Register from './screens/Register'
-import ScrollTopHelper from './components/customHooks/ScrollTopHelper'
+import ScrollTopHelper from './hooks/ScrollTopHelper'
 import UserAdminEdit from './screens/UserAdminEdit'
 import UserListAdmin from './screens/UserListAdmin'
 import UserProfile from './screens/UserProfile'
@@ -16,10 +16,10 @@ import StoredFragments from './screens/StoredFragments'
 import ResultDisplayScreen from './screens/ResultDisplayScreen'
 import ResultDisplayIdQueryScreen from './screens/ResultDisplayIdQueryScreen'
 
-function App() {
+function App () {
   const location = useLocation()
-  const globalScheme: any = useAppSelector(
-    (state) => state.preference.preferedScheme
+  const globalScheme: string = useAppSelector(
+    state => state.preference.preferedScheme
   )
   return (
     <>

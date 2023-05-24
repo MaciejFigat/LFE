@@ -10,7 +10,7 @@ import Toast from '../components/Miscellaneous/Toast/Toast'
 // import ProjectsDisplay from '../components/HomePageComponents/ProjectsDisplay'
 // import FragmentsDisplay from '../components/HomePageComponents/FragmentsDisplay'
 // import VisitedLinks from '../components/Miscellaneous/VisitedLinks/VisitedLinks'
-import HeroGrid from '../components/HomePageComponents/HeroGrid'
+import HeroGrid from '../modules/HomePageComponents/HeroGrid'
 // import HomeSearch from '../components/HomePageComponents/HomeSearch'
 
 const Home: React.FC = () => {

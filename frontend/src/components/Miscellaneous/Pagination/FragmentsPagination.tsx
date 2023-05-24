@@ -5,13 +5,13 @@ import { fragmentsPageSaved } from '../../../features/preferences/preferenceSlic
 import {
   DragPaginationButton,
   ProjectMenuContainer,
-  ProjectPaginationWrapper,
-} from '../../menu/Dropdowns/ProjectMenu.styled'
+  ProjectPaginationWrapper
+} from '../../../modules/menu/Dropdowns/ProjectMenu.styled'
 import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
 import {
   PaginateActive,
   PaginateBorderWrapper,
-  PaginateWrapper,
+  PaginateWrapper
 } from './Paginate.styled'
 import SvgIcon from '../SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../../styles/misc.styled'
@@ -21,7 +21,7 @@ interface FragmentsPaginationProps {
 }
 
 const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
-  narrow,
+  narrow
 }) => {
   const dragRef = useRef(null)
   const xPos = useRef(0)
@@ -33,10 +33,10 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
 
   const dispatch = useAppDispatch()
   const userFragments: any = useAppSelector(
-    (state) => state.fragment.userFragments
+    state => state.fragment.userFragments
   )
   const savedFragmentsPage: any = useAppSelector(
-    (state) => state.preference.savedFragmentsPage
+    state => state.preference.savedFragmentsPage
   )
 
   const buttonHelper = (i: number) => {
@@ -44,7 +44,7 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
       fragmentsPageSaved({
         start: i * 10,
         end: (i + 1) * 10 - 1,
-        pageNr: i + 1,
+        pageNr: i + 1
       })
     )
   }
@@ -53,7 +53,7 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
     const newXPosition = xPos.current + 150
 
     animation.start({
-      x: newXPosition > 0 ? 0 : newXPosition,
+      x: newXPosition > 0 ? 0 : newXPosition
     })
   }
 
@@ -61,7 +61,7 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
     const newXPosition = xPos.current - 150
 
     animation.start({
-      x: newXPosition < (-userFragments.length / 10) * 33 ? 0 : newXPosition,
+      x: newXPosition < (-userFragments.length / 10) * 33 ? 0 : newXPosition
     })
   }
   return (
@@ -94,7 +94,7 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
         drag='x'
         dragConstraints={{
           left: (-userFragments.length / 10) * 21,
-          right: 0,
+          right: 0
         }}
         dragTransition={{ bounceStiffness: 1100, bounceDamping: 130 }}
         transition={{ type: 'linear', stiffness: 100 }}

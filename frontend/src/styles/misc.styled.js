@@ -276,9 +276,6 @@ export const DropDownHeaderMini = styled(DropDownHeaderMisc)`
   }
   @media (max-width: 520px) {
     padding: 0.25rem;
-    /* height: fit-content; */
-    /* height: 25px; */
-    /* width: 25px; */
   }
 `
 export const SpaceAroundWrapper = styled.div`
@@ -501,7 +498,6 @@ export const RegularDiv = styled.div`
 
 export const RegularColumn = styled.div`
   display: grid;
-
   place-items: center;
   gap: 1rem;
   padding: 1rem;
@@ -510,7 +506,6 @@ export const RegularColumn = styled.div`
 export const LoadingAbsolutePopup = styled(motion.div)`
   position: absolute;
   display: grid;
-  //todo
   color: ${({ isOn }) =>
     isOn ? 'var(--background2-main)' : 'var(--background5-main)'};
   place-content: flex-start center;

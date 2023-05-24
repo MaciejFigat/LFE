@@ -27,30 +27,19 @@ export const IconsItem = styled.div`
   &:after {
     content: '${(props) => props.contentAfter}';
     position: relative !important;
-    /* position: absolute !important; */
     line-height: 1.2;
     background: ${(props) =>
       props.showContent ? `transparent` : 'var(--background-blur1)'};
     padding: 0.25rem;
-    /* height: ${(props) => (props.noContent ? `0px` : 'fit-content')}; */
-    /* min-height: ${(props) => (props.noContent ? `0px` : 'fit-content')}; */
     border-radius: 5px;
-    /* opacity: ${(props) => (props.contentAfter ? `1` : '0')}; */
     transition: all 0.2s ease-in;
-    /* transition: background-color 0.1s; */
     opacity: 0;
-    /* z-index: 11; */
     width: ${(props) => (props.noContent ? `0px` : `70px`)};
     width: ${(width) => width && width};
-
-    /* max-width: ${(props) => (props.noContent ? `0px` : 'min-content')}; */
-
     padding-right: 0.25rem;
     font-size: min(max(1rem, 4vw), 12px);
     font-size: 0.85rem;
-    /* display: block !important; */
     line-height: 1.2;
-    /* text-transform: uppercase; */
     left: 60px;
     top: ${({ toTop }) => (toTop ? toTop : null)};
     bottom: ${({ toRight }) => (toRight ? '15px;' : '15px;')};

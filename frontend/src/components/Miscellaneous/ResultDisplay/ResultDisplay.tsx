@@ -8,10 +8,10 @@ import {
   ArticleSection,
   ArticleTopline,
   ArticleParagraph,
-  ArticleContainer,
+  ArticleContainer
 } from './ResultDisplay.styled'
 import SideButtons from '../SideButtons/SideButtons'
-import ScrollToElementHelper from '../../customHooks/ScrollToElementHelper'
+import ScrollToElementHelper from '../../../hooks/ScrollToElementHelper'
 
 interface ResultDisplayProps {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'blue'
@@ -19,7 +19,7 @@ interface ResultDisplayProps {
 }
 
 const ResultDisplay: React.FC<ResultDisplayProps> = () => {
-  const docResult: any = useAppSelector((state) => state.searchResult.docResult)
+  const docResult: any = useAppSelector(state => state.searchResult.docResult)
   const { frags: highlightedFragments } = docResult
   const [hashIds, setHashIds] = useState<string[]>([])
 

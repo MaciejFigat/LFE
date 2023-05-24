@@ -10,14 +10,14 @@ import {
   Title,
   LoginContainer,
   LoginTextWrapper,
-  LoginWrapper,
+  LoginWrapper
 } from '../styles/login'
 import useRedirectLoggedListener from '../hooks/useRedirectListenerLogged'
 import { sendEmailToResetPassword } from '../features/users/userSlice'
 import { UserInfo } from '../interfaces'
 import {
   ButtonBig,
-  ButtonSmall,
+  ButtonSmall
 } from '../components/Miscellaneous/Buttons/BigButton.styled'
 import { resetUserFragments } from '../features/fragments/fragmentSlice'
 
@@ -26,7 +26,7 @@ interface LoginProps {}
 const Login: React.FC<LoginProps> = () => {
   const dispatch = useAppDispatch()
 
-  const userInfoRedux: UserInfo = useAppSelector((state) => state.user.userInfo)
+  const userInfoRedux: UserInfo = useAppSelector(state => state.user.userInfo)
 
   useRedirectLoggedListener()
 
@@ -84,12 +84,7 @@ const Login: React.FC<LoginProps> = () => {
             <ButtonBig variant='secondary'>
               <Link to='/register'>Rejestracja</Link>
             </ButtonBig>
-            {/* <Title>
-        
-              <Link to='/register'>
-                <LoginLink>&nbsp;rejestracja</LoginLink>
-              </Link>
-            </Title> */}
+
             <Title>
               Możesz zresetować hasło. Wpisz swój email w pole email powyżej i
               kliknij

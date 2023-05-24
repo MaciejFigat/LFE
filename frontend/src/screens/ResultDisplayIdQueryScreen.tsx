@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
-import FragmentsColumn from '../components/FragmentsColumn/FragmentsColumn'
+import FragmentsColumn from '../modules/FragmentsColumn/FragmentsColumn'
 import ResizableScrollSection from '../components/Miscellaneous/ScrollSection/ResizableScrollSection'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { UserInfo } from '../interfaces'
 import { useParams } from 'react-router-dom'
-import UserFragmentsColumn from '../components/FragmentsColumn/UserFragmentsColumn'
+import UserFragmentsColumn from '../modules/FragmentsColumn/UserFragmentsColumn'
 import ResultDisplay from '../components/Miscellaneous/ResultDisplay/ResultDisplay'
-import DataSectionSimple from '../components/Miscellaneous/InfoSection/DataSectionSimple'
-import UserFragmentsByKeyword from '../components/FragmentsColumn/UserFragmentsByKeyword'
+import DataSectionSimple from '../modules/InfoSection/DataSectionSimple'
+import UserFragmentsByKeyword from '../modules/FragmentsColumn/UserFragmentsByKeyword'
 
-import { DataContainerSimple } from '../components/Miscellaneous/InfoSection/InfoSection.styled'
-import SharedChoiceWrapper from '../components/FragmentsColumn/SharedChoiceWrapper/SharedChoiceWrapper'
+import { DataContainerSimple } from '../modules/InfoSection/InfoSection.styled'
+import SharedChoiceWrapper from '../modules/FragmentsColumn/SharedChoiceWrapper/SharedChoiceWrapper'
 import { getDocByIdAndQuery } from '../features/searchResults/searchResultsSlice'
 
 interface ResultDisplayIdQueryScreenProps {}
@@ -20,22 +20,22 @@ const ResultDisplayIdQueryScreen: React.FC<
 > = () => {
   const dispatch = useAppDispatch()
 
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  const userInfo: UserInfo = useAppSelector(state => state.user.userInfo)
 
-  const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
+  const widthNarrow = useAppSelector(state => state.preference.widthNarrow)
 
   const searchResults: any = useAppSelector(
-    (state) => state.searchResult.searchResults
+    state => state.searchResult.searchResults
   )
   const searchResultsPage: any = useAppSelector(
-    (state) => state.preference.searchResultsPage
+    state => state.preference.searchResultsPage
   )
   const { start, end } = searchResultsPage
   const showFragmentsState: boolean = useAppSelector(
-    (state) => state.preference.showFragments
+    state => state.preference.showFragments
   )
   const sortingOption: string = useAppSelector(
-    (state) => state.preference.sortingOption
+    state => state.preference.sortingOption
   )
   const { data, query } = searchResults
   const queryTrimmed = encodeURIComponent(query?.trim())
@@ -47,7 +47,7 @@ const ResultDisplayIdQueryScreen: React.FC<
   useEffect(() => {
     const searchquery = {
       query: urlQuery ? urlQuery : '',
-      docNumber: urlId ? parseInt(urlId) : 0,
+      docNumber: urlId ? parseInt(urlId) : 0
     }
 
     if (urlQuery && urlId) {
