@@ -19,9 +19,8 @@ import {
 import { titleSvg } from '../HeroSectionSVGS/Title'
 
 import { NavLink } from 'react-router-dom'
-
-import { ButtonMedium } from '../../../components/Miscellaneous/Buttons/BigButton.styled'
-import SvgIcon from '../../../components/Miscellaneous/SvgIcon/SvgIcon'
+import { ButtonMedium } from '../../../components/ButtonsSend/BigButton.styled'
+import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import { HorizontalWrapperSpace } from '../../../styles/misc.styled'
 
 interface HomeChoiceWrapperProps {

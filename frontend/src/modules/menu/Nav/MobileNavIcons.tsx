@@ -8,7 +8,7 @@ import {
 } from './nav.styled'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import SvgIcon from '../../../components/Miscellaneous/SvgIcon/SvgIcon'
+import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import ProjectDropdown from '../Dropdowns/ProjectDropdown'
 import { DropDownHeaderMenu } from '../../../styles/misc.styled'
 

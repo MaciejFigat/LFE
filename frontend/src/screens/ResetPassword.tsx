@@ -6,9 +6,9 @@ import { Wrapper, LoginContainer, LoginLink } from '../styles/login'
 import { useNavigate } from 'react-router-dom'
 import {
   ButtonBig,
-  ButtonSmall,
-} from '../components/Miscellaneous/Buttons/BigButton.styled'
-import { SpinnerWrapperSearch } from '../components/Miscellaneous/SearchBar/SearchBar.styled'
+  ButtonSmall
+} from '../components/ButtonsSend/BigButton.styled'
+import { SpinnerWrapperSearch } from '../modules/SearchBar/SearchBar.styled'
 import { RotatingLines } from 'react-loader-spinner'
 import { Link } from 'react-router-dom'
 import { HighlightText } from '../styles/misc.styled'
@@ -18,7 +18,7 @@ interface ResetPasswordProps {}
 const ResetPassword: React.FC<ResetPasswordProps> = () => {
   const dispatch = useAppDispatch()
   let navigate = useNavigate()
-  const errorMessage = useAppSelector((state) => state.user.error)
+  const errorMessage = useAppSelector(state => state.user.error)
 
   const [timeoutSeconds, setTimeoutSeconds] = useState<number>(5)
 
@@ -26,7 +26,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = () => {
 
   useEffect(() => {
     const userToken = {
-      resetPasswordToken: resetToken,
+      resetPasswordToken: resetToken
     }
     if (userToken) {
       dispatch(resetPassword(userToken))

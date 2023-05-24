@@ -2,8 +2,8 @@ import React from 'react'
 
 import { useAppDispatch } from '../../../app/reduxHooks'
 import { getSearchResults } from '../../../features/searchResults/searchResultsSlice'
-import { HeroSearchSampleWrapper } from '../../../components/Miscellaneous/SearchBar/SearchBar.styled'
-import { ButtonSmall } from '../../../components/Miscellaneous/Buttons/BigButton.styled'
+import { HeroSearchSampleWrapper } from '../../SearchBar/SearchBar.styled'
+import { ButtonSmall } from '../../../components/ButtonsSend/BigButton.styled'
 import {
   HeroTitleMiscMedium,
   HorizontalWrapperGap

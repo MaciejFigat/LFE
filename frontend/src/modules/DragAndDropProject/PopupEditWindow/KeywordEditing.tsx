@@ -2,8 +2,8 @@ import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { editSavedFragment } from '../../../features/fragments/fragmentSlice'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SendButtonVerySmall } from '../../../components/Miscellaneous/Buttons/Buttons.styled'
-import SvgIcon from '../../../components/Miscellaneous/SvgIcon/SvgIcon'
+import { SendButtonVerySmall } from '../../../components/ButtonsSend/Buttons.styled'
+import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import {
   PopupB,
   PopupHorizontalContainer,

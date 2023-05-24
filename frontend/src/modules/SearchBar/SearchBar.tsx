@@ -1,10 +1,10 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
 import {
   getSearchResults,
   getResultsFiltered
-} from '../../../features/searchResults/searchResultsSlice'
+} from '../../features/searchResults/searchResultsSlice'
 import Moment from 'moment'
 import {
   SearchBarButton,
@@ -14,10 +14,10 @@ import {
   SearchInput,
   SpinnerWrapperSearch
 } from './SearchBar.styled'
-import SvgIcon from '../SvgIcon/SvgIcon'
+import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { ThreeDots, RotatingLines } from 'react-loader-spinner'
-import { RelativeWrapper } from '../../../styles/misc.styled'
-import { AppDispatch } from '../../../app/store'
+import { RelativeWrapper } from '../../styles/misc.styled'
+import { AppDispatch } from '../../app/store'
 
 interface SearchBarProps {
   isOpen: boolean

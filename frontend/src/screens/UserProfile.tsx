@@ -11,16 +11,16 @@ import {
   InputAndLabelWrapper,
   LoginContainer,
   LoginWrapper,
-  Wrapper,
+  Wrapper
 } from '../styles/login'
-import { ButtonMedium } from '../components/Miscellaneous/Buttons/BigButton.styled'
+import { ButtonMedium } from '../components/ButtonsSend/BigButton.styled'
 
 interface UserProfileProps {}
 
 const UserProfile: React.FC<UserProfileProps> = () => {
   const dispatch: any = useAppDispatch()
   let navigate = useNavigate()
-  const user: UserInfo = useAppSelector((state) => state.user.userInfo)
+  const user: UserInfo = useAppSelector(state => state.user.userInfo)
 
   const { _id: id, name: nameState, email: emailState } = user
 
@@ -32,7 +32,7 @@ const UserProfile: React.FC<UserProfileProps> = () => {
     _id: id,
     name: name,
     email: email,
-    password: password,
+    password: password
   }
 
   const updateUserHandler = (e: any) => {

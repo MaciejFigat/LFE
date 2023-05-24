@@ -10,7 +10,6 @@ const GlobalStyle = createGlobalStyle`
 html {
   font-size: 100%;
   height: 100%;
-  // box-sizing: border-box;
 } 
 
 body {
@@ -23,10 +22,8 @@ body {
     height: 100%;
     overflow-wrap: break-word;
     background: var(--background1-main);
-      // font-family: 'Playfair Display', serif;
-      // font-family: 'Atkinson Hyperlegible', sans-serif;
-      font-family: 'Open Sans', sans-serif;
-    // font-family: 'Quicksand', sans-serif; 
+    font-family: 'Open Sans', sans-serif;
+ 
 }
 
 :root {
@@ -73,9 +70,6 @@ body {
   
   
 
-    
-  // --background-tertiary15:  rgba( 29, 53, 87, 0.4 );
-  // --background-tertiary25: rgba(69, 123, 157, 1);
   
   --secondary1: #264653;
   --secondary2: #2a9d8f;
@@ -166,8 +160,10 @@ body {
     --success3: #70e000;
 
     --warning1: ${(props) => handleGlobalScheme(props.globalScheme).warning1}
+    --warning2: ${(props) => handleGlobalScheme(props.globalScheme).warning1}
 
     --danger1: ${(props) => handleGlobalScheme(props.globalScheme).danger1}
+    --danger2: ${(props) => handleGlobalScheme(props.globalScheme).danger1}
     
     --background-blue1: #ADD7F6;
     --background-blue2: #87BFFF;
@@ -187,27 +183,7 @@ body {
       handleGlobalScheme(props.globalScheme).backgroundOpaque1}
     --background-opaque2: ${(props) =>
       handleGlobalScheme(props.globalScheme).backgroundOpaque2}
-    // --background-opaque3: rgba( 109, 108, 112, 0.1 );
-    // --background-opaque4: rgba( 114, 93, 93, 0.29 );
-    // --background-opaque5: rgba(38, 70, 83, 0.9);
-    // --background-opaque6: rgba(60, 59, 61, 0.25);
-    // --background-opaque61: rgba(60, 59, 61, 0.35);
-    // --background-opaque7: rgba( 70, 52, 185, 0.12 );
-   
-    
-    // --background-neon1: #4634b9;
-    // --background-neon2: #d76140;
-    // --background-neon3: #ca34ae;
-    // --background-neon4: #e5d758;
-    // --background-neon5: #54bea8;
-    // --background-neon6: #DB3EB1;
-    // --background-neon7: #44D62C;
-    // --background-neon8: #FFAD00;
-    // --background-neon9: #E0E722;
-    // --background-neon10: #4D4DFF;
-    // --background-neon11: #C724B1;
-    // --background-neon12: #D22730;
-   
+
   
 
     --background-quaternary1: #1d3557;
@@ -215,6 +191,33 @@ body {
     --background-quaternary3: #a8dadc;
     --background-quaternary4: #f1faee;
     --background-quaternary5: #e63946;
+
+    --padding-verySmall: 6px 4px 6px 6px;
+    --padding-small: 6px 6px 6px 8px;
+    --padding-small-sides: 0px 6px 0px 10px;;
+    --padding-medium: 8px 8px 8px 12px;
+    --padding-medium-large: 12px 16px;
+    --padding-big: 12px 12px 12px 20px;
+    --padding-big-sides: 0px 12px 0px 20px;
+    --padding-top-sides: 16px 16px 0px;
+    
+    
+    --gap-verySmall: 4px;
+    --gap-small: 6px;
+    --gap-medium: 8px;
+    --gap-big: 12px;
+    --gap-big-14: 14px;
+    --gap-veryBig: 16px;
+    --gap-huge: 20px;
+    
+    --font-size-verySmall: 0.7rem;
+    --font-size-small: 0.8rem;
+    --font-size-small-plus: 0.85rem;
+    --font-size-medium: 1rem;
+    --font-size-medium-plus: 1.1rem;
+    --font-size-big: 1.2rem;
+    --font-size-bigger: 1.4rem;
+
 
    
     .nav_link {
@@ -226,16 +229,13 @@ body {
       gap: 1rem;
       color: var(--background4-main);
       width: 100%;
-      // height: 16px;
+
       svg {
      
         font-size: 0.75rem;
         }
       @media screen and (max-width: 770px) {
-        // font-size: 0.75rem;
-        // svg{
-        //   font-size: 0.75rem;
-        // }
+     
       }
     }
     .nav_link_desktop{
@@ -247,13 +247,10 @@ body {
       justify-content: space-around;
       color: var(--background4-main);
       width: 100%;
-      // gap: 0.5rem;
-      // height: fit-content;
       height: 26px;
    
     }
     .nav_link_desktop.activated {
-      // color: var(--background5-main);
       color: var(--background-secondary1); 
     svg {
       color: var(--background-secondary1); 
@@ -275,15 +272,9 @@ body {
       text-decoration: none;
     
     }
-  .highlight{
-    // color: var(--background-neon4);
-    // color: var(--background-secondary2);
-    // background: red;
-  }
+
   .highlightQuery{
     border-radius: 4px;
-    // background: var(--background3-main);
-    // background: red;
     color: var(--background-secondary2);
   }
   mark {
@@ -292,17 +283,11 @@ body {
   } 
   .dateFormat{
     input{
-      // display: grid;
-      // place-items: center;
-      max-width: fit-content;
+     max-width: fit-content;
     }
     border-radius: 4px;
-    // color: var(--background4-main);
     background-color: var(--background2-main);
-    // border: 1px solid var(--background5-main);
-    &:active{
-      // border: 1px solid var(--background2-main);
-    }
+
   }
   .calendarFormat{
     background-color: var(--background2-main);
@@ -310,27 +295,21 @@ body {
   }
  
   .highlightFrag0{
-    // background-color: var(--background-blur1);
     color: var(--background-secondary1);
   }
   .highlightFrag1{ 
-    // background-color: var(--background3-main);
     color: var(--background-secondary2);
   }
   .highlightFrag2{ 
-    // background-color: var(--background3-main);
     color: var(--background-secondary3);
   }
   .highlightFrag3{ 
-    // background-color: var(--background3-main);
     color: var(--background-tertiary1);
   }
   .highlightFrag4{
-    // background-color: var(--background3-main);
     color: var(--background-tertiary2);
   }
   .highlightFrag5{
-    // background-color: var(--background3-main);
     color: var(--background-tertiary3);
   }
   
@@ -338,24 +317,16 @@ body {
 }
 ::-webkit-scrollbar {
   width: 0.3em;
-  // width: 0;
-   
-  
+ 
   
 }
 
 ::-webkit-scrollbar-corner {
-  // background: var(--background2-main);
   background: none;
 }
 ::-webkit-scrollbar-thumb {
-  // background: var(--background-secondary2);
   background: var(--background-blur2);
 
-  @media (max-width: 1020px) {
-    // background: var(--background2-main);
-   
-  }
   border-radius: 2px;
   
 }
@@ -366,7 +337,6 @@ body {
   
 }
 
-// font-size: 1rem; //*it doesn't work at all
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
@@ -379,8 +349,6 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   background: var(--background1-main) !important;
-  border: 1px solid var(--background-blur2);
-  box-shadow: var(--boxShadowInset1);
   -webkit-text-fill-color: var(--background4-main);
   
   transition: background-color 5000s !important;
@@ -389,12 +357,7 @@ select:-webkit-autofill:focus {
 
 
 }
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
- 
-}
+
 //* gets rid of the X cancel button in search inputs, can't change the color or anyting else actually
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,

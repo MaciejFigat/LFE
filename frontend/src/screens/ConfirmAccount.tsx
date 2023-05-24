@@ -4,9 +4,9 @@ import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { activateUser } from '../features/users/userSlice'
 import { Wrapper, LoginContainer } from '../styles/login'
 import useRedirectLoggedListener from '../hooks/useRedirectListenerLogged'
-import { SpinnerWrapperSearch } from '../components/Miscellaneous/SearchBar/SearchBar.styled'
+import { SpinnerWrapperSearch } from '../modules/SearchBar/SearchBar.styled'
 import { RotatingLines } from 'react-loader-spinner'
-import { ButtonBig } from '../components/Miscellaneous/Buttons/BigButton.styled'
+import { ButtonBig } from '../components/ButtonsSend/BigButton.styled'
 import { useNavigate } from 'react-router-dom'
 
 interface ConfirmAccountProps {}

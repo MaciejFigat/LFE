@@ -4,24 +4,24 @@ import { AppDispatch } from '../../app/store'
 import { highlightQueryEdit } from '../../features/preferences/preferenceSlice'
 import { FragmentsBySource, ResultsPage } from '../../interfaces'
 import { HeroTitleMisc, HorizontalWrapperTight } from '../../styles/misc.styled'
-import { ButtonSmall } from '../../components/Miscellaneous/Buttons/BigButton.styled'
+import { ButtonSmall } from '../../components/ButtonsSend/BigButton.styled'
 import DataSection from '../InfoSection/DataSection'
 import DataSectionSimple from '../InfoSection/DataSectionSimple'
 import Pagination from '../../components/Miscellaneous/Pagination/Pagination'
-import SearchBar from '../../components/Miscellaneous/SearchBar/SearchBar'
+import SearchBar from '../SearchBar/SearchBar'
 import {
   SwitchButtonWrapper,
   SwitchResultContainer,
   SwitchResultWrapper,
   SwitchSectionWrapper,
   SwitchText
-} from '../../components/Miscellaneous/SearchBar/SearchBar.styled'
+} from '../SearchBar/SearchBar.styled'
 import {
   HighlightButton,
   SearchBarForm,
   SearchInputResultDisplay
-} from '../../components/Miscellaneous/SearchBar/SearchFilter.styled'
-import SwitchButton from '../../components/Miscellaneous/SearchBar/SwitchButton'
+} from '../SearchBar/SearchFilter.styled'
+import SwitchButton from '../SearchBar/SwitchButton'
 import HomeSearch from './HeroGridComponents/HomeSearch'
 import {
   SearchResultsDashboardColumn,

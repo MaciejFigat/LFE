@@ -3,8 +3,6 @@ import Home from './screens/Home'
 import { GlobalStyle } from './styles/GlobalStyles'
 import { useAppSelector } from './app/reduxHooks'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import Login from './screens/Login'
-import Register from './screens/Register'
 import ScrollTopHelper from './hooks/ScrollTopHelper'
 import UserAdminEdit from './screens/UserAdminEdit'
 import UserListAdmin from './screens/UserListAdmin'
@@ -15,6 +13,8 @@ import ConfirmAccount from './screens/ConfirmAccount'
 import StoredFragments from './screens/StoredFragments'
 import ResultDisplayScreen from './screens/ResultDisplayScreen'
 import ResultDisplayIdQueryScreen from './screens/ResultDisplayIdQueryScreen'
+import LoginScreen from './screens/LoginScreen'
+import RegisterScreen from './screens/RegisterScreen'
 
 function App () {
   const location = useLocation()
@@ -27,8 +27,8 @@ function App () {
       <GlobalStyle globalScheme={globalScheme} />
       <Nav />
       <Routes location={location} key={location.key}>
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<LoginScreen />} />
+        <Route path='/register' element={<RegisterScreen />} />
         <Route path='/search/result' element={<ResultDisplayScreen />} />
         <Route
           path='/search/result/:id/:query'

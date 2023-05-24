@@ -1,11 +1,11 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { linksPageSaved } from '../../../features/preferences/preferenceSlice'
-import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../../ButtonsSend/Buttons.styled'
 import {
   PaginateActive,
   PaginateBorderWrapper,
-  PaginateWrapper,
+  PaginateWrapper
 } from './Paginate.styled'
 
 interface LinksPaginationProps {
@@ -15,22 +15,22 @@ interface LinksPaginationProps {
 
 const LinksPagination: React.FC<LinksPaginationProps> = ({
   narrow,
-  miniVersion,
+  miniVersion
 }) => {
   const dispatch = useAppDispatch()
   const visitedLinksPage: any = useAppSelector(
-    (state) => state.preference.visitedLinksPage
+    state => state.preference.visitedLinksPage
   )
 
   const visitedLinks: any = useAppSelector(
-    (state) => state.searchResult.visitedLinks
+    state => state.searchResult.visitedLinks
   )
   const buttonHelper = (i: number) => {
     dispatch(
       linksPageSaved({
         start: i * 3,
         end: (i + 1) * 3 - 1,
-        pageNr: i + 1,
+        pageNr: i + 1
       })
     )
   }

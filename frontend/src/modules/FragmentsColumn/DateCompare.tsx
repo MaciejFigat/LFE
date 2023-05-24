@@ -2,10 +2,10 @@ import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { sortingDateEdit } from '../../features/preferences/preferenceSlice'
 import { RelativeWrapper } from '../../styles/misc.styled'
-import { ButtonVerySmall } from '../../components/Miscellaneous/Buttons/BigButton.styled'
+import { ButtonVerySmall } from '../../components/ButtonsSend/BigButton.styled'
 
-import { SendButtonVerySmall } from '../../components/Miscellaneous/Buttons/Buttons.styled'
-import SvgIcon from '../../components/Miscellaneous/SvgIcon/SvgIcon'
+import { SendButtonVerySmall } from '../../components/ButtonsSend/Buttons.styled'
+import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import {
   DateCompareRow,
   DateCompareWrapper,

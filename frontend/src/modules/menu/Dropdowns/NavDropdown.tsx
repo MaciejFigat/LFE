@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { logout } from '../../../features/users/userSlice'
 import { NavLink } from 'react-router-dom'
-import SvgIcon from '../../../components/Miscellaneous/SvgIcon/SvgIcon'
+import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import { UserInfo } from '../../../interfaces'
 import {
   DropDownContainer,

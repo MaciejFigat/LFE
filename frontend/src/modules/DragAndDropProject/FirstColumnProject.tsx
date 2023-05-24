@@ -17,7 +17,7 @@ import {
 import { ListWrapper } from '../AnimatedTextPanel/AnimatedList.styled'
 
 import FragmentTextItem from '../AnimatedTextPanel/FragmentTextItem'
-import SvgIcon from '../../components/Miscellaneous/SvgIcon/SvgIcon'
+import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { HorizontalContainer } from '../FragmentsColumn/FragmentsColumn.styled'
 
 interface FirstColumnProjectProps {

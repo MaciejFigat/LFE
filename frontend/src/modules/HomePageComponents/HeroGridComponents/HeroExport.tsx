@@ -10,9 +10,9 @@ import {
   PageBreak,
   ExternalHyperlink
 } from 'docx'
-import { ButtonSmall } from '../../../components/Miscellaneous/Buttons/BigButton.styled'
+import { ButtonSmall } from '../../../components/ButtonsSend/BigButton.styled'
 import { ClayButtonWrapperSecondary } from '../../../styles/misc.styled'
-import SvgIcon from '../../../components/Miscellaneous/SvgIcon/SvgIcon'
+import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 interface HeroExportProps {}
 
 const HeroExportMain: React.FC<HeroExportProps> = () => {

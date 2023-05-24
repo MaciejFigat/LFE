@@ -2,7 +2,7 @@ import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { AppDispatch } from '../../../app/store'
 import { searchResultsPageSaved } from '../../../features/preferences/preferenceSlice'
-import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../../ButtonsSend/Buttons.styled'
 import {
   PaginateActive,
   PaginateBorderWrapper,

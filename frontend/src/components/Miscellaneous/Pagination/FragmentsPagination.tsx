@@ -7,13 +7,13 @@ import {
   ProjectMenuContainer,
   ProjectPaginationWrapper
 } from '../../../modules/menu/Dropdowns/ProjectMenu.styled'
-import { SendButtonVerySmall } from '../Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../../ButtonsSend/Buttons.styled'
 import {
   PaginateActive,
   PaginateBorderWrapper,
   PaginateWrapper
 } from './Paginate.styled'
-import SvgIcon from '../SvgIcon/SvgIcon'
+import SvgIcon from '../../SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../../styles/misc.styled'
 
 interface FragmentsPaginationProps {

@@ -8,10 +8,8 @@ import {
   DragDivSideMenu,
   ChildrenWrapper,
   SideMenuResizeWrapperUltimateWeapon,
-  MainWrapperResizableMenu,
+  MainWrapperResizableMenu
 } from './SideMenuSecondary.styled'
-
-// import SvgIcon from '../SvgIcon/SvgIcon'
 
 interface SideMenuSecondaryProps {
   children: ReactNode
@@ -24,23 +22,22 @@ const sidebar = {
     transition: {
       type: 'spring',
       stiffness: 20,
-      restDelta: 2,
-    },
+      restDelta: 2
+    }
   }),
   closed: {
     clipPath: 'circle(0px at 88% 31px)',
     transition: {
-      // delay: 0.2,
       type: 'spring',
       stiffness: 400,
-      damping: 40,
-    },
-  },
+      damping: 40
+    }
+  }
 }
 
 const SideMenuSecondary: React.FC<SideMenuSecondaryProps> = ({
   children,
-  mainData,
+  mainData
 }) => {
   const [open, cycleOpen] = useCycle(false, true)
   const handleClickMenu = () => {
@@ -72,9 +69,10 @@ const SideMenuSecondary: React.FC<SideMenuSecondaryProps> = ({
 
   return (
     <>
-      <SideMenuButtonDiv open={open} onClick={handleClickMenu}>
-        {/* <SvgIcon variant='question' noContent /> */}
-      </SideMenuButtonDiv>
+      <SideMenuButtonDiv
+        open={open}
+        onClick={handleClickMenu}
+      ></SideMenuButtonDiv>
       <MainWrapperResizableMenu>
         <SideMenuResizeWrapperUltimateWeapon id='SideMenuResizable'>
           <SideMenuWrapper

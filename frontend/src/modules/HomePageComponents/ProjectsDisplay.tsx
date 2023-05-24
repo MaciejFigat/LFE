@@ -9,12 +9,12 @@ import {
 } from './SearchResultsDisplay.styled'
 import ProjectsEnumeration from './ProjectsEnumeration'
 import { ProjectH2NoHover } from './ProjectsComponents.styled'
-import StaggerChildrenWrapperSecondary from '../../components/Miscellaneous/AnimationWrappers/StaggerChildrenWrapperSecondary'
+import StaggerChildrenWrapperSecondary from '../../components/AnimationWrappers/StaggerChildrenWrapperSecondary'
 import ScrollSection from '../../components/Miscellaneous/ScrollSection/ScrollSection'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWindow'
 import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
-import { SendButtonVerySmall } from '../../components/Miscellaneous/Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../../components/ButtonsSend/Buttons.styled'
 import {
   DotButton,
   RelativeRightSvgWrapper,

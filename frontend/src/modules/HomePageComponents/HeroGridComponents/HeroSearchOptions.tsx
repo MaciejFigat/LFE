@@ -5,8 +5,8 @@ import {
   SwitchResultContainer,
   SwitchResultWrapper,
   SwitchText
-} from '../../../components/Miscellaneous/SearchBar/SearchBar.styled'
-import SwitchButton from '../../../components/Miscellaneous/SearchBar/SwitchButton'
+} from '../../SearchBar/SearchBar.styled'
+import SwitchButton from '../../SearchBar/SwitchButton'
 interface HeroSearchOptionsProps {}
 
 const HeroSearchOptions: React.FC<HeroSearchOptionsProps> = () => {

@@ -1,13 +1,13 @@
 import React from 'react'
-import { useAppSelector } from '../../../app/reduxHooks'
+import { useAppSelector } from '../../app/reduxHooks'
 import {
   VisitedLinkPar,
   VisitedLinkRow,
-  VisitedLinkWrapper,
+  VisitedLinkWrapper
 } from './VisitedLinks.styled'
-import LinksPagination from '../Pagination/LinksPagination'
+import LinksPagination from '../Miscellaneous/Pagination/LinksPagination'
 import { NavLink } from 'react-router-dom'
-import { ButtonSmall, ButtonVerySmall } from '../Buttons/BigButton.styled'
+import { ButtonSmall, ButtonVerySmall } from '../ButtonsSend/BigButton.styled'
 
 interface VisitedLinksProps {
   large?: boolean
@@ -15,10 +15,10 @@ interface VisitedLinksProps {
 
 const VisitedLinks: React.FC<VisitedLinksProps> = ({ large }) => {
   const visitedLinks: any[] = useAppSelector(
-    (state) => state.searchResult.visitedLinks
+    state => state.searchResult.visitedLinks
   )
   const visitedLinksPage: any = useAppSelector(
-    (state) => state.preference.visitedLinksPage
+    state => state.preference.visitedLinksPage
   )
   const { start, end } = visitedLinksPage
   const copyHandler = (id: string, query: string) => {
@@ -37,7 +37,7 @@ const VisitedLinks: React.FC<VisitedLinksProps> = ({ large }) => {
     <div>
       {visitedLinks.length > 1 &&
         visitedLinks
-          .filter((linkSorted) => linkSorted.test === false || !linkSorted.test)
+          .filter(linkSorted => linkSorted.test === false || !linkSorted.test)
           .slice(start, end + 1)
           .map((link: any) => (
             <VisitedLinkWrapper key={Math.random()} large={large}>

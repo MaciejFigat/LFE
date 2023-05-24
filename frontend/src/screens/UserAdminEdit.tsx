@@ -8,9 +8,9 @@ import {
   EditFormContainer,
   EditForm,
   ContactField,
-  ContactFieldContent,
+  ContactFieldContent
 } from '../styles/UserEdit.styled'
-import { SendButton } from '../components/Miscellaneous/Buttons/Buttons.styled'
+import { SendButton } from '../components/ButtonsSend/Buttons.styled'
 import { AdminContainer, AdminWrapper } from '../styles/ArticleTable.styled'
 import { useNavigate, useParams } from 'react-router-dom'
 
@@ -20,15 +20,15 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
   const dispatch: any = useAppDispatch()
   let navigate = useNavigate()
   const params = useParams()
-  const user: UserInfo = useAppSelector((state) => state.user.selectedUserInfo)
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  const user: UserInfo = useAppSelector(state => state.user.selectedUserInfo)
+  const userInfo: UserInfo = useAppSelector(state => state.user.userInfo)
 
   const {
     _id: id,
     name: nameState,
     email: emailState,
     isAdmin: isAdminState,
-    status: userStatus,
+    status: userStatus
   } = user
 
   const [name, setName] = useState(nameState)
@@ -43,7 +43,7 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
     name: name,
     email: email,
     isAdmin: isAdmin,
-    status: status,
+    status: status
   }
 
   const activateHandler = (e: any) => {
@@ -88,7 +88,7 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
     userInfo,
     params,
     navigate,
-    userStatus,
+    userStatus
   ])
 
   return (
@@ -104,7 +104,7 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
             style={{
               color: 'var(--success1)',
               fontSize: '20px',
-              fontWeight: 700,
+              fontWeight: 700
             }}
           >
             {user.name} ma uprawnienia administratora
@@ -114,7 +114,7 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
             style={{
               color: 'red',
               fontSize: '20px',
-              fontWeight: 700,
+              fontWeight: 700
             }}
           >
             {user.name} nie ma uprawnień administratora
@@ -126,7 +126,7 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
               style={{
                 color: 'var(--success1)',
                 fontSize: '20px',
-                fontWeight: 700,
+                fontWeight: 700
               }}
             >
               {user.name} status aktywny
@@ -141,7 +141,7 @@ const UserAdminEdit: React.FC<UserAdminEditProps> = () => {
               style={{
                 color: 'red',
                 fontSize: '20px',
-                fontWeight: 700,
+                fontWeight: 700
               }}
             >
               {user.name} oczekuje na potwierdzenie

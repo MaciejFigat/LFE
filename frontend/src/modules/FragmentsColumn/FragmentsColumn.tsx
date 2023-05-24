@@ -7,7 +7,7 @@ import {
   ListWrapper,
   SimpleCitationItem
 } from '../AnimatedTextPanel/AnimatedList.styled'
-import { SendButtonVerySmall } from '../../components/Miscellaneous/Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../../components/ButtonsSend/Buttons.styled'
 
 import { citationRemoved } from '../../features/fragments/fragmentSlice'
 import {

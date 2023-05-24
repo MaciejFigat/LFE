@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { AppDispatch } from '../../app/store'
 import { sortingKeywordMainEdit } from '../../features/preferences/preferenceSlice'
-import { ButtonMedium } from '../../components/Miscellaneous/Buttons/BigButton.styled'
+import { ButtonMedium } from '../../components/ButtonsSend/BigButton.styled'
 import {
   ProjectCardHome,
   ProjectH2,

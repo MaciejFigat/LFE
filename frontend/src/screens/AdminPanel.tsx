@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { SendButton } from '../components/Miscellaneous/Buttons/Buttons.styled'
+import { SendButton } from '../components/ButtonsSend/Buttons.styled'
 import {
   AdminContainer,
-  AdminWrapperHeight,
+  AdminWrapperHeight
 } from '../styles/ArticleTable.styled'
 import SmallSection from '../components/Miscellaneous/SectionSmall/SmallSection'
 import { useAppSelector } from '../app/reduxHooks'
@@ -14,7 +14,7 @@ interface AdminPanelProps {}
 const AdminPanel: React.FC<AdminPanelProps> = () => {
   //todo hook used to redirect to /login when not logged in
   useRedirectListener()
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  const userInfo: UserInfo = useAppSelector(state => state.user.userInfo)
   const { name } = userInfo
   return (
     <AdminWrapperHeight>

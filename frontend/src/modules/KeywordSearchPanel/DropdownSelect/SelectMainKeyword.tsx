@@ -23,10 +23,10 @@ import { getUserFragments } from '../../../features/fragments/fragmentSlice'
 import { sortingKeywordMainEdit } from '../../../features/preferences/preferenceSlice'
 import { updateUserFragmentsKeywordMain } from '../../../features/fragments/fragmentSlice'
 import { nanoid } from '@reduxjs/toolkit'
-import { SendButtonVerySmall } from '../../../components/Miscellaneous/Buttons/Buttons.styled'
-import SvgIcon from '../../../components/Miscellaneous/SvgIcon/SvgIcon'
+import { SendButtonVerySmall } from '../../../components/ButtonsSend/Buttons.styled'
+import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../../styles/misc.styled'
-import { ButtonVerySmall } from '../../../components/Miscellaneous/Buttons/BigButton.styled'
+import { ButtonVerySmall } from '../../../components/ButtonsSend/BigButton.styled'
 
 interface SelectMainKeywordProps {
   wide?: boolean

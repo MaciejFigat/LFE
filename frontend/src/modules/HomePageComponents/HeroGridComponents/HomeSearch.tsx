@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import SearchBar from '../../../components/Miscellaneous/SearchBar/SearchBar'
+import SearchBar from '../../SearchBar/SearchBar'
 import { useAppDispatch } from '../../../app/reduxHooks'
 import { getSearchResults } from '../../../features/searchResults/searchResultsSlice'
 import {
   HomeSearchContainer,
   HomeSearchTipsWrapper,
   HomeSearchWrapper
-} from '../../../components/Miscellaneous/SearchBar/SearchBar.styled'
-import { ButtonSmall } from '../../../components/Miscellaneous/Buttons/BigButton.styled'
+} from '../../SearchBar/SearchBar.styled'
+import { ButtonSmall } from '../../../components/ButtonsSend/BigButton.styled'
 import {
   HeroTitleMiscMedium,
   HorizontalWrapperGap

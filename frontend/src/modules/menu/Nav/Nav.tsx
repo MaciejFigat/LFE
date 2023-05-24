@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
-import Burger from '../../../components/Miscellaneous/Burger/Burger'
+import Burger from '../../../components/Burger/Burger'
 import {
   TransitionWrapperMain,
   TransitionWrapper,
@@ -12,7 +12,7 @@ import NavListMobile from './NavListMobile'
 import useScrollListener from '../../../hooks/useScrollListener'
 import { useCycle } from 'framer-motion'
 
-import SearchDropdown from '../../../components/Miscellaneous/SearchBar/SearchDropdown'
+import SearchDropdown from '../../SearchBar/SearchDropdown'
 import { preferedSchemeEdit } from '../../../features/preferences/preferenceSlice'
 import { getUserFragments } from '../../../features/fragments/fragmentSlice'
 import { UserInfo } from '../../../interfaces'

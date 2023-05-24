@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
 import { HorizontalWrapper } from '../../../styles/misc.styled'
-import { ButtonSmall } from '../../../components/Miscellaneous/Buttons/BigButton.styled'
-import VisitedLinks from '../../../components/Miscellaneous/VisitedLinks/VisitedLinks'
+import { ButtonSmall } from '../../../components/ButtonsSend/BigButton.styled'
+import VisitedLinks from '../../../components/VisitedLinks/VisitedLinks'
 
 import HeroChart from './HeroChart'
 interface HeroProjectCategoriesProps {}

@@ -7,7 +7,7 @@ import {
 } from '../AnimatedTextPanel/AnimatedList.styled'
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import AnimatedSavedItemSimple from '../AnimatedTextPanel/AnimatedSavedItemSimple'
-import StaggerChildrenWrapperSecondary from '../../components/Miscellaneous/AnimationWrappers/StaggerChildrenWrapperSecondary'
+import StaggerChildrenWrapperSecondary from '../../components/AnimationWrappers/StaggerChildrenWrapperSecondary'
 import { HeroColumnsWrapper } from '../../styles/misc.styled'
 import AnimatedSavedItemSuperSimple from '../AnimatedTextPanel/AnimatedSavedItemSuperSimple'
 import { AppDispatch } from '../../app/store'

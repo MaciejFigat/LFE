@@ -8,20 +8,20 @@ import {
   Title,
   LoginLink,
   LoginWrapper
-} from '../styles/login'
-import { useAppDispatch } from '../app/reduxHooks'
-import { createUser } from '../features/users/userSlice'
-import Toast from '../components/Miscellaneous/Toast/Toast'
-import useRedirectLoggedListener from '../hooks/useRedirectListenerLogged'
+} from './login'
+import { useAppDispatch } from '../../app/reduxHooks'
+import { createUser } from '../../features/users/userSlice'
+import Toast from '../../components/Miscellaneous/Toast/Toast'
+import useRedirectLoggedListener from '../../hooks/useRedirectListenerLogged'
 import { Link } from 'react-router-dom'
 import {
   ButtonBig,
   ButtonSmall
-} from '../components/Miscellaneous/Buttons/BigButton.styled'
-import { AppDispatch } from '../app/store'
-interface RegisterProps {}
+} from '../../components/ButtonsSend/BigButton.styled'
+import { AppDispatch } from '../../app/store'
+interface UserRegisterProps {}
 
-const Register: React.FC<RegisterProps> = () => {
+const UserRegister: React.FC<UserRegisterProps> = () => {
   const dispatch: AppDispatch = useAppDispatch()
 
   useRedirectLoggedListener()
@@ -85,4 +85,4 @@ const Register: React.FC<RegisterProps> = () => {
     </LoginContainer>
   )
 }
-export default Register
+export default UserRegister

@@ -12,9 +12,9 @@ import {
   FragmentsPExcerpt,
   HorizontalContainer
 } from '../FragmentsColumn/FragmentsColumn.styled'
-import { SendButtonVerySmall } from '../../components/Miscellaneous/Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../../components/ButtonsSend/Buttons.styled'
 import { RegularColumn, RelativeWrapper } from '../../styles/misc.styled'
-import SvgIcon from '../../components/Miscellaneous/SvgIcon/SvgIcon'
+import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { TwoColumnsWrapper } from '../../styles/misc.styled'
 import { AppDispatch } from '../../app/store'
 

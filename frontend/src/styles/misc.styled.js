@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { getAccentColor, getColor } from './functionsMisc'
 
 export const NavIcon = styled(FontAwesomeIcon)`
   position: relative;
@@ -83,7 +84,15 @@ export const ClosingDiv = styled(motion.div)`
     top: 1px;
   }
 `
-
+export const HorizontalLineBottom = styled.div`
+  width: 100%;
+  height: 1px;
+  padding-bottom: var(--gap-medium);
+  border-bottom: 1px solid var(--background-blur1);
+`
+export const HorizontalLineBottomLight = styled(HorizontalLineBottom)`
+  border-bottom: 1px solid var(--background-blur1);
+`
 export const ClosingDivBig = styled(ClosingDiv)`
   position: relative;
   color: var(--background4-main);
@@ -469,8 +478,21 @@ export const SwitchHandleMisc = styled(motion.div)`
 `
 
 export const HighlightText = styled.b`
-  color: var(--background-secondary1);
-  /* background: var(--background-blur1); */
+  display: flex;
+  align-items: center;
+  color: ${({ color }) => getColor(color)};
+  a {
+    color: ${({ color }) => getColor(color)};
+    transition: all 0.2s ease-in-out;
+  }
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: ${({ color }) => getAccentColor(color)};
+
+    a {
+      color: ${({ color }) => getAccentColor(color)};
+    }
+  }
 `
 export const HeroTitleMisc = styled.h3`
   font-size: 1.5rem;

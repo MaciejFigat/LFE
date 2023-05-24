@@ -4,8 +4,8 @@ import { AppDispatch } from '../../../app/store'
 import { changeFragmentsDetailView } from '../../../features/preferences/preferenceSlice'
 import { RelativeWrapper } from '../../../styles/misc.styled'
 
-import { ButtonSmall } from '../../../components/Miscellaneous/Buttons/BigButton.styled'
-import SvgIcon from '../../../components/Miscellaneous/SvgIcon/SvgIcon'
+import { ButtonSmall } from '../../../components/ButtonsSend/BigButton.styled'
+import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 interface HeroChangeDetailProps {}
 
 const HeroChangeDetail: React.FC<HeroChangeDetailProps> = () => {

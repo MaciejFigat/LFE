@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
 import { NavLink } from 'react-router-dom'
-import SvgIcon from '../../../components/Miscellaneous/SvgIcon/SvgIcon'
+import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import { UserInfo } from '../../../interfaces'
 import {
   DropDownContainer,

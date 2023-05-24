@@ -38,7 +38,7 @@ import {
   HeroSavedTwo
 } from './HeroGridComponents/HeroSaved'
 import { HeroExportMain } from './HeroGridComponents/HeroExport'
-import VisitedLinks from '../../components/Miscellaneous/VisitedLinks/VisitedLinks'
+import VisitedLinks from '../../components/VisitedLinks/VisitedLinks'
 import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWindow'
 import HeroChoiceWrapper from '../FragmentsColumn/SharedChoiceWrapper/HeroChoiceWrapper'
 import HeroSortingOptions from '../FragmentsColumn/FilterWrapper/HeroSortingOptions'

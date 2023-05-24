@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
-import VisitedLinks from '../../../components/Miscellaneous/VisitedLinks/VisitedLinks'
+import VisitedLinks from '../../../components/VisitedLinks/VisitedLinks'
 import FilterWrapper from '../FilterWrapper/FilterWrapper'
 import { showFragments } from '../../../features/preferences/preferenceSlice'
 import {
@@ -12,9 +12,9 @@ import {
   MainChoiceContainer,
   WrapperWindow
 } from './SharedChoiceWrapper.styled'
-import { SendButtonVerySmall } from '../../../components/Miscellaneous/Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../../../components/ButtonsSend/Buttons.styled'
 import Pagination from '../../../components/Miscellaneous/Pagination/Pagination'
-import SvgIcon from '../../../components/Miscellaneous/SvgIcon/SvgIcon'
+import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import { UserInfo } from '../../../interfaces'
 import { AppDispatch } from '../../../app/store'
 

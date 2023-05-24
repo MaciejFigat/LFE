@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 import {
   faInstagram,
   faTelegramPlane,
-  faTwitter,
+  faTwitter
 } from '@fortawesome/free-brands-svg-icons'
 import StaggerChildrenWrapper from '../AnimationWrappers/StaggerChildrenWrapper'
 interface ContactIconsProps {}
@@ -18,36 +18,36 @@ const icons = [
     href: 'https://www.instagram.com/ninaolgakirylowicz/',
     icon: faTelegramPlane,
     id: '1',
-    ariaLabel: 'telegram',
+    ariaLabel: 'telegram'
   },
   {
     href: 'https://www.instagram.com/ninaolgakirylowicz/',
     icon: faTwitter,
     id: '2',
-    ariaLabel: 'twitter',
+    ariaLabel: 'twitter'
   },
   {
     href: 'https://www.instagram.com/ninaolgakirylowicz/',
     icon: faInstagram,
     id: '3',
-    ariaLabel: 'instagram',
+    ariaLabel: 'instagram'
   },
   {
     href: 'https://www.instagram.com/ninaolgakirylowicz/',
     icon: faFacebook,
     id: '4',
-    ariaLabel: 'facebook',
-  },
+    ariaLabel: 'facebook'
+  }
 ]
 const itemVariants = {
   closed: {
     y: 50,
-    opacity: 0,
+    opacity: 0
   },
   open: {
     y: 0,
-    opacity: 1,
-  },
+    opacity: 1
+  }
 }
 
 const ContactIcons: React.FC<ContactIconsProps> = () => {

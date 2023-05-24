@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom'
 import { useAppSelector } from '../../../app/reduxHooks'
 import { UserInfo } from '../../../interfaces'
 import { HorizontalWrapperSpace } from '../../../styles/misc.styled'
-import { ButtonMedium } from '../../../components/Miscellaneous/Buttons/BigButton.styled'
-import SvgIcon from '../../../components/Miscellaneous/SvgIcon/SvgIcon'
+import { ButtonMedium } from '../../../components/ButtonsSend/BigButton.styled'
+import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import {
   HeroTitle,
   HeroWrapperColumns,

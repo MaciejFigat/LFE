@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import SvgIcon from '../SvgIcon/SvgIcon'
+import SvgIcon from '../../components/SvgIcon/SvgIcon'
 
 import DatePicker, { registerLocale } from 'react-datepicker'
 import pl from 'date-fns/locale/pl'
@@ -26,7 +26,7 @@ import { DatePickerButton } from './DatePicker.styled'
 import {
   HorizontalWrapperBaseLine,
   RelativeWrapper
-} from '../../../styles/misc.styled'
+} from '../../styles/misc.styled'
 
 registerLocale('pl', pl) //* registers locale for me to use it with DatePicker
 

@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import { UserInfo } from '../interfaces'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { getUsers, deleteUser } from '../features/users/userSlice'
-import { SendButton } from '../components/Miscellaneous/Buttons/Buttons.styled'
+import { SendButton } from '../components/ButtonsSend/Buttons.styled'
 import {
   AdminContainer,
   AdminWrapper,
   Table,
-  TableWrapper,
+  TableWrapper
 } from '../styles/ArticleTable.styled'
 import { useNavigate } from 'react-router-dom'
 
@@ -17,9 +17,9 @@ interface UserListAdminProps {}
 const UserListAdmin: React.FC<UserListAdminProps> = () => {
   const dispatch: any = useAppDispatch()
   let navigate = useNavigate()
-  const users: any[] = useAppSelector((state) => state.user.allUsers)
-  const userSuccess = useAppSelector((state) => state.user.success)
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
+  const users: any[] = useAppSelector(state => state.user.allUsers)
+  const userSuccess = useAppSelector(state => state.user.success)
+  const userInfo: UserInfo = useAppSelector(state => state.user.userInfo)
   const deleteUserHandler = (id: string) => {
     if (window.confirm('Are you sure?')) {
       dispatch(deleteUser(id))
@@ -52,7 +52,7 @@ const UserListAdmin: React.FC<UserListAdminProps> = () => {
             </thead>
             <tbody>
               {users.length > 0 &&
-                users.map((user) => (
+                users.map(user => (
                   <tr key={user._id}>
                     <td>
                       {user.name} | {user.email} |&nbsp;

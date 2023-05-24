@@ -10,7 +10,7 @@ import {
 
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import AnimatedSavedItemSimple from '../AnimatedTextPanel/AnimatedSavedItemSimple'
-import StaggerChildrenWrapperSecondary from '../../components/Miscellaneous/AnimationWrappers/StaggerChildrenWrapperSecondary'
+import StaggerChildrenWrapperSecondary from '../../components/AnimationWrappers/StaggerChildrenWrapperSecondary'
 import { AppDispatch } from '../../app/store'
 
 interface UserFragmentsByKeywordProps {

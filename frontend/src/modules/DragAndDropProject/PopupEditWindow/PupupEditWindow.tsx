@@ -32,7 +32,7 @@ import {
 } from './PopupEditWindow.styled'
 import { editIdOpenFragment } from '../../../features/preferences/preferenceSlice'
 import FragmentKeywordDisplay from './FragmentKeywordDisplay'
-import { ButtonSmall } from '../../../components/Miscellaneous/Buttons/BigButton.styled'
+import { ButtonSmall } from '../../../components/ButtonsSend/BigButton.styled'
 import { AppDispatch } from '../../../app/store'
 import {
   FragmentStoredAllData,

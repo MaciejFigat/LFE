@@ -5,7 +5,7 @@ import {
   HeaderTitleMobile
 } from './nav.styled'
 import { AnimatePresence, motion } from 'framer-motion'
-import SearchDropdown from '../../../components/Miscellaneous/SearchBar/SearchDropdown'
+import SearchDropdown from '../../SearchBar/SearchDropdown'
 import NavDropdown from '../Dropdowns/NavDropdown'
 
 interface NavListMobileProps {

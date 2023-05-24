@@ -6,10 +6,10 @@ import {
   RelativeWrapper,
   RelativeWrapperStretch
 } from '../../../styles/misc.styled'
-import { SendButtonVerySmall } from '../../../components/Miscellaneous/Buttons/Buttons.styled'
+import { SendButtonVerySmall } from '../../../components/ButtonsSend/Buttons.styled'
 import Pagination from '../../../components/Miscellaneous/Pagination/Pagination'
-import SearchBar from '../../../components/Miscellaneous/SearchBar/SearchBar'
-import SvgIcon from '../../../components/Miscellaneous/SvgIcon/SvgIcon'
+import SearchBar from '../../SearchBar/SearchBar'
+import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import HeroSearchOptions from './HeroSearchOptions'
 import {
   SearchBarPaginationSvgWrapper,

@@ -1,11 +1,11 @@
 import React, { Dispatch, SetStateAction } from 'react'
-import { useAppDispatch } from '../../../app/reduxHooks'
+import { useAppDispatch } from '../../app/reduxHooks'
 import { SwitchDiv, SwitchHandle } from './SearchBar.styled'
 import {
   sortFragmentsBySourceEditOne,
   sortFragmentsBySourceEditThree,
-  sortFragmentsBySourceEditTwo,
-} from '../../../features/preferences/preferenceSlice'
+  sortFragmentsBySourceEditTwo
+} from '../../features/preferences/preferenceSlice'
 interface SwitchButtonProps {
   isOn: boolean
   setIsOn: Dispatch<SetStateAction<boolean>>
@@ -14,12 +14,12 @@ interface SwitchButtonProps {
 const spring = {
   type: 'spring',
   stiffness: 700,
-  damping: 30,
+  damping: 30
 }
 const SwitchButton: React.FC<SwitchButtonProps> = ({
   isOn,
   setIsOn,
-  sortingOption,
+  sortingOption
 }) => {
   const dispatch = useAppDispatch()
   const toggleSwitch = () => {

@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 import { sortingKeywordMainEdit } from '../../../features/preferences/preferenceSlice'
 import { RelativeWrapper } from '../../../styles/misc.styled'
-import SvgIcon from '../../../components/Miscellaneous/SvgIcon/SvgIcon'
+import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import {
   DragMenuButton,
   ProjectCard,

@@ -1,3 +1,29 @@
+export enum ButtonVariants {
+  PRIMARY = 'primary',
+  PRIMARY_EMPTY = 'primaryEmpty',
+  SECONDARY = 'secondary',
+  SECONDARY_EMPTY = 'secondaryEmpty',
+  SUCCESS = 'success',
+  SUCCESS_EMPTY = 'successEmpty',
+  INFO = 'info',
+  INFO_EMPTY = 'infoEmpty',
+  WARNING = 'warning',
+  WARNING_EMPTY = 'warningEmpty',
+  DANGER_EMPTY = 'dangerEmpty',
+  DANGER = 'danger',
+  DISABLED = 'disabled',
+  DEFAULT = 'default'
+}
+
+export enum TextColor {
+  SUCCESS = 'success',
+  INFO = 'info',
+  WARNING = 'warning',
+  DANGER = 'danger',
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary'
+}
+
 export enum SvgIconEnum {
   LOGIN = 'login',
   LOGOUT = 'logout',

@@ -5,7 +5,7 @@ import { UserInfo } from '../../../../interfaces'
 import { nanoid } from '@reduxjs/toolkit'
 import {
   citationAdded,
-  createFragment,
+  createFragment
 } from '../../../../features/fragments/fragmentSlice'
 interface AddFragmentProps {
   highlightedText: string
@@ -13,17 +13,17 @@ interface AddFragmentProps {
 
 const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   const dispatch: any = useAppDispatch()
-  const userInfo: UserInfo = useAppSelector((state) => state.user.userInfo)
-  const savedFragment = useAppSelector((state) => state.fragment.fragmentSaved)
+  const userInfo: UserInfo = useAppSelector(state => state.user.userInfo)
+  const savedFragment = useAppSelector(state => state.fragment.fragmentSaved)
   const { excerpt: savedExcerpt } = savedFragment
 
   const keywordMain = useAppSelector(
-    (state) => state.preference.sortingKeywords.keywordMain
+    state => state.preference.sortingKeywords.keywordMain
   )
 
-  const savedDocId: number = useAppSelector((state) => state.searchResult.docId)
+  const savedDocId: number = useAppSelector(state => state.searchResult.docId)
 
-  const docResult: any = useAppSelector((state) => state.searchResult.docResult)
+  const docResult: any = useAppSelector(state => state.searchResult.docResult)
   const { sad, syg, dataOrzeczenia, typWyroku } = docResult.tresc
   const querySaved = docResult.query_f
 
@@ -51,7 +51,7 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     source: `${typWyroku} ${sad} ${dataOrzeczenia}` ?? '',
     excerpt: highlightedText,
     coordinates: `${syg}` ?? '',
-    description: '',
+    description: ''
   }
   const newFragment = {
     // title: highlightedText.substring(0, 22),
@@ -71,9 +71,9 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
         labelOne: 'pro',
         labelTwo: 'contra',
         value: false,
-        skip: true,
-      },
-    ],
+        skip: true
+      }
+    ]
   }
   // todo saving into the DB
 

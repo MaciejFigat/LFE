@@ -12,8 +12,8 @@ import {
 import { useAppDispatch } from '../../app/reduxHooks'
 import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SendButtonVerySmall } from '../../components/Miscellaneous/Buttons/Buttons.styled'
-import SvgIcon from '../../components/Miscellaneous/SvgIcon/SvgIcon'
+import { SendButtonVerySmall } from '../../components/ButtonsSend/Buttons.styled'
+import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { FragmentB } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { AppDispatch } from '../../app/store'
 

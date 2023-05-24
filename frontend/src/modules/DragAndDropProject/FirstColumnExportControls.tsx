@@ -10,8 +10,8 @@ import {
   ExternalHyperlink
 } from 'docx'
 import { saveAs } from 'file-saver'
-import { ButtonSmall } from '../../components/Miscellaneous/Buttons/BigButton.styled'
-import SvgIcon from '../../components/Miscellaneous/SvgIcon/SvgIcon'
+import { ButtonSmall } from '../../components/ButtonsSend/BigButton.styled'
+import SvgIcon from '../../components/SvgIcon/SvgIcon'
 
 interface FirstColumnExportControlsProps {
   state: any[]
