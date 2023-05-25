@@ -1,85 +1,100 @@
-import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react'
+import React, { useState, useEffect, FormEvent } from 'react'
+import { UserInfo } from '../../interfaces'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+import { Link, useNavigate } from 'react-router-dom'
 import {
-  Wrapper,
+  updateUserProfile,
+  getUserDetails
+} from '../../features/users/userSlice'
+import Toast from '../../components/Miscellaneous/Toast/Toast'
+import {
   Form,
   Input,
   LoginContainer,
-  LoginTextWrapper,
   LoginWrapper,
+  Wrapper,
   FormLabel,
   LoginInputsWrapper,
-  LoginTextLink,
-  LoginTitleHeader
+  LoginTitleHeader,
+  LoginTextLink
 } from './login'
-import { useAppDispatch } from '../../app/reduxHooks'
-import { createUser } from '../../features/users/userSlice'
-import Toast from '../../components/Miscellaneous/Toast/Toast'
-import useRedirectLoggedListener from '../../hooks/useRedirectListenerLogged'
-import { ButtonVariants, TextColor } from '../../consts'
-import { Link } from 'react-router-dom'
-
 import { AppDispatch } from '../../app/store'
-import {
-  HighlightText,
-  HorizontalLineBottomLight,
-  HorizontalWrapper
-} from '../../styles/misc.styled'
 import {
   validateEmail,
   validatePassword,
   validateUsername
 } from './functions/validateForm'
-
 import { ButtonBig } from '../../components/Buttons/Buttons.styled'
+import { ButtonVariants, TextColor } from '../../consts'
+import {
+  HighlightText,
+  HorizontalLineBottomLight,
+  HorizontalWrapper
+} from '../../styles/misc.styled'
 
-interface UserRegisterProps {}
+interface UserEditProps {}
 
-const UserRegister: React.FC<UserRegisterProps> = () => {
+const UserEdit: React.FC<UserEditProps> = () => {
   const dispatch: AppDispatch = useAppDispatch()
+  let navigate = useNavigate()
+  const user: UserInfo = useAppSelector(state => state.user.userInfo)
 
-  useRedirectLoggedListener()
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
-    password: ''
-  })
+  const { _id: id, name: nameState, email: emailState } = user
+
+  const [name, setName] = useState(nameState)
+  const [email, setEmail] = useState(emailState)
+  const [password, setPassword] = useState('')
+
   const [emailError, setEmailError] = useState<string | null>(null)
   const [passwordError, setPasswordError] = useState<string | null>(null)
   const [usernameError, setUsernameError] = useState<string | null>(null)
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    const { name, value } = event.target
-    setUser(prevUser => ({ ...prevUser, [name]: value }))
-  }
-  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
-    event.preventDefault()
-    dispatch(createUser(user))
+  const updatedUser = {
+    _id: id,
+    name: name,
+    email: email,
+    password: password
   }
 
+  const updateUserHandler = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    dispatch(updateUserProfile(updatedUser))
+  }
   useEffect(() => {
-    if (user.name !== '') {
-      setUsernameError(validateUsername(user.name))
+    if (Object.keys(user).length === 0) {
+      navigate('/login')
     }
-  }, [user.name])
+
+    if (typeof id === 'string') {
+      dispatch(getUserDetails(id))
+    }
+    setName(nameState)
+    setEmail(emailState)
+  }, [dispatch, nameState, emailState, id, user, navigate])
   useEffect(() => {
-    if (user.email !== '') {
-      setEmailError(validateEmail(user.email))
+    if (name && name !== '') {
+      setUsernameError(validateUsername(name))
     }
-  }, [user.email])
+  }, [name])
+  useEffect(() => {
+    if (email && email !== '') {
+      setEmailError(validateEmail(email))
+    }
+  }, [email])
 
   useEffect(() => {
-    if (user.password !== '') {
-      setPasswordError(validatePassword(user.password))
+    if (password !== '') {
+      setPasswordError(validatePassword(password))
     }
-  }, [user.password])
-
+  }, [password])
   return (
     <LoginContainer>
-      <Toast option='registerUser' />
+      <Toast option='editUser' />
       <Wrapper>
         <LoginWrapper>
-          <LoginTitleHeader>Dołącz do nas</LoginTitleHeader>
-          <Form onSubmit={handleSubmit}>
+          <LoginTitleHeader>Edycja danych użytkownika</LoginTitleHeader>
+
+          <Form onSubmit={updateUserHandler}>
             <LoginInputsWrapper>
               <FormLabel
                 htmlFor='name'
@@ -94,9 +109,9 @@ const UserRegister: React.FC<UserRegisterProps> = () => {
               <Input
                 type='name'
                 name='name'
-                id='name'
-                value={user.name}
-                onChange={handleInputChange}
+                placeholder='imię'
+                value={name}
+                onChange={(e: any) => setName(e.target.value)}
               />
             </LoginInputsWrapper>
             <LoginInputsWrapper>
@@ -111,11 +126,10 @@ const UserRegister: React.FC<UserRegisterProps> = () => {
               </FormLabel>
               <Input
                 type='email'
-                name='email'
-                id='email'
-                pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
-                value={user.email}
-                onChange={handleInputChange}
+                name='new email'
+                placeholder='email'
+                value={email}
+                onChange={(e: any) => setEmail(e.target.value)}
               />
             </LoginInputsWrapper>
             <LoginInputsWrapper>
@@ -131,13 +145,12 @@ const UserRegister: React.FC<UserRegisterProps> = () => {
               </FormLabel>
               <Input
                 type='password'
-                name='password'
-                id='password'
-                value={user.password}
-                onChange={handleInputChange}
+                name='new password'
+                placeholder='nowe hasło'
+                value={password}
+                onChange={(e: any) => setPassword(e.target.value)}
               />
             </LoginInputsWrapper>
-
             <ButtonBig
               type='submit'
               disabled={
@@ -156,40 +169,26 @@ const UserRegister: React.FC<UserRegisterProps> = () => {
               }
               data-testid='create-account-button'
             >
-              Zarejestruj się
+              Zapisz zmiany
             </ButtonBig>
           </Form>
-          <LoginTextWrapper>
-            <LoginTextLink>
-              <HorizontalWrapper>
-                <Link to='/login'>
-                  <HighlightText color={TextColor.INFO}>
-                    Powrót do ekranu logowania
-                  </HighlightText>
-                </Link>
-              </HorizontalWrapper>
-            </LoginTextLink>
-
-            <HorizontalLineBottomLight />
-            <LoginTextLink>
-              <HorizontalWrapper>
-                <Link to='/'>
-                  {' '}
-                  <HighlightText color={TextColor.INFO}>
-                    Powrót do strony startowej
-                  </HighlightText>
-                </Link>
-              </HorizontalWrapper>
-            </LoginTextLink>
-            <HorizontalLineBottomLight />
-            <LoginTextLink>
-              Po wypełnieniu formularza postępuj zgodnie z instrukcjami w mailu
-              aktywującym
-            </LoginTextLink>
-          </LoginTextWrapper>
+          <LoginTextLink>
+            Możesz przejść do serwisu bez zmiany swoich danych
+          </LoginTextLink>
+          <HorizontalLineBottomLight />
+          <LoginTextLink>
+            <HorizontalWrapper>
+              <Link to='/'>
+                {' '}
+                <HighlightText color={TextColor.INFO}>
+                  Przejdź do strony startowej
+                </HighlightText>
+              </Link>
+            </HorizontalWrapper>
+          </LoginTextLink>
         </LoginWrapper>
       </Wrapper>
     </LoginContainer>
   )
 }
-export default UserRegister
+export default UserEdit

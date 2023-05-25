@@ -6,7 +6,6 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import ScrollTopHelper from './hooks/ScrollTopHelper'
 import UserAdminEdit from './screens/UserAdminEdit'
 import UserListAdmin from './screens/UserListAdmin'
-import UserProfile from './screens/UserProfile'
 import AdminPanel from './screens/AdminPanel'
 import ResetPassword from './screens/ResetPassword'
 import ConfirmAccount from './screens/ConfirmAccount'
@@ -15,6 +14,7 @@ import ResultDisplayScreen from './screens/ResultDisplayScreen'
 import ResultDisplayIdQueryScreen from './screens/ResultDisplayIdQueryScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
+import UserProfileScreen from './screens/UserProfileScreen'
 
 function App () {
   const location = useLocation()
@@ -40,7 +40,7 @@ function App () {
         <Route path='/admin' element={<AdminPanel />} />
         <Route path='/admin/userlist' element={<UserListAdmin />} />
         <Route path='/admin/user/:id/edit' element={<UserAdminEdit />} />
-        <Route path='/profile' element={<UserProfile />} />
+        <Route path='/profile' element={<UserProfileScreen />} />
         <Route path='/' element={<Home />} />
       </Routes>
     </>
