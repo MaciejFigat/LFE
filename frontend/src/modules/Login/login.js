@@ -8,16 +8,10 @@ export const LoginWrapper = styled.div`
   border-left: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur2);
   width: 420px;
-  height: 560px;
-  padding: 2rem;
-  border-radius: 20px;
-  background: linear-gradient(
-    120deg,
-    var(--background-blur1) 0%,
-    transparent 30%,
-    transparent 70%,
-    var(--background-blur1)
-  );
+  height: 590px;
+  padding: var(--gap-huge);
+  border-radius: 10px;
+  background: var(--background-gradient1);
   @media screen and (max-width: 960px) {
     max-width: 100%;
     width: 100%;
@@ -56,7 +50,9 @@ export const Input = styled.input`
   transition: all 0.3s ease-out;
   border: none;
   background: none;
-  &:focus,
+  &:focus {
+    color: var(--background4-main);
+  }
   &::placeholder {
     color: var(--background3-main);
   }
@@ -65,74 +61,12 @@ export const Form = styled.form`
   margin: 0 auto;
   width: 100%;
   z-index: 1;
-  padding: 1.3rem;
   display: flex;
   flex-direction: column;
   position: relative;
-  input:focus,
-  input:hover ~ label {
-    /* color: var(--background-secondary1); */
-  }
 
   @media screen and (max-width: 760px) {
     max-width: 90%;
-  }
-`
-
-export const InputAndLabelWrapper = styled.div`
-  display: flex;
-  flex-direction: column-reverse;
-`
-
-export const Button = styled.button`
-  max-width: 100%;
-  padding: 11px 13px;
-  color: var(--background4-main);
-  font-weight: 500;
-  font-size: 1rem;
-
-  background: var(--background1-main);
-  border: none;
-  border-radius: 10px;
-  outline: 0;
-  cursor: pointer;
-
-  margin-bottom: 0.6rem;
-  box-shadow: var(--boxShadowClay1);
-  transition: all 0.2s ease-out;
-  :hover {
-    color: var(--background-secondary1);
-
-    box-shadow: var(--boxShadowInset1);
-  }
-  :active {
-    box-shadow: var(--boxShadowInset4);
-    background: var(--background1-main);
-    /* box-shadow: none; */
-  }
-`
-
-export const Title = styled.div`
-  font-weight: normal;
-  color: var(--background4-main);
-  /* text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1); */
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  width: 50%;
-`
-export const LoginLink = styled.div`
-  color: var(--background-secondary2);
-  min-width: fit-content;
-  transition: 0.3s;
-  /* font-weight: 500; */
-  cursor: pointer;
-  :hover {
-    color: var(--background-secondary1);
   }
 `
 
@@ -144,4 +78,46 @@ export const LoginTextWrapper = styled.div`
   min-width: fit-content;
   width: 100%;
   gap: var(--gap-medium);
+`
+export const FormLabel = styled.label`
+  margin-bottom: var(--gap-small);
+  width: 100%;
+  text-transform: uppercase;
+  color: ${({ $hasError, $isApproved }) =>
+    $hasError
+      ? 'var(--danger2)'
+      : $isApproved
+      ? 'var(--success1)'
+      : 'var(--background3-main)'};
+  font-size: var(--font-size-verySmall);
+  padding: 16px 16px 0;
+`
+export const LoginInputsWrapper = styled.div`
+  display: grid;
+  place-items: center;
+  background: var(--background1-main);
+  border: 1px solid var(--background-blur1);
+  border-radius: 0 0 var(--border-radius1) var(--border-radius1);
+  &:first-of-type {
+    border-radius: var(--border-radius1) var(--border-radius1) 0 0;
+    border-bottom: none;
+  }
+  &:nth-of-type(2) {
+    border-radius: 0;
+    border-bottom: none;
+  }
+  &:last-of-type {
+    margin-bottom: var(--gap-medium);
+    border-radius: 0 0 var(--border-radius1) var(--border-radius1);
+    border-bottom: 1px solid var(--background-blur1);
+  }
+`
+export const LoginTitleHeader = styled.h3`
+  font-size: var(--font-size-bigger);
+  font-weight: 400;
+`
+export const LoginTextLink = styled.div`
+  text-align: center;
+  padding: 12px 16px 0;
+  font-size: var(--font-size-small);
 `

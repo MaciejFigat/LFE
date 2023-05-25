@@ -14,26 +14,25 @@ import {
   LoginContainer,
   LoginTextWrapper,
   LoginWrapper,
-  Input
-} from './login'
-import useRedirectLoggedListener from '../../hooks/useRedirectListenerLogged'
-import { sendEmailToResetPassword } from '../../features/users/userSlice'
-import { UserInfo } from '../../interfaces'
-import { ButtonBig } from '../../components/ButtonsSend/BigButton.styled'
-import { resetUserFragments } from '../../features/fragments/fragmentSlice'
-import {
+  Input,
   FormLabel,
   LoginInputsWrapper,
   LoginTextLink,
   LoginTitleHeader
-} from './UserLogin.styled'
+} from './login'
+import useRedirectLoggedListener from '../../hooks/useRedirectListenerLogged'
+import { sendEmailToResetPassword } from '../../features/users/userSlice'
+import { UserInfo } from '../../interfaces'
+import { resetUserFragments } from '../../features/fragments/fragmentSlice'
+
 import { validateEmail, validatePassword } from './functions/validateForm'
 import {
   HighlightText,
   HorizontalLineBottomLight,
   HorizontalWrapper
 } from '../../styles/misc.styled'
-import { TextColor } from '../../consts'
+import { ButtonVariants, TextColor } from '../../consts'
+import { ButtonBig } from '../../components/Buttons/Buttons.styled'
 
 interface LoginProps {}
 
@@ -132,7 +131,19 @@ const UserLogin: React.FC<LoginProps> = () => {
                 onChange={(e: any) => setPassword(e.target.value)}
               />
             </LoginInputsWrapper>
-            <ButtonBig borderRadius='10px' variant='secondary'>
+
+            <ButtonBig
+              type='submit'
+              disabled={
+                passwordError === '' && emailError === '' ? false : true
+              }
+              variant={
+                passwordError === '' && emailError === ''
+                  ? ButtonVariants.SUCCESS
+                  : ButtonVariants.DISABLED
+              }
+              data-testid='login-account-button'
+            >
               Logowanie
             </ButtonBig>
           </Form>
