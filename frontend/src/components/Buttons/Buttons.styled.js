@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { handleButtonColor } from './utilsButtons'
 import { motion } from 'framer-motion'
 import { getColor } from './functionsButtons'
+
 export const ButtonBig = styled.button`
   display: flex;
   align-items: center;

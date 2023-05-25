@@ -19,6 +19,9 @@ export const LoginWrapper = styled.div`
     padding: 0.5rem;
   }
 `
+export const LoginWrapperSmall = styled(LoginWrapper)`
+  height: 390px;
+`
 export const LoginContainer = styled.div`
   display: grid;
   place-items: center center;
@@ -117,6 +120,7 @@ export const LoginTitleHeader = styled.h3`
   font-weight: 400;
 `
 export const LoginTextLink = styled.div`
+  cursor: pointer;
   text-align: center;
   padding: 12px 16px 0;
   font-size: var(--font-size-small);

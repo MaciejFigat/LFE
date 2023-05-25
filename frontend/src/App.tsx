@@ -7,14 +7,14 @@ import ScrollTopHelper from './hooks/ScrollTopHelper'
 import UserAdminEdit from './screens/UserAdminEdit'
 import UserListAdmin from './screens/UserListAdmin'
 import AdminPanel from './screens/AdminPanel'
-import ResetPassword from './screens/ResetPassword'
-import ConfirmAccount from './screens/ConfirmAccount'
 import StoredFragments from './screens/StoredFragments'
 import ResultDisplayScreen from './screens/ResultDisplayScreen'
 import ResultDisplayIdQueryScreen from './screens/ResultDisplayIdQueryScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import UserProfileScreen from './screens/UserProfileScreen'
+import ResetPasswordScreen from './modules/Login/ResetPassword'
+import ConfirmAccountScreen from './screens/ConfirmAccountScreen'
 
 function App () {
   const location = useLocation()
@@ -35,8 +35,11 @@ function App () {
           element={<ResultDisplayIdQueryScreen />}
         />
         <Route path='/storage' element={<StoredFragments />} />
-        <Route path='/resetpassword/:token' element={<ResetPassword />} />
-        <Route path='/confirmaccount/:token' element={<ConfirmAccount />} />
+        <Route path='/resetpassword/:token' element={<ResetPasswordScreen />} />
+        <Route
+          path='/confirmaccount/:token'
+          element={<ConfirmAccountScreen />}
+        />
         <Route path='/admin' element={<AdminPanel />} />
         <Route path='/admin/userlist' element={<UserListAdmin />} />
         <Route path='/admin/user/:id/edit' element={<UserAdminEdit />} />
