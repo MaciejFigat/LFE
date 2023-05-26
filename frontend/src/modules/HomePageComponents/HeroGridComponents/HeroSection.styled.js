@@ -291,13 +291,7 @@ export const CenterWrapper = styled.div`
   width: 100%;
   justify-content: center;
 `
-/* export const CenterWrapperSimple = styled(CenterWrapper)`
-  margin-bottom: 0.5rem;
-  height: fit-content;
- 
 
-  width: 95%;
-` */
 export const DataContainerSimple = styled.div`
   display: grid;
   place-items: ${({ moreColumns }) => (moreColumns ? 'flex-start' : 'center')};

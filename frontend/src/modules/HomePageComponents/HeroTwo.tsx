@@ -2,10 +2,13 @@ import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { AnimateSharedLayout } from 'framer-motion'
 import HeroSearchDataSection from './HeroGridComponents/HeroSearchDataSection'
-import { ButtonSmall } from '../../components/ButtonsSend/BigButton.styled'
+
 import { changeResultsDetailView } from '../../features/preferences/preferenceSlice'
 import HeroWelcome from './HeroGridComponents/HeroWelcome'
 import SimpleResultDisplay from '../../components/Miscellaneous/ResultDisplay/SimpleResultDisplay'
+import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
+import SvgIcon from '../../components/SvgIcon/SvgIcon'
+import { RelativeWrapper } from '../../styles/misc.styled'
 
 interface HeroTwoProps {}
 
@@ -56,12 +59,19 @@ const HeroTwoThird: React.FC = () => {
   return (
     <>
       {data && data?.length === 0 ? null : (
-        <ButtonSmall
-          variant='secondary'
+        <ButtonVerySmall
+          variant='primaryEmpty'
           onClick={() => changeResultsViewHelper()}
         >
-          {resultsDetailView ? 'widok uproszczony' : 'podgląd dokumentu'}
-        </ButtonSmall>
+          {' '}
+          <RelativeWrapper top='5px'>
+            {resultsDetailView ? (
+              <SvgIcon variant='folder' />
+            ) : (
+              <SvgIcon variant='store' />
+            )}{' '}
+          </RelativeWrapper>
+        </ButtonVerySmall>
       )}
     </>
   )
@@ -81,32 +91,5 @@ const HeroTwoFourth: React.FC = () => {
     </>
   )
 }
-const HeroTwoFifth: React.FC = () => {
-  const resultsDetailView: boolean = useAppSelector(
-    state => state.preference.resultsDetailView
-  )
-  const searchResults: any = useAppSelector(
-    state => state.searchResult.searchResults
-  )
 
-  const { data } = searchResults
-  const dispatch: any = useAppDispatch()
-
-  const changeResultsViewHelper = () => {
-    dispatch(changeResultsDetailView())
-  }
-
-  return (
-    <>
-      {data && data?.length === 0 ? null : (
-        <ButtonSmall
-          variant='secondary'
-          onClick={() => changeResultsViewHelper()}
-        >
-          {resultsDetailView ? 'widok uproszczony' : 'podgląd dokumentu'}
-        </ButtonSmall>
-      )}
-    </>
-  )
-}
-export { HeroTwoMain, HeroTwoThird, HeroTwoFourth, HeroTwoFifth }
+export { HeroTwoMain, HeroTwoThird, HeroTwoFourth }

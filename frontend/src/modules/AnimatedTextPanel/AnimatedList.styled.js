@@ -3,17 +3,13 @@ import { motion } from 'framer-motion'
 
 export const FragmentsWrapper = styled(motion.div)`
   display: grid;
-  /* background: brown; */
-
   place-items: ${({ moreColumns }) => (moreColumns ? 'flex-start' : 'center')};
-  /* place-items: center center; */
   margin-top: 2rem;
   margin-bottom: 2rem;
 
   /* //todo resizable narrow column grid columns */
   grid-template-columns: ${({ moreColumns, width }) =>
     !moreColumns && width < 600 ? 'repeat(2, 1fr)' : null};
-  /* grid-template-columns: ${({ moreColumns, width }) =>
     !moreColumns && width < 500 && 'repeat(3, 1fr)'}; */
   @media (min-width: 1640px) {
     grid-template-columns: ${({ moreColumns, width }) =>
@@ -36,14 +32,12 @@ export const FragmentsWrapper = styled(motion.div)`
   gap: 3rem;
 
   width: ${({ moreColumns }) => (moreColumns ? '100%' : 'fit-content')};
-  /* width: 100%; */
+
   ${({ moreColumns }) => moreColumns && 'display: grid;'};
   ${({ moreColumns }) =>
     moreColumns && 'grid-template-columns: repeat(3, 1fr);'};
   ${({ moreColumns }) =>
     moreColumns && 'grid-template-rows: fit-content(40%);'};
-  /* ${({ moreColumns }) =>
-    moreColumns && 'grid-template-rows: repeat(auto-fill, 300px);'}; */
 
   ${({ moreColumns }) => moreColumns && 'grid-row-gap: 1.75em;'};
   ${({ moreColumns }) => moreColumns && 'grid-column-gap: 1rem;'};
@@ -58,7 +52,6 @@ export const FragmentsWrapper = styled(motion.div)`
   @media (max-width: 950px) {
     ${({ moreColumns }) =>
       moreColumns && 'grid-template-columns: repeat(1, 1fr);'};
-    /* width: 75%; */
   }
 `
 export const ListWrapper = styled(motion.div)`
@@ -66,7 +59,6 @@ export const ListWrapper = styled(motion.div)`
   display: flex;
   margin: 0;
   flex-direction: column;
-
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -74,31 +66,21 @@ export const ListWrapper = styled(motion.div)`
 
 export const WrapperMotionDiv = styled(motion.div)`
   position: relative;
-  /* min-height: 100%; */
 `
 export const ListWrapperDemo = styled(ListWrapper)`
   padding-right: 1rem;
   padding: 0;
   min-width: 90%;
   max-width: 90%;
-  /* &:first-of-type {
-    margin-top: 200px;
-  } */
 `
 
 export const ListItem = styled(motion.div)`
   display: grid;
   place-items: center;
-  /* padding-bottom: 12px; */
 
   // ! border radius passed as proprerty of ListItem in order to animate propre
 
-  /* overflow: hidden; */
   background: var(--background1-main);
-  /* cursor: pointer; */
-  &:last-child {
-    /* margin-bottom: 0px; */
-  }
   @media (max-width: 740px) {
     padding: 12px;
   }
@@ -188,8 +170,6 @@ export const TitleAnimated = styled(motion.div)`
     color: var(--background4-main);
   }
 `
-// export const TitleContainer = styled(motion.div)``
-/* export const TitleInput = styled(motion.textarea)` */
 export const TitleInput = styled(motion.input)`
   color: var(--background-secondary3);
   width: 100%;
@@ -225,7 +205,6 @@ export const DescriptionInput = styled(motion.textarea)`
   transition: all 0.3s ease-out;
   background: none;
   cursor: text;
-  /* overflow-y: auto; */
   line-height: 1.1;
   font-size: inherit;
   font-family: inherit;
@@ -260,7 +239,6 @@ export const ListRow = styled(motion.div)`
   }
 `
 export const ListRowShort = styled(ListRow)`
-  /* height: 3rem; */
   align-items: flex-start;
   justify-items: flex-start;
 `
@@ -278,7 +256,6 @@ export const ItemWrapper = styled(motion.div)`
 export const SimpleCitationItem = styled(motion.div)`
   display: grid;
   place-items: space-around;
-  /* place-items: center; */
   overflow-y: scroll;
   box-shadow: var(--boxShadow1);
   min-height: fit-content;
@@ -342,23 +319,15 @@ export const SimpleCitationItem = styled(motion.div)`
 export const SimpleCitationItemSmall = styled(motion.div)`
   display: grid;
   place-items: flex-start;
-
   overflow-y: scroll;
-  /* box-shadow: var(--boxShadow1); */
-  box-shadow: var(--boxShadowClay3);
-  /* box-shadow: var(--boxShadow1); */
+  box-shadow: var(--boxShadow1);
   min-height: fit-content;
   height: 240px;
   padding: 1.55rem;
   min-width: 360px;
   max-width: 360px;
-
-  padding: 1rem;
-  border-radius: 20px;
-  border-right: 1px solid var(--background-blur2);
-  border-top: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background-blur1);
+  border-radius: 10px;
+  border: 1px solid var(--background-blur1);
   ::-webkit-scrollbar {
     width: 0.1em;
   }
@@ -379,24 +348,25 @@ export const SimpleCitationItemSmall = styled(motion.div)`
   ::-webkit-scrollbar-track {
     border-radius: 2px;
   }
+  @media (max-width: 620px) {
+    max-width: 100%;
+    min-width: 100%;
+  }
 `
 export const SimpleCitationItemSuperSmall = styled(SimpleCitationItemSmall)`
-  /* place-items: space-around; */
   place-items: center;
-  /* box-shadow: var(--boxShadowNone); */
-  box-shadow: var(--boxShadowClay3);
-  height: 110px;
-  border-color: var(--background-blur2);
+  box-shadow: var(--boxShadow1);
+  max-height: 150px;
+  padding: 0.25rem 1rem;
+  border-color: var(--background-blur1);
 `
 export const SimpleCitationItemNoShadow = styled(SimpleCitationItem)`
   box-shadow: none;
   height: 180px;
   padding: 1.25rem;
-  /* min- width: 100%; */
   min-width: 400px;
   overflow-y: hidden;
   min-height: fit-content;
-  /* margin-bottom: 0.5rem; */
   @media (max-width: 1020px) {
     min-width: 200px;
   }

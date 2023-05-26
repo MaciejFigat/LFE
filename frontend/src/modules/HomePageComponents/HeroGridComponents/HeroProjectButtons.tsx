@@ -76,32 +76,20 @@ const HeroProjectButtons: React.FC<HeroProjectButtonsProps> = () => {
     <>
       {uniqueKeywords?.length === 0 ? null : (
         <HorizontalWrapperGap>
-          <RelativeWrapper top='0' left='0px'>
+          <RelativeWrapper top='5px' left='0px'>
             <ButtonVerySmall
               variant='primaryEmpty'
               onClick={() => minusHandlerDocIndex()}
             >
-              <SvgIcon
-                variant='chevronLeft'
-                contentAfter='poprzedni'
-                toLeft='-60px'
-                lowerPosition='3px'
-                width='80px'
-              />
+              <SvgIcon variant='chevronLeft' />
             </ButtonVerySmall>{' '}
           </RelativeWrapper>
-          <RelativeWrapper top='0' left='0px'>
+          <RelativeWrapper top='5px' left='0px'>
             <ButtonVerySmall
               variant='primaryEmpty'
               onClick={() => plusHandlerDocIndex()}
             >
-              <SvgIcon
-                variant='chevronRight'
-                contentAfter='następny'
-                toRight='60px'
-                lowerPosition='3px'
-                width='80px'
-              />
+              <SvgIcon variant='chevronRight' />
             </ButtonVerySmall>
           </RelativeWrapper>
         </HorizontalWrapperGap>

@@ -11,12 +11,11 @@ export const FragmentContainer = styled.div`
     borderBottom
       ? 'border-bottom: 1px solid var(--background2-main);'
       : 'border: none;'};
-
-  max-width: 40vw;
 `
 export const FragmentsP = styled.p`
   color: var(--background4-main);
   font-size: 0.85rem;
+  font-weight: 500;
   margin: 0;
   margin-bottom: 0.5rem;
   max-width: 70%;

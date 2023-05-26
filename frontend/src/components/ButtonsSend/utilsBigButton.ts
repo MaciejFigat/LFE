@@ -84,7 +84,7 @@ const dangerStyle: StyleVariant = {
 }
 const defaultStyle: StyleVariant = {
   buttonColor: 'var(--background-tertiary4);',
-  buttonBackground: 'var(--background-tertiary5);',
+  buttonBackground: 'red;',
   buttonBackgroundHover: 'var(--background-tertiary4);',
   buttonColorHover: 'var(--background-tertiary1);'
 }

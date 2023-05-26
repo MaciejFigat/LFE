@@ -54,45 +54,41 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
         <HorizontalContainer>
           {source !== '' && <FragmentsP>{source}</FragmentsP>}
 
-          <>
-            <RelativeWrapper top='-18px' left='10px'>
-              {' '}
-              <ButtonVerySmall
-                variant='secondaryEmpty'
-                onClick={() => openWindowHandler(_id)}
-              >
-                <SvgIcon
-                  variant='edit'
-                  contentAfter='edytuj'
-                  toLeft='-10px'
-                  toTop='13px'
-                  width='50px'
-                />
-              </ButtonVerySmall>
-            </RelativeWrapper>
-          </>
+          <RelativeWrapper top='0px' left='10px'>
+            {' '}
+            <ButtonVerySmall
+              variant='secondaryEmpty'
+              onClick={() => openWindowHandler(_id)}
+            >
+              <SvgIcon
+                variant='edit'
+                contentAfter='edytuj'
+                toLeft='-10px'
+                toTop='13px'
+                width='50px'
+              />
+            </ButtonVerySmall>
+          </RelativeWrapper>
         </HorizontalContainer>
 
         <FragmentsPExcerpt>{excerpt.substring(0, 150)}</FragmentsPExcerpt>
         <HorizontalContainer>
           {source !== '' && <FragmentsP>{coordinates}</FragmentsP>}
 
-          <>
-            <RelativeWrapper top='0px' left='8px'>
-              <ButtonVerySmall
-                variant='secondaryEmpty'
-                onClick={() => removeFragmentHandler(_id)}
-              >
-                <SvgIcon
-                  variant='remove'
-                  contentAfter='usuń'
-                  toLeft='-40px'
-                  toTop='-17px'
-                  width='50px'
-                />
-              </ButtonVerySmall>
-            </RelativeWrapper>
-          </>
+          <RelativeWrapper top='10px' left='8px'>
+            <ButtonVerySmall
+              variant='secondaryEmpty'
+              onClick={() => removeFragmentHandler(_id)}
+            >
+              <SvgIcon
+                variant='remove'
+                contentAfter='usuń'
+                toLeft='-40px'
+                toTop='-17px'
+                width='50px'
+              />
+            </ButtonVerySmall>
+          </RelativeWrapper>
         </HorizontalContainer>
       </SimpleCitationItem>
     </ItemWrapper>

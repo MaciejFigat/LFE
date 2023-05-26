@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import {
+  HorizontalLineTop,
   RelativeWrapper,
   WrapperMotionDivRelative
 } from '../../styles/misc.styled'
@@ -63,7 +64,7 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
         <HorizontalContainer>
           {source !== '' ? <FragmentsP>{source}</FragmentsP> : null}
 
-          <RelativeWrapper top='-15px' left='10px'>
+          <RelativeWrapper top='-10px' left='10px'>
             {' '}
             <ButtonVerySmall
               variant='secondaryEmpty'
@@ -79,8 +80,9 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
             </ButtonVerySmall>
           </RelativeWrapper>
         </HorizontalContainer>
-
+        <HorizontalLineTop />
         <FragmentsPExcerpt>{excerpt.substring(0, 150)}</FragmentsPExcerpt>
+        <HorizontalLineTop />
         <HorizontalContainer>
           {source !== '' ? (
             <>
@@ -92,22 +94,20 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
             </>
           ) : null}
 
-          <>
-            <RelativeWrapper top='0px' left='8px'>
-              <ButtonVerySmall
-                variant='secondaryEmpty'
-                onClick={() => removeFragmentHandler(id)}
-              >
-                <SvgIcon
-                  variant='remove'
-                  contentAfter='usuń'
-                  toLeft='-40px'
-                  toTop='-17px'
-                  width='50px'
-                />
-              </ButtonVerySmall>
-            </RelativeWrapper>
-          </>
+          <RelativeWrapper top='5px' left='8px'>
+            <ButtonVerySmall
+              variant='secondaryEmpty'
+              onClick={() => removeFragmentHandler(id)}
+            >
+              <SvgIcon
+                variant='remove'
+                contentAfter='usuń'
+                toLeft='-40px'
+                toTop='-17px'
+                width='50px'
+              />
+            </ButtonVerySmall>
+          </RelativeWrapper>
         </HorizontalContainer>
       </SimpleCitationItemSmall>
     </WrapperMotionDivRelative>

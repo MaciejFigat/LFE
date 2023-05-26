@@ -199,7 +199,6 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
     // also keywords: [] needs ..., newkeyword
     // also no duplicates
     for (let i = 0; i < fragmentsKeywordMain.length; i++) {
-      //* HERE
       const filteredArr = fragmentsKeywordMain[i].keywordValue.filter(
         (keywordSearched: any) => keywordSearched.keyword !== keywordMain
       )
@@ -211,7 +210,6 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
       const simpleKeywordArr = fragmentsKeywordMain[i].keywords.filter(
         (keyword: string) => keyword !== keywordMain
       )
-      //* HERE
 
       //* no duplicates edited in
       if (!fragmentsKeywordMain[i].keywords.includes(newKeyword)) {
@@ -270,7 +268,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
         <HeaderAndCogContainer>
           <DropDownSvgRoundedLeft optionsOpen={optionsNewKeywordOpen}>
             {' '}
-            <RelativeWrapper top='5px' left='3px'>
+            <RelativeWrapper top='7px' left='3px'>
               <ButtonVerySmall
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -323,7 +321,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
           )}{' '}
           <DropDownSvgRounded optionsOpen={optionsOpen}>
             {' '}
-            <RelativeWrapper top='3px' left='0px'>
+            <RelativeWrapper top='5px' left='0px'>
               <ButtonVerySmall
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -342,9 +340,8 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
             </RelativeWrapper>
           </DropDownSvgRounded>
         </HeaderAndCogContainer>
-        {/* //? dropdown after cog icon clicked in small version (!wide prop) */}
+
         <DropDownListContainer>
-          {/* //todo adding saveTempKeywordHelper */}
           {keywordMain !== newKeyword &&
             optionsNewKeywordOpen &&
             !keywordCreation &&
@@ -404,30 +401,41 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
           )}
           {(keywordEditing || keywordCreation) && (
             <OptionsDropdownContainer>
-              <ButtonVerySmall
-                variant='primaryEmpty'
-                onClick={stopEditingHandler}
-              >
-                <SvgIcon variant='back' toBottom contentAfter='wróć' />
-              </ButtonVerySmall>
-              {keywordCreation ? (
+              <RelativeWrapper top='12px'>
                 <ButtonVerySmall
-                  variant='successEmpty'
-                  onClick={saveNewKeywordHelper}
-                >
-                  <SvgIcon variant='save' toBottom contentAfter='zapisz' />
-                </ButtonVerySmall>
-              ) : (
-                <ButtonVerySmall
-                  variant='successEmpty'
-                  onClick={saveEditedKeywordHelper}
+                  variant='primaryEmpty'
+                  onClick={stopEditingHandler}
                 >
                   <SvgIcon
-                    variant='save'
+                    variant='back'
                     toBottom
-                    contentAfter='zapisz zmiany'
+                    toLeft='-40px'
+                    contentAfter='wróć'
                   />
                 </ButtonVerySmall>
+              </RelativeWrapper>
+              {keywordCreation ? (
+                <RelativeWrapper top='12px'>
+                  <ButtonVerySmall
+                    variant='successEmpty'
+                    onClick={saveNewKeywordHelper}
+                  >
+                    <SvgIcon variant='save' toBottom contentAfter='zapisz' />
+                  </ButtonVerySmall>
+                </RelativeWrapper>
+              ) : (
+                <RelativeWrapper top='12px'>
+                  <ButtonVerySmall
+                    variant='successEmpty'
+                    onClick={saveEditedKeywordHelper}
+                  >
+                    <SvgIcon
+                      variant='save'
+                      toBottom
+                      contentAfter='zapisz zmiany'
+                    />
+                  </ButtonVerySmall>
+                </RelativeWrapper>
               )}
             </OptionsDropdownContainer>
           )}

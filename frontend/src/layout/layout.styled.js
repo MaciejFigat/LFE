@@ -24,10 +24,10 @@ export const MobileBox = styled.div`
 `
 export const MobileCompartments = styled.div`
   min-height: 50px;
+  max-width: 600px;
   display: grid;
   place-items: center;
   grid-template-columns: 1fr 1fr 1fr;
-  min-width: 100%;
   padding-top: 8px;
 `
 export const MobileBigBox = styled.div`

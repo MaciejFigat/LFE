@@ -12,7 +12,10 @@ import {
   faLaptopHouse,
   faUserCog,
   faSave,
+  faFolder,
   faFolderOpen,
+  faFolderMinus,
+  faFolderPlus,
   faQuestionCircle,
   faCog,
   faArrowCircleRight,
@@ -43,6 +46,8 @@ import {
   faCogs,
   faSquare,
   faCheckSquare,
+  faBook,
+  faBookOpen
 } from '@fortawesome/free-solid-svg-icons'
 interface SvgIconProps {
   variant:
@@ -87,6 +92,11 @@ interface SvgIconProps {
     | 'cogs'
     | 'check'
     | 'squareEmpty'
+    | 'book'
+    | 'bookOpen'
+    | 'folderMinus'
+    | 'folderPlus'
+    | 'folder'
 
   noMargin?: boolean
   contentAfter?: string
@@ -111,7 +121,7 @@ const SvgIcon: React.FC<SvgIconProps> = ({
   showContent,
   noContent,
   lowerPosition,
-  width,
+  width
 }) => {
   const iconVersion = (variant: string) => {
     switch (variant) {
@@ -197,6 +207,16 @@ const SvgIcon: React.FC<SvgIconProps> = ({
         return faCheckSquare
       case 'squareEmpty':
         return faSquare
+      case 'book':
+        return faBook
+      case 'bookOpen':
+        return faBookOpen
+      case 'folderPlus':
+        return faFolderPlus
+      case 'folderMinus':
+        return faFolderMinus
+      case 'folder':
+        return faFolder
 
       default:
         return faUser

@@ -13,7 +13,6 @@ export const OpenDivButtonWrapper = styled.div`
   width: 100%;
   height: 1px;
   display: flex;
-  /* align-items: flex-end; */
   justify-content: flex-end;
 `
 export const OpenDivButton = styled.div`
@@ -32,7 +31,6 @@ export const OpenBigDivButton = styled(OpenDivButton)`
 `
 export const OpenDivButtonSecond = styled(OpenBigDivButton)`
   position: relative;
-
   top: ${({ top }) => (top ? top : '10px')};
   left: 10px;
 
@@ -43,21 +41,28 @@ export const OpenDivButtonSecond = styled(OpenBigDivButton)`
 `
 export const WrapperMotionDiv = styled(motion.div)`
   position: absolute;
-
   height: 180px;
-
   width: 300px;
-  max-width: 340px;
+  max-width: 360px;
+  @media (max-width: 620px) {
+    max-width: 100%;
+  }
 `
 export const WrapperMotionDivRelative = styled(motion.div)`
   position: relative;
   height: 220px;
-  max-width: 340px;
+  max-width: 360px;
+  @media (max-width: 620px) {
+    max-width: 100%;
+  }
 `
 export const WrapperMotionDivRelativeSmall = styled(motion.div)`
   position: relative;
-  height: 90px;
-  max-width: 340px;
+  max-height: 130px;
+  max-width: 360px;
+  @media (max-width: 620px) {
+    max-width: 100%;
+  }
 `
 export const ClosingDiv = styled(motion.div)`
   width: 35%;
@@ -93,6 +98,10 @@ export const HorizontalLineBottom = styled.div`
 export const HorizontalLineBottomLight = styled(HorizontalLineBottom)`
   border-bottom: 1px solid var(--background-blur1);
 `
+export const HorizontalLineTop = styled(HorizontalLineBottom)`
+  border-top: 1px solid var(--background-blur1);
+  border-bottom: none;
+`
 export const ClosingDivBig = styled(ClosingDiv)`
   position: relative;
   color: var(--background4-main);
@@ -102,7 +111,6 @@ export const ClosingDivBig = styled(ClosingDiv)`
 export const OpenedLayoutDiv = styled(motion.div)`
   height: 100%;
   width: calc(100% + 200px);
-
   position: absolute;
   top: -10vh;
   left: -10vw;
@@ -112,13 +120,9 @@ export const OpenedLayoutDiv = styled(motion.div)`
   overflow: hidden;
   border-radius: 20px;
   background: var(--background1-main);
-
   border: 1px solid var(--background4-main);
-/
-
   color: var(--background2-main);
   box-shadow: var(--boxShadow4);
-
 `
 
 export const OpenedDivBig = styled(OpenedLayoutDiv)`
@@ -150,7 +154,6 @@ export const ChangingColumnsWrapper = styled.div`
 export const HeroColumnsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
   gap: ${({ details }) => (details ? '3.5rem' : '2.5rem')};
   padding: 2rem;
   @media screen and (min-width: 1720px) {
@@ -159,6 +162,11 @@ export const HeroColumnsWrapper = styled.div`
   @media screen and (max-width: 1220px) {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  @media screen and (max-width: 740px) {
+    margin: 0;
+    padding: 0;
+  }
 `
 export const HorizontalWrapper = styled.div`
   display: flex;
@@ -166,6 +174,11 @@ export const HorizontalWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+`
+export const HorizontalWrapperMobile = styled(HorizontalWrapper)`
+  @media (max-width: 620px) {
+    flex-direction: column;
+  }
 `
 
 export const AbsoluteWrapper = styled.div`
@@ -191,6 +204,9 @@ export const HorizontalWrapperGap = styled.div`
   align-items: center;
   flex-direction: row;
   gap: 1rem;
+  @media screen and (max-width: 1020px) {
+    gap: 0.5rem;
+  }
 `
 export const DropDownHeaderMisc = styled.div`
   display: flex;

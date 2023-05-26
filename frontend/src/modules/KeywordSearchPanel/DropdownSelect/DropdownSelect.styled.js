@@ -49,7 +49,6 @@ export const DropDownSvgRoundedLeft = styled(DropDownSvgRounded)`
   border-right: none;
   svg {
     font-size: 1rem !important;
-    /* color: var(--success1); */
     color: ${({ optionsOpen }) =>
       optionsOpen ? 'var(--background-secondary2)' : 'inherit'};
   }
@@ -58,27 +57,20 @@ export const DropDownHeader = styled(motion.div)`
   cursor: pointer;
   user-select: none;
   min-width: ${({ wide }) => (wide ? '220px' : '157px')};
-  /* max-width: 157px; */
+
   max-width: ${({ wide }) => (wide ? '220px' : '157px')};
   height: 40px;
-  /* min-height: 20.5px; */
-  /* margin: 0; */
-  padding: 0.48rem 0.5rem 0.48rem 1rem;
 
-  /* border-right: 1px solid var(--background2-main);
-  border-top: 1px solid var(--background2-main);
-  box-shadow: var(--boxShadowInset1); */
+  padding: 0.48rem 0.5rem 0.48rem 1rem;
 
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
-  /* border-radius: ${({ wide }) => (wide ? '10px' : '15px 0px 0px 15px')}; */
-  /* border-radius: 0; */
+
   font-weight: 500;
   font-size: 1rem;
   color: var(--background4-main);
-  /* background: var(--background-blur1); */
   transition: all 0.1s ease-out;
   text-align: center;
 
@@ -96,15 +88,7 @@ export const DropDownHeader = styled(motion.div)`
     box-shadow: var(--boxShadowInset2);
   }
   .activeButton {
-    /* scale: 0.99; */
     color: var(--background-secondary1);
-    /* color: var(--background2-main); */
-  }
-  @media screen and (max-width: 620px) {
-    font-size: 0.9rem;
-    min-width: 100px;
-
-    padding: 0.5rem 0;
   }
 `
 
@@ -152,7 +136,6 @@ export const DropDownListGrid = styled(DropDownList)`
 `
 export const ListItem = styled.li`
   list-style: none;
-  /* margin-bottom: 0.8rem; */
   padding: 0.4rem 0;
   cursor: pointer;
   &:hover {
@@ -161,8 +144,6 @@ export const ListItem = styled.li`
   }
 `
 export const ListItemHighlight = styled(ListItem)`
-  /* background: var(--background-blur2); */
-  /* padding: 0.5rem; */
   color: var(--background-secondary2);
   font-weight: 700;
   &:hover {
@@ -173,20 +154,16 @@ export const ListItemHighlight = styled(ListItem)`
 export const HorizontalButtonContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
   min-width: 250px;
   min-height: min-content;
   align-items: flex-start;
-
-  /* justify-content: flex-start; */
   justify-content: center;
   margin-bottom: 0;
 `
 export const HeaderAndCogContainer = styled(HorizontalButtonContainer)`
   min-width: 232px;
-  /* background: red; */
   flex-direction: row;
-  /* justify-content: space-around; */
+
   justify-content: center;
   align-items: center;
   &:hover {
@@ -198,7 +175,6 @@ export const HeaderAndCogContainer = styled(HorizontalButtonContainer)`
     font-size: 1.25rem;
   }
   .active {
-    /* color: var(--background3-main); */
     transition: all 0.1s ease-out;
     border-right: 1px solid var(--background-blur1);
     border-top: 1px solid var(--background-blur1);
@@ -211,7 +187,6 @@ export const TitleInputMainKeyword = styled(motion.input)`
   color: var(--background4-main);
   text-align: center;
   height: 40px;
-  /* padding: 0.4rem 0.25rem 0.4rem 0.25rem; */
   padding: 0.8rem 0.5rem 0.8rem 0.5rem;
   margin: 0;
   line-height: normal;
@@ -219,7 +194,6 @@ export const TitleInputMainKeyword = styled(motion.input)`
   outline: 0;
   background-color: transparent;
   border: none;
-
   min-width: ${({ wide }) => (wide ? '220px' : '157px')};
   max-width: ${({ wide }) => (wide ? '220px' : '157px')};
   border: 1px solid var(--background-blur2);
@@ -243,15 +217,11 @@ export const OptionsDropdownContainer = styled.div`
   height: 3rem;
   left: -10px;
   top: 10px;
-  /* z-index: 10; */
   background: var(--background1-main);
   width: 250px;
-
   border-radius: 15px;
-
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
-  /* box-shadow: var(--boxShadow3); */
 `

@@ -19,10 +19,22 @@ import {
   HeroTwoThird
 } from '../modules/HomePageComponents/HeroTwo'
 import HomeSearchBarPagination from '../modules/HomePageComponents/HeroGridComponents/HomeSearchBarPagination'
-import { HorizontalLineBottomLight } from '../styles/misc.styled'
+import {
+  HorizontalLineBottomLight,
+  HorizontalWrapperMobile,
+  RelativeWrapper
+} from '../styles/misc.styled'
 import HeroSearchButtons from '../modules/HomePageComponents/HeroGridComponents/HeroSearchButtons'
 import HomeSearchResultsSmall from '../modules/HomePageComponents/HeroGridComponents/HomeSearchResultsSmall'
-import { ButtonSmall } from '../components/ButtonsSend/BigButton.styled'
+
+import SvgIcon from '../components/SvgIcon/SvgIcon'
+import { ButtonVerySmall } from '../components/Buttons/Buttons.styled'
+import UserFragmentsByKeywordHero from '../modules/FragmentsColumn/UserFragmentsByKeywordHero'
+import HeroProjectCategories from '../modules/HomePageComponents/HeroGridComponents/HeroProjectCategories'
+import SelectMainKeyword from '../modules/KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
+import HeroProjectButtons from '../modules/HomePageComponents/HeroGridComponents/HeroProjectButtons'
+import HeroChangeDetail from '../modules/HomePageComponents/HeroGridComponents/HeroChangeDetail'
+import HeroProjectExport from '../modules/HomePageComponents/HeroGridComponents/HeroProjectExport'
 
 interface HomeMobileLayoutProps {}
 
@@ -39,28 +51,23 @@ const HomeMobileLayout: React.FC<HomeMobileLayoutProps> = () => {
       quaternaryContent: <HeroSearchButtons />,
       pentanaryContent: <HeroTwoThird />
     },
-    {
-      label: 'Zapisz',
-      content: <HeroTwoMain />,
-      secondaryContent: <>sdsdsd</>,
-      //? upper right corner
-      tertiaryContent: <>sdsdsdsd</>,
-      //? lower left corner
-      quaternaryContent: <>sdsds</>,
-      //? lower right corner
-      pentanaryContent: <>sdsdsd</>
-    },
+
     {
       label: 'Eksportuj',
-      content: <>COntent exportuj</>,
-      secondaryContent: <>jjeje</>,
+      content: <UserFragmentsByKeywordHero />,
+      secondaryContent: <HeroProjectCategories />,
 
-      //? upper right corner
-      tertiaryContent: <>sdsd</>,
-      //? lower left corner
-      quaternaryContent: <>sdsd</>,
-      //? lower right corner
-      pentanaryContent: <>666</>
+      tertiaryContent: (
+        <HorizontalWrapperMobile>
+          {' '}
+          <SelectMainKeyword />
+          <HeroProjectExport />
+        </HorizontalWrapperMobile>
+      ),
+
+      quaternaryContent: <HeroProjectButtons />,
+
+      pentanaryContent: <HeroChangeDetail />
     }
   ]
   const [selectedTab, setSelectedTab] = useState(tabs[0])
@@ -107,14 +114,20 @@ const HomeMobileLayout: React.FC<HomeMobileLayoutProps> = () => {
         <HorizontalLineBottomLight />
         {selectedTab ? (
           <MobileCompartments>
-            <ButtonSmall
-              version='primary'
+            <ButtonVerySmall
+              variant='primaryEmpty'
               onClick={() =>
                 setViewSideColumn(viewSideColumn => !viewSideColumn)
               }
             >
-              View side
-            </ButtonSmall>{' '}
+              <RelativeWrapper top='5px'>
+                {viewSideColumn ? (
+                  <SvgIcon variant='bookOpen' />
+                ) : (
+                  <SvgIcon variant='book' />
+                )}
+              </RelativeWrapper>
+            </ButtonVerySmall>{' '}
             <div>{selectedTab.quaternaryContent}</div>{' '}
             <div>{selectedTab.pentanaryContent}</div>
           </MobileCompartments>

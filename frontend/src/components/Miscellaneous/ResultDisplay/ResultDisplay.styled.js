@@ -3,13 +3,11 @@ import styled from 'styled-components'
 export const ArticleContainer = styled.div`
   position: relative;
   display: flex;
-
   justify-content: center;
 `
 export const ArticleWrapper = styled.div`
   display: flex;
   max-width: 1080px;
-  /* background: var(--background1-main); */
   background: var(--background1-main);
   flex-direction: column;
   align-items: center;
@@ -30,8 +28,6 @@ export const ArticleTitle = styled.h2`
   width: 80%;
   margin: 0rem auto 0.5rem;
   font-weight: 800;
-
-  /* color: var(--background3-main); */
   @media (max-width: 880px) {
     font-size: 2rem;
     padding: 1.5rem;

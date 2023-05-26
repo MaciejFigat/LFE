@@ -317,8 +317,9 @@ body {
 }
 ::-webkit-scrollbar {
   width: 0.3em;
- 
-  
+  @media screen and (max-width: 1020px) {
+          width: 0em;
+  }
 }
 
 ::-webkit-scrollbar-corner {
