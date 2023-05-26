@@ -280,6 +280,8 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                   variant={optionsNewKeywordOpen ? 'arrowLeft' : 'moreOptions'}
                   toTop='-20px'
                   toLeft='-90px'
+                  toTopMobile='20px'
+                  toLeftMobile='-10px'
                   width={optionsNewKeywordOpen ? '60px' : '100px'}
                   contentAfter={
                     optionsNewKeywordOpen ? 'powrót' : 'dodaj projekt'
@@ -333,6 +335,8 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                   variant={isOpen || optionsOpen ? 'downPoint' : 'rightPoint'}
                   toTop='-20px'
                   toLeft='60px'
+                  toTopMobile='20px'
+                  toLeftMobile='-5px'
                   width='56px'
                   contentAfter='opcje'
                 />

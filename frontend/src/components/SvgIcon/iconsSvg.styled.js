@@ -35,12 +35,14 @@ export const IconsItem = styled.div`
     font-size: min(max(1rem, 4vw), 12px);
     font-size: 0.85rem;
     left: 60px;
-    top: ${({ toTop }) => (toTop ? toTop : null)};
     bottom: 15px;
+    top: ${({ toTop }) => (toTop ? toTop : null)};
 
     left: ${({ toLeft }) => toLeft && toLeft};
 
     @media (max-width: 500px) {
+      top: ${({ toTopMobile }) => (toTopMobile ? toTopMobile : null)};
+      left: ${({ toLeftMobile }) => toLeftMobile && toLeftMobile};
       bottom: -15px;
     }
   }
