@@ -7,7 +7,7 @@ import {
   ProjectMenuContainer,
   ProjectPaginationWrapper
 } from '../../../modules/menu/Dropdowns/ProjectMenu.styled'
-import { SendButtonVerySmall } from '../../ButtonsSend/Buttons.styled'
+
 import {
   PaginateActive,
   PaginateBorderWrapper,
@@ -15,6 +15,7 @@ import {
 } from './Paginate.styled'
 import SvgIcon from '../../SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../../styles/misc.styled'
+import { ButtonVerySmall } from '../../Buttons/Buttons.styled'
 
 interface FragmentsPaginationProps {
   narrow?: boolean
@@ -111,7 +112,7 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
                 { length: Math.floor(userFragments.length / 10) + 1 },
                 (_, i) => (
                   <PaginateBorderWrapper key={i} narrow={narrow}>
-                    <SendButtonVerySmall
+                    <ButtonVerySmall
                       variant='secondaryEmpty'
                       onClick={() => buttonHelper(i)}
                     >
@@ -122,13 +123,13 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
                       >
                         {i + 1}
                       </PaginateActive>
-                    </SendButtonVerySmall>
+                    </ButtonVerySmall>
                   </PaginateBorderWrapper>
                 )
               )
             : Array.from({ length: userFragments.length / 10 }, (_, i) => (
                 <PaginateBorderWrapper key={i} narrow={narrow}>
-                  <SendButtonVerySmall
+                  <ButtonVerySmall
                     variant='secondaryEmpty'
                     onClick={() => buttonHelper(i)}
                   >
@@ -139,7 +140,7 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
                     >
                       {i + 1}
                     </PaginateActive>
-                  </SendButtonVerySmall>
+                  </ButtonVerySmall>
                 </PaginateBorderWrapper>
               ))}
         </PaginateWrapper>

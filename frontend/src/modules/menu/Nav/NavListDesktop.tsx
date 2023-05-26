@@ -41,6 +41,16 @@ const links = [
     ),
     to: '/search/result',
     id: '2'
+  },
+  {
+    name: (
+      <>
+        Fragmenty
+        <SvgIcon variant='textLeft' noMargin noContent lowerPosition='4px' />
+      </>
+    ),
+    to: '/storage',
+    id: '3'
   }
 ]
 const NavListDesktop: React.FC<NavListMobileProps> = ({ scrollDirection }) => {

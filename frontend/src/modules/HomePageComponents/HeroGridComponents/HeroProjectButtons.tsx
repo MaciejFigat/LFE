@@ -6,8 +6,8 @@ import {
   HorizontalWrapperGap,
   RelativeWrapper
 } from '../../../styles/misc.styled'
-import { SendButtonVerySmall } from '../../../components/ButtonsSend/Buttons.styled'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
+import { ButtonVerySmall } from '../../../components/Buttons/Buttons.styled'
 interface HeroProjectButtonsProps {}
 
 const HeroProjectButtons: React.FC<HeroProjectButtonsProps> = () => {
@@ -77,7 +77,7 @@ const HeroProjectButtons: React.FC<HeroProjectButtonsProps> = () => {
       {uniqueKeywords?.length === 0 ? null : (
         <HorizontalWrapperGap>
           <RelativeWrapper top='0' left='0px'>
-            <SendButtonVerySmall
+            <ButtonVerySmall
               variant='primaryEmpty'
               onClick={() => minusHandlerDocIndex()}
             >
@@ -88,10 +88,10 @@ const HeroProjectButtons: React.FC<HeroProjectButtonsProps> = () => {
                 lowerPosition='3px'
                 width='80px'
               />
-            </SendButtonVerySmall>{' '}
+            </ButtonVerySmall>{' '}
           </RelativeWrapper>
           <RelativeWrapper top='0' left='0px'>
-            <SendButtonVerySmall
+            <ButtonVerySmall
               variant='primaryEmpty'
               onClick={() => plusHandlerDocIndex()}
             >
@@ -102,7 +102,7 @@ const HeroProjectButtons: React.FC<HeroProjectButtonsProps> = () => {
                 lowerPosition='3px'
                 width='80px'
               />
-            </SendButtonVerySmall>
+            </ButtonVerySmall>
           </RelativeWrapper>
         </HorizontalWrapperGap>
       )}

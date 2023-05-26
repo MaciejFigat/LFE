@@ -2,7 +2,6 @@ import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { editSavedFragment } from '../../../features/fragments/fragmentSlice'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SendButtonVerySmall } from '../../../components/ButtonsSend/Buttons.styled'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import {
   PopupB,
@@ -15,6 +14,7 @@ import {
   PopupTitleContainer,
   PopupTitleInput
 } from './PopupEditWindow.styled'
+import { ButtonVerySmall } from '../../../components/Buttons/Buttons.styled'
 
 interface KeywordEditingProps {
   id: string
@@ -42,7 +42,6 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
   >([])
   const [prevKeywordValue, setPrevKeywordValue] = useState<string>('')
   const [keywordArr, setKeywordArr] = useState<string[]>(keywords)
-  // const [keywordArr, setKeywordArr] = useState<string[]>([''])
   const [sameContents, setSameContents] = useState<boolean>(true)
 
   const newKeywordList = {
@@ -181,14 +180,14 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                 {!keywordEditing ? (
                   <>
                     {!sameContents ? (
-                      <SendButtonVerySmall
+                      <ButtonVerySmall
                         variant='successEmpty'
                         onClick={saveKeywordArrHandler}
                       >
                         <SvgIcon variant='save' toBottom contentAfter='save' />
-                      </SendButtonVerySmall>
+                      </ButtonVerySmall>
                     ) : (
-                      <SendButtonVerySmall
+                      <ButtonVerySmall
                         variant='successEmpty'
                         onClick={addKeywordHandler}
                       >
@@ -197,12 +196,12 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                           toBottom
                           contentAfter='add keyword'
                         />
-                      </SendButtonVerySmall>
+                      </ButtonVerySmall>
                     )}
                   </>
                 ) : (
                   <>
-                    <SendButtonVerySmall
+                    <ButtonVerySmall
                       variant='successEmpty'
                       onClick={saveKeywordHandler}
                       as={motion.button}
@@ -212,9 +211,9 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                         toBottom
                         contentAfter='save changes'
                       />
-                    </SendButtonVerySmall>
+                    </ButtonVerySmall>
 
-                    <SendButtonVerySmall
+                    <ButtonVerySmall
                       variant='secondaryEmpty'
                       onClick={deleteKeywordHandler}
                     >
@@ -223,13 +222,13 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                         toBottom
                         contentAfter='delete'
                       />
-                    </SendButtonVerySmall>
-                    <SendButtonVerySmall
+                    </ButtonVerySmall>
+                    <ButtonVerySmall
                       variant='primaryEmpty'
                       onClick={() => setKeywordEditing(!keywordEditing)}
                     >
                       <SvgIcon variant='back' toBottom contentAfter='back' />
-                    </SendButtonVerySmall>
+                    </ButtonVerySmall>
                   </>
                 )}
               </PopupHorizontalContainer>

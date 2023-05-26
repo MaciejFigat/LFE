@@ -12,11 +12,11 @@ import {
   FragmentsPExcerpt,
   HorizontalContainer
 } from '../FragmentsColumn/FragmentsColumn.styled'
-import { SendButtonVerySmall } from '../../components/ButtonsSend/Buttons.styled'
 import { RegularColumn, RelativeWrapper } from '../../styles/misc.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { TwoColumnsWrapper } from '../../styles/misc.styled'
 import { AppDispatch } from '../../app/store'
+import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
 
 interface CitationDisplayProps {
   wide?: boolean
@@ -58,7 +58,7 @@ const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
                         <>
                           <RelativeWrapper top='-15px' left='10px'>
                             {' '}
-                            <SendButtonVerySmall
+                            <ButtonVerySmall
                               variant='secondaryEmpty'
                               onClick={() => removeCitationHandler(citation.id)}
                             >
@@ -69,7 +69,7 @@ const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
                                 toLeft='-60px'
                                 width='40px'
                               />
-                            </SendButtonVerySmall>
+                            </ButtonVerySmall>
                           </RelativeWrapper>
                         </>
                       </HorizontalContainer>
@@ -112,7 +112,7 @@ const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
                         <>
                           <RelativeWrapper top='-15px' left='10px'>
                             {' '}
-                            <SendButtonVerySmall
+                            <ButtonVerySmall
                               variant='secondaryEmpty'
                               onClick={() => removeCitationHandler(citation.id)}
                             >
@@ -123,7 +123,7 @@ const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
                                 toLeft='-60px'
                                 width='40px'
                               />
-                            </SendButtonVerySmall>
+                            </ButtonVerySmall>
                           </RelativeWrapper>
                         </>
                       </HorizontalContainer>

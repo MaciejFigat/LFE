@@ -1,14 +1,12 @@
 import React, { ReactFragment } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
-// import Highlighter from 'react-highlight-words'
 import {
   changeDocId,
   getDocResult
 } from '../../../features/searchResults/searchResultsSlice'
 import { addVisitedLink } from '../../../features/searchResults/searchResultsSlice'
 import {
-  // InfoSec,
   Container,
   Subtitle,
   InfoRow,
@@ -26,7 +24,6 @@ import {
   TopLineShort
 } from './HeroSection.styled'
 import parse from 'html-react-parser'
-// import { SendButtonSmall } from '../Buttons/Buttons.styled'
 import { HorizontalWrapper } from '../../../styles/misc.styled'
 import SimpleResultDisplay from '../../../components/Miscellaneous/ResultDisplay/SimpleResultDisplay'
 import { AppDispatch } from '../../../app/store'
@@ -49,13 +46,7 @@ interface HeroSearchDataSectionProps {
   highlightQuery: string
 
   fragmentsFound: string[]
-  variant?:
-    | 'primary'
-    | 'secondary'
-    | 'tertiary'
-    | 'blue'
-    | 'bluegreen'
-    | 'transparent'
+
   imgStart?: boolean
   children?: ReactFragment
   buttonLink?: string
@@ -109,7 +100,6 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
 
   return (
     <>
-      {' '}
       {resultsDetailView ? (
         <SimpleResultDisplay />
       ) : (
@@ -128,12 +118,12 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
                   </SubtitleShortLonger>
                   <SubtitleShort> Wynik przydatny?</SubtitleShort>
                   <HorizontalWrapper>
-                    <Button variant='secondary'>
+                    <Button>
                       <ButtonLink href={buttonLink} target='_blank'>
                         Tak
                       </ButtonLink>
                     </Button>
-                    <Button variant='secondary'>
+                    <Button>
                       <ButtonLink href={buttonLink} target='_blank'>
                         Nie
                       </ButtonLink>
@@ -152,16 +142,6 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
                       >
                         {' '}
                         <Subtitle onClick={() => submitHandlerDocNr(index)}>
-                          {/* <Highlighter
-                          highlightClassName='highlightQuery'
-                          searchWords={[highlightQuery]}
-                          autoEscape={true}
-                          textToHighlight={fragment
-                            .replace('<em>', '')
-                            .replace('</em>', '')}
-                        /> */}
-                          {/* (...) */}
-                          {/* {parse(fragment)} */}
                           &bull;
                           {parse(
                             fragment

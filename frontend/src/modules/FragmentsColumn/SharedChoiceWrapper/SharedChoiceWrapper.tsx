@@ -12,11 +12,11 @@ import {
   MainChoiceContainer,
   WrapperWindow
 } from './SharedChoiceWrapper.styled'
-import { SendButtonVerySmall } from '../../../components/ButtonsSend/Buttons.styled'
 import Pagination from '../../../components/Miscellaneous/Pagination/Pagination'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import { UserInfo } from '../../../interfaces'
 import { AppDispatch } from '../../../app/store'
+import { ButtonVerySmall } from '../../../components/Buttons/Buttons.styled'
 
 interface SharedChoiceWrapperProps {}
 
@@ -34,7 +34,6 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
     {
       label: 'Zapisane',
       icon: <SvgIcon variant='save' noContent />,
-      // icon: <SvgIcon variant='save' contentAfter='zapisane' toBottom />,
       content: (
         <>
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
@@ -50,12 +49,11 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
     {
       label: 'Wyszukane',
       icon: <SvgIcon variant='search' noContent />,
-      // icon: <SvgIcon variant='search' contentAfter='wyszukane' toBottom />,
       content: (
         <>
-          <SendButtonVerySmall variant='primaryEmpty'>
+          <ButtonVerySmall variant='primaryEmpty'>
             Ilość wyników wyszukiwania: {numberOfResults && numberOfResults}
-          </SendButtonVerySmall>{' '}
+          </ButtonVerySmall>{' '}
           <Pagination narrow />
         </>
       )
@@ -63,7 +61,6 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
     {
       label: 'Przeglądane',
       icon: <SvgIcon variant='eye' noContent />,
-      // icon: <SvgIcon variant='eye' contentAfter='przeglądane' toBottom />,
       content: <VisitedLinks />
     }
   ]
@@ -91,7 +88,6 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
                 className={item.label === selectedTab.label ? 'selected' : ''}
                 onClick={() => tabHelper(item)}
               >
-                {/* {`${item.label}`} */}
                 {item.icon}
                 {item.label === selectedTab.label && (
                   <ChoiceUnderline layoutId='under' />

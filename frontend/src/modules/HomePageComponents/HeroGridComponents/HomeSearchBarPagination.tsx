@@ -6,7 +6,6 @@ import {
   RelativeWrapper,
   RelativeWrapperStretch
 } from '../../../styles/misc.styled'
-import { SendButtonVerySmall } from '../../../components/ButtonsSend/Buttons.styled'
 import Pagination from '../../../components/Miscellaneous/Pagination/Pagination'
 import SearchBar from '../../SearchBar/SearchBar'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
@@ -15,6 +14,7 @@ import {
   SearchBarPaginationSvgWrapper,
   SearchBarPaginationSvgWrapperSecond
 } from './HeroSection.styled'
+import { ButtonVerySmall } from '../../../components/Buttons/Buttons.styled'
 
 interface HomeSearchBarPaginationProps {}
 
@@ -43,10 +43,7 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
         {data && data?.length === 0 ? null : (
           <SearchBarPaginationSvgWrapper>
             <RelativeWrapper top='5px' left='-10px'>
-              <SendButtonVerySmall
-                variant='secondaryEmpty'
-                onClick={showHandler}
-              >
+              <ButtonVerySmall variant='secondaryEmpty' onClick={showHandler}>
                 <HorizontalWrapper>
                   <RelativeWrapper top='4px' left='5px'>
                     <SvgIcon
@@ -56,14 +53,14 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
                     />{' '}
                   </RelativeWrapper>
                 </HorizontalWrapper>
-              </SendButtonVerySmall>
+              </ButtonVerySmall>
             </RelativeWrapper>
           </SearchBarPaginationSvgWrapper>
         )}
         {data && data?.length === 0 ? null : (
           <SearchBarPaginationSvgWrapperSecond>
             <RelativeWrapper top='-10px' left='-10px'>
-              <SendButtonVerySmall
+              <ButtonVerySmall
                 variant='secondaryEmpty'
                 onClick={showOptionsHandler}
               >
@@ -74,7 +71,7 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
                     />{' '}
                   </RelativeWrapper>
                 </HorizontalWrapper>
-              </SendButtonVerySmall>
+              </ButtonVerySmall>
             </RelativeWrapper>
           </SearchBarPaginationSvgWrapperSecond>
         )}

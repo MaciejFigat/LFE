@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { UserInfo } from '../interfaces'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { getUsers, deleteUser } from '../features/users/userSlice'
-import { SendButton } from '../components/ButtonsSend/Buttons.styled'
 import {
   AdminContainer,
   AdminWrapper,
@@ -11,6 +10,7 @@ import {
   TableWrapper
 } from '../styles/ArticleTable.styled'
 import { useNavigate } from 'react-router-dom'
+import { ButtonMedium } from '../components/Buttons/Buttons.styled'
 
 interface UserListAdminProps {}
 
@@ -40,9 +40,9 @@ const UserListAdmin: React.FC<UserListAdminProps> = () => {
   return (
     <AdminWrapper>
       <AdminContainer>
-        <SendButton variant='primary' large fontLarge>
+        <ButtonMedium variant='primary' large fontLarge>
           <Link to='/admin'>Powrót do panelu administracyjnego</Link>
-        </SendButton>
+        </ButtonMedium>
         <TableWrapper>
           <Table>
             <thead>
@@ -60,16 +60,16 @@ const UserListAdmin: React.FC<UserListAdminProps> = () => {
                     </td>
 
                     <td>
-                      <SendButton variant='info'>
+                      <ButtonMedium variant='info'>
                         <Link to={`/admin/user/${user._id}/edit`}>Edit</Link>
-                      </SendButton>
+                      </ButtonMedium>
 
-                      <SendButton
+                      <ButtonMedium
                         variant='danger'
                         onClick={() => deleteUserHandler(user._id)}
                       >
                         Usuń
-                      </SendButton>
+                      </ButtonMedium>
                     </td>
                   </tr>
                 ))}

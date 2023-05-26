@@ -2,15 +2,13 @@ import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { sortingDateEdit } from '../../features/preferences/preferenceSlice'
 import { RelativeWrapper } from '../../styles/misc.styled'
-import { ButtonVerySmall } from '../../components/ButtonsSend/BigButton.styled'
-
-import { SendButtonVerySmall } from '../../components/ButtonsSend/Buttons.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import {
   DateCompareRow,
   DateCompareWrapper,
   HorizontalContainer
 } from './FragmentsColumn.styled'
+import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
 
 interface DateCompareProps {}
 
@@ -188,70 +186,68 @@ const DateCompare: React.FC<DateCompareProps> = () => {
       <DateCompareRow>
         <HorizontalContainer>
           <RelativeWrapper top='4px' left='4px'>
-            <SendButtonVerySmall
+            <ButtonVerySmall
               variant='secondaryEmpty'
               onClick={handleDecreaseSortDay}
             >
               <SvgIcon variant='minusSquare' noContent />
-            </SendButtonVerySmall>
+            </ButtonVerySmall>
           </RelativeWrapper>
           <b>{sortingDay}</b>
           <RelativeWrapper top='4px' left='0px'>
-            <SendButtonVerySmall
+            <ButtonVerySmall
               variant='primaryEmpty'
               onClick={handleIncreaseSortDay}
             >
               <SvgIcon variant='plusSquare' noContent />
-            </SendButtonVerySmall>
+            </ButtonVerySmall>
           </RelativeWrapper>
         </HorizontalContainer>
         <HorizontalContainer>
           {' '}
           <RelativeWrapper top='4px' left='6px'>
-            <SendButtonVerySmall
+            <ButtonVerySmall
               variant='secondaryEmpty'
               onClick={handleDecreaseSortMonth}
             >
               <SvgIcon variant='minusSquare' noContent />
-            </SendButtonVerySmall>
+            </ButtonVerySmall>
           </RelativeWrapper>
           <b>{sortingMonth}</b>
           {sortingMonth - 1 < new Date().getMonth() ? (
             <RelativeWrapper top='4px' left='0px'>
-              <SendButtonVerySmall
+              <ButtonVerySmall
                 variant='primaryEmpty'
                 onClick={handleIncreaseSortMonth}
               >
                 <SvgIcon variant='plusSquare' noContent />
-              </SendButtonVerySmall>
+              </ButtonVerySmall>
             </RelativeWrapper>
           ) : (
             <RelativeWrapper>
-              <SendButtonVerySmall variant='primaryEmpty'>
-                &nbsp;
-              </SendButtonVerySmall>{' '}
+              <ButtonVerySmall variant='primaryEmpty'>&nbsp;</ButtonVerySmall>{' '}
             </RelativeWrapper>
           )}
         </HorizontalContainer>
         <HorizontalContainer>
           {' '}
           <RelativeWrapper top='4px' left='6px'>
-            <SendButtonVerySmall
+            <ButtonVerySmall
               variant='secondaryEmpty'
               onClick={handleDecreaseSortYear}
             >
               <SvgIcon variant='minusSquare' noContent />
-            </SendButtonVerySmall>
+            </ButtonVerySmall>
           </RelativeWrapper>
           <b>{sortingYear}</b>
           {sortingYear < new Date().getFullYear() && (
             <RelativeWrapper top='4px' left='0px'>
-              <SendButtonVerySmall
+              <ButtonVerySmall
                 variant='primaryEmpty'
                 onClick={handleIncreaseSortYear}
               >
                 <SvgIcon variant='plusSquare' noContent />
-              </SendButtonVerySmall>
+              </ButtonVerySmall>
             </RelativeWrapper>
           )}
         </HorizontalContainer>

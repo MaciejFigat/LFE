@@ -1,8 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { editSavedFragment } from '../../../features/fragments/fragmentSlice'
-
-import { SendButtonVerySmall } from '../../../components/ButtonsSend/Buttons.styled'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import {
   LabelContainer,
@@ -11,6 +9,7 @@ import {
   TitleAnimated,
   TitleInput
 } from './LabelInput.styled'
+import { ButtonVerySmall } from '../../../components/Buttons/Buttons.styled'
 
 interface LabelInputProps {
   labelNrOne?: boolean
@@ -63,9 +62,6 @@ const LabelInput: React.FC<LabelInputProps> = ({
     }
 
     for (let i = 0; i < fragmentsKeywordMain.length; i++) {
-      // if (fragmentsKeywordMain[i].keywordValue.keyword === keywordMain) {
-      // }
-      // console.log(fragmentsKeywordMain[i].keywordValue)
       const foundArr = fragmentsKeywordMain[i].keywordValue.find(
         (keywordSearched: any) => keywordSearched.keyword === keywordMain
       )
@@ -111,10 +107,7 @@ const LabelInput: React.FC<LabelInputProps> = ({
             />{' '}
           </LabelContainer>{' '}
           <LabelContainerButtons>
-            <SendButtonVerySmall
-              variant='primaryEmpty'
-              onClick={resetLabelHelper}
-            >
+            <ButtonVerySmall variant='primaryEmpty' onClick={resetLabelHelper}>
               <SvgIcon
                 variant='back'
                 toLeft='-45px'
@@ -122,9 +115,9 @@ const LabelInput: React.FC<LabelInputProps> = ({
                 width='45px'
                 contentAfter='wróć'
               />
-            </SendButtonVerySmall>
+            </ButtonVerySmall>
             {labelRedux !== label && (
-              <SendButtonVerySmall
+              <ButtonVerySmall
                 variant='successEmpty'
                 onClick={saveInputLabelHelper}
               >
@@ -135,29 +128,19 @@ const LabelInput: React.FC<LabelInputProps> = ({
                   width='50px'
                   contentAfter='zapisz'
                 />
-              </SendButtonVerySmall>
+              </ButtonVerySmall>
             )}
           </LabelContainerButtons>
         </LabelContainerWrapper>
       ) : (
-        // <HorizontalLabelContainer>
         <LabelContainer
           contentAfter='nazwa kategorii'
           width='70px'
           toTop='-15px'
           toLeft='-110px'
         >
-          <TitleAnimated
-            // initial={{ opacity: 0 }}
-            // animate={{ opacity: 1 }}
-            // exit={{ opacity: 0 }}
-            onClick={editingHelper}
-          >
-            {' '}
-            {label}
-          </TitleAnimated>
+          <TitleAnimated onClick={editingHelper}> {label}</TitleAnimated>
         </LabelContainer>
-        // </HorizontalLabelContainer>
       )}
     </>
   )

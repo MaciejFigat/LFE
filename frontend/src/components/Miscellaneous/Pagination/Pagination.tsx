@@ -2,12 +2,12 @@ import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { AppDispatch } from '../../../app/store'
 import { searchResultsPageSaved } from '../../../features/preferences/preferenceSlice'
-import { SendButtonVerySmall } from '../../ButtonsSend/Buttons.styled'
 import {
   PaginateActive,
   PaginateBorderWrapper,
   PaginateWrapper
 } from './Paginate.styled'
+import { ButtonVerySmall } from '../../Buttons/Buttons.styled'
 
 interface PaginationProps {
   narrow?: boolean
@@ -40,7 +40,7 @@ const Pagination: React.FC<PaginationProps> = ({ narrow }) => {
             { length: Math.floor(searchResults?.length / 10) + 1 },
             (_, i) => (
               <PaginateBorderWrapper key={i} narrow={narrow}>
-                <SendButtonVerySmall
+                <ButtonVerySmall
                   variant='lightEmpty'
                   onClick={() => buttonHelper(i)}
                 >
@@ -51,14 +51,14 @@ const Pagination: React.FC<PaginationProps> = ({ narrow }) => {
                   >
                     {i + 1}
                   </PaginateActive>
-                </SendButtonVerySmall>
+                </ButtonVerySmall>
               </PaginateBorderWrapper>
             )
           )
         : Array.from({ length: searchResults?.length / 10 }, (_, i) => (
-            <SendButtonVerySmall key={i} variant='secondaryEmpty'>
+            <ButtonVerySmall key={i} variant='secondaryEmpty'>
               {i + 1}
-            </SendButtonVerySmall>
+            </ButtonVerySmall>
           ))}
     </PaginateWrapper>
   )

@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 import { handleButtonColor } from './utilsButtons'
-import { motion } from 'framer-motion'
-import { getColor } from './functionsButtons'
 
 export const ButtonBig = styled.button`
   display: flex;
@@ -65,7 +63,15 @@ export const ButtonSmall = styled(ButtonBig)`
 `
 export const ButtonVerySmall = styled(ButtonBig)`
   padding: 0.275rem 0.55rem;
+  font-size: 0.85rem;
   font-size: var(--font-size-small-plus);
+  margin: 0;
+  margin-right: 0.25rem;
+  background: none;
+  border: none;
+  &:hover {
+    border: none;
+  }
 `
 export const ButtonSmallGradient = styled.button`
   display: flex;
@@ -120,119 +126,5 @@ export const ButtonSmallGradient = styled.button`
   }
   @media (max-width: 610px) {
     padding: var(--gap-small);
-  }
-`
-
-export const ButtonInconspicuous = styled.button`
-  display: flex;
-  align-items: center;
-  font-size: var(--font-size-medium);
-  font-weight: 600;
-  justify-content: center;
-  cursor: pointer;
-  padding: var(--padding-small);
-  padding: 0;
-  border: none;
-  border-radius: var(--border-radius0);
-  background: transparent;
-  width: 125px;
-  color: ${({ $active }) =>
-    $active ? `var(--background1-secondary)` : 'var(--background4-main)'};
-
-  transition: all 0.2s ease-out;
-  &:hover {
-    svg {
-      transition: all 0.3s ease-out;
-      color: var(--background1-secondary);
-    }
-  }
-  &:active {
-    color: var(--background1-secondary);
-  }
-  a {
-    text-decoration: none;
-    color: var(--background-secondary);
-  }
-`
-
-export const ButtonInconspicuousSecondary = styled(ButtonInconspicuous)`
-  width: 105px;
-  font-weight: 600;
-  font-size: var(--font-size-medium);
-  color: ${({ $active, color }) =>
-    $active ? getColor(color) : 'var(--background4-main)'};
-  &:active {
-    color: ${({ color }) =>
-      color ? getColor(color) : 'var(--background4-main)'};
-  }
-  @media screen and (max-width: 1300px) and (min-width: 1040px) {
-    width: 72px;
-    font-size: var(--font-size-small-plus);
-  }
-  @media screen and (max-width: 610px) {
-    width: 68px;
-    font-size: var(--font-size-small-plus);
-  }
-`
-
-// needs a layoutId='whatever'
-export const ButtonUnderline = styled(motion.div)`
-  position: absolute;
-  position: relative;
-  left: -10px;
-  z-index: 12;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-
-  background: transparent;
-  border: 3px solid var(--background1-secondary);
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--background-blur0),
-    transparent
-  );
-`
-
-export const ButtonUnderlineSecondary = styled(ButtonUnderline)`
-  border-color: ${({ color }) => getColor(color)};
-  height: 15px;
-  width: 15px;
-  left: ${({ left }) => (left ? left : '0')};
-  @media screen and (max-width: 1300px) and (min-width: 1040px) {
-    top: -1px;
-    left: -7px;
-    width: 10px;
-    height: 10px;
-  }
-  @media screen and (max-width: 610px) {
-    top: -1px;
-    left: -5px;
-    width: 10px;
-    height: 10px;
-  }
-`
-export const ButtonUnderlineTransparent = styled(ButtonUnderline)`
-  background: transparent;
-  border-color: transparent;
-`
-export const ButtonUnderlineTransparentSecondary = styled(
-  ButtonUnderlineTransparent
-)`
-  height: 15px;
-  width: 15px;
-
-  @media screen and (max-width: 1300px) and (min-width: 1040px) {
-    top: -1px;
-    left: -7px;
-    width: 10px;
-    height: 10px;
-  }
-  @media screen and (max-width: 610px) {
-    top: -1px;
-    left: -5px;
-    width: 10px;
-    height: 10px;
   }
 `

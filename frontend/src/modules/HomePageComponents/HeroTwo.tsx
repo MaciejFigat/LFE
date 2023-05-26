@@ -26,10 +26,9 @@ const HeroTwoMain: React.FC<HeroTwoProps> = () => {
       ) : (
         <HeroSearchDataSection
           highlightQuery={queryTrimmed}
-          variant='secondary'
           key={data && data[heroDocIndex]['uuid']}
           paddingTop='small'
-          imgStart={false}
+          imgStart
           fragmentsFound={data && data[heroDocIndex]?.fragment}
           metryka={data && data[heroDocIndex]?.metryka}
           istota_interpretacji={data && data[heroDocIndex].istota_interpretacji}
@@ -39,7 +38,7 @@ const HeroTwoMain: React.FC<HeroTwoProps> = () => {
     </AnimateSharedLayout>
   )
 }
-const HeroTwoThird: React.FC<HeroTwoProps> = () => {
+const HeroTwoThird: React.FC = () => {
   const resultsDetailView: boolean = useAppSelector(
     state => state.preference.resultsDetailView
   )
@@ -67,7 +66,7 @@ const HeroTwoThird: React.FC<HeroTwoProps> = () => {
     </>
   )
 }
-const HeroTwoFourth: React.FC<HeroTwoProps> = () => {
+const HeroTwoFourth: React.FC = () => {
   const searchResults: any = useAppSelector(
     state => state.searchResult.searchResults
   )
@@ -82,4 +81,32 @@ const HeroTwoFourth: React.FC<HeroTwoProps> = () => {
     </>
   )
 }
-export { HeroTwoMain, HeroTwoThird, HeroTwoFourth }
+const HeroTwoFifth: React.FC = () => {
+  const resultsDetailView: boolean = useAppSelector(
+    state => state.preference.resultsDetailView
+  )
+  const searchResults: any = useAppSelector(
+    state => state.searchResult.searchResults
+  )
+
+  const { data } = searchResults
+  const dispatch: any = useAppDispatch()
+
+  const changeResultsViewHelper = () => {
+    dispatch(changeResultsDetailView())
+  }
+
+  return (
+    <>
+      {data && data?.length === 0 ? null : (
+        <ButtonSmall
+          variant='secondary'
+          onClick={() => changeResultsViewHelper()}
+        >
+          {resultsDetailView ? 'widok uproszczony' : 'podgląd dokumentu'}
+        </ButtonSmall>
+      )}
+    </>
+  )
+}
+export { HeroTwoMain, HeroTwoThird, HeroTwoFourth, HeroTwoFifth }

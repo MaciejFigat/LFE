@@ -18,8 +18,12 @@ import {
   citationTitleEdit,
   citationDescriptionEdit
 } from '../../features/fragments/fragmentSlice'
-import { SendButtonSmall } from '../../components/ButtonsSend/Buttons.styled'
+
 import { AppDispatch } from '../../app/store'
+import {
+  ButtonSmall,
+  ButtonVerySmall
+} from '../../components/Buttons/Buttons.styled'
 
 interface AnimatedItemProps {
   title: string
@@ -132,27 +136,27 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                 exit={{ opacity: 0 }}
               >
                 {!titleEditing ? (
-                  <SendButtonSmall
+                  <ButtonSmall
                     variant='primaryEmpty'
                     onClick={toggleEditing}
                     as={motion.button}
                   >
                     edit title
-                  </SendButtonSmall>
+                  </ButtonSmall>
                 ) : (
-                  <SendButtonSmall
+                  <ButtonSmall
                     variant='successEmpty'
                     onClick={saveTitleHandler}
                   >
                     save title
-                  </SendButtonSmall>
+                  </ButtonSmall>
                 )}
-                <SendButtonSmall
+                <ButtonSmall
                   variant='secondaryEmpty'
                   onClick={() => removeCitationHandler(id)}
                 >
                   remove
-                </SendButtonSmall>
+                </ButtonSmall>
               </motion.div>{' '}
             </AnimatePresence>
           </ListButtonContainer>
@@ -226,19 +230,19 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({
                   )}
                   <ListButtonContainer>
                     {!descriptionEditing ? (
-                      <SendButtonSmall
+                      <ButtonSmall
                         variant='primaryEmpty'
                         onClick={toggleEditingDescription}
                       >
                         edit description
-                      </SendButtonSmall>
+                      </ButtonSmall>
                     ) : (
-                      <SendButtonSmall
+                      <ButtonVerySmall
                         variant='successEmpty'
                         onClick={saveDescriptionHandler}
                       >
                         save
-                      </SendButtonSmall>
+                      </ButtonVerySmall>
                     )}
                   </ListButtonContainer>
                 </ListTitleContainer>

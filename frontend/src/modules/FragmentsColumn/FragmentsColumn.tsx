@@ -7,14 +7,13 @@ import {
   ListWrapper,
   SimpleCitationItem
 } from '../AnimatedTextPanel/AnimatedList.styled'
-import { SendButtonVerySmall } from '../../components/ButtonsSend/Buttons.styled'
-
 import { citationRemoved } from '../../features/fragments/fragmentSlice'
 import {
   FragmentsP,
   FragmentsPExcerpt,
   HorizontalContainer
 } from './FragmentsColumn.styled'
+import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
 
 interface FragmentsColumnProps {
   wide?: boolean
@@ -51,12 +50,12 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = ({ wide }) => {
                         ) : (
                           <FragmentsP>Przykład nr {index + 1}</FragmentsP>
                         )}
-                        <SendButtonVerySmall
+                        <ButtonVerySmall
                           variant='secondaryEmpty'
                           onClick={() => removeCitationHandler(citation.id)}
                         >
                           usuń
-                        </SendButtonVerySmall>
+                        </ButtonVerySmall>
                       </HorizontalContainer>
                       {citation.source !== '' && (
                         <FragmentsP>{citation.source}</FragmentsP>

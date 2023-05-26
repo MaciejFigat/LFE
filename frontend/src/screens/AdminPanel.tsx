@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { SendButton } from '../components/ButtonsSend/Buttons.styled'
+
 import {
   AdminContainer,
   AdminWrapperHeight
@@ -9,6 +9,7 @@ import SmallSection from '../components/Miscellaneous/SectionSmall/SmallSection'
 import { useAppSelector } from '../app/reduxHooks'
 import { UserInfo } from '../interfaces'
 import useRedirectListener from '../hooks/useRedirectListener'
+import { ButtonMedium } from '../components/Buttons/Buttons.styled'
 interface AdminPanelProps {}
 
 const AdminPanel: React.FC<AdminPanelProps> = () => {
@@ -24,13 +25,13 @@ const AdminPanel: React.FC<AdminPanelProps> = () => {
         variant='primary'
       />
       <AdminContainer>
-        <SendButton variant='infoEmpty' large fontLarge>
+        <ButtonMedium variant='infoEmpty' large fontLarge>
           <Link to='/admin/userlist'>Lista użytkowników</Link>
-        </SendButton>
+        </ButtonMedium>
 
-        <SendButton variant='primary' large fontLarge>
+        <ButtonMedium variant='primary' large fontLarge>
           <Link to='/profile'>Edytuj dane adninistratora</Link>
-        </SendButton>
+        </ButtonMedium>
       </AdminContainer>
     </AdminWrapperHeight>
   )

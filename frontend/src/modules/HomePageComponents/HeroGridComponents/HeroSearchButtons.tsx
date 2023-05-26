@@ -12,8 +12,8 @@ import {
   HorizontalWrapperGap,
   RelativeWrapper
 } from '../../../styles/misc.styled'
-import { SendButtonVerySmall } from '../../../components/ButtonsSend/Buttons.styled'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
+import { ButtonVerySmall } from '../../../components/Buttons/Buttons.styled'
 interface HeroSearchButtonsProps {}
 
 const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
@@ -33,7 +33,7 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
     state => state.searchResult.visitedLinks
   )
   const { data, query } = searchResult.searchResults
-  // ! _Debounce maybe
+
   const minusHandlerDocIndex = () => {
     if (resultsDetailView) {
       const searchquery = {
@@ -91,7 +91,7 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
       {searchData && searchData?.length === 0 ? null : (
         <HorizontalWrapperGap>
           <RelativeWrapper top='0' left='0px'>
-            <SendButtonVerySmall
+            <ButtonVerySmall
               variant='primaryEmpty'
               onClick={() => minusHandlerDocIndex()}
             >
@@ -102,10 +102,10 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
                 lowerPosition='3px'
                 width='80px'
               />
-            </SendButtonVerySmall>{' '}
+            </ButtonVerySmall>{' '}
           </RelativeWrapper>
           <RelativeWrapper top='0' left='0px'>
-            <SendButtonVerySmall
+            <ButtonVerySmall
               variant='primaryEmpty'
               onClick={() => plusHandlerDocIndex()}
             >
@@ -116,7 +116,7 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
                 lowerPosition='3px'
                 width='80px'
               />
-            </SendButtonVerySmall>
+            </ButtonVerySmall>
           </RelativeWrapper>
         </HorizontalWrapperGap>
       )}

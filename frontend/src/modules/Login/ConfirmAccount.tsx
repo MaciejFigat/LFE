@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { activateUser } from '../../features/users/userSlice'
-import { Wrapper, LoginContainer } from '../../styles/login'
 import useRedirectLoggedListener from '../../hooks/useRedirectListenerLogged'
 import { SpinnerWrapperSearch } from '../../modules/SearchBar/SearchBar.styled'
 import { RotatingLines } from 'react-loader-spinner'
 import { useNavigate } from 'react-router-dom'
-import { LoginTextLink, LoginWrapperSmall } from './login'
+import {
+  LoginTextLink,
+  LoginWrapperSmall,
+  Wrapper,
+  LoginContainer
+} from './login'
 import {
   HighlightText,
   HorizontalLineBottomLight,
@@ -54,8 +58,7 @@ const ConfirmAccount: React.FC<ConfirmAccountProps> = () => {
         <LoginWrapperSmall>
           <h2>Witamy w serwisie TurboLex</h2>
 
-          {/* {errorMessage === 'User status changed' && ( */}
-          {
+          {errorMessage === 'User status changed' && (
             <>
               <h4>Autoryzacja przebiegła pomyślnie</h4>
               <HorizontalLineBottomLight />
@@ -76,7 +79,7 @@ const ConfirmAccount: React.FC<ConfirmAccountProps> = () => {
                 </HorizontalWrapper>
               </LoginTextLink>
             </>
-          }
+          )}
           {errorMessage === '' && (
             <>
               {' '}

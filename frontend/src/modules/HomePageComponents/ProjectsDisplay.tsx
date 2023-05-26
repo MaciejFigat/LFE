@@ -14,7 +14,6 @@ import ScrollSection from '../../components/Miscellaneous/ScrollSection/ScrollSe
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWindow'
 import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
-import { SendButtonVerySmall } from '../../components/ButtonsSend/Buttons.styled'
 import {
   DotButton,
   RelativeRightSvgWrapper,
@@ -26,6 +25,7 @@ import {
   FragmentTitleRowSmall
 } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { AppDispatch } from '../../app/store'
+import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
 interface ProjectsDisplayProps {}
 
 const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
@@ -123,12 +123,12 @@ const ProjectsDisplay: React.FC<ProjectsDisplayProps> = () => {
                             )}
                           </FragmentParSmall>
                           <RelativeRightSvgWrapper>
-                            <SendButtonVerySmall
+                            <ButtonVerySmall
                               variant='primaryEmpty'
                               onClick={() => openWindowHandler(fragment._id)}
                             >
                               <DotButton left='0px' />
-                            </SendButtonVerySmall>
+                            </ButtonVerySmall>
                           </RelativeRightSvgWrapper>
                         </FragmentTitleRowSmall>
                         <FragmentParSmall>

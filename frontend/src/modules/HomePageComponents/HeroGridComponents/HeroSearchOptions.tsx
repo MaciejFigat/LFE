@@ -31,9 +31,6 @@ const HeroSearchOptions: React.FC<HeroSearchOptionsProps> = () => {
       <SwitchResultWrapper>
         <SwitchButtonWrapper>
           <SwitchResultContainer>
-            {/* <button onClick={() => console.log(KrajowaInformacjaSkarbowa)}>
-              terst
-            </button> */}
             <SwitchButton
               isOn={isOnOne}
               setIsOn={setIsOnOne}

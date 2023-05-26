@@ -8,9 +8,9 @@ import {
   FragmentsPExcerpt,
   HorizontalContainer
 } from '../FragmentsColumn/FragmentsColumn.styled'
-import { SendButtonVerySmall } from '../../components/ButtonsSend/Buttons.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { ItemWrapper, SimpleCitationItem } from './AnimatedList.styled'
+import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
 
 interface FragmentTextItemProps {
   source: string
@@ -57,7 +57,7 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
           <>
             <RelativeWrapper top='-18px' left='10px'>
               {' '}
-              <SendButtonVerySmall
+              <ButtonVerySmall
                 variant='secondaryEmpty'
                 onClick={() => openWindowHandler(_id)}
               >
@@ -68,7 +68,7 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
                   toTop='13px'
                   width='50px'
                 />
-              </SendButtonVerySmall>
+              </ButtonVerySmall>
             </RelativeWrapper>
           </>
         </HorizontalContainer>
@@ -79,7 +79,7 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
 
           <>
             <RelativeWrapper top='0px' left='8px'>
-              <SendButtonVerySmall
+              <ButtonVerySmall
                 variant='secondaryEmpty'
                 onClick={() => removeFragmentHandler(_id)}
               >
@@ -90,7 +90,7 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
                   toTop='-17px'
                   width='50px'
                 />
-              </SendButtonVerySmall>
+              </ButtonVerySmall>
             </RelativeWrapper>
           </>
         </HorizontalContainer>

@@ -12,8 +12,6 @@ export const InfoSec = styled.div`
   border-right: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur2);
-
-  /* margin-bottom: 1rem; */
   @media (min-width: 1180px) {
     max-width: 1086px;
   }
@@ -39,13 +37,9 @@ export const Subtitle = styled.p`
   letter-spacing: 0em;
   font-weight: 500;
   transition: 0.2s;
-
   &:hover {
     color: var(--background-secondary1);
   }
-  /* @media screen and (max-width: 991px) {
-    text-align: left;
-  } */
 `
 export const SubtitleSimple = styled(Subtitle)`
   margin: 0;
@@ -72,7 +66,6 @@ export const InfoSecSimple = styled(InfoSec)`
   border-bottom: 1px solid var(--background-blur2);
   border-radius: 20px;
   background: var(--background1-main);
-
   box-shadow: var(--boxShadowNone);
   padding: 0.25rem;
   padding-top: 0.5rem;
@@ -86,18 +79,13 @@ export const InfoSecSimple = styled(InfoSec)`
   &:hover {
     border-color: var(--background-secondary1);
     ${SubtitleSimple} {
-   
-      color: var(--background-secondary1);
-  
-  }
+         color: var(--background-secondary1);
+    }
  
 `
 export const InfoRow = styled.div`
   display: flex;
-  /* margin: 0 -15px -15px -15px; */
   gap: 1rem;
-  /* min-width: 1086px; */
-  /* min-width: 100%; */
   flex-direction: ${({ imgStart }) =>
     imgStart === true ? 'row-reverse' : 'row'};
   @media screen and (max-width: 991px) {
@@ -112,25 +100,19 @@ export const InfoRow = styled.div`
 `
 
 export const InfoColumn = styled.div`
-  /* padding-left: 0.5rem; */
   flex-basis: 60%;
   max-width: 100%;
   display: flex;
   justify-content: center;
   max-width: 35rem;
-  @media screen and (max-width: 1220px) {
-    /* padding-top: 2rem; */
-  }
+  padding-top: 1rem;
 `
 export const InfoColumnSimple = styled(InfoColumn)`
   padding-top: 0.5rem;
   padding: 0rem;
 `
 export const InfoColumnShort = styled(InfoColumn)`
-  /* display: flex; */
   padding: 0;
-  /* padding-left: 1rem; */
-  /* padding-right: 1rem; */
   flex-basis: 40%;
   min-height: 120%;
   text-align: left;
@@ -140,10 +122,10 @@ export const InfoColumnShort = styled(InfoColumn)`
       ? 'border-left: 1px solid var(--background-blur1)'
       : 'border-right: 1px solid var(--background-blur1)'};
   @media screen and (max-width: 1220px) {
-    /* padding-bottom: 1rem; */
     border-bottom: 1px solid var(--background-blur1);
     border-left: none;
     border-right: none;
+    padding-bottom: 2rem;
   }
 `
 export const InfoColumnShortSimple = styled(InfoColumnShort)`
@@ -155,8 +137,7 @@ export const TextWrapper = styled.div`
   width: 100%;
   hyphens: auto;
   padding: 1rem 1rem 0rem;
-  /* padding-right: 1rem; */
-  /* padding-left: 1rem; */
+
   @media screen and (max-width: 991px) {
     border-left: none;
     border-right: none;
@@ -167,18 +148,14 @@ export const TextWrapper = styled.div`
 export const TextWrapperShort = styled(TextWrapper)`
   @media screen and (max-width: 880px) {
     display: flex;
-    /* text-align: center; */
+
     flex-direction: column;
-    /* width: 70%; */
-    /* margin-bottom: 2rem; */
   }
   @media screen and (max-width: 440px) {
     width: 90%;
   }
 `
 export const TextWrapperSimple = styled(TextWrapper)`
-  /* padding: 0.5rem; */
-  /* padding-right: 0.25rem; */
   margin: 0;
 `
 export const TextWrapperSimpleShort = styled(TextWrapperSimple)`
@@ -189,12 +166,6 @@ export const Container = styled.div`
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  /* padding-right: 20px; */
-  /* padding-left: 20px; */
-  @media screen and (max-width: 991px) {
-    /* padding-right: 10px; */
-    /* padding-left: 10px; */
-  }
 `
 
 export const Button = styled.button`
@@ -205,9 +176,7 @@ export const Button = styled.button`
   font-size: ${({ fontLarge }) => (fontLarge ? '22px' : '16px')};
 
   background: none;
-  /* border: none; */
 
-  /* box-shadow: var(--boxShadowClay1); */
   background: var(--background-gradient1);
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);

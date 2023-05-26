@@ -49,6 +49,7 @@ import HeroProjectCategories from './HeroGridComponents/HeroProjectCategories'
 import HeroProjectButtons from './HeroGridComponents/HeroProjectButtons'
 import HeroChangeDetail from './HeroGridComponents/HeroChangeDetail'
 import { AppDispatch } from '../../app/store'
+import { HeroDesktop } from '../../layout/layout.styled'
 
 interface HeroGridProps {}
 
@@ -206,7 +207,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
   }
 
   return (
-    <>
+    <HeroDesktop>
       <AnimateSharedLayout type='crossfade'>
         <AnimatePresence>
           {idOpenFragment !== '' && (
@@ -322,7 +323,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           </HeroMainContainer>
         </HeroGridWrapper>
       </AnimateSharedLayout>
-    </>
+    </HeroDesktop>
   )
 }
 export default HeroGrid

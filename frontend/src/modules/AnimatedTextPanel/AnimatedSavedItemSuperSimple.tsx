@@ -1,5 +1,4 @@
 import React from 'react'
-import { SendButtonVerySmall } from '../../components/ButtonsSend/Buttons.styled'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import {
   RelativeWrapper,
@@ -15,6 +14,7 @@ import {
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { deleteSavedFragment } from '../../features/fragments/fragmentSlice'
 import { AppDispatch } from '../../app/store'
+import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
 
 interface AnimatedSavedItemSuperSimpleProps {
   id: string
@@ -60,7 +60,7 @@ const AnimatedSavedItemSuperSimple: React.FC<
 
           <RelativeWrapper top='0px' left='10px'>
             {' '}
-            <SendButtonVerySmall
+            <ButtonVerySmall
               variant='secondaryEmpty'
               onClick={() => openWindowHandler()}
             >
@@ -71,7 +71,7 @@ const AnimatedSavedItemSuperSimple: React.FC<
                 toTop='-17px'
                 width='50px'
               />
-            </SendButtonVerySmall>
+            </ButtonVerySmall>
           </RelativeWrapper>
         </HorizontalContainer>
 
@@ -79,7 +79,7 @@ const AnimatedSavedItemSuperSimple: React.FC<
           <FragmentsPExcerpt>{excerpt.substring(0, 30)}</FragmentsPExcerpt>
           <>
             <RelativeWrapper top='0px' left='8px'>
-              <SendButtonVerySmall
+              <ButtonVerySmall
                 variant='secondaryEmpty'
                 onClick={() => removeFragmentHandler(id)}
               >
@@ -90,7 +90,7 @@ const AnimatedSavedItemSuperSimple: React.FC<
                   toTop='-17px'
                   width='50px'
                 />
-              </SendButtonVerySmall>
+              </ButtonVerySmall>
             </RelativeWrapper>
           </>
         </HorizontalContainer>

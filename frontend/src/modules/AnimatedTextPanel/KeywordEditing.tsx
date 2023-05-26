@@ -12,10 +12,10 @@ import {
 import { useAppDispatch } from '../../app/reduxHooks'
 import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SendButtonVerySmall } from '../../components/ButtonsSend/Buttons.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { FragmentB } from '../KeywordSearchPanel/KeywordSearch/KeywordSearch.styled'
 import { AppDispatch } from '../../app/store'
+import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
 
 interface KeywordEditingProps {
   keywords: string[]
@@ -51,11 +51,6 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
     keywordValue: keywordValuePropsFiltered
   }
 
-  // const editKeywordHandler = (keyword: string) => {
-  //   setKeywordEditing(!keywordEditing)
-  //   setKeywordValue(keyword)
-  //   setPrevKeywordValue(keyword)
-  // }
   const editKeywordHandler = useCallback((keyword: string) => {
     setKeywordEditing(prevState => !prevState)
     setKeywordValue(keyword)
@@ -105,9 +100,7 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
     let filteredArr = keywordArr.filter(keyword => keyword !== keywordValue)
     setKeywordValuePropsFiltered([
       ...keywordValueProps.filter(
-        keywordObject =>
-          // keywordObject.keyword !== keywordValue || keywordObject.keyword === ''
-          keywordObject.keyword !== keywordValue
+        keywordObject => keywordObject.keyword !== keywordValue
       )
     ])
     setKeywordArr(() => filteredArr)
@@ -189,14 +182,14 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                 {!keywordEditing ? (
                   <>
                     {!sameContents ? (
-                      <SendButtonVerySmall
+                      <ButtonVerySmall
                         variant='successEmpty'
                         onClick={saveKeywordArrHandler}
                       >
                         <SvgIcon variant='save' toBottom contentAfter='save' />
-                      </SendButtonVerySmall>
+                      </ButtonVerySmall>
                     ) : (
-                      <SendButtonVerySmall
+                      <ButtonVerySmall
                         variant='successEmpty'
                         onClick={addKeywordHandler}
                       >
@@ -205,12 +198,12 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                           toBottom
                           contentAfter='add keyword'
                         />
-                      </SendButtonVerySmall>
+                      </ButtonVerySmall>
                     )}
                   </>
                 ) : (
                   <>
-                    <SendButtonVerySmall
+                    <ButtonVerySmall
                       variant='successEmpty'
                       onClick={saveKeywordHandler}
                       as={motion.button}
@@ -220,9 +213,9 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                         toBottom
                         contentAfter='save changes'
                       />
-                    </SendButtonVerySmall>
+                    </ButtonVerySmall>
 
-                    <SendButtonVerySmall
+                    <ButtonVerySmall
                       variant='secondaryEmpty'
                       onClick={deleteKeywordHandler}
                     >
@@ -231,13 +224,13 @@ const KeywordEditing: React.FC<KeywordEditingProps> = ({
                         toBottom
                         contentAfter='delete'
                       />
-                    </SendButtonVerySmall>
-                    <SendButtonVerySmall
+                    </ButtonVerySmall>
+                    <ButtonVerySmall
                       variant='primaryEmpty'
                       onClick={() => setKeywordEditing(!keywordEditing)}
                     >
                       <SvgIcon variant='back' toBottom contentAfter='back' />
-                    </SendButtonVerySmall>
+                    </ButtonVerySmall>
                   </>
                 )}
               </HorizontalButtonContainer>

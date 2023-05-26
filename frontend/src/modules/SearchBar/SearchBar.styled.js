@@ -38,21 +38,17 @@ export const HomeSearchWrapper = styled.div`
 export const SearchBarWrapper = styled.div`
   display: flex;
   align-self: center;
-
   height: ${({ large }) => (large ? '50px' : '30px')};
   height: ${({ medium }) => medium && '40px'};
   min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
   min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
   gap: 0.75rem;
   background: transparent;
-
   min-height: fit-content;
   font-size: 1.55rem;
   font-weight: 400;
   .show {
     transition: 0.3s;
-
-    //! here searchButton color is defined when panel is open
     color: var(--background3-main);
   }
   .hide {
@@ -61,13 +57,13 @@ export const SearchBarWrapper = styled.div`
     color: var(--background5-main);
   }
   @media (max-width: 620px) {
-    height: ${({ large }) => (large ? '40px' : '30px')};
+    height: ${({ large }) => (large ? '45px' : '30px')};
     min-width: fit-content;
   }
 
   @media (max-width: 420px) {
-    gap: 0.25rem;
-    height: ${({ large }) => (large ? '30px' : '25px')};
+    /* gap: 0.25rem; */
+    /* height: ${({ large }) => (large ? '30px' : '25px')}; */
   }
 `
 
@@ -165,7 +161,7 @@ export const SpinnerWrapperSearch = styled.div`
   width: 25px;
   margin: 0;
 `
-/*//! SearchDropdown */
+/* SearchDropdown */
 
 export const Main = styled.div`
   max-height: 38px;
@@ -189,7 +185,6 @@ export const DropDownContainer = styled.div`
 export const DropdownIconWrapper = styled.div`
   display: grid;
   place-items: center;
-
   margin-left: 1rem;
   svg {
     font-size: 1.2rem;
@@ -204,7 +199,6 @@ export const DropDownHeader = styled.div`
   display: flex;
   font-weight: 500;
   font-size: 0.9rem;
-
   transition: all 0.3s ease-out;
   text-align: center;
 `
@@ -213,9 +207,7 @@ export const DropDownListContainer = styled.div`
   left: -70px;
   top: 15px;
   user-select: none;
-
   background: var(--background1-main);
-
   border-top: 1px solid var(--background-blur1);
   border-right: 1px solid var(--background-blur1);
   border-left: 1px solid var(--background-blur1);
@@ -272,9 +264,6 @@ export const SwitchButtonWrapper = styled.div`
   justify-content: flex-start;
   width: 100%;
   list-style: none;
-  /* max-width: fit-content; */
-  /* padding-bottom: 0.75rem; */
-
   b {
     font-size: 0.85rem;
   }
@@ -297,32 +286,23 @@ export const ListItem = styled.li`
   }
 `
 
-/*//! switch */
 export const SwitchSectionWrapper = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   margin-bottom: 1rem;
 `
 export const SwitchResultWrapper = styled(SwitchSectionWrapper)`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   color: var(--background4-main);
   gap: 1rem;
   margin: 0;
-
-  /* background: red; */
-  /* margin-bottom: 0.75rem; */
-  @media screen and (max-width: 690px) {
-    margin-bottom: 0;
-    &:first-of-type {
-      margin-bottom: 1rem;
-    }
+  @media screen and (max-width: 1020px) {
+    gap: 0.5rem;
   }
 `
 export const SwitchDivContainer = styled.div`

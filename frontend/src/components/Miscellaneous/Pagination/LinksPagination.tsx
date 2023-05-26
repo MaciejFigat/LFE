@@ -1,12 +1,12 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { linksPageSaved } from '../../../features/preferences/preferenceSlice'
-import { SendButtonVerySmall } from '../../ButtonsSend/Buttons.styled'
 import {
   PaginateActive,
   PaginateBorderWrapper,
   PaginateWrapper
 } from './Paginate.styled'
+import { ButtonVerySmall } from '../../Buttons/Buttons.styled'
 
 interface LinksPaginationProps {
   narrow?: boolean
@@ -46,7 +46,7 @@ const LinksPagination: React.FC<LinksPaginationProps> = ({
                   narrow={narrow}
                   miniVersion={miniVersion}
                 >
-                  <SendButtonVerySmall
+                  <ButtonVerySmall
                     variant='secondaryEmpty'
                     onClick={() => buttonHelper(i)}
                   >
@@ -58,14 +58,14 @@ const LinksPagination: React.FC<LinksPaginationProps> = ({
                     >
                       {i + 1}
                     </PaginateActive>
-                  </SendButtonVerySmall>
+                  </ButtonVerySmall>
                 </PaginateBorderWrapper>
               )
             )
           : Array.from({ length: visitedLinks.length / 3 }, (_, i) => (
-              <SendButtonVerySmall key={i} variant='secondaryEmpty'>
+              <ButtonVerySmall key={i} variant='secondaryEmpty'>
                 {i + 1}
-              </SendButtonVerySmall>
+              </ButtonVerySmall>
             ))}
       </PaginateWrapper>
     </>

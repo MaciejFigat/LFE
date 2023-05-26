@@ -23,10 +23,9 @@ import { getUserFragments } from '../../../features/fragments/fragmentSlice'
 import { sortingKeywordMainEdit } from '../../../features/preferences/preferenceSlice'
 import { updateUserFragmentsKeywordMain } from '../../../features/fragments/fragmentSlice'
 import { nanoid } from '@reduxjs/toolkit'
-import { SendButtonVerySmall } from '../../../components/ButtonsSend/Buttons.styled'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../../styles/misc.styled'
-import { ButtonVerySmall } from '../../../components/ButtonsSend/BigButton.styled'
+import { ButtonVerySmall } from '../../../components/Buttons/Buttons.styled'
 
 interface SelectMainKeywordProps {
   wide?: boolean
@@ -110,13 +109,8 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
     setSelectedMainKeyword(keywordMain)
   }, [keywordMain])
 
-  // whenever loading prompted by saving new or editing keyword values I want to update the list of keywords and the main one
-  // fragmentLoadingUpdate false-> true -> false
-  // fragmentSuccessUpdate true -> false -> true
   useMemo(() => {
     if (fragmentLoadingUpdate === false && fragmentSuccessUpdate === true) {
-      //! HERE it's commented for it's the cause of keywordMain change on every update or delete - since they use the same successUpdate etc
-      //! setSelectedMainKeyword(newKeyword)
       const timer = setTimeout(() => dispatch(getUserFragments(1)), 3000)
       return () => clearTimeout(timer)
     }
@@ -252,10 +246,9 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
     }
     if (keywordEditing === true && optionsOpen === true)
       setKeywordEditing(keywordEditing => !keywordEditing)
-    // setNewKeyword(keywordMain)
+
     if (keywordCreation === true && optionsOpen === true)
       setKeywordCreation(keywordCreation => !keywordCreation)
-    // setNewKeyword(keywordMain)
   }
   const togglingNewKeywordOptions = () => {
     setOptionsNewKeywordOpen(optionsNewKeywordOpen => !optionsNewKeywordOpen)
@@ -278,7 +271,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
           <DropDownSvgRoundedLeft optionsOpen={optionsNewKeywordOpen}>
             {' '}
             <RelativeWrapper top='5px' left='3px'>
-              <SendButtonVerySmall
+              <ButtonVerySmall
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -294,7 +287,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                     optionsNewKeywordOpen ? 'powrót' : 'dodaj projekt'
                   }
                 />
-              </SendButtonVerySmall>
+              </ButtonVerySmall>
             </RelativeWrapper>
           </DropDownSvgRoundedLeft>
           {keywordEditing || keywordCreation || optionsNewKeywordOpen ? (
@@ -331,7 +324,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
           <DropDownSvgRounded optionsOpen={optionsOpen}>
             {' '}
             <RelativeWrapper top='3px' left='0px'>
-              <SendButtonVerySmall
+              <ButtonVerySmall
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -345,7 +338,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                   width='56px'
                   contentAfter='opcje'
                 />
-              </SendButtonVerySmall>
+              </ButtonVerySmall>
             </RelativeWrapper>
           </DropDownSvgRounded>
         </HeaderAndCogContainer>
@@ -367,62 +360,65 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
             )}
           {optionsOpen && !keywordCreation && !keywordEditing && (
             <OptionsDropdownContainer>
-              <SendButtonVerySmall
-                variant='successEmpty'
-                onClick={addNewHandler}
-              >
-                <SvgIcon
-                  variant='plus'
-                  toTop='10px'
-                  toLeft='10px'
-                  width='100px'
-                  contentAfter='dodaj nowy projekt do fragmentów bez projektu'
-                />
-              </SendButtonVerySmall>
-              <SendButtonVerySmall
-                variant='primaryEmpty'
-                onClick={editingHandler}
-              >
-                <SvgIcon
-                  variant='edit'
-                  toTop='10px'
-                  toLeft='10px'
-                  width='100px'
-                  contentAfter='edytuj nazwę wybranego projektu'
-                />
-              </SendButtonVerySmall>
-
-              <SendButtonVerySmall
-                variant='dangerEmpty'
-                onClick={removeKeywordHelperUltimate}
-              >
-                <SvgIcon
-                  variant='remove'
-                  toTop='10px'
-                  toLeft='10px'
-                  width='120px'
-                  contentAfter='usuń fragmenty powiązane z projektem'
-                />
-              </SendButtonVerySmall>
+              <RelativeWrapper top='35px' left='0px'>
+                <ButtonVerySmall variant='successEmpty' onClick={addNewHandler}>
+                  <SvgIcon
+                    variant='plus'
+                    toTop='10px'
+                    toLeft='10px'
+                    width='100px'
+                    contentAfter='dodaj nowy projekt do fragmentów bez projektu'
+                  />
+                </ButtonVerySmall>
+              </RelativeWrapper>
+              <RelativeWrapper top='28px' left='0px'>
+                {' '}
+                <ButtonVerySmall
+                  variant='primaryEmpty'
+                  onClick={editingHandler}
+                >
+                  <SvgIcon
+                    variant='edit'
+                    toTop='10px'
+                    toLeft='10px'
+                    width='100px'
+                    contentAfter='edytuj nazwę wybranego projektu'
+                  />
+                </ButtonVerySmall>
+              </RelativeWrapper>
+              <RelativeWrapper top='28px' left='0px'>
+                <ButtonVerySmall
+                  variant='dangerEmpty'
+                  onClick={removeKeywordHelperUltimate}
+                >
+                  <SvgIcon
+                    variant='remove'
+                    toTop='10px'
+                    toLeft='10px'
+                    width='120px'
+                    contentAfter='usuń fragmenty powiązane z projektem'
+                  />
+                </ButtonVerySmall>{' '}
+              </RelativeWrapper>
             </OptionsDropdownContainer>
           )}
           {(keywordEditing || keywordCreation) && (
             <OptionsDropdownContainer>
-              <SendButtonVerySmall
+              <ButtonVerySmall
                 variant='primaryEmpty'
                 onClick={stopEditingHandler}
               >
                 <SvgIcon variant='back' toBottom contentAfter='wróć' />
-              </SendButtonVerySmall>
+              </ButtonVerySmall>
               {keywordCreation ? (
-                <SendButtonVerySmall
+                <ButtonVerySmall
                   variant='successEmpty'
                   onClick={saveNewKeywordHelper}
                 >
                   <SvgIcon variant='save' toBottom contentAfter='zapisz' />
-                </SendButtonVerySmall>
+                </ButtonVerySmall>
               ) : (
-                <SendButtonVerySmall
+                <ButtonVerySmall
                   variant='successEmpty'
                   onClick={saveEditedKeywordHelper}
                 >
@@ -431,7 +427,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                     toBottom
                     contentAfter='zapisz zmiany'
                   />
-                </SendButtonVerySmall>
+                </ButtonVerySmall>
               )}
             </OptionsDropdownContainer>
           )}
