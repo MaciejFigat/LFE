@@ -25,7 +25,10 @@ import { updateUserFragmentsKeywordMain } from '../../../features/fragments/frag
 import { nanoid } from '@reduxjs/toolkit'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../../styles/misc.styled'
-import { ButtonVerySmall } from '../../../components/Buttons/Buttons.styled'
+import {
+  ButtonSmall,
+  ButtonVerySmall
+} from '../../../components/Buttons/Buttons.styled'
 
 interface SelectMainKeywordProps {
   wide?: boolean
@@ -350,58 +353,60 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
             optionsNewKeywordOpen &&
             !keywordCreation &&
             !keywordEditing && (
-              <RelativeWrapper top='5px' left='45px'>
-                <ButtonVerySmall
-                  variant='success'
-                  onClick={saveTempKeywordHelper}
-                >
+              <RelativeWrapper top='15px' left='38px'>
+                <ButtonSmall variant='success' onClick={saveTempKeywordHelper}>
                   Dodaj nowy projekt
-                </ButtonVerySmall>
+                </ButtonSmall>
               </RelativeWrapper>
             )}
           {optionsOpen && !keywordCreation && !keywordEditing && (
-            <OptionsDropdownContainer>
-              <RelativeWrapper top='35px' left='0px'>
-                <ButtonVerySmall variant='successEmpty' onClick={addNewHandler}>
-                  <SvgIcon
-                    variant='plus'
-                    toTop='10px'
-                    toLeft='10px'
-                    width='100px'
-                    contentAfter='dodaj nowy projekt do fragmentów bez projektu'
-                  />
-                </ButtonVerySmall>
-              </RelativeWrapper>
-              <RelativeWrapper top='28px' left='0px'>
-                {' '}
-                <ButtonVerySmall
-                  variant='primaryEmpty'
-                  onClick={editingHandler}
-                >
-                  <SvgIcon
-                    variant='edit'
-                    toTop='10px'
-                    toLeft='10px'
-                    width='100px'
-                    contentAfter='edytuj nazwę wybranego projektu'
-                  />
-                </ButtonVerySmall>
-              </RelativeWrapper>
-              <RelativeWrapper top='28px' left='0px'>
-                <ButtonVerySmall
-                  variant='dangerEmpty'
-                  onClick={removeKeywordHelperUltimate}
-                >
-                  <SvgIcon
-                    variant='remove'
-                    toTop='10px'
-                    toLeft='10px'
-                    width='120px'
-                    contentAfter='usuń fragmenty powiązane z projektem'
-                  />
-                </ButtonVerySmall>{' '}
-              </RelativeWrapper>
-            </OptionsDropdownContainer>
+            <RelativeWrapper left='5px'>
+              <OptionsDropdownContainer>
+                <RelativeWrapper top='35px' left='0px'>
+                  <ButtonVerySmall
+                    variant='successEmpty'
+                    onClick={addNewHandler}
+                  >
+                    <SvgIcon
+                      variant='plus'
+                      toTop='10px'
+                      toLeft='10px'
+                      width='100px'
+                      contentAfter='dodaj nowy projekt do fragmentów bez projektu'
+                    />
+                  </ButtonVerySmall>
+                </RelativeWrapper>
+                <RelativeWrapper top='28px' left='0px'>
+                  {' '}
+                  <ButtonVerySmall
+                    variant='primaryEmpty'
+                    onClick={editingHandler}
+                  >
+                    <SvgIcon
+                      variant='edit'
+                      toTop='10px'
+                      toLeft='10px'
+                      width='100px'
+                      contentAfter='edytuj nazwę wybranego projektu'
+                    />
+                  </ButtonVerySmall>
+                </RelativeWrapper>
+                <RelativeWrapper top='28px' left='0px'>
+                  <ButtonVerySmall
+                    variant='dangerEmpty'
+                    onClick={removeKeywordHelperUltimate}
+                  >
+                    <SvgIcon
+                      variant='remove'
+                      toTop='10px'
+                      toLeft='10px'
+                      width='120px'
+                      contentAfter='usuń fragmenty powiązane z projektem'
+                    />
+                  </ButtonVerySmall>{' '}
+                </RelativeWrapper>
+              </OptionsDropdownContainer>
+            </RelativeWrapper>
           )}
           {(keywordEditing || keywordCreation) && (
             <OptionsDropdownContainer>
@@ -446,21 +451,23 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
         </DropDownListContainer>
 
         {isOpen && uniqueKeywords.length > 1 && (
-          <DropDownListContainer>
-            <DropDownList>
-              <ListItemHighlight onClick={setNoKeywordHelper}>
-                fragmenty bez projektu
-              </ListItemHighlight>
-              {uniqueKeywords?.map(keyword => (
-                <ListItem
-                  onClick={onOptionClicked(keyword)}
-                  key={Math.random()}
-                >
-                  {keyword}
-                </ListItem>
-              ))}
-            </DropDownList>
-          </DropDownListContainer>
+          <RelativeWrapper left='10px'>
+            <DropDownListContainer>
+              <DropDownList>
+                <ListItemHighlight onClick={setNoKeywordHelper}>
+                  fragmenty bez projektu
+                </ListItemHighlight>
+                {uniqueKeywords?.map(keyword => (
+                  <ListItem
+                    onClick={onOptionClicked(keyword)}
+                    key={Math.random()}
+                  >
+                    {keyword}
+                  </ListItem>
+                ))}
+              </DropDownList>
+            </DropDownListContainer>
+          </RelativeWrapper>
         )}
       </DropDownContainer>
     </Main>
