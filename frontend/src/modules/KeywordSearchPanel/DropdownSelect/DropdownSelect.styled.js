@@ -1,21 +1,19 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+
 export const Main = styled.div`
   margin: 1rem;
 `
 export const DropDownContainer = styled.div`
   width: 12rem;
-
   min-width: min-content;
   margin: 0 auto;
 `
-
 export const DropDownHeaderInside = styled(motion.div)`
   width: 100%;
   height: 100%;
   transition: all 0.2s ease-out;
 `
-
 export const DropDownButtons = styled(motion.div)`
   display: flex;
   margin-top: 1rem;

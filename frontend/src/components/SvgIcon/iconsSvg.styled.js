@@ -12,7 +12,7 @@ export const IconsItem = styled.div`
   max-width: 20px;
   margin-right: 0;
   @media (max-width: 500px) {
-    max-width: 30px;
+    /* max-width: 30px; */
   }
   &:hover {
     &:after {

@@ -7,6 +7,7 @@ import {
 import { AnimatePresence, motion } from 'framer-motion'
 import SearchDropdown from '../../SearchBar/SearchDropdown'
 import NavDropdown from '../Dropdowns/NavDropdown'
+import { RelativeWrapper } from '../../../styles/misc.styled'
 
 interface NavListMobileProps {
   open: boolean
@@ -74,7 +75,9 @@ const NavListMobile: React.FC<NavListMobileProps> = ({
               </motion.div>
 
               <motion.div variants={itemVariants}>
-                <NavDropdown scrollDirection={scrollDirection} />
+                <RelativeWrapper top='-3px' left='5px'>
+                  <NavDropdown scrollDirection={scrollDirection} />
+                </RelativeWrapper>
               </motion.div>
             </MobileNavList>{' '}
           </motion.div>

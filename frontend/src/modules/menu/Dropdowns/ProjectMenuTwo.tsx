@@ -50,10 +50,9 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = ({ wide }) => {
   }
   // todo card animation part
   const [selectedCard, setSelectedCard] = useState(null)
-  // const cardRefs = useRef(new Array())
+
   const cardVariants = {
     selected: {
-      // rotateY: 360,
       scale: 1.15,
       transition: {
         duration: 0.35,
@@ -65,10 +64,7 @@ const ProjectMenuTwo: React.FC<ProjectMenuTwoProps> = ({ wide }) => {
         'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px'
     },
     notSelected: (i: any) => ({
-      // rotateY: i * 15,
       scale: 1 - Math.abs(i * 0.12),
-      // scale: 1,
-      // x: i ? i * 40 : 0,
       opacity: 1 - Math.abs(i * 0.15),
       zIndex: 10 - Math.abs(i),
       boxShadow:

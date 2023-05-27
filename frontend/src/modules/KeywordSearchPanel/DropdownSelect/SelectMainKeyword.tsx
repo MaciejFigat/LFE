@@ -368,7 +368,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
               top={wide ? '10px' : '7px'}
             >
               <OptionsDropdownContainer>
-                <RelativeWrapper top='35px' left='0px'>
+                <RelativeWrapper top='37px' left='0px'>
                   <ButtonVerySmall
                     variant='successEmpty'
                     onClick={addNewHandler}

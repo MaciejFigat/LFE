@@ -126,7 +126,6 @@ export const SvgWrapperColor = styled.div`
 
 export const DropDownListContainer = styled.div`
   position: absolute;
-  /* position: relative; */
   display: grid;
   place-items: center;
   z-index: 10;
@@ -142,9 +141,7 @@ export const DropDownListContainer = styled.div`
   min-width: fit-content;
   border-radius: 12px;
   top: 60px;
-  /* top: 60px;
-  right: 0%; */
-  /* right: 140px; */
+
   right:${({ wide }) => (wide ? '240px;' : '60px;')}
   transition: all 0.3s ease-out;
   text-align: center;
@@ -181,28 +178,21 @@ export const DropDownListContainer = styled.div`
   
 `
 export const NavDropDownListContainer = styled(DropDownListContainer)`
-  @media (max-width: 520px) {
-    width: 100px;
-    right: 30px;
-    padding: 0.15rem 0.5rem;
-    min-width: 0;
-  }
-  right: 0px;
-  left: 80%;
   @media (min-width: 1200px) {
-    left: 70%;
+    left: 75%;
   }
   @media (min-width: 1320px) {
-    left: 80%;
   }
   @media (min-width: 1620px) {
-    left: 72%;
+    left: 67%;
+  }
+  @media (min-width: 2420px) {
+    left: 65%;
   }
 `
 export const ProjectDownList = styled.div`
   display: flex;
   flex-direction: column;
-  /* box-sizing: border-box; */
   font-size: 0.75rem;
   width: fit-content;
   color: var(--background5-main);
@@ -214,7 +204,6 @@ export const DropDownList = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  /* color: var(--background-secondary2); */
   font-size: 1rem;
   font-weight: 400;
   min-width: fit-content;

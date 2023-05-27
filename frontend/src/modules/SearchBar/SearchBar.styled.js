@@ -171,13 +171,11 @@ export const Main = styled.div`
     font-size: 1.25rem;
   }
   @media (max-width: 520px) {
-    font-size: 1.25rem;
-    width: fit-content;
+    width: 240px;
   }
 `
 export const DropDownContainer = styled.div`
   min-width: min-content;
-
   height: 34px;
   margin: 0;
 `
@@ -208,20 +206,16 @@ export const DropDownListContainer = styled.div`
   top: 15px;
   user-select: none;
   background: var(--background1-main);
-  border-top: 1px solid var(--background-blur1);
-  border-right: 1px solid var(--background-blur1);
-  border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background-blur1);
+  border: 1px solid var(--background-blur1);
+
   box-shadow: var(--boxShadow1);
   width: 450px;
   padding: 0.5rem;
 
   border-radius: 10px;
-  @media (max-width: 680px) {
-    width: 220px;
-  }
-  @media (max-width: 420px) {
-    width: 180px;
+  @media screen and (max-width: 680px) {
+    left: 2px;
+    max-width: 280px;
   }
 `
 export const DropDownDateContainer = styled.div`

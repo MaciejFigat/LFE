@@ -60,7 +60,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
             <DropDownHeaderMini onClick={toggling}>
               <SpaceAroundWrapper>
                 <SvgWrapperMiscSmall>
-                  <SvgIcon variant='cog' noContent lowerPosition='2px' />
+                  <SvgIcon variant='admin' noContent lowerPosition='2px' />
                 </SvgWrapperMiscSmall>
               </SpaceAroundWrapper>
             </DropDownHeaderMini>
@@ -146,9 +146,6 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                 <ListItem>
                   <ColorChange />
                 </ListItem>
-                {/* <ListItem>
-                  <ColorDropdown />
-                </ListItem> */}
               </DropDownList>
             </NavDropDownListContainer>
           )}

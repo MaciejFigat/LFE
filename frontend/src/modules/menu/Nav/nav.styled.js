@@ -145,8 +145,7 @@ export const MobileNavList = styled.ul`
   gap: 0.55rem;
 
   @media (max-width: 520px) {
-    width: 90%;
-    gap: 0rem;
+    justify-content: space-between;
   }
 `
 export const HeaderLoginWrapper = styled.div`

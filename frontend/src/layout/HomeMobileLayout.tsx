@@ -59,7 +59,6 @@ const HomeMobileLayout: React.FC<HomeMobileLayoutProps> = () => {
 
       tertiaryContent: (
         <HorizontalWrapperMobile>
-          {' '}
           <SelectMainKeyword />
           <HeroProjectExport />
         </HorizontalWrapperMobile>

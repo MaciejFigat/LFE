@@ -37,7 +37,6 @@ interface NavDropdownProps {
 
 const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
   const [searchQuery, setSearchQuery] = useState<string>('')
-
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
   const [isOpen, setIsOpen] = useState(false)

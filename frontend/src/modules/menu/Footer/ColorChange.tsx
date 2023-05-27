@@ -5,7 +5,7 @@ import {
   SpaceAroundWrapperDropdown,
   SwitchDivMisc,
   SwitchHandleMisc,
-  SwitchTextMisc,
+  SwitchTextMisc
 } from '../../../styles/misc.styled'
 import { NavIcon } from '../../../styles/misc.styled'
 import { faSun } from '@fortawesome/free-regular-svg-icons'
@@ -16,18 +16,17 @@ const ColorChange: React.FC<ColorChangeProps> = () => {
   const dispatch = useAppDispatch()
 
   const preferedScheme: string = useAppSelector(
-    (state) => state.preference.preferedScheme
+    state => state.preference.preferedScheme
   )
   const [isDark, setIsDark] = useState(false)
 
   const spring = {
     type: 'spring',
     stiffness: 700,
-    damping: 30,
+    damping: 30
   }
   const toggleSwitch = () => {
-    // setIsOn(!isOn)
-    setIsDark((isDark) => !isDark)
+    setIsDark(isDark => !isDark)
     switch (preferedScheme) {
       case 'primary':
         dispatch(preferedSchemeEdit('secondary'))
