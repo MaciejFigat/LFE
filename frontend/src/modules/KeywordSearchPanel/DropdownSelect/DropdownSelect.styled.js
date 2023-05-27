@@ -54,20 +54,16 @@ export const DropDownSvgRoundedLeft = styled(DropDownSvgRounded)`
   }
 `
 export const DropDownHeader = styled(motion.div)`
+  display: grid;
+  place-items: center center;
   cursor: pointer;
   user-select: none;
-  min-width: ${({ wide }) => (wide ? '220px' : '157px')};
 
+  min-width: ${({ wide }) => (wide ? '220px' : '157px')};
   max-width: ${({ wide }) => (wide ? '220px' : '157px')};
   height: 40px;
-
-  padding: 0.48rem 0.5rem 0.48rem 1rem;
-
-  border-right: 1px solid var(--background-blur2);
-  border-top: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background-blur1);
-
+  padding-top: 0.5rem;
+  border: 1px solid var(--background-blur2);
   font-weight: 500;
   font-size: 1rem;
   color: var(--background4-main);
@@ -78,9 +74,8 @@ export const DropDownHeader = styled(motion.div)`
     box-shadow: var(--boxShadowInset1);
     transition: all 0.1s ease-out;
     color: var(--background-secondary1);
-
-    border-right: 1px solid var(--background-blur1);
-    border-top: 1px solid var(--background-blur1);
+    border-right: 1px solid var(--background-blur2);
+    border-top: 1px solid var(--background-blur2);
     border-left: 1px solid var(--background-blur1);
     border-bottom: 1px solid var(--background-blur1);
   }
@@ -97,23 +92,15 @@ export const DropDownListContainer = styled.div`
   z-index: 13;
 `
 export const DropDownList = styled.div`
-  //todo
   position: relative;
-  top: 10px;
   user-select: none;
   z-index: 13;
-  left: -10px;
   padding: 0;
   margin: 0;
   border-radius: 10px;
   padding-left: 1rem;
   padding-right: 0.5rem;
   background: var(--background1-main);
-  /* background: var(--background-blur1); */
-  /* background: var(--background-blur1); */
-  /* backdrop-filter: blur(8px) saturate(180%); */
-  /* -webkit-backdrop-filter: blur(8px) saturate(180%); */
-
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
@@ -187,18 +174,20 @@ export const TitleInputMainKeyword = styled(motion.input)`
   color: var(--background4-main);
   text-align: center;
   height: 40px;
-  padding: 0.8rem 0.5rem 0.8rem 0.5rem;
   margin: 0;
   line-height: normal;
-  background: transparent;
   outline: 0;
   background-color: transparent;
   border: none;
   min-width: ${({ wide }) => (wide ? '220px' : '157px')};
   max-width: ${({ wide }) => (wide ? '220px' : '157px')};
-  border: 1px solid var(--background-blur2);
+  border: 1px solid var(--background-secondary1);
+  border-top: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
+  border-left: 1px solid var(--background-blur2);
+
   &:focus {
-    border-color: var(--background-secondary1);
+    border-bottom: 1px solid var(--background-secondary2);
     outline: 0;
   }
   font-size: inherit;
@@ -213,10 +202,7 @@ export const OptionsDropdownContainer = styled.div`
   padding-left: 1rem;
   justify-content: space-between;
   align-items: center;
-  position: relative;
   height: 3rem;
-  left: -10px;
-  top: 10px;
   background: var(--background1-main);
   width: 250px;
   border-radius: 15px;

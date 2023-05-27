@@ -63,8 +63,7 @@ export const ButtonSmall = styled(ButtonBig)`
 `
 export const ButtonVerySmall = styled(ButtonBig)`
   padding: 0.275rem 0.55rem;
-  font-size: 0.85rem;
-  font-size: var(--font-size-small-plus);
+  font-size: var(--font-size-medium);
   margin: 0;
   margin-right: 0.25rem;
   background: none;

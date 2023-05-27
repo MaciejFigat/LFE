@@ -353,14 +353,20 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
             optionsNewKeywordOpen &&
             !keywordCreation &&
             !keywordEditing && (
-              <RelativeWrapper top='15px' left='38px'>
+              <RelativeWrapper
+                left={wide ? '60px' : '27px'}
+                top={wide ? '10px' : '5px'}
+              >
                 <ButtonSmall variant='success' onClick={saveTempKeywordHelper}>
                   Dodaj nowy projekt
                 </ButtonSmall>
               </RelativeWrapper>
             )}
           {optionsOpen && !keywordCreation && !keywordEditing && (
-            <RelativeWrapper left='5px'>
+            <RelativeWrapper
+              left={wide ? '30px' : '-4px'}
+              top={wide ? '10px' : '7px'}
+            >
               <OptionsDropdownContainer>
                 <RelativeWrapper top='35px' left='0px'>
                   <ButtonVerySmall
@@ -409,49 +415,62 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
             </RelativeWrapper>
           )}
           {(keywordEditing || keywordCreation) && (
-            <OptionsDropdownContainer>
-              <RelativeWrapper top='12px'>
-                <ButtonVerySmall
-                  variant='primaryEmpty'
-                  onClick={stopEditingHandler}
-                >
-                  <SvgIcon
-                    variant='back'
-                    toBottom
-                    toLeft='-40px'
-                    contentAfter='wróć'
-                  />
-                </ButtonVerySmall>
-              </RelativeWrapper>
-              {keywordCreation ? (
+            <RelativeWrapper
+              left={wide ? '30px' : '-4px'}
+              top={wide ? '10px' : '7px'}
+            >
+              <OptionsDropdownContainer>
                 <RelativeWrapper top='12px'>
                   <ButtonVerySmall
-                    variant='successEmpty'
-                    onClick={saveNewKeywordHelper}
-                  >
-                    <SvgIcon variant='save' toBottom contentAfter='zapisz' />
-                  </ButtonVerySmall>
-                </RelativeWrapper>
-              ) : (
-                <RelativeWrapper top='12px'>
-                  <ButtonVerySmall
-                    variant='successEmpty'
-                    onClick={saveEditedKeywordHelper}
+                    variant='primaryEmpty'
+                    onClick={stopEditingHandler}
                   >
                     <SvgIcon
-                      variant='save'
+                      variant='back'
                       toBottom
-                      contentAfter='zapisz zmiany'
+                      width='60px'
+                      toTop='15px'
+                      toLeft='-5px'
+                      contentAfter='powrót'
                     />
                   </ButtonVerySmall>
                 </RelativeWrapper>
-              )}
-            </OptionsDropdownContainer>
+                {keywordCreation ? (
+                  <RelativeWrapper top='12px'>
+                    <ButtonVerySmall
+                      variant='successEmpty'
+                      onClick={saveNewKeywordHelper}
+                    >
+                      <SvgIcon variant='save' toBottom contentAfter='zapisz' />
+                    </ButtonVerySmall>
+                  </RelativeWrapper>
+                ) : (
+                  <RelativeWrapper top='20px'>
+                    <ButtonVerySmall
+                      variant='successEmpty'
+                      onClick={saveEditedKeywordHelper}
+                    >
+                      <SvgIcon
+                        variant='save'
+                        toBottom
+                        contentAfter='zapisz zmiany'
+                        toTop='15px'
+                        toLeft='-5px'
+                        width='70px'
+                      />
+                    </ButtonVerySmall>
+                  </RelativeWrapper>
+                )}
+              </OptionsDropdownContainer>
+            </RelativeWrapper>
           )}
         </DropDownListContainer>
 
         {isOpen && uniqueKeywords.length > 1 && (
-          <RelativeWrapper left='10px'>
+          <RelativeWrapper
+            left={wide ? '30px' : '0px'}
+            top={wide ? '10px' : '7px'}
+          >
             <DropDownListContainer>
               <DropDownList>
                 <ListItemHighlight onClick={setNoKeywordHelper}>
