@@ -67,7 +67,7 @@ const MobileNavIcons: React.FC<MobileNavIconsProps> = ({ scrollDirection }) => {
                       variant={iconVariant}
                       noMargin
                       noContent
-                      lowerPosition='2px'
+                      lowerPosition='4px'
                     />
                   </MobileSvgDiv>
                 </NavLink>

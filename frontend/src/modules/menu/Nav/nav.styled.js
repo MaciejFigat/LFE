@@ -133,7 +133,11 @@ export const MobileIconsWrapper = styled(motion.div)`
   justify-content: center;
   @media (max-width: 540px) {
     min-width: 70vw;
+    /* background: lime; */
     justify-content: flex-end;
+  }
+  @media (max-width: 330px) {
+    min-width: 85vw;
   }
 `
 export const MobileNavList = styled.ul`
