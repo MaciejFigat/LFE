@@ -10,7 +10,11 @@ import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import ProjectDropdown from '../Dropdowns/ProjectDropdown'
-import { DropDownHeaderMenu } from '../../../styles/misc.styled'
+import {
+  DropDownHeaderMenu,
+  RelativeWrapper
+} from '../../../styles/misc.styled'
+import NavDropdown from '../Dropdowns/NavDropdown'
 
 interface MobileNavIconsProps {
   scrollDirection?: 'up' | 'down' | 'top' | undefined | null
@@ -77,6 +81,11 @@ const MobileNavIcons: React.FC<MobileNavIconsProps> = ({ scrollDirection }) => {
             {' '}
             <ProjectDropdown scrollDirection={scrollDirection} />
           </ListItem>
+        </motion.div>
+        <motion.div variants={itemVariants}>
+          <RelativeWrapper top='0px' left='5px'>
+            <NavDropdown scrollDirection={scrollDirection} />
+          </RelativeWrapper>
         </motion.div>
       </MobileIconsWrapper>
     </MobileNavList>

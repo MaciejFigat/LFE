@@ -131,6 +131,10 @@ export const MobileIconsWrapper = styled(motion.div)`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  @media (max-width: 540px) {
+    min-width: 70vw;
+    justify-content: flex-end;
+  }
 `
 export const MobileNavList = styled.ul`
   display: flex;
@@ -145,7 +149,8 @@ export const MobileNavList = styled.ul`
   gap: 0.55rem;
 
   @media (max-width: 520px) {
-    justify-content: space-between;
+    justify-content: space-around;
+    min-width: 100vw;
   }
 `
 export const HeaderLoginWrapper = styled.div`
@@ -186,13 +191,10 @@ export const ListItem = styled(motion.div)`
     font-size: 1.15rem;
     margin-right: 0.25rem;
     margin-left: 1.25rem;
-
-    @media (max-width: 700px) and (orientation: landscape) {
-      font-size: 1.15rem;
-    }
-    @media (max-width: 500px) {
-      font-size: 1.15rem;
-    }
+  }
+  @media (max-width: 620px) {
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
   }
 `
 
@@ -212,6 +214,7 @@ export const ListItemMobile = styled.div`
     margin-left: 1.1rem;
     align-items: center;
     justify-content: center;
+    background: brown;
   }
   @media screen and (max-width: 770px) {
     padding: 0;
@@ -233,12 +236,6 @@ export const MobileViewContainer = styled.div`
 
   @media (max-width: 1020px) {
     display: flex;
-  }
-  @media (max-width: 680px) {
-    max-width: 98%;
-  }
-  @media (max-width: 540px) {
-    justify-content: space-around;
   }
 `
 export const HeaderTitleMobile = styled.h1`

@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 
-export const Main = styled.div`
-  /* height: 100vh; */
-  /* position: absolute; */
-`
+export const Main = styled.div``
 export const DropDownContainer = styled.div`
   min-width: min-content;
   margin: 0 auto;
@@ -17,8 +14,13 @@ export const ProjectNameDiv = styled.div`
   padding-right: 0.5rem;
   border-right: 1px solid var(--background-blur2);
   min-width: 92px;
-
   letter-spacing: 0.075em;
+  @media (max-width: 620px) {
+    max-width: 50px;
+    min-width: 50px;
+    overflow: hidden;
+    padding-left: 0.5rem;
+  }
 `
 export const ProjectDropDownWrapper = styled.div`
   display: flex;
@@ -30,49 +32,35 @@ export const ProjectDropDownWrapper = styled.div`
   border-left: 1px solid var(--background-blur1);
   border-radius: var(--border-radius2);
   height: 34px;
-
   padding: 0.2rem 0.4rem 0.2rem 0.5rem;
-  /* padding: 0; */
   box-shadow: var(--boxShadowNone);
-  /* color: var(--background4-main); */
-  /* 
-  background: transparent; */
+
   &:hover {
     color: var(--background4-main);
     box-shadow: var(--boxShadow1);
-    /* background: transparent; */
     svg {
       color: var(--background-secondary1);
     }
   }
-
   width: 130px;
   gap: 0.5rem;
-  /* width: 120px; */
-  /* align-items: center; */
   font-size: 0.75rem;
   @media (max-width: 1020px) {
     font-size: 0.75rem;
     font-weight: 800;
   }
-  @media screen and (max-width: 770px) {
-    /* width: 100px; */
-    /* justify-content: flex-start; */
-  }
-  @media screen and (max-width: 520px) {
-    /* width: 70px; */
+  @media (max-width: 620px) {
+    width: 90px;
   }
 `
 export const DropDownHeader = styled.div`
   display: grid;
   place-items: center center;
   min-width: 15px;
-  /* padding: 0.2rem 0.4rem 0.2rem 0.5rem; */
+
   font-weight: 500;
   font-size: 1.3rem;
   color: var(--background4-main);
-  /* color: var(--background-secondary2); */
-  /* background: var(--background1-main); */
   transition: all 0.3s ease-out;
   text-align: center;
   svg {
@@ -91,7 +79,6 @@ export const DropDownHeaderBig = styled.div`
   justify-content: space-around;
   user-select: none;
   height: 30px;
-  /* text-transform: lowercase; */
   border-radius: 12px;
   width: 150px;
   border: 1px solid var(--background-blur1);
