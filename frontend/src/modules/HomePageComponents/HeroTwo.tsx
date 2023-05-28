@@ -5,7 +5,7 @@ import HeroSearchDataSection from './HeroGridComponents/HeroSearchDataSection'
 
 import { changeResultsDetailView } from '../../features/preferences/preferenceSlice'
 import HeroWelcome from './HeroGridComponents/HeroWelcome'
-import SimpleResultDisplay from '../../components/Miscellaneous/ResultDisplay/SimpleResultDisplay'
+import SimpleResultDisplay from '../DocumentView/DocumentDisplay/SimpleDocumentDisplay'
 import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../styles/misc.styled'

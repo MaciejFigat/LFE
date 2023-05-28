@@ -25,7 +25,7 @@ import {
 } from './HeroSection.styled'
 import parse from 'html-react-parser'
 import { HorizontalWrapper } from '../../../styles/misc.styled'
-import SimpleResultDisplay from '../../../components/Miscellaneous/ResultDisplay/SimpleResultDisplay'
+import SimpleResultDisplay from '../../DocumentView/DocumentDisplay/SimpleDocumentDisplay'
 import { AppDispatch } from '../../../app/store'
 //! problem solved with parse - html-react-parser - prarses string to html in React
 

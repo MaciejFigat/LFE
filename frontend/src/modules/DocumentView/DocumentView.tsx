@@ -5,13 +5,14 @@ import { UserInfo } from '../../interfaces'
 import FragmentsColumn from '../modules/../FragmentsColumn/FragmentsColumn'
 import ResizableScrollSection from '../../components/Miscellaneous/ScrollSection/ResizableScrollSection'
 import UserFragmentsColumn from '../../modules/FragmentsColumn/UserFragmentsColumn'
-import ResultDisplay from '../../components/Miscellaneous/ResultDisplay/ResultDisplay'
+import ResultDisplay from './DocumentDisplay/DocumentDisplay'
 import DataSectionSimple from '../../modules/InfoSection/DataSectionSimple'
 import UserFragmentsByKeyword from '../../modules/FragmentsColumn/UserFragmentsByKeyword'
 import SharedChoiceWrapper from '../../modules/FragmentsColumn/SharedChoiceWrapper/SharedChoiceWrapper'
 import PupupEditWindow from '../../modules/DragAndDropProject/PopupEditWindow/PupupEditWindow'
 import { DataContainerSimple } from '../../modules/InfoSection/InfoSection.styled'
 import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
+import { HeroDesktop } from '../../layout/layout.styled'
 
 interface DocumentViewProps {}
 
@@ -46,7 +47,7 @@ const DocumentView: React.FC<DocumentViewProps> = () => {
   }, [dispatch])
 
   return (
-    <>
+    <HeroDesktop>
       <AnimateSharedLayout type='crossfade'>
         <AnimatePresence>
           {idOpenFragment !== '' && (
@@ -122,7 +123,7 @@ const DocumentView: React.FC<DocumentViewProps> = () => {
           wideSection={<ResultDisplay />}
         />
       </AnimateSharedLayout>
-    </>
+    </HeroDesktop>
   )
 }
 export default DocumentView

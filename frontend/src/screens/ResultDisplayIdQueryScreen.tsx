@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { UserInfo } from '../interfaces'
 import { useParams } from 'react-router-dom'
 import UserFragmentsColumn from '../modules/FragmentsColumn/UserFragmentsColumn'
-import ResultDisplay from '../components/Miscellaneous/ResultDisplay/ResultDisplay'
+import ResultDisplay from '../modules/DocumentView/DocumentDisplay/DocumentDisplay'
 import DataSectionSimple from '../modules/InfoSection/DataSectionSimple'
 import UserFragmentsByKeyword from '../modules/FragmentsColumn/UserFragmentsByKeyword'
 

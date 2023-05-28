@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { useAppSelector } from '../../../app/reduxHooks'
+import React, { useEffect } from 'react'
+import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 import parse from 'html-react-parser'
-import HighlightPopMenu from '../HighlightPopRemake/HighlightPopMenu'
+import HighlightPopMenu from '../../../components/Miscellaneous/HighlightPopRemake/HighlightPopMenu'
 import {
   ArticleWrapper,
   ArticleTitle,
@@ -10,34 +10,53 @@ import {
   ArticleParagraph,
   ArticleContainer
 } from './ResultDisplay.styled'
-import SideButtons from '../SideButtons/SideButtons'
-import ScrollToElementHelper from '../../../hooks/ScrollToElementHelper'
+import { getDocByIdAndQuery } from '../../../features/searchResults/searchResultsSlice'
+import { LoadingAbsolutePopup } from '../../../styles/misc.styled'
+import { AnimatePresence } from 'framer-motion'
 
-interface ResultDisplayProps {
+interface SimpleDocumentDisplayProps {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'blue'
   imgStart?: boolean
 }
 
-const ResultDisplay: React.FC<ResultDisplayProps> = () => {
+const SimpleDocumentDisplay: React.FC<SimpleDocumentDisplayProps> = () => {
+  const dispatch = useAppDispatch()
   const docResult: any = useAppSelector(state => state.searchResult.docResult)
-  const { frags: highlightedFragments } = docResult
-  const [hashIds, setHashIds] = useState<string[]>([])
+  const searchResult: any = useAppSelector(state => state.searchResult)
+  const heroDocIndex: number = useAppSelector(
+    state => state.searchResult.heroDocIndex
+  )
+  const { data, query } = searchResult.searchResults
+  const { loadingDoc } = searchResult
 
-  //! useEffect to look for id's: frag-0, frag-1 etc.
   useEffect(() => {
-    const idArray: string[] = []
-    if (highlightedFragments) {
-      for (let i = 0; i < highlightedFragments.length; i++) {
-        idArray.push(`frag-${i}`)
+    if (data && data.length > 0) {
+      const searchquery = {
+        query: query,
+        docNumber: data[heroDocIndex ?? 0].doc_id ?? 0
       }
-      setHashIds(idArray)
+
+      const { data: resultData } = docResult
+      if (data?.length > 0 && resultData?.length === 0) {
+        dispatch(getDocByIdAndQuery(searchquery))
+      }
     }
-  }, [highlightedFragments])
+  }, [heroDocIndex, dispatch, data, query, docResult])
 
   return (
     <ArticleContainer>
-      <ScrollToElementHelper />
-      <SideButtons hashIds={hashIds} />
+      {loadingDoc ? (
+        <AnimatePresence exitBeforeEnter>
+          <LoadingAbsolutePopup
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            Ładowanie dokumentu ...
+          </LoadingAbsolutePopup>
+        </AnimatePresence>
+      ) : null}
 
       <ArticleWrapper>
         {docResult?.tresc?.sad && (
@@ -50,7 +69,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
               {' '}
               {docResult.tresc.dataOrzeczenia}
             </ArticleTopline>{' '}
-            <HighlightPopMenu>
+            <HighlightPopMenu heroYPosition>
               {docResult.korpus.map((korpusElement: any) => (
                 <ArticleSection key={Math.random()}>
                   {korpusElement.map((korpusParagraph: any) => (
@@ -80,4 +99,4 @@ const ResultDisplay: React.FC<ResultDisplayProps> = () => {
     </ArticleContainer>
   )
 }
-export default ResultDisplay
+export default SimpleDocumentDisplay
