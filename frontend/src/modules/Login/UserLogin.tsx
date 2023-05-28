@@ -22,9 +22,7 @@ import {
 } from './login'
 import useRedirectLoggedListener from '../../hooks/useRedirectListenerLogged'
 import { sendEmailToResetPassword } from '../../features/users/userSlice'
-import { UserInfo } from '../../interfaces'
 import { resetUserFragments } from '../../features/fragments/fragmentSlice'
-
 import { validateEmail, validatePassword } from './functions/validateForm'
 import {
   HighlightText,
@@ -33,14 +31,15 @@ import {
 } from '../../styles/misc.styled'
 import { ButtonVariants, TextColor } from '../../consts'
 import { ButtonBig } from '../../components/Buttons/Buttons.styled'
+import { ThreeDots } from 'react-loader-spinner'
 
 interface LoginProps {}
 
 const UserLogin: React.FC<LoginProps> = () => {
   const dispatch = useAppDispatch()
 
-  const userInfoRedux: UserInfo = useAppSelector(state => state.user.userInfo)
-
+  const userData = useAppSelector(state => state.user)
+  const { userInfo: userInfoRedux, loading } = userData
   useRedirectLoggedListener()
 
   const [email, setEmail] = useState('')
@@ -87,7 +86,19 @@ const UserLogin: React.FC<LoginProps> = () => {
     <LoginContainer>
       <Wrapper>
         <LoginWrapper>
-          <LoginTitleHeader>Witamy</LoginTitleHeader>
+          <LoginTitleHeader>
+            Witamy{' '}
+            {loading ? (
+              <HorizontalWrapper>
+                <ThreeDots
+                  height={'22'}
+                  width={'22'}
+                  color='var(--background-secondary1)'
+                  ariaLabel='loading'
+                />
+              </HorizontalWrapper>
+            ) : null}
+          </LoginTitleHeader>
           <Form onSubmit={submitHandler}>
             <LoginInputsWrapper>
               <FormLabel

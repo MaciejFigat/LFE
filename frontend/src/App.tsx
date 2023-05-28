@@ -8,13 +8,13 @@ import UserAdminEdit from './screens/UserAdminEdit'
 import UserListAdmin from './screens/UserListAdmin'
 import AdminPanel from './screens/AdminPanel'
 import StoredFragments from './screens/StoredFragments'
-import ResultDisplayScreen from './screens/ResultDisplayScreen'
 import ResultDisplayIdQueryScreen from './screens/ResultDisplayIdQueryScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import UserProfileScreen from './screens/UserProfileScreen'
 import ResetPasswordScreen from './modules/Login/ResetPassword'
 import ConfirmAccountScreen from './screens/ConfirmAccountScreen'
+import DocumentViewScreen from './screens/DocumentViewScreen'
 
 function App () {
   const location = useLocation()
@@ -29,7 +29,7 @@ function App () {
       <Routes location={location} key={location.key}>
         <Route path='/login' element={<LoginScreen />} />
         <Route path='/register' element={<RegisterScreen />} />
-        <Route path='/search/result' element={<ResultDisplayScreen />} />
+        <Route path='/search/result' element={<DocumentViewScreen />} />
         <Route
           path='/search/result/:id/:query'
           element={<ResultDisplayIdQueryScreen />}

@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
-import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
-import { UserInfo } from '../interfaces'
-import FragmentsColumn from '../modules/FragmentsColumn/FragmentsColumn'
-import ResizableScrollSection from '../components/Miscellaneous/ScrollSection/ResizableScrollSection'
-import UserFragmentsColumn from '../modules/FragmentsColumn/UserFragmentsColumn'
-import ResultDisplay from '../components/Miscellaneous/ResultDisplay/ResultDisplay'
-import DataSectionSimple from '../modules/InfoSection/DataSectionSimple'
-import UserFragmentsByKeyword from '../modules/FragmentsColumn/UserFragmentsByKeyword'
-import SharedChoiceWrapper from '../modules/FragmentsColumn/SharedChoiceWrapper/SharedChoiceWrapper'
-import PupupEditWindow from '../modules/DragAndDropProject/PopupEditWindow/PupupEditWindow'
-import { DataContainerSimple } from '../modules/InfoSection/InfoSection.styled'
-import { editIdOpenFragment } from '../features/preferences/preferenceSlice'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+import { UserInfo } from '../../interfaces'
+import FragmentsColumn from '../modules/../FragmentsColumn/FragmentsColumn'
+import ResizableScrollSection from '../../components/Miscellaneous/ScrollSection/ResizableScrollSection'
+import UserFragmentsColumn from '../../modules/FragmentsColumn/UserFragmentsColumn'
+import ResultDisplay from '../../components/Miscellaneous/ResultDisplay/ResultDisplay'
+import DataSectionSimple from '../../modules/InfoSection/DataSectionSimple'
+import UserFragmentsByKeyword from '../../modules/FragmentsColumn/UserFragmentsByKeyword'
+import SharedChoiceWrapper from '../../modules/FragmentsColumn/SharedChoiceWrapper/SharedChoiceWrapper'
+import PupupEditWindow from '../../modules/DragAndDropProject/PopupEditWindow/PupupEditWindow'
+import { DataContainerSimple } from '../../modules/InfoSection/InfoSection.styled'
+import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
 
-interface ResultDisplayScreenProps {}
+interface DocumentViewProps {}
 
-const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
+const DocumentView: React.FC<DocumentViewProps> = () => {
   const dispatch: any = useAppDispatch()
 
   const userInfo: UserInfo = useAppSelector(state => state.user.userInfo)
@@ -74,20 +74,21 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
                 <DataContainerSimple width={widthNarrow}>
                   {!showFragmentsState &&
                     data.length > 0 &&
-                    data.slice(start, end + 1).map((fragmentArray: any) => (
-                      <DataSectionSimple
-                        variant='primary'
-                        // imgStart
-                        istota_interpretacji={
-                          fragmentArray.istota_interpretacji
-                        }
-                        key={fragmentArray['uuid']}
-                        paddingTop='small'
-                        fragmentsFound={fragmentArray.fragment}
-                        metryka={fragmentArray.metryka}
-                        query={queryTrimmed}
-                      />
-                    ))}
+                    data
+                      .slice(start, end + 1)
+                      .map((fragmentArray: any) => (
+                        <DataSectionSimple
+                          variant='primary'
+                          istota_interpretacji={
+                            fragmentArray.istota_interpretacji
+                          }
+                          key={fragmentArray['uuid']}
+                          paddingTop='small'
+                          fragmentsFound={fragmentArray.fragment}
+                          metryka={fragmentArray.metryka}
+                          query={queryTrimmed}
+                        />
+                      ))}
                 </DataContainerSimple>
               </>
             ) : (
@@ -124,4 +125,4 @@ const ResultDisplayScreen: React.FC<ResultDisplayScreenProps> = () => {
     </>
   )
 }
-export default ResultDisplayScreen
+export default DocumentView

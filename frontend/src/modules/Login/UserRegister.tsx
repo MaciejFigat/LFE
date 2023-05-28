@@ -11,7 +11,7 @@ import {
   LoginTextLink,
   LoginTitleHeader
 } from './login'
-import { useAppDispatch } from '../../app/reduxHooks'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { createUser } from '../../features/users/userSlice'
 import Toast from '../../components/Miscellaneous/Toast/Toast'
 import useRedirectLoggedListener from '../../hooks/useRedirectListenerLogged'
@@ -31,12 +31,14 @@ import {
 } from './functions/validateForm'
 
 import { ButtonBig } from '../../components/Buttons/Buttons.styled'
+import { ThreeDots } from 'react-loader-spinner'
 
 interface UserRegisterProps {}
 
 const UserRegister: React.FC<UserRegisterProps> = () => {
   const dispatch: AppDispatch = useAppDispatch()
-
+  const userData = useAppSelector(state => state.user)
+  const { loading } = userData
   useRedirectLoggedListener()
   const [user, setUser] = useState({
     name: '',
@@ -78,7 +80,19 @@ const UserRegister: React.FC<UserRegisterProps> = () => {
       <Toast option='registerUser' />
       <Wrapper>
         <LoginWrapper>
-          <LoginTitleHeader>Dołącz do nas</LoginTitleHeader>
+          <LoginTitleHeader>
+            Dołącz do nas{' '}
+            {loading ? (
+              <HorizontalWrapper>
+                <ThreeDots
+                  height={'22'}
+                  width={'22'}
+                  color='var(--background-secondary1)'
+                  ariaLabel='loading'
+                />
+              </HorizontalWrapper>
+            ) : null}
+          </LoginTitleHeader>
           <Form onSubmit={handleSubmit}>
             <LoginInputsWrapper>
               <FormLabel
