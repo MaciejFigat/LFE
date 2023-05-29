@@ -8,27 +8,24 @@ import {
 import LinksPagination from '../Miscellaneous/Pagination/LinksPagination'
 import { NavLink } from 'react-router-dom'
 import { ButtonSmall, ButtonVerySmall } from '../ButtonsSend/BigButton.styled'
+import { VisitedLink, VisitedLinksPage } from '../../interfaces'
 
 interface VisitedLinksProps {
   large?: boolean
 }
 
 const VisitedLinks: React.FC<VisitedLinksProps> = ({ large }) => {
-  const visitedLinks: any[] = useAppSelector(
+  const visitedLinks: VisitedLink[] = useAppSelector(
     state => state.searchResult.visitedLinks
   )
-  const visitedLinksPage: any = useAppSelector(
+  const visitedLinksPage: VisitedLinksPage = useAppSelector(
     state => state.preference.visitedLinksPage
   )
   const { start, end } = visitedLinksPage
   const copyHandler = (id: string, query: string) => {
     if (id && query) {
-      // navigator.clipboard.writeText(`/search/result/${id}/${query}`)
       navigator.clipboard.writeText(
-        // ! here change to
-        // ! here change to
         `http://lexbis.netlify.app/search/result/${id}/${query}`
-        // `http://localhost:3000/search/result/${id}/${query}`
       )
     }
   }

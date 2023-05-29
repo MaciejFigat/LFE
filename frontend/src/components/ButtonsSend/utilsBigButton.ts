@@ -39,7 +39,6 @@ const emptySecondaryStyle: StyleVariant = {
   buttonBackground: 'var(--background-blur1)',
   buttonBackgroundHover: 'var(--background1-main)',
   buttonColorHover: 'var(--background-secondary1)',
-
   buttonColorActive: 'var(--background3-main)',
   buttonBorderActive: 'var(--background3-main)'
 }

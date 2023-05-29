@@ -40,11 +40,11 @@ import {
 import { HeroExportMain } from './HeroGridComponents/HeroExport'
 import VisitedLinks from '../../components/VisitedLinks/VisitedLinks'
 import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWindow'
-import HeroChoiceWrapper from '../FragmentsColumn/SharedChoiceWrapper/HeroChoiceWrapper'
-import HeroSortingOptions from '../FragmentsColumn/FilterWrapper/HeroSortingOptions'
+import HeroChoiceWrapper from '../Fragments/SharedChoiceWrapper/HeroChoiceWrapper'
+import HeroSortingOptions from '../Fragments/FilterWrapper/HeroSortingOptions'
 import SelectMainKeyword from '../KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
 import HeroProjectExport from './HeroGridComponents/HeroProjectExport'
-import UserFragmentsByKeywordHero from '../FragmentsColumn/UserFragmentsByKeywordHero'
+import UserFragmentsByKeywordHero from '../Fragments/UserFragmentsByKeywordHero'
 import HeroProjectCategories from './HeroGridComponents/HeroProjectCategories'
 import HeroProjectButtons from './HeroGridComponents/HeroProjectButtons'
 import HeroChangeDetail from './HeroGridComponents/HeroChangeDetail'
@@ -247,17 +247,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
               </RegularDiv>
             </HeroNavOneBig>{' '}
             <HeroNavTwo>
-              {/* <AnimatePresence exitBeforeEnter> */}
-              {/* <motion.div
-              key={selectedTab ? selectedTab.label : 'empty'}
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            > */}
               {selectedTab ? selectedTab.tertiaryContent : null}
-              {/* </motion.div> */}
-              {/* </AnimatePresence> */}
             </HeroNavTwo>
           </HeroNavigation>
 

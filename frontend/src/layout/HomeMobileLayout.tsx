@@ -29,7 +29,7 @@ import HomeSearchResultsSmall from '../modules/HomePageComponents/HeroGridCompon
 
 import SvgIcon from '../components/SvgIcon/SvgIcon'
 import { ButtonVerySmall } from '../components/Buttons/Buttons.styled'
-import UserFragmentsByKeywordHero from '../modules/FragmentsColumn/UserFragmentsByKeywordHero'
+import UserFragmentsByKeywordHero from '../modules/Fragments/UserFragmentsByKeywordHero'
 import HeroProjectCategories from '../modules/HomePageComponents/HeroGridComponents/HeroProjectCategories'
 import SelectMainKeyword from '../modules/KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
 import HeroProjectButtons from '../modules/HomePageComponents/HeroGridComponents/HeroProjectButtons'

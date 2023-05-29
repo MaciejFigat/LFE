@@ -136,22 +136,7 @@ body {
 
   
 
-   --bluegreen1:#A4DBE4;
-   --bluegreen2:#FA990E;
-   --bluegreen3:#FECC47;
-   --bluegreen4:#5B8D27;
-   --bluegreen5:#114B0B;
-   --bluegreen6:#006AC3;
-   --bluegreen7:#AD123F;
-   --bluegreen8:#ECA0C1;
-   --bluegreen9:#A3BF89;
-   --bluegreen10:#00C2E1;
-   --bluegreen11:#FE7BFF;
-   
-       
-  --orange1: #ca6702;
-  --orange2: #ee9b00;
-  --orange3: #fca311;
+
 
     --success1: ${(props) => handleGlobalScheme(props.globalScheme).success1}
    
@@ -163,15 +148,9 @@ body {
     --warning2: ${(props) => handleGlobalScheme(props.globalScheme).warning1}
 
     --danger1: ${(props) => handleGlobalScheme(props.globalScheme).danger1}
-    --danger2: ${(props) => handleGlobalScheme(props.globalScheme).danger1}
-    
-    --background-blue1: #ADD7F6;
-    --background-blue2: #87BFFF;
-    --background-blue3: #3F8EFC;
-    --background-blue4: #2667FF;
-    --background-blue5: #3B28CC;
-    --background-blue6: #086788;
-    --background-blue7: #7EBDC2;
+    --danger2: ${(props) => handleGlobalScheme(props.globalScheme).danger2}
+    --danger3: ${(props) => handleGlobalScheme(props.globalScheme).danger3}
+
     
     --border-radius0: 5px;
     --border-radius1: 10px;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
-import UserFragmentsByKeyword from '../../FragmentsColumn/UserFragmentsByKeyword'
-import UserFragmentsColumn from '../../FragmentsColumn/UserFragmentsColumn'
+import UserFragmentsByKeyword from '../../Fragments/UserFragmentsByKeyword'
+import UserFragmentsColumn from '../../Fragments/UserFragmentsColumn'
 interface HeroSavedProps {}
 
 const HeroSavedMain: React.FC<HeroSavedProps> = () => {
@@ -9,7 +9,7 @@ const HeroSavedMain: React.FC<HeroSavedProps> = () => {
 }
 
 const HeroSavedOne: React.FC<HeroSavedProps> = () => {
-  const citations: any[] = useAppSelector((state) => state.fragment.citations)
+  const citations: any[] = useAppSelector(state => state.fragment.citations)
   return (
     <div>
       {citations?.length > 1 ? (
@@ -25,7 +25,7 @@ const HeroSavedTwo: React.FC<HeroSavedProps> = () => {
 }
 const HeroFragmentsDisplay: React.FC<HeroSavedProps> = () => {
   const sortingOption: string = useAppSelector(
-    (state) => state.preference.sortingOption
+    state => state.preference.sortingOption
   )
   return (
     <>

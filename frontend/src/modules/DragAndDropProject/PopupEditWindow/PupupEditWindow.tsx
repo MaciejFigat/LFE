@@ -17,6 +17,7 @@ import {
   CenteredTitle,
   ClosingDivBig,
   HorizontalWrapperGap,
+  HorizontalWrapperGapMobile,
   OpenedDivBig
 } from '../../../styles/misc.styled'
 
@@ -32,13 +33,14 @@ import {
 } from './PopupEditWindow.styled'
 import { editIdOpenFragment } from '../../../features/preferences/preferenceSlice'
 import FragmentKeywordDisplay from './FragmentKeywordDisplay'
-import { ButtonSmall } from '../../../components/ButtonsSend/BigButton.styled'
 import { AppDispatch } from '../../../app/store'
 import {
   FragmentStoredAllData,
   FragmentUpdated,
   FragmentStoredSimple
 } from '../../../interfaces'
+import { ButtonSmall } from '../../../components/Buttons/Buttons.styled'
+import { ButtonVariants } from '../../../consts'
 
 interface PupupEditWindowProps {
   openedApp?: string | null
@@ -202,42 +204,63 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
 
       <FragmentDivPopup>
         <PopupTitleContainer>
-          <HorizontalWrapperGap>
+          <HorizontalWrapperGapMobile>
             {titleEditing ? (
-              <ButtonSmall variant='primary' onClick={toggleEditing}>
-                Anuluj zmiany
-              </ButtonSmall>
-            ) : (
-              <ButtonSmall variant='secondary' onClick={toggleEditing}>
-                Zmień tytuł
-              </ButtonSmall>
-            )}
-            {titleEditing && titleValue !== openedFragment.title ? (
-              <ButtonSmall variant='success' onClick={saveTitleHandler}>
-                Zapisz tytuł
-              </ButtonSmall>
-            ) : null}
-            {excerptEditing ? (
-              <ButtonSmall variant='primary' onClick={toggleExcerptReset}>
-                Anuluj zmiany
-              </ButtonSmall>
-            ) : (
-              <ButtonSmall variant='secondary' onClick={toggleExcerptEditing}>
-                Edytuj cytat
-              </ButtonSmall>
-            )}
-            {excerptEditing && excerptValue !== openedFragment.excerpt ? (
-              <ButtonSmall variant='success' onClick={saveExcerptHandler}>
-                Zapisz zmiany cytatu
-              </ButtonSmall>
-            ) : null}
-            {descriptionEditing ? (
-              <ButtonSmall variant='primary' onClick={toggleDescriptionReset}>
+              <ButtonSmall
+                variant={ButtonVariants.SECONDARY}
+                onClick={toggleEditing}
+              >
                 Anuluj zmiany
               </ButtonSmall>
             ) : (
               <ButtonSmall
-                variant='secondary'
+                variant={ButtonVariants.PRIMARY}
+                onClick={toggleEditing}
+              >
+                Zmień tytuł
+              </ButtonSmall>
+            )}
+            {titleEditing && titleValue !== openedFragment.title ? (
+              <ButtonSmall
+                variant={ButtonVariants.SUCCESS}
+                onClick={saveTitleHandler}
+              >
+                Zapisz tytuł
+              </ButtonSmall>
+            ) : null}
+            {excerptEditing ? (
+              <ButtonSmall
+                variant={ButtonVariants.SECONDARY}
+                onClick={toggleExcerptReset}
+              >
+                Anuluj zmiany
+              </ButtonSmall>
+            ) : (
+              <ButtonSmall
+                variant={ButtonVariants.PRIMARY}
+                onClick={toggleExcerptEditing}
+              >
+                Edytuj cytat
+              </ButtonSmall>
+            )}
+            {excerptEditing && excerptValue !== openedFragment.excerpt ? (
+              <ButtonSmall
+                variant={ButtonVariants.SUCCESS}
+                onClick={saveExcerptHandler}
+              >
+                Zapisz cytat
+              </ButtonSmall>
+            ) : null}
+            {descriptionEditing ? (
+              <ButtonSmall
+                variant={ButtonVariants.SECONDARY}
+                onClick={toggleDescriptionReset}
+              >
+                Anuluj zmiany
+              </ButtonSmall>
+            ) : (
+              <ButtonSmall
+                variant={ButtonVariants.PRIMARY}
                 onClick={toggleDescriptionEditing}
               >
                 Dodaj komentarz
@@ -245,12 +268,18 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
             )}
             {descriptionEditing &&
             descriptionValue !== openedFragment.description ? (
-              <ButtonSmall variant='success' onClick={saveDescriptionHandler}>
-                Zapisz zmiany komentarza
+              <ButtonSmall
+                variant={ButtonVariants.SUCCESS}
+                onClick={saveDescriptionHandler}
+              >
+                Zapisz komentarz
               </ButtonSmall>
             ) : null}
-          </HorizontalWrapperGap>
-          <ButtonSmall variant='danger' onClick={() => removeFragmentHandler()}>
+          </HorizontalWrapperGapMobile>
+          <ButtonSmall
+            variant={ButtonVariants.DANGER}
+            onClick={() => removeFragmentHandler()}
+          >
             Usuń fragment
           </ButtonSmall>
         </PopupTitleContainer>
@@ -278,8 +307,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
         </CenteredTitle>
         <PopupDatePar>{openedFragment?.source}</PopupDatePar>
         <PopupDatePar>{openedFragment?.coordinates}</PopupDatePar>
-        {/* <KeywordEditing id={idOpen} setOpenedApp={setOpenedApp} /> */}
-        {/* //todo excerpt editing/display below */}
+
         <PopupListRow>
           <PopupTitleContainer>
             {!excerptEditing ? (
@@ -307,7 +335,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
             )}
           </PopupTitleContainer>
         </PopupListRow>
-        {/* //todo description editing/display below */}
+
         {descriptionValue !== 'komentarz' || descriptionEditing ? (
           <PopupListRow>
             {!descriptionEditing ? (
@@ -339,12 +367,14 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
         ) : null}
         <PopupTitleContainer>
           {' '}
-          <HorizontalWrapperGap>
-            <PopupB> Projekty:</PopupB>
-            <FragmentKeywordDisplay id={idOpen} />
-          </HorizontalWrapperGap>
+          {openedFragment.keywords.length > 1 ? (
+            <HorizontalWrapperGap>
+              <PopupB> Projekty:</PopupB>
+              <FragmentKeywordDisplay id={idOpen} />
+            </HorizontalWrapperGap>
+          ) : null}
           <PopupDatePar>
-            Aktualizowano {openedFragment?.updatedAt.substring(0, 10)} o{' '}
+            Ost. aktualizacja {openedFragment?.updatedAt.substring(0, 10)} o{' '}
             {openedFragment?.updatedAt.substring(12, 16)}{' '}
           </PopupDatePar>{' '}
         </PopupTitleContainer>

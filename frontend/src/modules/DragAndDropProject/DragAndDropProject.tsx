@@ -69,10 +69,6 @@ interface DragAndDropProjectProps {}
 const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   const dispatch: AppDispatch = useAppDispatch()
 
-  // const fragments: any[] = useAppSelector(state => state.fragment.userFragments)
-  // const fragmentsKeywordMain: any[] = useAppSelector(
-  //   state => state.fragment.fragmentsKeywordMain
-  // )
   const fragments = useAppSelector<Array<FragmentStored>>(
     state => state.fragment.userFragments
   )

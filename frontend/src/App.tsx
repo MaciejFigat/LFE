@@ -7,7 +7,6 @@ import ScrollTopHelper from './hooks/ScrollTopHelper'
 import UserAdminEdit from './screens/UserAdminEdit'
 import UserListAdmin from './screens/UserListAdmin'
 import AdminPanel from './screens/AdminPanel'
-import StoredFragments from './screens/StoredFragments'
 import ResultDisplayIdQueryScreen from './screens/ResultDisplayIdQueryScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
@@ -15,6 +14,7 @@ import UserProfileScreen from './screens/UserProfileScreen'
 import ResetPasswordScreen from './modules/Login/ResetPassword'
 import ConfirmAccountScreen from './screens/ConfirmAccountScreen'
 import DocumentViewScreen from './screens/DocumentViewScreen'
+import StoredFragmentsScreen from './screens/StoredFragmentsScreen'
 
 function App () {
   const location = useLocation()
@@ -34,7 +34,7 @@ function App () {
           path='/search/result/:id/:query'
           element={<ResultDisplayIdQueryScreen />}
         />
-        <Route path='/storage' element={<StoredFragments />} />
+        <Route path='/storage' element={<StoredFragmentsScreen />} />
         <Route path='/resetpassword/:token' element={<ResetPasswordScreen />} />
         <Route
           path='/confirmaccount/:token'

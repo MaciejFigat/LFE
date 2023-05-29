@@ -11,7 +11,7 @@ import {
   FragmentsP,
   FragmentsPExcerpt,
   HorizontalContainer
-} from '../FragmentsColumn/FragmentsColumn.styled'
+} from '../Fragments/FragmentsColumn.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { deleteSavedFragment } from '../../features/fragments/fragmentSlice'
 import { AppDispatch } from '../../app/store'

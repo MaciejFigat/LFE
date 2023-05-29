@@ -20,7 +20,6 @@ interface FragmentCreated {
   coordinates?: string
   title?: string
   description?: string
-  // docId?: string
   docId?: number
   query?: string
   keywords?: string[]
@@ -34,7 +33,6 @@ interface FragmentCreated {
   }[]
 }
 interface UserFragments {
-  // id: string
   _id?: string
   userId?: string
   source?: string
@@ -107,7 +105,20 @@ interface FragmentUpdated {
   excerpt?: string
   description?: string
 }
-
+interface VisitedLinksPage {
+  start: number
+  end: number
+  pageNr: number
+}
+interface VisitedLink {
+  test?: boolean
+  doc_link: string | number
+  rodzaj_orzeczenia?: string
+  data?: string
+  organ?: string
+  id?: number
+  query?: string
+}
 export {
   UserInfo,
   FragmentCreated,
@@ -118,5 +129,7 @@ export {
   KeywordValue,
   ResultsPage,
   FragmentsBySource,
-  FragmentUpdated
+  FragmentUpdated,
+  VisitedLinksPage,
+  VisitedLink
 }

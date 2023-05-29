@@ -26,6 +26,7 @@ interface GlobalStyle {
   warning2?: string
   danger1?: string
   danger2?: string
+  danger3?: string
   info1?: string
   info2?: string
   boxShadow1?: string
@@ -89,8 +90,9 @@ const primaryStyle: GlobalStyle = {
 
   warning1: '#ca6702;',
   warning2: '#ee9b00;',
-  danger1: '#D22730;',
+  danger1: '#B8001F;',
   danger2: '#D22730;',
+  danger3: '#FC5970;',
 
   boxShadow1:
     'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -4px 4px 6px #151515, 0px -0px 0px #272729;',
@@ -154,15 +156,16 @@ const secondaryStyle: GlobalStyle = {
   info1: '#3a86ff;',
   info2: '#00a5cf;',
   warning1: '#fca311;',
-  danger1: '#e63946;',
-  danger2: '#e63946;',
+  danger1: '#FC5970;',
+  danger2: '#E09990;',
+  danger3: '#D22730;',
 
   boxShadow1:
     'inset 0px 0px 0px #d2d1ce, inset 0px 0px 0px #ffffff, -1px 2px 4px #a8a7a5, 5px -5px 8px #fffffe;',
   boxShadow2:
     'inset 0px 0px 0px #d2d1ce, inset 0px 0px 0px #ffffff, -3px 3px 7px #8d8c8a, 7px -7px 10px #ffffff;',
   boxShadow3: '-27px 27px 54px #a8a7a5, 27px -27px 54px #ffffff;',
-  boxShadow4: '-41px 41px 82px #999996, 41px -41px 82px #ffffff;',
+  boxShadow4: '-41px 41px 82px #999996, -3px 3px 7px #8d8c8a;',
 
   boxShadow5:
     'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -1px 1px 2px #d2d1ce, 1px -1px 1px #fffffe;',
@@ -337,6 +340,7 @@ export const handleGlobalScheme: (props: any) => {} = (props: any) => {
 
     danger1: `${style.danger1}`,
     danger2: `${style.danger2}`,
+    danger3: `${style.danger3}`,
 
     boxShadow1: `${style.boxShadow1}`,
     boxShadow2: `${style.boxShadow2}`,

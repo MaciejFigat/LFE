@@ -7,7 +7,7 @@ import {
   FragmentsP,
   FragmentsPExcerpt,
   HorizontalContainer
-} from '../FragmentsColumn/FragmentsColumn.styled'
+} from '../Fragments/FragmentsColumn.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { ItemWrapper, SimpleCitationItem } from './AnimatedList.styled'
 import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'

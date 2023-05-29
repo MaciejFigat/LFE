@@ -11,7 +11,7 @@ import {
   FragmentsP,
   FragmentsPExcerpt,
   HorizontalContainer
-} from '../FragmentsColumn/FragmentsColumn.styled'
+} from '../Fragments/FragmentsColumn.styled'
 import { RegularColumn, RelativeWrapper } from '../../styles/misc.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { TwoColumnsWrapper } from '../../styles/misc.styled'

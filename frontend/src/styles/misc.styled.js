@@ -132,6 +132,12 @@ export const OpenedDivBig = styled(OpenedLayoutDiv)`
 
   left: 10vw;
   z-index: 2;
+  @media (max-width: 620px) {
+    width: 100%;
+    left: 0;
+    padding: 0.5rem;
+    padding-left: 0;
+  }
 `
 export const TwoColumnsWrapper = styled.div`
   padding: 2rem;
@@ -208,14 +214,19 @@ export const HorizontalWrapperGap = styled.div`
     gap: 0.5rem;
   }
 `
+export const HorizontalWrapperGapMobile = styled(HorizontalWrapperGap)`
+  @media (max-width: 620px) {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+  }
+`
 export const DropDownHeaderMisc = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
   user-select: none;
-
   height: 34px;
-
   border-radius: var(--border-radius2);
   width: 150px;
   border: 1px solid var(--background-blur1);

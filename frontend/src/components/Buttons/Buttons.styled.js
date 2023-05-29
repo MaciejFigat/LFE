@@ -54,12 +54,13 @@ export const ButtonBig = styled.button`
 `
 
 export const ButtonMedium = styled(ButtonBig)`
-  padding: 0.75rem 1.85rem 0.75rem;
+  /* padding: 0.75rem 1.85rem 0.75rem; */
+  padding: 0.65rem 1.25rem 0.6rem;
   font-size: var(--font-size-medium-plus);
 `
 export const ButtonSmall = styled(ButtonBig)`
-  padding: 0.65rem 1.25rem 0.6rem;
-  font-size: var(--font-medium);
+  padding: 0.275rem 0.55rem;
+  font-size: var(--font-size-medium);
 `
 export const ButtonVerySmall = styled(ButtonBig)`
   padding: 0.275rem 0.55rem;

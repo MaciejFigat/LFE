@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
-import FragmentsColumn from '../modules/FragmentsColumn/FragmentsColumn'
+import FragmentsColumn from '../modules/Fragments/FragmentsColumn'
 import ResizableScrollSection from '../components/Miscellaneous/ScrollSection/ResizableScrollSection'
 import { useAppDispatch, useAppSelector } from '../app/reduxHooks'
 import { UserInfo } from '../interfaces'
 import { useParams } from 'react-router-dom'
-import UserFragmentsColumn from '../modules/FragmentsColumn/UserFragmentsColumn'
+import UserFragmentsColumn from '../modules/Fragments/UserFragmentsColumn'
 import ResultDisplay from '../modules/DocumentView/DocumentDisplay/DocumentDisplay'
 import DataSectionSimple from '../modules/InfoSection/DataSectionSimple'
-import UserFragmentsByKeyword from '../modules/FragmentsColumn/UserFragmentsByKeyword'
+import UserFragmentsByKeyword from '../modules/Fragments/UserFragmentsByKeyword'
 
 import { DataContainerSimple } from '../modules/InfoSection/InfoSection.styled'
-import SharedChoiceWrapper from '../modules/FragmentsColumn/SharedChoiceWrapper/SharedChoiceWrapper'
+import SharedChoiceWrapper from '../modules/Fragments/SharedChoiceWrapper/SharedChoiceWrapper'
 import { getDocByIdAndQuery } from '../features/searchResults/searchResultsSlice'
 
 interface ResultDisplayIdQueryScreenProps {}

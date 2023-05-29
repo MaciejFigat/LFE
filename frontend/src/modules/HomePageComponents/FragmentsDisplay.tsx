@@ -3,13 +3,13 @@ import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
 import PupupEditWindow from '../DragAndDropProject/PopupEditWindow/PupupEditWindow'
-import FilterWrapper from '../FragmentsColumn/FilterWrapper/FilterWrapper'
-import UserFragmentsColumn from '../FragmentsColumn/UserFragmentsColumn'
+import FilterWrapper from '../Fragments/FilterWrapper/FilterWrapper'
+import UserFragmentsColumn from '../Fragments/UserFragmentsColumn'
 import {
   FragmentsTopWrapper,
   SearchResultsSectionWrapper
 } from './SearchResultsDisplay.styled'
-import UserFragmentsByKeyword from '../FragmentsColumn/UserFragmentsByKeyword'
+import UserFragmentsByKeyword from '../Fragments/UserFragmentsByKeyword'
 import { AppDispatch } from '../../app/store'
 
 interface FragmentsDisplayProps {}

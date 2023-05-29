@@ -14,38 +14,38 @@ interface StyleVariant {
 
 const primaryStyle: StyleVariant = {
   buttonColor: 'var(--background4-main)',
-  buttonBackground: 'var(--background4-main)',
-  buttonBackgroundHover: 'var(--background1-secondary)',
-  buttonBackgroundActive: 'var(--background2-secondary)',
-  buttonColorHover: 'var(--background1-secondary)',
-  buttonColorActive: 'var(--background3-main)',
-  buttonBorderActive: 'var(--background3-main)'
+  buttonBackground: 'var(--background1-main)',
+  buttonBackgroundHover: 'var(--background1-main)',
+  buttonBackgroundActive: 'var(--background1-main)',
+  buttonColorHover: 'var(--background-secondary1)',
+  buttonColorActive: 'var(--background-secondary2)',
+  buttonBorderActive: 'var(--background-secondary1)'
 }
 const emptyPrimaryStyle: StyleVariant = {
   buttonColor: 'var(--background4-main)',
   buttonBackground: 'var(--background-gradient2)',
-  buttonBackgroundHover: 'var(--background3-secondary)',
-  buttonBackgroundActive: 'var(--background4-secondary)',
+  buttonBackgroundHover: 'var(--background-secondary3)',
+  buttonBackgroundActive: 'var(--background-secondary4)',
   buttonColorHover: 'var(--background5-main)',
-  buttonColorActive: 'var(--background2-secondary)',
-  buttonBorderActive: 'var(--background2-secondary)'
+  buttonColorActive: 'var(--background-secondary2)',
+  buttonBorderActive: 'var(--background-secondary2)'
 }
 
 const secondaryStyle: StyleVariant = {
-  buttonColor: 'var(--background4-main)',
-  buttonBackground: 'var(--background-blur1)',
-  buttonBackgroundHover: 'var(--success1)',
-  buttonBackgroundActive: 'var(--success2)',
-  buttonColorHover: 'var(--background1-secondary)',
-  buttonColorActive: 'var(--background3-main)',
-  buttonBorderActive: 'var(--background3-main)'
+  buttonColor: 'var(--background1-main);',
+  buttonBackground: 'var(--background2-main);',
+  buttonBackgroundHover: 'var(--success1);',
+  buttonBackgroundActive: 'var(--success2);',
+  buttonColorHover: 'var(--background1-main);',
+  buttonColorActive: 'var(--background5-main);',
+  buttonBorderActive: 'var(--background3-main);'
 }
 const emptySecondaryStyle: StyleVariant = {
   buttonColor: 'var(--background4-main)',
   buttonBackground: 'var(--background-gradient2)',
   buttonBackgroundHover: 'var(--gold1)',
   buttonBackgroundActive: 'var(--gold2)',
-  buttonColorHover: 'var(--background3-secondary)',
+  buttonColorHover: 'var(--background-secondary3)',
   buttonColorActive: 'var(--background3-main)',
   buttonBorderActive: 'var(--background3-main)'
 }
@@ -108,15 +108,15 @@ const warningStyle: StyleVariant = {
   buttonBorderActive: 'var(--warning2);'
 }
 const dangerStyle: StyleVariant = {
-  buttonColor: 'var(--background4-main);',
+  buttonColor: 'var(--background5-main);',
   buttonBackground: 'var(--danger1);',
   buttonBorder: 'var(--danger1);',
   buttonBorderHover: 'var(--danger2);',
   buttonBackgroundHover: 'var(--danger2);',
-  buttonBackgroundActive: 'var(--danger2);',
-  buttonColorHover: 'var(--background4-main);',
-  buttonColorActive: 'var(--background2-main);',
-  buttonBorderActive: 'var(--danger3);'
+  buttonBackgroundActive: 'var(--danger3);',
+  buttonColorHover: 'var(--background5-main);',
+  buttonColorActive: 'var(--background5-main);',
+  buttonBorderActive: 'var(--danger2);'
 }
 const warningEmptyStyle: StyleVariant = {
   buttonColor: 'var(--warning1);',
