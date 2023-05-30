@@ -29,6 +29,7 @@ interface GlobalStyle {
   danger3?: string
   info1?: string
   info2?: string
+  info3?: string
   boxShadow1?: string
   boxShadow2?: string
   boxShadow3?: string
@@ -93,7 +94,9 @@ const primaryStyle: GlobalStyle = {
   danger1: '#B8001F;',
   danger2: '#D22730;',
   danger3: '#FC5970;',
-
+  info1: '#CEF6FF;',
+  info2: '#3AAEE9;',
+  info3: '#00CBED;',
   boxShadow1:
     'inset 0px 0px 0px #161617, inset 0px 0px 0px #262627, -4px 4px 6px #151515, 0px -0px 0px #272729;',
   boxShadow2:
@@ -151,10 +154,10 @@ const secondaryStyle: GlobalStyle = {
   backgroundBlur2: 'rgba( 200, 198, 198, 0.65 );',
 
   success1: '#02935e;',
-
   success2: '#02b875;',
   info1: '#3a86ff;',
   info2: '#00a5cf;',
+  info3: '#12E5DD',
   warning1: '#fca311;',
   danger1: '#FC5970;',
   danger2: '#E09990;',
@@ -334,6 +337,7 @@ export const handleGlobalScheme: (props: any) => {} = (props: any) => {
 
     info1: `${style.info1}`,
     info2: `${style.info2}`,
+    info3: `${style.info3}`,
 
     warning1: `${style.warning1}`,
     warning2: `${style.warning2}`,

@@ -9,36 +9,6 @@ export const NavIcon = styled(FontAwesomeIcon)`
   left: ${({ left }) => (left ? left : '0')};
 `
 
-export const OpenDivButtonWrapper = styled.div`
-  width: 100%;
-  height: 1px;
-  display: flex;
-  justify-content: flex-end;
-`
-export const OpenDivButton = styled.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-`
-export const OpenBigDivButton = styled(OpenDivButton)`
-  position: relative;
-  top: -2px;
-  &:after {
-    position: absolute;
-    top: 15px;
-    left: -150px;
-  }
-`
-export const OpenDivButtonSecond = styled(OpenBigDivButton)`
-  position: relative;
-  top: ${({ top }) => (top ? top : '10px')};
-  left: 10px;
-
-  &:after {
-    position: absolute;
-    top: 0;
-  }
-`
 export const WrapperMotionDiv = styled(motion.div)`
   position: absolute;
   height: 180px;
@@ -256,7 +226,6 @@ export const DropDownHeaderMisc = styled.div`
   }
 `
 export const DropDownHeaderMenu = styled(DropDownHeaderMisc)`
-  /* width: 140px; */
   max-width: fit-content;
   box-shadow: var(--boxShadowNone);
   color: var(--background4-main);
@@ -320,9 +289,6 @@ export const SpaceAroundWrapper = styled.div`
   justify-content: space-around;
   color: var(--background4-main);
   transition: 0.2s;
-  /* ${DropDownHeaderMisc}:hover & {
-    color: var(--background-secondary1);
-  } */
 
   width: 100%;
 `
@@ -344,9 +310,6 @@ export const SpaceAroundWrapperDropdown = styled(SpaceAroundWrapper)`
   svg {
     color: var(--background4-main);
   }
-  /* ${DropDownHeaderMisc}:hover & {
-    color: var(--background-secondary1);
-  } */
 `
 export const SvgWrapperMisc = styled.div`
   position: relative;
@@ -358,7 +321,6 @@ export const SvgWrapperMisc = styled.div`
   }
   ${DropDownHeaderMisc}:hover & {
     svg {
-      /* color: var(--background1-main); */
       color: var(--background-secondary1);
     }
   }
@@ -441,43 +403,6 @@ export const RelativeSvgWrapper = styled.div`
   left: ${({ left }) => (left ? left : '0px')};
 `
 
-export const DotButton = styled.div`
-  position: relative;
-  top: -10px;
-  display: grid;
-  place-items: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  /* border-right: 1px solid var(--background-blur1);
-  border-top: 1px solid var(--background-blur1);
-  border-left: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur2); */
-  box-shadow: var(--boxShadowClay3);
-  font-weight: 700;
-  cursor: help;
-  transition: 0.1s;
-
-  &:before {
-    position: relative;
-    top: ${({ top }) => (top ? top : '0px')};
-    /* left: ${({ left }) => (left ? '4px' : '-1px')}; */
-    left: ${({ left }) => (left ? left : '-1px')};
-    /* left: 3px; */
-    content: 'e';
-  }
-  &:hover {
-    box-shadow: var(--boxShadowInset4);
-    color: var(--background-secondary1);
-    /* border-right: 1px solid transparent;
-    border-top: 1px solid transparent;
-    border-left: 1px solid var(--background-blur1);
-    border-bottom: 1px solid var(--background-blur1); */
-  }
-  &:active {
-    /* background: var(--background2-main); */
-  }
-`
 export const SwitchDivMisc = styled.div`
   width: 28px;
   height: 16px;
@@ -563,4 +488,12 @@ export const LoadingAbsolutePopup = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 100%;
+`
+
+export const RegularScrollYDiv = styled.div`
+  display: grid;
+  place-items: center;
+  width: 100%;
+  overflow-y: scroll;
+  padding: 0.5rem;
 `

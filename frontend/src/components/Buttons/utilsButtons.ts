@@ -24,10 +24,10 @@ const primaryStyle: StyleVariant = {
 const emptyPrimaryStyle: StyleVariant = {
   buttonColor: 'var(--background4-main)',
   buttonBackground: 'var(--background-gradient2)',
-  buttonBackgroundHover: 'var(--background-secondary3)',
-  buttonBackgroundActive: 'var(--background-secondary4)',
+  buttonBackgroundHover: 'transparent',
+  buttonBackgroundActive: 'transparent',
   buttonColorHover: 'var(--background5-main)',
-  buttonColorActive: 'var(--background-secondary2)',
+  buttonColorActive: 'var(--background-secondary1)',
   buttonBorderActive: 'var(--background-secondary2)'
 }
 
@@ -43,8 +43,8 @@ const secondaryStyle: StyleVariant = {
 const emptySecondaryStyle: StyleVariant = {
   buttonColor: 'var(--background4-main)',
   buttonBackground: 'var(--background-gradient2)',
-  buttonBackgroundHover: 'var(--gold1)',
-  buttonBackgroundActive: 'var(--gold2)',
+  buttonBackgroundHover: 'transparent',
+  buttonBackgroundActive: 'transparent',
   buttonColorHover: 'var(--background-secondary3)',
   buttonColorActive: 'var(--background3-main)',
   buttonBorderActive: 'var(--background3-main)'
@@ -75,7 +75,7 @@ const successStyle: StyleVariant = {
 }
 const infoStyle: StyleVariant = {
   buttonColor: 'var(--background4-main);',
-  buttonBackground: 'var(--info1)',
+  buttonBackground: 'var(--info1);',
   buttonBackgroundHover: 'var(--info2);',
   buttonBackgroundActive: 'var(--info2);',
   buttonColorHover: 'var(--background4-main);',
@@ -85,15 +85,15 @@ const infoStyle: StyleVariant = {
   buttonBorderActive: 'var(--info3);'
 }
 const infoEmptyStyle: StyleVariant = {
-  buttonColor: 'var(--info1);',
-  buttonBackground: 'var(--background-gradient4);',
-  buttonBorder: 'var(--info1);',
-  buttonBorderHover: 'var(--info3);',
-  buttonBackgroundHover: 'var(--background-gradient4);',
-  buttonBackgroundActive: 'var(--background-gradient4);',
-  buttonColorHover: 'var(--info3);',
-  buttonColorActive: 'var(--info2);',
-  buttonBorderActive: 'var(--info2);'
+  buttonColor: 'var(--info2);',
+  buttonBackground: 'transparent;',
+  buttonBorder: 'var(--info2);',
+  buttonBorderHover: 'var(--info2);',
+  buttonBackgroundHover: 'transparent;',
+  buttonBackgroundActive: 'transparent;',
+  buttonColorHover: 'var(--info1);',
+  buttonColorActive: 'var(--info3);',
+  buttonBorderActive: 'var(--info3);'
 }
 
 const warningStyle: StyleVariant = {

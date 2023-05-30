@@ -37,7 +37,7 @@ const LinksPagination: React.FC<LinksPaginationProps> = ({
   return (
     <>
       <PaginateWrapper narrow={narrow} miniVersion={miniVersion}>
-        {visitedLinks.length % 4 > 0
+        {visitedLinks.length % 3 > 0
           ? Array.from(
               { length: Math.floor(visitedLinks.length / 3) + 1 },
               (_, i) => (

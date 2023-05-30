@@ -2,13 +2,11 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const WrapperWindow = styled.div`
-  min-width: 180px;
-  /* width: 80%; */
   margin: 2.5rem 1rem 1.5rem 1rem;
   height: 260px;
-  /* border-radius: 30px; */
-  /* background: var(--background-blur1); */
-  /* background: var(--background3-main); */
+  border-radius: 10px;
+  width: 380px;
+  border: 1px solid var(--background-blur2);
   display: flex;
   flex-direction: column;
   color: var(--background5-main);

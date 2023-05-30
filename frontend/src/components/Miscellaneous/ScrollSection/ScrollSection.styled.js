@@ -6,7 +6,7 @@ export const ScrollSec = styled.div`
   color: var(--background4-main);
   min-height: fit-content;
   width: 100%;
-
+  border-top: 1px solid var(--background-blur2);
   @media (max-width: 880px) {
     padding: 0;
   }
@@ -117,7 +117,7 @@ export const DragDiv = styled.div`
   top: 0;
   background: none;
   border-left: 1.5px solid;
-
+  /* border-color: var(--background-blur2); */
   border-color: var(--background1-main);
   transition: 0.2s;
   &:active {

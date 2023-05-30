@@ -9,6 +9,7 @@ import LinksPagination from '../Miscellaneous/Pagination/LinksPagination'
 import { NavLink } from 'react-router-dom'
 import { ButtonSmall, ButtonVerySmall } from '../ButtonsSend/BigButton.styled'
 import { VisitedLink, VisitedLinksPage } from '../../interfaces'
+import { RegularScrollYDiv } from '../../styles/misc.styled'
 
 interface VisitedLinksProps {
   large?: boolean
@@ -31,7 +32,7 @@ const VisitedLinks: React.FC<VisitedLinksProps> = ({ large }) => {
   }
 
   return (
-    <div>
+    <RegularScrollYDiv>
       {visitedLinks.length > 1 &&
         visitedLinks
           .filter(linkSorted => linkSorted.test === false || !linkSorted.test)
@@ -42,7 +43,7 @@ const VisitedLinks: React.FC<VisitedLinksProps> = ({ large }) => {
                 <NavLink to={`/search/result/${link.id}/${link.query}`}>
                   <VisitedLinkPar>
                     {link.query.replace('%20', ' ')} | {link.data} |{' '}
-                    {link.rodzaj_orzeczenia}
+                    {link.rodzaj_orzeczenia.substring(0, 16)}.
                   </VisitedLinkPar>
                 </NavLink>
 
@@ -52,21 +53,21 @@ const VisitedLinks: React.FC<VisitedLinksProps> = ({ large }) => {
                     onClick={() => copyHandler(link.id, link.query)}
                   >
                     {' '}
-                    kopiuj link
+                    kopiuj
                   </ButtonSmall>
                 ) : (
                   <ButtonVerySmall
                     variant='secondary'
                     onClick={() => copyHandler(link.id, link.query)}
                   >
-                    kopiuj link
+                    kopiuj
                   </ButtonVerySmall>
                 )}
               </VisitedLinkRow>
             </VisitedLinkWrapper>
           ))}
       {visitedLinks.length > 3 ? <LinksPagination miniVersion /> : null}
-    </div>
+    </RegularScrollYDiv>
   )
 }
 export default VisitedLinks

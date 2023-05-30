@@ -16,7 +16,12 @@ import Pagination from '../../../components/Miscellaneous/Pagination/Pagination'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import { UserInfo } from '../../../interfaces'
 import { AppDispatch } from '../../../app/store'
-import { ButtonVerySmall } from '../../../components/Buttons/Buttons.styled'
+import {
+  HighlightText,
+  RelativeWrapper,
+  RelativeWrapperStretch
+} from '../../../styles/misc.styled'
+import { TextColor } from '../../../consts'
 
 interface SharedChoiceWrapperProps {}
 
@@ -33,7 +38,17 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
   const tabs = [
     {
       label: 'Zapisane',
-      icon: <SvgIcon variant='save' noContent />,
+      icon: (
+        <RelativeWrapper top='10px'>
+          <SvgIcon
+            variant='save'
+            contentAfter='zapisane fragmenty'
+            width='130px'
+            toLeft='10px'
+            toTop='15px'
+          />
+        </RelativeWrapper>
+      ),
       content: (
         <>
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
@@ -48,19 +63,39 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
     },
     {
       label: 'Wyszukane',
-      icon: <SvgIcon variant='search' noContent />,
+      icon: (
+        <RelativeWrapper top='12px'>
+          <SvgIcon
+            variant='search'
+            contentAfter='wyszukane dok.'
+            width='105px'
+            toLeft='10px'
+            toTop='15px'
+          />{' '}
+        </RelativeWrapper>
+      ),
       content: (
-        <>
-          <ButtonVerySmall variant='primaryEmpty'>
-            Ilość wyników wyszukiwania: {numberOfResults && numberOfResults}
-          </ButtonVerySmall>{' '}
+        <RelativeWrapperStretch>
+          <HighlightText color={TextColor.PRIMARY}>
+            Wyszukano: {numberOfResults && numberOfResults} dok.
+          </HighlightText>{' '}
           <Pagination narrow />
-        </>
+        </RelativeWrapperStretch>
       )
     },
     {
       label: 'Przeglądane',
-      icon: <SvgIcon variant='eye' noContent />,
+      icon: (
+        <RelativeWrapper top='12px'>
+          <SvgIcon
+            variant='eye'
+            contentAfter='ostatnie dok.'
+            width='88px'
+            toLeft='10px'
+            toTop='15px'
+          />{' '}
+        </RelativeWrapper>
+      ),
       content: <VisitedLinks />
     }
   ]

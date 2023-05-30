@@ -2,7 +2,7 @@ import React, { ReactNode, useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import {
   preferredNarrowWidthSaved,
-  preferredWidthSaved,
+  preferredWidthSaved
 } from '../../../features/preferences/preferenceSlice'
 
 import {
@@ -11,7 +11,7 @@ import {
   ScrollSec,
   DragDiv,
   SectionColumnScrollResize,
-  DragButton,
+  DragButton
 } from './ScrollSection.styled'
 
 interface ResizableScrollSectionProps {
@@ -26,11 +26,11 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
   wideSection,
   narrowSection,
   narrowOption,
-  topMargin,
+  topMargin
 }) => {
   const dispatch: any = useAppDispatch()
-  const widthNumber = useAppSelector((state) => state.preference.width)
-  const widthNarrow = useAppSelector((state) => state.preference.widthNarrow)
+  const widthNumber = useAppSelector(state => state.preference.width)
+  const widthNarrow = useAppSelector(state => state.preference.widthNarrow)
 
   const [initialPos, setInitialPos] = useState<any>(null)
   const [initialSize, setInitialSize] = useState<any>(null)
@@ -91,7 +91,6 @@ const ResizableScrollSection: React.FC<ResizableScrollSectionProps> = ({
         <SectionColumnScrollResize
           width={`${widthNumber}px`}
           animate={narrowOption ? `${widthNarrow}px` : `${widthNumber}px`}
-          // animate={narrowOption ? { widthNarrow } : { widthNumber }}
           transition={{ type: 'inertia' }}
           widthNarrow={widthNarrow}
           narrowOption={narrowOption}

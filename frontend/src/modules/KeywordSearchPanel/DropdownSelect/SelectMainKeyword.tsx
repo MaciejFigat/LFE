@@ -384,10 +384,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                 </RelativeWrapper>
                 <RelativeWrapper top='28px' left='0px'>
                   {' '}
-                  <ButtonVerySmall
-                    variant='primaryEmpty'
-                    onClick={editingHandler}
-                  >
+                  <ButtonVerySmall variant='infoEmpty' onClick={editingHandler}>
                     <SvgIcon
                       variant='edit'
                       toTop='10px'

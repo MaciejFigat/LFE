@@ -11,9 +11,7 @@ export const IconsItem = styled.div`
   flex-direction: column;
   max-width: 20px;
   margin-right: 0;
-  @media (max-width: 500px) {
-    /* max-width: 30px; */
-  }
+
   &:hover {
     &:after {
       opacity: ${(props) => (props.contentAfter ? `1` : `0`)};
@@ -34,6 +32,7 @@ export const IconsItem = styled.div`
     padding-right: 0.25rem;
     font-size: min(max(1rem, 4vw), 12px);
     font-size: 0.85rem;
+    font-weight: 600;
     left: 60px;
     bottom: 15px;
     top: ${({ toTop }) => (toTop ? toTop : null)};

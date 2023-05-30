@@ -66,7 +66,7 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
     })
   }
   return (
-    <ProjectPaginationWrapper>
+    <ProjectPaginationWrapper narrow={narrow}>
       {' '}
       {userFragments.length > 110 ? (
         <>

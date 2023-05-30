@@ -150,6 +150,9 @@ body {
     --danger1: ${(props) => handleGlobalScheme(props.globalScheme).danger1}
     --danger2: ${(props) => handleGlobalScheme(props.globalScheme).danger2}
     --danger3: ${(props) => handleGlobalScheme(props.globalScheme).danger3}
+    --info1: ${(props) => handleGlobalScheme(props.globalScheme).info1}
+    --info2: ${(props) => handleGlobalScheme(props.globalScheme).info2}
+    --info3: ${(props) => handleGlobalScheme(props.globalScheme).info3}
 
     
     --border-radius0: 5px;
