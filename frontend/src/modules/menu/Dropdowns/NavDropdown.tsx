@@ -57,7 +57,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
       <Main>
         <DropDownContainer>
           {Object.keys(userInfo).length > 0 ? (
-            <DropDownHeaderMini onClick={toggling}>
+            <DropDownHeaderMini onClick={toggling} isOpen={isOpen}>
               <SpaceAroundWrapper>
                 <SvgWrapperMiscSmall>
                   <SvgIcon variant='admin' noContent lowerPosition='2px' />
