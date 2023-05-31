@@ -54,7 +54,6 @@ export const ButtonBig = styled.button`
 `
 
 export const ButtonMedium = styled(ButtonBig)`
-  /* padding: 0.75rem 1.85rem 0.75rem; */
   padding: 0.65rem 1.25rem 0.6rem;
   font-size: var(--font-size-medium-plus);
 `
@@ -66,6 +65,7 @@ export const ButtonVerySmall = styled(ButtonBig)`
   padding: 0.275rem 0.55rem;
   font-size: var(--font-size-medium);
   margin: 0;
+  max-height: 20px;
   margin-right: 0.25rem;
   background: none;
   border: none;
@@ -73,6 +73,19 @@ export const ButtonVerySmall = styled(ButtonBig)`
     border: none;
   }
 `
+export const ButtonSmallCircle = styled(ButtonBig)`
+  display: grid;
+  place-items: center;
+  padding: 0.275rem 0.55rem;
+  font-size: var(--font-size-medium);
+  margin: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border-color: var(--background-blur1);
+  background: var(--background-gradient1);
+`
+
 export const ButtonSmallGradient = styled.button`
   display: flex;
   align-items: center;

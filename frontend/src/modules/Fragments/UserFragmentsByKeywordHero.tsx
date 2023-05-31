@@ -81,7 +81,8 @@ const UserFragmentsByKeywordHero: React.FC<
                       ) : (
                         <AnimatedSavedItemSuperSimple
                           id={fragment._id}
-                          source={fragment.source}
+                          title={fragment.title}
+                          coordinates={fragment.coordinates}
                           excerpt={fragment.excerpt}
                           updatedAt={fragment.updatedAt}
                           keywords={fragment.keywords}

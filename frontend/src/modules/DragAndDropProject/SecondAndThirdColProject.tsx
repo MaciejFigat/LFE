@@ -132,6 +132,7 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                           {fragment.excerpt !== '' && (
                             <FragmentTextItem
                               _id={fragment._id}
+                              title={fragment.title}
                               excerpt={fragment.excerpt}
                               source={fragment.source}
                               coordinates={fragment.coordinates}

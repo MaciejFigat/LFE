@@ -27,6 +27,7 @@ import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../../styles/misc.styled'
 import {
   ButtonSmall,
+  ButtonSmallCircle,
   ButtonVerySmall
 } from '../../../components/Buttons/Buttons.styled'
 
@@ -271,7 +272,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
         <HeaderAndCogContainer>
           <DropDownSvgRoundedLeft optionsOpen={optionsNewKeywordOpen}>
             {' '}
-            <RelativeWrapper top='7px' left='3px'>
+            <RelativeWrapper top='20px' left='3px'>
               <ButtonVerySmall
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -285,7 +286,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                   toLeft='-90px'
                   toTopMobile='20px'
                   toLeftMobile='-10px'
-                  width={optionsNewKeywordOpen ? '60px' : '100px'}
+                  width='100px'
                   contentAfter={
                     optionsNewKeywordOpen ? 'powrót' : 'dodaj projekt'
                   }
@@ -326,12 +327,12 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
           )}{' '}
           <DropDownSvgRounded optionsOpen={optionsOpen}>
             {' '}
-            <RelativeWrapper top='5px' left='0px'>
+            <RelativeWrapper top='21px' left='0px'>
               <ButtonVerySmall
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                variant='secondaryEmpty'
+                variant='infoEmpty'
                 onClick={togglingOptions}
               >
                 <SvgIcon
@@ -368,46 +369,47 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
               top={wide ? '10px' : '7px'}
             >
               <OptionsDropdownContainer>
-                <RelativeWrapper top='37px' left='0px'>
-                  <ButtonVerySmall
-                    variant='successEmpty'
-                    onClick={addNewHandler}
-                  >
+                <ButtonSmallCircle
+                  variant='successEmpty'
+                  onClick={addNewHandler}
+                >
+                  <RelativeWrapper top='7px' left='0px'>
                     <SvgIcon
                       variant='plus'
-                      toTop='10px'
+                      toTop='15px'
                       toLeft='10px'
                       width='100px'
                       contentAfter='dodaj nowy projekt do fragmentów bez projektu'
-                    />
-                  </ButtonVerySmall>
-                </RelativeWrapper>
-                <RelativeWrapper top='28px' left='0px'>
+                    />{' '}
+                  </RelativeWrapper>
+                </ButtonSmallCircle>
+                <ButtonSmallCircle variant='infoEmpty' onClick={editingHandler}>
                   {' '}
-                  <ButtonVerySmall variant='infoEmpty' onClick={editingHandler}>
+                  <RelativeWrapper top='6px' left='2px'>
                     <SvgIcon
                       variant='edit'
-                      toTop='10px'
+                      toTop='15px'
                       toLeft='10px'
                       width='100px'
                       contentAfter='edytuj nazwę wybranego projektu'
-                    />
-                  </ButtonVerySmall>
-                </RelativeWrapper>
-                <RelativeWrapper top='28px' left='0px'>
-                  <ButtonVerySmall
-                    variant='dangerEmpty'
-                    onClick={removeKeywordHelperUltimate}
-                  >
+                    />{' '}
+                  </RelativeWrapper>
+                </ButtonSmallCircle>
+                <ButtonSmallCircle
+                  variant='dangerEmpty'
+                  onClick={removeKeywordHelperUltimate}
+                >
+                  {' '}
+                  <RelativeWrapper top='6px' left='0px'>
                     <SvgIcon
                       variant='remove'
-                      toTop='10px'
+                      toTop='15px'
                       toLeft='10px'
                       width='120px'
                       contentAfter='usuń fragmenty powiązane z projektem'
                     />
-                  </ButtonVerySmall>{' '}
-                </RelativeWrapper>
+                  </RelativeWrapper>
+                </ButtonSmallCircle>{' '}
               </OptionsDropdownContainer>
             </RelativeWrapper>
           )}

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import {
+  HighlightText,
   HorizontalLineTop,
   RelativeWrapper,
   WrapperMotionDivRelative
@@ -15,7 +16,8 @@ import {
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { deleteSavedFragment } from '../../features/fragments/fragmentSlice'
 import { AppDispatch } from '../../app/store'
-import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
+import { ButtonSmallCircle } from '../../components/Buttons/Buttons.styled'
+import { ButtonVariants, TextColor } from '../../consts'
 
 interface AnimatedSavedItemSimpleProps {
   id: string
@@ -61,52 +63,64 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0 }}
       >
-        <HorizontalContainer>
-          {source !== '' ? <FragmentsP>{source}</FragmentsP> : null}
-
-          <RelativeWrapper top='-10px' left='10px'>
-            {' '}
-            <ButtonVerySmall
-              variant='secondaryEmpty'
-              onClick={() => openWindowHandler()}
-            >
-              <SvgIcon
-                variant='edit'
-                contentAfter='edytuj'
-                toLeft='-10px'
-                toTop='13px'
-                width='50px'
-              />
-            </ButtonVerySmall>
-          </RelativeWrapper>
-        </HorizontalContainer>
-        <HorizontalLineTop />
-        <FragmentsPExcerpt>{excerpt.substring(0, 150)}</FragmentsPExcerpt>
-        <HorizontalLineTop />
+        {' '}
         <HorizontalContainer>
           {source !== '' ? (
             <>
               {title !== excerpt.substring(0, 22) ? (
-                <FragmentsP>{title}</FragmentsP>
+                <>
+                  <FragmentsP>
+                    {coordinates}
+                    <HighlightText color={TextColor.INFO}>
+                      {title}
+                    </HighlightText>
+                  </FragmentsP>
+                </>
               ) : (
                 <FragmentsP>{coordinates}</FragmentsP>
               )}
             </>
           ) : null}
+          <RelativeWrapper top='0px' left='5px'>
+            {' '}
+            <ButtonSmallCircle
+              variant={ButtonVariants.PRIMARY_EMPTY}
+              onClick={() => openWindowHandler()}
+            >
+              <RelativeWrapper top='5px' left='2px'>
+                {' '}
+                <SvgIcon
+                  variant='edit'
+                  contentAfter='edytuj'
+                  toLeft='-53px'
+                  toTop='-20px'
+                  width='50px'
+                />
+              </RelativeWrapper>
+            </ButtonSmallCircle>
+          </RelativeWrapper>
+        </HorizontalContainer>
+        <FragmentsPExcerpt>{excerpt.substring(0, 110)}</FragmentsPExcerpt>
+        <HorizontalLineTop />
+        <HorizontalContainer>
+          {source !== '' ? <FragmentsP>{source}</FragmentsP> : null}
 
-          <RelativeWrapper top='5px' left='8px'>
-            <ButtonVerySmall
-              variant='secondaryEmpty'
+          <RelativeWrapper top='-5px' left='5px'>
+            <ButtonSmallCircle
+              variant={ButtonVariants.WARNING_EMPTY}
               onClick={() => removeFragmentHandler(id)}
             >
-              <SvgIcon
-                variant='remove'
-                contentAfter='usuń'
-                toLeft='-40px'
-                toTop='-17px'
-                width='50px'
-              />
-            </ButtonVerySmall>
+              {' '}
+              <RelativeWrapper top='6px' left='0px'>
+                <SvgIcon
+                  variant='remove'
+                  contentAfter='usuń'
+                  toLeft='-53px'
+                  toTop='-20px'
+                  width='50px'
+                />
+              </RelativeWrapper>
+            </ButtonSmallCircle>
           </RelativeWrapper>
         </HorizontalContainer>
       </SimpleCitationItemSmall>

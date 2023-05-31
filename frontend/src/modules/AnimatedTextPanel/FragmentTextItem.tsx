@@ -2,7 +2,11 @@ import React, { Dispatch, SetStateAction } from 'react'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { AppDispatch } from '../../app/store'
 import { deleteSavedFragment } from '../../features/fragments/fragmentSlice'
-import { RelativeWrapper } from '../../styles/misc.styled'
+import {
+  HighlightText,
+  HorizontalLineTop,
+  RelativeWrapper
+} from '../../styles/misc.styled'
 import {
   FragmentsP,
   FragmentsPExcerpt,
@@ -10,12 +14,14 @@ import {
 } from '../Fragments/FragmentsColumn.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { ItemWrapper, SimpleCitationItem } from './AnimatedList.styled'
-import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
+import { ButtonSmallCircle } from '../../components/Buttons/Buttons.styled'
+import { ButtonVariants, TextColor } from '../../consts'
 
 interface FragmentTextItemProps {
   source: string
   _id: string
   excerpt: string
+  title: string
   coordinates: string
   setOpenedApp?: Dispatch<SetStateAction<null | string>>
   setIdOpen?: Dispatch<SetStateAction<string>>
@@ -27,6 +33,7 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
   source,
   _id,
   excerpt,
+  title,
   coordinates,
   setOpenedApp,
   canOpenApp,
@@ -52,42 +59,62 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
       {/* //? This one has styles ie. shadows and borders */}
       <SimpleCitationItem>
         <HorizontalContainer>
-          {source !== '' && <FragmentsP>{source}</FragmentsP>}
-
-          <RelativeWrapper top='0px' left='10px'>
+          {source !== '' ? (
+            <>
+              {title !== excerpt.substring(0, 22) ? (
+                <>
+                  <FragmentsP>
+                    {coordinates}
+                    <HighlightText color={TextColor.INFO}>
+                      {title}
+                    </HighlightText>
+                  </FragmentsP>
+                </>
+              ) : (
+                <FragmentsP>{coordinates}</FragmentsP>
+              )}
+            </>
+          ) : null}
+          <RelativeWrapper top='0px' left='5px'>
             {' '}
-            <ButtonVerySmall
-              variant='secondaryEmpty'
+            <ButtonSmallCircle
+              variant={ButtonVariants.PRIMARY_EMPTY}
               onClick={() => openWindowHandler(_id)}
             >
-              <SvgIcon
-                variant='edit'
-                contentAfter='edytuj'
-                toLeft='-10px'
-                toTop='13px'
-                width='50px'
-              />
-            </ButtonVerySmall>
+              <RelativeWrapper top='5px' left='2px'>
+                {' '}
+                <SvgIcon
+                  variant='edit'
+                  contentAfter='edytuj'
+                  toLeft='-53px'
+                  toTop='-20px'
+                  width='50px'
+                />
+              </RelativeWrapper>
+            </ButtonSmallCircle>
           </RelativeWrapper>
         </HorizontalContainer>
 
-        <FragmentsPExcerpt>{excerpt.substring(0, 150)}</FragmentsPExcerpt>
+        <FragmentsPExcerpt>{excerpt.substring(0, 130)}</FragmentsPExcerpt>
+        <HorizontalLineTop />
         <HorizontalContainer>
-          {source !== '' && <FragmentsP>{coordinates}</FragmentsP>}
+          {source !== '' ? <FragmentsP>{source}</FragmentsP> : null}
 
-          <RelativeWrapper top='10px' left='8px'>
-            <ButtonVerySmall
-              variant='secondaryEmpty'
+          <RelativeWrapper top='0px' left='6px'>
+            <ButtonSmallCircle
+              variant={ButtonVariants.WARNING_EMPTY}
               onClick={() => removeFragmentHandler(_id)}
             >
-              <SvgIcon
-                variant='remove'
-                contentAfter='usuń'
-                toLeft='-40px'
-                toTop='-17px'
-                width='50px'
-              />
-            </ButtonVerySmall>
+              <RelativeWrapper top='6px' left='0px'>
+                <SvgIcon
+                  variant='remove'
+                  contentAfter='usuń'
+                  toLeft='-55px'
+                  toTop='-17px'
+                  width='50px'
+                />
+              </RelativeWrapper>
+            </ButtonSmallCircle>
           </RelativeWrapper>
         </HorizontalContainer>
       </SimpleCitationItem>

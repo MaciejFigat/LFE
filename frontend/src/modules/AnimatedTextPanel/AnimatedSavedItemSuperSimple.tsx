@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import {
+  HighlightText,
   HorizontalLineTop,
   RelativeWrapper,
   WrapperMotionDivRelativeSmall
@@ -15,13 +16,15 @@ import {
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { deleteSavedFragment } from '../../features/fragments/fragmentSlice'
 import { AppDispatch } from '../../app/store'
-import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
+import { ButtonSmallCircle } from '../../components/Buttons/Buttons.styled'
+import { ButtonVariants, TextColor } from '../../consts'
 
 interface AnimatedSavedItemSuperSimpleProps {
   id: string
-  source: string
   excerpt: string
   updatedAt: string
+  coordinates: string
+  title: string
   keywords: string[]
   keywordValue: { keyword: string; value: boolean }[]
   moreColumns?: boolean
@@ -29,7 +32,7 @@ interface AnimatedSavedItemSuperSimpleProps {
 
 const AnimatedSavedItemSuperSimple: React.FC<
   AnimatedSavedItemSuperSimpleProps
-> = ({ id, source, excerpt }) => {
+> = ({ id, excerpt, coordinates, title }) => {
   const dispatch: AppDispatch = useAppDispatch()
   const idOpenFragment = useAppSelector(
     state => state.preference.idOpenFragment
@@ -55,43 +58,53 @@ const AnimatedSavedItemSuperSimple: React.FC<
         exit={{ opacity: 0 }}
       >
         <HorizontalContainer>
-          {source !== '' ? (
-            <FragmentsP>{source.substring(0, 26)}</FragmentsP>
-          ) : null}
+          {title !== excerpt.substring(0, 22) ? (
+            <FragmentsP>
+              {coordinates.substring(0, 26)}{' '}
+              <HighlightText color={TextColor.INFO}>{title}</HighlightText>
+            </FragmentsP>
+          ) : (
+            <FragmentsP>{coordinates.substring(0, 26)} </FragmentsP>
+          )}
 
-          <RelativeWrapper top='10px' left='10px'>
+          <RelativeWrapper top='0px' left='8px'>
             {' '}
-            <ButtonVerySmall
-              variant='secondaryEmpty'
+            <ButtonSmallCircle
+              variant={ButtonVariants.PRIMARY_EMPTY}
               onClick={() => openWindowHandler()}
             >
-              <SvgIcon
-                variant='edit'
-                contentAfter='edytuj'
-                toLeft='-43px'
-                toTop='-17px'
-                width='50px'
-              />
-            </ButtonVerySmall>
+              <RelativeWrapper top='5px' left='1px'>
+                {' '}
+                <SvgIcon
+                  variant='edit'
+                  contentAfter='edytuj'
+                  toLeft='-55px'
+                  toTop='-17px'
+                  width='50px'
+                />
+              </RelativeWrapper>
+            </ButtonSmallCircle>
           </RelativeWrapper>
         </HorizontalContainer>
         <HorizontalLineTop />
         <HorizontalContainer>
           <FragmentsPExcerpt>{excerpt.substring(0, 30)}</FragmentsPExcerpt>
           <>
-            <RelativeWrapper top='10px' left='8px'>
-              <ButtonVerySmall
-                variant='secondaryEmpty'
+            <RelativeWrapper top='0px' left='8px'>
+              <ButtonSmallCircle
+                variant={ButtonVariants.WARNING_EMPTY}
                 onClick={() => removeFragmentHandler(id)}
               >
-                <SvgIcon
-                  variant='remove'
-                  contentAfter='usuń'
-                  toLeft='-40px'
-                  toTop='-17px'
-                  width='50px'
-                />
-              </ButtonVerySmall>
+                <RelativeWrapper top='6px' left='0px'>
+                  <SvgIcon
+                    variant='remove'
+                    contentAfter='usuń'
+                    toLeft='-55px'
+                    toTop='-17px'
+                    width='50px'
+                  />
+                </RelativeWrapper>
+              </ButtonSmallCircle>
             </RelativeWrapper>
           </>
         </HorizontalContainer>

@@ -324,6 +324,7 @@ export const SimpleCitationItemSmall = styled(motion.div)`
   min-height: fit-content;
   height: 240px;
   padding: 1.55rem;
+  padding: var(--padding-big);
   min-width: 360px;
   max-width: 360px;
   border-radius: 10px;

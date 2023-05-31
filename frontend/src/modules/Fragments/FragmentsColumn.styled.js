@@ -13,12 +13,13 @@ export const FragmentContainer = styled.div`
       : 'border: none;'};
 `
 export const FragmentsP = styled.p`
-  color: var(--background4-main);
+  color: var(--background3-main);
   font-size: 0.85rem;
   font-weight: 500;
   margin: 0;
-  margin-bottom: 0.5rem;
-  max-width: 70%;
+  /* margin-bottom: 0.5rem; */
+  margin-bottom: 0;
+  max-width: 75%;
 `
 export const FragmentsPExcerpt = styled.p`
   color: var(--background4-main);
