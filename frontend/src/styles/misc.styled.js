@@ -164,8 +164,10 @@ export const AbsoluteWrapper = styled.div`
 `
 export const RelativeWrapperStretch = styled.div`
   position: relative;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
   height: 100%;
   width: 100%;
 `

@@ -28,7 +28,7 @@ import HeroSearchButtons from '../modules/HomePageComponents/HeroGridComponents/
 import HomeSearchResultsSmall from '../modules/HomePageComponents/HeroGridComponents/HomeSearchResultsSmall'
 
 import SvgIcon from '../components/SvgIcon/SvgIcon'
-import { ButtonVerySmall } from '../components/Buttons/Buttons.styled'
+import { ButtonSmallCircle } from '../components/Buttons/Buttons.styled'
 import UserFragmentsByKeywordHero from '../modules/Fragments/UserFragmentsByKeywordHero'
 import HeroProjectCategories from '../modules/HomePageComponents/HeroGridComponents/HeroProjectCategories'
 import SelectMainKeyword from '../modules/KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
@@ -113,7 +113,7 @@ const HomeMobileLayout: React.FC<HomeMobileLayoutProps> = () => {
         <HorizontalLineBottomLight />
         {selectedTab ? (
           <MobileCompartments>
-            <ButtonVerySmall
+            <ButtonSmallCircle
               variant='primaryEmpty'
               onClick={() =>
                 setViewSideColumn(viewSideColumn => !viewSideColumn)
@@ -126,7 +126,7 @@ const HomeMobileLayout: React.FC<HomeMobileLayoutProps> = () => {
                   <SvgIcon variant='book' />
                 )}
               </RelativeWrapper>
-            </ButtonVerySmall>{' '}
+            </ButtonSmallCircle>{' '}
             <div>{selectedTab.quaternaryContent}</div>{' '}
             <div>{selectedTab.pentanaryContent}</div>
           </MobileCompartments>

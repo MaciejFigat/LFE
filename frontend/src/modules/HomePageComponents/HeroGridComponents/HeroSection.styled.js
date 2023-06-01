@@ -280,7 +280,6 @@ export const SubtitleShortLonger = styled(Subtitle)`
 `
 
 export const HomeContentWrapper = styled.div`
-  /* margin-top: -30vh; */
   display: grid;
   z-index: 12;
 
@@ -313,28 +312,41 @@ export const DataContainerSimple = styled.div`
   @media (max-width: 1340px) {
     grid-template-columns: 'repeat(1, 1fr)';
   }
-  /* //todo resizable narrow column grid columns END */
-  /* background: ${({ width }) => (width < 700 ? 'red' : 'blue')}; */
-  /* grid-template-columns: repeat(2, 1fr); */
+
   gap: 1rem;
 `
 
-// export const HighlightMarker = styled.div`
-export const HighlightMarker = styled(Marker)`
-  mark {
-    /* background-color: red !important; */
-    /* background-color: white !important; */
-    /* color: red !important; */
-  }
-`
+export const HighlightMarker = styled(Marker)``
 
 export const SearchBarPaginationSvgWrapper = styled.div`
-  position: absolute;
-  top: 5%;
-  left: 90%;
+  position: relative;
+  top: 10px;
+  left: -10px;
+  @media (min-width: 1020px) and (max-width: 1240px) {
+    left: 5px;
+  }
+  @media screen and (max-width: 1020px) {
+    position: relative;
+    top: 10px;
+    left: 0px;
+  }
+  @media (max-width: 420px) {
+    left: 10px;
+  }
 `
 export const SearchBarPaginationSvgWrapperSecond = styled.div`
-  position: absolute;
-  top: 75%;
-  left: 90%;
+  position: relative;
+  top: 65px;
+  left: -10px;
+  @media (min-width: 1020px) and (max-width: 1240px) {
+    left: 5px;
+  }
+  @media screen and (max-width: 1020px) {
+    position: relative;
+    top: 60px;
+    left: 0px;
+  }
+  @media (max-width: 420px) {
+    left: 10px;
+  }
 `

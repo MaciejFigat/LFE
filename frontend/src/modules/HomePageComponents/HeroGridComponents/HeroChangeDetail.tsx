@@ -4,7 +4,11 @@ import { AppDispatch } from '../../../app/store'
 import { changeFragmentsDetailView } from '../../../features/preferences/preferenceSlice'
 import { RelativeWrapper } from '../../../styles/misc.styled'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
-import { ButtonVerySmall } from '../../../components/Buttons/Buttons.styled'
+import {
+  ButtonSmallCircle,
+  ButtonVerySmall
+} from '../../../components/Buttons/Buttons.styled'
+import { ButtonVariants } from '../../../consts'
 interface HeroChangeDetailProps {}
 
 const HeroChangeDetail: React.FC<HeroChangeDetailProps> = () => {
@@ -18,21 +22,24 @@ const HeroChangeDetail: React.FC<HeroChangeDetailProps> = () => {
 
   return (
     <>
-      <ButtonVerySmall variant='emptyPrimary' onClick={viewHandler}>
+      <ButtonSmallCircle
+        variant={ButtonVariants.PRIMARY_EMPTY}
+        onClick={viewHandler}
+      >
         {fragmentsDetailView ? (
           <>
-            <RelativeWrapper top='3px' left='5px'>
+            <RelativeWrapper top='5px' left='0px'>
               <SvgIcon variant='folder' />
             </RelativeWrapper>
           </>
         ) : (
           <>
-            <RelativeWrapper top='3px' left='5px'>
+            <RelativeWrapper top='5px' left='0px'>
               <SvgIcon variant='store' />
             </RelativeWrapper>
           </>
         )}
-      </ButtonVerySmall>
+      </ButtonSmallCircle>
     </>
   )
 }

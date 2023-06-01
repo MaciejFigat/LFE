@@ -6,7 +6,7 @@ import HeroSearchDataSection from './HeroGridComponents/HeroSearchDataSection'
 import { changeResultsDetailView } from '../../features/preferences/preferenceSlice'
 import HeroWelcome from './HeroGridComponents/HeroWelcome'
 import SimpleResultDisplay from '../DocumentView/DocumentDisplay/SimpleDocumentDisplay'
-import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
+import { ButtonSmallCircle } from '../../components/Buttons/Buttons.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../styles/misc.styled'
 
@@ -59,7 +59,7 @@ const HeroTwoThird: React.FC = () => {
   return (
     <>
       {data && data?.length === 0 ? null : (
-        <ButtonVerySmall
+        <ButtonSmallCircle
           variant='primaryEmpty'
           onClick={() => changeResultsViewHelper()}
         >
@@ -71,7 +71,7 @@ const HeroTwoThird: React.FC = () => {
               <SvgIcon variant='store' />
             )}{' '}
           </RelativeWrapper>
-        </ButtonVerySmall>
+        </ButtonSmallCircle>
       )}
     </>
   )

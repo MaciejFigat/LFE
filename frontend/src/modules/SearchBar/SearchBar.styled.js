@@ -10,17 +10,9 @@ export const HomeSearchContainer = styled.div`
   padding-right: 3rem;
   max-width: 90vw;
   height: 100px;
-
   border-radius: 20px;
-  /* box-shadow: var(--boxShadowInset1); */
   background: var(--background-gradient1);
-
-  /* border-top: 1px solid var(--background-blur2);
-  border-right: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur1);
-  border-left: 1px solid var(--background-blur1); */
   box-shadow: var(--boxShadowClay3);
-  /* border: 1px solid var(--background2-main); */
 `
 
 export const HomeSearchWrapper = styled.div`
@@ -36,12 +28,11 @@ export const HomeSearchWrapper = styled.div`
   }
 `
 export const SearchBarWrapper = styled.div`
-  display: flex;
-  align-self: center;
+  display: grid;
+  place-items: center;
   height: ${({ large }) => (large ? '50px' : '30px')};
   height: ${({ medium }) => medium && '40px'};
   min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
-
   gap: 0.75rem;
   background: transparent;
 
@@ -56,6 +47,9 @@ export const SearchBarWrapper = styled.div`
     transition: 0.2s;
 
     color: var(--background5-main);
+  }
+  @media (min-width: 1020px) and (max-width: 1540px) {
+    min-width: ${({ large }) => (large ? '330px' : 'fit-content')};
   }
   @media (max-width: 620px) {
     height: ${({ large }) => (large ? '45px' : '30px')};
@@ -79,8 +73,9 @@ export const SearchBarButton = styled.button`
   border: 1px solid transparent;
   border-radius: 10px;
 
-  margin-left: ${({ large }) => (large ? '1rem' : '0.5rem')};
-  margin-right: ${({ large }) => (large ? '0.5rem' : '0rem')};
+  /* margin-left: ${({ large }) => (large ? '1rem' : '0.5rem')}; */
+  /* margin-right: ${({ large }) => (large ? '0.5rem' : '0rem')}; */
+  margin: 0;
   svg {
     color: var(--background3-main);
   }
@@ -89,16 +84,29 @@ export const SearchBarButton = styled.button`
   }
 
   @media (max-width: 420px) {
-    font-size: 0.7rem;
+    font-size: 0.95rem;
     padding: none;
   }
 `
+export const OptionButtonsContainer = styled.div`
+  position: relative;
+  height: 100%;
+`
 export const OptionsContainer = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  /* background: lime; */
+  justify-content: center;
+
+  width: 350px;
+  @media (min-width: 1020px) and (max-width: 1540px) {
+    width: 280px;
+  }
+  @media (max-width: 620px) {
+    width: 300px;
+  }
+  @media (max-width: 420px) {
+    width: 265px;
+  }
 `
 export const SearchBarForm = styled.form`
   display: flex;

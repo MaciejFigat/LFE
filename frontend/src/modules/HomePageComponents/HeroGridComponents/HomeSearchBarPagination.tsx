@@ -14,8 +14,15 @@ import {
   SearchBarPaginationSvgWrapper,
   SearchBarPaginationSvgWrapperSecond
 } from './HeroSection.styled'
-import { ButtonVerySmall } from '../../../components/Buttons/Buttons.styled'
-import { OptionsContainer } from '../../SearchBar/SearchBar.styled'
+import {
+  ButtonSmallCircle,
+  ButtonVerySmall
+} from '../../../components/Buttons/Buttons.styled'
+import {
+  OptionButtonsContainer,
+  OptionsContainer
+} from '../../SearchBar/SearchBar.styled'
+import { ButtonVariants } from '../../../consts'
 
 interface HomeSearchBarPaginationProps {}
 
@@ -40,40 +47,57 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
 
   return (
     <RelativeWrapperStretch>
-      <OptionsContainer>
+      <OptionButtonsContainer>
         {data && data?.length === 0 ? null : (
           <SearchBarPaginationSvgWrapper>
-            <RelativeWrapper top='5px' left='-10px'>
-              <ButtonVerySmall variant='secondaryEmpty' onClick={showHandler}>
-                <RelativeWrapper top='4px' left='5px'>
+            <RelativeWrapper top='-2px' left='-10px'>
+              <ButtonSmallCircle
+                variant={ButtonVariants.PRIMARY_EMPTY}
+                onClick={showHandler}
+              >
+                <RelativeWrapper top='7px' left='1px'>
                   <SvgIcon
                     variant={
                       showSearchBar && !showSearchOptions ? 'store' : 'search'
                     }
+                    contentAfter={
+                      showSearchBar && !showSearchOptions
+                        ? 'wyniki'
+                        : 'wyszukaj'
+                    }
+                    toLeft='-63px'
+                    toTop='-20px'
+                    width='70px'
                   />{' '}
                 </RelativeWrapper>
-              </ButtonVerySmall>
+              </ButtonSmallCircle>
             </RelativeWrapper>
           </SearchBarPaginationSvgWrapper>
         )}
         {data && data?.length === 0 ? null : (
           <SearchBarPaginationSvgWrapperSecond>
-            <RelativeWrapper top='-10px' left='-10px'>
-              <ButtonVerySmall
-                variant='secondaryEmpty'
+            <RelativeWrapper top='-45px' left='-10px'>
+              <ButtonSmallCircle
+                variant={ButtonVariants.PRIMARY_EMPTY}
                 onClick={showOptionsHandler}
               >
                 <HorizontalWrapper>
-                  <RelativeWrapper top='4px' left='5px'>
+                  <RelativeWrapper top='6px' left='0px'>
                     <SvgIcon
                       variant={showSearchOptions ? 'chevronLeft' : 'eye'}
+                      contentAfter={showSearchOptions ? 'wyszukaj' : 'opcje'}
+                      toLeft='-63px'
+                      toTop='-20px'
+                      width='70px'
                     />{' '}
                   </RelativeWrapper>
                 </HorizontalWrapper>
-              </ButtonVerySmall>
+              </ButtonSmallCircle>
             </RelativeWrapper>
           </SearchBarPaginationSvgWrapperSecond>
         )}
+      </OptionButtonsContainer>
+      <OptionsContainer>
         {data && data?.length > 0 && showSearchOptions ? (
           <HeroSearchOptions />
         ) : null}
@@ -101,7 +125,7 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
               </>
             ) : null}
           </>
-        )}
+        )}{' '}
       </OptionsContainer>
     </RelativeWrapperStretch>
   )
