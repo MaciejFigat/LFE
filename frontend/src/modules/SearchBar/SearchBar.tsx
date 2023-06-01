@@ -104,7 +104,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
             </SpinnerWrapperSearch>
           )}
         </SearchBarButton>
-        <SearchBarContainer>
+        <SearchBarContainer large={large}>
           <SearchInput
             large={large}
             medium={medium}

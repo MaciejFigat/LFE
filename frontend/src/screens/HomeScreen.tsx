@@ -3,7 +3,7 @@ import Toast from '../components/Miscellaneous/Toast/Toast'
 import HeroGrid from '../modules/HomePageComponents/HeroGrid'
 import HomeMobileLayout from '../layout/HomeMobileLayout'
 
-const Home: React.FC = () => {
+const HomeScreen: React.FC = () => {
   return (
     <>
       <Toast option='registerUser' />
@@ -13,4 +13,4 @@ const Home: React.FC = () => {
     </>
   )
 }
-export default Home
+export default HomeScreen

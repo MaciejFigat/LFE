@@ -41,9 +41,10 @@ export const SearchBarWrapper = styled.div`
   height: ${({ large }) => (large ? '50px' : '30px')};
   height: ${({ medium }) => medium && '40px'};
   min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
-  min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
+
   gap: 0.75rem;
   background: transparent;
+
   min-height: fit-content;
   font-size: 1.55rem;
   font-weight: 400;
@@ -59,11 +60,6 @@ export const SearchBarWrapper = styled.div`
   @media (max-width: 620px) {
     height: ${({ large }) => (large ? '45px' : '30px')};
     min-width: fit-content;
-  }
-
-  @media (max-width: 420px) {
-    /* gap: 0.25rem; */
-    /* height: ${({ large }) => (large ? '30px' : '25px')}; */
   }
 `
 
@@ -97,6 +93,13 @@ export const SearchBarButton = styled.button`
     padding: none;
   }
 `
+export const OptionsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  /* background: lime; */
+`
 export const SearchBarForm = styled.form`
   display: flex;
   flex-direction: row;
@@ -104,7 +107,10 @@ export const SearchBarForm = styled.form`
 `
 export const SearchBarContainer = styled.div`
   display: flex;
-  height: 34px;
+  height: ${({ large }) => (large ? '44px' : '34px')};
+  @media (max-width: 620px) {
+    height: ${({ large }) => (large ? '38px' : '34px')};
+  }
 `
 export const SearchInput = styled.input`
   max-width: 100%;
@@ -122,17 +128,21 @@ export const SearchInput = styled.input`
   /* //? medium version */
   font-size: ${({ medium }) => medium && '1.2rem'};
   transition: all 0.3s ease-out;
-  min-width: ${({ large }) => (large ? '370px' : 'fit-content')};
+  min-width: ${({ large }) => (large ? '230px' : 'fit-content')};
   border-radius: ${({ large }) => (large ? '20px' : '12px')};
+
+  @media screen and (max-width: 1420px) {
+    width: ${({ large }) => (large ? '280px' : 'fit-content')};
+  }
   @media (max-width: 620px) {
     font-size: ${({ large }) => (large ? '1rem' : '0.85rem')};
 
-    min-width: ${({ large }) => (large ? '270px' : 'fit-content')};
+    width: ${({ large }) => (large ? '270px' : 'fit-content')};
     border-radius: ${({ large }) => (large ? '14px' : '12px')};
   }
 
   @media (max-width: 420px) {
-    min-width: ${({ large }) => (large ? '200px' : 'fit-content')};
+    width: ${({ large }) => (large ? '200px' : 'fit-content')};
     font-size: 0.8rem;
     padding: 5px 7px;
   }
@@ -331,18 +341,13 @@ export const SwitchDiv = styled.div`
   align-items: center;
 `
 export const SwitchText = styled.b`
-  /* font-size: 0.9rem !important; */
   color: ${({ isOn }) =>
     isOn ? 'var(--background4-main)' : 'var(--background2-main)'};
 `
 export const SwitchHandle = styled(motion.div)`
   width: 14px;
   height: 14px;
-  /* background: var(--background-gradient1); */
   box-shadow: var(--boxShadowClay1);
-  /* box-shadow: ${({ isOn }) =>
-    isOn ? 'var(--boxShadowClay1)' : 'var(--boxShadowInset1)'}; */
-
   border-radius: 12px;
   background-color: ${({ isOn }) =>
     isOn ? 'var(--background2-main)' : 'var(--background2-main)'};
@@ -390,7 +395,6 @@ export const HomeSearchTipsWrapper = styled.div`
 `
 export const HeroSearchSampleWrapper = styled(HomeSearchTipsWrapper)`
   padding: 0rem;
-  /* box-shadow: var(--boxShadowClay1); */
   box-shadow: none;
   background: none;
   margin-top: 0;

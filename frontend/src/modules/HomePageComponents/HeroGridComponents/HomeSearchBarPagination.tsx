@@ -15,6 +15,7 @@ import {
   SearchBarPaginationSvgWrapperSecond
 } from './HeroSection.styled'
 import { ButtonVerySmall } from '../../../components/Buttons/Buttons.styled'
+import { OptionsContainer } from '../../SearchBar/SearchBar.styled'
 
 interface HomeSearchBarPaginationProps {}
 
@@ -38,21 +39,19 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
   }
 
   return (
-    <>
-      <RelativeWrapperStretch>
+    <RelativeWrapperStretch>
+      <OptionsContainer>
         {data && data?.length === 0 ? null : (
           <SearchBarPaginationSvgWrapper>
             <RelativeWrapper top='5px' left='-10px'>
               <ButtonVerySmall variant='secondaryEmpty' onClick={showHandler}>
-                <HorizontalWrapper>
-                  <RelativeWrapper top='4px' left='5px'>
-                    <SvgIcon
-                      variant={
-                        showSearchBar && !showSearchOptions ? 'store' : 'search'
-                      }
-                    />{' '}
-                  </RelativeWrapper>
-                </HorizontalWrapper>
+                <RelativeWrapper top='4px' left='5px'>
+                  <SvgIcon
+                    variant={
+                      showSearchBar && !showSearchOptions ? 'store' : 'search'
+                    }
+                  />{' '}
+                </RelativeWrapper>
               </ButtonVerySmall>
             </RelativeWrapper>
           </SearchBarPaginationSvgWrapper>
@@ -103,8 +102,8 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
             ) : null}
           </>
         )}
-      </RelativeWrapperStretch>
-    </>
+      </OptionsContainer>
+    </RelativeWrapperStretch>
   )
 }
 export default HomeSearchBarPagination

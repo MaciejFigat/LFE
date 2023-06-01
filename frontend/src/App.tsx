@@ -1,5 +1,5 @@
 import Nav from './modules/menu/Nav/Nav'
-import Home from './screens/Home'
+
 import { GlobalStyle } from './styles/GlobalStyles'
 import { useAppSelector } from './app/reduxHooks'
 import { Routes, Route, useLocation } from 'react-router-dom'
@@ -15,6 +15,7 @@ import ResetPasswordScreen from './modules/Login/ResetPassword'
 import ConfirmAccountScreen from './screens/ConfirmAccountScreen'
 import DocumentViewScreen from './screens/DocumentViewScreen'
 import StoredFragmentsScreen from './screens/StoredFragmentsScreen'
+import HomeScreen from './screens/HomeScreen'
 
 function App () {
   const location = useLocation()
@@ -44,7 +45,7 @@ function App () {
         <Route path='/admin/userlist' element={<UserListAdmin />} />
         <Route path='/admin/user/:id/edit' element={<UserAdminEdit />} />
         <Route path='/profile' element={<UserProfileScreen />} />
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<HomeScreen />} />
       </Routes>
     </>
   )
