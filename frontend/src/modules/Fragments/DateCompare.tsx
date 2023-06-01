@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { sortingDateEdit } from '../../features/preferences/preferenceSlice'
-import { RelativeWrapper } from '../../styles/misc.styled'
+import { HorizontalLineBottom, RelativeWrapper } from '../../styles/misc.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import {
   DateCompareRow,
@@ -9,6 +9,7 @@ import {
   HorizontalContainer
 } from './FragmentsColumn.styled'
 import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
+import { ButtonVariants } from '../../consts'
 
 interface DateCompareProps {}
 
@@ -174,8 +175,6 @@ const DateCompare: React.FC<DateCompareProps> = () => {
     const date = {
       sortingYear: maxDate.getFullYear(),
       sortingMonth: maxDate.getMonth() + 1,
-      //! HERE seems to be the bug (below)
-      // sortingDay: maxDate.getDate() - 1,
       sortingDay: maxDate.getDate()
     }
 
@@ -187,7 +186,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
         <HorizontalContainer>
           <RelativeWrapper top='4px' left='4px'>
             <ButtonVerySmall
-              variant='secondaryEmpty'
+              variant={ButtonVariants.WARNING_EMPTY}
               onClick={handleDecreaseSortDay}
             >
               <SvgIcon variant='minusSquare' noContent />
@@ -196,7 +195,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
           <b>{sortingDay}</b>
           <RelativeWrapper top='4px' left='0px'>
             <ButtonVerySmall
-              variant='primaryEmpty'
+              variant={ButtonVariants.SUCCESS_EMPTY}
               onClick={handleIncreaseSortDay}
             >
               <SvgIcon variant='plusSquare' noContent />
@@ -207,7 +206,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
           {' '}
           <RelativeWrapper top='4px' left='6px'>
             <ButtonVerySmall
-              variant='secondaryEmpty'
+              variant={ButtonVariants.WARNING_EMPTY}
               onClick={handleDecreaseSortMonth}
             >
               <SvgIcon variant='minusSquare' noContent />
@@ -217,7 +216,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
           {sortingMonth - 1 < new Date().getMonth() ? (
             <RelativeWrapper top='4px' left='0px'>
               <ButtonVerySmall
-                variant='primaryEmpty'
+                variant={ButtonVariants.SUCCESS_EMPTY}
                 onClick={handleIncreaseSortMonth}
               >
                 <SvgIcon variant='plusSquare' noContent />
@@ -233,7 +232,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
           {' '}
           <RelativeWrapper top='4px' left='6px'>
             <ButtonVerySmall
-              variant='secondaryEmpty'
+              variant={ButtonVariants.WARNING_EMPTY}
               onClick={handleDecreaseSortYear}
             >
               <SvgIcon variant='minusSquare' noContent />
@@ -243,7 +242,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
           {sortingYear < new Date().getFullYear() && (
             <RelativeWrapper top='4px' left='0px'>
               <ButtonVerySmall
-                variant='primaryEmpty'
+                variant={ButtonVariants.SUCCESS_EMPTY}
                 onClick={handleIncreaseSortYear}
               >
                 <SvgIcon variant='plusSquare' noContent />
@@ -252,16 +251,23 @@ const DateCompare: React.FC<DateCompareProps> = () => {
           )}
         </HorizontalContainer>
       </DateCompareRow>
+      <HorizontalLineBottom />
       <DateCompareRow>
         {' '}
         {(sortingYear !== new Date().getFullYear() ||
           sortingMonth !== new Date().getMonth() + 1 ||
           sortingDay !== new Date().getDate()) && (
-          <ButtonVerySmall variant='secondary' onClick={handleSetToday}>
+          <ButtonVerySmall
+            variant={ButtonVariants.SUCCESS_EMPTY}
+            onClick={handleSetToday}
+          >
             Dzisiejsza sesja
           </ButtonVerySmall>
         )}
-        <ButtonVerySmall variant='secondary' onClick={handleSetLastSession}>
+        <ButtonVerySmall
+          variant={ButtonVariants.INFO_EMPTY}
+          onClick={handleSetLastSession}
+        >
           Ostatnia sesja
         </ButtonVerySmall>
       </DateCompareRow>

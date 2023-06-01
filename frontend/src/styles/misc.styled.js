@@ -471,6 +471,7 @@ export const CenteredTitle = styled.h2`
 export const RegularDiv = styled.div`
   display: grid;
   place-items: center;
+
   width: 100%;
 `
 

@@ -14,10 +14,7 @@ import {
   SearchBarPaginationSvgWrapper,
   SearchBarPaginationSvgWrapperSecond
 } from './HeroSection.styled'
-import {
-  ButtonSmallCircle,
-  ButtonVerySmall
-} from '../../../components/Buttons/Buttons.styled'
+import { ButtonSmallCircle } from '../../../components/Buttons/Buttons.styled'
 import {
   OptionButtonsContainer,
   OptionsContainer

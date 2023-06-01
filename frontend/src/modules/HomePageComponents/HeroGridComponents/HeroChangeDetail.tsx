@@ -4,10 +4,7 @@ import { AppDispatch } from '../../../app/store'
 import { changeFragmentsDetailView } from '../../../features/preferences/preferenceSlice'
 import { RelativeWrapper } from '../../../styles/misc.styled'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
-import {
-  ButtonSmallCircle,
-  ButtonVerySmall
-} from '../../../components/Buttons/Buttons.styled'
+import { ButtonSmallCircle } from '../../../components/Buttons/Buttons.styled'
 import { ButtonVariants } from '../../../consts'
 interface HeroChangeDetailProps {}
 

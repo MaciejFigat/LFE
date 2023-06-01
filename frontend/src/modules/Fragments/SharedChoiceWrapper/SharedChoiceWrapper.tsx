@@ -18,8 +18,8 @@ import { UserInfo } from '../../../interfaces'
 import { AppDispatch } from '../../../app/store'
 import {
   HighlightText,
-  RelativeWrapper,
-  RelativeWrapperStretch
+  RegularDiv,
+  RelativeWrapper
 } from '../../../styles/misc.styled'
 import { TextColor } from '../../../consts'
 
@@ -75,12 +75,12 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
         </RelativeWrapper>
       ),
       content: (
-        <RelativeWrapperStretch>
+        <RegularDiv>
           <HighlightText color={TextColor.PRIMARY}>
             Wyszukano: {numberOfResults && numberOfResults} dok.
           </HighlightText>{' '}
           <Pagination narrow />
-        </RelativeWrapperStretch>
+        </RegularDiv>
       )
     },
     {
