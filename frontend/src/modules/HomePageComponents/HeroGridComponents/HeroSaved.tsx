@@ -30,7 +30,7 @@ const HeroFragmentsDisplay: React.FC<HeroSavedProps> = () => {
   return (
     <>
       {sortingOption === 'data' || sortingOption === 'wszystkie' ? (
-        <UserFragmentsColumn />
+        <UserFragmentsColumn simpleVersion />
       ) : null}
       {sortingOption === 'projekt' ? <UserFragmentsByKeyword /> : null}
     </>

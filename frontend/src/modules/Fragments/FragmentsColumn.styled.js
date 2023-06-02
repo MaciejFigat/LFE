@@ -26,7 +26,7 @@ export const FragmentsPExcerpt = styled.p`
   font-size: 1rem;
   font-weight: 500;
   margin: 0;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
 `
 export const DateCompareWrapper = styled.div`
   display: flex;

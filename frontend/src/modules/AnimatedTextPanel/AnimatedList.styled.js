@@ -7,21 +7,23 @@ export const FragmentsWrapper = styled(motion.div)`
   margin-top: 2rem;
   margin-bottom: 2rem;
 
-  /* //todo resizable narrow column grid columns */
-  grid-template-columns: ${({ moreColumns, width }) =>
-    !moreColumns && width < 600 ? 'repeat(2, 1fr)' : null};
-    !moreColumns && width < 500 && 'repeat(3, 1fr)'}; */
+  grid-template-columns: ${({ simpleVersion }) =>
+    simpleVersion ? 'repeat(1, 1fr)' : null};
   @media (min-width: 1640px) {
     grid-template-columns: ${({ moreColumns, width }) =>
       !moreColumns && width < 766 ? 'repeat(2, 1fr)' : null};
     grid-template-columns: ${({ moreColumns, width }) =>
       !moreColumns && width < 400 && 'repeat(3, 1fr)'};
+    grid-template-columns: ${({ simpleVersion }) =>
+      simpleVersion ? 'repeat(1, 1fr)' : null};
   }
   @media (min-width: 1820px) {
     grid-template-columns: ${({ moreColumns, width }) =>
       !moreColumns && width < 966 ? 'repeat(2, 1fr)' : null};
     grid-template-columns: ${({ moreColumns, width }) =>
       !moreColumns && width < 500 && 'repeat(3, 1fr)'};
+    grid-template-columns: ${({ simpleVersion }) =>
+      simpleVersion ? 'repeat(1, 1fr)' : null};
   }
   @media (max-width: 1340px) {
     grid-template-columns: ${({ moreColumns }) =>

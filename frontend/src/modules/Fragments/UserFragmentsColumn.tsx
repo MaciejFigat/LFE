@@ -14,10 +14,12 @@ import { AppDispatch } from '../../app/store'
 
 interface UserFragmentsColumnProps {
   moreColumns?: boolean
+  simpleVersion?: boolean
 }
 
 const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
-  moreColumns
+  moreColumns,
+  simpleVersion
 }) => {
   const dispatch: AppDispatch = useAppDispatch()
 
@@ -49,7 +51,11 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
   }, [dispatch, fragmentSuccess])
 
   return (
-    <FragmentsWrapper moreColumns={moreColumns} width={widthNarrow}>
+    <FragmentsWrapper
+      moreColumns={moreColumns}
+      width={widthNarrow}
+      simpleVersion={simpleVersion}
+    >
       {fragments.length > 0 &&
         fragments
           .filter(fragmentsSorted =>

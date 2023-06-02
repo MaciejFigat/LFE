@@ -2,7 +2,7 @@ import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import {
   HighlightText,
-  HorizontalLineTop,
+  HorizontalLineBottom,
   RelativeWrapper,
   WrapperMotionDivRelative
 } from '../../styles/misc.styled'
@@ -81,7 +81,7 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
               )}
             </>
           ) : null}
-          <RelativeWrapper top='0px' left='5px'>
+          <RelativeWrapper top='0px' left='0px'>
             {' '}
             <ButtonSmallCircle
               variant={ButtonVariants.PRIMARY_EMPTY}
@@ -101,11 +101,11 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
           </RelativeWrapper>
         </HorizontalContainer>
         <FragmentsPExcerpt>{excerpt.substring(0, 110)}</FragmentsPExcerpt>
-        <HorizontalLineTop />
+        <HorizontalLineBottom />
         <HorizontalContainer>
           {source !== '' ? <FragmentsP>{source}</FragmentsP> : null}
 
-          <RelativeWrapper top='-5px' left='5px'>
+          <RelativeWrapper top='10px' left='0px'>
             <ButtonSmallCircle
               variant={ButtonVariants.WARNING_EMPTY}
               onClick={() => removeFragmentHandler(id)}
