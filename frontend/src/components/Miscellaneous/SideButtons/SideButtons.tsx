@@ -14,16 +14,16 @@ const colors = [
   'var(--background-secondary1)',
   'var(--background-secondary2)',
   'var(--background-secondary3)',
-  'var(--background-tertiary1)',
-  'var(--background-tertiary2)',
-  'var(--background-tertiary3)',
+  'var(--info1)',
+  'var(--info2)',
+  'var(--warning1)'
 ]
 
 const SideButtons: React.FC<SideButtonsProps> = ({ hashIds }) => {
   const location = useLocation()
   const dispatch: any = useAppDispatch()
   const fragmentScrolled = useAppSelector(
-    (state) => state.preference.fragmentScrolled
+    state => state.preference.fragmentScrolled
   )
   useEffect(() => {
     const hashIndex = location.hash.substring(6)

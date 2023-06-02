@@ -5,17 +5,16 @@ export const SideButtonWrapper = styled.ul`
   position: sticky;
   display: grid;
   place-items: center;
-  padding: 0;
-  /* padding-right: -0.55rem; */
-  width: 100px;
-  gap: 2rem;
+  padding: 0.75rem 0;
+  width: 70px;
+  gap: 1.5rem;
   margin: 0;
-  font-size: 1.8rem !important;
-  border-radius: 10px;
+  font-size: 1.8rem;
+  border-radius: 30px;
   top: 120px;
   height: fit-content;
-  /* background: var(--background-blur1); */
-  /* background: var(--background2-main); */
+
+  border: 1px solid var(--background-blur2);
   z-index: 10;
 `
 
@@ -31,21 +30,12 @@ export const ButtonOutline = styled(motion.div)`
 `
 export const ButtonItem = styled.li`
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--background-blur2);
   border-radius: 50%;
   margin: 10px;
   position: relative;
   cursor: pointer;
   flex-shrink: 0;
 `
-// export const ButtonList = styled.ul`
-//   list-style: none;
-//   margin: 0;
-//   padding: 0;
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-//   width: 280px;
-//   height: 280px;
-// `

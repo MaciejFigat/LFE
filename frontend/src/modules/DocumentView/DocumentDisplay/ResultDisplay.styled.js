@@ -21,7 +21,6 @@ export const ArticleWrapper = styled.div`
 export const ArticleTitle = styled.h2`
   font-size: 2.4rem;
   line-height: 1;
-  //todo
   color: var(--background4-main);
   letter-spacing: -0.075rem;
   text-align: center;
@@ -38,27 +37,24 @@ export const ArticleTopline = styled.h4`
   letter-spacing: 0.25px;
   font-size: 1.2rem;
   margin: 0.75rem;
-  /* margin-bottom: 2rem; */
 `
 export const ArticleSection = styled.div`
   padding: var(--padding);
   padding-bottom: 0;
-  /* font-size: 1.1rem;
-  line-height: 1.5; */
+
   @media (max-width: 880px) {
     padding: 1rem;
     padding-bottom: 0;
-    /* margin-top: 1rem; */
   }
 `
 export const ArticleParagraph = styled.div`
   font-size: 1.3rem;
   line-height: 1.3;
   padding-top: 1rem;
-  /* padding-bottom: 0; */
+
   max-width: 47rem;
   font-weight: 500;
-  /* text-align: justify; */
+
   text-align: left;
 `
 export const ArticleParagraphFragment = styled(ArticleParagraph)`

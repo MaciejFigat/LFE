@@ -104,7 +104,7 @@ export const DragButton = styled.div`
   transition: 0.2s;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
-  border: 1.5px solid var(--background3-main);
+  border: 1.5px solid var(--background-blur2);
   &:hover {
     border-color: var(--background3-main);
 
@@ -117,8 +117,7 @@ export const DragDiv = styled.div`
   top: 0;
   background: none;
   border-left: 1.5px solid;
-  /* border-color: var(--background-blur2); */
-  border-color: var(--background1-main);
+  border-color: var(--background-blur2);
   transition: 0.2s;
   &:active {
     border-color: var(--background2-main);
@@ -138,11 +137,8 @@ export const DragDiv = styled.div`
 export const SectionColumnScrollResize = styled(motion.div)`
   display: flex;
   flex-direction: column;
-
   justify-content: flex-start;
-
   align-items: center;
-
   padding-left: 15px;
 
   //* the following sets width depending on whether it's narrowOption (used in DocResult display) or regular
@@ -157,11 +153,8 @@ export const SectionColumnScrollResize = styled(motion.div)`
 export const SectionColumnResize = styled.div`
   display: grid;
   place-items: flex-start center;
-
-  background: var(--background1-main);
   position: sticky;
   top: 0px;
-
   margin-bottom: 0;
   padding-left: 15px;
   padding-bottom: 0;
@@ -169,8 +162,7 @@ export const SectionColumnResize = styled.div`
   min-height: fit-content;
   overflow: scroll;
   flex-grow: 1;
-
-  max-width: 70vw;
+  max-width: 60vw;
   width: 10%;
   ::-webkit-scrollbar {
     width: 0px;

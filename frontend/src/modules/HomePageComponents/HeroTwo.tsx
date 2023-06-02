@@ -9,6 +9,7 @@ import SimpleResultDisplay from '../DocumentView/DocumentDisplay/SimpleDocumentD
 import { ButtonSmallCircle } from '../../components/Buttons/Buttons.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../styles/misc.styled'
+import { ButtonVariants } from '../../consts'
 
 interface HeroTwoProps {}
 
@@ -60,7 +61,7 @@ const HeroTwoThird: React.FC = () => {
     <>
       {data && data?.length === 0 ? null : (
         <ButtonSmallCircle
-          variant='primaryEmpty'
+          variant={ButtonVariants.PRIMARY_EMPTY}
           onClick={() => changeResultsViewHelper()}
         >
           {' '}

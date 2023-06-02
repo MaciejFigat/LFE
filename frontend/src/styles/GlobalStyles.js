@@ -286,13 +286,13 @@ body {
     color: var(--background-secondary3);
   }
   .highlightFrag3{ 
-    color: var(--background-tertiary1);
+    color: var(--info1);
   }
   .highlightFrag4{
-    color: var(--background-tertiary2);
+    color: var(--info2);
   }
   .highlightFrag5{
-    color: var(--background-tertiary3);
+    color: var(--warning1);
   }
   
 

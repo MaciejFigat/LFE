@@ -16,7 +16,8 @@ import { RegularColumn, RelativeWrapper } from '../../styles/misc.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { TwoColumnsWrapper } from '../../styles/misc.styled'
 import { AppDispatch } from '../../app/store'
-import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
+import { ButtonSmallCircle } from '../../components/Buttons/Buttons.styled'
+import { ButtonVariants } from '../../consts'
 
 interface CitationDisplayProps {
   wide?: boolean
@@ -49,27 +50,27 @@ const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
                     <SimpleCitationItemNoShadow>
                       <HorizontalContainer>
                         {citation.source !== '' && (
-                          <FragmentsP>
-                            {/* {citation.source.substring(0, 27)} */}
-                            {citation.source}
-                          </FragmentsP>
+                          <FragmentsP>{citation.source}</FragmentsP>
                         )}
 
                         <>
-                          <RelativeWrapper top='-15px' left='10px'>
+                          <RelativeWrapper top='-5px' left='5px'>
                             {' '}
-                            <ButtonVerySmall
-                              variant='secondaryEmpty'
+                            <ButtonSmallCircle
+                              variant={ButtonVariants.WARNING_EMPTY}
                               onClick={() => removeCitationHandler(citation.id)}
                             >
-                              <SvgIcon
-                                variant='remove'
-                                contentAfter='usuń'
-                                toBottom
-                                toLeft='-60px'
-                                width='40px'
-                              />
-                            </ButtonVerySmall>
+                              <RelativeWrapper top='5px' left='0px'>
+                                <SvgIcon
+                                  variant='remove'
+                                  contentAfter='usuń'
+                                  toBottom
+                                  toLeft='-55px'
+                                  toTop='-18px'
+                                  width='40px'
+                                />
+                              </RelativeWrapper>
+                            </ButtonSmallCircle>
                           </RelativeWrapper>
                         </>
                       </HorizontalContainer>
@@ -103,27 +104,28 @@ const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
                     <SimpleCitationItemNoShadow>
                       <HorizontalContainer>
                         {citation.source !== '' && (
-                          <FragmentsP>
-                            {/* {citation.source.substring(0, 27)} */}
-                            {citation.source}
-                          </FragmentsP>
+                          <FragmentsP>{citation.source}</FragmentsP>
                         )}
 
                         <>
-                          <RelativeWrapper top='-15px' left='10px'>
+                          <RelativeWrapper top='-5px' left='5px'>
                             {' '}
-                            <ButtonVerySmall
-                              variant='secondaryEmpty'
+                            <ButtonSmallCircle
+                              variant={ButtonVariants.WARNING_EMPTY}
                               onClick={() => removeCitationHandler(citation.id)}
                             >
-                              <SvgIcon
-                                variant='remove'
-                                contentAfter='usuń'
-                                toBottom
-                                toLeft='-60px'
-                                width='40px'
-                              />
-                            </ButtonVerySmall>
+                              {' '}
+                              <RelativeWrapper top='5px' left='0px'>
+                                <SvgIcon
+                                  variant='remove'
+                                  contentAfter='usuń'
+                                  toBottom
+                                  toTop='-18px'
+                                  toLeft='-55px'
+                                  width='40px'
+                                />{' '}
+                              </RelativeWrapper>
+                            </ButtonSmallCircle>
                           </RelativeWrapper>
                         </>
                       </HorizontalContainer>
