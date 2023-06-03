@@ -12,7 +12,7 @@ import {
 } from './ResultDisplay.styled'
 import SideButtons from '../../../components/Miscellaneous/SideButtons/SideButtons'
 import ScrollToElementHelper from '../../../hooks/ScrollToElementHelper'
-import ScrollProgressBar from '../../../components/Miscellaneous/ScrollProgressBar/ScrollProgressBar'
+// import ScrollProgressBar from '../../../components/Miscellaneous/ScrollProgressBar/ScrollProgressBar'
 
 interface DocumentDisplayProps {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'blue'
@@ -38,7 +38,7 @@ const DocumentDisplay: React.FC<DocumentDisplayProps> = () => {
     <ArticleContainer>
       <ScrollToElementHelper />
       <SideButtons hashIds={hashIds} />
-      <ScrollProgressBar />
+      {/* <ScrollProgressBar /> */}
       <ArticleWrapper>
         {docResult?.tresc?.sad && (
           <>
