@@ -228,10 +228,6 @@ export const ButtonLink = styled.a`
   flex-direction: row;
   align-items: center;
   justify-items: center;
-
-  ${Button}:hover & {
-    /* for some reason the props are not read in this instance REMIND ME to check for issues in styled-components */
-  }
 `
 export const TopLine = styled.div`
   color: var(--background4-main);

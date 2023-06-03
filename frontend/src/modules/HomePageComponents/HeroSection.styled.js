@@ -201,7 +201,7 @@ export const HeroArticleBigSection = styled(HeroArticleSection)`
   overflow-y: scroll;
 
   ::-webkit-scrollbar {
-    width: 0.2em;
+    width: 0.3em;
   }
 `
 export const HeroArticleSmallSection = styled(HeroArticleSection)`

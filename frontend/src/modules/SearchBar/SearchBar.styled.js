@@ -67,14 +67,9 @@ export const SearchBarButton = styled.button`
   background: transparent;
 
   color: var(--background4-main) !important;
-  font-size: ${({ large }) => (large ? '1.55rem' : '1rem')};
+  font-size: ${({ large }) => (large ? '1.55rem' : '1.2rem')};
   font-weight: 700;
-
-  border: 1px solid transparent;
-  border-radius: 10px;
-
-  /* margin-left: ${({ large }) => (large ? '1rem' : '0.5rem')}; */
-  /* margin-right: ${({ large }) => (large ? '0.5rem' : '0rem')}; */
+  min-width: 45px;
   margin: 0;
   svg {
     color: var(--background3-main);

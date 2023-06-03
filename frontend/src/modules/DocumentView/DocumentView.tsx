@@ -18,9 +18,7 @@ interface DocumentViewProps {}
 
 const DocumentView: React.FC<DocumentViewProps> = () => {
   const dispatch: any = useAppDispatch()
-
   const userInfo: UserInfo = useAppSelector(state => state.user.userInfo)
-
   const widthNarrow = useAppSelector(state => state.preference.widthNarrow)
   const searchResults: any = useAppSelector(
     state => state.searchResult.searchResults

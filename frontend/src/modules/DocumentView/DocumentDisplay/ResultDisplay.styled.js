@@ -13,6 +13,7 @@ export const ArticleWrapper = styled.div`
   align-items: center;
   padding-top: 2rem;
   color: var(--background4-main);
+
   @media (max-width: 880px) {
     padding-top: 1rem;
   }

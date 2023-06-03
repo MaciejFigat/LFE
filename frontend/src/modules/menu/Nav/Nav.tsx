@@ -11,7 +11,6 @@ import NavListDesktop from './NavListDesktop'
 import NavListMobile from './NavListMobile'
 import useScrollListener from '../../../hooks/useScrollListener'
 import { useCycle } from 'framer-motion'
-
 import SearchDropdown from '../../SearchBar/SearchDropdown'
 import { preferedSchemeEdit } from '../../../features/preferences/preferenceSlice'
 import { getUserFragments } from '../../../features/fragments/fragmentSlice'

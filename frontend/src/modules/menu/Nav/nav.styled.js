@@ -88,7 +88,8 @@ export const NavList = styled.ul`
   justify-content: space-around;
   align-items: center;
   padding: 0;
-  min-width: 50vw;
+  /* min-width: 50vw; */
+  min-width: 30vw;
   @media (min-width: 1820px) {
     justify-content: space-evenly;
     min-width: 35vw;

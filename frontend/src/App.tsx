@@ -1,5 +1,4 @@
 import Nav from './modules/menu/Nav/Nav'
-
 import { GlobalStyle } from './styles/GlobalStyles'
 import { useAppSelector } from './app/reduxHooks'
 import { Routes, Route, useLocation } from 'react-router-dom'

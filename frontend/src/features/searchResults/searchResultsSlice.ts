@@ -31,8 +31,6 @@ export const getSearchResults = createAsyncThunk(
         params: { searchquery: searchquery }
       })
 
-      //todo
-      // console.log(JSON.stringify(data, null, 4))
       return data
     } catch (error: any) {
       return error
@@ -58,8 +56,6 @@ export const getDocResult = createAsyncThunk(
         }
       })
 
-      //todo
-      // console.log(JSON.stringify(data, null, 4))
       return data
     } catch (error: any) {
       return error
@@ -91,7 +87,7 @@ export const getDocByIdAndQuery = createAsyncThunk(
   }
 )
 // /lexapi/doc/id/query
-// ! Work in progress /searchSkip
+
 interface ResultQuery {
   query: string
   skip: number
@@ -124,7 +120,7 @@ export const getResultsFiltered = createAsyncThunk(
     }
   }
 )
-//! Work in progress /searchSkip
+
 export const getDocByNr = createAsyncThunk(
   'docResult/getDocByNr',
 
@@ -145,9 +141,7 @@ const searchResultSlice = createSlice({
     searchResults: {
       data: []
     },
-    docResult: {
-      data: []
-    },
+    docResult: {},
 
     heroDocIndex: 0,
     docId: 0,

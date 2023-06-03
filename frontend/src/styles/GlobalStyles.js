@@ -28,7 +28,7 @@ body {
 
 :root {
   --padding: 3rem;
- 
+ overflow-y: scroll;
   
   --background1-main: ${(props) =>
     handleGlobalScheme(props.globalScheme).background1Main} 
@@ -298,7 +298,7 @@ body {
 
 }
 ::-webkit-scrollbar {
-  width: 0.3em;
+  width: 0em;
   @media screen and (max-width: 1020px) {
           width: 0em;
   }

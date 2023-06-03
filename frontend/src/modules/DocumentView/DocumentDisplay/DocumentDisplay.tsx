@@ -12,6 +12,7 @@ import {
 } from './ResultDisplay.styled'
 import SideButtons from '../../../components/Miscellaneous/SideButtons/SideButtons'
 import ScrollToElementHelper from '../../../hooks/ScrollToElementHelper'
+import ScrollProgressBar from '../../../components/Miscellaneous/ScrollProgressBar/ScrollProgressBar'
 
 interface DocumentDisplayProps {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'blue'
@@ -22,7 +23,6 @@ const DocumentDisplay: React.FC<DocumentDisplayProps> = () => {
   const docResult: any = useAppSelector(state => state.searchResult.docResult)
   const { frags: highlightedFragments } = docResult
   const [hashIds, setHashIds] = useState<string[]>([])
-
   //* look for id's: frag-0, frag-1 etc.
   useEffect(() => {
     const idArray: string[] = []
@@ -38,7 +38,7 @@ const DocumentDisplay: React.FC<DocumentDisplayProps> = () => {
     <ArticleContainer>
       <ScrollToElementHelper />
       <SideButtons hashIds={hashIds} />
-
+      <ScrollProgressBar />
       <ArticleWrapper>
         {docResult?.tresc?.sad && (
           <>

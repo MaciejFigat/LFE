@@ -167,4 +167,9 @@ export const SectionColumnResize = styled.div`
   ::-webkit-scrollbar {
     width: 0px;
   }
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+
+    border-radius: 2px;
+  }
 `
