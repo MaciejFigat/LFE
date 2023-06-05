@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
-export const KeywordSearchLabelH2 = styled.div`
+export const KeywordSearchLabelH2 = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,19 +9,10 @@ export const KeywordSearchLabelH2 = styled.div`
   align-items: center;
 
   font-weight: 700;
-  /* box-shadow: var(--boxShadowClay1); */
-  /* border-right: 1px solid var(--background-blur2);
-  border-top: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background-blur1);
-  border-radius: 20px; */
-  /* width: 250px; */
+
   width: 100%;
   height: 70px;
   margin: 0;
-  /* background: brown; */
-  /* min-width: fit-content; */
-  /* padding: 0.75rem 0rem; */
 `
 export const KeywordSearchContainer = styled.div`
   display: flex;

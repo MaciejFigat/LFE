@@ -111,12 +111,14 @@ export const HorizontalButtonContainer = styled(motion.div)`
 
 export const LabelContainerButtons = styled.div`
   position: relative;
-  top: 5px;
+  top: 8px;
   display: flex;
+  height: 50px;
+  gap: 0.5rem;
   justify-content: center;
   flex-direction: row;
 `
-export const LabelContainerWrapper = styled.div`
+export const LabelContainerWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
 `

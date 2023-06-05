@@ -101,7 +101,7 @@ export const OpenedDivBig = styled(OpenedLayoutDiv)`
   top: ${({ yPosition }) => (yPosition ? `${yPosition + 133}px` : '15vh')};
 
   left: 10vw;
-  z-index: 2;
+  z-index: 12;
   @media (max-width: 620px) {
     width: 100%;
     left: 0;
@@ -339,23 +339,30 @@ export const SvgWrapperMisc = styled.div`
 `
 export const SvgWrapperMiscSmall = styled(SvgWrapperMisc)``
 
-export const ClayButtonWrapper = styled.div`
+export const ClayButtonWrapper = styled(motion.div)`
   display: grid;
   place-items: center;
-  padding: ${({ paddingProps }) => (paddingProps ? paddingProps : '1rem')};
-  height: ${({ heightProps }) => (heightProps ? heightProps : 'fit-content')};
+  padding: ${({ $paddingProps }) => ($paddingProps ? $paddingProps : '1rem')};
+  height: ${({ $heightProps }) =>
+    $heightProps ? $heightProps : 'fit-content'};
   box-shadow: var(--boxShadowClay1);
-  background: var(--background-gradient1);
+
+  background: var(--background-gradient2);
+  background: var(--background1-main);
+
   border-radius: 25px;
 `
 export const ClayButtonWrapperSecondary = styled(ClayButtonWrapper)`
-  box-shadow: none;
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur2);
   border-bottom: 1px solid var(--background-blur2);
   max-width: fit-content;
-  margin-bottom: ${({ marginProps }) => (marginProps ? marginProps : '1rem')};
+  z-index: 11;
+  /* min-height: 50px; */
+  /* height: 50px; */
+  margin-bottom: ${({ $marginProps }) =>
+    $marginProps ? $marginProps : '1rem'};
 `
 
 export const HeroCanvas = styled.canvas`

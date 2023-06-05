@@ -16,6 +16,7 @@ import {
 import { ListWrapper } from '../AnimatedTextPanel/AnimatedList.styled'
 
 import FragmentTextItem from '../AnimatedTextPanel/FragmentTextItem'
+import { AnimatePresence } from 'framer-motion'
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   userSelect: 'none',
@@ -36,8 +37,6 @@ const getListStyle = (isDraggingOver: any) => ({
     ? 'var(--background-blur1)'
     : 'var(--background1-main)',
   borderRadius: '40px'
-
-  // width: 250,
 })
 interface SecondAndThirdColProjectProps {
   state: any[]
@@ -84,7 +83,7 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
               >
                 {ind === 0 && (
                   <KeywordSearchLabelH2>
-                    <ClayButtonWrapperSecondary paddingProps='0.5rem'>
+                    <ClayButtonWrapperSecondary $paddingProps='0.5rem'>
                       <LabelInput
                         labelNrOne
                         editing={inputOneEditing}
@@ -98,7 +97,7 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                 )}
                 {ind === 1 && (
                   <KeywordSearchLabelH2>
-                    <ClayButtonWrapperSecondary paddingProps='0.5rem'>
+                    <ClayButtonWrapperSecondary $paddingProps='0.5rem'>
                       <LabelInput
                         editing={inputTwoEditing}
                         setEditing={setInputTwoEditing}

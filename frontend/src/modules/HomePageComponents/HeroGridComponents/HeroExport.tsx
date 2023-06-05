@@ -109,8 +109,8 @@ const HeroExportMain: React.FC<HeroExportProps> = () => {
         </ButtonSmall>
       ) : (
         <ClayButtonWrapperSecondary
-          paddingProps='0.5rem 1rem'
-          marginProps='0rem'
+          $paddingProps='0.5rem 1rem'
+          $marginProps='0rem'
         >
           Brak fragmentów
         </ClayButtonWrapperSecondary>

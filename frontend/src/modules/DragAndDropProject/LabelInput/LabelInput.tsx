@@ -9,7 +9,9 @@ import {
   TitleAnimated,
   TitleInput
 } from './LabelInput.styled'
-import { ButtonVerySmall } from '../../../components/Buttons/Buttons.styled'
+import { ButtonSmallCircle } from '../../../components/Buttons/Buttons.styled'
+import { RelativeWrapper } from '../../../styles/misc.styled'
+import { AnimatePresence } from 'framer-motion'
 
 interface LabelInputProps {
   labelNrOne?: boolean
@@ -88,9 +90,16 @@ const LabelInput: React.FC<LabelInputProps> = ({
     }
   }
   return (
-    <>
+    <AnimatePresence initial mode='wait'>
       {editing ? (
-        <LabelContainerWrapper>
+        <LabelContainerWrapper
+          layoutId={`${label}open`}
+          key={`${label}open`}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ delay: 0, duration: 0.2 }}
+        >
           {' '}
           <LabelContainer
             $contentAfter='edytuj nazwę'
@@ -107,33 +116,46 @@ const LabelInput: React.FC<LabelInputProps> = ({
             />{' '}
           </LabelContainer>{' '}
           <LabelContainerButtons>
-            <ButtonVerySmall variant='primaryEmpty' onClick={resetLabelHelper}>
-              <SvgIcon
-                variant='back'
-                toLeft='-45px'
-                toTop='-15px'
-                width='45px'
-                contentAfter='wróć'
-              />
-            </ButtonVerySmall>
+            <ButtonSmallCircle
+              variant='primaryEmpty'
+              onClick={resetLabelHelper}
+            >
+              <RelativeWrapper $top='6px' $left='-1px'>
+                <SvgIcon
+                  variant='back'
+                  toLeft='-50px'
+                  toTop='-20px'
+                  width='45px'
+                  contentAfter='wróć'
+                />
+              </RelativeWrapper>
+            </ButtonSmallCircle>
             {labelRedux !== label && (
-              <ButtonVerySmall
+              <ButtonSmallCircle
                 variant='successEmpty'
                 onClick={saveInputLabelHelper}
               >
-                <SvgIcon
-                  variant='save'
-                  toLeft='45px'
-                  toTop='-15px'
-                  width='50px'
-                  contentAfter='zapisz'
-                />
-              </ButtonVerySmall>
+                <RelativeWrapper $top='5px' $left='0px'>
+                  <SvgIcon
+                    variant='save'
+                    toLeft='55px'
+                    toTop='-20px'
+                    width='50px'
+                    contentAfter='zapisz'
+                  />{' '}
+                </RelativeWrapper>
+              </ButtonSmallCircle>
             )}
           </LabelContainerButtons>
         </LabelContainerWrapper>
       ) : (
         <LabelContainer
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ delay: 0, duration: 0.2 }}
+          key={`${label}closed`}
+          layoutId={`${label}closed`}
           $contentAfter='nazwa kategorii'
           $width='70px'
           $toTop='-15px'
@@ -142,7 +164,7 @@ const LabelInput: React.FC<LabelInputProps> = ({
           <TitleAnimated onClick={editingHelper}> {label}</TitleAnimated>
         </LabelContainer>
       )}
-    </>
+    </AnimatePresence>
   )
 }
 export default LabelInput
