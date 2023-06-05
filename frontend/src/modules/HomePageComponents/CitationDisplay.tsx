@@ -1,7 +1,6 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { citationRemoved } from '../../features/fragments/fragmentSlice'
-import { AnimateSharedLayout } from 'framer-motion'
 import {
   ItemWrapper,
   ListWrapper,
@@ -31,7 +30,7 @@ const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
   }
 
   return (
-    <AnimateSharedLayout>
+    <>
       {citations.length > 0 && !wide ? (
         <RegularColumn>
           {' '}
@@ -141,7 +140,7 @@ const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
             .reverse()}
         </TwoColumnsWrapper>
       ) : null}
-    </AnimateSharedLayout>
+    </>
   )
 }
 export default CitationDisplay

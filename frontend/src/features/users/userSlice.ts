@@ -1,48 +1,67 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { UserInfo } from '../../interfaces'
 
-interface UserInfo {
-  _id?: string
-  name?: string
-  email?: string
-  password?: string
-  status?: 'Active' | 'Pending'
-  isAdmin?: boolean
-}
 interface UserLogin {
   email: string
   password: string
 }
 
 // the thunk for posting the header - used for logging in
+// export const sendUserId = createAsyncThunk(
+//   'user/sendUser',
 
+//   async (userLogin: UserLogin, thunkAPI) => {
+//     const { email, password } = userLogin
+
+//     const config = {
+//       headers: {
+//         'Content-Type': 'application/json'
+//       }
+//     }
+
+//     const response = await axios.post(
+//       '/api/users/login',
+//       { email, password },
+//       config
+//     )
+//     const { data } = response
+//     if (response.status !== 200) {
+//       return thunkAPI.rejectWithValue(response.data)
+//     }
+//     localStorage.setItem('userInfo', JSON.stringify(data))
+
+//     return data
+//   }
+// )
 export const sendUserId = createAsyncThunk(
   'user/sendUser',
-
-  async (userLogin: UserLogin, { rejectWithValue }) => {
+  async (userLogin: UserLogin, thunkAPI) => {
     const { email, password } = userLogin
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json'
-        }
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
       }
-      const { data } = await axios.post(
+    }
+
+    try {
+      const response = await axios.post(
         '/api/users/login',
         { email, password },
         config
       )
 
+      const { data } = response
       localStorage.setItem('userInfo', JSON.stringify(data))
 
       return data
-    } catch (error: any) {
-      // return thunkAPI.rejectWithError(error)
-      return error
-      // return rejectWithValue(error.data)
+    } catch (err: any) {
+      return thunkAPI.rejectWithValue(err.response.data)
     }
   }
 )
+
 // Thunk for resetting the password
 // we find the user by the email and get his data -> in order to create a link, that will be sent to his email, used to redirect him into user update page
 //
@@ -125,7 +144,7 @@ interface NewUserInfo {
 export const createUser = createAsyncThunk(
   'user/registerUser',
 
-  async (newUserInfo: NewUserInfo, { rejectWithValue }) => {
+  async (newUserInfo: NewUserInfo) => {
     const { name, email, password } = newUserInfo
 
     try {
@@ -143,7 +162,6 @@ export const createUser = createAsyncThunk(
       return data
     } catch (error: any) {
       return error
-      // return rejectWithValue(error.data)
     }
   }
 )
@@ -286,20 +304,29 @@ export const deleteUser = createAsyncThunk(
   }
 )
 
+interface UserState {
+  userInfo: UserInfo
+  loading: boolean
+  error: any
+  allUsers: UserInfo[]
+  selectedUserInfo: UserInfo
+  success: boolean
+}
+const initialState: UserState = {
+  userInfo: {},
+  loading: false,
+  error: null,
+  allUsers: [],
+  selectedUserInfo: {},
+  success: false
+}
 const userSlice = createSlice({
   name: 'userLogin',
-  initialState: {
-    userInfo: {},
-    loading: false,
-    error: {},
-    allUsers: [],
-    selectedUserInfo: {},
-    success: false
-  },
+  initialState: initialState,
   reducers: {
     logout: state => {
       state.userInfo = {}
-      state.error = {}
+      state.error = null
       localStorage.clear()
     },
     userSuccessReset (state) {
@@ -311,31 +338,32 @@ const userSlice = createSlice({
   },
 
   extraReducers: builder => {
-    builder.addCase(sendUserId.pending, (state, action) => {
+    builder.addCase(sendUserId.pending, state => {
       state.loading = true
     })
     builder.addCase(sendUserId.fulfilled, (state, action) => {
       state.loading = false
-      state.userInfo = action.payload.name !== 'Error' && {
-        id: action.payload._id,
+      state.userInfo = {
+        _id: action.payload._id,
         name: action.payload.name,
         email: action.payload.email,
         isAdmin: action.payload.isAdmin,
         status: action.payload.status,
         token: action.payload.token
       }
-      state.error = action.payload.message
+      state.error = null
     })
     builder.addCase(sendUserId.rejected, (state, action) => {
       state.loading = false
+      state.error = action.error.message
     })
-    builder.addCase(resetPassword.pending, (state, action) => {
+    builder.addCase(resetPassword.pending, state => {
       state.loading = true
     })
     builder.addCase(resetPassword.fulfilled, (state, action) => {
       state.loading = false
-      state.userInfo = action.payload.name !== 'Error' && {
-        id: action.payload._id,
+      state.userInfo = {
+        _id: action.payload._id,
         name: action.payload.name,
         email: action.payload.email,
         isAdmin: action.payload.isAdmin,
@@ -344,26 +372,26 @@ const userSlice = createSlice({
       }
       state.error = action.payload.message
     })
-    builder.addCase(resetPassword.rejected, (state, action) => {
+    builder.addCase(resetPassword.rejected, state => {
       state.loading = false
     })
-    builder.addCase(activateUser.pending, (state, action) => {
+    builder.addCase(activateUser.pending, state => {
       state.loading = true
     })
     builder.addCase(activateUser.fulfilled, (state, action) => {
       state.loading = false
       state.error = action.payload.message
     })
-    builder.addCase(activateUser.rejected, (state, action) => {
+    builder.addCase(activateUser.rejected, state => {
       state.loading = false
     })
-    builder.addCase(sendEmailToResetPassword.pending, (state, action) => {
+    builder.addCase(sendEmailToResetPassword.pending, state => {
       state.loading = true
     })
     builder.addCase(sendEmailToResetPassword.fulfilled, (state, action) => {
       state.loading = false
-      state.userInfo = action.payload.name !== 'Error' && {
-        id: action.payload._id,
+      state.userInfo = {
+        _id: action.payload._id,
         name: action.payload.name,
         email: action.payload.email,
         isAdmin: action.payload.isAdmin,

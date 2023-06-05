@@ -3,10 +3,10 @@ interface UserInfo {
   name?: string
   email?: string
   password?: string
-  isAdmin?: boolean
   status?: 'Active' | 'Pending'
+  isAdmin?: boolean
+  token?: string
 }
-
 interface CitationCreated {
   _id: string
 

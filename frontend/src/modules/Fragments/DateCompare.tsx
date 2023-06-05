@@ -246,7 +246,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
             </ButtonVerySmall>
           </RelativeWrapper>
           <b>{sortingYear}</b>
-          {sortingYear < new Date().getFullYear() && (
+          {sortingYear < new Date().getFullYear() ? (
             <RelativeWrapper $top='4px' $left='0px'>
               <ButtonVerySmall
                 variant={ButtonVariants.INFO_EMPTY}
@@ -254,6 +254,12 @@ const DateCompare: React.FC<DateCompareProps> = () => {
               >
                 <SvgIcon variant='plusSquare' noContent />
               </ButtonVerySmall>
+            </RelativeWrapper>
+          ) : (
+            <RelativeWrapper $top='4px'>
+              <ButtonVerySmall variant={ButtonVariants.DISABLED} disabled>
+                <SvgIcon variant='plusSquare' noContent />
+              </ButtonVerySmall>{' '}
             </RelativeWrapper>
           )}
         </HorizontalContainer>
