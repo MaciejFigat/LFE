@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
-import { AnimateSharedLayout } from 'framer-motion'
+
 import HeroSearchDataSection from './HeroGridComponents/HeroSearchDataSection'
 
 import { changeResultsDetailView } from '../../features/preferences/preferenceSlice'
@@ -86,9 +86,7 @@ const HeroTwoFourth: React.FC = () => {
 
   return (
     <>
-      <AnimateSharedLayout>
-        {data && data?.length === 0 ? <HeroWelcome /> : <SimpleResultDisplay />}
-      </AnimateSharedLayout>
+      {data && data?.length === 0 ? <HeroWelcome /> : <SimpleResultDisplay />}
     </>
   )
 }

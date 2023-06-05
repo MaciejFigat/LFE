@@ -19,6 +19,8 @@ import { ListWrapper } from '../AnimatedTextPanel/AnimatedList.styled'
 import FragmentTextItem from '../AnimatedTextPanel/FragmentTextItem'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { HorizontalContainer } from '../Fragments/FragmentsColumn.styled'
+import { ButtonSmallCircle } from '../../components/Buttons/Buttons.styled'
+import { ButtonVariants } from '../../consts'
 
 interface FirstColumnProjectProps {
   state: any[]
@@ -73,11 +75,16 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
               {...provided.droppableProps}
             >
               <FirstColProjectWrapper>
-                <ClayButtonWrapperSecondary paddingProps='1rem'>
+                <ClayButtonWrapperSecondary $paddingProps='0.5rem 1.5rem'>
                   <HorizontalContainer>
-                    Przeciągnij fragmenty do kategorii{' '}
-                    <RelativeWrapper top='4px' left='5px'>
-                      <SvgIcon variant='arrowRight' noContent />
+                    Przenoś fragmenty
+                    <RelativeWrapper $top='0px' $left='5px'>
+                      <ButtonSmallCircle variant={ButtonVariants.PRIMARY}>
+                        {' '}
+                        <RelativeWrapper $top='4px' $left='-1px'>
+                          <SvgIcon variant='arrowRight' noContent />
+                        </RelativeWrapper>
+                      </ButtonSmallCircle>
                     </RelativeWrapper>
                   </HorizontalContainer>
                 </ClayButtonWrapperSecondary>

@@ -233,7 +233,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
                         <b>{`${item.label}`}</b>
 
                         {item.label === selectedTab.label && (
-                          <ChoiceUnderline layoutId='under' />
+                          <ChoiceUnderline layoutId='underMain' />
                         )}
                       </ChoiceItem>
                     ))}

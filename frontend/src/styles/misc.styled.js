@@ -359,8 +359,6 @@ export const ClayButtonWrapperSecondary = styled(ClayButtonWrapper)`
   border-bottom: 1px solid var(--background-blur2);
   max-width: fit-content;
   z-index: 11;
-  /* min-height: 50px; */
-  /* height: 50px; */
   margin-bottom: ${({ $marginProps }) =>
     $marginProps ? $marginProps : '1rem'};
 `
@@ -508,4 +506,22 @@ export const RegularScrollYDiv = styled.div`
   width: 100%;
   overflow-y: scroll;
   padding: 0.5rem;
+`
+export const DraggingIcon = styled.span`
+  width: 20px;
+  height: 20px;
+  &:before {
+    content: '.';
+    font-size: 20px;
+    line-height: 20px;
+    color: var(--background3-main);
+    font-weight: 800;
+    text-shadow: 0 8px var(--background3-main), 0 16px var(--background3-main),
+      8px 0 var(--background3-main), 8px 8px var(--background3-main),
+      8px 16px var(--background3-main), 16px 0 var(--background3-main),
+      16px 8px var(--background3-main), 16px 16px var(--background3-main);
+  }
+  @media (max-width: 1040px) {
+    display: none;
+  }
 `

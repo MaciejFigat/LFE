@@ -14,6 +14,7 @@ import {
 } from './NavDropdown.styled'
 
 import ProjectMenuTwo from './ProjectMenuTwo'
+import { RelativeWrapper } from '../../../styles/misc.styled'
 
 interface ProjectDropdownProps {
   options?: any
@@ -67,11 +68,12 @@ const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
               </NavLink>
             </ProjectNameDiv>
             <DropDownHeader onClick={toggling}>
-              <SvgIcon
-                variant={isOpen ? 'downPoint' : 'rightPoint'}
-                noContent
-                lowerPosition='3px'
-              />
+              <RelativeWrapper $top='3px' $left='-3px'>
+                <SvgIcon
+                  variant={isOpen ? 'downPoint' : 'rightPoint'}
+                  noContent
+                />
+              </RelativeWrapper>
             </DropDownHeader>
           </ProjectDropDownWrapper>
         )}

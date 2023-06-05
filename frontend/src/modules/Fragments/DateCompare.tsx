@@ -1,7 +1,11 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { sortingDateEdit } from '../../features/preferences/preferenceSlice'
-import { HorizontalLineBottom, RelativeWrapper } from '../../styles/misc.styled'
+import {
+  HighlightText,
+  HorizontalLineBottom,
+  RelativeWrapper
+} from '../../styles/misc.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import {
   DateCompareRow,
@@ -9,7 +13,7 @@ import {
   HorizontalContainer
 } from './FragmentsColumn.styled'
 import { ButtonVerySmall } from '../../components/Buttons/Buttons.styled'
-import { ButtonVariants } from '../../consts'
+import { ButtonVariants, TextColor } from '../../consts'
 
 interface DateCompareProps {}
 
@@ -184,18 +188,19 @@ const DateCompare: React.FC<DateCompareProps> = () => {
     <DateCompareWrapper>
       <DateCompareRow>
         <HorizontalContainer>
-          <RelativeWrapper top='4px' left='4px'>
+          <HighlightText color={TextColor.PRIMARY}>D</HighlightText>
+          <RelativeWrapper $top='4px' $left='4px'>
             <ButtonVerySmall
-              variant={ButtonVariants.WARNING_EMPTY}
+              variant={ButtonVariants.PRIMARY_EMPTY}
               onClick={handleDecreaseSortDay}
             >
               <SvgIcon variant='minusSquare' noContent />
             </ButtonVerySmall>
           </RelativeWrapper>
           <b>{sortingDay}</b>
-          <RelativeWrapper top='4px' left='0px'>
+          <RelativeWrapper $top='4px' $left='0px'>
             <ButtonVerySmall
-              variant={ButtonVariants.SUCCESS_EMPTY}
+              variant={ButtonVariants.INFO_EMPTY}
               onClick={handleIncreaseSortDay}
             >
               <SvgIcon variant='plusSquare' noContent />
@@ -203,10 +208,10 @@ const DateCompare: React.FC<DateCompareProps> = () => {
           </RelativeWrapper>
         </HorizontalContainer>
         <HorizontalContainer>
-          {' '}
-          <RelativeWrapper top='4px' left='6px'>
+          <HighlightText color={TextColor.PRIMARY}>M</HighlightText>
+          <RelativeWrapper $top='4px' $left='5px'>
             <ButtonVerySmall
-              variant={ButtonVariants.WARNING_EMPTY}
+              variant={ButtonVariants.PRIMARY_EMPTY}
               onClick={handleDecreaseSortMonth}
             >
               <SvgIcon variant='minusSquare' noContent />
@@ -214,25 +219,27 @@ const DateCompare: React.FC<DateCompareProps> = () => {
           </RelativeWrapper>
           <b>{sortingMonth}</b>
           {sortingMonth - 1 < new Date().getMonth() ? (
-            <RelativeWrapper top='4px' left='0px'>
+            <RelativeWrapper $top='4px' $left='0px'>
               <ButtonVerySmall
-                variant={ButtonVariants.SUCCESS_EMPTY}
+                variant={ButtonVariants.INFO_EMPTY}
                 onClick={handleIncreaseSortMonth}
               >
                 <SvgIcon variant='plusSquare' noContent />
               </ButtonVerySmall>
             </RelativeWrapper>
           ) : (
-            <RelativeWrapper>
-              <ButtonVerySmall variant='primaryEmpty'>&nbsp;</ButtonVerySmall>{' '}
+            <RelativeWrapper $top='4px'>
+              <ButtonVerySmall variant={ButtonVariants.DISABLED} disabled>
+                <SvgIcon variant='plusSquare' noContent />
+              </ButtonVerySmall>{' '}
             </RelativeWrapper>
           )}
         </HorizontalContainer>
         <HorizontalContainer>
-          {' '}
-          <RelativeWrapper top='4px' left='6px'>
+          <HighlightText color={TextColor.PRIMARY}>R</HighlightText>
+          <RelativeWrapper $top='4px' $left='6px'>
             <ButtonVerySmall
-              variant={ButtonVariants.WARNING_EMPTY}
+              variant={ButtonVariants.PRIMARY_EMPTY}
               onClick={handleDecreaseSortYear}
             >
               <SvgIcon variant='minusSquare' noContent />
@@ -240,9 +247,9 @@ const DateCompare: React.FC<DateCompareProps> = () => {
           </RelativeWrapper>
           <b>{sortingYear}</b>
           {sortingYear < new Date().getFullYear() && (
-            <RelativeWrapper top='4px' left='0px'>
+            <RelativeWrapper $top='4px' $left='0px'>
               <ButtonVerySmall
-                variant={ButtonVariants.SUCCESS_EMPTY}
+                variant={ButtonVariants.INFO_EMPTY}
                 onClick={handleIncreaseSortYear}
               >
                 <SvgIcon variant='plusSquare' noContent />

@@ -3,13 +3,16 @@ import { useAppDispatch } from '../../app/reduxHooks'
 import { AppDispatch } from '../../app/store'
 import { deleteSavedFragment } from '../../features/fragments/fragmentSlice'
 import {
+  DraggingIcon,
   HighlightText,
+  HorizontalLineBottom,
   HorizontalLineTop,
   RelativeWrapper
 } from '../../styles/misc.styled'
 import {
   FragmentsP,
   FragmentsPExcerpt,
+  GrabHorizontalContainer,
   HorizontalContainer
 } from '../Fragments/FragmentsColumn.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
@@ -58,13 +61,17 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
     <ItemWrapper>
       {/* //? This one has styles ie. shadows and borders */}
       <SimpleCitationItem>
-        <HorizontalContainer>
+        <GrabHorizontalContainer>
+          <RelativeWrapper $top='-15px' $left='0px'>
+            <DraggingIcon />
+          </RelativeWrapper>{' '}
           {source !== '' ? (
             <>
               {title !== excerpt.substring(0, 22) ? (
                 <>
                   <FragmentsP>
                     {coordinates}
+
                     <HighlightText color={TextColor.INFO}>
                       {title}
                     </HighlightText>
@@ -93,10 +100,10 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
               </RelativeWrapper>
             </ButtonSmallCircle>
           </RelativeWrapper>
-        </HorizontalContainer>
-
-        <FragmentsPExcerpt>{excerpt.substring(0, 130)}</FragmentsPExcerpt>
+        </GrabHorizontalContainer>
         <HorizontalLineTop />
+        <FragmentsPExcerpt>{excerpt.substring(0, 130)}</FragmentsPExcerpt>
+        <HorizontalLineBottom />
         <HorizontalContainer>
           {source !== '' ? <FragmentsP>{source}</FragmentsP> : null}
 

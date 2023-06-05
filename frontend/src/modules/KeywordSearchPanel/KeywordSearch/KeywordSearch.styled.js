@@ -37,9 +37,7 @@ export const KeywordColumnsSubtitle = styled.div`
   place-items: center;
   font-weight: 800;
   font-size: 1.1rem;
-  /* background: var(--background-gradient1); */
   border-radius: 20px;
-  /* box-shadow: var(--boxShadowClay3); */
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
@@ -61,13 +59,11 @@ export const KeywordColumnsSubtitleSmall = styled.div`
   font-size: 1.2rem;
 `
 export const KeywordColumnContainer = styled.div`
-  /* background: grey; */
   display: flex;
   min-height: 100vh;
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  /* padding-top: 4rem; */
 
   width: 100%;
 `
@@ -84,9 +80,6 @@ export const KeywordB = styled.b`
   display: grid;
   place-items: center;
   color: var(--background4-main);
-  /* box-shadow: var(--boxShadowClay1); */
-  /* border-bottom: 1px solid var(--background2-main); */
-  /* border-left: 1px solid var(--background2-main); */
 
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
@@ -115,10 +108,6 @@ export const FragmentParSmall = styled.p`
   font-size: 0.8rem;
   color: var(--background4-main);
   margin: 0;
-  /* margin-bottom: 0.55rem; */
-  /* &:first-of-type {
-    margin-top: 1.75rem;
-  } */
 `
 export const FragmentTitleRowSmall = styled.div`
   display: flex;
@@ -130,26 +119,16 @@ export const FragmentTitleRowSmall = styled.div`
 export const FirstColProjectWrapper = styled(motion.div)`
   display: grid;
   place-items: center;
-  /* background: brown; */
+
   grid-template-columns: ${({ width }) =>
     width > 880 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
   grid-template-columns: ${({ width }) => width > 1380 && 'repeat(3, 1fr)'};
 
-  /* gap: 0.55rem; */
   gap: 1rem;
-  /* margin-top: 0.5rem; */
 `
 export const FragmentDivSmallWrapper = styled(motion.div)`
-  //todo
-
   gap: 1rem;
   display: grid;
-  /* grid-template-columns: repeat(2, 1fr);
-  grid-template-columns: ${({ width }) =>
-    width < 500 ? 'repeat(2, 1fr) !important' : 'repeat(1, 1fr) !important'}; */
-  /* flex-direction: column;
-  justify-content: center;
-  align-items: center; */
 
   @media (min-width: 1520px) {
     display: ${({ width }) => width < 600 || (!width && 'grid')};
@@ -160,22 +139,15 @@ export const FragmentDivSmallWrapper = styled(motion.div)`
 export const FragmentDivSmall = styled(motion.div)`
   position: relative;
   display: flex;
-  /* align-items: flex-start; */
+
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  /* justify-content: flex-start; */
+
   max-width: 100%;
   max-width: 330px;
   max-height: 340px !important;
-  /* min-height: fit-content !important; */
-  /* background: brown !important; */
-  /* 
-  border-right: 1px solid var(--background-blur2);
-  border-top: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background-blur1); */
-  /* background: var(--background-gradient1); */
+
   box-shadow: var(--boxShadowClay3);
   border-radius: 20px;
   padding: ${({ width }) =>
@@ -183,9 +155,6 @@ export const FragmentDivSmall = styled(motion.div)`
       ? '1.5rem 0.75rem 0rem 1.5rem'
       : '0.75rem 0.5rem 0rem 0.75rem'};
 
-  /* box-shadow: ${({ width }) =>
-    width < 1100 || !width ? 'var(--boxShadow1)' : 'var(--boxShadow1)'}; */
-  /* width: 330px; */
   width: ${({ width }) => (width < 1100 || !width ? '330px' : '220px')};
 
   @media (min-width: 1520px) {
@@ -195,10 +164,7 @@ export const FragmentDivSmall = styled(motion.div)`
         : '1.5rem 0.75rem 0rem 1.5rem'};
     width: ${({ width }) => (width < 600 || width ? '280px' : '330px')};
   }
-  @media (min-width: 1020px) {
-    /* font-size: 0.85rem; */
-    /* //todo  */
-  }
+
   overflow-x: hidden;
   overflow-y: scroll;
   height: 220px;

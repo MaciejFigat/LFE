@@ -98,7 +98,7 @@ const LabelInput: React.FC<LabelInputProps> = ({
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          transition={{ delay: 0, duration: 0.2 }}
+          transition={{ delay: 0, duration: 0.3 }}
         >
           {' '}
           <LabelContainer
@@ -150,10 +150,9 @@ const LabelInput: React.FC<LabelInputProps> = ({
         </LabelContainerWrapper>
       ) : (
         <LabelContainer
-          initial={{ opacity: 0, y: 10 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ delay: 0, duration: 0.2 }}
+          transition={{ delay: 0, duration: 0.3 }}
           key={`${label}closed`}
           layoutId={`${label}closed`}
           $contentAfter='nazwa kategorii'
