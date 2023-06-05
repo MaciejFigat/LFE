@@ -43,15 +43,15 @@ const ColorChange: React.FC<ColorChangeProps> = () => {
   return (
     <SpaceAroundWrapperDropdown>
       {' '}
-      <SwitchDivMisc className='switch' isOn={isDark} onClick={toggleSwitch}>
+      <SwitchDivMisc className='switch' $isOn={isDark} onClick={toggleSwitch}>
         <SwitchHandleMisc
           className='handle'
-          isOn={isDark}
+          $isOn={isDark}
           layout
           transition={spring}
         />
       </SwitchDivMisc>
-      <SwitchTextMisc isOn={isDark}>
+      <SwitchTextMisc $isOn={isDark}>
         {preferedScheme === 'primary' ? (
           <NavIcon left='2px' icon={faSun} />
         ) : (

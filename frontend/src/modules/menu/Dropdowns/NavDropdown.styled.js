@@ -184,7 +184,6 @@ export const ProjectDownList = styled.div`
   width: fit-content;
   color: var(--background5-main);
   background: none;
-
   padding: 0.5rem;
 `
 export const DropDownList = styled.div`
@@ -198,23 +197,13 @@ export const DropDownList = styled.div`
     padding-top: 0.5rem;
   }
 `
-// export const ListItem = styled.li`
 
 export const ListItem = styled.div`
   display: grid;
   place-items: center;
   width: 100%;
   min-width: 100px;
-
-  /* list-style: none; */
-  /* min-width: fit-content; */
-  /* padding-left: 0.75rem;  */
   padding-bottom: 0.5rem;
-
-  /* margin-bottom: 1rem; */
-  &:last-child {
-    /* margin-bottom: 0.5rem; */
-  }
 `
 export const ProjectListItem = styled(ListItem)`
   padding-left: 0.75rem;

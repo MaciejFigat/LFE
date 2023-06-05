@@ -172,8 +172,8 @@ export const RelativeWrapperStretch = styled.div`
   width: 100%;
 `
 export const RelativeWrapper = styled.div`
-  top: ${({ top }) => (top ? `${top}` : '0')};
-  left: ${({ left }) => (left ? `${left}` : '0')};
+  top: ${({ $top }) => ($top ? `${$top}` : '0')};
+  left: ${({ $left }) => ($left ? `${$left}` : '0')};
   position: relative;
 `
 export const HorizontalWrapperGap = styled.div`
@@ -402,35 +402,35 @@ export const RelativeRightSvgWrapper = styled.div`
 `
 export const RelativeSvgWrapper = styled.div`
   position: relative;
-  top: ${({ top }) => (top ? top : '2px')};
+  top: ${({ $top }) => ($top ? $top : '2px')};
 
-  left: ${({ left }) => (left ? left : '0px')};
+  left: ${({ $left }) => ($left ? $left : '0px')};
 `
 
 export const SwitchDivMisc = styled.div`
   width: 28px;
   height: 16px;
-  background-color: ${({ isOn }) =>
-    isOn ? 'var(--background2-main)' : 'var(--background4-main)'};
+  background-color: ${({ $isOn }) =>
+    $isOn ? 'var(--background2-main)' : 'var(--background4-main)'};
   display: flex;
   border-radius: 10px;
   padding: 1px;
   cursor: pointer;
-  justify-content: ${({ isOn }) => (isOn ? 'flex-end' : 'flex-start')};
+  justify-content: ${({ $isOn }) => ($isOn ? 'flex-end' : 'flex-start')};
   align-items: center;
 `
 export const SwitchTextMisc = styled.b`
   font-size: 0.85rem;
-  color: ${({ isOn }) =>
-    isOn ? 'var(--background2-main)' : 'var(--background5-main)'};
+  color: ${({ $isOn }) =>
+    $isOn ? 'var(--background2-main)' : 'var(--background5-main)'};
 `
 export const SwitchHandleMisc = styled(motion.div)`
   width: 14px;
   height: 14px;
 
   border-radius: 12px;
-  background-color: ${({ isOn }) =>
-    isOn ? 'var(--background4-main)' : 'var(--background1-main)'};
+  background-color: ${({ $isOn }) =>
+    $isOn ? 'var(--background4-main)' : 'var(--background1-main)'};
 `
 
 export const HighlightText = styled.b`

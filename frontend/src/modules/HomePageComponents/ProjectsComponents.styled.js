@@ -14,11 +14,6 @@ export const ProjectCardHome = styled(motion.div)`
   font-weight: 500;
   min-width: fit-content;
 
-  /* background: var(--background-blur1); */
-  /* border-top: 1px solid transparent;
-  border-right: 1px solid transparent;
-  border-left: 1px solid transparent;
-  border-bottom: 1px solid transparent; */
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
@@ -26,7 +21,6 @@ export const ProjectCardHome = styled(motion.div)`
   border-radius: 10px;
   border-color: ${({ selected }) =>
     selected ? 'var(--background-secondary1)' : 'var(--background2-main)'};
-  /* box-shadow: var(--boxShadowNone); */
 
   transition: 0.2s;
 

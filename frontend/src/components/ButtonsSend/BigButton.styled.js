@@ -7,8 +7,8 @@ export const ButtonBig = styled(motion.button)`
   align-items: center;
   justify-content: center;
   padding: 1.1rem 1.5rem;
-  border-radius: ${({ borderRadius }) =>
-    borderRadius ? borderRadius : '10px'};
+  border-radius: ${({ $borderRadius }) =>
+    $borderRadius ? $borderRadius : '10px'};
   font-size: 1.25rem;
   font-weight: 600;
   border-left: 1px solid var(--background-blur1);

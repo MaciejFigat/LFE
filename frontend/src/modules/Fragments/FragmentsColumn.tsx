@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
-import { AnimateSharedLayout } from 'framer-motion'
+
 import {
   FragmentsWrapper,
   ItemWrapper,
@@ -28,47 +28,45 @@ const FragmentsColumn: React.FC<FragmentsColumnProps> = ({ wide }) => {
   }
 
   return (
-    <AnimateSharedLayout>
-      <FragmentsWrapper moreColumns={wide ? true : false} width={widthNarrow}>
-        {citations.length > 0 &&
-          citations
-            .map((citation, index) => (
-              <ListWrapper
-                key={citation.id}
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                {citation.excerpt !== '' && (
-                  <ItemWrapper>
-                    {' '}
-                    <SimpleCitationItem>
-                      <HorizontalContainer>
-                        {citation.coordinates !== '' ? (
-                          <FragmentsP>{citation.coordinates}</FragmentsP>
-                        ) : (
-                          <FragmentsP>Przykład nr {index + 1}</FragmentsP>
-                        )}
-                        <ButtonVerySmall
-                          variant='secondaryEmpty'
-                          onClick={() => removeCitationHandler(citation.id)}
-                        >
-                          usuń
-                        </ButtonVerySmall>
-                      </HorizontalContainer>
-                      {citation.source !== '' && (
-                        <FragmentsP>{citation.source}</FragmentsP>
+    <FragmentsWrapper $moreColumns={wide ? true : false} $width={widthNarrow}>
+      {citations.length > 0 &&
+        citations
+          .map((citation, index) => (
+            <ListWrapper
+              key={citation.id}
+              layout
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              {citation.excerpt !== '' && (
+                <ItemWrapper>
+                  {' '}
+                  <SimpleCitationItem>
+                    <HorizontalContainer>
+                      {citation.coordinates !== '' ? (
+                        <FragmentsP>{citation.coordinates}</FragmentsP>
+                      ) : (
+                        <FragmentsP>Przykład nr {index + 1}</FragmentsP>
                       )}
-                      <FragmentsPExcerpt>{citation.excerpt}</FragmentsPExcerpt>
-                    </SimpleCitationItem>
-                  </ItemWrapper>
-                )}
-              </ListWrapper>
-            ))
-            .reverse()}{' '}
-      </FragmentsWrapper>
-    </AnimateSharedLayout>
+                      <ButtonVerySmall
+                        variant='secondaryEmpty'
+                        onClick={() => removeCitationHandler(citation.id)}
+                      >
+                        usuń
+                      </ButtonVerySmall>
+                    </HorizontalContainer>
+                    {citation.source !== '' && (
+                      <FragmentsP>{citation.source}</FragmentsP>
+                    )}
+                    <FragmentsPExcerpt>{citation.excerpt}</FragmentsPExcerpt>
+                  </SimpleCitationItem>
+                </ItemWrapper>
+              )}
+            </ListWrapper>
+          ))
+          .reverse()}{' '}
+    </FragmentsWrapper>
   )
 }
 export default FragmentsColumn

@@ -71,7 +71,7 @@ const ResultDisplayIdQueryScreen: React.FC<
               {showFragmentsState && sortingOption === 'keyword' && (
                 <UserFragmentsByKeyword />
               )}
-              <DataContainerSimple width={widthNarrow}>
+              <DataContainerSimple $width={widthNarrow}>
                 {!showFragmentsState &&
                   data.length > 0 &&
                   data

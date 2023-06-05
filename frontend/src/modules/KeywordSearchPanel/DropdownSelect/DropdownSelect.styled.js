@@ -57,8 +57,8 @@ export const DropDownHeader = styled(motion.div)`
   cursor: pointer;
   user-select: none;
 
-  min-width: ${({ wide }) => (wide ? '220px' : '157px')};
-  max-width: ${({ wide }) => (wide ? '220px' : '157px')};
+  min-width: ${({ $wide }) => ($wide ? '220px' : '157px')};
+  max-width: ${({ $wide }) => ($wide ? '220px' : '157px')};
   height: 40px;
   padding-top: 0.5rem;
   border: 1px solid var(--background-blur2);
@@ -177,8 +177,8 @@ export const TitleInputMainKeyword = styled(motion.input)`
   outline: 0;
   background-color: transparent;
   border: none;
-  min-width: ${({ wide }) => (wide ? '220px' : '157px')};
-  max-width: ${({ wide }) => (wide ? '220px' : '157px')};
+  min-width: ${({ $wide }) => ($wide ? '220px' : '157px')};
+  max-width: ${({ $wide }) => ($wide ? '220px' : '157px')};
   border: 1px solid var(--background-secondary1);
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);

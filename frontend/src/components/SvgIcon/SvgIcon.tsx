@@ -229,18 +229,18 @@ const SvgIcon: React.FC<SvgIconProps> = ({
 
   return (
     <IconsItem
-      contentAfter={contentAfter}
-      noMargin={noMargin}
-      toRight={toRight}
-      toLeft={toLeft}
-      toLeftMobile={toLeftMobile}
-      toBottom={toBottom}
-      toTop={toTop}
-      toTopMobile={toTopMobile}
-      noContent={noContent}
-      showContent={showContent}
-      lowerPosition={lowerPosition}
-      width={width}
+      $contentAfter={contentAfter}
+      $noMargin={noMargin}
+      $toRight={toRight}
+      $toLeft={toLeft}
+      $toLeftMobile={toLeftMobile}
+      $toBottom={toBottom}
+      $toTop={toTop}
+      $toTopMobile={toTopMobile}
+      $noContent={noContent}
+      $showContent={showContent}
+      $lowerPosition={lowerPosition}
+      $width={width}
     >
       <FontAwesomeIcon icon={iconVersion(variant)} />
     </IconsItem>

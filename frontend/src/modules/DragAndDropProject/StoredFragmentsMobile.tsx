@@ -10,7 +10,7 @@ import SelectMainKeyword from '../KeywordSearchPanel/DropdownSelect/SelectMainKe
 import HeroProjectExport from '../HomePageComponents/HeroGridComponents/HeroProjectExport'
 import HeroProjectCategories from '../HomePageComponents/HeroGridComponents/HeroProjectCategories'
 import { useAppSelector } from '../../app/reduxHooks'
-import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import PupupEditWindow from './PopupEditWindow/PupupEditWindow'
 
 interface StoredFragmentsMobileProps {}
@@ -22,7 +22,7 @@ const StoredFragmentsMobile: React.FC<StoredFragmentsMobileProps> = () => {
   return (
     <HeroMobile>
       {' '}
-      <AnimateSharedLayout type='crossfade'>
+      <>
         <HorizontalWrapperMobile>
           <SelectMainKeyword />
           <HeroProjectExport />
@@ -41,7 +41,7 @@ const StoredFragmentsMobile: React.FC<StoredFragmentsMobileProps> = () => {
             />
           )}
         </AnimatePresence>{' '}
-      </AnimateSharedLayout>
+      </>
     </HeroMobile>
   )
 }

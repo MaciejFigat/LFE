@@ -83,7 +83,7 @@ const MobileNavIcons: React.FC<MobileNavIconsProps> = ({ scrollDirection }) => {
           </ListItem>
         </motion.div>
         <motion.div variants={itemVariants}>
-          <RelativeWrapper top='0px' left='5px'>
+          <RelativeWrapper $top='0px' $left='5px'>
             <NavDropdown scrollDirection={scrollDirection} />
           </RelativeWrapper>
         </motion.div>

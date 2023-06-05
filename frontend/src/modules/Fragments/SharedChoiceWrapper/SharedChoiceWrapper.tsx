@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
-import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import VisitedLinks from '../../../components/VisitedLinks/VisitedLinks'
 import FilterWrapper from '../FilterWrapper/FilterWrapper'
 import { showFragments } from '../../../features/preferences/preferenceSlice'
@@ -86,7 +86,7 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
     {
       label: 'Przeglądane',
       icon: (
-        <RelativeWrapper top='12px'>
+        <RelativeWrapper $top='12px'>
           <SvgIcon
             variant='eye'
             contentAfter='ostatnie dok.'
@@ -115,25 +115,23 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
   return (
     <WrapperWindow>
       <ChoiceNav>
-        <AnimateSharedLayout>
-          <ChoiceList>
-            {tabs.map(item => (
-              <ChoiceItem
-                key={item.label}
-                className={item.label === selectedTab.label ? 'selected' : ''}
-                onClick={() => tabHelper(item)}
-              >
-                {item.icon}
-                {item.label === selectedTab.label && (
-                  <ChoiceUnderline layoutId='under' />
-                )}
-              </ChoiceItem>
-            ))}
-          </ChoiceList>
-        </AnimateSharedLayout>
+        <ChoiceList>
+          {tabs.map(item => (
+            <ChoiceItem
+              key={item.label}
+              className={item.label === selectedTab.label ? 'selected' : ''}
+              onClick={() => tabHelper(item)}
+            >
+              {item.icon}
+              {item.label === selectedTab.label && (
+                <ChoiceUnderline layoutId='under' />
+              )}
+            </ChoiceItem>
+          ))}
+        </ChoiceList>
       </ChoiceNav>
       <MainChoiceContainer>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode='wait'>
           <motion.div
             key={selectedTab ? selectedTab.label : 'empty'}
             initial={{ y: 10, opacity: 0 }}

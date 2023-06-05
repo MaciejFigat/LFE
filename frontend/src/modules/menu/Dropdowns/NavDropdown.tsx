@@ -133,7 +133,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
                   <ListItem onClick={toggling}>
                     <SpaceAroundWrapperDropdown onClick={logoutHandler}>
                       Wyloguj
-                      <RelativeSvgWrapper left='2px'>
+                      <RelativeSvgWrapper $left='2px'>
                         <SvgIcon
                           variant='logout'
                           noContent

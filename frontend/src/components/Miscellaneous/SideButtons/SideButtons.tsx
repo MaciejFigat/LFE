@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
 import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
-import { AnimateSharedLayout } from 'framer-motion'
 import { SideButtonWrapper } from './SideButtons.styled'
 import ButtonComponent from './ButtonComponent'
 import { fragmentScrolledEdit } from '../../../features/preferences/preferenceSlice'
@@ -36,19 +35,17 @@ const SideButtons: React.FC<SideButtonsProps> = ({ hashIds }) => {
 
   return (
     <SideButtonWrapper>
-      <AnimateSharedLayout>
-        {hashIds.length > 0 &&
-          hashIds.map((id: any, index: number) => (
-            <HashLink smooth to={`/search/result#${id}`} key={index}>
-              <ButtonComponent
-                color={colors[index]}
-                isSelected={colors[fragmentScrolled] === colors[index]}
-                key={index}
-                onMouseOver={() => colorChangeHelper(index)}
-              />
-            </HashLink>
-          ))}
-      </AnimateSharedLayout>
+      {hashIds.length > 0 &&
+        hashIds.map((id: any, index: number) => (
+          <HashLink smooth to={`/search/result#${id}`} key={index}>
+            <ButtonComponent
+              color={colors[index]}
+              isSelected={colors[fragmentScrolled] === colors[index]}
+              key={index}
+              onMouseOver={() => colorChangeHelper(index)}
+            />
+          </HashLink>
+        ))}
     </SideButtonWrapper>
   )
 }

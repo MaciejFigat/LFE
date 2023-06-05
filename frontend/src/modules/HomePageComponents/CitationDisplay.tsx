@@ -54,13 +54,13 @@ const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
                         )}
 
                         <>
-                          <RelativeWrapper top='-5px' left='5px'>
+                          <RelativeWrapper $top='-5px' $left='5px'>
                             {' '}
                             <ButtonSmallCircle
                               variant={ButtonVariants.WARNING_EMPTY}
                               onClick={() => removeCitationHandler(citation.id)}
                             >
-                              <RelativeWrapper top='5px' left='0px'>
+                              <RelativeWrapper $top='5px' $left='0px'>
                                 <SvgIcon
                                   variant='remove'
                                   contentAfter='usuń'
@@ -108,14 +108,14 @@ const CitationDisplay: React.FC<CitationDisplayProps> = ({ wide }) => {
                         )}
 
                         <>
-                          <RelativeWrapper top='-5px' left='5px'>
+                          <RelativeWrapper $top='-5px' $left='5px'>
                             {' '}
                             <ButtonSmallCircle
                               variant={ButtonVariants.WARNING_EMPTY}
                               onClick={() => removeCitationHandler(citation.id)}
                             >
                               {' '}
-                              <RelativeWrapper top='5px' left='0px'>
+                              <RelativeWrapper $top='5px' $left='0px'>
                                 <SvgIcon
                                   variant='remove'
                                   contentAfter='usuń'

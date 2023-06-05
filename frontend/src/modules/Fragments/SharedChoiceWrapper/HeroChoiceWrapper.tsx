@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
-import { AnimateSharedLayout } from 'framer-motion'
 import { sortingOptionEdit } from '../../../features/preferences/preferenceSlice'
 import {
   ChoiceItem,
@@ -64,26 +63,22 @@ const HeroChoiceWrapper: React.FC<HeroChoiceWrapperProps> = () => {
   }
 
   return (
-    <>
-      <ChoiceNav>
-        <AnimateSharedLayout>
-          <ChoiceList>
-            {tabs.map(item => (
-              <ChoiceItem
-                key={item.label}
-                className={item.label === selectedTab.label ? 'selected' : ''}
-                onClick={() => tabHelper(item)}
-              >
-                {`${item.label}`}
-                {item.label === selectedTab.label && (
-                  <ChoiceUnderline layoutId='under' />
-                )}
-              </ChoiceItem>
-            ))}
-          </ChoiceList>
-        </AnimateSharedLayout>
-      </ChoiceNav>
-    </>
+    <ChoiceNav>
+      <ChoiceList>
+        {tabs.map(item => (
+          <ChoiceItem
+            key={item.label}
+            className={item.label === selectedTab.label ? 'selected' : ''}
+            onClick={() => tabHelper(item)}
+          >
+            {`${item.label}`}
+            {item.label === selectedTab.label && (
+              <ChoiceUnderline layoutId='under' />
+            )}
+          </ChoiceItem>
+        ))}
+      </ChoiceList>
+    </ChoiceNav>
   )
 }
 export default HeroChoiceWrapper

@@ -81,13 +81,13 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
               )}
             </>
           ) : null}
-          <RelativeWrapper top='0px' left='0px'>
+          <RelativeWrapper $top='0px' $left='0px'>
             {' '}
             <ButtonSmallCircle
               variant={ButtonVariants.PRIMARY_EMPTY}
               onClick={() => openWindowHandler()}
             >
-              <RelativeWrapper top='5px' left='2px'>
+              <RelativeWrapper $top='5px' $left='2px'>
                 {' '}
                 <SvgIcon
                   variant='edit'
@@ -105,13 +105,13 @@ const AnimatedSavedItemSimple: React.FC<AnimatedSavedItemSimpleProps> = ({
         <HorizontalContainer>
           {source !== '' ? <FragmentsP>{source}</FragmentsP> : null}
 
-          <RelativeWrapper top='10px' left='0px'>
+          <RelativeWrapper $top='10px' $left='0px'>
             <ButtonSmallCircle
               variant={ButtonVariants.WARNING_EMPTY}
               onClick={() => removeFragmentHandler(id)}
             >
               {' '}
-              <RelativeWrapper top='6px' left='0px'>
+              <RelativeWrapper $top='6px' $left='0px'>
                 <SvgIcon
                   variant='remove'
                   contentAfter='usuń'

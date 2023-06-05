@@ -390,21 +390,22 @@ export const CenterWrapperSimple = styled(CenterWrapper)`
 `
 export const DataContainerSimple = styled.div`
   display: grid;
-  place-items: ${({ moreColumns }) => (moreColumns ? 'flex-start' : 'center')};
+  place-items: ${({ $moreColumns }) =>
+    $moreColumns ? 'flex-start' : 'center'};
   gap: 1rem;
   /* //todo resizable narrow column grid columns */
-  grid-template-columns: ${({ width }) =>
-    width < 600 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+  grid-template-columns: ${({ $width }) =>
+    $width < 600 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
 
   @media (min-width: 1640px) {
-    grid-template-columns: ${({ width }) =>
-      width < 766 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
-    grid-template-columns: ${({ width }) => width < 400 && 'repeat(3, 1fr)'};
+    grid-template-columns: ${({ $width }) =>
+      $width < 766 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+    grid-template-columns: ${({ $width }) => $width < 400 && 'repeat(3, 1fr)'};
   }
   @media (min-width: 1820px) {
-    grid-template-columns: ${({ width }) =>
-      width < 966 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
-    grid-template-columns: ${({ width }) => width < 500 && 'repeat(3, 1fr)'};
+    grid-template-columns: ${({ $width }) =>
+      $width < 966 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};
+    grid-template-columns: ${({ $width }) => $width < 500 && 'repeat(3, 1fr)'};
   }
   @media (max-width: 1340px) {
     grid-template-columns: 'repeat(1, 1fr)';
@@ -412,7 +413,6 @@ export const DataContainerSimple = styled.div`
   /* //todo resizable narrow column grid columns END */
 `
 
-// export const HighlightMarker = styled.div`
 export const HighlightMarker = styled(Marker)`
   mark {
     /* background-color: red !important; */

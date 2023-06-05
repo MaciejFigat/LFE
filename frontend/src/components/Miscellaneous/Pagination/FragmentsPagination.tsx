@@ -66,26 +66,26 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
     })
   }
   return (
-    <ProjectPaginationWrapper narrow={narrow}>
+    <ProjectPaginationWrapper $narrow={narrow}>
       {' '}
       {userFragments.length > 110 ? (
         <>
           <DragPaginationButton
-            position='right'
-            left='-5%'
+            $position='right'
+            $left='-5%'
             onClick={onLeftClick}
           >
             {' '}
-            <RelativeWrapper top='3px' left='0px'>
+            <RelativeWrapper $top='3px' $left='0px'>
               <SvgIcon noContent variant='arrowLeft' />
             </RelativeWrapper>
           </DragPaginationButton>{' '}
           <DragPaginationButton
-            position='left'
-            left='82%'
+            $position='left'
+            $left='82%'
             onClick={onRightClick}
           >
-            <RelativeWrapper top='3px' left='0px'>
+            <RelativeWrapper $top='3px' $left='0px'>
               <SvgIcon variant='arrowRight' noContent />
             </RelativeWrapper>
           </DragPaginationButton>

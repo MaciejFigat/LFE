@@ -93,10 +93,10 @@ const LabelInput: React.FC<LabelInputProps> = ({
         <LabelContainerWrapper>
           {' '}
           <LabelContainer
-            contentAfter='edytuj nazwę'
-            width='55px'
-            toTop='-15px'
-            toLeft='-100px'
+            $contentAfter='edytuj nazwę'
+            $width='55px'
+            $toTop='-15px'
+            $toLeft='-100px'
           >
             <TitleInput
               type='label'
@@ -134,10 +134,10 @@ const LabelInput: React.FC<LabelInputProps> = ({
         </LabelContainerWrapper>
       ) : (
         <LabelContainer
-          contentAfter='nazwa kategorii'
-          width='70px'
-          toTop='-15px'
-          toLeft='-110px'
+          $contentAfter='nazwa kategorii'
+          $width='70px'
+          $toTop='-15px'
+          $toLeft='-110px'
         >
           <TitleAnimated onClick={editingHelper}> {label}</TitleAnimated>
         </LabelContainer>

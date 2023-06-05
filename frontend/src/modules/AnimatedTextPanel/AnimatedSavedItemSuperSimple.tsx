@@ -67,13 +67,13 @@ const AnimatedSavedItemSuperSimple: React.FC<
             <FragmentsP>{coordinates.substring(0, 26)} </FragmentsP>
           )}
 
-          <RelativeWrapper top='0px' left='8px'>
+          <RelativeWrapper $top='0px' $left='8px'>
             {' '}
             <ButtonSmallCircle
               variant={ButtonVariants.PRIMARY_EMPTY}
               onClick={() => openWindowHandler()}
             >
-              <RelativeWrapper top='5px' left='1px'>
+              <RelativeWrapper $top='5px' $left='1px'>
                 {' '}
                 <SvgIcon
                   variant='edit'
@@ -90,12 +90,12 @@ const AnimatedSavedItemSuperSimple: React.FC<
         <HorizontalContainer>
           <FragmentsPExcerpt>{excerpt.substring(0, 30)}</FragmentsPExcerpt>
           <>
-            <RelativeWrapper top='0px' left='8px'>
+            <RelativeWrapper $top='0px' $left='8px'>
               <ButtonSmallCircle
                 variant={ButtonVariants.WARNING_EMPTY}
                 onClick={() => removeFragmentHandler(id)}
               >
-                <RelativeWrapper top='6px' left='0px'>
+                <RelativeWrapper $top='6px' $left='0px'>
                   <SvgIcon
                     variant='remove'
                     contentAfter='usuń'

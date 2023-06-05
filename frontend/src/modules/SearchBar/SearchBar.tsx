@@ -78,7 +78,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           type='submit'
         >
           {loadingResults === false ? (
-            <RelativeWrapper top='3px' left='-4px'>
+            <RelativeWrapper $top='3px' $left='-4px'>
               {' '}
               <SvgIcon variant={isOpen ? 'searchPlus' : 'search'} noContent />
             </RelativeWrapper>

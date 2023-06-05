@@ -9,15 +9,11 @@ import {
   Container,
   InfoSecSimple,
   TopLineSimple,
-  // TextWrapperSimple,
   SubtitleSimple,
   CenterWrapperSimple,
   InfoColumnShortSimple,
   TextWrapperSimpleShort
-  // InfoRowSimple,
-  // InfoColumnSimple,
 } from './InfoSection.styled'
-// import parse from 'html-react-parser'
 
 //! problem solved with parse - html-react-parser - prarses string to html in React
 
@@ -52,7 +48,7 @@ interface DataSectionSimpleProps {
 const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
   metryka,
   query,
-  // fragmentsFound,
+
   variant,
   imgStart,
   paddingTop,

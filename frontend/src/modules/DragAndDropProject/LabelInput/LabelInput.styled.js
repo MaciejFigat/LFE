@@ -95,29 +95,18 @@ export const TitleInput = styled(motion.input)`
 export const HorizontalButtonContainer = styled(motion.div)`
   display: flex;
   flex-direction: row;
-  /* box-shadow: var(--boxShadowClay1); */
-  /* border-right: 1px solid var(--background-blur2);
-  border-top: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background-blur1);
-  border-radius: 20px; */
-  /* min-width: 100px; */
-  /* max-width: 100px; */
 
   width: 100%;
   input {
     text-align: center;
     width: 180px;
-    /* width: 100%; */
-    /* background: brown; */
   }
   min-height: min-content;
-  /* align-items: flex-start; */
+
   align-items: center;
-  /* justify-content: flex-end; */
+
   justify-content: center;
   margin-bottom: 0;
-  /* background: lime; */
 `
 
 export const LabelContainerButtons = styled.div`
@@ -130,12 +119,8 @@ export const LabelContainerButtons = styled.div`
 export const LabelContainerWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* position: relative; */
-  /* left: 1px; */
 `
 export const LabelContainer = styled(HorizontalButtonContainer)`
-  /* display: flex;
-  flex-direction: row; */
   position: relative;
   width: 180px;
   border-right: 1px solid var(--background-blur2);
@@ -146,12 +131,12 @@ export const LabelContainer = styled(HorizontalButtonContainer)`
 
   &:after {
     position: absolute;
-    content: '${(props) => props.contentAfter}';
+    content: '${(props) => props.$contentAfter}';
     font-size: 0.95rem;
     background: var(--background-blur1);
-    top: ${({ toTop }) => (toTop ? toTop : 0)};
-    left: ${({ toLeft }) => (toLeft ? toLeft : 0)};
-    width: ${({ width }) => (width ? width : '20px')};
+    top: ${({ $toTop }) => ($toTop ? $toTop : 0)};
+    left: ${({ $toLeft }) => ($toLeft ? $toLeft : 0)};
+    width: ${({ $width }) => ($width ? $width : '20px')};
     padding: 0.5rem 0.75rem;
     height: fit-content;
     min-height: 15px;
@@ -176,7 +161,6 @@ export const ProjectOneSelectProjectWrapper = styled.div`
 
   border-radius: 20px;
   background: var(--background-gradient1);
-  /* box-shadow: var(--boxShadowClay3); */
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
@@ -186,6 +170,4 @@ export const AlignCenterContainer = styled.div`
   display: flex;
   padding: 1.25rem;
   padding-bottom: 0;
-  /* box-shadow: var(--boxShadowClay2); */
-  /* border-radius: 20px; */
 `

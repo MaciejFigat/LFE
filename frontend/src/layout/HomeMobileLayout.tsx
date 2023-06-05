@@ -5,7 +5,7 @@ import {
   MobileBox,
   MobileCompartments
 } from './layout.styled'
-import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import PupupEditWindow from '../modules/DragAndDropProject/PopupEditWindow/PupupEditWindow'
 import { useAppSelector } from '../app/reduxHooks'
 import {
@@ -78,78 +78,69 @@ const HomeMobileLayout: React.FC<HomeMobileLayoutProps> = () => {
   }
   return (
     <HeroMobile>
-      <AnimateSharedLayout type='crossfade'>
-        <AnimatePresence>
-          {idOpenFragment !== '' && (
-            <PupupEditWindow
-              idOpen={idOpenFragment}
-              openedApp={idOpenFragment}
-            />
-          )}
-        </AnimatePresence>{' '}
-        <ChoiceNav amount={tabs.length}>
-          <AnimateSharedLayout>
-            <ChoiceList>
-              {tabs.map(item => (
-                <ChoiceItem
-                  key={item.label}
-                  className={item.label === selectedTab.label ? 'selected' : ''}
-                  onClick={() => tabHelper(item)}
-                >
-                  <b>{`${item.label}`}</b>
-
-                  {item.label === selectedTab.label && (
-                    <ChoiceUnderline layoutId='under' />
-                  )}
-                </ChoiceItem>
-              ))}
-            </ChoiceList>
-          </AnimateSharedLayout>
-        </ChoiceNav>{' '}
-        <HorizontalLineBottomLight />
-        {selectedTab ? (
-          <MobileBox>{selectedTab.tertiaryContent}</MobileBox>
-        ) : null}
-        <HorizontalLineBottomLight />
-        {selectedTab ? (
-          <MobileCompartments>
-            <ButtonSmallCircle
-              variant='primaryEmpty'
-              onClick={() =>
-                setViewSideColumn(viewSideColumn => !viewSideColumn)
-              }
+      <AnimatePresence>
+        {idOpenFragment !== '' && (
+          <PupupEditWindow idOpen={idOpenFragment} openedApp={idOpenFragment} />
+        )}
+      </AnimatePresence>{' '}
+      <ChoiceNav amount={tabs.length}>
+        <ChoiceList>
+          {tabs.map(item => (
+            <ChoiceItem
+              key={item.label}
+              className={item.label === selectedTab.label ? 'selected' : ''}
+              onClick={() => tabHelper(item)}
             >
-              <RelativeWrapper top='5px'>
-                {viewSideColumn ? (
-                  <SvgIcon variant='bookOpen' />
-                ) : (
-                  <SvgIcon variant='book' />
-                )}
-              </RelativeWrapper>
-            </ButtonSmallCircle>{' '}
-            <div>{selectedTab.quaternaryContent}</div>{' '}
-            <div>{selectedTab.pentanaryContent}</div>
-          </MobileCompartments>
-        ) : null}
-        <HorizontalLineBottomLight />
-        <AnimatePresence exitBeforeEnter>
-          <motion.div
-            key={selectedTab ? selectedTab.label : 'empty'}
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -10, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+              <b>{`${item.label}`}</b>
+
+              {item.label === selectedTab.label && (
+                <ChoiceUnderline layoutId='under' />
+              )}
+            </ChoiceItem>
+          ))}
+        </ChoiceList>
+      </ChoiceNav>{' '}
+      <HorizontalLineBottomLight />
+      {selectedTab ? (
+        <MobileBox>{selectedTab.tertiaryContent}</MobileBox>
+      ) : null}
+      <HorizontalLineBottomLight />
+      {selectedTab ? (
+        <MobileCompartments>
+          <ButtonSmallCircle
+            variant='primaryEmpty'
+            onClick={() => setViewSideColumn(viewSideColumn => !viewSideColumn)}
           >
-            <MobileBigBox>
-              {selectedTab
-                ? viewSideColumn
-                  ? selectedTab.secondaryContent
-                  : selectedTab.content
-                : null}
-            </MobileBigBox>
-          </motion.div>
-        </AnimatePresence>
-      </AnimateSharedLayout>
+            <RelativeWrapper $top='5px'>
+              {viewSideColumn ? (
+                <SvgIcon variant='bookOpen' />
+              ) : (
+                <SvgIcon variant='book' />
+              )}
+            </RelativeWrapper>
+          </ButtonSmallCircle>{' '}
+          <div>{selectedTab.quaternaryContent}</div>{' '}
+          <div>{selectedTab.pentanaryContent}</div>
+        </MobileCompartments>
+      ) : null}
+      <HorizontalLineBottomLight />
+      <AnimatePresence mode='wait'>
+        <motion.div
+          key={selectedTab ? selectedTab.label : 'empty'}
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <MobileBigBox>
+            {selectedTab
+              ? viewSideColumn
+                ? selectedTab.secondaryContent
+                : selectedTab.content
+              : null}
+          </MobileBigBox>
+        </motion.div>
+      </AnimatePresence>
     </HeroMobile>
   )
 }

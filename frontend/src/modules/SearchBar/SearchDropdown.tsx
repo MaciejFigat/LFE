@@ -72,7 +72,7 @@ const SearchDropdown: React.FC<NavDropdownProps> = ({ scrollDirection }) => {
             take={take}
           />
           <DropdownIconWrapper onClick={toggling}>
-            <RelativeWrapper top='5px' left='2px'>
+            <RelativeWrapper $top='5px' $left='2px'>
               <SvgIcon variant={isOpen ? 'close' : 'cogs'} noContent />
             </RelativeWrapper>
           </DropdownIconWrapper>

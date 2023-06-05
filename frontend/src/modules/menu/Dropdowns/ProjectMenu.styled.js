@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const ProjectMenuWrapper = styled(motion.div)`
-  ${({ wide }) => (wide ? 'width: min(650px, 70vw);' : 'width: 400px;')}
+  ${({ $wide }) => ($wide ? 'width: min(650px, 70vw);' : 'width: 400px;')}
   position: relative;
   overflow: hidden;
   display: flex;
@@ -17,7 +17,7 @@ export const ProjectMenuWrapper = styled(motion.div)`
   }
 `
 export const ProjectPaginationWrapper = styled(ProjectMenuWrapper)`
-  width: ${({ narrow }) => (narrow ? '335px' : '380px')};
+  width: ${({ $narrow }) => ($narrow ? '335px' : '380px')};
 
   border: 1px solid var(--background-blur2);
 `
@@ -42,6 +42,7 @@ export const ProjectCard = styled(motion.div)`
   place-items: center;
   height: 30px;
   padding: 0 0.5rem 0 0.5rem;
+  border: 1px solid var(--background4-main);
 
   min-width: 135px;
   color: var(--background1-main);
@@ -67,27 +68,27 @@ export const DragMenuButton = styled(motion.div)`
     var(--background-blur1) 0%,
     transparent 100%
   );
-  ${({ position }) =>
-    position === 'left' &&
+  ${({ $position }) =>
+    $position === 'left' &&
     `background: linear-gradient(
     90deg,
     transparent 0%,
     var(--background-blur1) 100%
   );`};
 
-  ${({ position }) => position === 'left' && 'left: 89%;'};
-  ${({ position, wide }) => position === 'left' && wide && 'left: 90.5%;'};
-  ${({ position }) => position === 'right' && 'right: 5.5%;'};
-  ${({ position, wide }) => position === 'right' && wide && 'right: 3.5%;'};
+  ${({ $position }) => $position === 'left' && 'left: 89%;'};
+  ${({ $position, $wide }) => $position === 'left' && $wide && 'left: 90.5%;'};
+  ${({ $position }) => $position === 'right' && 'right: 5.5%;'};
+  ${({ $position, $wide }) => $position === 'right' && $wide && 'right: 3.5%;'};
   z-index: 11;
 
   @media (max-width: 520px) {
-    ${({ position }) => position === 'left' && 'left: 75%;'};
-    ${({ position }) => position === 'right' && 'right: 8%;'};
+    ${({ $position }) => $position === 'left' && 'left: 75%;'};
+    ${({ $position }) => $position === 'right' && 'right: 8%;'};
   }
 `
 export const DragPaginationButton = styled(DragMenuButton)`
-  left: ${({ left }) => (left ? left : '0')};
+  $left: ${({ $left }) => ($left ? $left : '0')};
 
   svg {
     font-size: 1rem;

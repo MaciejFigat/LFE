@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import { FragmentContainer } from './FragmentsColumn.styled'
-
 import {
   ListWrapper,
   ItemWrapper,
   FragmentsWrapper
 } from '../AnimatedTextPanel/AnimatedList.styled'
-
 import { getUserFragments } from '../../features/fragments/fragmentSlice'
 import AnimatedSavedItemSimple from '../AnimatedTextPanel/AnimatedSavedItemSimple'
 import StaggerChildrenWrapperSecondary from '../../components/AnimationWrappers/StaggerChildrenWrapperSecondary'
@@ -59,7 +57,7 @@ const UserFragmentsByKeyword: React.FC<UserFragmentsByKeywordProps> = ({
 
   return (
     <StaggerChildrenWrapperSecondary key={keywordMain}>
-      <FragmentsWrapper moreColumns={moreColumns} width={widthNarrow}>
+      <FragmentsWrapper $moreColumns={moreColumns} $width={widthNarrow}>
         {fragmentsKeywordMain.length > 0 &&
           fragmentsKeywordMain
             .map(fragment => (

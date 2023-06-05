@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const ScrollSec = styled.div`
-  margin-top: ${({ topMargin }) => (topMargin ? topMargin : '0')};
+  margin-top: ${({ $topMargin }) => ($topMargin ? $topMargin : '0')};
   color: var(--background4-main);
   min-height: fit-content;
   width: 100%;
@@ -16,8 +16,8 @@ export const ScrollSectionRow = styled.div`
   min-height: fit-content;
   justify-content: center;
   width: 100%;
-  flex-direction: ${({ imgStart }) =>
-    imgStart === true ? 'row-reverse' : 'row'};
+  flex-direction: ${({ $imgStart }) =>
+    $imgStart === true ? 'row-reverse' : 'row'};
   @media (max-width: 880px) {
     flex-direction: column;
   }
@@ -35,7 +35,7 @@ export const SectionColumn = styled.div`
   max-height: 100vh;
   min-height: fit-content;
 
-  flex-basis: ${({ width }) => (width ? `${width}` : '50%')};
+  flex-basis: ${({ $width }) => ($width ? `${$width}` : '50%')};
 
   overflow: scroll;
   @media screen and (max-width: 1490px) {
@@ -68,7 +68,7 @@ export const SectionColumnScroll = styled.div`
   margin-bottom: 15px;
   padding-left: 15px;
 
-  flex-basis: ${({ width }) => (width ? `${width}` : '50%')};
+  flex-basis: ${({ $width }) => ($width ? `${$width}` : '50%')};
   @media (max-width: 1020px) {
     flex-basis: 35%;
   }
@@ -143,9 +143,11 @@ export const SectionColumnScrollResize = styled(motion.div)`
 
   //* the following sets width depending on whether it's narrowOption (used in DocResult display) or regular
   ${(props) =>
-    props.narrowOption && props.widthNarrow && `width: ${props.widthNarrow}`};
+    props.$narrowOption &&
+    props.$widthNarrow &&
+    `width: ${props.$widthNarrow}`};
   ${(props) =>
-    !props.narrowOption && props.widthNarrow && `width: ${props.width}`};
+    !props.$narrowOption && props.$widthNarrow && `width: ${props.$width}`};
   min-width: 400px;
   max-width: 90vw;
 `

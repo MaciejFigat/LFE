@@ -24,7 +24,7 @@ const HeroTwoMain: React.FC<HeroTwoProps> = () => {
   const queryTrimmed = encodeURIComponent(query?.trim())
 
   return (
-    <AnimateSharedLayout>
+    <>
       {data && data?.length === 0 ? (
         <HeroWelcome />
       ) : (
@@ -39,7 +39,7 @@ const HeroTwoMain: React.FC<HeroTwoProps> = () => {
           query={queryTrimmed}
         />
       )}
-    </AnimateSharedLayout>
+    </>
   )
 }
 const HeroTwoThird: React.FC = () => {
@@ -65,7 +65,7 @@ const HeroTwoThird: React.FC = () => {
           onClick={() => changeResultsViewHelper()}
         >
           {' '}
-          <RelativeWrapper top='5px'>
+          <RelativeWrapper $top='5px'>
             {resultsDetailView ? (
               <SvgIcon variant='folder' />
             ) : (

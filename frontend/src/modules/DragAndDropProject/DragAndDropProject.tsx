@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
-import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
 import { DragDropContext } from 'react-beautiful-dnd'
@@ -303,7 +303,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
   }, [dispatch])
 
   return (
-    <AnimateSharedLayout type='crossfade'>
+    <>
       <DragDropContext onDragEnd={onDragEnd}>
         <HeroGridWrapper>
           <HeroNavigation>
@@ -316,7 +316,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
 
             <HeroNavTwo>
               {' '}
-              <SelectMainKeyword wide />
+              <SelectMainKeyword wideVersion />
             </HeroNavTwo>
           </HeroNavigation>
           <HeroMainContainer>
@@ -358,7 +358,7 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
           />
         )}
       </AnimatePresence>
-    </AnimateSharedLayout>
+    </>
   )
 }
 export default DragAndDropProject

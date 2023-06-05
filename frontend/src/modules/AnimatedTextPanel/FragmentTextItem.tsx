@@ -75,13 +75,13 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
               )}
             </>
           ) : null}
-          <RelativeWrapper top='0px' left='5px'>
+          <RelativeWrapper $top='0px' $left='5px'>
             {' '}
             <ButtonSmallCircle
               variant={ButtonVariants.PRIMARY_EMPTY}
               onClick={() => openWindowHandler(_id)}
             >
-              <RelativeWrapper top='5px' left='2px'>
+              <RelativeWrapper $top='6px' $left='1px'>
                 {' '}
                 <SvgIcon
                   variant='edit'
@@ -100,12 +100,12 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
         <HorizontalContainer>
           {source !== '' ? <FragmentsP>{source}</FragmentsP> : null}
 
-          <RelativeWrapper top='0px' left='6px'>
+          <RelativeWrapper $top='0px' $left='6px'>
             <ButtonSmallCircle
               variant={ButtonVariants.WARNING_EMPTY}
               onClick={() => removeFragmentHandler(_id)}
             >
-              <RelativeWrapper top='6px' left='0px'>
+              <RelativeWrapper $top='7px' $left='0px'>
                 <SvgIcon
                   variant='remove'
                   contentAfter='usuń'

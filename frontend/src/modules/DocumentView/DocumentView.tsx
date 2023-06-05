@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import { UserInfo } from '../../interfaces'
 import FragmentsColumn from '../modules/../Fragments/FragmentsColumn'
@@ -46,81 +46,77 @@ const DocumentView: React.FC<DocumentViewProps> = () => {
 
   return (
     <HeroDesktop>
-      <AnimateSharedLayout type='crossfade'>
-        <AnimatePresence>
-          {idOpenFragment !== '' && (
-            <PupupEditWindow
-              idOpen={idOpenFragment}
-              openedApp={idOpenFragment}
-            />
-          )}
-        </AnimatePresence>
+      <AnimatePresence>
+        {idOpenFragment !== '' && (
+          <PupupEditWindow idOpen={idOpenFragment} openedApp={idOpenFragment} />
+        )}
+      </AnimatePresence>
 
-        <ResizableScrollSection
-          narrowOption
-          narrowSection={
-            Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
-              <>
-                <SharedChoiceWrapper />
+      <ResizableScrollSection
+        narrowOption
+        narrowSection={
+          Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+            <>
+              <SharedChoiceWrapper />
 
-                {showFragmentsState &&
-                  (sortingOption === 'data' ||
-                    sortingOption === 'wszystkie') && <UserFragmentsColumn />}
-                {showFragmentsState && sortingOption === 'projekt' && (
-                  <UserFragmentsByKeyword />
+              {showFragmentsState &&
+                (sortingOption === 'data' || sortingOption === 'wszystkie') && (
+                  <UserFragmentsColumn />
                 )}
+              {showFragmentsState && sortingOption === 'projekt' && (
+                <UserFragmentsByKeyword />
+              )}
 
-                <DataContainerSimple width={widthNarrow}>
-                  {!showFragmentsState &&
-                    data.length > 0 &&
-                    data
-                      .slice(start, end + 1)
-                      .map((fragmentArray: any) => (
-                        <DataSectionSimple
-                          variant='primary'
-                          istota_interpretacji={
-                            fragmentArray.istota_interpretacji
-                          }
-                          key={fragmentArray['uuid']}
-                          paddingTop='small'
-                          fragmentsFound={fragmentArray.fragment}
-                          metryka={fragmentArray.metryka}
-                          query={queryTrimmed}
-                        />
-                      ))}
-                </DataContainerSimple>
-              </>
-            ) : (
-              <>
-                <SharedChoiceWrapper />
+              <DataContainerSimple $width={widthNarrow}>
+                {!showFragmentsState &&
+                  data.length > 0 &&
+                  data
+                    .slice(start, end + 1)
+                    .map((fragmentArray: any) => (
+                      <DataSectionSimple
+                        variant='primary'
+                        istota_interpretacji={
+                          fragmentArray.istota_interpretacji
+                        }
+                        key={fragmentArray['uuid']}
+                        paddingTop='small'
+                        fragmentsFound={fragmentArray.fragment}
+                        metryka={fragmentArray.metryka}
+                        query={queryTrimmed}
+                      />
+                    ))}
+              </DataContainerSimple>
+            </>
+          ) : (
+            <>
+              <SharedChoiceWrapper />
 
-                {showFragmentsState && <FragmentsColumn />}
+              {showFragmentsState && <FragmentsColumn />}
 
-                <DataContainerSimple width={widthNarrow}>
-                  {!showFragmentsState &&
-                    data.length > 0 &&
-                    data
-                      .slice(start, end + 1)
-                      .map((fragmentArray: any) => (
-                        <DataSectionSimple
-                          variant='primary'
-                          istota_interpretacji={
-                            fragmentArray.istota_interpretacji
-                          }
-                          key={fragmentArray['uuid']}
-                          paddingTop='small'
-                          fragmentsFound={fragmentArray.fragment}
-                          metryka={fragmentArray.metryka}
-                          query={queryTrimmed}
-                        />
-                      ))}
-                </DataContainerSimple>
-              </>
-            )
-          }
-          wideSection={<ResultDisplay />}
-        />
-      </AnimateSharedLayout>
+              <DataContainerSimple $width={widthNarrow}>
+                {!showFragmentsState &&
+                  data.length > 0 &&
+                  data
+                    .slice(start, end + 1)
+                    .map((fragmentArray: any) => (
+                      <DataSectionSimple
+                        variant='primary'
+                        istota_interpretacji={
+                          fragmentArray.istota_interpretacji
+                        }
+                        key={fragmentArray['uuid']}
+                        paddingTop='small'
+                        fragmentsFound={fragmentArray.fragment}
+                        metryka={fragmentArray.metryka}
+                        query={queryTrimmed}
+                      />
+                    ))}
+              </DataContainerSimple>
+            </>
+          )
+        }
+        wideSection={<ResultDisplay />}
+      />
     </HeroDesktop>
   )
 }

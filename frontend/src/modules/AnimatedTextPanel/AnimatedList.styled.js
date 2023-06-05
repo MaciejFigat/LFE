@@ -3,57 +3,58 @@ import { motion } from 'framer-motion'
 
 export const FragmentsWrapper = styled(motion.div)`
   display: grid;
-  place-items: ${({ moreColumns }) => (moreColumns ? 'flex-start' : 'center')};
+  place-items: ${({ $moreColumns }) =>
+    $moreColumns ? 'flex-start' : 'center'};
   margin-top: 2rem;
   margin-bottom: 2rem;
 
-  grid-template-columns: ${({ simpleVersion }) =>
-    simpleVersion ? 'repeat(1, 1fr)' : null};
+  grid-template-columns: ${({ $simpleVersion }) =>
+    $simpleVersion ? 'repeat(1, 1fr)' : null};
   @media (min-width: 1640px) {
-    grid-template-columns: ${({ moreColumns, width }) =>
-      !moreColumns && width < 766 ? 'repeat(2, 1fr)' : null};
-    grid-template-columns: ${({ moreColumns, width }) =>
-      !moreColumns && width < 400 && 'repeat(3, 1fr)'};
-    grid-template-columns: ${({ simpleVersion }) =>
-      simpleVersion ? 'repeat(1, 1fr)' : null};
+    grid-template-columns: ${({ $moreColumns, $width }) =>
+      !$moreColumns && $width < 766 ? 'repeat(2, 1fr)' : null};
+    grid-template-columns: ${({ $moreColumns, $width }) =>
+      !$moreColumns && $width < 400 && 'repeat(3, 1fr)'};
+    grid-template-columns: ${({ $simpleVersion }) =>
+      $simpleVersion ? 'repeat(1, 1fr)' : null};
   }
   @media (min-width: 1820px) {
-    grid-template-columns: ${({ moreColumns, width }) =>
-      !moreColumns && width < 966 ? 'repeat(2, 1fr)' : null};
-    grid-template-columns: ${({ moreColumns, width }) =>
-      !moreColumns && width < 500 && 'repeat(3, 1fr)'};
-    grid-template-columns: ${({ simpleVersion }) =>
-      simpleVersion ? 'repeat(1, 1fr)' : null};
+    grid-template-columns: ${({ $moreColumns, $width }) =>
+      !$moreColumns && $width < 966 ? 'repeat(2, 1fr)' : null};
+    grid-template-columns: ${({ $moreColumns, $width }) =>
+      !$moreColumns && $width < 500 && 'repeat(3, 1fr)'};
+    grid-template-columns: ${({ $simpleVersion }) =>
+      $simpleVersion ? 'repeat(1, 1fr)' : null};
   }
   @media (max-width: 1340px) {
-    grid-template-columns: ${({ moreColumns }) =>
-      !moreColumns && 'repeat(1, 1fr)'};
+    grid-template-columns: ${({ $moreColumns }) =>
+      !$moreColumns && 'repeat(1, 1fr)'};
   }
   /* //todo resizable narrow column grid columns END */
 
   gap: 3rem;
 
-  width: ${({ moreColumns }) => (moreColumns ? '100%' : 'fit-content')};
+  width: ${({ $moreColumns }) => ($moreColumns ? '100%' : 'fit-content')};
 
-  ${({ moreColumns }) => moreColumns && 'display: grid;'};
-  ${({ moreColumns }) =>
-    moreColumns && 'grid-template-columns: repeat(3, 1fr);'};
-  ${({ moreColumns }) =>
-    moreColumns && 'grid-template-rows: fit-content(40%);'};
+  ${({ $moreColumns }) => $moreColumns && 'display: grid;'};
+  ${({ $moreColumns }) =>
+    $moreColumns && 'grid-template-columns: repeat(3, 1fr);'};
+  ${({ $moreColumns }) =>
+    $moreColumns && 'grid-template-rows: fit-content(40%);'};
 
-  ${({ moreColumns }) => moreColumns && 'grid-row-gap: 1.75em;'};
-  ${({ moreColumns }) => moreColumns && 'grid-column-gap: 1rem;'};
+  ${({ $moreColumns }) => $moreColumns && 'grid-row-gap: 1.75em;'};
+  ${({ $moreColumns }) => $moreColumns && 'grid-column-gap: 1rem;'};
   @media (max-width: 1420px) {
-    ${({ moreColumns }) =>
-      moreColumns && 'grid-template-columns: repeat(3, 1fr);'};
+    ${({ $moreColumns }) =>
+      $moreColumns && 'grid-template-columns: repeat(3, 1fr);'};
   }
   @media (max-width: 1220px) {
-    ${({ moreColumns }) =>
-      moreColumns && 'grid-template-columns: repeat(2, 1fr);'};
+    ${({ $moreColumns }) =>
+      $moreColumns && 'grid-template-columns: repeat(2, 1fr);'};
   }
   @media (max-width: 950px) {
-    ${({ moreColumns }) =>
-      moreColumns && 'grid-template-columns: repeat(1, 1fr);'};
+    ${({ $moreColumns }) =>
+      $moreColumns && 'grid-template-columns: repeat(1, 1fr);'};
   }
 `
 export const ListWrapper = styled(motion.div)`

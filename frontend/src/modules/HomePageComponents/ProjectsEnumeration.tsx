@@ -30,10 +30,6 @@ const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
 
   const handleCardMouseUp = (card: any) => {
     dispatch(sortingKeywordMainEdit(card))
-    //* for animations between redux changes
-    // setTimeout(() => {
-    //   dispatch(sortingKeywordMainEdit(card))
-    // }, 400)
   }
 
   return (
@@ -42,13 +38,7 @@ const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
       <AnimatePresence>
         {keywordMain !== '' && (
           <NavLink to='/storage'>
-            <ProjectH2
-            // key={keywordMain}
-            // initial={{ y: 10, opacity: 0 }}
-            // animate={{ y: 0, opacity: 1 }}
-            // exit={{ y: -10, opacity: 0 }}
-            // transition={{ duration: 0.5 }}
-            >
+            <ProjectH2>
               <ButtonMedium variant='success'>
                 {' '}
                 Kliknij by eksportować: {keywordMain}
@@ -71,8 +61,8 @@ const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
               key={Math.random()}
               onMouseUp={() => handleCardMouseUp(keyword)}
               animate={{
-                opacity: keywordMain === keyword ? 1 : 0.8,
-                // scale: keywordMain === keyword ? 1.1 : 1,
+                opacity: keywordMain === keyword ? 1 : 0.8 || 0.8,
+
                 transition: {
                   duration: 0.3
                 }

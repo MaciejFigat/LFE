@@ -52,9 +52,9 @@ const UserFragmentsColumn: React.FC<UserFragmentsColumnProps> = ({
 
   return (
     <FragmentsWrapper
-      moreColumns={moreColumns}
-      width={widthNarrow}
-      simpleVersion={simpleVersion}
+      $moreColumns={moreColumns}
+      $width={widthNarrow}
+      $simpleVersion={simpleVersion}
     >
       {fragments.length > 0 &&
         fragments

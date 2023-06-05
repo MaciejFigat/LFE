@@ -32,10 +32,12 @@ import {
 } from '../../../components/Buttons/Buttons.styled'
 
 interface SelectMainKeywordProps {
-  wide?: boolean
+  wideVersion?: boolean
 }
 
-const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
+const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
+  wideVersion
+}) => {
   const dispatch: any = useAppDispatch()
 
   const keywordMain = useAppSelector(
@@ -272,7 +274,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
         <HeaderAndCogContainer>
           <DropDownSvgRoundedLeft optionsOpen={optionsNewKeywordOpen}>
             {' '}
-            <RelativeWrapper top='20px' left='3px'>
+            <RelativeWrapper $top='20px' $left='3px'>
               <ButtonVerySmall
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -304,7 +306,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
               placeholder={keywordMain}
               value={newKeyword}
               onChange={(e: any) => setNewKeyword(e.target.value)}
-              wide={wide}
+              $wide={wideVersion}
             />
           ) : (
             <DropDownHeader
@@ -312,22 +314,22 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={toggling}
-              wide={wide}
+              $wide={wideVersion}
               className={isOpen ? 'active' : 'inactive'}
             >
               <DropDownHeaderInside
                 className={isOpen ? 'activeButton' : 'inactiveButton'}
               >
-                {!wide &&
+                {!wideVersion &&
                   (selectedMainKeyword?.substring(0, 15) || 'Wybierz projekt')}
-                {wide &&
+                {wideVersion &&
                   (selectedMainKeyword?.substring(0, 20) || 'Wybierz projekt')}
               </DropDownHeaderInside>
             </DropDownHeader>
           )}{' '}
           <DropDownSvgRounded optionsOpen={optionsOpen}>
             {' '}
-            <RelativeWrapper top='21px' left='0px'>
+            <RelativeWrapper $top='21px' $left='0px'>
               <ButtonVerySmall
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -355,8 +357,8 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
             !keywordCreation &&
             !keywordEditing && (
               <RelativeWrapper
-                left={wide ? '60px' : '27px'}
-                top={wide ? '10px' : '5px'}
+                $left={wideVersion ? '60px' : '27px'}
+                $top={wideVersion ? '10px' : '5px'}
               >
                 <ButtonSmall variant='success' onClick={saveTempKeywordHelper}>
                   Dodaj nowy projekt
@@ -365,15 +367,15 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
             )}
           {optionsOpen && !keywordCreation && !keywordEditing && (
             <RelativeWrapper
-              left={wide ? '30px' : '-4px'}
-              top={wide ? '10px' : '7px'}
+              $left={wideVersion ? '30px' : '-4px'}
+              $top={wideVersion ? '10px' : '7px'}
             >
               <OptionsDropdownContainer>
                 <ButtonSmallCircle
                   variant='successEmpty'
                   onClick={addNewHandler}
                 >
-                  <RelativeWrapper top='7px' left='0px'>
+                  <RelativeWrapper $top='7px' $left='0px'>
                     <SvgIcon
                       variant='plus'
                       toTop='15px'
@@ -385,7 +387,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                 </ButtonSmallCircle>
                 <ButtonSmallCircle variant='infoEmpty' onClick={editingHandler}>
                   {' '}
-                  <RelativeWrapper top='6px' left='2px'>
+                  <RelativeWrapper $top='6px' $left='2px'>
                     <SvgIcon
                       variant='edit'
                       toTop='15px'
@@ -400,7 +402,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                   onClick={removeKeywordHelperUltimate}
                 >
                   {' '}
-                  <RelativeWrapper top='6px' left='0px'>
+                  <RelativeWrapper $top='6px' $left='0px'>
                     <SvgIcon
                       variant='remove'
                       toTop='15px'
@@ -415,8 +417,8 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
           )}
           {(keywordEditing || keywordCreation) && (
             <RelativeWrapper
-              left={wide ? '30px' : '-4px'}
-              top={wide ? '10px' : '7px'}
+              $left={wideVersion ? '30px' : '-4px'}
+              $top={wideVersion ? '10px' : '7px'}
             >
               <OptionsDropdownContainer>
                 <RelativeWrapper top='12px'>
@@ -435,7 +437,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                   </ButtonVerySmall>
                 </RelativeWrapper>
                 {keywordCreation ? (
-                  <RelativeWrapper top='12px'>
+                  <RelativeWrapper $top='12px'>
                     <ButtonVerySmall
                       variant='successEmpty'
                       onClick={saveNewKeywordHelper}
@@ -444,7 +446,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
                     </ButtonVerySmall>
                   </RelativeWrapper>
                 ) : (
-                  <RelativeWrapper top='20px'>
+                  <RelativeWrapper $top='20px'>
                     <ButtonVerySmall
                       variant='successEmpty'
                       onClick={saveEditedKeywordHelper}
@@ -467,8 +469,8 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({ wide }) => {
 
         {isOpen && uniqueKeywords.length > 1 && (
           <RelativeWrapper
-            left={wide ? '30px' : '0px'}
-            top={wide ? '10px' : '7px'}
+            $left={wideVersion ? '30px' : '0px'}
+            $top={wideVersion ? '10px' : '7px'}
           >
             <DropDownListContainer>
               <DropDownList>

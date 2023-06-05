@@ -220,7 +220,7 @@ const FirstColumnExportControls: React.FC<FirstColumnExportControlsProps> = ({
   return (
     <ButtonSmall
       variant='successEmpty'
-      borderRadius='15px'
+      $borderRadius='15px'
       onClick={exportHandler}
     >
       {' '}

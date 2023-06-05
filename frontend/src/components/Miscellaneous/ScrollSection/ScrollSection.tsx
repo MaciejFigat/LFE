@@ -3,7 +3,7 @@ import {
   SectionColumn,
   ScrollSectionRow,
   ScrollSec,
-  SectionColumnScroll,
+  SectionColumnScroll
 } from './ScrollSection.styled'
 
 interface ScrollSectionProps {
@@ -18,14 +18,13 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({
   wideSection,
   narrowSection,
   widthSmall,
-  widthBig,
+  widthBig
 }) => {
   return (
     <ScrollSec>
-      {/* <ScrollSectionRow imgStart> */}
       <ScrollSectionRow>
-        <SectionColumn width={widthSmall}>{narrowSection}</SectionColumn>
-        <SectionColumnScroll width={widthBig}>
+        <SectionColumn $width={widthSmall}>{narrowSection}</SectionColumn>
+        <SectionColumnScroll $width={widthBig}>
           {wideSection}
         </SectionColumnScroll>
       </ScrollSectionRow>
