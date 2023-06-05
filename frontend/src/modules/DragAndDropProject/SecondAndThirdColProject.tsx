@@ -16,7 +16,6 @@ import {
 import { ListWrapper } from '../AnimatedTextPanel/AnimatedList.styled'
 
 import FragmentTextItem from '../AnimatedTextPanel/FragmentTextItem'
-import { AnimatePresence } from 'framer-motion'
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   userSelect: 'none',
