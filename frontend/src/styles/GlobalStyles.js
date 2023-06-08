@@ -6,21 +6,28 @@ const GlobalStyle = createGlobalStyle`
   
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
+  
 }
 html {
   font-size: 100%;
   height: 100%;
+
 } 
 
 body {
+  
     position:relative;
     min-height: 100%;
     color: var(--background4-main);
     margin: 0;
+    
     padding: 0;
+  
     max-width: 100vw;
     height: 100%;
+    
     overflow-wrap: break-word;
+  
     background: var(--background1-main);
     font-family: 'Open Sans', sans-serif;
  
@@ -298,7 +305,13 @@ body {
 
 }
 ::-webkit-scrollbar {
-  width: 0em;
+  // width: 0em;
+  width: 0.5em;
+  // margin-left: -0.3em;
+  // padding-right: -0.3em;
+  // padding: -0.3em;
+  margin: -0.3em;
+  background: transparent;
   @media screen and (max-width: 1020px) {
           width: 0em;
   }
@@ -307,8 +320,11 @@ body {
 ::-webkit-scrollbar-corner {
   background: none;
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--background-blur2);
+  background: var(--background-secondary1);
+  
 
   border-radius: 2px;
   

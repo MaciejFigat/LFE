@@ -36,7 +36,7 @@ const HeroSearchOptions: React.FC<HeroSearchOptionsProps> = () => {
               setIsOn={setIsOnOne}
               sortingOption='one'
             />
-            <SwitchText isOn={isOnOne}>
+            <SwitchText $isOn={isOnOne}>
               Krajowa Informacja Skarbowa ({' '}
               {
                 data.filter((dataFiltered: any) => dataFiltered.typSadu === 7)
@@ -53,7 +53,7 @@ const HeroSearchOptions: React.FC<HeroSearchOptionsProps> = () => {
               setIsOn={setIsOnTwo}
               sortingOption='two'
             />
-            <SwitchText isOn={isOnTwo}>
+            <SwitchText $isOn={isOnTwo}>
               Izba Skarbowa ({' '}
               {
                 data.filter((dataFiltered: any) => dataFiltered.typSadu === 8)

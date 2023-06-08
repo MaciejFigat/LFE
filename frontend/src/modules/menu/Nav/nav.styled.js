@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const TransitionWrapperMain = styled.div`
+  display: grid;
+  place-items: center;
   position: sticky;
   z-index: 20;
   top: -2px;
@@ -62,8 +64,11 @@ export const TransitionWrapper = styled.div`
 
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 1600px;
+  border-left: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
 
-  border-bottom: 1px solid var(--background1-main);
   height: 67px;
   @media (min-width: 1020px) {
     display: flex;

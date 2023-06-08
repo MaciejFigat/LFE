@@ -59,6 +59,7 @@ export const ClosingDiv = styled(motion.div)`
     top: 1px;
   }
 `
+
 export const HorizontalLineBottom = styled.div`
   width: 100%;
   height: 1px;

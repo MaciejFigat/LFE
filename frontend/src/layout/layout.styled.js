@@ -11,6 +11,9 @@ export const HeroMobile = styled.div`
   }
 `
 export const HeroDesktop = styled.div`
+  display: grid;
+  place-items: center;
+
   @media (max-width: 1040px) {
     display: none;
   }

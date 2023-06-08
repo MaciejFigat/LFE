@@ -56,7 +56,7 @@ const ProjectsEnumeration: React.FC<ProjectsEnumerationProps> = () => {
         {uniqueKeywords.map((keyword: string) => (
           <ProjectCardHome
             initial={{ opacity: 0.8, scale: 1 }}
-            key={Math.random()}
+            key={keyword}
             onMouseUp={() => handleCardMouseUp(keyword)}
             animate={{
               opacity: keywordMain === keyword ? 1 : 0.8 || 0.8,

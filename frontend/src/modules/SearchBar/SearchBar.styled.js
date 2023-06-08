@@ -333,27 +333,27 @@ export const SwitchDivContainerNarrow = styled(SwitchDivContainer)`
 export const SwitchDiv = styled.div`
   width: 28px;
   height: 16px;
-  background-color: ${({ isOn }) =>
-    isOn ? 'var(--background4-main)' : 'var(--background2-main)'};
+  background-color: ${({ $isOn }) =>
+    $isOn ? 'var(--background4-main)' : 'var(--background2-main)'};
   display: flex;
   border-radius: 10px;
   padding: 1px;
   cursor: pointer;
-  justify-content: ${({ isOn }) => (isOn ? 'flex-start' : 'flex-end')};
+  justify-content: ${({ $isOn }) => ($isOn ? 'flex-start' : 'flex-end')};
 
   align-items: center;
 `
 export const SwitchText = styled.b`
-  color: ${({ isOn }) =>
-    isOn ? 'var(--background4-main)' : 'var(--background2-main)'};
+  color: ${({ $isOn }) =>
+    $isOn ? 'var(--background4-main)' : 'var(--background2-main)'};
 `
 export const SwitchHandle = styled(motion.div)`
   width: 14px;
   height: 14px;
   box-shadow: var(--boxShadowClay1);
   border-radius: 12px;
-  background-color: ${({ isOn }) =>
-    isOn ? 'var(--background2-main)' : 'var(--background2-main)'};
+  background-color: ${({ $isOn }) =>
+    $isOn ? 'var(--background2-main)' : 'var(--background2-main)'};
 `
 export const SetTakeButton = styled.button`
   outline: none;

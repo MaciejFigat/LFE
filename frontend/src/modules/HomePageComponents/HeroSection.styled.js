@@ -139,10 +139,13 @@ export const HeroGridWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: calc(100vh - 67px);
-  min-height:100%
-
+  min-height: 100%;
   margin: 0px;
   overflow: hidden;
+  width: 100%;
+  max-width: 1600px;
+  border-left: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
 `
 export const HeroNavigation = styled.div`
   display: flex;
@@ -208,7 +211,7 @@ export const HeroArticleSmallSection = styled(HeroArticleSection)`
   overflow-y: scroll;
 
   ::-webkit-scrollbar {
-    width: 0.2em;
+    width: 0em;
   }
   border-left: 1px solid var(--background-blur2);
 `

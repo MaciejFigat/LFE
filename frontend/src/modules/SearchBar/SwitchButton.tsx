@@ -41,10 +41,10 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
   return (
     <>
       {' '}
-      <SwitchDiv className='switch' isOn={isOn} onClick={toggleSwitch}>
+      <SwitchDiv className='switch' $isOn={isOn} onClick={toggleSwitch}>
         <SwitchHandle
           className='handle'
-          isOn={isOn}
+          $isOn={isOn}
           layout
           transition={spring}
         />

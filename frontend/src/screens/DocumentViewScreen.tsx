@@ -9,6 +9,7 @@ interface DocumentViewScreenProps {}
 const DocumentViewScreen: React.FC<DocumentViewScreenProps> = () => {
   return (
     <>
+      {' '}
       <DocumentView />
       <HeroMobile>
         <SimpleDocumentDisplay />

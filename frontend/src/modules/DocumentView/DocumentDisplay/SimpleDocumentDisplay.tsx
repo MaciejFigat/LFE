@@ -46,7 +46,7 @@ const SimpleDocumentDisplay: React.FC<SimpleDocumentDisplayProps> = () => {
   return (
     <ArticleContainer>
       {loadingDoc ? (
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence>
           <LoadingAbsolutePopup
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

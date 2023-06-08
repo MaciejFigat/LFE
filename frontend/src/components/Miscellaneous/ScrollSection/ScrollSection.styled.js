@@ -6,6 +6,9 @@ export const ScrollSec = styled.div`
   color: var(--background4-main);
   min-height: fit-content;
   width: 100%;
+  max-width: 1600px;
+  border-left: 1px solid var(--background-blur2);
+  border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
   @media (max-width: 880px) {
     padding: 0;
@@ -150,6 +153,17 @@ export const SectionColumnScrollResize = styled(motion.div)`
     !props.$narrowOption && props.$widthNarrow && `width: ${props.$width}`};
   min-width: 400px;
   max-width: 90vw;
+
+  /* max-height: calc(100vh); */
+  /* overflow: hidden; */
+  /* overflow-y: scroll; */
+  /* ::-webkit-scrollbar {
+    width: 1em;
+
+    @media screen and (max-width: 1020px) {
+      width: 0em;
+    }
+  } */
 `
 // ? this encloses {narrowSection}
 export const SectionColumnResize = styled.div`

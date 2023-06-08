@@ -5,7 +5,7 @@ import { UserInfo } from '../../interfaces'
 import FragmentsColumn from '../modules/../Fragments/FragmentsColumn'
 import ResizableScrollSection from '../../components/Miscellaneous/ScrollSection/ResizableScrollSection'
 import UserFragmentsColumn from '../../modules/Fragments/UserFragmentsColumn'
-import ResultDisplay from './DocumentDisplay/DocumentDisplay'
+import DocumentDisplay from './DocumentDisplay/DocumentDisplay'
 import DataSectionSimple from '../../modules/InfoSection/DataSectionSimple'
 import UserFragmentsByKeyword from '../../modules/Fragments/UserFragmentsByKeyword'
 import SharedChoiceWrapper from '../../modules/Fragments/SharedChoiceWrapper/SharedChoiceWrapper'
@@ -115,7 +115,7 @@ const DocumentView: React.FC<DocumentViewProps> = () => {
             </>
           )
         }
-        wideSection={<ResultDisplay />}
+        wideSection={<DocumentDisplay />}
       />
     </HeroDesktop>
   )

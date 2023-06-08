@@ -47,12 +47,12 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
       <OptionButtonsContainer>
         {data && data?.length === 0 ? null : (
           <SearchBarPaginationSvgWrapper>
-            <RelativeWrapper top='-2px' left='-10px'>
+            <RelativeWrapper $top='-2px' $left='-10px'>
               <ButtonSmallCircle
                 variant={ButtonVariants.PRIMARY_EMPTY}
                 onClick={showHandler}
               >
-                <RelativeWrapper top='7px' left='1px'>
+                <RelativeWrapper $top='7px' $left='1px'>
                   <SvgIcon
                     variant={
                       showSearchBar && !showSearchOptions ? 'store' : 'search'
@@ -73,13 +73,13 @@ const HomeSearchBarPagination: React.FC<HomeSearchBarPaginationProps> = () => {
         )}
         {data && data?.length === 0 ? null : (
           <SearchBarPaginationSvgWrapperSecond>
-            <RelativeWrapper top='-45px' left='-10px'>
+            <RelativeWrapper $top='-45px' $left='-10px'>
               <ButtonSmallCircle
                 variant={ButtonVariants.PRIMARY_EMPTY}
                 onClick={showOptionsHandler}
               >
                 <HorizontalWrapper>
-                  <RelativeWrapper top='6px' left='0px'>
+                  <RelativeWrapper $top='6px' $left='0px'>
                     <SvgIcon
                       variant={showSearchOptions ? 'chevronLeft' : 'eye'}
                       contentAfter={showSearchOptions ? 'wyszukaj' : 'opcje'}

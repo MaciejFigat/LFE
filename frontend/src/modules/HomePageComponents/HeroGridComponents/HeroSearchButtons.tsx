@@ -36,6 +36,7 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
   const { data, query } = searchResult.searchResults
 
   const minusHandlerDocIndex = () => {
+    if (heroDocIndex === 0) return
     if (resultsDetailView) {
       const searchquery = {
         query: query,
@@ -62,6 +63,7 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
     dispatch(subtractHeroDocIndex())
   }
   const plusHandlerDocIndex = () => {
+    if (searchData.length === heroDocIndex + 1) return
     if (resultsDetailView) {
       const searchquery = {
         query: query,
@@ -91,7 +93,7 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
     <>
       {searchData && searchData?.length === 0 ? null : (
         <HorizontalWrapperGap>
-          <RelativeWrapper top='5px'>
+          <RelativeWrapper $top='5px'>
             <ButtonVerySmall
               variant='primaryEmpty'
               onClick={() => minusHandlerDocIndex()}
@@ -99,7 +101,7 @@ const HeroSearchButtons: React.FC<HeroSearchButtonsProps> = () => {
               <SvgIcon variant='chevronLeft' />
             </ButtonVerySmall>{' '}
           </RelativeWrapper>
-          <RelativeWrapper top='5px'>
+          <RelativeWrapper $top='5px'>
             <ButtonVerySmall
               variant='primaryEmpty'
               onClick={() => plusHandlerDocIndex()}

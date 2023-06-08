@@ -152,7 +152,7 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
                         setIsOn={setIsOnOne}
                         sortingOption='one'
                       />
-                      <SwitchText isOn={isOnOne}>
+                      <SwitchText $isOn={isOnOne}>
                         Krajowa Informacja Skarbowa ({' '}
                         {
                           data.filter(
@@ -170,7 +170,7 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
                         setIsOn={setIsOnTwo}
                         sortingOption='two'
                       />
-                      <SwitchText isOn={isOnTwo}>
+                      <SwitchText $isOn={isOnTwo}>
                         Izba Skarbowa ({' '}
                         {
                           data.filter(
@@ -189,7 +189,7 @@ const SearchResultsDisplay: React.FC<SearchResultsDisplayProps> = () => {
                         setIsOn={setIsOnThree}
                         sortingOption='three'
                       />
-                      <SwitchText isOn={isOnThree}>
+                      <SwitchText $isOn={isOnThree}>
                         Minister Finansów ({' '}
                         {
                           data.filter(

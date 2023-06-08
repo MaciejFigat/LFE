@@ -39,7 +39,7 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
     {
       label: 'Zapisane',
       icon: (
-        <RelativeWrapper top='10px'>
+        <RelativeWrapper $top='10px'>
           <SvgIcon
             variant='save'
             contentAfter='zapisane fragmenty'
@@ -64,7 +64,7 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
     {
       label: 'Wyszukane',
       icon: (
-        <RelativeWrapper top='12px'>
+        <RelativeWrapper $top='12px'>
           <SvgIcon
             variant='search'
             contentAfter='wyszukane dok.'
@@ -124,7 +124,7 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
             >
               {item.icon}
               {item.label === selectedTab.label && (
-                <ChoiceUnderline layoutId='under' />
+                <ChoiceUnderline layoutId='underSharedChoiceWrapper' />
               )}
             </ChoiceItem>
           ))}
