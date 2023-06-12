@@ -4,7 +4,7 @@ export const HPopover = styled.div`
   padding: 6px 10px;
   background: var(--background1-main);
   border-radius: 5px;
-  /* border: dotted 1px var(--background5-main); */
+
   border-top: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background2-main);
@@ -19,7 +19,7 @@ export const HPopover = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  /* min-width: fit-content; */
+
   min-width: 200px;
   &:after {
     content: '';
@@ -31,7 +31,7 @@ export const HPopover = styled.div`
     height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    /* border-top: 6px solid var(--background1-main); */
+
     border-top: 6px solid var(--background5-main);
   }
 `

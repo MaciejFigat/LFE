@@ -130,7 +130,7 @@ const FirstColumnExportControls: React.FC<FirstColumnExportControlsProps> = ({
                   text: `Cytowany fragment:`,
                   bold: true
                 }),
-                // new PageBreak(),
+
                 new TextRun({
                   text: ` ${state[1][i].excerpt}`
                 })
@@ -220,12 +220,12 @@ const FirstColumnExportControls: React.FC<FirstColumnExportControlsProps> = ({
   return (
     <ButtonSmall
       variant='successEmpty'
-      $borderRadius='15px'
+      $borderRadius='20px'
       onClick={exportHandler}
     >
       {' '}
       eksportuj &nbsp;
-      <SvgIcon variant='export' toBottom noContent lowerPosition='2px' />
+      <SvgIcon variant='export' noContent lowerPosition='2px' />
     </ButtonSmall>
   )
 }

@@ -392,7 +392,7 @@ export const DataContainerSimple = styled.div`
   display: grid;
   place-items: ${({ $moreColumns }) =>
     $moreColumns ? 'flex-start' : 'center'};
-  gap: 1rem;
+  gap: 0.75rem 0rem;
   /* //todo resizable narrow column grid columns */
   grid-template-columns: ${({ $width }) =>
     $width < 600 ? 'repeat(2, 1fr)' : 'repeat(1, 1fr)'};

@@ -164,7 +164,7 @@ const secondaryStyle: GlobalStyle = {
   danger3: '#D22730;',
 
   boxShadow1:
-    'inset 0px 0px 0px #d2d1ce, inset 0px 0px 0px #ffffff, -1px 2px 4px #a8a7a5, 5px -5px 8px #fffffe;',
+    'inset 0px 0px 0px #d2d1ce, inset 0px 0px 0px #ffffff, -1px 2px 4px #a8a7a5, 1px -1px 1px #fffffe;',
   boxShadow2:
     'inset 0px 0px 0px #d2d1ce, inset 0px 0px 0px #ffffff, -3px 3px 7px #8d8c8a, 7px -7px 10px #ffffff;',
   boxShadow3: '-27px 27px 54px #a8a7a5, 27px -27px 54px #ffffff;',

@@ -58,7 +58,7 @@ const UserFragmentsByKeywordHero: React.FC<
 
   return (
     <StaggerChildrenWrapperSecondary key={keywordMain}>
-      <HeroColumnsWrapper details={fragmentsDetailView}>
+      <HeroColumnsWrapper>
         {fragmentsKeywordMain.length > 0 &&
           fragmentsKeywordMain
             .map(fragment => (

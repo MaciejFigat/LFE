@@ -12,6 +12,7 @@ interface CitationCreated {
 
   createdAt: string
 }
+
 interface FragmentCreated {
   _id?: string
   userId?: string
@@ -23,7 +24,6 @@ interface FragmentCreated {
   docId?: number
   query?: string
   keywords?: string[]
-
   keywordValue?: {
     keyword?: string
     value?: boolean

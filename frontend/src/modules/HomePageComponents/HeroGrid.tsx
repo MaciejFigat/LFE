@@ -22,11 +22,7 @@ import {
   MainChoiceContainer
 } from './HomeChoiceWrapper/HomeChoiceWrapper.styled'
 import { HeroTwoFourth, HeroTwoMain, HeroTwoThird } from './HeroTwo'
-import {
-  HorizontalWrapper,
-  RegularDiv,
-  RelativeWrapper
-} from '../../styles/misc.styled'
+import { HorizontalWrapper, RegularDiv } from '../../styles/misc.styled'
 import HomeSearchResultsSmall from './HeroGridComponents/HomeSearchResultsSmall'
 import HeroSearchButtons from './HeroGridComponents/HeroSearchButtons'
 import HomeSearchBarPagination from './HeroGridComponents/HomeSearchBarPagination'
@@ -187,9 +183,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
             <HorizontalWrapper>
               {' '}
-              <RelativeWrapper left='-10px' top='0px'>
-                <HeroChangeDetail />
-              </RelativeWrapper>{' '}
+              <HeroChangeDetail />
               <HeroProjectExport />
             </HorizontalWrapper>
           ) : (

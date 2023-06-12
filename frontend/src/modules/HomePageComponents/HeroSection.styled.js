@@ -143,7 +143,7 @@ export const HeroGridWrapper = styled.div`
   margin: 0px;
   overflow: hidden;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1750px;
   border-left: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
 `

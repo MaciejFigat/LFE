@@ -131,8 +131,8 @@ export const ChangingColumnsWrapper = styled.div`
 export const HeroColumnsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: ${({ details }) => (details ? '3.5rem' : '2.5rem')};
-  padding: 2rem;
+  gap: 2rem 1rem;
+  padding: 2rem 1.25rem;
   @media screen and (min-width: 1720px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -348,16 +348,10 @@ export const ClayButtonWrapper = styled(motion.div)`
     $heightProps ? $heightProps : 'fit-content'};
   box-shadow: var(--boxShadowClay1);
 
-  background: var(--background-gradient2);
-  background: var(--background1-main);
-
   border-radius: 25px;
 `
 export const ClayButtonWrapperSecondary = styled(ClayButtonWrapper)`
-  border-right: 1px solid var(--background-blur2);
-  border-top: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur2);
+  box-shadow: var(--boxShadowClay3);
   max-width: fit-content;
   z-index: 11;
   margin-bottom: ${({ $marginProps }) =>

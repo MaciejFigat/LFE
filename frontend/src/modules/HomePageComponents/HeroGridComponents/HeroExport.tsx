@@ -93,7 +93,6 @@ const HeroExportMain: React.FC<HeroExportProps> = () => {
       Packer.toBlob(doc).then(blob => {
         console.log(blob)
         saveAs(blob, `zapisane.docx`)
-        // console.log('Document created successfully')
       })
     } else {
       window.alert('Wybierz projekt')

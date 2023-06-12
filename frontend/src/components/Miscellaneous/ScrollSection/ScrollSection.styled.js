@@ -6,7 +6,7 @@ export const ScrollSec = styled.div`
   color: var(--background4-main);
   min-height: fit-content;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1750px;
   border-left: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);

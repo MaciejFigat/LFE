@@ -18,26 +18,24 @@ const HeroChangeDetail: React.FC<HeroChangeDetailProps> = () => {
   }
 
   return (
-    <>
+    <RelativeWrapper $left='-10px' $top='0px'>
       <ButtonSmallCircle
         variant={ButtonVariants.PRIMARY_EMPTY}
         onClick={viewHandler}
       >
-        {fragmentsDetailView ? (
-          <>
-            <RelativeWrapper top='5px' left='0px'>
-              <SvgIcon variant='folder' />
-            </RelativeWrapper>
-          </>
-        ) : (
-          <>
-            <RelativeWrapper top='5px' left='0px'>
-              <SvgIcon variant='store' />
-            </RelativeWrapper>
-          </>
-        )}
+        <RelativeWrapper $top='5px' $left='0px'>
+          <SvgIcon
+            variant={fragmentsDetailView ? 'store' : 'folder'}
+            contentAfter={
+              fragmentsDetailView ? 'widok szczeg.' : 'widok ogólny'
+            }
+            toLeft='-63px'
+            toTop='-28px'
+            width='70px'
+          />
+        </RelativeWrapper>
       </ButtonSmallCircle>
-    </>
+    </RelativeWrapper>
   )
 }
 export default HeroChangeDetail

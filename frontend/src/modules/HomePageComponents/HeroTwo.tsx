@@ -1,8 +1,6 @@
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
-
 import HeroSearchDataSection from './HeroGridComponents/HeroSearchDataSection'
-
 import { changeResultsDetailView } from '../../features/preferences/preferenceSlice'
 import HeroWelcome from './HeroGridComponents/HeroWelcome'
 import SimpleResultDisplay from '../DocumentView/DocumentDisplay/SimpleDocumentDisplay'
@@ -10,6 +8,7 @@ import { ButtonSmallCircle } from '../../components/Buttons/Buttons.styled'
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../styles/misc.styled'
 import { ButtonVariants } from '../../consts'
+import { AppDispatch } from '../../app/store'
 
 interface HeroTwoProps {}
 
@@ -51,7 +50,7 @@ const HeroTwoThird: React.FC = () => {
   )
 
   const { data } = searchResults
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
   const changeResultsViewHelper = () => {
     dispatch(changeResultsDetailView())
@@ -66,11 +65,15 @@ const HeroTwoThird: React.FC = () => {
         >
           {' '}
           <RelativeWrapper $top='5px'>
-            {resultsDetailView ? (
-              <SvgIcon variant='folder' />
-            ) : (
-              <SvgIcon variant='store' />
-            )}{' '}
+            <SvgIcon
+              variant={resultsDetailView ? 'store' : 'folder'}
+              contentAfter={
+                resultsDetailView ? 'widok szczeg.' : 'widok ogólny'
+              }
+              toLeft='-63px'
+              toTop='-28px'
+              width='70px'
+            />
           </RelativeWrapper>
         </ButtonSmallCircle>
       )}

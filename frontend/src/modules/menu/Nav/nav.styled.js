@@ -65,7 +65,7 @@ export const TransitionWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1750px;
   border-left: 1px solid var(--background-blur2);
   border-right: 1px solid var(--background-blur2);
 

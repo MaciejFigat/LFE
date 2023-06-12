@@ -13,12 +13,11 @@ export const FragmentsWrapper = styled(motion.div)`
   @media (min-width: 1640px) {
     grid-template-columns: ${({ $moreColumns, $width }) =>
       !$moreColumns && $width < 766 ? 'repeat(2, 1fr)' : null};
-    grid-template-columns: ${({ $moreColumns, $width }) =>
-      !$moreColumns && $width < 400 && 'repeat(3, 1fr)'};
+
     grid-template-columns: ${({ $simpleVersion }) =>
       $simpleVersion ? 'repeat(1, 1fr)' : null};
   }
-  @media (min-width: 1820px) {
+  @media (min-width: 1920px) {
     grid-template-columns: ${({ $moreColumns, $width }) =>
       !$moreColumns && $width < 966 ? 'repeat(2, 1fr)' : null};
     grid-template-columns: ${({ $moreColumns, $width }) =>
@@ -32,7 +31,7 @@ export const FragmentsWrapper = styled(motion.div)`
   }
   /* //todo resizable narrow column grid columns END */
 
-  gap: 3rem;
+  gap: 2.25rem 1.15rem;
 
   width: ${({ $moreColumns }) => ($moreColumns ? '100%' : 'fit-content')};
 
