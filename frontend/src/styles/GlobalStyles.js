@@ -162,10 +162,8 @@ body {
     --info3: ${(props) => handleGlobalScheme(props.globalScheme).info3}
 
     
-    --border-radius0: 5px;
-    --border-radius1: 10px;
-    --border-radius2: 15px;
-    --border-radius3: 20px;
+
+    
 
     //! variants for semitransparent elements
     --background-opaque1: ${(props) =>
@@ -191,6 +189,11 @@ body {
     --padding-top-sides: 16px 16px 0px;
     
     
+    --border-radius0: 5px;
+    --border-radius1: 10px;
+    --border-radius2: 15px;
+    --border-radius3: 20px;
+
     --gap-verySmall: 4px;
     --gap-small: 6px;
     --gap-medium: 8px;

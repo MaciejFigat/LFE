@@ -76,7 +76,7 @@ const HeroProjectButtons: React.FC<HeroProjectButtonsProps> = () => {
     <>
       {uniqueKeywords?.length === 0 ? null : (
         <HorizontalWrapperGap>
-          <RelativeWrapper top='5px' left='0px'>
+          <RelativeWrapper $top='5px' $left='0px'>
             <ButtonVerySmall
               variant='primaryEmpty'
               onClick={() => minusHandlerDocIndex()}
@@ -84,7 +84,7 @@ const HeroProjectButtons: React.FC<HeroProjectButtonsProps> = () => {
               <SvgIcon variant='chevronLeft' />
             </ButtonVerySmall>{' '}
           </RelativeWrapper>
-          <RelativeWrapper top='5px' left='0px'>
+          <RelativeWrapper $top='5px' $left='0px'>
             <ButtonVerySmall
               variant='primaryEmpty'
               onClick={() => plusHandlerDocIndex()}

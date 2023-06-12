@@ -26,7 +26,7 @@ import { nanoid } from '@reduxjs/toolkit'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../../styles/misc.styled'
 import {
-  ButtonSmall,
+  ButtonMedium,
   ButtonSmallCircle,
   ButtonVerySmall
 } from '../../../components/Buttons/Buttons.styled'
@@ -357,12 +357,12 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
             !keywordCreation &&
             !keywordEditing && (
               <RelativeWrapper
-                $left={wideVersion ? '60px' : '27px'}
+                $left={wideVersion ? '50px' : '20px'}
                 $top={wideVersion ? '10px' : '5px'}
               >
-                <ButtonSmall variant='success' onClick={saveTempKeywordHelper}>
+                <ButtonMedium variant='success' onClick={saveTempKeywordHelper}>
                   Dodaj nowy projekt
-                </ButtonSmall>
+                </ButtonMedium>
               </RelativeWrapper>
             )}
           {optionsOpen && !keywordCreation && !keywordEditing && (

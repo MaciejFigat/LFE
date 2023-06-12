@@ -3,10 +3,9 @@ import React, {
   useState,
   useRef,
   useEffect,
-  useCallback,
+  useCallback
 } from 'react'
 import { HPopover, HPopoverItem } from './HighlightPopRemake.styled'
-
 import AddFragmentDemo from './CopyText/AddFragmentDemo'
 import CopyTextDemo from './CopyText/CopyTextDemo'
 interface HighlightPopProps {
@@ -83,7 +82,7 @@ const HighlightPopMenuDemo: React.FC<HighlightPopProps> = ({ children }) => {
         <HPopover
           style={{ left: `${xPosition}px`, top: `${yPosition}px` }}
           role='presentation'
-          onMouseDown={(e: any) => e.preventDefault()}
+          onMouseDown={(e: MouseEvent) => e.preventDefault()}
         >
           <HPopoverItem role='button'>
             <CopyTextDemo highlightedText={selectedText} />

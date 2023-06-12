@@ -161,9 +161,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
           {' '}
           {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
             <SelectMainKeyword />
-          ) : (
-            <h3>ostatnio przeglądane</h3>
-          )}
+          ) : null}
         </>
       ),
       //? lower left corner
