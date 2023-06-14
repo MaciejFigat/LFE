@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
-import { AnimatePresence } from 'framer-motion'
+
 import { editSavedFragment } from '../../features/fragments/fragmentSlice'
 import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
 import { DragDropContext } from 'react-beautiful-dnd'
@@ -66,7 +66,9 @@ const move = (
 
 const DragAndDropProject: React.FC = () => {
   const dispatch: AppDispatch = useAppDispatch()
-
+  const idOpenFragment: string = useAppSelector(
+    state => state.preference.idOpenFragment
+  )
   const fragments = useAppSelector<Array<FragmentStored>>(
     state => state.fragment.userFragments
   )
@@ -113,10 +115,6 @@ const DragAndDropProject: React.FC = () => {
     false,
     false
   )
-
-  const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
-  const [openedApp, setOpenedApp] = useState<null | string>(null)
-  const [idOpen, setIdOpen] = useState<string>('')
 
   const [labelOneState, setLabelOneState] = useState<string | undefined>()
   const [labelTwoState, setLabelTwoState] = useState<string | undefined>()
@@ -319,22 +317,11 @@ const DragAndDropProject: React.FC = () => {
           <HeroMainContainer>
             <HeroMainArticleReversed>
               <HeroArticleBigSection>
-                <FirstColumnProject
-                  setOpenedApp={setOpenedApp}
-                  canOpenApp={canOpenApp}
-                  setIdOpen={setIdOpen}
-                  openedApp={openedApp}
-                  state={state}
-                  keywordMain={keywordMain}
-                />
+                <FirstColumnProject state={state} keywordMain={keywordMain} />
               </HeroArticleBigSection>
               <HeroArticleSmallSectionFlexStart>
                 {' '}
                 <SecondAndThirdColProject
-                  setOpenedApp={setOpenedApp}
-                  setIdOpen={setIdOpen}
-                  canOpenApp={canOpenApp}
-                  openedApp={openedApp}
                   labelOne={labelOneState}
                   labelTwo={labelTwoState}
                   state={state}
@@ -344,17 +331,8 @@ const DragAndDropProject: React.FC = () => {
           </HeroMainContainer>{' '}
         </HeroGridWrapper>
       </DragDropContext>
-      <AnimatePresence>
-        {openedApp && (
-          <PupupEditWindow
-            idOpen={idOpen}
-            setOpenedApp={setOpenedApp}
-            setCanOpenApp={setCanOpenApp}
-            canOpenApp={canOpenApp}
-            openedApp={openedApp}
-          />
-        )}
-      </AnimatePresence>
+
+      {idOpenFragment !== '' && <PupupEditWindow />}
     </>
   )
 }

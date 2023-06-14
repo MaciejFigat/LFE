@@ -47,9 +47,7 @@ const DocumentView: React.FC<DocumentViewProps> = () => {
   return (
     <HeroDesktop>
       <AnimatePresence>
-        {idOpenFragment !== '' && (
-          <PupupEditWindow idOpen={idOpenFragment} openedApp={idOpenFragment} />
-        )}
+        {idOpenFragment !== '' && <PupupEditWindow />}
       </AnimatePresence>
 
       <ResizableScrollSection

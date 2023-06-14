@@ -1,18 +1,11 @@
 import { motion } from 'framer-motion'
-import React, {
-  useState,
-  useEffect,
-  Dispatch,
-  SetStateAction,
-  useMemo
-} from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import {
   deleteSavedFragment,
   editSavedFragment,
   getUserFragments
 } from '../../../features/fragments/fragmentSlice'
-
 import {
   CenteredTitle,
   ClosingDivBig,
@@ -20,7 +13,6 @@ import {
   HorizontalWrapperGapMobile,
   OpenedDivBig
 } from '../../../styles/misc.styled'
-
 import {
   FragmentDivPopup,
   PopupB,
@@ -42,20 +34,9 @@ import {
 import { ButtonSmall } from '../../../components/Buttons/Buttons.styled'
 import { ButtonVariants } from '../../../consts'
 
-interface PupupEditWindowProps {
-  openedApp?: string | null
-  setOpenedApp?: Dispatch<SetStateAction<null | string>>
-  setCanOpenApp?: Dispatch<SetStateAction<boolean>>
-  idOpen: string
-  canOpenApp?: boolean
-}
+interface PupupEditWindowProps {}
 
-const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
-  openedApp,
-  setOpenedApp,
-  setCanOpenApp,
-  idOpen
-}) => {
+const PupupEditWindow: React.FC<PupupEditWindowProps> = () => {
   const dispatch: AppDispatch = useAppDispatch()
   const successUpdate: boolean = useAppSelector(
     state => state.fragment.successUpdate
@@ -66,6 +47,9 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
 
   const fragments: FragmentStoredAllData[] = useAppSelector(
     state => state.fragment.userFragments
+  )
+  const idOpenFragment = useAppSelector(
+    state => state.preference.idOpenFragment
   )
 
   const [openedFragment, setOpenedFragment] = useState<FragmentStoredSimple>({
@@ -78,55 +62,57 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
     keywords: []
   })
 
-  const [titleEditing, setTitleEditing] = useState(false)
-  const [descriptionEditing, setDescriptionEditing] = useState(false)
-  const [excerptEditing, setExcerptEditing] = useState(false)
-  const [titleValue, setTitleValue] = useState('')
-  const [descriptionValue, setDescriptionValue] = useState('')
-  const [excerptValue, setExcerptValue] = useState('')
+  const [editingField, setEditingField] = useState<
+    null | 'title' | 'description' | 'excerpt'
+  >(null)
 
-  const toggleEditing = () => {
-    setTitleEditing(!titleEditing)
-    if (openedFragment?.title) setTitleValue(openedFragment?.title)
-  }
+  const toggleEditing = useCallback(
+    (field: 'title' | 'description' | 'excerpt') => {
+      setEditingField(prevField => (prevField === field ? null : field))
+    },
+    []
+  )
 
-  const toggleDescriptionEditing = () =>
-    setDescriptionEditing(descriptionEditing => !descriptionEditing)
+  const [fieldValues, setFieldValues] = useState<{
+    title: string
+    description: string
+    excerpt: string
+  }>({
+    title: openedFragment.title,
+    description: openedFragment.description,
+    excerpt: openedFragment.excerpt
+  })
+  const updateFieldValue = useCallback(
+    (field: 'title' | 'description' | 'excerpt', value: string) => {
+      setFieldValues(prevValues => ({ ...prevValues, [field]: value }))
+    },
+    []
+  )
 
   const toggleDescriptionReset = () => {
-    setDescriptionEditing(descriptionEditing => !descriptionEditing)
-    setDescriptionValue(openedFragment.description)
+    toggleEditing('description')
+    updateFieldValue('description', openedFragment.description)
   }
-
-  const toggleExcerptEditing = () =>
-    setExcerptEditing(excerptEditing => !excerptEditing)
 
   const toggleExcerptReset = () => {
-    setExcerptEditing(excerptEditing => !excerptEditing)
-    setExcerptValue(openedFragment.excerpt)
+    toggleEditing('excerpt')
+    updateFieldValue('excerpt', openedFragment.excerpt)
   }
   const removeFragmentHandler = () => {
-    dispatch(deleteSavedFragment(idOpen))
-    if (setOpenedApp) {
-      setOpenedApp(null)
-    }
+    dispatch(deleteSavedFragment(idOpenFragment))
   }
-  // Todo title editing
-
   const saveTitleHandler = () => {
-    setTitleEditing(!titleEditing)
+    toggleEditing('title')
   }
-  // Todo description editing
 
   const saveDescriptionHandler = () => {
-    setDescriptionEditing(descriptionEditing => !descriptionEditing)
+    toggleEditing('description')
   }
-  // Todo excerpt editing
 
   const saveExcerptHandler = () => {
-    setExcerptEditing(excerptEditing => !excerptEditing)
+    toggleEditing('excerpt')
   }
-  useMemo(() => {
+  useEffect(() => {
     if (successUpdate === true) {
       if (loadingUpdate === false) {
         dispatch(getUserFragments(1))
@@ -137,7 +123,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
   useEffect(() => {
     const fragment = fragments.find(
       (fragmentSearched: FragmentStoredAllData) =>
-        fragmentSearched._id === idOpen
+        fragmentSearched._id === idOpenFragment
     )
     if (fragment) {
       setOpenedFragment({
@@ -149,51 +135,48 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
         updatedAt: fragment.updatedAt || '',
         keywords: fragment.keywords || []
       })
-      if (fragment.title) setTitleValue(fragment?.title)
-      setExcerptValue(fragment?.excerpt)
+      if (fragment.title) updateFieldValue('title', fragment?.title)
+
+      updateFieldValue('excerpt', fragment?.excerpt)
     }
 
     if (fragment?.description !== 'komentarz' && fragment?.description)
-      setDescriptionValue(fragment?.description)
-  }, [fragments, idOpen])
+      updateFieldValue('description', fragment?.description)
+  }, [fragments, idOpenFragment, updateFieldValue])
 
   const onClickCloseHelper = () => {
-    if (setOpenedApp) {
-      setOpenedApp(null)
-    }
-    if (setCanOpenApp) {
-      setCanOpenApp(false)
-      setTimeout(() => {
-        setCanOpenApp(true)
-      }, 500)
-    }
-
     dispatch(editIdOpenFragment(''))
 
     const fragmentUpdates: FragmentUpdated = {}
 
-    if (openedFragment.title !== titleValue) {
-      fragmentUpdates.title = titleValue
+    if (openedFragment.title !== fieldValues.title) {
+      fragmentUpdates.title = fieldValues.title
     }
 
-    if (openedFragment.excerpt !== excerptValue) {
-      fragmentUpdates.excerpt = excerptValue
+    if (openedFragment.excerpt !== fieldValues.excerpt) {
+      fragmentUpdates.excerpt = fieldValues.excerpt
     }
 
-    if (openedFragment.description !== descriptionValue) {
-      fragmentUpdates.description = descriptionValue
+    if (openedFragment.description !== fieldValues.description) {
+      if (fieldValues.description !== '') {
+        fragmentUpdates.description = fieldValues.description
+      }
     }
 
-    dispatch(
-      editSavedFragment({
-        _id: idOpen,
-        ...fragmentUpdates
-      })
-    )
+    if (Object.keys(fragmentUpdates).length > 0) {
+      dispatch(
+        editSavedFragment({
+          _id: idOpenFragment,
+          ...fragmentUpdates
+        })
+      )
+    }
   }
 
   return (
-    <OpenedDivBig layoutId={openedApp!.toString()} yPosition={window.scrollY}>
+    // <OpenedDivBig layoutId={idOpenFragment} $yPosition={window.scrollY}>
+
+    <OpenedDivBig $yPosition={window.scrollY}>
       <ClosingDivBig
         initial={{ y: 8, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -205,22 +188,24 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
       <FragmentDivPopup>
         <PopupTitleContainer>
           <HorizontalWrapperGapMobile>
-            {titleEditing ? (
+            {editingField === 'title' ? (
               <ButtonSmall
                 variant={ButtonVariants.SECONDARY}
-                onClick={toggleEditing}
+                onClick={() => toggleEditing('title')}
               >
                 Anuluj zmiany
               </ButtonSmall>
             ) : (
               <ButtonSmall
                 variant={ButtonVariants.PRIMARY}
-                onClick={toggleEditing}
+                onClick={() => toggleEditing('title')}
               >
                 Zmień tytuł
               </ButtonSmall>
             )}
-            {titleEditing && titleValue !== openedFragment.title ? (
+
+            {editingField === 'title' &&
+            fieldValues.title !== openedFragment.title ? (
               <ButtonSmall
                 variant={ButtonVariants.SUCCESS}
                 onClick={saveTitleHandler}
@@ -228,7 +213,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                 Zapisz tytuł
               </ButtonSmall>
             ) : null}
-            {excerptEditing ? (
+            {editingField === 'excerpt' ? (
               <ButtonSmall
                 variant={ButtonVariants.SECONDARY}
                 onClick={toggleExcerptReset}
@@ -238,12 +223,13 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
             ) : (
               <ButtonSmall
                 variant={ButtonVariants.PRIMARY}
-                onClick={toggleExcerptEditing}
+                onClick={() => toggleEditing('excerpt')}
               >
                 Edytuj cytat
               </ButtonSmall>
             )}
-            {excerptEditing && excerptValue !== openedFragment.excerpt ? (
+            {editingField === 'excerpt' &&
+            fieldValues.excerpt !== openedFragment.excerpt ? (
               <ButtonSmall
                 variant={ButtonVariants.SUCCESS}
                 onClick={saveExcerptHandler}
@@ -251,7 +237,7 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                 Zapisz cytat
               </ButtonSmall>
             ) : null}
-            {descriptionEditing ? (
+            {editingField === 'description' ? (
               <ButtonSmall
                 variant={ButtonVariants.SECONDARY}
                 onClick={toggleDescriptionReset}
@@ -261,13 +247,14 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
             ) : (
               <ButtonSmall
                 variant={ButtonVariants.PRIMARY}
-                onClick={toggleDescriptionEditing}
+                onClick={() => toggleEditing('description')}
               >
                 Dodaj komentarz
               </ButtonSmall>
             )}
-            {descriptionEditing &&
-            descriptionValue !== openedFragment.description ? (
+
+            {editingField === 'description' &&
+            fieldValues.description !== openedFragment.description ? (
               <ButtonSmall
                 variant={ButtonVariants.SUCCESS}
                 onClick={saveDescriptionHandler}
@@ -284,21 +271,23 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
           </ButtonSmall>
         </PopupTitleContainer>
         <CenteredTitle>
-          {!titleEditing ? (
+          {editingField !== 'title' ? (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              {titleValue}
+              {fieldValues.title}
             </motion.div>
           ) : (
             <PopupTitleInput
               type='title'
               name='title'
               placeholder='new title'
-              value={titleValue}
-              onChange={(e: any) => setTitleValue(e.target.value)}
+              value={fieldValues.title}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                updateFieldValue('title', e.target.value)
+              }
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -310,12 +299,12 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
 
         <PopupListRow>
           <PopupTitleContainer>
-            {!excerptEditing ? (
+            {editingField !== 'excerpt' ? (
               <PopupDescriptionAnimated
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
-                {excerptValue}
+                {fieldValues.excerpt}
               </PopupDescriptionAnimated>
             ) : (
               <PopupDescriptionAnimated
@@ -328,49 +317,48 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = ({
                   cols='25'
                   rows='2'
                   placeholder='nowy cytat'
-                  value={excerptValue}
-                  onChange={(e: any) => setExcerptValue(e.target.value)}
+                  value={fieldValues.excerpt}
+                  onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                    updateFieldValue('excerpt', e.target.value)
+                  }
                 />
               </PopupDescriptionAnimated>
             )}
           </PopupTitleContainer>
         </PopupListRow>
 
-        {descriptionValue !== 'komentarz' || descriptionEditing ? (
+        {fieldValues.description !== 'komentarz' ||
+        editingField === 'description' ? (
           <PopupListRow>
-            {!descriptionEditing ? (
+            {editingField !== 'description' ? (
               <PopupDescriptionAnimated
                 initial={{ opacity: 0, scale: 1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                {descriptionValue}
+                {fieldValues.description}
               </PopupDescriptionAnimated>
             ) : (
-              <PopupDescriptionAnimated
-                initial={{ opacity: 0, scale: 1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <PopupDescriptionInput
-                  type='description'
-                  name='description'
-                  cols='25'
-                  rows='2'
-                  placeholder='nowy opis'
-                  value={descriptionValue}
-                  onChange={(e: any) => setDescriptionValue(e.target.value)}
-                />
-              </PopupDescriptionAnimated>
+              <PopupDescriptionInput
+                type='description'
+                name='description'
+                cols='25'
+                rows='2'
+                placeholder='nowy opis'
+                value={fieldValues.description}
+                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                  updateFieldValue('description', e.target.value)
+                }
+              />
             )}
           </PopupListRow>
         ) : null}
         <PopupTitleContainer>
           {' '}
-          {openedFragment.keywords.length > 1 ? (
+          {openedFragment.keywords.length > 0 ? (
             <HorizontalWrapperGap>
               <PopupB> Projekty:</PopupB>
-              <FragmentKeywordDisplay id={idOpen} />
+              <FragmentKeywordDisplay id={idOpenFragment} />
             </HorizontalWrapperGap>
           ) : null}
           <PopupDatePar>

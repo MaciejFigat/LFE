@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React from 'react'
 import { useAppDispatch } from '../../app/reduxHooks'
 import { AppDispatch } from '../../app/store'
 import { deleteSavedFragment } from '../../features/fragments/fragmentSlice'
@@ -19,6 +19,7 @@ import SvgIcon from '../../components/SvgIcon/SvgIcon'
 import { ItemWrapper, SimpleCitationItem } from './AnimatedList.styled'
 import { ButtonSmallCircle } from '../../components/Buttons/Buttons.styled'
 import { ButtonVariants, TextColor } from '../../consts'
+import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
 
 interface FragmentTextItemProps {
   source: string
@@ -26,10 +27,6 @@ interface FragmentTextItemProps {
   excerpt: string
   title: string
   coordinates: string
-  setOpenedApp?: Dispatch<SetStateAction<null | string>>
-  setIdOpen?: Dispatch<SetStateAction<string>>
-  canOpenApp?: boolean
-  openedApp?: string | null
 }
 
 const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
@@ -37,19 +34,12 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
   _id,
   excerpt,
   title,
-  coordinates,
-  setOpenedApp,
-  canOpenApp,
-  openedApp,
-  setIdOpen
+  coordinates
 }) => {
   const dispatch: AppDispatch = useAppDispatch()
 
   const openWindowHandler = (id: string) => {
-    if (canOpenApp && setOpenedApp && setIdOpen && openedApp === null) {
-      setOpenedApp(id)
-      setIdOpen(id)
-    }
+    dispatch(editIdOpenFragment(id))
   }
   const removeFragmentHandler = (id: string) => {
     if (window.confirm('Czy potwierdzasz usunięcie fragmentu?')) {
@@ -68,15 +58,11 @@ const FragmentTextItem: React.FC<FragmentTextItemProps> = ({
           {source !== '' ? (
             <>
               {title !== excerpt.substring(0, 22) ? (
-                <>
-                  <FragmentsP>
-                    {coordinates}
+                <FragmentsP>
+                  {coordinates}
 
-                    <HighlightText color={TextColor.INFO}>
-                      {title}
-                    </HighlightText>
-                  </FragmentsP>
-                </>
+                  <HighlightText color={TextColor.INFO}>{title}</HighlightText>
+                </FragmentsP>
               ) : (
                 <FragmentsP>{coordinates}</FragmentsP>
               )}

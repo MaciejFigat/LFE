@@ -132,10 +132,6 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                               excerpt={fragment.excerpt}
                               source={fragment.source}
                               coordinates={fragment.coordinates}
-                              setOpenedApp={setOpenedApp}
-                              canOpenApp={canOpenApp}
-                              openedApp={openedApp}
-                              setIdOpen={setIdOpen}
                             />
                           )}
                         </ListWrapper>

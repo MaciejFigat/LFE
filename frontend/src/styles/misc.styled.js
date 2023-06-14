@@ -99,7 +99,7 @@ export const OpenedLayoutDiv = styled(motion.div)`
 export const OpenedDivBig = styled(OpenedLayoutDiv)`
   height: 80vh;
   width: 80vw;
-  top: ${({ yPosition }) => (yPosition ? `${yPosition + 133}px` : '15vh')};
+  top: ${({ $yPosition }) => ($yPosition ? `${$yPosition + 133}px` : '15vh')};
 
   left: 10vw;
   z-index: 12;

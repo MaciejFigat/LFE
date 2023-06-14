@@ -200,11 +200,8 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
 
   return (
     <HeroDesktop>
-      <AnimatePresence>
-        {idOpenFragment !== '' && (
-          <PupupEditWindow idOpen={idOpenFragment} openedApp={idOpenFragment} />
-        )}
-      </AnimatePresence>{' '}
+      {idOpenFragment !== '' && <PupupEditWindow />}
+
       <HeroGridWrapper>
         <HeroNavigation>
           <HeroNavOneBig>

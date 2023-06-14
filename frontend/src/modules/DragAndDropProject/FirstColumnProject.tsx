@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React from 'react'
 import {
   FirstColProjectWrapper,
   KeywordColumnContainer,
@@ -25,10 +25,6 @@ import { ButtonVariants } from '../../consts'
 interface FirstColumnProjectProps {
   state: any[]
   keywordMain?: string
-  setOpenedApp?: Dispatch<SetStateAction<null | string>>
-  setIdOpen?: Dispatch<SetStateAction<string>>
-  canOpenApp?: boolean
-  openedApp?: string | null
 }
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   userSelect: 'none',
@@ -52,13 +48,7 @@ const getListStyle = (isDraggingOver: any) => ({
   borderRadius: '20px'
 })
 
-const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
-  state,
-  setOpenedApp,
-  canOpenApp,
-  openedApp,
-  setIdOpen
-}) => {
+const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({ state }) => {
   const savedFragmentsPage: any = useAppSelector(
     state => state.preference.savedFragmentsPage
   )
@@ -117,10 +107,6 @@ const FirstColumnProject: React.FC<FirstColumnProjectProps> = ({
                                 excerpt={fragment.excerpt}
                                 source={fragment.source}
                                 coordinates={fragment.coordinates}
-                                setOpenedApp={setOpenedApp}
-                                canOpenApp={canOpenApp}
-                                openedApp={openedApp}
-                                setIdOpen={setIdOpen}
                               />
                             )}
                           </ListWrapper>

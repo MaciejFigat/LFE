@@ -79,9 +79,7 @@ const HomeMobileLayout: React.FC<HomeMobileLayoutProps> = () => {
   return (
     <HeroMobile>
       <AnimatePresence>
-        {idOpenFragment !== '' && (
-          <PupupEditWindow idOpen={idOpenFragment} openedApp={idOpenFragment} />
-        )}
+        {idOpenFragment !== '' && <PupupEditWindow />}
       </AnimatePresence>{' '}
       <ChoiceNav amount={tabs.length}>
         <ChoiceList>

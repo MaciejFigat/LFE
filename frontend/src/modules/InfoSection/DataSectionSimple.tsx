@@ -48,7 +48,6 @@ interface DataSectionSimpleProps {
 const DataSectionSimple: React.FC<DataSectionSimpleProps> = ({
   metryka,
   query,
-
   variant,
   imgStart,
   paddingTop,

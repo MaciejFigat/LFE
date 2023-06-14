@@ -34,12 +34,7 @@ const StoredFragmentsMobile: React.FC<StoredFragmentsMobileProps> = () => {
         <HorizontalLineTop />
         <UserFragmentsByKeywordHero />{' '}
         <AnimatePresence>
-          {idOpenFragment !== '' && (
-            <PupupEditWindow
-              idOpen={idOpenFragment}
-              openedApp={idOpenFragment}
-            />
-          )}
+          {idOpenFragment !== '' && <PupupEditWindow />}
         </AnimatePresence>{' '}
       </>
     </HeroMobile>
