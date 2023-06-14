@@ -30,7 +30,9 @@ export const FragmentsPExcerpt = styled.p`
 export const DateCompareWrapper = styled.div`
   display: flex;
   gap: 0.5rem;
-
+  border: 1px solid var(--background-blur1);
+  border-radius: var(--border-radius0);
+  padding: var(--padding-big);
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -53,6 +55,7 @@ export const GrabHorizontalContainer = styled.div`
 `
 export const DateCompareRow = styled.div`
   display: flex;
+
   flex-direction: row;
   gap: 1.25rem;
   align-items: center;

@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction, useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { editSavedFragment } from '../../../features/fragments/fragmentSlice'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
@@ -12,13 +12,14 @@ import {
 import { ButtonSmallCircle } from '../../../components/Buttons/Buttons.styled'
 import { RelativeWrapper } from '../../../styles/misc.styled'
 import { AnimatePresence } from 'framer-motion'
+import { FragmentStored } from '../../../interfaces'
+import { AppDispatch } from '../../../app/store'
 
 interface LabelInputProps {
   labelNrOne?: boolean
   label: string
   labelRedux: string
   editing?: boolean
-  setLabel?: Dispatch<SetStateAction<string | undefined>>
   setEditing?: Dispatch<SetStateAction<boolean>>
 }
 
@@ -26,69 +27,65 @@ const LabelInput: React.FC<LabelInputProps> = ({
   label,
   editing,
   setEditing,
-  setLabel,
+
   labelRedux,
   labelNrOne
 }) => {
   //? part for saving changes in the db and redux
 
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
   const keywordMain = useAppSelector(
     state => state.preference.sortingKeywords.keywordMain
   )
-  const fragmentsKeywordMain: any[] = useAppSelector(
+  const fragmentsKeywordMain: FragmentStored[] = useAppSelector(
     state => state.fragment.fragmentsKeywordMain
   )
-
+  const [labelLocal, setLabelLocal] = useState(label)
   //? end of db and redux part
 
   const editingHelper = () => {
-    if (editing !== undefined && setEditing !== undefined) {
-      setEditing(editing => !editing)
-    }
+    setEditing && setEditing(editing => !editing)
   }
   const setLabelHelper = (value: string) => {
-    if (setLabel !== undefined) {
-      setLabel(value)
-    }
+    setLabelLocal(value)
   }
   const resetLabelHelper = () => {
-    if (setLabel !== undefined && setEditing !== undefined) {
-      setLabel(labelRedux)
-      setEditing(editing => !editing)
-    }
+    setLabelLocal(labelRedux)
+    setEditing && setEditing(editing => !editing)
   }
   const saveInputLabelHelper = () => {
-    if (setEditing !== undefined) {
+    if (setEditing) {
       setEditing(editing => !editing)
     }
-
-    for (let i = 0; i < fragmentsKeywordMain.length; i++) {
-      const foundArr = fragmentsKeywordMain[i].keywordValue.find(
-        (keywordSearched: any) => keywordSearched.keyword === keywordMain
+    fragmentsKeywordMain.forEach(fragment => {
+      const keywordIndex = fragment.keywordValue.findIndex(
+        keywordSearched => keywordSearched.keyword === keywordMain
       )
+      if (keywordIndex !== -1) {
+        const newKeywordValue = fragment.keywordValue.map((keywordVal, index) =>
+          index === keywordIndex
+            ? {
+                ...keywordVal,
+                labelOne: labelNrOne ? labelLocal : keywordVal.labelOne,
+                labelTwo: labelNrOne ? keywordVal.labelTwo : labelLocal
+              }
+            : keywordVal
+        )
 
-      const filteredArr = fragmentsKeywordMain[i].keywordValue.filter(
-        (keywordSearched: any) => keywordSearched.keyword !== keywordMain
-      )
+        const fragEdited = {
+          ...fragment,
+          keywordValue: newKeywordValue
+        }
 
-      const fragEdited = {
-        _id: fragmentsKeywordMain[i]._id,
-        keywordValue: [
-          ...filteredArr,
-          {
-            keyword: foundArr.keyword,
-            labelOne: labelNrOne ? label : foundArr.labelOne,
-            labelTwo: labelNrOne ? foundArr.labelTwo : label,
-            value: foundArr.value,
-            skip: foundArr.skip
-          }
-        ]
+        dispatch(editSavedFragment(fragEdited))
       }
-
-      dispatch(editSavedFragment(fragEdited))
-    }
+    })
   }
+
+  useEffect(() => {
+    setLabelLocal(label)
+  }, [label])
+
   return (
     <AnimatePresence initial mode='wait'>
       {editing ? (
@@ -111,8 +108,10 @@ const LabelInput: React.FC<LabelInputProps> = ({
               type='label'
               name='label'
               placeholder='new label'
-              value={label}
-              onChange={(e: any) => setLabelHelper(e.target.value)}
+              value={labelLocal}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setLabelHelper(e.target.value)
+              }
             />{' '}
           </LabelContainer>{' '}
           <LabelContainerButtons>
@@ -130,7 +129,7 @@ const LabelInput: React.FC<LabelInputProps> = ({
                 />
               </RelativeWrapper>
             </ButtonSmallCircle>
-            {labelRedux !== label && (
+            {labelRedux !== labelLocal && (
               <ButtonSmallCircle
                 variant='successEmpty'
                 onClick={saveInputLabelHelper}
@@ -160,7 +159,7 @@ const LabelInput: React.FC<LabelInputProps> = ({
           $toTop='-15px'
           $toLeft='-110px'
         >
-          <TitleAnimated onClick={editingHelper}> {label}</TitleAnimated>
+          <TitleAnimated onClick={editingHelper}> {labelLocal}</TitleAnimated>
         </LabelContainer>
       )}
     </AnimatePresence>

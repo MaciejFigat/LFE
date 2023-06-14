@@ -107,6 +107,13 @@ body {
       transparent 80%,
       var(--background-blur1)
     );
+  --background-gradient3: linear-gradient(
+      110deg,
+      var(--background-blur1) 0%,
+      transparent 20%,
+      var(--background-blur1) 70%,
+      transparent 
+    );
 
 
   
@@ -308,11 +315,7 @@ body {
 
 }
 ::-webkit-scrollbar {
-  // width: 0em;
   width: 0.5em;
-  // margin-left: -0.3em;
-  // padding-right: -0.3em;
-  // padding: -0.3em;
   margin: -0.3em;
   background: transparent;
   @media screen and (max-width: 1020px) {

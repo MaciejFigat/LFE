@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const FilterOptionsWrapper = styled.div`
-  border: 1px solid var(--background-blur2);
   gap: 0.65rem;
   display: flex;
   flex-direction: column;
@@ -17,6 +16,7 @@ export const FilterOptionsWrapper = styled.div`
   max-width: fit-content;
   min-height: 180px;
   min-width: 360px;
+  min-width: fit-content;
 
   @media screen and (max-width: 620px) {
     max-width: ${({ wide }) => (wide ? '95vw' : '150px')};

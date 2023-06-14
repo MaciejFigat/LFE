@@ -89,7 +89,6 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                         setEditing={setInputOneEditing}
                         label={labelOneState ?? 'pro'}
                         labelRedux={labelOne ?? 'pro'}
-                        setLabel={setLabelOneState}
                       />
                     </ClayButtonWrapperSecondary>
                   </KeywordSearchLabelH2>
@@ -102,7 +101,6 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                         setEditing={setInputTwoEditing}
                         label={labelTwoState ?? 'contra'}
                         labelRedux={labelTwo ?? 'contra'}
-                        setLabel={setLabelTwoState}
                       />
                     </ClayButtonWrapperSecondary>
                   </KeywordSearchLabelH2>

@@ -2,17 +2,20 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const WrapperWindow = styled.div`
-  margin: 2.5rem 1rem 1.5rem 1rem;
+  margin: 2.5rem 0rem 1.5rem 0rem;
+
   height: 260px;
-  border-radius: 10px;
-  width: 380px;
+  border-radius: var(--border-radius1);
+
+  width: 420px;
+
   border: 1px solid var(--background-blur2);
   display: flex;
   flex-direction: column;
   color: var(--background5-main);
 `
 export const ChoiceNav = styled.nav`
-  border-radius: 10px;
+  border-radius: var(--border-radius1);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: 1px solid var(--background-blur2);
@@ -39,7 +42,7 @@ export const ChoiceList = styled.ul`
   padding: 0;
   margin: 0;
   .selected {
-    /* background: var(--background-blur1); */
+    background: var(--background-gradient3);
   }
 `
 export const ChoiceItem = styled.li`
@@ -59,22 +62,8 @@ export const ChoiceItem = styled.li`
   min-width: 0;
   position: relative;
   user-select: none;
-  /* padding: 0; */
+
   margin: 0;
-  /* .underOn {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--background-secondary3);
-  }
-  .underOff {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-  } */
 `
 
 export const ChoiceUnderline = styled(motion.div)`

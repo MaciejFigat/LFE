@@ -64,9 +64,7 @@ const move = (
   return result
 }
 
-interface DragAndDropProjectProps {}
-
-const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
+const DragAndDropProject: React.FC = () => {
   const dispatch: AppDispatch = useAppDispatch()
 
   const fragments = useAppSelector<Array<FragmentStored>>(
@@ -82,41 +80,40 @@ const DragAndDropProject: React.FC<DragAndDropProjectProps> = () => {
 
   const { keywordMain } = sortingKeywords
 
-  const fragmentsSkipTrueOne =
-    keywordMain !== ''
-      ? fragmentsKeywordMain.filter(filteredFragment =>
-          filteredFragment.keywordValue.find(
-            (keywordSearched: KeywordValue) =>
-              keywordSearched.keyword === keywordMain &&
-              keywordSearched?.skip !== undefined &&
-              keywordSearched.skip === true
-          )
-        )
-      : fragments.filter(
-          filteredFragment =>
-            filteredFragment.keywords.length === 1 &&
-            filteredFragment.keywords[0] === ''
-        )
-
-  const fragmentsValueTrueTwo = fragmentsKeywordMain.filter(filteredFragment =>
-    filteredFragment.keywordValue.find(
-      (keywordSearched: KeywordValue) =>
-        keywordSearched.keyword === keywordMain &&
-        keywordSearched?.skip !== undefined &&
-        keywordSearched.skip === false &&
-        keywordSearched.value === true
-    )
-  )
-  const fragmentsValueFalseThree = fragmentsKeywordMain.filter(
-    filteredFragment =>
+  const filterFragments = (
+    fragments: FragmentStored[],
+    keywordMain: string,
+    skip: boolean,
+    value?: boolean
+  ): FragmentStored[] => {
+    return fragments.filter(filteredFragment =>
       filteredFragment.keywordValue.find(
         (keywordSearched: KeywordValue) =>
           keywordSearched.keyword === keywordMain &&
           keywordSearched?.skip !== undefined &&
-          keywordSearched.skip === false &&
-          keywordSearched.value === false
+          keywordSearched.skip === skip &&
+          keywordSearched.value === value
       )
+    )
+  }
+  const fragmentsSkipTrueOne = filterFragments(
+    fragmentsKeywordMain,
+    keywordMain,
+    true
   )
+  const fragmentsValueTrueTwo = filterFragments(
+    fragmentsKeywordMain,
+    keywordMain,
+    false,
+    true
+  )
+  const fragmentsValueFalseThree = filterFragments(
+    fragmentsKeywordMain,
+    keywordMain,
+    false,
+    false
+  )
+
   const [canOpenApp, setCanOpenApp] = useState<boolean>(true)
   const [openedApp, setOpenedApp] = useState<null | string>(null)
   const [idOpen, setIdOpen] = useState<string>('')
