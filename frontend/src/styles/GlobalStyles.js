@@ -328,8 +328,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
+
   background: var(--background-blur2);
-  background: var(--background-secondary1);
   
 
   border-radius: 2px;
