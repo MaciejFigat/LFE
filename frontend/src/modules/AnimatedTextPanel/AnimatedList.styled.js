@@ -266,7 +266,6 @@ export const SimpleCitationItem = styled(motion.div)`
   max-width: 260px;
   padding: 0.75rem 1rem;
   margin: 0;
-
   border-radius: 20px;
   border-right: 1px solid var(--background-blur2);
   border-top: 1px solid var(--background-blur2);
@@ -322,15 +321,15 @@ export const SimpleCitationItemSmall = styled(motion.div)`
   display: grid;
   place-items: flex-start;
   overflow-y: scroll;
-  box-shadow: var(--boxShadow1);
   min-height: fit-content;
   height: 240px;
   padding: 1.55rem;
+
   padding: var(--padding-big);
   min-width: 360px;
   max-width: 360px;
-  border-radius: 10px;
-  border: 1px solid var(--background-blur1);
+  border-radius: var(--border-radius2);
+  border: 1px solid var(--background-blur2);
   ::-webkit-scrollbar {
     width: 0.1em;
   }
@@ -358,7 +357,6 @@ export const SimpleCitationItemSmall = styled(motion.div)`
 `
 export const SimpleCitationItemSuperSmall = styled(SimpleCitationItemSmall)`
   place-items: center;
-  box-shadow: var(--boxShadow1);
   max-height: 150px;
   padding: 0.25rem 1rem;
   border-color: var(--background-blur1);
