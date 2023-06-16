@@ -10,8 +10,6 @@ export const ColumnPopupContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* justify-content: space-around; */
-  /* justify-content: space-evenly; */
   padding: var(--padding-big);
   gap: var(--gap-big);
   border: 1px solid var(--background-blur1);
@@ -24,6 +22,10 @@ export const FragmentDivPopup = styled(motion.div)`
   gap: var(--gap-big);
   overflow: hidden;
   height: 90%;
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
 `
 export const PopupTitleContainer = styled(motion.div)`
   display: flex;

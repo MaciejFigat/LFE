@@ -100,9 +100,14 @@ export const OpenedDivBig = styled(OpenedLayoutDiv)`
   top: ${({ $yPosition }) => ($yPosition ? `${$yPosition + 133}px` : '15vh')};
   left: 10vw;
   z-index: 12;
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr;
+    overflow: visible;
+    height: fit-content;
+  }
   @media (max-width: 620px) {
-    width: 100%;
-    left: 0;
+    width: 98%;
+    left: 10px;
     padding: 0.5rem;
     padding-left: 0;
   }
