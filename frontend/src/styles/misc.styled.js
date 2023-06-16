@@ -77,7 +77,6 @@ export const ClosingDivBig = styled(ClosingDiv)`
   position: relative;
   color: var(--background4-main);
   top: -0.5rem;
-  left: 35%;
 `
 export const OpenedLayoutDiv = styled(motion.div)`
   height: 100%;
@@ -89,10 +88,9 @@ export const OpenedLayoutDiv = styled(motion.div)`
   padding-bottom: 1rem;
   box-sizing: border-box;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: var(--border-radius2);
   background: var(--background1-main);
-  border: 1px solid var(--background4-main);
-  color: var(--background2-main);
+  border: 1px solid var(--background-blur1);
   box-shadow: var(--boxShadow4);
 `
 
@@ -100,7 +98,6 @@ export const OpenedDivBig = styled(OpenedLayoutDiv)`
   height: 80vh;
   width: 80vw;
   top: ${({ $yPosition }) => ($yPosition ? `${$yPosition + 133}px` : '15vh')};
-
   left: 10vw;
   z-index: 12;
   @media (max-width: 620px) {
@@ -462,16 +459,17 @@ export const HeroTitleMiscMedium = styled.h3`
   margin-bottom: 1rem;
 `
 export const CenteredTitle = styled.h2`
-  width: 100%;
   display: grid;
-  font-size: 1.55rem;
+  text-transform: uppercase;
+  margin: 0;
+  height: 50px;
+  font-size: var(--font-size-big);
   place-items: center center;
   color: var(--background4-main);
 `
 export const RegularDiv = styled.div`
   display: grid;
   place-items: center;
-
   width: 100%;
 `
 

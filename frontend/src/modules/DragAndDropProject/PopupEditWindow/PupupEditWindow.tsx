@@ -9,18 +9,18 @@ import {
 import {
   CenteredTitle,
   ClosingDivBig,
+  HighlightText,
+  HorizontalWrapper,
   HorizontalWrapperGap,
-  HorizontalWrapperGapMobile,
   OpenedDivBig
 } from '../../../styles/misc.styled'
 import {
+  ColumnButtonContainer,
+  ColumnPopupContainer,
   FragmentDivPopup,
-  PopupB,
-  PopupDatePar,
   PopupDescriptionAnimated,
   PopupDescriptionInput,
   PopupListRow,
-  PopupTitleContainer,
   PopupTitleInput
 } from './PopupEditWindow.styled'
 import { editIdOpenFragment } from '../../../features/preferences/preferenceSlice'
@@ -31,8 +31,8 @@ import {
   FragmentUpdated,
   FragmentStoredSimple
 } from '../../../interfaces'
-import { ButtonSmall } from '../../../components/Buttons/Buttons.styled'
-import { ButtonVariants } from '../../../consts'
+import { ButtonMedium } from '../../../components/Buttons/Buttons.styled'
+import { ButtonVariants, TextColor } from '../../../consts'
 
 interface PupupEditWindowProps {}
 
@@ -174,198 +174,221 @@ const PupupEditWindow: React.FC<PupupEditWindowProps> = () => {
   }
 
   return (
-    // <OpenedDivBig layoutId={idOpenFragment} $yPosition={window.scrollY}>
-
     <OpenedDivBig $yPosition={window.scrollY}>
-      <ClosingDivBig
-        initial={{ y: 8, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 8, opacity: 0 }}
-        transition={{ ease: 'linear', duration: 0.2 }}
-        onClick={() => onClickCloseHelper()}
-      />
-
+      <HorizontalWrapper>
+        <ClosingDivBig
+          initial={{ y: 8, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 8, opacity: 0 }}
+          transition={{ ease: 'linear', duration: 0.2 }}
+          onClick={() => onClickCloseHelper()}
+        />
+      </HorizontalWrapper>
       <FragmentDivPopup>
-        <PopupTitleContainer>
-          <HorizontalWrapperGapMobile>
+        <ColumnPopupContainer>
+          <ColumnButtonContainer>
+            {' '}
+            <CenteredTitle>
+              {editingField !== 'title' ? (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  {fieldValues.title}
+                </motion.div>
+              ) : (
+                <PopupTitleInput
+                  type='title'
+                  name='title'
+                  placeholder='new title'
+                  value={fieldValues.title}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    updateFieldValue('title', e.target.value)
+                  }
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                />
+              )}
+            </CenteredTitle>
+            <HorizontalWrapper>
+              {' '}
+              <HighlightText color={TextColor.SECONDARY}>
+                {openedFragment?.coordinates}
+              </HighlightText>
+            </HorizontalWrapper>
+            <HorizontalWrapper>
+              {' '}
+              <HighlightText color={TextColor.PRIMARY}>
+                {openedFragment?.source}
+              </HighlightText>{' '}
+            </HorizontalWrapper>
+            <HorizontalWrapper>
+              Ost. aktualizacja {openedFragment?.updatedAt.substring(0, 10)} o{' '}
+              {openedFragment?.updatedAt.substring(12, 16)}{' '}
+            </HorizontalWrapper>
+          </ColumnButtonContainer>
+          <ColumnButtonContainer>
+            {openedFragment.keywords.length > 0 ? (
+              <HorizontalWrapperGap>
+                <HighlightText color={TextColor.PRIMARY}>
+                  Projekty:
+                </HighlightText>{' '}
+                <FragmentKeywordDisplay id={idOpenFragment} />
+              </HorizontalWrapperGap>
+            ) : null}
             {editingField === 'title' ? (
-              <ButtonSmall
-                variant={ButtonVariants.SECONDARY}
+              <ButtonMedium
+                variant={ButtonVariants.SECONDARY_EMPTY}
                 onClick={() => toggleEditing('title')}
               >
                 Anuluj zmiany
-              </ButtonSmall>
+              </ButtonMedium>
             ) : (
-              <ButtonSmall
-                variant={ButtonVariants.PRIMARY}
+              <ButtonMedium
+                variant={ButtonVariants.PRIMARY_EMPTY}
                 onClick={() => toggleEditing('title')}
               >
                 Zmień tytuł
-              </ButtonSmall>
-            )}
-
+              </ButtonMedium>
+            )}{' '}
             {editingField === 'title' &&
             fieldValues.title !== openedFragment.title ? (
-              <ButtonSmall
+              <ButtonMedium
                 variant={ButtonVariants.SUCCESS}
                 onClick={saveTitleHandler}
               >
                 Zapisz tytuł
-              </ButtonSmall>
+              </ButtonMedium>
             ) : null}
+            <ButtonMedium
+              variant={ButtonVariants.DANGER_EMPTY}
+              onClick={() => removeFragmentHandler()}
+            >
+              Usuń fragment
+            </ButtonMedium>
+          </ColumnButtonContainer>
+        </ColumnPopupContainer>
+
+        {/* //? CYTAT */}
+
+        <ColumnPopupContainer>
+          <ColumnButtonContainer>
+            <CenteredTitle>Cytat</CenteredTitle>{' '}
+            <PopupListRow>
+              {editingField !== 'excerpt' ? (
+                <PopupDescriptionAnimated
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  {fieldValues.excerpt}
+                </PopupDescriptionAnimated>
+              ) : (
+                <>
+                  <PopupDescriptionInput
+                    type='excerpt'
+                    name='excerpt'
+                    cols='25'
+                    rows='2'
+                    placeholder='nowy cytat'
+                    value={fieldValues.excerpt}
+                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                      updateFieldValue('excerpt', e.target.value)
+                    }
+                  />
+                </>
+              )}
+            </PopupListRow>
+          </ColumnButtonContainer>
+          <ColumnButtonContainer>
+            {' '}
             {editingField === 'excerpt' ? (
-              <ButtonSmall
-                variant={ButtonVariants.SECONDARY}
+              <ButtonMedium
+                variant={ButtonVariants.SECONDARY_EMPTY}
                 onClick={toggleExcerptReset}
               >
                 Anuluj zmiany
-              </ButtonSmall>
+              </ButtonMedium>
             ) : (
-              <ButtonSmall
-                variant={ButtonVariants.PRIMARY}
+              <ButtonMedium
+                variant={ButtonVariants.PRIMARY_EMPTY}
                 onClick={() => toggleEditing('excerpt')}
               >
                 Edytuj cytat
-              </ButtonSmall>
+              </ButtonMedium>
             )}
             {editingField === 'excerpt' &&
             fieldValues.excerpt !== openedFragment.excerpt ? (
-              <ButtonSmall
-                variant={ButtonVariants.SUCCESS}
+              <ButtonMedium
+                variant={ButtonVariants.SUCCESS_EMPTY}
                 onClick={saveExcerptHandler}
               >
                 Zapisz cytat
-              </ButtonSmall>
+              </ButtonMedium>
             ) : null}
+          </ColumnButtonContainer>
+        </ColumnPopupContainer>
+        {/* //* Komentarz */}
+
+        <ColumnPopupContainer>
+          <ColumnButtonContainer>
+            <CenteredTitle>Komentarz</CenteredTitle>{' '}
+            {fieldValues.description !== 'komentarz' ||
+            editingField === 'description' ? (
+              <PopupListRow>
+                {editingField !== 'description' ? (
+                  <PopupDescriptionAnimated
+                    initial={{ opacity: 0, scale: 1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {fieldValues.description}
+                  </PopupDescriptionAnimated>
+                ) : (
+                  <PopupDescriptionInput
+                    type='description'
+                    name='description'
+                    cols='25'
+                    rows='2'
+                    placeholder='nowy komentarz'
+                    value={fieldValues.description}
+                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                      updateFieldValue('description', e.target.value)
+                    }
+                  />
+                )}
+              </PopupListRow>
+            ) : null}
+          </ColumnButtonContainer>
+          <ColumnButtonContainer>
+            {' '}
             {editingField === 'description' ? (
-              <ButtonSmall
-                variant={ButtonVariants.SECONDARY}
+              <ButtonMedium
+                variant={ButtonVariants.SECONDARY_EMPTY}
                 onClick={toggleDescriptionReset}
               >
                 Anuluj zmiany
-              </ButtonSmall>
+              </ButtonMedium>
             ) : (
-              <ButtonSmall
-                variant={ButtonVariants.PRIMARY}
+              <ButtonMedium
+                variant={ButtonVariants.PRIMARY_EMPTY}
                 onClick={() => toggleEditing('description')}
               >
                 Dodaj komentarz
-              </ButtonSmall>
+              </ButtonMedium>
             )}
-
             {editingField === 'description' &&
             fieldValues.description !== openedFragment.description ? (
-              <ButtonSmall
-                variant={ButtonVariants.SUCCESS}
+              <ButtonMedium
+                variant={ButtonVariants.SUCCESS_EMPTY}
                 onClick={saveDescriptionHandler}
               >
                 Zapisz komentarz
-              </ButtonSmall>
+              </ButtonMedium>
             ) : null}
-          </HorizontalWrapperGapMobile>
-          <ButtonSmall
-            variant={ButtonVariants.DANGER}
-            onClick={() => removeFragmentHandler()}
-          >
-            Usuń fragment
-          </ButtonSmall>
-        </PopupTitleContainer>
-        <CenteredTitle>
-          {editingField !== 'title' ? (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              {fieldValues.title}
-            </motion.div>
-          ) : (
-            <PopupTitleInput
-              type='title'
-              name='title'
-              placeholder='new title'
-              value={fieldValues.title}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                updateFieldValue('title', e.target.value)
-              }
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            />
-          )}
-        </CenteredTitle>
-        <PopupDatePar>{openedFragment?.source}</PopupDatePar>
-        <PopupDatePar>{openedFragment?.coordinates}</PopupDatePar>
-
-        <PopupListRow>
-          <PopupTitleContainer>
-            {editingField !== 'excerpt' ? (
-              <PopupDescriptionAnimated
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
-                {fieldValues.excerpt}
-              </PopupDescriptionAnimated>
-            ) : (
-              <PopupDescriptionAnimated
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
-                <PopupDescriptionInput
-                  type='excerpt'
-                  name='excerpt'
-                  cols='25'
-                  rows='2'
-                  placeholder='nowy cytat'
-                  value={fieldValues.excerpt}
-                  onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                    updateFieldValue('excerpt', e.target.value)
-                  }
-                />
-              </PopupDescriptionAnimated>
-            )}
-          </PopupTitleContainer>
-        </PopupListRow>
-
-        {fieldValues.description !== 'komentarz' ||
-        editingField === 'description' ? (
-          <PopupListRow>
-            {editingField !== 'description' ? (
-              <PopupDescriptionAnimated
-                initial={{ opacity: 0, scale: 1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                {fieldValues.description}
-              </PopupDescriptionAnimated>
-            ) : (
-              <PopupDescriptionInput
-                type='description'
-                name='description'
-                cols='25'
-                rows='2'
-                placeholder='nowy opis'
-                value={fieldValues.description}
-                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                  updateFieldValue('description', e.target.value)
-                }
-              />
-            )}
-          </PopupListRow>
-        ) : null}
-        <PopupTitleContainer>
-          {' '}
-          {openedFragment.keywords.length > 0 ? (
-            <HorizontalWrapperGap>
-              <PopupB> Projekty:</PopupB>
-              <FragmentKeywordDisplay id={idOpenFragment} />
-            </HorizontalWrapperGap>
-          ) : null}
-          <PopupDatePar>
-            Ost. aktualizacja {openedFragment?.updatedAt.substring(0, 10)} o{' '}
-            {openedFragment?.updatedAt.substring(12, 16)}{' '}
-          </PopupDatePar>{' '}
-        </PopupTitleContainer>
+          </ColumnButtonContainer>
+        </ColumnPopupContainer>
       </FragmentDivPopup>
     </OpenedDivBig>
   )

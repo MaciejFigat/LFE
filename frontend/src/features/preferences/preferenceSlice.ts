@@ -33,7 +33,7 @@ const preferenceSlice = createSlice({
     fragmentScrolled: 1,
     highlightQuery: '',
     preferedScheme: 'secondary',
-    idOpenFragment: 'closed'
+    idOpenFragment: ''
   },
   reducers: {
     editIdOpenFragment (state, action) {

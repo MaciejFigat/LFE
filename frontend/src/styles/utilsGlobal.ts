@@ -150,7 +150,7 @@ const secondaryStyle: GlobalStyle = {
   background3Tertiary: '#8F6FA0;',
   background4Tertiary: '#A871A0;',
   background5Tertiary: '#C0739C;',
-  backgroundOpaque1: 'rgba(240, 229, 207, 0.75);',
+  backgroundOpaque1: 'rgba(240, 229, 207, 0.15);',
   backgroundOpaque2: 'rgba(240, 229, 207, 0.75);',
   backgroundBlur1: 'rgba( 200, 198, 198, 0.25 );',
   backgroundBlur2: 'rgba( 200, 198, 198, 0.65 );',
