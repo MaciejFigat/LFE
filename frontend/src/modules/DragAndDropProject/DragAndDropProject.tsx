@@ -20,7 +20,6 @@ import { RegularDiv } from '../../styles/misc.styled'
 import SelectMainKeyword from '../KeywordSearchPanel/DropdownSelect/SelectMainKeyword'
 import { AppDispatch } from '../../app/store'
 import { FragmentStored } from '../../interfaces'
-
 import useDragAndDrop from './functions/useDragAndDrop'
 
 const DragAndDropProject: React.FC = () => {

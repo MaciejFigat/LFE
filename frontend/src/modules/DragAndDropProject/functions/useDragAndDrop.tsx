@@ -1,10 +1,11 @@
 import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
-import { FragmentStored, KeywordValue } from '../../../interfaces'
+import { FragmentStored } from '../../../interfaces'
 import {
   filterFragments,
   handleDifferentSourceAndDestination,
-  handleSourceAndDestinationSame
+  handleSourceAndDestinationSame,
+  initializeFragments
 } from './dragFragmentsFunctions'
 import { DropResult } from 'react-beautiful-dnd'
 
@@ -76,51 +77,14 @@ const useDragAndDrop = ({
 
   useEffect(() => {
     if (fragmentsKeywordMain) {
-      const fragmentsSkipTrue =
-        keywordMain !== ''
-          ? fragmentsKeywordMain.filter(filteredFragment =>
-              filteredFragment.keywordValue.find(
-                (keywordSearched: KeywordValue) =>
-                  keywordSearched.keyword === keywordMain &&
-                  keywordSearched?.skip !== undefined &&
-                  keywordSearched.skip === true
-              )
-            )
-          : fragments.filter(
-              filteredFragment =>
-                filteredFragment.keywords.length === 1 &&
-                filteredFragment.keywords[0] === ''
-            )
-
-      const fragmentsValueTrue = fragmentsKeywordMain.filter(filteredFragment =>
-        filteredFragment.keywordValue.find(
-          (keywordSearched: KeywordValue) =>
-            keywordSearched.keyword === keywordMain &&
-            keywordSearched?.skip !== undefined &&
-            keywordSearched.skip === false &&
-            keywordSearched.value === true
-        )
+      const newFragments = initializeFragments(
+        fragmentsKeywordMain,
+        keywordMain,
+        fragments,
+        setLabelOneState,
+        setLabelTwoState
       )
-      const fragmentsValueFalse = fragmentsKeywordMain.filter(
-        filteredFragment =>
-          filteredFragment.keywordValue.find(
-            (keywordSearched: KeywordValue) =>
-              keywordSearched.keyword === keywordMain &&
-              keywordSearched?.skip !== undefined &&
-              keywordSearched.skip === false &&
-              keywordSearched.value === false
-          )
-      )
-
-      setState([fragmentsSkipTrue, fragmentsValueTrue, fragmentsValueFalse])
-
-      const keywordValueFound = fragmentsKeywordMain[0]?.keywordValue?.find(
-        (keywordSearched: KeywordValue) =>
-          keywordSearched.keyword === keywordMain
-      )
-
-      setLabelOneState(keywordValueFound?.labelOne)
-      setLabelTwoState(keywordValueFound?.labelTwo)
+      setState(newFragments)
     }
   }, [
     fragmentsKeywordMain,
@@ -129,7 +93,6 @@ const useDragAndDrop = ({
     setLabelTwoState,
     fragments
   ])
-
   return { state, onDragEnd }
 }
 

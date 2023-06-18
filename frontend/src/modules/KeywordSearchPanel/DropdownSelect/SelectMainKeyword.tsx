@@ -30,6 +30,9 @@ import {
   ButtonSmallCircle,
   ButtonVerySmall
 } from '../../../components/Buttons/Buttons.styled'
+import { AppDispatch } from '../../../app/store'
+import { FragmentStored, KeywordValue } from '../../../interfaces'
+import { stringify } from 'querystring'
 
 interface SelectMainKeywordProps {
   wideVersion?: boolean
@@ -38,7 +41,7 @@ interface SelectMainKeywordProps {
 const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
   wideVersion
 }) => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
 
   const keywordMain = useAppSelector(
     state => state.preference.sortingKeywords.keywordMain
@@ -145,98 +148,116 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
     }
   }, [fragments, dispatch, selectedMainKeyword, keywordMain])
 
-  const removeKeywordHelperUltimate = () => {
-    const fragmentsMatching = fragments?.filter(
-      fragmentsSorted =>
-        fragmentsSorted.keywords?.indexOf(selectedMainKeyword) >= 0
+  const filterFragments = (keyword: string) =>
+    fragments?.filter(f => f.keywords?.indexOf(keyword) >= 0)
+
+  const confirmRemoval = () =>
+    window.confirm('Czy potwierdzasz usunięcie powiązanych fragmentów?')
+
+  const dispatchFragmentEdit = (
+    fragment: FragmentStored,
+    filteredKeywords: string[]
+  ) =>
+    dispatch(
+      editSavedFragment({
+        _id: fragment._id,
+        keywords: filteredKeywords
+      })
     )
-    if (window.confirm('Czy potwierdzasz usunięcie powiązanych fragmentów?')) {
-      if (fragmentsMatching.length === 1 || 2) {
-        fragmentsMatching.map(fragment =>
-          dispatch(deleteSavedFragment(fragment._id))
+  const dispatchFragmentDelete = (id: string) =>
+    dispatch(deleteSavedFragment(id))
+
+  const removeKeywordHelperUltimate = () => {
+    const fragmentsMatching = filterFragments(selectedMainKeyword as string)
+    if (confirmRemoval()) {
+      fragmentsMatching.forEach(fragment => {
+        const filteredKeywords = fragment?.keywords?.filter(
+          (keyword: string) => keyword !== selectedMainKeyword
         )
-      } else if (fragmentsMatching.length > 2) {
-        fragmentsMatching.map(fragment =>
-          dispatch(
-            editSavedFragment({
-              _id: fragment._id,
-              keywords: fragment?.keywords?.filter(
-                (keyword: string) => keyword !== selectedMainKeyword
-              )
-            })
-          )
-        )
-      }
+        fragmentsMatching.length <= 2
+          ? dispatchFragmentDelete(fragment._id)
+          : dispatchFragmentEdit(fragment, filteredKeywords)
+      })
     }
   }
+  const getFragmentsWithoutProject = () =>
+    fragments.filter(
+      fragment => fragment.keywords.length === 1 && fragment.keywords[0] === ''
+    )
 
+  const editFragmentWithNewKeyword = (
+    fragmentsNoProject: FragmentStored[],
+    newKeyword: string
+  ) => {
+    fragmentsNoProject.forEach(fragment => {
+      const fragEdited = {
+        _id: fragment._id,
+        keywords: [newKeyword],
+        keywordValue: fragment.keywordValue.map(value => ({
+          ...value,
+          keyword: newKeyword
+        }))
+      }
+      dispatch(editSavedFragment(fragEdited))
+    })
+  }
   const saveNewKeywordHelper = () => {
     setKeywordEditing(keywordEditing => !keywordEditing)
     setKeywordEditing(keywordCreation => !keywordCreation)
-    const fragmentsNoProject = fragments.filter(
-      filteredFragment =>
-        filteredFragment.keywords.length === 1 &&
-        filteredFragment.keywords[0] === ''
-    )
-    for (let i = 0; i < fragmentsNoProject.length; i++) {
-      const fragEdited = {
-        _id: fragmentsNoProject[i]._id,
-        keywords: [newKeyword],
-        keywordValue: [
-          {
-            keyword: newKeyword,
-            labelOne: fragmentsNoProject[0].keywordValue[0].labelOne,
-            labelTwo: fragmentsNoProject[0].keywordValue[0].labelTwo,
-            value: fragmentsNoProject[0].keywordValue[0].value,
-            skip: fragmentsNoProject[0].keywordValue[0].skip
-          }
-        ]
-      }
-
-      dispatch(editSavedFragment(fragEdited))
-    }
+    const fragmentsNoProject = getFragmentsWithoutProject()
+    editFragmentWithNewKeyword(fragmentsNoProject, newKeyword)
   }
+
+  const updateKeywordValues = (
+    fragment: FragmentStored,
+    simpleKeywordArr: string[],
+    filteredArr: KeywordValue[],
+    foundObject: KeywordValue,
+    newKeyword: string
+  ) => ({
+    ...fragment,
+    keywords: [...simpleKeywordArr, newKeyword],
+    keywordValue: [
+      ...filteredArr,
+      {
+        keyword: newKeyword,
+        labelOne: foundObject?.labelOne || 'pro',
+        labelTwo: foundObject?.labelTwo || 'contra',
+        value: foundObject?.value,
+        skip: foundObject?.skip
+      }
+    ]
+  })
   const saveEditedKeywordHelper = () => {
     setKeywordEditing(keywordEditing => !keywordEditing)
     setSelectedMainKeyword(newKeyword)
-    // todo loop through fragmentsKeywordMain ->
-    // for each fragment looped i will change an object in keywordValue that contains keywordMain
-    // only keyword: '' will change, rest of the {} will remain intact
-    // also keywords: [] needs ..., newkeyword
-    // also no duplicates
-    for (let i = 0; i < fragmentsKeywordMain.length; i++) {
-      const filteredArr = fragmentsKeywordMain[i].keywordValue.filter(
-        (keywordSearched: any) => keywordSearched.keyword !== keywordMain
+
+    fragmentsKeywordMain.forEach(fragment => {
+      const filteredArr = fragment.keywordValue.filter(
+        (keywordSearched: KeywordValue) =>
+          keywordSearched.keyword !== keywordMain
       )
 
-      const foundObject = fragmentsKeywordMain[i].keywordValue.find(
-        (keywordSearched: any) => keywordSearched.keyword === keywordMain
+      const foundObject = fragment.keywordValue.find(
+        (keywordSearched: KeywordValue) =>
+          keywordSearched.keyword === keywordMain
       )
 
-      const simpleKeywordArr = fragmentsKeywordMain[i].keywords.filter(
+      const simpleKeywordArr = fragment.keywords.filter(
         (keyword: string) => keyword !== keywordMain
       )
 
-      //* no duplicates edited in
-      if (!fragmentsKeywordMain[i].keywords.includes(newKeyword)) {
-        const fragEdited = {
-          _id: fragmentsKeywordMain[i]._id,
-          keywords: [...simpleKeywordArr, newKeyword],
-          keywordValue: [
-            ...filteredArr,
-            {
-              keyword: newKeyword,
-              labelOne: foundObject.labelOne || 'pro',
-              labelTwo: foundObject.labelTwo || 'contra',
-              value: foundObject.value,
-              skip: foundObject.skip
-            }
-          ]
-        }
-
-        dispatch(editSavedFragment(fragEdited))
+      if (!fragment.keywords.includes(newKeyword)) {
+        const fragEdited = updateKeywordValues(
+          fragment,
+          simpleKeywordArr,
+          filteredArr,
+          foundObject,
+          newKeyword
+        )
+        dispatch(editSavedFragment(fragEdited as FragmentStored))
       }
-    }
+    })
   }
 
   const togglingOptions = () => {
@@ -421,7 +442,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
               $top={wideVersion ? '10px' : '7px'}
             >
               <OptionsDropdownContainer>
-                <RelativeWrapper top='12px'>
+                <RelativeWrapper $top='12px'>
                   <ButtonVerySmall
                     variant='primaryEmpty'
                     onClick={stopEditingHandler}

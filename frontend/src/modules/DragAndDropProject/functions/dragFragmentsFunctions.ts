@@ -2,6 +2,7 @@ import { DraggableLocation, DropResult } from 'react-beautiful-dnd'
 import { FragmentStored, KeywordValue } from '../../../interfaces'
 import { editSavedFragment } from '../../../features/fragments/fragmentSlice'
 import { AppDispatch } from '../../../app/store'
+import { Dispatch, SetStateAction } from 'react'
 
 //? reordering the items within a list
 export const reorder = (
@@ -233,4 +234,56 @@ export const handleDifferentSourceAndDestination = (
   newState[destinationIndex] = moveResult[destinationIndex]
 
   return newState
+}
+
+export const initializeFragments = (
+  fragmentsKeywordMain: FragmentStored[],
+  keywordMain: string,
+  fragments: FragmentStored[],
+  setLabelOneState: Dispatch<SetStateAction<string | undefined>>,
+  setLabelTwoState: Dispatch<SetStateAction<string | undefined>>
+): FragmentStored[][] => {
+  const fragmentsSkipTrue =
+    keywordMain !== ''
+      ? fragmentsKeywordMain.filter(filteredFragment =>
+          filteredFragment.keywordValue.find(
+            (keywordSearched: KeywordValue) =>
+              keywordSearched.keyword === keywordMain &&
+              keywordSearched?.skip !== undefined &&
+              keywordSearched.skip === true
+          )
+        )
+      : fragments.filter(
+          filteredFragment =>
+            filteredFragment.keywords.length === 1 &&
+            filteredFragment.keywords[0] === ''
+        )
+
+  const fragmentsValueTrue = fragmentsKeywordMain.filter(filteredFragment =>
+    filteredFragment.keywordValue.find(
+      (keywordSearched: KeywordValue) =>
+        keywordSearched.keyword === keywordMain &&
+        keywordSearched?.skip !== undefined &&
+        keywordSearched.skip === false &&
+        keywordSearched.value === true
+    )
+  )
+  const fragmentsValueFalse = fragmentsKeywordMain.filter(filteredFragment =>
+    filteredFragment.keywordValue.find(
+      (keywordSearched: KeywordValue) =>
+        keywordSearched.keyword === keywordMain &&
+        keywordSearched?.skip !== undefined &&
+        keywordSearched.skip === false &&
+        keywordSearched.value === false
+    )
+  )
+
+  const keywordValueFound = fragmentsKeywordMain[0]?.keywordValue?.find(
+    (keywordSearched: KeywordValue) => keywordSearched.keyword === keywordMain
+  )
+
+  setLabelOneState(keywordValueFound?.labelOne)
+  setLabelTwoState(keywordValueFound?.labelTwo)
+
+  return [fragmentsSkipTrue, fragmentsValueTrue, fragmentsValueFalse]
 }

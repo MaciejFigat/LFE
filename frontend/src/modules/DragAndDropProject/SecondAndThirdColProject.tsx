@@ -16,6 +16,7 @@ import {
 import { ListWrapper } from '../AnimatedTextPanel/AnimatedList.styled'
 
 import FragmentTextItem from '../AnimatedTextPanel/FragmentTextItem'
+import { FragmentStored } from '../../interfaces'
 
 const getItemStyle = (isDragging: any, draggableStyle: any) => ({
   userSelect: 'none',
@@ -38,7 +39,7 @@ const getListStyle = (isDraggingOver: any) => ({
   borderRadius: '40px'
 })
 interface SecondAndThirdColProjectProps {
-  state: any[]
+  state: FragmentStored[][]
   labelOne?: string
   labelTwo?: string
 }
