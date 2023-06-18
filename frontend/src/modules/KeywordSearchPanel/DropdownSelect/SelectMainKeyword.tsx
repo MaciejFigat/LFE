@@ -32,7 +32,6 @@ import {
 } from '../../../components/Buttons/Buttons.styled'
 import { AppDispatch } from '../../../app/store'
 import { FragmentStored, KeywordValue } from '../../../interfaces'
-import { stringify } from 'querystring'
 
 interface SelectMainKeywordProps {
   wideVersion?: boolean
