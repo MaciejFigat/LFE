@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAppSelector } from '../../app/reduxHooks'
 import {
   FragmentDivSmallWrapper,
@@ -41,22 +41,19 @@ interface SecondAndThirdColProjectProps {
   state: any[]
   labelOne?: string
   labelTwo?: string
-  setOpenedApp?: Dispatch<SetStateAction<null | string>>
-  setIdOpen?: Dispatch<SetStateAction<string>>
-  canOpenApp?: boolean
-  openedApp?: string | null
 }
 
 const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
   state,
   labelOne,
-  labelTwo,
-  setOpenedApp,
-  canOpenApp,
-  openedApp,
-  setIdOpen
+  labelTwo
 }) => {
   const widthNumber = useAppSelector(state => state.preference.width)
+  const sortingKeywords = useAppSelector(
+    state => state.preference.sortingKeywords
+  )
+
+  const { keywordMain } = sortingKeywords
 
   const [inputOneEditing, setInputOneEditing] = useState(false)
   const [inputTwoEditing, setInputTwoEditing] = useState(false)
@@ -80,7 +77,7 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                 style={getListStyle(snapshot.isDraggingOver)}
                 {...provided.droppableProps}
               >
-                {ind === 0 && (
+                {ind === 0 && keywordMain !== '' && (
                   <KeywordSearchLabelH2>
                     <ClayButtonWrapperSecondary $paddingProps='0.5rem'>
                       <LabelInput
@@ -93,7 +90,7 @@ const SecondAndThirdColProject: React.FC<SecondAndThirdColProjectProps> = ({
                     </ClayButtonWrapperSecondary>
                   </KeywordSearchLabelH2>
                 )}
-                {ind === 1 && (
+                {ind === 1 && keywordMain !== '' && (
                   <KeywordSearchLabelH2>
                     <ClayButtonWrapperSecondary $paddingProps='0.5rem'>
                       <LabelInput

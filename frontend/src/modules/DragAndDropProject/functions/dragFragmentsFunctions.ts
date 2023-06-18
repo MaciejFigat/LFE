@@ -1,7 +1,6 @@
-import { DraggableLocation } from 'react-beautiful-dnd'
+import { DraggableLocation, DropResult } from 'react-beautiful-dnd'
 import { FragmentStored, KeywordValue } from '../../../interfaces'
 import { editSavedFragment } from '../../../features/fragments/fragmentSlice'
-import { useAppDispatch } from '../../../app/reduxHooks'
 import { AppDispatch } from '../../../app/store'
 
 //? reordering the items within a list
@@ -87,7 +86,7 @@ export function handleDestinationDrop (
   mainKeywordObject: KeywordValue,
   sourceIndex: number,
   destinationIndex: number
-): any {
+): FragmentStored {
   // replace any with the correct type
   const destinationZero = {
     _id: _id,
@@ -144,5 +143,94 @@ export function handleDestinationDrop (
     fragmentToDispatch = newKeywordListOne
   }
 
-  return fragmentToDispatch
+  return fragmentToDispatch as FragmentStored
+}
+
+export const filterFragments = (
+  fragments: FragmentStored[],
+  keywordMain: string,
+  skip: boolean,
+  value?: boolean
+): FragmentStored[] => {
+  return fragments.filter(filteredFragment =>
+    filteredFragment.keywordValue.find(
+      (keywordSearched: KeywordValue) =>
+        keywordSearched.keyword === keywordMain &&
+        keywordSearched?.skip !== undefined &&
+        keywordSearched.skip === skip &&
+        keywordSearched.value === value
+    )
+  )
+}
+
+export const handleSourceAndDestinationSame = (
+  result: DropResult,
+  state: FragmentStored[][]
+) => {
+  const { source, destination } = result
+  const sourceIndex = +source.droppableId
+  const items = reorder(state[sourceIndex], source.index, destination!.index)
+  const newState = [...state]
+  newState[sourceIndex] = items
+  return newState
+}
+
+export const handleDifferentSourceAndDestination = (
+  result: DropResult,
+  state: FragmentStored[][],
+  dispatch: AppDispatch,
+  keywordMain: string
+) => {
+  const { source, destination } = result
+  const sourceIndex = +source.droppableId
+  const destinationIndex = +destination!.droppableId
+
+  const droppedFragment: FragmentStored = state[sourceIndex][source.index]
+
+  const { _id, keywordValue: keywordValueDropped } = droppedFragment
+  const { filteredKeywordValue, mainKeywordObject } = filterKeywordValue(
+    keywordValueDropped,
+    keywordMain
+  )
+
+  if (destinationIndex === 0 && mainKeywordObject) {
+    const destinationZero = {
+      _id: _id,
+      keywordValue: [
+        ...filteredKeywordValue,
+        {
+          keyword: mainKeywordObject.keyword,
+          labelOne: mainKeywordObject.labelOne,
+          labelTwo: mainKeywordObject.labelTwo,
+          value: mainKeywordObject.value,
+          skip: true
+        }
+      ]
+    }
+    dispatch(editSavedFragment(destinationZero))
+  }
+
+  if (mainKeywordObject) {
+    const fragmentToDispatch = handleDestinationDrop(
+      _id,
+      filteredKeywordValue,
+      mainKeywordObject,
+      sourceIndex,
+      destinationIndex
+    )
+    dispatch(editSavedFragment(fragmentToDispatch))
+  }
+
+  const moveResult = move(
+    state[sourceIndex],
+    state[destinationIndex],
+    source,
+    destination as DraggableLocation
+  )
+
+  const newState = [...state]
+  newState[sourceIndex] = moveResult[sourceIndex]
+  newState[destinationIndex] = moveResult[destinationIndex]
+
+  return newState
 }
