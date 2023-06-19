@@ -31,13 +31,13 @@ const SimpleDocumentDisplay: React.FC<SimpleDocumentDisplayProps> = () => {
 
   useEffect(() => {
     if (data && data.length > 0) {
+      const docNumber = data[heroDocIndex ?? 0]?.doc_id ?? 0
       const searchquery = {
         query: query,
-        docNumber: data[heroDocIndex ?? 0].doc_id ?? 0
+        docNumber: docNumber
       }
 
-      const { data: resultData } = docResult
-      if (data?.length > 0 && resultData?.length === 0) {
+      if (Object.keys(docResult)!.length === 0) {
         dispatch(getDocByIdAndQuery(searchquery))
       }
     }

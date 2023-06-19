@@ -44,9 +44,7 @@ interface HeroSearchDataSectionProps {
   metryka: InfoData
   query: string
   highlightQuery: string
-
   fragmentsFound: string[]
-
   imgStart?: boolean
   children?: ReactFragment
   buttonLink?: string
@@ -69,7 +67,7 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
     state => state.searchResult.visitedLinks
   )
   const savedDocId: number = useAppSelector(state => state.searchResult.docId)
-  const resultsDetailView: any = useAppSelector(
+  const resultsDetailView: boolean = useAppSelector(
     state => state.preference.resultsDetailView
   )
   let navigate = useNavigate()
