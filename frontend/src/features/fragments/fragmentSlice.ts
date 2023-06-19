@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { FragmentCreated } from '../../interfaces'
+import { FragmentCreated, FragmentStored } from '../../interfaces'
 import { nanoid } from '@reduxjs/toolkit'
 import axios from 'axios'
 
@@ -102,22 +102,28 @@ export const deleteSavedFragment = createAsyncThunk(
 
 export const getUserFragments = createAsyncThunk(
   'fragment/getFragments',
-  // x- below is nothing, just a temporary solution so thunkAPI is recognized as a parameter
+  // x- below is a placeholder
   async (x: any, thunkAPI) => {
     const state: any = thunkAPI.getState()
     const userInfo = state.user.userInfo
+    const lastUpdated = state.fragment.lastUpdated
 
     const config = {
       headers: {
         Authorization: `Bearer ${userInfo.token}`
       }
     }
-
-    try {
-      const { data } = await axios.get(`/api/fragments/myfragments`, config)
-      return data
-    } catch (error: any) {
-      return error
+    // Only make a new request if more than 10 seconds have passed
+    const tenSeconds = 10000 // in milliseconds
+    if (Date.now() - lastUpdated > tenSeconds) {
+      try {
+        const { data } = await axios.get(`/api/fragments/myfragments`, config)
+        return { data, time: Date.now() }
+      } catch (error: any) {
+        return error
+      }
+    } else {
+      return thunkAPI.rejectWithValue('Not enough time has passed')
     }
   }
 )
@@ -147,7 +153,8 @@ const fragmentSlice = createSlice({
     loadingUpdate: false,
     error: {},
     success: false,
-    successUpdate: false
+    successUpdate: false,
+    lastUpdated: 0
   },
   reducers: {
     citationAdded (state, action) {
@@ -216,12 +223,14 @@ const fragmentSlice = createSlice({
     })
     builder.addCase(getUserFragments.fulfilled, (state, action) => {
       state.loading = false
-
-      if (action.payload.length > 0) {
-        state.userFragments = action.payload!.map((el: any) => ({
-          ...el,
-          nanoId: nanoid()
-        }))
+      state.lastUpdated = action.payload.time
+      if (action.payload.data.length > 0) {
+        state.userFragments = action.payload!.data.map(
+          (el: FragmentStored) => ({
+            ...el,
+            nanoId: nanoid()
+          })
+        )
       }
 
       state.success = true

@@ -15,14 +15,9 @@ import {
   OptionsDropdownContainer,
   TitleInputMainKeyword
 } from './DropdownSelect.styled'
-import {
-  deleteSavedFragment,
-  editSavedFragment
-} from '../../../features/fragments/fragmentSlice'
 import { getUserFragments } from '../../../features/fragments/fragmentSlice'
 import { sortingKeywordMainEdit } from '../../../features/preferences/preferenceSlice'
 import { updateUserFragmentsKeywordMain } from '../../../features/fragments/fragmentSlice'
-import { nanoid } from '@reduxjs/toolkit'
 import SvgIcon from '../../../components/SvgIcon/SvgIcon'
 import { RelativeWrapper } from '../../../styles/misc.styled'
 import {
@@ -31,7 +26,14 @@ import {
   ButtonVerySmall
 } from '../../../components/Buttons/Buttons.styled'
 import { AppDispatch } from '../../../app/store'
-import { FragmentStored, KeywordValue } from '../../../interfaces'
+import {
+  getFragmentsMatching,
+  getFragmentsNoName,
+  removeKeywordHelper,
+  saveEditedKeyword,
+  saveNewKeyword
+} from './keywordHelpers'
+import { FragmentStored } from '../../../interfaces'
 
 interface SelectMainKeywordProps {
   wideVersion?: boolean
@@ -45,7 +47,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
   const keywordMain = useAppSelector(
     state => state.preference.sortingKeywords.keywordMain
   )
-  const fragmentsKeywordMain: any[] = useAppSelector(
+  const fragmentsKeywordMain: FragmentStored[] = useAppSelector(
     state => state.fragment.fragmentsKeywordMain
   )
   const fragmentLoadingUpdate: boolean = useAppSelector(
@@ -55,7 +57,9 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
     state => state.fragment.successUpdate
   )
 
-  const fragments: any[] = useAppSelector(state => state.fragment.userFragments)
+  const fragments: FragmentStored[] = useAppSelector(
+    state => state.fragment.userFragments
+  )
 
   const keywordsAll = fragments
     ?.map(fragment =>
@@ -68,217 +72,111 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
 
   let uniqueKeywords = [...Array.from(new Set(keywordsAll))]
 
-  const [isOpen, setIsOpen] = useState(false)
-  const [optionsOpen, setOptionsOpen] = useState(false)
-  const [optionsNewKeywordOpen, setOptionsNewKeywordOpen] = useState(false)
-  const [keywordEditing, setKeywordEditing] = useState<boolean>(false)
-  const [keywordCreation, setKeywordCreation] = useState<boolean>(false)
+  interface OptionsState {
+    isOpen: boolean
+    optionsOpen: boolean
+    optionsNewKeywordOpen: boolean
+    keywordEditing: boolean
+    keywordCreation: boolean
+  }
+
+  const [options, setOptions] = useState<OptionsState>({
+    isOpen: false,
+    optionsOpen: false,
+    optionsNewKeywordOpen: false,
+    keywordEditing: false,
+    keywordCreation: false
+  })
+
+  const toggleOption = (
+    optionKey: keyof OptionsState,
+    setOptions: React.Dispatch<React.SetStateAction<OptionsState>>
+  ) => {
+    setOptions(prevOptions => ({
+      ...prevOptions,
+      [optionKey]: !prevOptions[optionKey]
+    }))
+  }
+
   const [newKeyword, setNewKeyword] = useState<string>(keywordMain)
 
   const [selectedMainKeyword, setSelectedMainKeyword] = useState<string | null>(
     keywordMain
   )
 
-  const toggling = () => setIsOpen(isOpen => !isOpen)
-  // * sets mainKeyword as ''
+  const toggling = () => toggleOption('isOpen', setOptions)
+
   const setNoKeywordHelper = () => {
     dispatch(sortingKeywordMainEdit(''))
   }
 
   const stopEditingHandler = () => {
-    if (keywordEditing === true) {
-      setKeywordEditing(keywordEditing => !keywordEditing)
+    if (options.keywordEditing) {
+      toggleOption('keywordEditing', setOptions)
       setNewKeyword(keywordMain)
     }
-    if (keywordCreation === true)
-      setKeywordCreation(keywordCreation => !keywordCreation)
+    if (options.keywordCreation) toggleOption('keywordCreation', setOptions)
   }
   const editingHandler = () => {
-    setKeywordEditing(keywordEditing => !keywordEditing)
+    toggleOption('keywordEditing', setOptions)
   }
   const addNewHandler = () => {
     setSelectedMainKeyword('')
 
-    if (keywordCreation === false)
-      setKeywordCreation(keywordCreation => !keywordCreation)
+    if (options.keywordCreation === false)
+      toggleOption('keywordCreation', setOptions)
   }
 
   const onOptionClicked = (value: string | null) => () => {
     setSelectedMainKeyword(value)
-    setIsOpen(false)
+    setOptions(prevOptions => ({ ...prevOptions, isOpen: !prevOptions.isOpen }))
   }
 
-  useEffect(() => {
-    dispatch(sortingKeywordMainEdit(selectedMainKeyword))
-  }, [dispatch, selectedMainKeyword])
-
-  // whenever keywordMain changes ie. nav dropdownProject component, it changes selectedKeyword
-  useMemo(() => {
-    setSelectedMainKeyword(keywordMain)
-  }, [keywordMain])
-
-  useMemo(() => {
-    if (fragmentLoadingUpdate === false && fragmentSuccessUpdate === true) {
-      const timer = setTimeout(() => dispatch(getUserFragments(1)), 3000)
-      return () => clearTimeout(timer)
-    }
-  }, [fragmentLoadingUpdate, fragmentSuccessUpdate, dispatch])
-
-  useEffect(() => {
-    const fragmentsMatching = fragments
-      ?.filter(
-        fragmentsSorted =>
-          fragmentsSorted.keywords?.indexOf(selectedMainKeyword) >= 0
-      )
-      .map(el => ({ ...el, nanoId: nanoid() }))
-
-    if (selectedMainKeyword !== '' && keywordMain !== '') {
-      dispatch(updateUserFragmentsKeywordMain(fragmentsMatching))
-    }
-    const fragmentsNoName = fragments
-      ?.filter(
-        fragmentsSorted =>
-          fragmentsSorted.keywords.length === 1 &&
-          fragmentsSorted.keywords?.indexOf(selectedMainKeyword) >= 0
-      )
-      .map(el => ({ ...el, nanoId: nanoid() }))
-    if (selectedMainKeyword === '' && keywordMain !== '') {
-      dispatch(updateUserFragmentsKeywordMain(fragmentsNoName))
-    }
-  }, [fragments, dispatch, selectedMainKeyword, keywordMain])
-
-  const filterFragments = (keyword: string) =>
-    fragments?.filter(f => f.keywords?.indexOf(keyword) >= 0)
-
-  const confirmRemoval = () =>
-    window.confirm('Czy potwierdzasz usunięcie powiązanych fragmentów?')
-
-  const dispatchFragmentEdit = (
-    fragment: FragmentStored,
-    filteredKeywords: string[]
-  ) =>
-    dispatch(
-      editSavedFragment({
-        _id: fragment._id,
-        keywords: filteredKeywords
-      })
-    )
-  const dispatchFragmentDelete = (id: string) =>
-    dispatch(deleteSavedFragment(id))
-
-  const removeKeywordHelperUltimate = () => {
-    const fragmentsMatching = filterFragments(selectedMainKeyword as string)
-    if (confirmRemoval()) {
-      fragmentsMatching.forEach(fragment => {
-        const filteredKeywords = fragment?.keywords?.filter(
-          (keyword: string) => keyword !== selectedMainKeyword
-        )
-        fragmentsMatching.length <= 2
-          ? dispatchFragmentDelete(fragment._id)
-          : dispatchFragmentEdit(fragment, filteredKeywords)
-      })
-    }
+  //* REMOVE keyword
+  const handleRemoveKeyword = () => {
+    removeKeywordHelper(fragments, selectedMainKeyword ?? '', dispatch)
   }
-  const getFragmentsWithoutProject = () =>
-    fragments.filter(
-      fragment => fragment.keywords.length === 1 && fragment.keywords[0] === ''
-    )
-
-  const editFragmentWithNewKeyword = (
-    fragmentsNoProject: FragmentStored[],
-    newKeyword: string
-  ) => {
-    fragmentsNoProject.forEach(fragment => {
-      const fragEdited = {
-        _id: fragment._id,
-        keywords: [newKeyword],
-        keywordValue: fragment.keywordValue.map(value => ({
-          ...value,
-          keyword: newKeyword
-        }))
-      }
-      dispatch(editSavedFragment(fragEdited))
-    })
-  }
+  //* SAVE new keyword
   const saveNewKeywordHelper = () => {
-    setKeywordEditing(keywordEditing => !keywordEditing)
-    setKeywordEditing(keywordCreation => !keywordCreation)
-    const fragmentsNoProject = getFragmentsWithoutProject()
-    editFragmentWithNewKeyword(fragmentsNoProject, newKeyword)
-  }
+    saveNewKeyword(
+      fragments,
+      newKeyword,
 
-  const updateKeywordValues = (
-    fragment: FragmentStored,
-    simpleKeywordArr: string[],
-    filteredArr: KeywordValue[],
-    foundObject: KeywordValue,
-    newKeyword: string
-  ) => ({
-    ...fragment,
-    keywords: [...simpleKeywordArr, newKeyword],
-    keywordValue: [
-      ...filteredArr,
-      {
-        keyword: newKeyword,
-        labelOne: foundObject?.labelOne || 'pro',
-        labelTwo: foundObject?.labelTwo || 'contra',
-        value: foundObject?.value,
-        skip: foundObject?.skip
-      }
-    ]
-  })
+      dispatch
+    )
+    toggleOption('keywordEditing', setOptions)
+    toggleOption('keywordCreation', setOptions)
+  }
+  //* SAVE edited Keyword
   const saveEditedKeywordHelper = () => {
-    setKeywordEditing(keywordEditing => !keywordEditing)
-    setSelectedMainKeyword(newKeyword)
-
-    fragmentsKeywordMain.forEach(fragment => {
-      const filteredArr = fragment.keywordValue.filter(
-        (keywordSearched: KeywordValue) =>
-          keywordSearched.keyword !== keywordMain
-      )
-
-      const foundObject = fragment.keywordValue.find(
-        (keywordSearched: KeywordValue) =>
-          keywordSearched.keyword === keywordMain
-      )
-
-      const simpleKeywordArr = fragment.keywords.filter(
-        (keyword: string) => keyword !== keywordMain
-      )
-
-      if (!fragment.keywords.includes(newKeyword)) {
-        const fragEdited = updateKeywordValues(
-          fragment,
-          simpleKeywordArr,
-          filteredArr,
-          foundObject,
-          newKeyword
-        )
-        dispatch(editSavedFragment(fragEdited as FragmentStored))
-      }
-    })
+    saveEditedKeyword(
+      newKeyword,
+      setSelectedMainKeyword,
+      fragmentsKeywordMain,
+      keywordMain,
+      dispatch
+    )
+    toggleOption('keywordEditing', setOptions)
   }
-
   const togglingOptions = () => {
-    setOptionsOpen(optionsOpen => !optionsOpen)
+    toggleOption('optionsOpen', setOptions)
 
-    if (optionsNewKeywordOpen === true) {
-      setOptionsNewKeywordOpen(optionsNewKeywordOpen => !optionsNewKeywordOpen)
+    if (options.optionsNewKeywordOpen) {
+      toggleOption('optionsNewKeywordOpen', setOptions)
     }
-    if (optionsOpen === false) {
+    if (options.optionsOpen === false) {
       setNewKeyword(keywordMain)
     }
-    if (keywordEditing === true && optionsOpen === true)
-      setKeywordEditing(keywordEditing => !keywordEditing)
+    if (options.keywordEditing && options.optionsOpen)
+      toggleOption('keywordEditing', setOptions)
 
-    if (keywordCreation === true && optionsOpen === true)
-      setKeywordCreation(keywordCreation => !keywordCreation)
+    if (options.keywordCreation && options.optionsOpen)
+      toggleOption('keywordCreation', setOptions)
   }
   const togglingNewKeywordOptions = () => {
-    setOptionsNewKeywordOpen(optionsNewKeywordOpen => !optionsNewKeywordOpen)
-
-    if (optionsOpen === true) {
-      setOptionsOpen(optionsOpen => !optionsOpen)
+    toggleOption('optionsNewKeywordOpen', setOptions)
+    if (options.optionsOpen) {
+      toggleOption('optionsOpen', setOptions)
     }
   }
   //? this one is for saving new keyword when we just add it to sortingKeyword - it will be saved only if we save a fragment with this beeing active
@@ -288,11 +186,47 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
       dispatch(sortingKeywordMainEdit(newKeyword))
     }
   }
+  useEffect(() => {
+    dispatch(sortingKeywordMainEdit(selectedMainKeyword))
+  }, [dispatch, selectedMainKeyword])
+
+  useMemo(() => {
+    setSelectedMainKeyword(keywordMain)
+  }, [keywordMain])
+
+  useMemo(() => {
+    if (fragmentLoadingUpdate === false && fragmentSuccessUpdate) {
+      const timer = setTimeout(() => dispatch(getUserFragments(1)), 9000)
+      return () => clearTimeout(timer)
+    }
+  }, [fragmentLoadingUpdate, fragmentSuccessUpdate, dispatch])
+
+  useEffect(() => {
+    const isKeywordNotEmpty = selectedMainKeyword !== '' && keywordMain !== ''
+    const isKeywordEmpty = selectedMainKeyword === '' && keywordMain !== ''
+
+    if (isKeywordNotEmpty) {
+      const fragmentsMatching = getFragmentsMatching(
+        fragments,
+        selectedMainKeyword as string
+      )
+      dispatch(updateUserFragmentsKeywordMain(fragmentsMatching))
+    }
+
+    if (isKeywordEmpty) {
+      const fragmentsNoName = getFragmentsNoName(
+        fragments,
+        selectedMainKeyword as string
+      )
+      dispatch(updateUserFragmentsKeywordMain(fragmentsNoName))
+    }
+  }, [fragments, dispatch, selectedMainKeyword, keywordMain])
+
   return (
     <Main>
       <DropDownContainer>
         <HeaderAndCogContainer>
-          <DropDownSvgRoundedLeft optionsOpen={optionsNewKeywordOpen}>
+          <DropDownSvgRoundedLeft optionsOpen={options.optionsNewKeywordOpen}>
             {' '}
             <RelativeWrapper $top='20px' $left='3px'>
               <ButtonVerySmall
@@ -303,20 +237,24 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
                 onClick={togglingNewKeywordOptions}
               >
                 <SvgIcon
-                  variant={optionsNewKeywordOpen ? 'arrowLeft' : 'moreOptions'}
+                  variant={
+                    options.optionsNewKeywordOpen ? 'arrowLeft' : 'moreOptions'
+                  }
                   toTop='-20px'
                   toLeft='-90px'
                   toTopMobile='20px'
                   toLeftMobile='-10px'
                   width='100px'
                   contentAfter={
-                    optionsNewKeywordOpen ? 'powrót' : 'dodaj projekt'
+                    options.optionsNewKeywordOpen ? 'powrót' : 'dodaj projekt'
                   }
                 />
               </ButtonVerySmall>
             </RelativeWrapper>
           </DropDownSvgRoundedLeft>
-          {keywordEditing || keywordCreation || optionsNewKeywordOpen ? (
+          {options.keywordEditing ||
+          options.keywordCreation ||
+          options.optionsNewKeywordOpen ? (
             <TitleInputMainKeyword
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -325,7 +263,9 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
               name='main label'
               placeholder={keywordMain}
               value={newKeyword}
-              onChange={(e: any) => setNewKeyword(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setNewKeyword(e.target.value)
+              }
               $wide={wideVersion}
             />
           ) : (
@@ -335,10 +275,10 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
               exit={{ opacity: 0 }}
               onClick={toggling}
               $wide={wideVersion}
-              className={isOpen ? 'active' : 'inactive'}
+              className={options.isOpen ? 'active' : 'inactive'}
             >
               <DropDownHeaderInside
-                className={isOpen ? 'activeButton' : 'inactiveButton'}
+                className={options.isOpen ? 'activeButton' : 'inactiveButton'}
               >
                 {!wideVersion &&
                   (selectedMainKeyword?.substring(0, 15) || 'Wybierz projekt')}
@@ -347,7 +287,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
               </DropDownHeaderInside>
             </DropDownHeader>
           )}{' '}
-          <DropDownSvgRounded optionsOpen={optionsOpen}>
+          <DropDownSvgRounded optionsOpen={options.optionsOpen}>
             {' '}
             <RelativeWrapper $top='21px' $left='0px'>
               <ButtonVerySmall
@@ -358,7 +298,11 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
                 onClick={togglingOptions}
               >
                 <SvgIcon
-                  variant={isOpen || optionsOpen ? 'downPoint' : 'rightPoint'}
+                  variant={
+                    options.isOpen || options.optionsOpen
+                      ? 'downPoint'
+                      : 'rightPoint'
+                  }
                   toTop='-20px'
                   toLeft='60px'
                   toTopMobile='20px'
@@ -373,9 +317,9 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
 
         <DropDownListContainer>
           {keywordMain !== newKeyword &&
-            optionsNewKeywordOpen &&
-            !keywordCreation &&
-            !keywordEditing && (
+            options.optionsNewKeywordOpen &&
+            !options.keywordCreation &&
+            !options.keywordEditing && (
               <RelativeWrapper
                 $left={wideVersion ? '50px' : '20px'}
                 $top={wideVersion ? '10px' : '5px'}
@@ -385,57 +329,62 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
                 </ButtonMedium>
               </RelativeWrapper>
             )}
-          {optionsOpen && !keywordCreation && !keywordEditing && (
-            <RelativeWrapper
-              $left={wideVersion ? '30px' : '-4px'}
-              $top={wideVersion ? '10px' : '7px'}
-            >
-              <OptionsDropdownContainer>
-                <ButtonSmallCircle
-                  variant='successEmpty'
-                  onClick={addNewHandler}
-                >
-                  <RelativeWrapper $top='7px' $left='0px'>
-                    <SvgIcon
-                      variant='plus'
-                      toTop='15px'
-                      toLeft='10px'
-                      width='100px'
-                      contentAfter='dodaj nowy projekt do fragmentów bez projektu'
-                    />{' '}
-                  </RelativeWrapper>
-                </ButtonSmallCircle>
-                <ButtonSmallCircle variant='infoEmpty' onClick={editingHandler}>
-                  {' '}
-                  <RelativeWrapper $top='6px' $left='2px'>
-                    <SvgIcon
-                      variant='edit'
-                      toTop='15px'
-                      toLeft='10px'
-                      width='100px'
-                      contentAfter='edytuj nazwę wybranego projektu'
-                    />{' '}
-                  </RelativeWrapper>
-                </ButtonSmallCircle>
-                <ButtonSmallCircle
-                  variant='dangerEmpty'
-                  onClick={removeKeywordHelperUltimate}
-                >
-                  {' '}
-                  <RelativeWrapper $top='6px' $left='0px'>
-                    <SvgIcon
-                      variant='remove'
-                      toTop='15px'
-                      toLeft='10px'
-                      width='120px'
-                      contentAfter='usuń fragmenty powiązane z projektem'
-                    />
-                  </RelativeWrapper>
-                </ButtonSmallCircle>{' '}
-              </OptionsDropdownContainer>
-            </RelativeWrapper>
-          )}
-          {(keywordEditing || keywordCreation) && (
+          {options.optionsOpen &&
+            !options.keywordCreation &&
+            !options.keywordEditing && (
+              <RelativeWrapper
+                $left={wideVersion ? '30px' : '-4px'}
+                $top={wideVersion ? '10px' : '7px'}
+              >
+                <OptionsDropdownContainer>
+                  <ButtonSmallCircle
+                    variant='successEmpty'
+                    onClick={addNewHandler}
+                  >
+                    <RelativeWrapper $top='7px' $left='0px'>
+                      <SvgIcon
+                        variant='plus'
+                        toTop='15px'
+                        toLeft='10px'
+                        width='100px'
+                        contentAfter='dodaj nowy projekt do fragmentów bez projektu'
+                      />{' '}
+                    </RelativeWrapper>
+                  </ButtonSmallCircle>
+                  <ButtonSmallCircle
+                    variant='infoEmpty'
+                    onClick={editingHandler}
+                  >
+                    {' '}
+                    <RelativeWrapper $top='6px' $left='2px'>
+                      <SvgIcon
+                        variant='edit'
+                        toTop='15px'
+                        toLeft='10px'
+                        width='100px'
+                        contentAfter='edytuj nazwę wybranego projektu'
+                      />{' '}
+                    </RelativeWrapper>
+                  </ButtonSmallCircle>
+                  <ButtonSmallCircle
+                    variant='dangerEmpty'
+                    onClick={handleRemoveKeyword}
+                  >
+                    {' '}
+                    <RelativeWrapper $top='6px' $left='0px'>
+                      <SvgIcon
+                        variant='remove'
+                        toTop='15px'
+                        toLeft='10px'
+                        width='120px'
+                        contentAfter='usuń fragmenty powiązane z projektem'
+                      />
+                    </RelativeWrapper>
+                  </ButtonSmallCircle>{' '}
+                </OptionsDropdownContainer>
+              </RelativeWrapper>
+            )}
+          {(options.keywordEditing || options.keywordCreation) && (
             <RelativeWrapper
               $left={wideVersion ? '30px' : '-4px'}
               $top={wideVersion ? '10px' : '7px'}
@@ -456,7 +405,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
                     />
                   </ButtonVerySmall>
                 </RelativeWrapper>
-                {keywordCreation ? (
+                {options.keywordCreation ? (
                   <RelativeWrapper $top='12px'>
                     <ButtonVerySmall
                       variant='successEmpty'
@@ -487,7 +436,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
           )}
         </DropDownListContainer>
 
-        {isOpen && uniqueKeywords.length > 1 && (
+        {options.isOpen && uniqueKeywords.length > 1 && (
           <RelativeWrapper
             $left={wideVersion ? '30px' : '0px'}
             $top={wideVersion ? '10px' : '7px'}

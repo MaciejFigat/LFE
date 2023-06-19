@@ -88,7 +88,7 @@ export const DragMenuButton = styled(motion.div)`
   }
 `
 export const DragPaginationButton = styled(DragMenuButton)`
-  $left: ${({ $left }) => ($left ? $left : '0')};
+  left: ${({ $left }) => ($left ? $left : '0')};
 
   svg {
     font-size: 1rem;

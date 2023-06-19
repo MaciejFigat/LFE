@@ -61,9 +61,11 @@ interface FragmentStored {
   description?: string
   docId: number
   query: string
-  keywords: string[] | []
+  // keywords: string[] | []
+  keywords: string[]
   updatedAt?: string
-  keywordValue: KeywordValue[] | []
+  // keywordValue: KeywordValue[] | []
+  keywordValue: KeywordValue[]
 }
 interface FragmentStoredAllData {
   _id: string
