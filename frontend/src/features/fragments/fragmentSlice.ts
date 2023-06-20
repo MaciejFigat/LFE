@@ -224,7 +224,7 @@ const fragmentSlice = createSlice({
     builder.addCase(getUserFragments.fulfilled, (state, action) => {
       state.loading = false
       state.lastUpdated = action.payload.time
-      if (action.payload.data.length > 0) {
+      if (action.payload.data?.length > 0) {
         state.userFragments = action.payload!.data.map(
           (el: FragmentStored) => ({
             ...el,

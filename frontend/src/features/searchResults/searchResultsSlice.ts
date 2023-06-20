@@ -134,6 +134,33 @@ export const getDocByNr = createAsyncThunk(
     }
   }
 )
+interface FeedbackData {
+  remote_addr: string
+  search_uuid: string
+  useful: boolean
+  query: string
+  accuracy: number
+}
+// post feedback
+export const postFeedback = createAsyncThunk(
+  'docResult/postFeedback',
+  async (feedbackData: FeedbackData) => {
+    const { remote_addr, search_uuid, useful, query, accuracy } = feedbackData
+
+    try {
+      const { data } = await axios.post('/lexapi/feedback', {
+        remote_addr,
+        search_uuid,
+        useful,
+        query,
+        accuracy
+      })
+      return data
+    } catch (error: any) {
+      return error
+    }
+  }
+)
 
 const searchResultSlice = createSlice({
   name: 'fragments',
@@ -197,12 +224,8 @@ const searchResultSlice = createSlice({
     })
     builder.addCase(getSearchResults.fulfilled, (state, action) => {
       state.loading = false
-      // state.userFragments = action.payload
-      // if action.payload {state.searchResults = action.payload}
-      state.searchResults = action.payload
-      // state.searchResults = action.payload.map((el: any) => ({ ...el, nanoId: nanoid() }))
 
-      // state.error = action.payload.message
+      state.searchResults = action.payload
     })
     builder.addCase(getSearchResults.rejected, (state, action) => {
       state.loading = false
@@ -225,6 +248,15 @@ const searchResultSlice = createSlice({
       state.docResult = action.payload
     })
     builder.addCase(getDocResult.rejected, (state, action) => {
+      state.loading = false
+    })
+    builder.addCase(postFeedback.pending, (state, action) => {
+      state.loading = true
+    })
+    builder.addCase(postFeedback.fulfilled, (state, action) => {
+      state.loading = false
+    })
+    builder.addCase(postFeedback.rejected, (state, action) => {
       state.loading = false
     })
     builder.addCase(getDocByIdAndQuery.pending, state => {

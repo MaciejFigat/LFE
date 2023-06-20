@@ -3,7 +3,8 @@ import { useAppDispatch, useAppSelector } from '../../../app/reduxHooks'
 import { useNavigate } from 'react-router-dom'
 import {
   changeDocId,
-  getDocResult
+  getDocResult,
+  postFeedback
 } from '../../../features/searchResults/searchResultsSlice'
 import { addVisitedLink } from '../../../features/searchResults/searchResultsSlice'
 import {
@@ -24,9 +25,15 @@ import {
   TopLineShort
 } from './HeroSection.styled'
 import parse from 'html-react-parser'
-import { HorizontalWrapper } from '../../../styles/misc.styled'
+import {
+  HighlightText,
+  HorizontalWrapperGap,
+  RegularColumn
+} from '../../../styles/misc.styled'
 import SimpleResultDisplay from '../../DocumentView/DocumentDisplay/SimpleDocumentDisplay'
 import { AppDispatch } from '../../../app/store'
+import { TextColor } from '../../../consts'
+
 //! problem solved with parse - html-react-parser - prarses string to html in React
 
 interface InfoData {
@@ -43,6 +50,7 @@ interface InfoData {
 interface HeroSearchDataSectionProps {
   metryka: InfoData
   query: string
+  trafnosc: number
   highlightQuery: string
   fragmentsFound: string[]
   imgStart?: boolean
@@ -56,6 +64,7 @@ interface HeroSearchDataSectionProps {
 const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
   metryka,
   query,
+  trafnosc,
   highlightQuery,
   fragmentsFound,
   imgStart,
@@ -95,7 +104,23 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
     if (savedDocId !== metryka.doc_id) dispatch(changeDocId(metryka.doc_id))
     navigate(`/search/result#frag-${index}`)
   }
-
+  const feedbackNegative = {
+    remote_addr: metryka.doc_link,
+    search_uuid: metryka.uuid,
+    useful: false,
+    query: query,
+    accuracy: trafnosc
+  }
+  const feedbackHelperPositive = () => {
+    const feedbackPositive = {
+      ...feedbackNegative,
+      useful: true
+    }
+    dispatch(postFeedback(feedbackPositive))
+  }
+  const feedbackHelperNegative = () => {
+    dispatch(postFeedback(feedbackNegative))
+  }
   return (
     <>
       {resultsDetailView ? (
@@ -107,26 +132,30 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
               <InfoColumnShort imgStart={imgStart}>
                 <TextWrapperShort>
                   <SubtitleShort>{metryka?.rodzaj_orzeczenia}</SubtitleShort>
-                  <SubtitleShort>{metryka?.data}</SubtitleShort>
-                  <SubtitleShort>{metryka?.syg}</SubtitleShort>
-
+                  <TopLineShort>{metryka?.data}</TopLineShort>
+                  <TopLineShort>{metryka?.syg}</TopLineShort>
                   <TopLineShort>Istota interpretacji:</TopLineShort>
                   <SubtitleShortLonger onClick={() => submitHandlerDocNr(0)}>
                     {istota_interpretacji}
                   </SubtitleShortLonger>
-                  <SubtitleShort> Wynik przydatny?</SubtitleShort>
-                  <HorizontalWrapper>
-                    <Button>
-                      <ButtonLink href={buttonLink} target='_blank'>
-                        Tak
-                      </ButtonLink>
-                    </Button>
-                    <Button>
-                      <ButtonLink href={buttonLink} target='_blank'>
-                        Nie
-                      </ButtonLink>
-                    </Button>{' '}
-                  </HorizontalWrapper>
+                  <RegularColumn>
+                    <HighlightText color={TextColor.PRIMARY}>
+                      {' '}
+                      Wynik przydatny?
+                    </HighlightText>{' '}
+                    <HorizontalWrapperGap>
+                      <Button onClick={feedbackHelperPositive}>
+                        <ButtonLink href={buttonLink} target='_blank'>
+                          Tak
+                        </ButtonLink>
+                      </Button>
+                      <Button onClick={feedbackHelperNegative}>
+                        <ButtonLink href={buttonLink} target='_blank'>
+                          Nie
+                        </ButtonLink>
+                      </Button>{' '}
+                    </HorizontalWrapperGap>
+                  </RegularColumn>
                 </TextWrapperShort>
               </InfoColumnShort>
               <InfoColumn>

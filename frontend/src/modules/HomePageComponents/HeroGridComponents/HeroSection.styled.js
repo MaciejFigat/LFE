@@ -105,7 +105,6 @@ export const InfoColumn = styled.div`
   display: flex;
   justify-content: center;
   max-width: 35rem;
-  padding-top: 1rem;
 `
 export const InfoColumnSimple = styled(InfoColumn)`
   padding-top: 0.5rem;
@@ -113,7 +112,7 @@ export const InfoColumnSimple = styled(InfoColumn)`
 `
 export const InfoColumnShort = styled(InfoColumn)`
   padding: 0;
-  flex-basis: 40%;
+  flex-basis: 35%;
   min-height: 120%;
   text-align: left;
 
@@ -169,31 +168,17 @@ export const Container = styled.div`
 `
 
 export const Button = styled.button`
-  border-radius: 5px;
+  border-radius: var(--border-radius0);
   white-space: nowrap;
   min-width: fit-content;
   padding: ${({ large }) => (large ? '12px 34px' : '10px 18px')};
   font-size: ${({ fontLarge }) => (fontLarge ? '22px' : '16px')};
-
   background: none;
-
-  background: var(--background-gradient1);
-  border-top: 1px solid var(--background-blur2);
-  border-right: 1px solid var(--background-blur2);
-
-  border-left: 1px solid var(--background-blur2);
-  border-bottom: 1px solid var(--background-blur2);
-
-  border-left: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-
+  border: 1px solid var(--background-blur2);
   outline: none;
   cursor: pointer;
-
   transition: all 0.2s ease-in;
-
-  margin-right: 1rem;
-
+  font-weight: 600;
   a {
     color: var(--background4-main);
   }
@@ -211,10 +196,9 @@ export const Button = styled.button`
     }
   }
   &:active {
+    box-shadow: var(--boxShadowInset2);
     a {
-      box-shadow: var(--boxShadowInset2);
-      color: var(--background-secondary1) !important;
-      background: red;
+      color: var(--background-secondary2) !important;
     }
   }
 
@@ -262,9 +246,10 @@ export const Heading = styled.h1`
 
 export const SubtitleShort = styled(Subtitle)`
   text-align: center;
+  text-transform: uppercase;
   margin-bottom: 0.5rem;
   margin-top: 0rem;
-  font-weight: 400;
+  font-weight: 500;
   &:hover {
     color: var(--background4-main);
   }

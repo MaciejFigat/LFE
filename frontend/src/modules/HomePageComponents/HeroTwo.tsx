@@ -34,6 +34,7 @@ const HeroTwoMain: React.FC<HeroTwoProps> = () => {
           imgStart
           fragmentsFound={data && data[heroDocIndex]?.fragment}
           metryka={data && data[heroDocIndex]?.metryka}
+          trafnosc={data && data[heroDocIndex]?.trafnosc}
           istota_interpretacji={data && data[heroDocIndex].istota_interpretacji}
           query={queryTrimmed}
         />
