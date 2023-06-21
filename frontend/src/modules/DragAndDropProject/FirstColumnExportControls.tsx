@@ -19,8 +19,7 @@ import {
   View,
   Document as PdfDocument,
   Text,
-  StyleSheet,
-  Note
+  StyleSheet
 } from '@react-pdf/renderer'
 import { ButtonVariants } from '../../consts'
 import { ButtonSmall } from '../../components/Buttons/Buttons.styled'
