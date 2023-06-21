@@ -142,7 +142,8 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       label: 'Eksportuj',
       content: (
         <>
-          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+          {Object.keys(userInfo).length > 0 &&
+          (userInfo.status === 'Active' || userInfo.status === 'Pending') ? (
             <UserFragmentsByKeywordHero />
           ) : (
             <CitationDisplay wide />
@@ -151,7 +152,8 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       ),
       secondaryContent: (
         <>
-          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+          {Object.keys(userInfo).length > 0 &&
+          (userInfo.status === 'Active' || userInfo.status === 'Pending') ? (
             <HeroProjectCategories />
           ) : (
             <VisitedLinks />
@@ -163,7 +165,8 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       tertiaryContent: (
         <>
           {' '}
-          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+          {Object.keys(userInfo).length > 0 &&
+          (userInfo.status === 'Active' || userInfo.status === 'Pending') ? (
             <SelectMainKeyword />
           ) : null}
         </>
@@ -172,7 +175,8 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       quaternaryContent: (
         <>
           {' '}
-          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+          {Object.keys(userInfo).length > 0 &&
+          (userInfo.status === 'Active' || userInfo.status === 'Pending') ? (
             <>
               <HeroProjectButtons />
             </>
@@ -182,7 +186,8 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       //? lower right corner
       pentanaryContent: (
         <>
-          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+          {Object.keys(userInfo).length > 0 &&
+          (userInfo.status === 'Active' || userInfo.status === 'Pending') ? (
             <HorizontalWrapper>
               {' '}
               <HeroChangeDetail />

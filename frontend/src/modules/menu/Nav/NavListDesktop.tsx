@@ -7,6 +7,7 @@ import NavDropdown from '../Dropdowns/NavDropdown'
 import ProjectDropdown from '../Dropdowns/ProjectDropdown'
 import { DropDownHeaderMenu } from '../../../styles/misc.styled'
 import { useAppSelector } from '../../../app/reduxHooks'
+import ColorChange from '../Footer/ColorChange'
 
 interface NavListMobileProps {
   scrollDirection?: 'up' | 'down' | 'top' | undefined | null
@@ -76,6 +77,9 @@ const NavListDesktop: React.FC<NavListMobileProps> = ({ scrollDirection }) => {
           ) : null}
           <ListItem variants={itemVariants}>
             <ProjectDropdown scrollDirection={scrollDirection} />
+          </ListItem>
+          <ListItem variants={itemVariants}>
+            <ColorChange />
           </ListItem>
           <ListItem variants={itemVariants}>
             <NavDropdown scrollDirection={scrollDirection} />

@@ -308,14 +308,16 @@ export const SpaceAroundWrapperDropdown = styled(SpaceAroundWrapper)`
   font-size: 0.85rem;
   color: var(--background4-main);
 
-  &:hover {
+  gap: 0.5rem;
+  /* &:hover {
     color: var(--background-secondary1);
     svg {
       color: var(--background-secondary1);
     }
-  }
+  } */
   svg {
     color: var(--background4-main);
+    font-size: 0.95rem;
   }
 `
 export const SvgWrapperMisc = styled.div`
@@ -422,9 +424,20 @@ export const SwitchDivMisc = styled.div`
   align-items: center;
 `
 export const SwitchTextMisc = styled.b`
+  background: ${({ $isOn }) =>
+    $isOn ? 'var(--background-blur1)' : 'var(--background1-main)'};
+  border-radius: 50%;
+  border: 1px solid var(--background-blur1);
+  padding: var(--gap-small);
+
+  min-width: 33px;
   font-size: 0.85rem;
   color: ${({ $isOn }) =>
     $isOn ? 'var(--background2-main)' : 'var(--background5-main)'};
+  transition: 0.2s ease-in-out;
+  &:hover {
+    background: var(--background-blur1);
+  }
 `
 export const SwitchHandleMisc = styled(motion.div)`
   width: 14px;

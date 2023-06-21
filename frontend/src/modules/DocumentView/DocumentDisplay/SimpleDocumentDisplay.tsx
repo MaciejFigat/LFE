@@ -69,7 +69,7 @@ const SimpleDocumentDisplay: React.FC<SimpleDocumentDisplayProps> = () => {
               {' '}
               {docResult.tresc.dataOrzeczenia}
             </ArticleTopline>{' '}
-            <HighlightPopMenu heroYPosition>
+            <HighlightPopMenu>
               {docResult.korpus.map((korpusElement: any) => (
                 <ArticleSection key={Math.random()}>
                   {korpusElement.map((korpusParagraph: any) => (

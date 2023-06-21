@@ -5,23 +5,15 @@ import React, {
   useEffect,
   useCallback
 } from 'react'
-import { useAppSelector } from '../../../app/reduxHooks'
+
 import CopyText from './CopyText/CopyText'
 import { HPopover, HPopoverItem } from './HighlightPopRemake.styled'
 import AddFragment from './CopyText/AddFragment'
 interface HighlightPopProps {
   children: ReactNode
-
-  heroYPosition?: boolean
 }
 
-const HighlightPopMenu: React.FC<HighlightPopProps> = ({
-  children,
-  heroYPosition
-}) => {
-  const heroYValue: number = useAppSelector(
-    state => state.preference.yHeroPosition
-  )
+const HighlightPopMenu: React.FC<HighlightPopProps> = ({ children }) => {
   const [xPosition, setXPosition] = useState<number | null>(null)
   const [yPosition, setYPosition] = useState<number | null>(null)
 
@@ -74,14 +66,14 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({
 
     setXPosition(x + width / 2)
 
-    if (heroYPosition) setYPosition(y + heroYValue - 180)
-    else setYPosition(y + window.scrollY - 70)
+    setYPosition(y + window.scrollY - 70)
     setSelectedText(selectedText)
     setShowPopover(true)
-  }, [heroYPosition, heroYValue])
+  }, [])
 
   useEffect(() => {
     window.addEventListener('mouseup', onMouseUp)
+
     return () => {
       window.removeEventListener('mouseup', onMouseUp)
     }

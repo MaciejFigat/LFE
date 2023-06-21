@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../../app/reduxHooks'
 import { preferedSchemeEdit } from '../../../features/preferences/preferenceSlice'
 import {
+  RelativeWrapper,
   SpaceAroundWrapperDropdown,
-  SwitchDivMisc,
-  SwitchHandleMisc,
   SwitchTextMisc
 } from '../../../styles/misc.styled'
 import { NavIcon } from '../../../styles/misc.styled'
-import { faSun } from '@fortawesome/free-regular-svg-icons'
-import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
+import { faSun, faMoon } from '@fortawesome/free-regular-svg-icons'
+import { faDesktop } from '@fortawesome/free-solid-svg-icons'
+
 interface ColorChangeProps {}
 
 const ColorChange: React.FC<ColorChangeProps> = () => {
@@ -18,47 +18,61 @@ const ColorChange: React.FC<ColorChangeProps> = () => {
   const preferedScheme: string = useAppSelector(
     state => state.preference.preferedScheme
   )
-  const [isDark, setIsDark] = useState(false)
+  const [isSystem, setIsSystem] = useState(true)
 
-  const spring = {
-    type: 'spring',
-    stiffness: 700,
-    damping: 30
+  const isDarkPrefered = window.matchMedia('(prefers-color-scheme: dark)')
+  const useDarkMode = isDarkPrefered.matches
+
+  const toggleDark = () => {
+    dispatch(preferedSchemeEdit('primary'))
+    setIsSystem(false)
   }
-  const toggleSwitch = () => {
-    setIsDark(isDark => !isDark)
-    switch (preferedScheme) {
-      case 'primary':
-        dispatch(preferedSchemeEdit('secondary'))
-        break
-      case 'secondary':
-        dispatch(preferedSchemeEdit('primary'))
-        break
-
-      default:
-        return
+  const toggleSystem = () => {
+    dispatch(preferedSchemeEdit(useDarkMode ? 'primary' : 'secondary'))
+    if (!isSystem) {
+      setIsSystem(true)
     }
   }
+  const toggleLight = () => {
+    dispatch(preferedSchemeEdit('secondary'))
+    setIsSystem(false)
+  }
 
+  useEffect(() => {
+    if (useDarkMode === true) {
+      dispatch(preferedSchemeEdit('primary'))
+    }
+    if (useDarkMode === false) {
+      dispatch(preferedSchemeEdit('secondary'))
+    }
+  }, [dispatch, useDarkMode])
   return (
-    <SpaceAroundWrapperDropdown>
-      {' '}
-      <SwitchDivMisc className='switch' $isOn={isDark} onClick={toggleSwitch}>
-        <SwitchHandleMisc
-          className='handle'
-          $isOn={isDark}
-          layout
-          transition={spring}
-        />
-      </SwitchDivMisc>
-      <SwitchTextMisc $isOn={isDark}>
-        {preferedScheme === 'primary' ? (
-          <NavIcon left='2px' icon={faSun} />
-        ) : (
-          <NavIcon left='2px' icon={faCloudMoon} />
-        )}
-      </SwitchTextMisc>
-    </SpaceAroundWrapperDropdown>
+    <>
+      <SpaceAroundWrapperDropdown>
+        <SwitchTextMisc
+          $isOn={preferedScheme === 'secondary' && !isSystem}
+          onClick={toggleLight}
+        >
+          <RelativeWrapper $top='0px' $left='2px'>
+            <NavIcon icon={faSun} />
+          </RelativeWrapper>
+        </SwitchTextMisc>
+        <SwitchTextMisc onClick={toggleSystem} $isOn={isSystem}>
+          <RelativeWrapper $top='0px' $left='1px'>
+            <NavIcon icon={faDesktop} />
+          </RelativeWrapper>
+        </SwitchTextMisc>
+        <SwitchTextMisc
+          $isOn={preferedScheme === 'primary' && !isSystem}
+          onClick={toggleDark}
+        >
+          <RelativeWrapper $top='0px' $left='2px'>
+            {' '}
+            <NavIcon icon={faMoon} />
+          </RelativeWrapper>
+        </SwitchTextMisc>
+      </SpaceAroundWrapperDropdown>
+    </>
   )
 }
 export default ColorChange

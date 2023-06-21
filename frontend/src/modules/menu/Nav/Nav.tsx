@@ -12,7 +12,6 @@ import NavListMobile from './NavListMobile'
 import useScrollListener from '../../../hooks/useScrollListener'
 import { useCycle } from 'framer-motion'
 import SearchDropdown from '../../SearchBar/SearchDropdown'
-import { preferedSchemeEdit } from '../../../features/preferences/preferenceSlice'
 import { getUserFragments } from '../../../features/fragments/fragmentSlice'
 import { UserInfo } from '../../../interfaces'
 import MobileNavIcons from './MobileNavIcons'
@@ -55,17 +54,6 @@ const Nav: React.FC<NavProps> = () => {
 
     //todo if (scroll.y <= 300)
   }, [scroll.y, scroll.lastY, open, cycleOpen, scrollDirection])
-
-  useEffect(() => {
-    const isDark = window.matchMedia('(prefers-color-scheme: dark)')
-    const useDarkMode = isDark.matches
-    if (useDarkMode === true) {
-      dispatch(preferedSchemeEdit('primary'))
-    }
-    if (useDarkMode === false) {
-      dispatch(preferedSchemeEdit('secondary'))
-    }
-  }, [dispatch])
 
   useEffect(() => {
     if (Object.keys(userInfo).length > 0) {
