@@ -7,12 +7,13 @@ import {
   citationAdded,
   createFragment
 } from '../../../../features/fragments/fragmentSlice'
+import { AppDispatch } from '../../../../app/store'
 interface AddFragmentProps {
   highlightedText: string
 }
 
 const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
   const userInfo: UserInfo = useAppSelector(state => state.user.userInfo)
   const savedFragment = useAppSelector(state => state.fragment.fragmentSaved)
   const { excerpt: savedExcerpt } = savedFragment
@@ -26,13 +27,6 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   const docResult: any = useAppSelector(state => state.searchResult.docResult)
   const { sad, syg, dataOrzeczenia, typWyroku } = docResult.tresc
   const querySaved = docResult.query_f
-
-  // * Alternative method of getting to docId
-  // * resultsDetailView: true => then we save read docId
-  // * searchResult.heroDocIndex => will tell me which docId (within searchResults.data) is relevant since docResult doesn't have docId
-  // *
-
-  // const lastId = visitedLinks[visitedLinks.length - 1].id
 
   const [copySuccess, setCopySuccess] = useState('')
 
@@ -54,12 +48,10 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
     description: ''
   }
   const newFragment = {
-    // title: highlightedText.substring(0, 22),
     title: `${querySaved}`,
     source: `${typWyroku} ${sad} ${dataOrzeczenia}`,
     excerpt: highlightedText,
     query: `${querySaved}`,
-    // docId: `${lastId}`,
     docId: savedDocId,
     coordinates: `${syg}`,
     description: `komentarz`,
@@ -77,17 +69,17 @@ const AddFragment: React.FC<AddFragmentProps> = ({ highlightedText }) => {
   }
   // todo saving into the DB
 
-  const addCitationHandler = (e: any) => {
+  const addCitationHandler = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
-    dispatch(citationAdded(newCitation))
+
     setCopySuccess('Zapisano!')
     if (
       Object.keys(userInfo).length > 0 &&
-      userInfo.status === 'Active' &&
+      (userInfo.status === 'Active' || userInfo.status === 'Pending') &&
       savedExcerpt !== highlightedText
     ) {
       dispatch(createFragment(newFragment))
-    }
+    } else dispatch(citationAdded(newCitation))
   }
   useEffect(() => {
     const timer = setTimeout(() => {

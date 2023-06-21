@@ -18,7 +18,7 @@ export const ChoiceNav = styled.nav`
   border-radius: var(--border-radius1);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-bottom: 1px solid var(--background-blur2);
+  border: 1px solid var(--background-blur2);
 `
 
 export const MainChoiceContainer = styled.main`

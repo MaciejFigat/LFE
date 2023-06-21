@@ -51,32 +51,33 @@ const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
   return (
     <Main>
       <DropDownContainer>
-        {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' && (
-          <ProjectDropDownWrapper>
-            <ProjectNameDiv>
-              <NavLink
-                to='/storage'
-                className={navData =>
-                  'nav_link' + (navData.isActive ? ' activated' : '')
-                }
-              >
-                {projectName !== '' ? (
-                  projectName.substring(0, 8)
-                ) : (
-                  <>projekty</>
-                )}
-              </NavLink>
-            </ProjectNameDiv>
-            <DropDownHeader onClick={toggling}>
-              <RelativeWrapper $top='3px' $left='-3px'>
-                <SvgIcon
-                  variant={isOpen ? 'downPoint' : 'rightPoint'}
-                  noContent
-                />
-              </RelativeWrapper>
-            </DropDownHeader>
-          </ProjectDropDownWrapper>
-        )}
+        {Object.keys(userInfo).length > 0 &&
+          (userInfo.status === 'Active' || userInfo.status === 'Pending') && (
+            <ProjectDropDownWrapper>
+              <ProjectNameDiv>
+                <NavLink
+                  to='/storage'
+                  className={navData =>
+                    'nav_link' + (navData.isActive ? ' activated' : '')
+                  }
+                >
+                  {projectName !== '' ? (
+                    projectName.substring(0, 8)
+                  ) : (
+                    <>projekty</>
+                  )}
+                </NavLink>
+              </ProjectNameDiv>
+              <DropDownHeader onClick={toggling}>
+                <RelativeWrapper $top='3px' $left='-3px'>
+                  <SvgIcon
+                    variant={isOpen ? 'downPoint' : 'rightPoint'}
+                    noContent
+                  />
+                </RelativeWrapper>
+              </DropDownHeader>
+            </ProjectDropDownWrapper>
+          )}
         {isOpen && (
           <DropDownListContainer
             wide={uniqueKeywords.length > 5 ? true : false}

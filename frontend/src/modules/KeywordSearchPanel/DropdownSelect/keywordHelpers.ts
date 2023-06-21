@@ -74,7 +74,6 @@ const editFragmentWithNewKeyword = (
 export const saveNewKeyword = (
   fragments: FragmentStored[],
   newKeyword: string,
-
   dispatch: AppDispatch
 ) => {
   const fragmentsNoProject = getFragmentsWithoutProject(fragments)

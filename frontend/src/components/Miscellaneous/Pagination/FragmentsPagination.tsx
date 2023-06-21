@@ -14,8 +14,13 @@ import {
   PaginateWrapper
 } from './Paginate.styled'
 import SvgIcon from '../../SvgIcon/SvgIcon'
-import { RelativeWrapper } from '../../../styles/misc.styled'
+import {
+  HighlightText,
+  HorizontalWrapper,
+  RelativeWrapper
+} from '../../../styles/misc.styled'
 import { ButtonVerySmall } from '../../Buttons/Buttons.styled'
+import { TextColor } from '../../../consts'
 
 interface FragmentsPaginationProps {
   narrow?: boolean
@@ -67,7 +72,6 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
   }
   return (
     <ProjectPaginationWrapper $narrow={narrow}>
-      {' '}
       {userFragments.length > 110 ? (
         <>
           <DragPaginationButton
@@ -91,26 +95,44 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
           </DragPaginationButton>
         </>
       ) : null}
-      <ProjectMenuContainer
-        drag='x'
-        dragConstraints={{
-          left: (-userFragments.length / 10) * 21,
-          right: 0
-        }}
-        dragTransition={{ bounceStiffness: 1100, bounceDamping: 130 }}
-        transition={{ type: 'linear', stiffness: 100 }}
-        dragElastic={0.5}
-        initial={false}
-        onUpdate={onUpdate}
-        animate={animation}
-        style={{ x: 0, opacity: 1 }}
-        ref={dragRef}
-      >
-        <PaginateWrapper narrow={narrow}>
-          {userFragments.length % 10 > 0
-            ? Array.from(
-                { length: Math.floor(userFragments.length / 10) + 1 },
-                (_, i) => (
+      {userFragments.length > 110 ? (
+        <ProjectMenuContainer
+          drag='x'
+          dragConstraints={{
+            left: (-userFragments.length / 10) * 21,
+            right: 0
+          }}
+          dragTransition={{ bounceStiffness: 1100, bounceDamping: 130 }}
+          transition={{ type: 'linear', stiffness: 100 }}
+          dragElastic={0.5}
+          initial={false}
+          onUpdate={onUpdate}
+          animate={animation}
+          style={{ x: 0, opacity: 1 }}
+          ref={dragRef}
+        >
+          <PaginateWrapper narrow={narrow}>
+            {userFragments.length % 10 > 0
+              ? Array.from(
+                  { length: Math.floor(userFragments.length / 10) + 1 },
+                  (_, i) => (
+                    <PaginateBorderWrapper key={i} narrow={narrow}>
+                      <ButtonVerySmall
+                        variant='secondaryEmpty'
+                        onClick={() => buttonHelper(i)}
+                      >
+                        <PaginateActive
+                          pageActive={
+                            savedFragmentsPage.pageNr === i + 1 ? true : false
+                          }
+                        >
+                          {i + 1}
+                        </PaginateActive>
+                      </ButtonVerySmall>
+                    </PaginateBorderWrapper>
+                  )
+                )
+              : Array.from({ length: userFragments.length / 10 }, (_, i) => (
                   <PaginateBorderWrapper key={i} narrow={narrow}>
                     <ButtonVerySmall
                       variant='secondaryEmpty'
@@ -125,26 +147,16 @@ const FragmentsPagination: React.FC<FragmentsPaginationProps> = ({
                       </PaginateActive>
                     </ButtonVerySmall>
                   </PaginateBorderWrapper>
-                )
-              )
-            : Array.from({ length: userFragments.length / 10 }, (_, i) => (
-                <PaginateBorderWrapper key={i} narrow={narrow}>
-                  <ButtonVerySmall
-                    variant='secondaryEmpty'
-                    onClick={() => buttonHelper(i)}
-                  >
-                    <PaginateActive
-                      pageActive={
-                        savedFragmentsPage.pageNr === i + 1 ? true : false
-                      }
-                    >
-                      {i + 1}
-                    </PaginateActive>
-                  </ButtonVerySmall>
-                </PaginateBorderWrapper>
-              ))}
-        </PaginateWrapper>
-      </ProjectMenuContainer>
+                ))}
+          </PaginateWrapper>
+        </ProjectMenuContainer>
+      ) : (
+        <HorizontalWrapper>
+          <HighlightText color={TextColor.SECONDARY}>
+            zapisano {userFragments.length} fragmentów
+          </HighlightText>
+        </HorizontalWrapper>
+      )}
     </ProjectPaginationWrapper>
   )
 }

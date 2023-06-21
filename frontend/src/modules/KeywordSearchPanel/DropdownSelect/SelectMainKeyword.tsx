@@ -138,12 +138,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
   }
   //* SAVE new keyword
   const saveNewKeywordHelper = () => {
-    saveNewKeyword(
-      fragments,
-      newKeyword,
-
-      dispatch
-    )
+    saveNewKeyword(fragments, newKeyword, dispatch)
     toggleOption('keywordEditing', setOptions)
     toggleOption('keywordCreation', setOptions)
   }
@@ -156,6 +151,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
       keywordMain,
       dispatch
     )
+
     toggleOption('keywordEditing', setOptions)
   }
   const togglingOptions = () => {
@@ -179,7 +175,6 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
       toggleOption('optionsOpen', setOptions)
     }
   }
-  //? this one is for saving new keyword when we just add it to sortingKeyword - it will be saved only if we save a fragment with this beeing active
 
   const saveTempKeywordHelper = () => {
     if (keywordMain !== newKeyword) {
@@ -436,7 +431,7 @@ const SelectMainKeyword: React.FC<SelectMainKeywordProps> = ({
           )}
         </DropDownListContainer>
 
-        {options.isOpen && uniqueKeywords.length > 1 && (
+        {options.isOpen && uniqueKeywords.length >= 1 && (
           <RelativeWrapper
             $left={wideVersion ? '30px' : '0px'}
             $top={wideVersion ? '10px' : '7px'}

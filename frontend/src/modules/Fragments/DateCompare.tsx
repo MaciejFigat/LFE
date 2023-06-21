@@ -130,7 +130,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
       sortingMonth: 1,
       sortingDay: sortingDay
     }
-    //todo
+
     if (sortingMonth < 12 && sortingMonth - 1 < new Date().getMonth()) {
       dispatch(sortingDateEdit(dateRedux))
     } else if (sortingMonth === 12) {
@@ -170,6 +170,7 @@ const DateCompare: React.FC<DateCompareProps> = () => {
   //? 👇️ This works because each Date object stores a timestamp (the number of milliseconds since the Unix Epoch) under the hood.
   //?  console.log(new Date().getTime()) -> 1643013648670
   const handleSetLastSession = () => {
+    if (fragments.length === 0) return
     const maxDate = new Date(
       Math.max(...fragments.map(fragment => Date.parse(fragment.createdAt)))
     )

@@ -259,27 +259,25 @@ export const SimpleCitationItem = styled(motion.div)`
   display: grid;
   place-items: space-around;
   overflow-y: scroll;
-  box-shadow: var(--boxShadow1);
+
   min-height: fit-content;
   height: 240px;
-  min-width: 260px;
-  max-width: 260px;
+
+  max-width: 300px;
   padding: 0.75rem 1rem;
   margin: 0;
-  border-radius: 20px;
-  border-right: 1px solid var(--background-blur2);
-  border-top: 1px solid var(--background-blur2);
-  border-left: 1px solid var(--background-blur1);
-  border-bottom: 1px solid var(--background-blur1);
+  border-radius: var(--border-radius1);
+  border: 1px solid var(--background-blur2);
+
   @media (min-width: 920px) {
     min-width: 270px;
     max-width: 270px;
   }
   @media (min-width: 1060px) {
     min-width: 310px;
-    max-width: 310px;
+    max-width: 418px;
   }
-  @media (min-width: 1210px) {
+  /* @media (min-width: 1210px) {
     min-width: 360px;
     max-width: 360px;
   }
@@ -294,7 +292,7 @@ export const SimpleCitationItem = styled(motion.div)`
   @media (min-width: 1510px) {
     min-width: 460px;
     max-width: 460px;
-  }
+  } */
 
   ::-webkit-scrollbar {
     width: 0.1em;

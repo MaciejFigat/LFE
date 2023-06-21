@@ -13,11 +13,12 @@ import PupupEditWindow from '../../modules/DragAndDropProject/PopupEditWindow/Pu
 import { DataContainerSimple } from '../../modules/InfoSection/InfoSection.styled'
 import { editIdOpenFragment } from '../../features/preferences/preferenceSlice'
 import { HeroDesktop } from '../../layout/layout.styled'
+import { AppDispatch } from '../../app/store'
 
 interface DocumentViewProps {}
 
 const DocumentView: React.FC<DocumentViewProps> = () => {
-  const dispatch: any = useAppDispatch()
+  const dispatch: AppDispatch = useAppDispatch()
   const userInfo: UserInfo = useAppSelector(state => state.user.userInfo)
   const widthNarrow = useAppSelector(state => state.preference.widthNarrow)
   const searchResults: any = useAppSelector(
@@ -53,7 +54,8 @@ const DocumentView: React.FC<DocumentViewProps> = () => {
       <ResizableScrollSection
         narrowOption
         narrowSection={
-          Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+          Object.keys(userInfo).length > 0 &&
+          (userInfo.status === 'Active' || userInfo.status === 'Pending') ? (
             <>
               <SharedChoiceWrapper />
 
@@ -88,7 +90,6 @@ const DocumentView: React.FC<DocumentViewProps> = () => {
           ) : (
             <>
               <SharedChoiceWrapper />
-
               {showFragmentsState && <FragmentsColumn />}
 
               <DataContainerSimple $width={widthNarrow}>

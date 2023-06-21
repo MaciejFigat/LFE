@@ -24,9 +24,8 @@ const HeroWelcome: React.FC<HeroWelcomeProps> = () => {
         <HeroWrapperColumns>
           <HeroTitle>{titleSvg}</HeroTitle>
         </HeroWrapperColumns>
-        {/* {Object.keys(userInfo).length === 0 && ( */}
-        {Object.keys(userInfo).length > 0 &&
-        userInfo.status === 'Active' ? null : (
+
+        {Object.keys(userInfo).length === 0 ? (
           <HeroWrapperRow>
             <h3>Nie masz jeszcze konta?</h3>
 
@@ -43,7 +42,7 @@ const HeroWelcome: React.FC<HeroWelcomeProps> = () => {
               </NavLink>
             </ButtonMedium>
           </HeroWrapperRow>
-        )}
+        ) : null}
       </ChoiceTitleContainer>
     </>
   )

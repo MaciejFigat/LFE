@@ -51,7 +51,8 @@ const SharedChoiceWrapper: React.FC<SharedChoiceWrapperProps> = () => {
       ),
       content: (
         <>
-          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+          {Object.keys(userInfo).length > 0 &&
+          (userInfo.status === 'Active' || userInfo.status === 'Pending') ? (
             <FilterWrapper />
           ) : (
             <>

@@ -270,7 +270,7 @@ export const DropDownHeaderMini = styled(DropDownHeaderMisc)`
   border-radius: 50%;
   background: transparent;
   box-shadow: ${({ isOpen }) =>
-    isOpen ? 'var(--boxShadowClay1)' : 'var(--boxShadowNone)'};
+    isOpen ? 'var(--boxShadow1)' : 'var(--boxShadowNone)'};
 
   &:hover {
     box-shadow: var(--boxShadow1);

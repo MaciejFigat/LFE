@@ -76,6 +76,7 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
     {
       label: 'Wyszukaj',
       content: <HeroTwoMain />,
+
       secondaryContent: <HomeSearchResultsSmall />,
       tertiaryContent: <HomeSearchBarPagination />,
       quaternaryContent: (
@@ -94,7 +95,8 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       content: <HeroTwoFourth />,
       secondaryContent: (
         <>
-          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+          {Object.keys(userInfo).length > 0 &&
+          (userInfo.status === 'Active' || userInfo.status === 'Pending') ? (
             <>
               <HeroFragmentsDisplay />
             </>
@@ -106,7 +108,8 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       //? upper right corner
       tertiaryContent: (
         <>
-          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+          {Object.keys(userInfo).length > 0 &&
+          (userInfo.status === 'Active' || userInfo.status === 'Pending') ? (
             <HeroSortingOptions />
           ) : (
             <RegularDiv>
@@ -124,7 +127,8 @@ const HeroGrid: React.FC<HeroGridProps> = () => {
       //? lower right corner
       pentanaryContent: (
         <>
-          {Object.keys(userInfo).length > 0 && userInfo.status === 'Active' ? (
+          {Object.keys(userInfo).length > 0 &&
+          (userInfo.status === 'Active' || userInfo.status === 'Pending') ? (
             <HeroChoiceWrapper />
           ) : (
             <RegularDiv>

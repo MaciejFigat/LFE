@@ -82,7 +82,9 @@ const HighlightPopMenuDemo: React.FC<HighlightPopProps> = ({ children }) => {
         <HPopover
           style={{ left: `${xPosition}px`, top: `${yPosition}px` }}
           role='presentation'
-          onMouseDown={(e: MouseEvent) => e.preventDefault()}
+          onMouseDown={(e: React.MouseEvent<HTMLDivElement>) =>
+            e.preventDefault()
+          }
         >
           <HPopoverItem role='button'>
             <CopyTextDemo highlightedText={selectedText} />

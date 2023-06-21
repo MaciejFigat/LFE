@@ -18,7 +18,7 @@ export const ProjectMenuWrapper = styled(motion.div)`
 `
 export const ProjectPaginationWrapper = styled(ProjectMenuWrapper)`
   width: ${({ $narrow }) => ($narrow ? '335px' : '380px')};
-
+  min-height: 50px;
   border: 1px solid var(--background-blur2);
 `
 export const ProjectMenuContainer = styled(motion.div)`

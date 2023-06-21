@@ -3,7 +3,7 @@ import React, {
   useState,
   useRef,
   useEffect,
-  useCallback,
+  useCallback
 } from 'react'
 import { useAppSelector } from '../../../app/reduxHooks'
 import CopyText from './CopyText/CopyText'
@@ -17,10 +17,10 @@ interface HighlightPopProps {
 
 const HighlightPopMenu: React.FC<HighlightPopProps> = ({
   children,
-  heroYPosition,
+  heroYPosition
 }) => {
   const heroYValue: number = useAppSelector(
-    (state) => state.preference.yHeroPosition
+    state => state.preference.yHeroPosition
   )
   const [xPosition, setXPosition] = useState<number | null>(null)
   const [yPosition, setYPosition] = useState<number | null>(null)
@@ -42,7 +42,7 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({
       hidePopover()
       return
     }
-    // Non-null assertion operator selection! - I am telling TS that this property/value is not null or undefined
+
     const selectionRange = selection!.getRangeAt(0)
     const startNode = selectionRange!.startContainer.parentNode
     const endNode = selectionRange!.endContainer.parentNode
@@ -66,11 +66,6 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({
       return
     }
 
-    // if (startNode && !startNode.isSameNode(endNode)) {
-    //   hidePopover()
-    //   return
-    // }
-
     const { x, y, width } = selectionRange!.getBoundingClientRect()
     if (!width) {
       hidePopover()
@@ -78,7 +73,6 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({
     }
 
     setXPosition(x + width / 2)
-    // setYPosition(y + window.scrollY - 70)
 
     if (heroYPosition) setYPosition(y + heroYValue - 180)
     else setYPosition(y + window.scrollY - 70)
@@ -99,7 +93,9 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({
         <HPopover
           style={{ left: `${xPosition}px`, top: `${yPosition}px` }}
           role='presentation'
-          onMouseDown={(e: any) => e.preventDefault()}
+          onMouseDown={(e: React.MouseEvent<HTMLDivElement>) =>
+            e.preventDefault()
+          }
         >
           <HPopoverItem role='button'>
             <CopyText highlightedText={selectedText} />
@@ -107,8 +103,6 @@ const HighlightPopMenu: React.FC<HighlightPopProps> = ({
           <HPopoverItem role='button'>
             <AddFragment highlightedText={selectedText} />
           </HPopoverItem>
-
-          {/* <HPopoverItem role='button'>Storage</HPopoverItem> */}
         </HPopover>
       )}
       {children}

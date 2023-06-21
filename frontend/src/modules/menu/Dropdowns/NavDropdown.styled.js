@@ -129,7 +129,7 @@ export const DropDownListContainer = styled.div`
   border-radius: 12px;
   top: 60px;
 
-  right:${({ wide }) => (wide ? '240px;' : '60px;')}
+  right:${({ wide }) => wide && '240px;'}
   transition: all 0.3s ease-out;
   text-align: center;
   background: var(--background1-main);
@@ -138,23 +138,23 @@ export const DropDownListContainer = styled.div`
     color: var(--background2-main);
   }
   @media screen and (max-width: 1440px) {
-    right:${({ wide }) => (wide ? '140px;' : '60px;')}
+    right:${({ wide }) => wide && '140px;'}
   }
   @media screen and (max-width: 1440px) {
-    right:${({ wide }) => (wide ? '120px;' : '60px;')}
+    right:${({ wide }) => wide && '120px;'}
   }
   @media screen and (max-width: 1090px) {
-    right:${({ wide }) => (wide ? '90px;' : '40px;')}
+    right:${({ wide }) => wide && '90px;'}
   }
   @media screen and (max-width: 780px) {
-    right:${({ wide }) => (wide ? '40px;' : '20px;')}
+    right:${({ wide }) => wide && '40px;'}
   }
   @media screen and (max-width: 590px) {
-    right:${({ wide }) => (wide ? '30px;' : '10px;')}
+    right:${({ wide }) => wide && '30px;'}
   }
   @media (max-width: 520px) {
     width: 270px;
-    right:${({ wide }) => (wide ? '20px;' : '10px;')}
+    right:${({ wide }) => wide && '20px;'}
     
     min-width: 0;
   }

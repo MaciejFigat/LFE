@@ -127,7 +127,6 @@ const UserRegister: React.FC<UserRegisterProps> = () => {
                 type='email'
                 name='email'
                 id='email'
-                pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
                 value={user.email}
                 onChange={handleInputChange}
               />

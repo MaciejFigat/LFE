@@ -10,11 +10,23 @@ import {
   ExternalHyperlink
 } from 'docx'
 import { saveAs } from 'file-saver'
-import { ButtonSmall } from '../../components/ButtonsSend/BigButton.styled'
+
 import SvgIcon from '../../components/SvgIcon/SvgIcon'
+import { HorizontalWrapperGap } from '../../styles/misc.styled'
+import {
+  PDFDownloadLink,
+  Page,
+  View,
+  Document as PdfDocument,
+  Text,
+  StyleSheet
+} from '@react-pdf/renderer'
+import { ButtonVariants } from '../../consts'
+import { ButtonSmall } from '../../components/Buttons/Buttons.styled'
+import { FragmentStored } from '../../interfaces'
 
 interface FirstColumnExportControlsProps {
-  state: any[]
+  state: FragmentStored[][]
 }
 
 const FirstColumnExportControls: React.FC<FirstColumnExportControlsProps> = ({
@@ -216,17 +228,48 @@ const FirstColumnExportControls: React.FC<FirstColumnExportControlsProps> = ({
       }
     ]
   })
-
+  const styles = StyleSheet.create({
+    page: {
+      flexDirection: 'row',
+      backgroundColor: '#E4E4E4'
+    },
+    section: {
+      margin: 10,
+      padding: 10,
+      flexGrow: 1
+    }
+  })
+  const MyDocument = () => (
+    <PdfDocument>
+      <Page size='A4' style={styles.page}>
+        <View style={styles.section}>
+          <Text>Section #1</Text>
+        </View>
+        <View style={styles.section}>
+          <Text>Section #2</Text>
+        </View>
+      </Page>
+    </PdfDocument>
+  )
   return (
-    <ButtonSmall
-      variant='successEmpty'
-      $borderRadius='20px'
-      onClick={exportHandler}
-    >
-      {' '}
-      eksportuj &nbsp;
-      <SvgIcon variant='export' noContent lowerPosition='2px' />
-    </ButtonSmall>
+    <HorizontalWrapperGap>
+      <ButtonSmall
+        variant={ButtonVariants.SUCCESS_EMPTY}
+        $borderRadius='20px'
+        onClick={exportHandler}
+      >
+        {' '}
+        eksport txt &nbsp;
+        <SvgIcon variant='export' noContent lowerPosition='2px' />
+      </ButtonSmall>
+      <ButtonSmall variant={ButtonVariants.INFO_EMPTY} $borderRadius='20px'>
+        {' '}
+        <PDFDownloadLink document={<MyDocument />} fileName='somename.pdf'>
+          {({ loading }) => (loading ? '...' : 'eksport pdf')}
+        </PDFDownloadLink>{' '}
+        &nbsp; <SvgIcon variant='export' noContent lowerPosition='2px' />
+      </ButtonSmall>
+    </HorizontalWrapperGap>
   )
 }
 export default FirstColumnExportControls
