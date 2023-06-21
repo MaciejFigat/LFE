@@ -19,7 +19,8 @@ import {
   View,
   Document as PdfDocument,
   Text,
-  StyleSheet
+  StyleSheet,
+  Note
 } from '@react-pdf/renderer'
 import { ButtonVariants } from '../../consts'
 import { ButtonSmall } from '../../components/Buttons/Buttons.styled'
@@ -228,25 +229,77 @@ const FirstColumnExportControls: React.FC<FirstColumnExportControlsProps> = ({
       }
     ]
   })
+
   const styles = StyleSheet.create({
     page: {
-      flexDirection: 'row',
-      backgroundColor: '#E4E4E4'
+      flexDirection: 'column',
+      backgroundColor: '#E4E4E4',
+      padding: 25
     },
     section: {
-      margin: 10,
+      margin: 15,
       padding: 10,
       flexGrow: 1
+    },
+    header: {
+      fontSize: 22,
+      marginBottom: 10,
+      fontWeight: 'bold',
+      textAlign: 'center'
+    },
+    item: {
+      fontSize: 12,
+      marginBottom: 5,
+      lineHeight: 1.2
+    },
+    source: {
+      fontSize: 12,
+      marginBottom: 5,
+      color: '#d2672d'
     }
   })
+
   const MyDocument = () => (
     <PdfDocument>
       <Page size='A4' style={styles.page}>
+        <Text style={styles.header}>PROJEKT {keywordMain?.toUpperCase()}</Text>
+
         <View style={styles.section}>
-          <Text>Section #1</Text>
+          <Text style={styles.header}>
+            {state[1][0]?.keywordValue[0]?.labelOne ?? 'Pro'}
+          </Text>
+          {state[1].map(fragment => (
+            <View key={fragment.excerpt}>
+              <Text style={styles.source}>
+                {fragment.source} {fragment.coordinates}
+              </Text>
+              <Text style={styles.item}>{fragment.excerpt}</Text>
+            </View>
+          ))}
         </View>
         <View style={styles.section}>
-          <Text>Section #2</Text>
+          <Text style={styles.header}>
+            {state[2][0]?.keywordValue[0]?.labelTwo ?? 'Contra'}
+          </Text>
+          {state[2].map(fragment => (
+            <View key={fragment.excerpt}>
+              <Text style={styles.source}>
+                {fragment.source} {fragment.coordinates}
+              </Text>
+              <Text style={styles.item}>{fragment.excerpt}</Text>
+            </View>
+          ))}
+        </View>
+        <View style={styles.section}>
+          <Text style={styles.header}>Fragmenty bez kategorii</Text>
+          {state[0].map(fragment => (
+            <View key={fragment.excerpt}>
+              <Text style={styles.source}>
+                {fragment.source} {fragment.coordinates}
+              </Text>
+              <Text style={styles.item}>{fragment.excerpt}</Text>
+            </View>
+          ))}
         </View>
       </Page>
     </PdfDocument>
@@ -254,18 +307,32 @@ const FirstColumnExportControls: React.FC<FirstColumnExportControlsProps> = ({
   return (
     <HorizontalWrapperGap>
       <ButtonSmall
-        variant={ButtonVariants.SUCCESS_EMPTY}
-        $borderRadius='20px'
+        variant={
+          keywordMain !== ''
+            ? ButtonVariants.SUCCESS_EMPTY
+            : ButtonVariants.DISABLED
+        }
         onClick={exportHandler}
+        disabled={keywordMain === ''}
       >
         {' '}
         eksport txt &nbsp;
         <SvgIcon variant='export' noContent lowerPosition='2px' />
       </ButtonSmall>
-      <ButtonSmall variant={ButtonVariants.INFO_EMPTY} $borderRadius='20px'>
+      <ButtonSmall
+        variant={
+          keywordMain !== ''
+            ? ButtonVariants.INFO_EMPTY
+            : ButtonVariants.DISABLED
+        }
+        disabled={keywordMain === ''}
+      >
         {' '}
-        <PDFDownloadLink document={<MyDocument />} fileName='somename.pdf'>
-          {({ loading }) => (loading ? '...' : 'eksport pdf')}
+        <PDFDownloadLink
+          document={<MyDocument />}
+          fileName={`${keywordMain}.pdf`}
+        >
+          eksport pdf
         </PDFDownloadLink>{' '}
         &nbsp; <SvgIcon variant='export' noContent lowerPosition='2px' />
       </ButtonSmall>
