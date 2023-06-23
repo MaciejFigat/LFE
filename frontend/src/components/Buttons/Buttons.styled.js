@@ -154,7 +154,7 @@ export const DirButton = styled.button`
   background: var(--background1-main);
   font-size: var(--font-size-big);
   font-weight: 600;
-
+  transition: background-color 500ms;
   overflow: hidden;
   /* new stacking context  */
   isolation: isolate;
@@ -166,6 +166,15 @@ export const DirButton = styled.button`
     a {
       color: var(--background-secondary1);
     }
+  }
+  &:active {
+    a {
+      color: var(--background1-main);
+    }
+  }
+  &:hover,
+  :focus-visible {
+    background: var(--background-blur2);
   }
 
   span {
@@ -188,7 +197,7 @@ export const DirButton = styled.button`
     position: absolute;
     content: '';
 
-    background: var(--background-blur2);
+    background: var(--background-secondary1);
     width: 10%;
     aspect-ratio: 1;
     border-radius: 50%;
