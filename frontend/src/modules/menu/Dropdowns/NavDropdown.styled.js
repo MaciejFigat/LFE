@@ -34,7 +34,7 @@ export const ProjectDropDownWrapper = styled.div`
   height: 34px;
   padding: 0.2rem 0.4rem 0.2rem 0.5rem;
   box-shadow: var(--boxShadowNone);
-
+  transition: 0.2s ease-in-out;
   &:hover {
     color: var(--background4-main);
     box-shadow: var(--boxShadow1);

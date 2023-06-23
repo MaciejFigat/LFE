@@ -5,8 +5,6 @@ import { getAccentColor, getColor } from './functionsMisc'
 
 export const NavIcon = styled(FontAwesomeIcon)`
   position: relative;
-  top: ${({ top }) => (top ? top : '0')};
-  left: ${({ left }) => (left ? left : '0')};
 `
 
 export const WrapperMotionDiv = styled(motion.div)`
@@ -430,13 +428,21 @@ export const SwitchTextMisc = styled.b`
   border: 1px solid var(--background-blur1);
   padding: var(--gap-small);
 
-  min-width: 33px;
+  min-width: 35px;
+  height: 35px;
   font-size: 0.85rem;
-  color: ${({ $isOn }) =>
-    $isOn ? 'var(--background2-main)' : 'var(--background5-main)'};
+  box-shadow: var(--boxShadowNone);
+  svg {
+    color: ${({ $isOn }) =>
+      $isOn ? 'var(--background-secondary1)' : 'var(--background5-main)'};
+    &:hover {
+      color: var(--background-secondary1);
+    }
+  }
   transition: 0.2s ease-in-out;
   &:hover {
     background: var(--background-blur1);
+    box-shadow: var(--boxShadow1);
   }
 `
 export const SwitchHandleMisc = styled(motion.div)`

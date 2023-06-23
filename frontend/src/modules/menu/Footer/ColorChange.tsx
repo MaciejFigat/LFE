@@ -53,12 +53,12 @@ const ColorChange: React.FC<ColorChangeProps> = () => {
           $isOn={preferedScheme === 'secondary' && !isSystem}
           onClick={toggleLight}
         >
-          <RelativeWrapper $top='0px' $left='2px'>
+          <RelativeWrapper $top='1px' $left='3px'>
             <NavIcon icon={faSun} />
           </RelativeWrapper>
         </SwitchTextMisc>
         <SwitchTextMisc onClick={toggleSystem} $isOn={isSystem}>
-          <RelativeWrapper $top='0px' $left='1px'>
+          <RelativeWrapper $top='1px' $left='2px'>
             <NavIcon icon={faDesktop} />
           </RelativeWrapper>
         </SwitchTextMisc>
@@ -66,7 +66,7 @@ const ColorChange: React.FC<ColorChangeProps> = () => {
           $isOn={preferedScheme === 'primary' && !isSystem}
           onClick={toggleDark}
         >
-          <RelativeWrapper $top='0px' $left='2px'>
+          <RelativeWrapper $top='1px' $left='3px'>
             {' '}
             <NavIcon icon={faMoon} />
           </RelativeWrapper>
