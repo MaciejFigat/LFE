@@ -20,12 +20,10 @@ export const TitleAnimated = styled(motion.div)`
 
   background: var(--background4-main);
   color: var(--background1-main);
-  /* min-width: 250px; */
-  /* font-weight: 400; */
   @media (max-width: 1020px) {
     min-width: 100px;
   }
-  /* color: var(--background-secondary1); */
+
   transition: all 0.3s ease-out;
   &:hover {
     color: var(--background1-main);
@@ -53,18 +51,15 @@ export const TitleInput = styled(motion.input)`
   border-top: 1px solid var(--background-blur2);
   border-left: 1px solid var(--background-blur1);
   border-bottom: 1px solid var(--background-blur1);
-  /* width: 60%; */
-  /* min-width: 250px; */
   padding: 0.25rem 0;
   margin: 0;
   height: 30px;
   line-height: normal;
-  /* background: transparent; */
+
   background: var(--background-secondary2);
   border-radius: 16px;
   outline: 0;
-  /* background-color: transparent; */
-  /* background: brown; */
+
   border: none;
   &:focus {
     border: none;
@@ -85,7 +80,6 @@ export const TitleInput = styled(motion.input)`
     background: var(--background1-main) !important;
     border: 1px solid transparent;
     box-shadow: none;
-    /* -webkit-text-fill-color: var(--background4-main); */
     font-weight: 700;
     transition: background-color 5000s !important;
     -webkit-text-fill-color: var(--background1-main) !important;
