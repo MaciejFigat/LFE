@@ -105,8 +105,8 @@ const HeroSearchDataSection: React.FC<HeroSearchDataSectionProps> = ({
     navigate(`/search/result#frag-${index}`)
   }
   const feedbackNegative = {
-    remote_addr: metryka.doc_link,
-    search_uuid: metryka.uuid,
+    remote_addr: metryka?.doc_link ?? '',
+    search_uuid: metryka?.uuid ?? '',
     useful: false,
     query: query,
     accuracy: trafnosc
