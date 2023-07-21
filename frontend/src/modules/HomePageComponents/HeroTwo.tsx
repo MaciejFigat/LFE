@@ -24,7 +24,7 @@ const HeroTwoMain: React.FC<HeroTwoProps> = () => {
 
   return (
     <>
-      {data && data?.length === 0 ? (
+      {(data && data?.length === 0) || !data ? (
         <HeroWelcome />
       ) : (
         <HeroSearchDataSection
